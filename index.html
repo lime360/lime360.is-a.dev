@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>my site</title>
+		<link rel="stylesheet" href="https://unpkg.com/7.css">
         <meta charset="utf-8">
     </head>
     <body>
@@ -13,7 +14,29 @@
                 background: linear-gradient(90deg, rgba(0,142,255,1) 0%, rgba(0,255,59,1) 100%);
                 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#008eff",endColorstr="#00ff3b",GradientType=1); 
             }
+			.among-us {
+			    color: white;
+			}
         </style>
-        <h1 style="text-align: center; font-family: monospace; color: white">lime360 site is under construction</h1>
+        <div class="window" style="max-width: 300px">
+           <div class="title-bar">
+             <div class="title-bar-text">note</div>
+             <div class="title-bar-controls">
+               <button aria-label="Minimize"></button>
+               <button aria-label="Maximize"></button>
+               <button aria-label="Close"></button>
+             </div>
+           </div>
+           <div class="window-body">
+             <p>lime360.github.io is currently under construction, please come back later!</p>
+			 <p>Here's the progress:</p>
+			 <div role="progressbar" class="animate">
+               <div style="width: 15%"></div>
+             </div>
+			 <button>OK</button>
+			 <button onclick="window.loaction.href = 'https://lime360.neocities.org/'">Go to his main site</button>
+           </div>
+        </div>
+		<p class="among-us" style="text-align: center">this site uses <a href="https://khang-nd.github.io/7.css/">7.css</a></p>
     </body>
 </html>
