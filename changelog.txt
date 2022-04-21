@@ -1,5 +1,13 @@
+<<<<<<< HEAD
 This is where i write the changelog for this website!
 
 14.04.2022 - Changelog has been created!
 
 20.04.2022 - Added Fusion 2.5 examples that I made
+=======
+This is where i write the changelog for this website!
+
+14.04.2022 - Changelog has been created!
+
+20.04.2022 - Added Fusion 2.5 examples that I made
+>>>>>>> 90102a1171af4072d6352a401328e1a6bdade621
