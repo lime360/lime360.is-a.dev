@@ -9,3 +9,5 @@ This is where i write the changelog for this website!
 14.04.2022 - Changelog has been created!
 
 20.04.2022 - Added Fusion 2.5 examples that I made
+
+27.05.2022 - Added Responsive design
