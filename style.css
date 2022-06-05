@@ -1,0 +1,10 @@
+body {
+    background: rgb(0,142,255);
+    background: -moz-linear-gradient(90deg, rgba(0,142,255,1) 0%, rgba(0,255,59,1) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(0,142,255,1) 0%, rgba(0,255,59,1) 100%);
+    background: linear-gradient(90deg, rgba(0,142,255,1) 0%, rgba(0,255,59,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#008eff",endColorstr="#00ff3b",GradientType=1); 
+}
+.thing {
+    color: white;
+}
