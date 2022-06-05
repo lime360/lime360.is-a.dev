@@ -1,0 +1,48 @@
+﻿/* Forms styles */
+label {
+}
+input[type=text], select, textarea {
+	background-position: center top;
+	border: none;
+	color: #99FE01;
+	background-repeat: repeat-x;
+	border: 1px solid #87E101;
+	font-family: 'Aldrich', sans-serif;
+	font-size: 100%;
+	background-color: #0E151F;
+}
+select {
+	width: 190px;
+}
+textarea {
+	background-position: center top;
+	padding: 0px;
+	border: 1px solid #87E101;
+	color: #99FE01;
+	font-family: 'Aldrich', sans-serif;
+	font-size: 100%;
+	background-color: #0E151F;
+}
+input:hover, select:hover, textarea:hover {
+	-moz-box-shadow: 0px 0px 3px #9FF20A;
+	-webkit-box-shadow: 0px 0px 3px #9FF20A;
+	box-shadow: 0px 0px 3px #9FF20A;
+}
+input:focus, select:focus, textarea:focus {
+	-moz-box-shadow: 0px 0px 6px #02cde8;
+	-webkit-box-shadow: 0px 0px 6px #02cde8;
+	box-shadow: 0px 0px 6px #02cde8;
+}
+.error {
+	color: red;
+}
+form button {
+	background-color: #18222E;
+	font-size: 100%;
+	color: #99FE01;
+	font-weight: normal;
+	text-align: center;
+	position: relative;
+	font-family: 'Aldrich', sans-serif;
+	cursor: pointer;
+}

@@ -1,0 +1,690 @@
+﻿/*
+
+Dec 2015
+http://ThemeKings.net
+Designed By: Todd Swift
+Last Revised 03/2022
+
+*/
+/* ==================== BODY, COLUMNS & CONTAINERS ==================== */
+body {
+	margin: 0px;
+	padding: 0px;
+	overflow: auto;
+	font-family: 'Aldrich', sans-serif;
+	font-size: .8em;
+	font-weight: normal;
+	font-style: normal;
+	font-variant: normal;
+	text-transform: none;
+	text-decoration: none;
+	background-color: #213040;
+}
+#container {
+	background-position: center top;
+	padding: 0px;
+	margin: 0px auto 0px auto;
+	position: relative;
+	width: 1020px;
+	background-image: url('../theme/body-fill.jpg');
+	background-repeat: repeat-y;
+}
+#banner {
+	background-position: center top;
+	padding: 0px;
+	margin: 0px;
+	position: relative;
+	width: 1020px;
+	height: 250px;
+	overflow: hidden;
+	background-image: url('../theme/banner-tmxclan.jpg');
+	background-repeat: no-repeat;
+}
+#content-body {
+	margin: 0px auto 0px auto;
+	padding: 0px;
+	width: 976px;
+	position: relative;
+}
+a:link {
+	color: #65A314;
+	text-decoration: none;
+}
+a:active {
+	color: #65A314;
+	text-decoration: none;
+}
+a:visited {
+	color: #65A314;
+	text-decoration: none;
+}
+a:hover {
+	color: #98F703;
+	text-decoration: none;
+}
+.sb-clock {
+	padding: 0px;
+	margin: 0px auto 0px auto;
+	width: 130px;
+	position: relative;
+	overflow: visible;
+	height: 21px;
+}
+.clear-l {
+	clear:left;
+	margin:0px;
+	padding:0px;
+}
+.clear-r {
+	clear:right;
+	margin:0px;
+	padding:0px;
+}
+.clear-b {
+	clear:both;
+	margin:0px;
+	padding:0px;
+}
+
+/* ==================== HORIZONTAL NAVIGATION MENU ==================== */
+#hz-menu {
+	margin: 0px auto 0px auto;
+	padding: 152px 0px 0px 0px;
+	width: 700px;
+	height: 52px;
+	position: relative;
+	overflow: hidden;
+	list-style-type: none;
+}
+#hz-menu ul {
+	padding: 0px;
+	margin: 0px;
+	list-style-type: none;
+}
+#hz-menu ul li {
+	padding: 0px;
+	margin: 0px;
+	width: 140px;
+	height: 52px;
+	position: relative;
+	overflow: hidden;
+	float: left;
+	text-align: center;
+	line-height: 48px;
+	text-decoration: none;
+	text-transform: capitalize;
+}
+a.hbutton, .hbutton:link, .hbutton:active, .hbutton:visited {
+	background: url('../theme/hnav-butn.jpg') no-repeat 0 0;
+	width: 150px;
+	height: 52px;
+	display: block;
+	color: #65A314;
+	text-decoration: none;
+}
+a.hbutton:hover {
+	background-position: 0 -52px;
+	color: #98F703;
+	text-decoration: none;
+}
+
+
+/* ==================== COLUMNS ==================== */
+#col-l {
+	position: relative;
+	float: left;
+	width: 228px;
+	padding: 0px;
+	margin: 0px;
+	overflow: hidden;
+}
+
+#col-r {
+	position: relative;
+	width: 228px;
+	overflow: hidden;
+	float: right;
+	padding: 0px;
+	margin: 0px;
+}
+#col-c {
+	position: relative;
+	width: 500px;
+	overflow: hidden;
+	padding: 0px;
+	margin: 0px auto 0px auto;
+}
+#col-lr {
+	position: relative;
+	width: 735px;
+	overflow: hidden;
+	float: right;
+	padding: 0px;
+	margin: 0px;
+}
+
+/* ==================== FOOTER COLUMNS ==================== */
+#ft-col-l {
+	position: relative;
+	width: 120px;
+	overflow: hidden;
+	float: left;
+	padding: 0px;
+	margin: 35px 0px 0px 88px;
+	height: 86px;
+	font-size: 90%;
+	color: #65A314;
+	text-decoration: none;
+	text-align: center;
+}
+#ft-col-r {
+	position: relative;
+	width: 120px;
+	overflow: hidden;
+	float: right;
+	padding: 0px;
+	margin: 35px 88px 0px 0px;
+	height: 86px;
+	font-size: 90%;
+	color: #65A314;
+	text-decoration: none;
+	text-align: center;
+}
+#ft-col-c {
+	position: relative;
+	width: 360px;
+	overflow: hidden;
+	padding: 0px;
+	margin: 35px auto 0px auto;
+	height: 118px;
+	font-size: 90%;
+	color: #65A314;
+	text-decoration: none;
+	text-align: center;
+}
+.ft-title {
+	padding: 0px;
+	margin: 10px auto 5px auto;
+	overflow: hidden;
+	font-weight: bold;
+	color: #98F703;
+	text-decoration: none;
+	text-align: center;
+	width: 98%;
+	position: relative;
+	height: 20px;
+}
+
+.ft-information {
+	padding: 0px;
+	margin: 0px auto 8px auto;
+	overflow: hidden;
+	font-size: 90%;
+	text-decoration: none;
+	text-align: center;
+	width: 98%;
+	position: relative;
+	height: 92px;
+}
+.ft-contact {
+	padding: 0px;
+	color: #8AE403;
+	text-decoration: none;
+	text-align: center;
+	position: relative;
+	height: 18px;
+}
+.ft-line {
+	padding: 0px;
+	color: #8AE403;
+	text-decoration: none;
+	text-align: center;
+	position: relative;
+	height: 18px;
+}
+
+/* ==================== FOOTER ==================== */
+#footer {
+	padding: 0px;
+	margin: 0px;
+	height: 176px;
+	position: relative;
+	width: 1020px;
+	overflow: hidden;
+	background-image: url('../theme/footer.jpg');
+	background-repeat: no-repeat;
+	background-position: center top;
+}
+
+/* ==================== SIDEBAR ==================== */
+.sb-box {
+	padding: 0px;
+	margin: 0px 0px 15px 0px;
+	width: 228px;
+	position: relative;
+	overflow: hidden;
+}
+.sb-top {
+	margin: 0px;
+	padding: 0px;
+	width: 228px;
+	height: 68px;
+	position: relative;
+	overflow: hidden;
+	background: url('../theme/sb-top.jpg') no-repeat center top;
+}
+.sb-fill {
+	margin: 0px;
+	padding: 0px;
+	width: 228px;
+	position: relative;
+	overflow: hidden;
+	background: url('../theme/sb-fill.jpg') repeat-y center top;
+}
+.sb-ft {
+	margin: 0px;
+	padding: 0px;
+	width: 228px;
+	height: 42px;
+	position: relative;
+	overflow: hidden;
+	background: url('../theme/sb-btm.jpg') no-repeat center top;
+}
+.sb-title {
+	padding: 0px;
+	margin: 13px auto 0px auto;
+	width: 180px;
+	height: 20px;
+	position: relative;
+	overflow: hidden;
+	font-weight: bold;
+	text-align: center;
+	line-height: 18px;
+	color: #98FD01;
+}
+.sb-info {
+	padding: 0px;
+	margin: 0px auto 6px auto;
+	width: 182px;
+	position: relative;
+	overflow: hidden;
+	list-style-type: none;
+	text-align: left;
+	color: #65A314;
+}
+.sb-butns {
+	margin: 0px auto 6px auto;
+	padding: 0px;
+	width: 182px;
+	position: relative;
+	overflow: hidden;
+	list-style-type: none;
+}
+.sb-butns ul {
+	padding: 0px;
+	margin: 0px;
+	list-style-type: none;
+}
+.sb-butns ul li {
+	padding: 0px;
+	margin: 0px;
+	width: 182px;
+	height: 18px;
+	position: relative;
+	overflow: hidden;
+	font-size: 90%;
+	line-height: 20px;
+	text-align: left;
+	text-indent: 20px;
+}
+.sb-butns1:link, .sb-butns1:active, .sb-butns1:visited {
+	overflow: hidden;
+	padding: 0px;
+	margin: 0px;
+	background: url('../theme/sb-butn.jpg') no-repeat center top;
+	width: 182px;
+	height: 18px;
+	display: block;
+	color: #65A314;
+	text-decoration: none;
+	position: relative;
+}
+.sb-butns1:hover {
+	background-position: 0px -18px;
+	color: #98F703;
+	text-decoration: none;
+}
+/* ==================== CENTER MENU ==================== */
+.cnt-c-box {
+	padding: 0px;
+	margin: 0px 0px 15px 0px;
+	width: 500px;
+	position: relative;
+	overflow: hidden;
+}
+.cnt-c-top {
+	margin: 0px;
+	padding: 0px;
+	width: 500px;
+	height: 32px;
+	position: relative;
+	overflow: hidden;
+	background: url('../theme/cnt-s-top.jpg') no-repeat center top;
+}
+.cnt-c-fill {
+	margin: 0px;
+	padding: 0px;
+	width: 500px;
+	position: relative;
+	overflow: hidden;
+	background: url('../theme/cnt-s-fill.jpg') repeat-y center top;
+}
+.cnt-c-ft {
+	margin: 0px;
+	padding: 0px;
+	width: 500px;
+	height: 32px;
+	position: relative;
+	overflow: hidden;
+	background: url('../theme/cnt-s-btm.jpg') no-repeat center top;
+}
+.cnt-c-info {
+	padding: 0px;
+	margin: 0px auto 0px auto;
+	width: 450px;
+	position: relative;
+	overflow: hidden;
+	list-style-type: none;
+	text-align: left;
+	color: #65A314;
+}
+/* ==================== LARGE RIGHT MENU ==================== */
+.cnt-r-box {
+	padding: 0px;
+	margin: 0px 0px 15px 0px;
+	width: 735px;
+	position: relative;
+	overflow: hidden;
+}
+.cnt-r-top {
+	margin: 0px;
+	padding: 0px;
+	width: 735px;
+	height: 32px;
+	position: relative;
+	overflow: hidden;
+	background: url('../theme/cnt-l-top.jpg') no-repeat center top;
+}
+.cnt-r-fill {
+	margin: 0px;
+	padding: 0px;
+	width: 735px;
+	position: relative;
+	overflow: hidden;
+	background: url('../theme/cnt-l-fill.jpg') repeat-y center top;
+}
+.cnt-r-ft {
+	margin: 0px;
+	padding: 0px;
+	width: 735px;
+	height: 32px;
+	position: relative;
+	overflow: hidden;
+	background: url('../theme/cnt-l-btm.jpg') no-repeat center top;
+}
+.cnt-r-info {
+	padding: 0px;
+	margin: 0px auto 0px auto;
+	width: 690px;
+	position: relative;
+	overflow: hidden;
+	list-style-type: none;
+	text-align: left;
+	color: #65A314;
+}
+.divider-1 {
+	padding: 0px;
+	margin: 0px auto 0px auto;
+	width: 690px;
+	height: 66px;
+	position: relative;
+	overflow: hidden;
+	background-image: url('../theme/divider-1.jpg');
+	background-repeat: no-repeat;
+	background-position: center top;
+}
+.rank-box {
+	padding: 0px;
+	margin: 0px auto 0px auto;
+	width: 690px;
+	height: 40px;
+	position: relative;
+	overflow: hidden;
+	background-image: url('../theme/rank-info.jpg');
+	background-repeat: no-repeat;
+	background-position: center top;
+}
+.rank-top {
+	padding: 0px;
+	margin: 6px auto 0px auto;
+	width: 642px;
+	height: 28px;
+	position: relative;
+	overflow: hidden;
+	text-align: left;
+	color: #65A314;
+}
+.rank-info {
+	padding: 0px;
+	margin: 6px auto 2px auto;
+	width: 642px;
+	height: 28px;
+	position: relative;
+	overflow: hidden;
+	text-align: left;
+	color: #65A314;
+}
+
+
+
+
+.clan-logo {
+	margin: 0px auto 5px auto;
+	padding: 0px;
+	width: 400px;
+	height: 400px;
+	position: relative;
+	overflow: hidden;
+	background-color: #18222E;
+	background-image: url('../theme/tmx-logo-400.jpg');
+	background-repeat: no-repeat;
+	background-position: center top;
+}
+.clan-logo-small {
+	margin: 0px 0px 4px 4px;
+	padding: 0px;
+	width: 240px;
+	height: 240px;
+	position: relative;
+	overflow: hidden;
+	background-color: #18222E;
+	background-image: url('../theme/tmx-logo-240.jpg');
+	background-repeat: no-repeat;
+	background-position: center top;
+	float: right;
+}
+
+/* ==================== SOCIAL MEDIA ==================== */
+#sm-menu {
+	margin: 10px auto 0px auto;
+	padding: 0px;
+	width: 230px;
+	height: 46px;
+	position: relative;
+	overflow: hidden;
+	list-style-type: none;
+}
+#sm-menu ul {
+	padding: 0px;
+	margin: 0px;
+	list-style-type: none;
+}
+#sm-menu ul li {
+	padding: 0px;
+	margin: 0px;
+	width: 46px;
+	height: 46px;
+	position: relative;
+	overflow: hidden;
+	float: left;
+}
+a.FBbutton {
+	background: url('') no-repeat 0 0px;
+	width: 46px;
+	height: 46px;
+	display: block;
+}
+a.FBbutton:hover {
+	background-position: 0 -46px;
+}
+a.TWbutton {
+	background: url('') no-repeat 0 0px;
+	width: 46px;
+	height: 46px;
+	display: block;
+}
+a.TWbutton:hover {
+	background-position: 0 -46px;
+}
+a.GPbutton {
+	background: url('') no-repeat 0 0px;
+	width: 46px;
+	height: 46px;
+	display: block;
+}
+a.GPbutton:hover {
+	background-position: 0 -46px;
+}
+a.IGbutton {
+	background: url('') no-repeat 0 0px;
+	width: 46px;
+	height: 46px;
+	display: block;
+}
+a.IGbutton:hover {
+	background-position: 0 -46px;
+}
+a.YTbutton {
+	background: url('') no-repeat 0 0px;
+	width: 46px;
+	height: 46px;
+	display: block;
+}
+a.YTbutton:hover {
+	background-position: 0 -46px;
+}
+
+
+
+.rank-profile {
+	width: 690px;
+	position: relative;
+	overflow: hidden;
+	margin: 0px 0px 5px 0px;
+	padding: 0px;
+}
+.rank-img {
+	width: 112px;
+	height: 96px;
+	position: relative;
+	overflow: hidden;
+	float: left;
+	margin: auto 5px auto 0px;
+	padding: 0px;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+}
+.rank-def {
+	width: 560px;
+	position: relative;
+	overflow: hidden;
+	float: right;
+	margin: auto 5px auto 0px;
+	padding: 0px;
+}
+.rank-position {
+	width: 560px;
+	position: relative;
+	overflow: hidden;
+	float: right;
+	margin: 0px auto 15px auto;
+	padding: 0px;
+	text-align: center;
+	height: 16px;
+	color: #98F703;
+}
+.rank-defined {
+	width: 560px;
+	position: relative;
+	overflow: hidden;
+	float: right;
+	margin: 0px auto 22px auto;
+	padding: 0px;
+	text-align: left;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-bottom-color: #98F703;
+}
+/* ==================== MESSAGES ==================== */
+
+
+
+#general-announcement {
+	width: 614px;
+	height: 107px;
+	position: relative;
+	overflow: hidden;
+	margin: 0px auto 0px auto;
+	padding: 0px;
+	background-image: url('../theme/general-announcement.jpg');
+	background-position: center top;
+	background-repeat: no-repeat;
+}
+
+#tmx-contact {
+	width: 614px;
+	height: 107px;
+	position: relative;
+	overflow: hidden;
+	margin: 0px auto 0px auto;
+	padding: 0px;
+	background-image: url('../theme/contact-us.jpg');
+	background-position: center top;
+	background-repeat: no-repeat;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
