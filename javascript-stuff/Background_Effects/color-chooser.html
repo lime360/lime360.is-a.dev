@@ -1,0 +1,677 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  BG Effects:  Color Chooser</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="(Internet Explorer Only) Choose background and foreground colors by directly entering the amount of red, green or blue.  Allows you to increment or decrement using the " + " or " - " buttons also.  Easy!">
+<META NAME="date" CONTENT="2000-12-26">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Edward Kodgis II">
+<META NAME="section" CONTENT="BG Effects">
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Edward Kodgis II (eddiaka@hotmail.com) -->
+<!-- Web Site:  http://members.spree.com/entertainment/squeesoft/ -->
+
+
+
+
+<!-- Begin
+redValue = 255;
+blueValue = 255;
+greenValue = 255;
+redForeValue = 0;
+blueForeValue = 0;
+greenForeValue = 0;
+maxValue = 255;
+hexValues = new Array("0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F");
+i = 0;
+function toHex(integer) {
+hexDigit1 = Math.floor(integer / 16);
+hexDigit2 = (integer % 16);
+return hexValues[hexDigit1] + hexValues[hexDigit2];
+}
+function shiftFG() {
+redFGHex = toHex(redForeValue);
+blueFGHex = toHex(blueForeValue);
+greenFGHex = toHex(greenForeValue);
+bigFGHex = redFGHex + greenFGHex + blueFGHex;
+document.fgColor = bigFGHex;
+document.Interface.fgHex.value = bigFGHex;
+document.Interface.redFG.value = redForeValue;
+document.Interface.blueFG.value = blueForeValue;
+document.Interface.greenFG.value = greenForeValue;
+}
+function shiftBG() {
+redHex = toHex(redValue);
+blueHex = toHex(blueValue);
+greenHex = toHex(greenValue);
+bigHex = redHex + greenHex + blueHex;
+document.bgColor = bigHex;
+document.Interface.bgHex.value = bigHex;
+document.Interface.red.value = redValue;
+document.Interface.blue.value = blueValue;
+document.Interface.green.value = greenValue;
+}
+function incrementRed(isBackground) {
+if (isBackground == true ) {
+redValue = redValue + 8;
+if (redValue > maxValue) { 
+redValue = 0;
+}
+shiftBG();
+}
+if (isBackground == false) { 
+redForeValue = redForeValue + 8;
+if (redForeValue > maxValue) {
+redForeValue = 0;
+}
+shiftFG();
+   }
+}
+function decrementRed(isBackground) {
+if (isBackground == true) {
+redValue = redValue - 8;
+if (redValue < 0 ) {
+redValue = 255;
+}
+shiftBG();
+}
+else {
+redForeValue = redForeValue - 8;
+if (redForeValue < 0) {
+redForeValue = 255;
+}
+shiftFG();
+   }
+}
+function setRed(value, isBackground) {
+if(value > -1 && value < 256) {
+if( isBackground == true ) {
+redValue = value;
+shiftBG();
+}
+else {
+redForeValue = value;
+shiftFG();
+      }
+   }
+}
+function incrementBlue(isBackground) {
+if ( isBackground == true ) {
+blueValue = blueValue + 8;
+if (blueValue > maxValue) {
+blueValue = 0;
+}			
+shiftBG();
+}
+else { 
+blueForeValue = blueForeValue + 8;
+if ( blueForeValue > maxValue ) {
+blueForeValue = 0;
+}
+shiftFG();
+   }
+}
+function decrementBlue(isBackground) {
+if (isBackground == true) {
+blueValue = blueValue - 8;
+if (blueValue < 0) {
+blueValue = 255;
+}
+shiftBG();
+}
+else {
+blueForeValue = blueForeValue - 8;
+if (blueForeValue < 0) {
+blueForeValue = 255;
+}
+shiftFG();
+   }
+}
+function setBlue(value, isBackground) {
+if (value > -1 && value < 256) {
+if ( isBackground == true ) {
+blueValue = value;
+shiftBG();
+}
+else {
+blueForeValue = value;
+shiftFG();
+      }
+   }
+}
+function incrementGreen(isBackground) {
+if (isBackground == true) {
+greenValue = greenValue + 8;
+if (greenValue > maxValue) {
+greenValue = 0;
+}
+shiftBG();
+}
+else {
+greenForeValue = greenForeValue + 8;
+if (greenForeValue > maxValue) {
+greenForeValue = 0;
+}
+shiftFG();
+   }
+}
+function decrementGreen(isBackground) {
+if (isBackground == true) {
+greenValue = greenValue - 8;
+if (greenValue < 0 ) {
+greenValue = 255;
+}
+shiftBG();
+}
+else {
+greenForeValue = greenForeValue - 8;
+if (greenForeValue < 0) {
+greenForeValue = 255;
+}
+shiftFG();
+   }
+}
+function setGreen(value, isBackground) {
+if ( value > -1 && value < 256 ) {
+if ( isBackground == true ) {
+greenValue = value;
+shiftBG();
+}
+else {
+greenForeValue = value;
+shiftFG();
+      }
+   }
+}
+function unHex(string, fgbg) {
+hex = string.toUpperCase();
+counter = 0;
+while (hex.charAt(0) != hexValues[counter])
+counter++;
+r = 16 * counter;
+counter = 0;
+while (hex.charAt(1) !=  hexValues[counter])
+counter++;
+r = r + counter;
+counter = 0;
+while (hex.charAt(2) != hexValues[counter])
+counter++;
+g = 16 * counter;
+counter = 0;
+while (hex.charAt(3) != hexValues[counter])
+counter++;
+g = g + counter;
+counter = 0;
+while (hex.charAt(4) != hexValues[counter])
+counter++;
+b = 16 * counter;
+counter = 0;
+while (hex.charAt(5) != hexValues[counter])
+counter++;
+b = b + counter;
+if (fgbg == "bg") {
+redValue = r;
+blueValue = b;
+greenValue = g;
+document.Interface.red.value = redValue;
+document.Interface.blue.value = blueValue;
+document.Interface.green.value = greenValue;
+}
+if (fgbg == "fg") {
+redForeValue = r;
+blueForeValue = b;
+greenForeValue = g;
+document.Interface.redFG.value = redForeValue;
+document.Interface.blueFG.value = blueForeValue;
+document.Interface.greenFG.value = greenForeValue;
+   }
+}	
+function validChar(char) {
+for (j = 0; j < hexValues.length; j++) {
+if (char == hexValues[j]) {
+return true;
+   }
+}
+return false;
+}
+function isHex(string) {
+if (string.length != 6) { 
+return false;
+}
+for (k = 0; k < 6; k++) {
+if (! validChar(string.charAt(k))) {
+return false;
+   }
+}
+return true;
+}
+function setBGHex(value) {
+if (isHex(value.toUpperCase())) {
+document.bgColor = value;
+unHex(value, "bg");
+   }
+}
+function setFGHex(value) {
+if (isHex(value.toUpperCase())) {
+document.fgColor = value;
+unHex(value, "fg");
+   }
+}
+//  End -->
+</script>
+
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /bgeffects/"><font color="#FF0000"><b>BG Effects</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Color Chooser</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+(Internet Explorer Only) Choose background and foreground colors by directly entering the amount of red, green or blue.  Allows you to increment or decrement using the " + " or " - " buttons also.  Easy!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name=Interface>
+<table border=4 cellspacing=0 cellpadding=4>
+<tr>
+<td colspan=3 align=center>Background</td>
+<td><input type=text name=bgHex onKeyup="setBGHex(this.value)"></td>
+<td colspan=2 align=center>Foreground</td>
+<td><input type=text name=fgHex onKeyup="setFGHex(this.value)"></td>
+</tr>
+<tr>
+<td>Red</td>
+<td><input type=button value=" + " onClick="incrementRed(true)"></td>
+<td><input type=button value=" - " onClick="decrementRed(true)"></td>
+<td><input type=text name="red" onKeyup="setRed(this.value, true)"></td>
+<td><input type=button value=" + " onClick="incrementRed(false)"></td>
+<td><input type=button value=" - " onClick="decrementRed(false)"></td>
+<td><input type=text name=redFG onKeyup="setRed(this.value, false)"></td>
+</tr>
+<tr>
+<td>Green</td>
+<td><input type=button value=" + " onClick="incrementGreen(true)"></td>
+<td><input type=button value=" - " onClick="decrementGreen(true)"></td>
+<td><input type=text name="green" onKeyup="setGreen(this.value, true)"></td>
+<td><input type=button value=" + " onClick="incrementGreen(false)"></td>
+<td><input type=button value=" - " onClick="decrementGreen(false)"></td>
+<td><input type=text name=greenFG onKeyup="setGreen(this.value, false)"></td>
+</tr>
+<tr>
+<td>Blue</td>
+<td><input type=button value=" + " onClick="incrementBlue(true)"></td>
+<td><input type=button value=" - " onClick="decrementBlue(true)"></td>
+<td><input type=text name="blue" onKeyup="setBlue(this.value, true)"></td>
+<td><input type=button value=" + " onClick="incrementBlue(false)"></td>
+<td><input type=button value=" - " onClick="decrementBlue(false)"></td>
+<td><input type=text name=blueFG onKeyup="setBlue(this.value, false)"></td>
+</tr>
+</table>
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  BG Effects:  Color Chooser</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Command-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  7.96 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL COLOR CHOOSER:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Edward Kodgis II (eddiaka@hotmail.com) --&gt;
+&lt;!-- Web Site:  http://members.spree.com/entertainment/squeesoft/ --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+redValue = 255;
+blueValue = 255;
+greenValue = 255;
+redForeValue = 0;
+blueForeValue = 0;
+greenForeValue = 0;
+maxValue = 255;
+hexValues = new Array("0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F");
+i = 0;
+function toHex(integer) {
+hexDigit1 = Math.floor(integer / 16);
+hexDigit2 = (integer % 16);
+return hexValues[hexDigit1] + hexValues[hexDigit2];
+}
+function shiftFG() {
+redFGHex = toHex(redForeValue);
+blueFGHex = toHex(blueForeValue);
+greenFGHex = toHex(greenForeValue);
+bigFGHex = redFGHex + greenFGHex + blueFGHex;
+document.fgColor = bigFGHex;
+document.Interface.fgHex.value = bigFGHex;
+document.Interface.redFG.value = redForeValue;
+document.Interface.blueFG.value = blueForeValue;
+document.Interface.greenFG.value = greenForeValue;
+}
+function shiftBG() {
+redHex = toHex(redValue);
+blueHex = toHex(blueValue);
+greenHex = toHex(greenValue);
+bigHex = redHex + greenHex + blueHex;
+document.bgColor = bigHex;
+document.Interface.bgHex.value = bigHex;
+document.Interface.red.value = redValue;
+document.Interface.blue.value = blueValue;
+document.Interface.green.value = greenValue;
+}
+function incrementRed(isBackground) {
+if (isBackground == true ) {
+redValue = redValue + 8;
+if (redValue &gt; maxValue) { 
+redValue = 0;
+}
+shiftBG();
+}
+if (isBackground == false) { 
+redForeValue = redForeValue + 8;
+if (redForeValue &gt; maxValue) {
+redForeValue = 0;
+}
+shiftFG();
+   }
+}
+function decrementRed(isBackground) {
+if (isBackground == true) {
+redValue = redValue - 8;
+if (redValue &lt; 0 ) {
+redValue = 255;
+}
+shiftBG();
+}
+else {
+redForeValue = redForeValue - 8;
+if (redForeValue &lt; 0) {
+redForeValue = 255;
+}
+shiftFG();
+   }
+}
+function setRed(value, isBackground) {
+if(value &gt; -1 && value &lt; 256) {
+if( isBackground == true ) {
+redValue = value;
+shiftBG();
+}
+else {
+redForeValue = value;
+shiftFG();
+      }
+   }
+}
+function incrementBlue(isBackground) {
+if ( isBackground == true ) {
+blueValue = blueValue + 8;
+if (blueValue &gt; maxValue) {
+blueValue = 0;
+}			
+shiftBG();
+}
+else { 
+blueForeValue = blueForeValue + 8;
+if ( blueForeValue &gt; maxValue ) {
+blueForeValue = 0;
+}
+shiftFG();
+   }
+}
+function decrementBlue(isBackground) {
+if (isBackground == true) {
+blueValue = blueValue - 8;
+if (blueValue &lt; 0) {
+blueValue = 255;
+}
+shiftBG();
+}
+else {
+blueForeValue = blueForeValue - 8;
+if (blueForeValue &lt; 0) {
+blueForeValue = 255;
+}
+shiftFG();
+   }
+}
+function setBlue(value, isBackground) {
+if (value &gt; -1 && value &lt; 256) {
+if ( isBackground == true ) {
+blueValue = value;
+shiftBG();
+}
+else {
+blueForeValue = value;
+shiftFG();
+      }
+   }
+}
+function incrementGreen(isBackground) {
+if (isBackground == true) {
+greenValue = greenValue + 8;
+if (greenValue &gt; maxValue) {
+greenValue = 0;
+}
+shiftBG();
+}
+else {
+greenForeValue = greenForeValue + 8;
+if (greenForeValue &gt; maxValue) {
+greenForeValue = 0;
+}
+shiftFG();
+   }
+}
+function decrementGreen(isBackground) {
+if (isBackground == true) {
+greenValue = greenValue - 8;
+if (greenValue &lt; 0 ) {
+greenValue = 255;
+}
+shiftBG();
+}
+else {
+greenForeValue = greenForeValue - 8;
+if (greenForeValue &lt; 0) {
+greenForeValue = 255;
+}
+shiftFG();
+   }
+}
+function setGreen(value, isBackground) {
+if ( value &gt; -1 && value &lt; 256 ) {
+if ( isBackground == true ) {
+greenValue = value;
+shiftBG();
+}
+else {
+greenForeValue = value;
+shiftFG();
+      }
+   }
+}
+function unHex(string, fgbg) {
+hex = string.toUpperCase();
+counter = 0;
+while (hex.charAt(0) != hexValues[counter])
+counter++;
+r = 16 * counter;
+counter = 0;
+while (hex.charAt(1) !=  hexValues[counter])
+counter++;
+r = r + counter;
+counter = 0;
+while (hex.charAt(2) != hexValues[counter])
+counter++;
+g = 16 * counter;
+counter = 0;
+while (hex.charAt(3) != hexValues[counter])
+counter++;
+g = g + counter;
+counter = 0;
+while (hex.charAt(4) != hexValues[counter])
+counter++;
+b = 16 * counter;
+counter = 0;
+while (hex.charAt(5) != hexValues[counter])
+counter++;
+b = b + counter;
+if (fgbg == "bg") {
+redValue = r;
+blueValue = b;
+greenValue = g;
+document.Interface.red.value = redValue;
+document.Interface.blue.value = blueValue;
+document.Interface.green.value = greenValue;
+}
+if (fgbg == "fg") {
+redForeValue = r;
+blueForeValue = b;
+greenForeValue = g;
+document.Interface.redFG.value = redForeValue;
+document.Interface.blueFG.value = blueForeValue;
+document.Interface.greenFG.value = greenForeValue;
+   }
+}	
+function validChar(char) {
+for (j = 0; j &lt; hexValues.length; j++) {
+if (char == hexValues[j]) {
+return true;
+   }
+}
+return false;
+}
+function isHex(string) {
+if (string.length != 6) { 
+return false;
+}
+for (k = 0; k &lt; 6; k++) {
+if (! validChar(string.charAt(k))) {
+return false;
+   }
+}
+return true;
+}
+function setBGHex(value) {
+if (isHex(value.toUpperCase())) {
+document.bgColor = value;
+unHex(value, "bg");
+   }
+}
+function setFGHex(value) {
+if (isHex(value.toUpperCase())) {
+document.fgColor = value;
+unHex(value, "fg");
+   }
+}
+//  End --&gt;
+&lt;/script&gt;
+
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form name=Interface&gt;
+&lt;table border=4 cellspacing=0 cellpadding=4&gt;
+&lt;tr&gt;
+&lt;td colspan=3 align=center&gt;Background&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name=bgHex onKeyup="setBGHex(this.value)"&gt;&lt;/td&gt;
+&lt;td colspan=2 align=center&gt;Foreground&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name=fgHex onKeyup="setFGHex(this.value)"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Red&lt;/td&gt;
+&lt;td&gt;&lt;input type=button value=" + " onClick="incrementRed(true)"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=button value=" - " onClick="decrementRed(true)"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name="red" onKeyup="setRed(this.value, true)"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=button value=" + " onClick="incrementRed(false)"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=button value=" - " onClick="decrementRed(false)"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name=redFG onKeyup="setRed(this.value, false)"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Green&lt;/td&gt;
+&lt;td&gt;&lt;input type=button value=" + " onClick="incrementGreen(true)"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=button value=" - " onClick="decrementGreen(true)"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name="green" onKeyup="setGreen(this.value, true)"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=button value=" + " onClick="incrementGreen(false)"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=button value=" - " onClick="decrementGreen(false)"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name=greenFG onKeyup="setGreen(this.value, false)"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Blue&lt;/td&gt;
+&lt;td&gt;&lt;input type=button value=" + " onClick="incrementBlue(true)"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=button value=" - " onClick="decrementBlue(true)"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name="blue" onKeyup="setBlue(this.value, true)"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=button value=" + " onClick="incrementBlue(false)"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=button value=" - " onClick="decrementBlue(false)"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name=blueFG onKeyup="setBlue(this.value, false)"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  7.96 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

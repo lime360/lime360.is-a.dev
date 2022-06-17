@@ -1,0 +1,233 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Forms:  Format Input</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="Format the text case inside a form, reverse the text, or see the ASCII code behind the input.  Cool!">
+<META NAME="date" CONTENT="2000-12-29">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Phillip Bryant">
+<META NAME="section" CONTENT="Forms">
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Phillip Bryant (toxic1@fcmail.com) -->
+<!-- Web Site:  http://fly.to/toxic -->
+
+
+
+
+<!-- Begin
+function reverse() {
+text = "";
+str = document.forms[0].elements[0].value=document.forms[0].elements[0].value;
+for (i = 0; i <= str.length; i++)
+text = str.substring(i, i+1) + text;
+document.forms[0].elements[0].value = document.forms[0].elements[0].value = text;
+}
+function lower() {
+document.forms[0].elements[0].value = document.forms[0].elements[0].value.toLowerCase()
+}
+function caps() {
+document.forms[0].elements[0].value = document.forms[0].elements[0].value.toUpperCase()
+}
+function whatIsThis() {
+document.forms[0].elements[0].value = escape(document.forms[0].elements[0].value)
+}
+function dontLikeThis() {
+document.forms[0].elements[0].value = unescape(document.forms[0].elements[0].value)
+}
+var t = new Array();
+t[0] = "Here is some text to use as an example. Click on reverse, uppercase, or lowercase.";
+function example() {
+for(var i = 0; i < 2; i++) {
+if(document.forms[0].elements[i].value) {
+document.forms[0].elements[0].value = document.forms[0].elements[0].value+unescape(t[0]);
+      }
+   }
+}
+var f = new Array();
+f[0] = "%3Ca%20href%3D%27http%3A//www.javascriptsource.com%27%3E%3Cimg%20src%3D%22http%3A//www.javascriptsource.com/img/logo.gif%22%20alt%3D%27The%20JavaScript%20Source%21%27%20border%3D0%3E%3C/a%3E";
+function exAscii() {
+for(var i = 0; i < 2; i++) {
+if(document.forms[0].elements[i].value) {
+document.forms[0].elements[0].value = document.forms[0].elements[0].value+unescape(f[0]);
+      }
+   }
+}
+//  End -->
+</script>
+
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /forms/" ><font color="#FF0000"><b>Forms</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Format Input</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Format the text case inside a form, reverse the text, or see the ASCII code behind the input.  Cool!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form action="" method="post">
+<textarea rows=10 cols=40 wrap=soft></textarea>
+<table border=0><center>
+<tr><td>
+<input type=button value="Example" onClick="example(this.form)">
+<input type=button value="Reverse" onClick="reverse()">
+<input type=button value="All Upper" onClick="caps()">
+<input type=button value="All Lower" onClick="lower()">
+</td>
+</tr>
+<tr>
+<td>
+<input type=button value="Ascii Example" onClick="exAscii()">
+<input type=button value="UnAscii" onClick="dontLikeThis()">
+<input type=button value="Ascii" onClick="whatIsThis()">
+<input type=button value="Clear It" onClick="reset()">
+</td>
+</tr>
+</table>
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Forms:  Format Input</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Command-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.99 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL FORMAT INPUT:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Phillip Bryant (toxic1@fcmail.com) --&gt;
+&lt;!-- Web Site:  http://fly.to/toxic --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function reverse() {
+text = "";
+str = document.forms[0].elements[0].value=document.forms[0].elements[0].value;
+for (i = 0; i &lt;= str.length; i++)
+text = str.substring(i, i+1) + text;
+document.forms[0].elements[0].value = document.forms[0].elements[0].value = text;
+}
+function lower() {
+document.forms[0].elements[0].value = document.forms[0].elements[0].value.toLowerCase()
+}
+function caps() {
+document.forms[0].elements[0].value = document.forms[0].elements[0].value.toUpperCase()
+}
+function whatIsThis() {
+document.forms[0].elements[0].value = escape(document.forms[0].elements[0].value)
+}
+function dontLikeThis() {
+document.forms[0].elements[0].value = unescape(document.forms[0].elements[0].value)
+}
+var t = new Array();
+t[0] = "Here is some text to use as an example. Click on reverse, uppercase, or lowercase.";
+function example() {
+for(var i = 0; i &lt; 2; i++) {
+if(document.forms[0].elements[i].value) {
+document.forms[0].elements[0].value = document.forms[0].elements[0].value+unescape(t[0]);
+      }
+   }
+}
+var f = new Array();
+f[0] = "%3Ca%20href%3D%27http%3A//www.javascriptsource.com%27%3E%3Cimg%20src%3D%22http%3A//www.javascriptsource.com/img/logo.gif%22%20alt%3D%27The%20JavaScript%20Source%21%27%20border%3D0%3E%3C/a%3E";
+function exAscii() {
+for(var i = 0; i &lt; 2; i++) {
+if(document.forms[0].elements[i].value) {
+document.forms[0].elements[0].value = document.forms[0].elements[0].value+unescape(f[0]);
+      }
+   }
+}
+//  End --&gt;
+&lt;/script&gt;
+
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form action="" method="post"&gt;
+&lt;textarea rows=10 cols=40 wrap=soft&gt;&lt;/textarea&gt;
+&lt;table border=0&gt;&lt;center&gt;
+&lt;tr&gt;&lt;td&gt;
+&lt;input type=button value="Example" onClick="example(this.form)"&gt;
+&lt;input type=button value="Reverse" onClick="reverse()"&gt;
+&lt;input type=button value="All Upper" onClick="caps()"&gt;
+&lt;input type=button value="All Lower" onClick="lower()"&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;input type=button value="Ascii Example" onClick="exAscii()"&gt;
+&lt;input type=button value="UnAscii" onClick="dontLikeThis()"&gt;
+&lt;input type=button value="Ascii" onClick="whatIsThis()"&gt;
+&lt;input type=button value="Clear It" onClick="reset()"&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  2.99 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

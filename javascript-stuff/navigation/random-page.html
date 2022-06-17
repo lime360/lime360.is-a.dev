@@ -1,0 +1,141 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Navigation:  Random Page</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Navigation">
+<META NAME="description" CONTENT="An easy way to instantly send the visitor to a random HTML page.  Just enter the random pages you want to use, and you're done!">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /navigation/"><font color="#FF0000">Navigation</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Random Page</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+An easy way to instantly send the visitor to a random HTML page.  Just enter the random pages you want to use, and you're done!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<SCRIPT LANGUAGE="JavaScript">
+
+
+
+
+<!-- Begin
+var howMany = 2;  // max number of items listed below
+var page = new Array(howMany+1);
+
+page[0]="first-random-page.html";
+page[1]="second-random-page.html";
+page[2]="third-random-page.html";
+
+function rndnumber(){
+var randscript = -1;
+while (randscript < 0 || randscript > howMany || isNaN(randscript)){
+randscript = parseInt(Math.random()*(howMany+1));
+}
+return randscript;
+}
+quo = rndnumber();
+quox = page[quo];
+document.write("[ You would have been taken to <tt>" + quox + "</tt> ]");
+// End -->
+</SCRIPT>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Navigation:  Random Page:</b>
+<p>Simply click inside the window below, use your cursor to highlight the 
+script, and copy (type Control-c or Apple-c) the script into a new file in 
+your text editor (such as Note Pad or Simple Text) and save (Control-s or 
+Apple-s).  The script is yours!!!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  0.89 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- ONE STEP TO INSTALL RANDOM PAGE:
+
+  1.  Copy the coding into the HEAD of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var howMany = 2;  // max number of items listed below
+var page = new Array(howMany+1);
+
+page[0]="first-random-page.html";
+page[1]="second-random-page.html";
+page[2]="third-random-page.html";
+
+function rndnumber(){
+var randscript = -1;
+while (randscript < 0 || randscript > howMany || isNaN(randscript)){
+randscript = parseInt(Math.random()*(howMany+1));
+}
+return randscript;
+}
+quo = rndnumber();
+quox = page[quo];
+window.location=(quox);
+// End --&gt;
+&lt;/SCRIPT&gt;
+&lt;/HEAD&gt;
+
+ 
+
+&lt;!-- Script Size:  0.89 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

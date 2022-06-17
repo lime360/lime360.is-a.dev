@@ -1,0 +1,221 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Messages:  Favorite Banner</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="Display banners while controlling how often they appear.  Great for displaying a preferred banner over others!">
+<META NAME="date" CONTENT="2000-12-06">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Rich Galichon">
+<META NAME="section" CONTENT="Messages">
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Rich Galichon (rich@galichon.net) -->
+<!-- Web Site:  http://www.galichon.net -->
+
+
+
+
+<!-- Begin
+function banner(imgSource,url,alt,chance) {
+this.imgSource = imgSource;
+this.url = url;
+this.alt = alt;
+this.chance = chance;
+}
+function dispBanner() {
+with (this) document.write("<A HREF=" + url + "><IMG SRC='" + imgSource + "' WIDTH=468 HEIGHT=60 BORDER=0 ALT='" + alt + "'></A>");
+}
+banner.prototype.dispBanner = dispBanner;
+banners = new Array();
+banners[0] = new banner("http://www.galichon.net/images/banner/galichon_logo.jpg",
+                        "http://www.galichon.net target='_blank'",
+                        "Galichon Enterprises",
+                        10);
+banners[1] = new banner("http://imageserv.imgis.com/images/Ad13700St1Sz1Sq1_Ban1.gif",
+                        "http://www.banner1-url-here.com target='_blank'",
+                        "Description Here",
+                        30);
+banners[2] = new banner("http://imageserv.imgis.com/images/Ad13189St1Sz1Sq5_Ban10.gif",
+                        "http://www.banner2-url-here.com target='_blank'",
+                        "Description Here",
+                        20);
+///////////////////////////////////////////////////
+// banners[x] = new banner(<banner source image>,                                           //                         <url to link to when the banner is clicked>,                     //                         <alt>                                                            //                         <the chance this banner has in which to be randomly selected>);  
+// To increase the chance of a banner being randomly selected, increase it's corresponding  // 'chance' property relative to the other banners.                                         
+///////////////////////////////////////////////////
+sum_of_all_chances = 0;
+for (i = 0; i < banners.length; i++) {
+sum_of_all_chances += banners[i].chance;
+}
+function randomBanner() {
+chance_limit = 0;
+randomly_selected_chance = Math.round((sum_of_all_chances - 1) * Math.random()) + 1;
+for (i = 0; i < banners.length; i++) {
+chance_limit += banners[i].chance;
+if (randomly_selected_chance <= chance_limit) {
+document.write("<A HREF=" + banners[i].url + "><IMG SRC='" + banners[i].imgSource + "' WIDTH=468 HEIGHT=60 BORDER=0 ALT='" + banners[i].alt + "'></A>");
+return banners[i];
+break;
+      }
+   }
+}
+//  End -->
+</script>
+
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /messages/"><font color="#FF0000"><b>Messages</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Favorite Banner</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Display banners while controlling how often they appear.  Great for displaying a preferred banner over others!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<SCRIPT LANGUAGE="JavaScript">
+
+
+
+
+<!-- Begin
+this_banner = randomBanner();
+document.write("<br><br>This banner had a " + (this_banner.chance / sum_of_all_chances) * 100 + "% chance of being displayed");  // This line may be removed
+//  End -->
+</script>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Messages:  Favorite Banner</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Command-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  3.48 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL FAVORITE BANNER:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Rich Galichon (rich@galichon.net) --&gt;
+&lt;!-- Web Site:  http://www.galichon.net --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function banner(imgSource,url,alt,chance) {
+this.imgSource = imgSource;
+this.url = url;
+this.alt = alt;
+this.chance = chance;
+}
+function dispBanner() {
+with (this) document.write("&lt;A HREF=" + url + "&gt;&lt;IMG SRC='" + imgSource + "' WIDTH=468 HEIGHT=60 BORDER=0 ALT='" + alt + "'&gt;&lt;/A&gt;");
+}
+banner.prototype.dispBanner = dispBanner;
+banners = new Array();
+banners[0] = new banner("http://www.galichon.net/images/banner/galichon_logo.jpg",
+                        "http://www.galichon.net target='_blank'",
+                        "Galichon Enterprises",
+                        10);
+banners[1] = new banner("http://imageserv.imgis.com/images/Ad13700St1Sz1Sq1_Ban1.gif",
+                        "http://www.banner1-url-here.com target='_blank'",
+                        "Description Here",
+                        30);
+banners[2] = new banner("http://imageserv.imgis.com/images/Ad13189St1Sz1Sq5_Ban10.gif",
+                        "http://www.banner2-url-here.com target='_blank'",
+                        "Description Here",
+                        20);
+///////////////////////////////////////////////////
+// banners[x] = new banner(&lt;banner source image&gt;,                                           //                         &lt;url to link to when the banner is clicked&gt;,                     //                         &lt;alt&gt;                                                            //                         &lt;the chance this banner has in which to be randomly selected&gt;);  
+// To increase the chance of a banner being randomly selected, increase it's corresponding  // 'chance' property relative to the other banners.                                         
+///////////////////////////////////////////////////
+sum_of_all_chances = 0;
+for (i = 0; i &lt; banners.length; i++) {
+sum_of_all_chances += banners[i].chance;
+}
+function randomBanner() {
+chance_limit = 0;
+randomly_selected_chance = Math.round((sum_of_all_chances - 1) * Math.random()) + 1;
+for (i = 0; i &lt; banners.length; i++) {
+chance_limit += banners[i].chance;
+if (randomly_selected_chance &lt;= chance_limit) {
+document.write("&lt;A HREF=" + banners[i].url + "&gt;&lt;IMG SRC='" + banners[i].imgSource + "' WIDTH=468 HEIGHT=60 BORDER=0 ALT='" + banners[i].alt + "'&gt;&lt;/A&gt;");
+return banners[i];
+break;
+      }
+   }
+}
+//  End --&gt;
+&lt;/script&gt;
+
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+this_banner = randomBanner();
+document.write("&lt;br&gt;&lt;br&gt;This banner had a " + (this_banner.chance / sum_of_all_chances) * 100 + "% chance of being displayed");  // This line may be removed
+//  End --&gt;
+&lt;/script&gt;
+
+ 
+
+&lt;!-- Script Size:  3.48 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

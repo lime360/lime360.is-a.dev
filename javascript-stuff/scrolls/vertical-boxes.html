@@ -1,0 +1,179 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Scrolls:  Vertical Boxes</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Michael Tartaglia (stonedstan@hotmail.com)">
+<META NAME="section" CONTENT="Scrolls">
+<META NAME="description" CONTENT="This is probably the most interesting scroll that doesn't use the browser's status bar (the bar at the bottom of the screen) or a text box on the page.  Instead, it scrolls vertically up and down multiple text boxes!  Take a look to see what we mean! ">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /scrolls/"><font color="#FF0000">Scrolls</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Vertical Boxes</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE=" helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+This is probably the most interesting scroll that doesn't use the browser's status bar (the bar at the bottom of the screen) or a text box on the page.  Instead, it scrolls vertically up and down multiple text boxes!  Take a look to see what we mean! <br><hr>
+</td></tr>
+</table>
+<!--  Demonstration -->
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+msg ="Hello, Look @ my vertical scroller!";
+align="center";
+speed=250;
+up=true;
+spas=" ";
+for (a=0;a<=12;a++) {spas+=" "}
+msg=spas+msg+spas;
+j=eval(-1);
+stop=msg.length;
+document.write("<form name='form'><table border=0 cellspacing=0 "
++"cellpadding=0 align="+align+">");
+for (i=1;i<=13;i++) {
+document.write("<tr><td><input type=text name=\"box"+i+"\" size=1>");
+document.write("</td></tr>");
+}
+document.write("</table></form>");
+function scrollIt() {
+j++;
+with (document.form) {
+if ((j+12) <= stop) {
+box1.value = msg.charAt(j);
+box2.value = msg.charAt(j+1);
+box3.value = msg.charAt(j+2);
+box4.value = msg.charAt(j+3);
+box5.value = msg.charAt(j+4);
+box6.value = msg.charAt(j+5);
+box7.value = msg.charAt(j+6);
+box8.value = msg.charAt(j+7);
+box9.value = msg.charAt(j+8);
+box10.value = msg.charAt(j+9);
+box11.value = msg.charAt(j+10);
+box12.value = msg.charAt(j+11);
+box13.value = msg.charAt(j+12);
+} else {
+j=0;
+   }
+}
+setTimeout("scrollIt()",speed);	
+}
+scrollIt();
+// End -->
+</SCRIPT>
+<P>
+<BR>
+<P>
+<a name="source">
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Scrolls:  Vertical Boxes</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as NotePad or SimpleText) and save (Control-s or Apple-s).  The script is yours!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.53 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- ONE STEP TO INSTALL VERTICAL BOXES:
+
+   1.  Add the first code to the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Add the first code to the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Michael Tartaglia (stonedstan@hotmail.com) --&gt;
+&lt;!-- Web Site:  http://www.geocities.com/SiliconValley/Horizon/5235 --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+msg ="Hello, Look @ my vertical scroller!";
+align="center";
+speed=250;
+up=true;
+spas=" ";
+for (a=0;a&lt;=12;a++) {spas+=" "}
+msg=spas+msg+spas;
+j=eval(-1);
+stop=msg.length;
+document.write("&lt;form name='form'&gt;&lt;table border=0 cellspacing=0 "
++"cellpadding=0 align="+align+"&gt;");
+for (i=1;i&lt;=13;i++) {
+document.write("&lt;tr&gt;&lt;td&gt;&lt;input type=text name=\"box"+i+"\" size=1&gt;");
+document.write("&lt;/td&gt;&lt;/tr&gt;");
+}
+document.write("&lt;/table&gt;&lt;/form&gt;");
+function scrollIt() {
+j++;
+with (document.form) {
+if ((j+12) &lt;= stop) {
+box1.value = msg.charAt(j);
+box2.value = msg.charAt(j+1);
+box3.value = msg.charAt(j+2);
+box4.value = msg.charAt(j+3);
+box5.value = msg.charAt(j+4);
+box6.value = msg.charAt(j+5);
+box7.value = msg.charAt(j+6);
+box8.value = msg.charAt(j+7);
+box9.value = msg.charAt(j+8);
+box10.value = msg.charAt(j+9);
+box11.value = msg.charAt(j+10);
+box12.value = msg.charAt(j+11);
+box13.value = msg.charAt(j+12);
+} else {
+j=0;
+   }
+}
+setTimeout("scrollIt()",speed);	
+}
+scrollIt();
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+ 
+
+&lt;!-- Script Size:  1.53 KB  --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

@@ -1,0 +1,105 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Page Details:  Crazy Window</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Eric B. Dennis">
+<META NAME="section" CONTENT="Page Details">
+<META NAME="description" CONTENT="Your browser has gone crazy!  The browser window jumps to random positions around the screen at a dizzying rate of 10 times a second.  It is a good idea to load any page that uses this script in a new browser window so your visitor still can access your site.  Warning:  Be careful not to toss your cookies on your keyboard. ;-)">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /page-details/"><font color="#FF0000"><b>Page Details</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Crazy Window</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Your browser has gone crazy!  The browser window jumps to random positions around the screen at a dizzying rate of 10 times a second.  It is a good idea to load any page that uses this script in a new browser window so your visitor still can access your site.  Warning:  Be careful not to toss your cookies on your keyboard. ;-)
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center><form><input type=button value="Open Crazy Window Demo*" onClick="demo=window.open('crazy-window.html');"></form></center><p>
+* You might have to use CTRL-ALT-DEL to stop the window, it's that crazy!
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Page Details:  Crazy Window</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  0.63 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- ONE STEP TO INSTALL CRAZY WINDOW:
+
+  1.  Copy the coding into the HEAD of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+ &lt;!-- Original:  Eric B. Dennis --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+if(document.layers || document.all) {
+a = 1;
+setInterval("Jump()", 10);
+}
+function Jump() {
+a = a + 1;
+self.moveBy((Math.random() * a * 2 - a), (Math.random() * a * 2) - a);
+}
+//  End --&gt;
+&lt;/script&gt;
+
+ 
+
+&lt;!-- Script Size:  0.63 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

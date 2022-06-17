@@ -1,0 +1,406 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Forms:  Mailing List</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Forms">
+<META NAME="description" CONTENT="Use JavaScript to sign up visitors for your mailing list.  Once again, JavaScript ensures that the visitors have filled out the form completely and correctly.  Visitors area also prompted to reenter any incomplete or invalid entries.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+function resetform()
+{
+document.forms[0].elements[1]=="";
+}
+function submitForms() {
+if (isEmail() && isFname() && isLname() && isAddress() && isCity() && isState() && isZip())
+if (confirm("\n You are about to e-mail your submission. \n\nYES to submit.    NO to abort."))
+{
+alert("\nYour submission will now be sent. \n\n Use the Return Button once the submission is complete to return to our home page.\n\n\n Thank you for joining JavaScript Source Code 3000 mailing list! (Not really)");
+return false;
+}
+else
+{
+alert("\n You have chosen to abort the submission.");
+return false
+}
+else 
+return false;
+}
+function isEmail() {
+if (document.forms[0].elements[1].value == "") {
+alert ("\n The E-Mail field is blank. \n\n Please enter your E-Mail address.")
+document.forms[0].elements[1].focus();
+return false;
+}
+if (document.forms[0].elements[1].value.indexOf ('@',0) == -1 ||
+document.forms[0].elements[1].value.indexOf ('.',0) == -1) {
+alert ("\n The E-Mail field requires a \"@\" and a \".\"be used. \n\nPlease re-enter your E-Mail address.")
+document.forms[0].elements[1].select();
+document.forms[0].elements[1].focus();
+return false;
+}
+return true;
+}
+function isFname() {
+if (document.forms[0].elements[2].value == "")
+{
+alert ("\n The First Name field is blank. \n\n Please enter your first name.")
+document.forms[0].elements[2].focus();
+return false;
+}
+return true;
+}
+function isLname() {
+if (document.forms[0].elements[3].value == "") {
+alert ("\n The Last Name field is blank. \n\nPlease enter your last name.")
+document.forms[0].elements[3].focus();
+return false;
+}
+return true;
+}
+function isAddress() {
+if (document.forms[0].elements[4].value == "") {
+alert ("\n The Address field is blank. \n\nPlease enter your address.")
+document.forms[0].elements[4].focus();
+return false;
+}
+return true;
+}
+function isCity()
+{
+if (document.forms[0].elements[5].value == "")
+{
+alert ("\n The City field is blank. \n\nPlease enter your city.")
+document.forms[0].elements[5].focus();
+return false;
+}
+return true;
+}
+function isState() {
+if (document.forms[0].elements[6].value == "") {
+alert ("\n The state field is blank.\n\nPlease enter your state.")
+document.forms[0].elements[6].focus();
+return false;
+}
+return true;
+}
+function isZip() {
+if (document.forms[0].elements[7].value == "") {
+alert ("\n The Zip code field is blank. \n\nPlease enter your Zip code.")
+document.forms[0].elements[7].focus();
+return false;
+}
+return true;
+}
+// End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /forms/" ><font color="#FF0000">Forms</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Mailing List</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<TABLE BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><TD><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Use JavaScript to sign up visitors for your mailing list.  Once again, JavaScript ensures that the visitors have filled out the form completely and correctly.  Visitors area also prompted to reenter any incomplete or invalid entries.
+<br>
+<hr>
+</TD></tr>
+</TABLE>
+<!-- Demonstration -->
+<body>
+<form enctype="text/plain" name="addform" method='get'
+action="http:///you@where.com"  onSubmit="return submitForms()">
+<center><TABLE border=3 width=430 cellpadding=10><TD align="center">
+<strong><font face="arial" size=+2>Join the Mailing List!</font></strong>
+</TABLE>
+<input type="hidden" name="Form" value="Submit Sub">
+<center><TABLE border=3 cellspacing=0 cellpadding=2 bgcolor="#C0C0C0">
+<tr valign=baseline>
+<TD>
+<font face="arial">Email Address:</font>
+</TD>
+<TD>
+<input type=text name="Email Address" size=35,1 maxlength=80>
+</TD>
+</tr>
+<tr>
+<TD>
+<font face="arial">First Name:</font>
+</TD>
+<TD>
+<input type=text name="First Name" size=35,1 maxlength=80>
+</TD></tr>
+<tr>
+<TD>
+<font face="arial">Last Name:</font>
+</TD>
+<TD>
+<input type=text name="Last Name" size=35,1 maxlength=80>
+</TD></tr>
+<tr>
+<TD>
+<font face="arial">Address:</font>
+</TD>
+<TD>
+<input type=text name="Address" size=35,1 maxlength=80>
+</TD></tr>
+<tr>
+<TD>
+<font face="arial">City:</font>
+</TD>
+<TD>
+<input type=text name="City" size=35,1 maxlength=80>
+</TD></tr>
+<tr>
+<TD>
+<font face="arial">State:</font>
+</TD>
+<TD>
+<input type=text name="State" size=10,1 maxlength=25>
+</TD></tr>
+<tr>
+<TD>
+<font face="arial">Zip Code:</font>
+</TD>
+<TD>
+<input type=text name="Zip" size=20,1 maxlength=35>
+</TD></tr></TABLE>
+<br>
+<center>
+<input type="submit" value="  Submit  ">
+<input type="button" value="  Return  " onclick="window.location='mailing-list.html'">
+<input type="reset" value="Reset Form" onclick=resetform()>
+</form>
+<P>
+<P>
+<a name="source">
+<TABLE BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><TD BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Forms:  Mailing List</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!<br><br></font></td></tr>
+<tr><TD BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  4.56 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL MAILING LIST:
+
+   1.  Paste the coding into the HEAD of your HTML document
+   2.  Put the last code into the BODY of your HTML document  --&gt;
+
+&lt;!--  STEP ONE: Copy this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!--  Begin
+function resetform() {
+document.forms[0].elements[1]=="";
+}
+function submitForms() {
+if (isEmail() && isFname() && isLname() && isAddress() && isCity() && isState() && isZip())
+if (confirm("\n You are about to e-mail your submission. \n\nYES to submit.    NO to abort."))
+{
+alert("\nYour submission will now be sent. \n\n Use the Return Button once the submission is complete to return to my home page.\n\n\n Thank you for joining our mailing list!");
+return true;
+}
+else
+{
+alert("\n You have chosen to abort the submission.");
+return false
+}
+else 
+return false;
+}
+function isEmail() {
+if (document.forms[0].elements[1].value == "") {
+alert ("\n The E-Mail field is blank. \n\n Please enter your E-Mail address.")
+document.forms[0].elements[1].focus();
+return false;
+}
+if (document.forms[0].elements[1].value.indexOf ('@',0) == -1 ||
+document.forms[0].elements[1].value.indexOf ('.',0) == -1) {
+alert ("\n The E-Mail field requires a \"@\" and a \".\"be used. \n\nPlease re-enter your E-Mail address.")
+document.forms[0].elements[1].select();
+document.forms[0].elements[1].focus();
+return false;
+}
+return true;
+}
+function isFname() {
+if (document.forms[0].elements[2].value == "")
+{
+alert ("\n The First Name field is blank. \n\n Please enter your first name.")
+document.forms[0].elements[2].focus();
+return false;
+}
+return true;
+}
+function isLname() {
+if (document.forms[0].elements[3].value == "") {
+alert ("\n The Last Name field is blank. \n\nPlease enter your last name.")
+document.forms[0].elements[3].focus();
+return false;
+}
+return true;
+}
+function isAddress() {
+if (document.forms[0].elements[4].value == "") {
+alert ("\n The Address field is blank. \n\nPlease enter your address.")
+document.forms[0].elements[4].focus();
+return false;
+}
+return true;
+}
+function isCity()
+{
+if (document.forms[0].elements[5].value == "")
+{
+alert ("\n The City field is blank. \n\nPlease enter your city.")
+document.forms[0].elements[5].focus();
+return false;
+}
+return true;
+}
+function isState() {
+if (document.forms[0].elements[6].value == "") {
+alert ("\n The state field is blank.\n\nPlease enter your state.")
+document.forms[0].elements[6].focus();
+return false;
+}
+return true;
+}
+function isZip() {
+if (document.forms[0].elements[7].value == "") {
+alert ("\n The Zip code field is blank. \n\nPlease enter your Zip code.")
+document.forms[0].elements[7].focus();
+return false;
+}
+return true;
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+&lt;!--  STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;CENTER&gt;
+&lt;FORM enctype="text/plain" name="addform" method='get'
+action='mailto:antispammer@earthling.net?subject=TJS - Mailing List' onSubmit="return submitForms()"&gt;
+&lt;TABLE border=3 width=430 cellpadding=10&gt;&lt;TD align="center"&gt;
+&lt;strong&gt;
+&lt;font face="arial" size=+2&gt;Join the Mailing List!&lt;/font&gt;
+&lt;/strong&gt;
+&lt;/TABLE&gt;
+&lt;input type="hidden" name="Form" value="Submit Sub"&gt;
+&lt;TABLE border=3 cellspacing=0 cellpadding=2 bgcolor="#C0C0C0"&gt;
+&lt;tr valign=baseline&gt;
+&lt;TD&gt;
+&lt;font face="arial"&gt;Email Address:&lt;/font&gt;
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;input type=text name="Email Address" size=35,1 maxlength=80&gt;
+&lt;/TD&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;TD&gt;
+&lt;font face="arial"&gt;First Name:&lt;/font&gt;
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;input type=text name="First Name" size=35,1 maxlength=80&gt;
+&lt;/TD&gt;&lt;/tr&gt;
+&lt;tr&gt;
+&lt;TD&gt;
+&lt;font face="arial"&gt;Last Name:&lt;/font&gt;
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;input type=text name="Last Name" size=35,1 maxlength=80&gt;
+&lt;/TD&gt;&lt;/tr&gt;
+&lt;tr&gt;
+&lt;TD&gt;
+&lt;font face="arial"&gt;Address:&lt;/font&gt;
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;input type=text name="Address" size=35,1 maxlength=80&gt;
+&lt;/TD&gt;&lt;/tr&gt;
+&lt;tr&gt;
+&lt;TD&gt;
+&lt;font face="arial"&gt;City:&lt;/font&gt;
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;input type=text name="City" size=35,1 maxlength=80&gt;
+&lt;/TD&gt;&lt;/tr&gt;
+&lt;tr&gt;
+&lt;TD&gt;
+&lt;font face="arial"&gt;State:&lt;/font&gt;
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;input type=text name="State" size=10,1 maxlength=25&gt;
+&lt;/TD&gt;&lt;/tr&gt;
+&lt;tr&gt;
+&lt;TD&gt;
+&lt;font face="arial"&gt;Zip Code:&lt;/font&gt;
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;input type=text name="Zip" size=20,1 maxlength=35&gt;
+&lt;/TD&gt;&lt;/tr&gt;&lt;/TABLE&gt;
+&lt;br&gt;
+&lt;center&gt;
+&lt;input type="submit" value="  Submit  "&gt;
+&lt;input type="button" value="  Return  " onclick="window.location='your-page.html'"&gt;
+&lt;input type="reset" value="Reset Form" onclick=resetform()&gt;
+&lt;/FORM&gt;
+&lt;/CENTER&gt;
+
+ 
+
+&lt;!-- Script Size:  4.56 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

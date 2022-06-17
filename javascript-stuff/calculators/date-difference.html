@@ -1,0 +1,412 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Calculators:  Date Difference</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Ronnie T. Moore">
+<META NAME="section" CONTENT="Calculators">
+<META NAME="description" CONTENT="Enter two dates (including the time!)  and this script will display the number of weeks, days, hours, minutes, and seconds between the two.  The seconds field is optional, too.  For an example, try entering your birthdate and compare it to today's date.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Ronnie T. Moore -->
+<!-- Web Site:  JavaScript Source Code 3000 -->
+
+
+
+
+<!-- Begin
+function isValidDate(dateStr) {
+// Date validation function courtesty of 
+// Sandeep V. Tamhankar (stamhankar@hotmail.com) -->
+
+// Checks for the following valid date formats:
+// MM/DD/YY   MM/DD/YYYY   MM-DD-YY   MM-DD-YYYY
+
+var datePat = /^(\d{1,2})(\/|-)(\d{1,2})\2(\d{4})$/; // requires 4 digit year
+
+var matchArray = dateStr.match(datePat); // is the format ok?
+if (matchArray == null) {
+alert(dateStr + " Date is not in a valid format.")
+return false;
+}
+month = matchArray[1]; // parse date into variables
+day = matchArray[3];
+year = matchArray[4];
+if (month < 1 || month > 12) { // check month range
+alert("Month must be between 1 and 12.");
+return false;
+}
+if (day < 1 || day > 31) {
+alert("Day must be between 1 and 31.");
+return false;
+}
+if ((month==4 || month==6 || month==9 || month==11) && day==31) {
+alert("Month "+month+" doesn't have 31 days!")
+return false;
+}
+if (month == 2) { // check for february 29th
+var isleap = (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
+if (day>29 || (day==29 && !isleap)) {
+alert("February " + year + " doesn't have " + day + " days!");
+return false;
+   }
+}
+return true;
+}
+
+function isValidTime(timeStr) {
+// Time validation function courtesty of 
+// Sandeep V. Tamhankar (stamhankar@hotmail.com) -->
+
+// Checks if time is in HH:MM:SS AM/PM format.
+// The seconds and AM/PM are optional.
+
+var timePat = /^(\d{1,2}):(\d{2})(:(\d{2}))?(\s?(AM|am|PM|pm))?$/;
+
+var matchArray = timeStr.match(timePat);
+if (matchArray == null) {
+alert("Time is not in a valid format.");
+return false;
+}
+hour = matchArray[1];
+minute = matchArray[2];
+second = matchArray[4];
+ampm = matchArray[6];
+
+if (second=="") { second = null; }
+if (ampm=="") { ampm = null }
+
+if (hour < 0  || hour > 23) {
+alert("Hour must be between 1 and 12. (or 0 and 23 for military time)");
+return false;
+}
+if (hour <= 12 && ampm == null) {
+if (confirm("Please indicate which time format you are using.  OK = Standard Time, CANCEL = Military Time")) {
+alert("You must specify AM or PM.");
+return false;
+   }
+}
+if  (hour > 12 && ampm != null) {
+alert("You can't specify AM or PM for military time.");
+return false;
+}
+if (minute < 0 || minute > 59) {
+alert ("Minute must be between 0 and 59.");
+return false;
+}
+if (second != null && (second < 0 || second > 59)) {
+alert ("Second must be between 0 and 59.");
+return false;
+}
+return true;
+}
+
+function dateDiff(dateform) {
+date1 = new Date();
+date2 = new Date();
+diff  = new Date();
+
+if (isValidDate(dateform.firstdate.value) && isValidTime(dateform.firsttime.value)) { // Validates first date 
+date1temp = new Date(dateform.firstdate.value + " " + dateform.firsttime.value);
+date1.setTime(date1temp.getTime());
+}
+else return false; // otherwise exits
+
+if (isValidDate(dateform.seconddate.value) && isValidTime(dateform.secondtime.value)) { // Validates second date 
+date2temp = new Date(dateform.seconddate.value + " " + dateform.secondtime.value);
+date2.setTime(date2temp.getTime());
+}
+else return false; // otherwise exits
+
+// sets difference date to difference of first date and second date
+
+diff.setTime(Math.abs(date1.getTime() - date2.getTime()));
+
+timediff = diff.getTime();
+
+weeks = Math.floor(timediff / (1000 * 60 * 60 * 24 * 7));
+timediff -= weeks * (1000 * 60 * 60 * 24 * 7);
+
+days = Math.floor(timediff / (1000 * 60 * 60 * 24)); 
+timediff -= days * (1000 * 60 * 60 * 24);
+
+hours = Math.floor(timediff / (1000 * 60 * 60)); 
+timediff -= hours * (1000 * 60 * 60);
+
+mins = Math.floor(timediff / (1000 * 60)); 
+timediff -= mins * (1000 * 60);
+
+secs = Math.floor(timediff / 1000); 
+timediff -= secs * 1000;
+
+dateform.difference.value = weeks + " weeks, " + days + " days, " + hours + " hours, " + mins + " minutes, and " + secs + " seconds";
+
+return false; // form should never submit, returns false
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /calculators/"><font color="#FF0000"><b>Calculators</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Date Difference</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Enter two dates (including the time!)  and this script will display the number of weeks, days, hours, minutes, and seconds between the two.  The seconds field is optional, too.  For an example, try entering your birthdate and compare it to today's date.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form onSubmit="return dateDiff(this);">
+<table>
+<tr><td>
+<pre>
+First Date:   Date: <input type=text name=firstdate value="" size=10 maxlength=10>  (MM/DD/YYYY format)
+              Time: <input type=text name=firsttime value="" size=10 maxlength=10>  (HH:MM:SS format)
+
+Second Date:  Date: <input type=text name=seconddate value="" size=10 maxlength=10>  (MM/DD/YYYY format)
+              Time: <input type=text name=secondtime value="" size=10 maxlength=10>  (HH:MM:SS format)
+
+<center><input type=submit value="Calculate Difference!">
+
+Date Difference:<br>
+<input type=text name=difference value="" size=60>
+</center>
+</pre>
+</td></tr>
+</table>
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Calculators:  Date Difference</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  5.13 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL DATE DIFFERENCE:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Ronnie T. Moore --&gt;
+&lt;!-- Web Site:  JavaScript Source Code 3000 --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function isValidDate(dateStr) {
+// Date validation function courtesty of 
+// Sandeep V. Tamhankar (stamhankar@hotmail.com) --&gt;
+
+// Checks for the following valid date formats:
+// MM/DD/YY   MM/DD/YYYY   MM-DD-YY   MM-DD-YYYY
+
+var datePat = /^(\d{1,2})(\/|-)(\d{1,2})\2(\d{4})$/; // requires 4 digit year
+
+var matchArray = dateStr.match(datePat); // is the format ok?
+if (matchArray == null) {
+alert(dateStr + " Date is not in a valid format.")
+return false;
+}
+month = matchArray[1]; // parse date into variables
+day = matchArray[3];
+year = matchArray[4];
+if (month &lt; 1 || month &gt; 12) { // check month range
+alert("Month must be between 1 and 12.");
+return false;
+}
+if (day &lt; 1 || day &gt; 31) {
+alert("Day must be between 1 and 31.");
+return false;
+}
+if ((month==4 || month==6 || month==9 || month==11) && day==31) {
+alert("Month "+month+" doesn't have 31 days!")
+return false;
+}
+if (month == 2) { // check for february 29th
+var isleap = (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
+if (day&gt;29 || (day==29 && !isleap)) {
+alert("February " + year + " doesn't have " + day + " days!");
+return false;
+   }
+}
+return true;
+}
+
+function isValidTime(timeStr) {
+// Time validation function courtesty of 
+// Sandeep V. Tamhankar (stamhankar@hotmail.com) --&gt;
+
+// Checks if time is in HH:MM:SS AM/PM format.
+// The seconds and AM/PM are optional.
+
+var timePat = /^(\d{1,2}):(\d{2})(:(\d{2}))?(\s?(AM|am|PM|pm))?$/;
+
+var matchArray = timeStr.match(timePat);
+if (matchArray == null) {
+alert("Time is not in a valid format.");
+return false;
+}
+hour = matchArray[1];
+minute = matchArray[2];
+second = matchArray[4];
+ampm = matchArray[6];
+
+if (second=="") { second = null; }
+if (ampm=="") { ampm = null }
+
+if (hour &lt; 0  || hour &gt; 23) {
+alert("Hour must be between 1 and 12. (or 0 and 23 for military time)");
+return false;
+}
+if (hour &lt;= 12 && ampm == null) {
+if (confirm("Please indicate which time format you are using.  OK = Standard Time, CANCEL = Military Time")) {
+alert("You must specify AM or PM.");
+return false;
+   }
+}
+if  (hour &gt; 12 && ampm != null) {
+alert("You can't specify AM or PM for military time.");
+return false;
+}
+if (minute &lt; 0 || minute &gt; 59) {
+alert ("Minute must be between 0 and 59.");
+return false;
+}
+if (second != null && (second &lt; 0 || second &gt; 59)) {
+alert ("Second must be between 0 and 59.");
+return false;
+}
+return true;
+}
+
+function dateDiff(dateform) {
+date1 = new Date();
+date2 = new Date();
+diff  = new Date();
+
+if (isValidDate(dateform.firstdate.value) && isValidTime(dateform.firsttime.value)) { // Validates first date 
+date1temp = new Date(dateform.firstdate.value + " " + dateform.firsttime.value);
+date1.setTime(date1temp.getTime());
+}
+else return false; // otherwise exits
+
+if (isValidDate(dateform.seconddate.value) && isValidTime(dateform.secondtime.value)) { // Validates second date 
+date2temp = new Date(dateform.seconddate.value + " " + dateform.secondtime.value);
+date2.setTime(date2temp.getTime());
+}
+else return false; // otherwise exits
+
+// sets difference date to difference of first date and second date
+
+diff.setTime(Math.abs(date1.getTime() - date2.getTime()));
+
+timediff = diff.getTime();
+
+weeks = Math.floor(timediff / (1000 * 60 * 60 * 24 * 7));
+timediff -= weeks * (1000 * 60 * 60 * 24 * 7);
+
+days = Math.floor(timediff / (1000 * 60 * 60 * 24)); 
+timediff -= days * (1000 * 60 * 60 * 24);
+
+hours = Math.floor(timediff / (1000 * 60 * 60)); 
+timediff -= hours * (1000 * 60 * 60);
+
+mins = Math.floor(timediff / (1000 * 60)); 
+timediff -= mins * (1000 * 60);
+
+secs = Math.floor(timediff / 1000); 
+timediff -= secs * 1000;
+
+dateform.difference.value = weeks + " weeks, " + days + " days, " + hours + " hours, " + mins + " minutes, and " + secs + " seconds";
+
+return false; // form should never submit, returns false
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form onSubmit="return dateDiff(this);"&gt;
+&lt;table&gt;
+&lt;tr&gt;&lt;td&gt;
+&lt;pre&gt;
+First Date:   Date: &lt;input type=text name=firstdate value="" size=10 maxlength=10&gt;  (MM/DD/YYYY format)
+              Time: &lt;input type=text name=firsttime value="" size=10 maxlength=10&gt;  (HH:MM:SS format)
+
+Second Date:  Date: &lt;input type=text name=seconddate value="" size=10 maxlength=10&gt;  (MM/DD/YYYY format)
+              Time: &lt;input type=text name=secondtime value="" size=10 maxlength=10&gt;  (HH:MM:SS format)
+
+&lt;center&gt;&lt;input type=submit value="Calculate Difference!"&gt;
+
+Date Difference:&lt;br&gt;
+&lt;input type=text name=difference value="" size=60&gt;
+&lt;/center&gt;
+&lt;/pre&gt;
+&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  5.13 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

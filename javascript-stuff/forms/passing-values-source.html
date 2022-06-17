@@ -1,0 +1,192 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Forms:  Passing Values</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Forms">
+<META NAME="description" CONTENT="Here is a clever way of 'unwrapping' the contents of a form when passed from one page to the next.  This capability would be useful in many situations, such as passin the contents of a form to another page, retaining information about the current page for the rest of their visit, etc.  Great!">
+
+<SCRIPT LANGUAGE="JavaScript">
+
+
+
+
+<!-- Begin
+function getParams() {
+var idx = document.URL.indexOf('?');
+var params = new Array();
+if (idx != -1) {
+var pairs = document.URL.substring(idx+1, document.URL.length).split('&');
+for (var i=0; i<pairs.length; i++) {
+nameVal = pairs[i].split('=');
+params[nameVal[0]] = nameVal[1];
+   }
+}
+return params;
+}
+params = getParams();
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /forms/" ><font color="#FF0000"><b>Forms</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Passing Values (Source)</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Here is a clever way of 'unwrapping' the contents of a form when passed from one page to the next.  This capability would be useful in many situations, such as passing the contents of a form to another page, retaining information about the current page for the rest of their visit, etc.  Great!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<SCRIPT LANGUAGE="JavaScript">
+
+<!-- Begin
+firstname = unescape(params["firstname"]);
+lastname = unescape(params["lastname"]);
+age = unescape(params["age"]);
+
+document.write("firstname = " + firstname + "<br>");
+document.write("lastname = " + lastname + "<br>");
+document.write("age = " + age + "<br>");
+//  End -->
+</script>
+<P>
+
+
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Forms:  Passing Values (Source)</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.23 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL PASSING VALUES:
+
+  1.  Copy the form code into the first page with the form
+  2.  Paste the HEAD code into the second HTML page
+  3.  Add the final code into the BODY of your second page  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form type=get action="passing-values-source.html"&gt;
+&lt;table border=1&gt;
+&lt;tr&gt;
+&lt;td&gt;First Name:&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name=firstname size=10&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Last Name:&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name=lastname size=10&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Age:&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name=age size=3&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td colspan=2&gt;&lt;input type=submit value="Submit!"&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+&lt;!-- STEP TWO: Paste this code into the HEAD of your second document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function getParams() {
+var idx = document.URL.indexOf('?');
+var params = new Array();
+if (idx != -1) {
+var pairs = document.URL.substring(idx+1, document.URL.length).split('&');
+for (var i=0; i&lt;pairs.length; i++) {
+nameVal = pairs[i].split('=');
+params[nameVal[0]] = nameVal[1];
+   }
+}
+return params;
+}
+params = getParams();
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP THREE: Put this on the page that should read the values  --&gt;
+
+&lt;BODY&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;!-- Begin
+firstname = unescape(params["firstname"]);
+lastname = unescape(params["lastname"]);
+age = unescape(params["age"]);
+
+document.write("firstname = " + firstname + "&lt;br&gt;");
+document.write("lastname = " + lastname + "&lt;br&gt;");
+document.write("age = " + age + "&lt;br&gt;");
+//  End --&gt;
+&lt;/script&gt;
+
+ 
+
+&lt;!-- Script Size:  1.23 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>
+
+

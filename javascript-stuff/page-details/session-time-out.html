@@ -1,0 +1,207 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Page Details:  Session Time Out</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Ronnie T. Moore, Editor">
+<META NAME="section" CONTENT="Page Details">
+<META NAME="description" CONTENT="Allows you to 'time out' users if they do not interact with the web page for a certain number of minutes.  This acts as a security feature to allow web-based applications to logoff users if they do not interact with the server periodically.  A timer on the page and the browser's status bar displays the time remaining before timing out.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Ronnie T. Moore, Editor -->
+
+
+
+
+<!-- Begin
+// Take user here after session timed out
+timedouturl = "session-timed-out.html";
+
+function Minutes(data) {
+for (var i = 0; i < data.length; i++)
+if (data.substring(i, i + 1) == ":")
+break;
+return (data.substring(0, i));
+}
+function Seconds(data) {
+for (var i = 0; i < data.length; i++)
+if (data.substring(i, i + 1) == ":")
+break;
+return (data.substring(i + 1, data.length));
+}
+function Display(min, sec) {
+var disp;
+if (min <= 9) disp = " 0";
+else disp = " ";
+disp += min + ":";
+if (sec <= 9) disp += "0" + sec;
+else disp += sec; 
+return (disp);
+}
+function Down() { 
+sec--;      
+if (sec == -1) { sec = 59; min--; }
+document.timerform.clock.value = Display(min, sec);
+window.status = "Session will time out in: " + Display(min, sec);
+if (min == 0 && sec == 0) {
+alert("Your session has timed out.  You would have been taken to the re-login screen but this is just a demo.");
+//window.location.href = timedouturl;
+}
+else down = setTimeout("Down()", 1000);
+}
+function timeIt() {
+min = 1 * Minutes(document.timerform.clock.value);
+sec = 0 + Seconds(document.timerform.clock.value);
+Down();
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff OnLoad="timeIt()">
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /page-details/"><font color="#FF0000"><b>Page Details</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Session Time Out</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Allows you to 'time out' users if they do not interact with the web page for a certain number of minutes.  This acts as a security feature to allow web-based applications to logoff users if they do not interact with the server periodically.  A timer on the page and the browser's status bar displays the time remaining before timing out.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name="timerform">
+<input type="text" name="clock" size="7" value="5:00"><p>
+</form>
+</center>
+<br>
+<font color=red>(Your session will time out in 5 minutes.<br>Also see status bar at bottom of browser)</font>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Page Details:  Session Time Out</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.90 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL SESSION TIME OUT:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the onLoad event handler into the BODY tag
+  3.  Put the last coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Ronnie T. Moore, Editor --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+// Take user here after session timed out
+timedouturl = "session-timed-out.html";
+
+function Minutes(data) {
+for (var i = 0; i &lt; data.length; i++)
+if (data.substring(i, i + 1) == ":")
+break;
+return (data.substring(0, i));
+}
+function Seconds(data) {
+for (var i = 0; i &lt; data.length; i++)
+if (data.substring(i, i + 1) == ":")
+break;
+return (data.substring(i + 1, data.length));
+}
+function Display(min, sec) {
+var disp;
+if (min &lt;= 9) disp = " 0";
+else disp = " ";
+disp += min + ":";
+if (sec &lt;= 9) disp += "0" + sec;
+else disp += sec; 
+return (disp);
+}
+function Down() { 
+sec--;      
+if (sec == -1) { sec = 59; min--; }
+document.timerform.clock.value = Display(min, sec);
+window.status = "Session will time out in: " + Display(min, sec);
+if (min == 0 && sec == 0) {
+alert("Your session has timed out.");
+window.location.href = timedouturl;
+}
+else down = setTimeout("Down()", 1000);
+}
+function timeIt() {
+min = 1 * Minutes(document.timerform.clock.value);
+sec = 0 + Seconds(document.timerform.clock.value);
+Down();
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Insert the onLoad event handler into your BODY tag  --&gt;
+
+&lt;BODY OnLoad="timeIt()"&gt;
+
+&lt;!-- STEP THREE: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;center&gt;
+&lt;form name="timerform"&gt;
+&lt;input type="text" name="clock" size="7" value="2:00"&gt;&lt;p&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  1.90 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

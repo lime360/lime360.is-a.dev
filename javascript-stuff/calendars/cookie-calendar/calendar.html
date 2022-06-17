@@ -1,0 +1,236 @@
+<html>
+<head>
+    <title>Calendar</title>
+
+<script language="javascript" src="cengine.js"></script>
+<script language="javascript" src="other_scripts.js"></script>
+<script language="javascript">
+<!--
+var mo = "";
+var year = "";
+var currentmonth = today.getMonth();
+var currentyear = today.getFullYear();
+//cookies are not found
+if(document.cookie == "") {
+mo = today.getMonth();
+year = today.getFullYear();
+}
+else {
+mo = getCookie('whichmonth');
+//correct cookie is NOT set
+if(mo == null) {
+mo = today.getMonth();
+year = today.getFullYear();
+//alert number of reminders to user
+alertReminders();
+}
+//correct cookie is set
+else {
+mo = getCookie('whichmonth');
+year = getCookie('whichyear');
+   }
+}
+//set a session cookie
+setCookie('whichmonth',mo);
+setCookie('whichyear', year);
+//backup one month and refresh
+function backup() {
+//check for a new year being set
+if(mo > 0) {
+mo--;
+} else {
+mo = 11;
+//check for 19**
+if(year == 2000) {
+year = 1999;
+} else if(year <= 1999) {
+syear = year.substring(2,year.length);
+syear--;
+year = "19" + syear;
+Number(year);
+}
+else {
+year--;
+   }
+}
+setCookie('whichmonth',mo);
+setCookie('whichyear', year);
+//check for open child windows and close.
+if(child && !child.closed) {
+child.close();
+}
+document.location="calendar.html";
+}
+//go forward one month and refresh
+function stepup() {
+//check for a new year being set
+if(mo <  11) {
+mo++;
+}
+else {
+mo = 0;
+year++;
+}
+setCookie('whichmonth',mo);
+setCookie('whichyear', year);
+//check for open child windows and close.
+if(child && !child.closed) {
+child.close();
+}
+document.location="calendar.html";
+}
+//first starting day of month
+var first = months[mo] + " 01, " + year;
+firstday = new Date(first);
+startday = firstday.getDay();
+//variable for day count
+var count = 1;
+//variables for leap year
+var factor = startday - 1;
+var endday = parseInt(monthlen[mo]) + factor;
+var calbg = "#666666";
+var calwidth = "80%";
+var twidth = "14%";
+var theight = "70";
+var monthbg = "#000000";
+var monfam = "verdana,arial,helvetica";
+var monsize = "3"
+var moncol = "#ffffff"
+var weekbg = "#eeeeee";
+var weekfam = "verdana,arial,helvetica";
+var weeksize = "2";
+var weekcol = "#ff0000";
+var daybg = "#eeeeee";
+var dayfam = "verdana,arial,helvetica";
+var daysize = "1";
+var daycol = "#000000";
+var sdaycol = "#ff0000";
+var calendar = "";
+calendar =  "<table bgcolor='" + calbg + "' width='" + calwidth + "' border='0' cellpadding='1' cellspacing='0'>";
+calendar += "<tr>";
+calendar += "<td align='center'>";
+
+<!-- Month Starts Here -->
+calendar += "<table width='100%' border='0' cellpadding='3' cellspacing='0'>";
+calendar += "<tr>";
+calendar += "<td align='center'> <a href='javascript:backup();'><font color='#ffffff'><b><<</b></font></a> </td>";
+calendar += "<td width='100%' bgcolor='" + monthbg + "' align='center'><font face='" + monfam + "' size=" + monsize + " color=" + moncol + "><b>";
+calendar += "<a href='javascript://' onclick='open_all(\"all_reminders.html\");'><font color='#ffffff'>" + months[mo] + ", " + year + "</font></a>";
+calendar += "</b></font></td>";
+calendar += "<td align='center'> <a href='javascript:stepup();'><font color='#ffffff'><b>>></b></font></a> </td>";
+calendar += "</tr>";
+calendar += "</table>";
+<!-- Month Ends Here -->
+
+calendar += "</td>";
+calendar += "</tr>";
+calendar += "<tr>";
+calendar += "<td align='center'>";
+
+<!-- Week Starts Here -->
+calendar += "<table width='100%' border='0' cellpadding='3' cellspacing='0'>";
+calendar += "<tr>";
+for(i = 0; i < 7; i++) {
+calendar += "<td width='" + twidth + "' bgcolor='" + weekbg + "' align='center' valign='middle'><font face='" + weekfam + "' size=" + weeksize + " color=" + weekcol + "><b>";
+calendar += days[i];
+calendar += "</b></font></td>";
+}
+calendar += "</tr>";
+calendar += "</table>";
+<!-- Week Ends Here -->
+
+calendar += "</td>";
+calendar += "</tr>";
+calendar += "<tr>";
+calendar += "<td align='center'>";
+
+<!-- Day Starts Here -->
+calendar += "<table width='100%' border='0' cellpadding='2' cellspacing='1'>";
+calendar += "<tr>";
+if(startday > 0) {
+for(empty = 0; empty < startday; empty++) {
+calendar += "<td width='" + twidth + "' height='" + theight + "'>&nbsp;</td>";
+   }
+}
+for(i = startday; i <= endday; i++) {
+if( (i % 7) == 0) {
+calendar += "</tr><tr>";
+}
+//keep highlight info on the current month and day
+if( (i - (startday - 1)) == dt && currentmonth == mo && currentyear == year) {
+calendar += "<td width='" + twidth + "' height='" + theight + "' bgcolor='" + daybg + "' align='right' valign='top'><font face='" + dayfam + "' size=" + daysize + "><b>";
+calendar += "<a href='javascript://' onclick=javascript:open_window('day_scheduler.html?" + months[mo] + "&" + count + "',300,350,0,1);><font color=" + sdaycol + ">" + count + "</font></a>";
+if(currentmonth == mo && currentyear == year && document.cookie) {
+var isremind = getCookie(months[mo] + count);
+if(isremind) { //if a reminder exists for this day
+isremind = isremind.split("|");
+calendar += "<p><div align='center'><img src='reminder.gif' width='11' height='11' alt='you have " + isremind.length + " reminder(s)'></div>";
+   }
+}
+calendar += "</b></font></td>";
+}
+else {
+calendar += "<td width='" + twidth + "' height='" + theight + "' bgcolor='" + daybg + "' align='right' valign='top'><font face='" + dayfam + "' size=" + daysize + ">";
+calendar += "<a href='javascript://' onclick=javascript:open_window('day_scheduler.html?" + months[mo] + "&" + count + "',300,350,0,1);><font color=" + daycol + ">" + count + "</font></a>";
+if(document.cookie) { //allows reminders to be displayed on other months
+var isremind = getCookie(months[mo] + count);
+if(isremind) { //if a reminder exists for this day
+isremind = isremind.split("|");
+calendar += "<p><div align='center'><img src='reminder.gif' width='11' height='11' alt='you have " + isremind.length + " reminder(s)'></div>";
+   }
+}
+calendar += "</font></td>";
+}
+count++;
+}
+calendar += "</tr>";
+calendar += "</table>";
+<!-- Day Ends Here -->
+
+calendar += "</td>";
+calendar += "</tr>";
+calendar += "</table>";
+function open_all(url) {
+child = window.open(url,"allreminders", "width=430,height=400,resizable=0,scrollbars=1");
+}
+function alertReminders() {
+var alertit = getCookie(months[today.getMonth()] + dt);
+if(alertit != null) {
+alertit = alertit.split("|");
+//write out reminders into a string for display
+textit = "  1. " + alertit[0];
+for(var i = 1; i < alertit.length; i++) {
+textit += "\n  " + (i + 1) + ". " + alertit[i];
+}
+//alert user of number of reminders for which day and display those reminders
+alert("You have " + alertit.length + " reminder(s) for " + months[today.getMonth()] + " " + dt + ".\n\n" + textit);
+   }
+}
+
+//-->
+</script>
+
+</head>
+
+<body bgcolor="#ffffff" text="#" link="#" alink="#" vlink="#" topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
+<p>
+
+<div align="center">
+<table width="80%">
+<tr>
+<td align="right"><a href="javascript://" onclick="open_window('help_file.html',300,350,0,1);"><font face="verdana,arial,helvetica" size="2">help file</font></a></td>
+</tr>
+</table>
+<script language="javascript">
+<!--
+document.write(calendar);
+if(child && !child.closed) {
+child.focus();
+}
+//-->
+</script>
+</div>
+<p>
+
+</body>
+</html>

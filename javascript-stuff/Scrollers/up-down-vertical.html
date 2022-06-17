@@ -1,0 +1,169 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Scrolls:  Up & Down Vertical Scroller</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Mike McGrath (mike_mcgrath@lineone.net)">
+<META NAME="section" CONTENT="Scrolls">
+<META NAME="description" CONTENT="This script allows the user to scroll a vertical box up and down with two buttons.  Allows them to read the information at their own pace, or scroll back and read any information they wish.  The scroller window can also be set to open automatically!  Neat!">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /scrolls/"><font color="#FF0000"><b>Scrolls</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Up & Down Vertical Scroller</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+This script allows the user to scroll a vertical box up and down with two buttons.  Allows them to read the information at their own pace, or scroll back and read any information they wish.  The scroller window can also be set to open automatically!  Neat!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form>
+<input type=button value="Show Scroller" onClick="window.open('up-down-vertical-example.html','','width=325,height=400');">
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Scrolls:  Up & Down Vertical Scroller</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  4.08 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL UP & DOWN VERTICAL SCROLLER:
+
+  1.  Copy the scroller coding into the BODY of a new HTML page
+  2.  Add the second code into the BODY of the opening page  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into a new HTML file, name it scroller.html  --&gt;
+
+&lt;BODY&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Mike McGrath (mike_mcgrath@lineone.net) --&gt;
+&lt;!-- Web Site:  http://website.lineone.net/~mike_mcgrath/ --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var msg = "This page requires version 4 or later of\n Netscape Navigator or Internet Explorer"
+var dyn = (document.layers || document.all) ? true : alert(msg);
+var nav = (document.layers) ? true : false;
+var iex = (document.all) ? true : false;
+var lft = 10; // (window.screen.width/2);
+var pos = 10;   // initial top position
+var stp = 10;    // step increment size
+var spd = 150;   // speed of increment
+var upr = -390;  // upper limiter
+var lwr = 100;   // lower limiter
+var tim;         // timer variable
+function scroll_up() {
+if(pos &gt; upr) pos -= stp;
+do_scroll(pos);  
+tim = setTimeout("scroll_up()", spd);
+}
+
+function scroll_dn() {
+if(pos &lt; lwr) pos += stp;
+do_scroll(pos);
+tim = setTimeout("scroll_dn()", spd);
+}
+
+function do_scroll(pos) {
+if(iex) document.all.divTxt.style.top = pos;
+if(nav) document.divTxt.top = pos;
+}
+
+function no_scroll() {
+clearTimeout(tim);
+}
+
+var divTop_content="";
+
+if(iex) document.write('&lt;DIV ID="divTop" STYLE="position:absolute; top:0; left:'+lft+'; width:300; height:100; background-color:white; z-index:3"&gt;'+divTop_content+'&lt;/DIV&gt;');
+if(nav) document.write('&lt;LAYER ID="divTop" position="absolute" top="0" left="'+lft+'" width="300" height="100" bgcolor="white" z-index="3"&gt;'+divTop_content+'&lt;/LAYER&gt;');
+
+var divBtm_content =('&lt;HR&gt;&lt;TABLE BORDER="0" WIDTH="100%"&gt;&lt;TR&gt;&lt;TD ALIGN="left"&gt;&lt;A HREF="javascript://" ONMOUSEOVER="scroll_up()" ONMOUSEOUT="no_scroll()"&gt;SCROLL DOWN&lt;/A&gt;&lt;/TD&gt;&lt;TD ALIGN="right"&gt;&lt;A HREF="javascript://" ONMOUSEOVER="scroll_dn()" ONMOUSEOUT="no_scroll()"&gt;SCROLL UP&lt;/A&gt;&lt;/TD&gt;&lt;/TR&gt;&lt;/TABLE&gt;');
+
+if(iex) document.write('&lt;DIV ID="divBtm" STYLE="position:absolute; top:350; left:'+lft+'; width:300; height:800; background-color:white; z-index:2"&gt;'+divBtm_content+'&lt;/DIV&gt;');
+if(nav) document.write('&lt;LAYER ID="divBtm" position="absolute" top="350" left="'+lft+'" width="300" height="800" bgcolor="white" z-index="2"&gt;'+divBtm_content+'&lt;/LAYER&gt;');
+
+var divTxt_content = ('&lt;b&gt;These are ACTUAL letters to "Dear Abby"&lt;/b&gt;&lt;hr&gt;&lt;P&gt;&lt;br&gt;Dear Abby, I have a man I never could trust.  He cheats so much on me I\'m not even sure this baby I\'m carrying is his.&lt;P&gt;&lt;br&gt;Dear Abby, I am a twenty-three year old liberated woman who has been on the pill for two years.  It\'s getting expensive and I think my boyfriend should share half the cost, but I don\'t know him well enough to discuss money with him.&lt;P&gt;Dear Abby, I suspected that my husband had been fooling around, and when I confronted him with the evidence he denied everything and said it would never happen again.&lt;P&gt;Dear Abby, Our son writes that he is taking Judo.  Why would a boy who was raised in a good Christian home turn against his own?&lt;P&gt;Dear Abby, I joined the Navy to see the world.  I\'ve seen it.  Now how do I get out?&lt;P&gt;Dear Abby, I was married to Bill for three months and I didn\'t know he drank until one night he came home sober.&lt;P&gt;Dear Abby, My forty-year-old son has been paying a psychiatrist $50 an hour every week for two-and-a-half years.  He must be crazy.&lt;P&gt;Dear Abby, I have always wanted to have my family history traced, but I can\'t afford to spend a lot of money to do it.  Any suggestions?  Signed, Sam Dear Sam, Yes.  Run for public office.&lt;P&gt;');  
+
+if(iex) document.write('&lt;DIV ID="divTxt" STYLE="position:absolute; top:100; left:'+lft+'; width:300; font-family:verdana; font-size:10pt; background-color:white; z-index:1"&gt;'+divTxt_content+'&lt;/DIV&gt;');
+if(nav) document.write('&lt;LAYER ID="divTxt" position="absolute" top="100" left="'+lft+'" width="300" font-family="verdana" font-size="10pt" bgcolor="white" z-index="1"&gt;'+divTxt_content+'&lt;/LAYER&gt;');
+//  End --&gt;
+&lt;/script&gt;
+
+
+&lt;!-- STEP TWO: Add the second code into the BODY of the opening page  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form&gt;
+&lt;input type=button value="Show Scroller" onClick="window.open('scroller.html','','width=325,height=400');"&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+&lt;!-- Or make it open automatically with this code --&gt;
+
+&lt;script language="JavaScript"&gt;
+&lt;!-- Begin
+var popup = "no";  // just change "no" to "yes"
+
+if (popup == "yes") window.open('scroller.html','','width=325,height=400');
+// End --&gt;
+&lt;/script&gt;
+
+ 
+
+&lt;!-- Script Size:  4.08 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

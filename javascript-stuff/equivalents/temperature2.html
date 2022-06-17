@@ -1,0 +1,158 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Equivalents:  Temperature 2</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Equivalents">
+<META NAME="description" CONTENT="Another way to use JavaScript to find more temperature equivalents.">
+
+<script language = "javascript">
+function displayTemp(){
+if (document.forms[0].elements[1].checked){
+var tempVal = document.forms[0].yourInput.value
+var finalC = (tempVal-32)*5/9
+var finalTemp = Math.round(finalC) + " degrees Celcius"
+}
+if (document.forms[0].elements[2].checked){
+var tempVal = document.forms[0].yourInput.value
+var finalF = (tempVal*9/5)+32
+var finalTemp = Math.round(finalF) + " degrees Fahrenheit"
+}
+document.forms[1].result.value = finalTemp;
+}
+</script>
+
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /equivalents/"><font color="#FF0000">Equivalents</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Temperature 2</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Another way to use JavaScript to find more temperature equivalents.
+<br>
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<BODY BGCOLOR="#FFFFFF" vlink=#0000ff>
+<CENTER>
+<FORM>
+<INPUT TYPE="text" name="yourInput" size=8 value="" onChange="displayTemp();">
+<INPUT TYPE="radio" Name="F" Size=1 onclick="displayTemp();">Fahrenheit
+<INPUT TYPE="radio" Name="F" Size=1 onclick="displayTemp();">Celsius
+</FORM>
+<P>
+<FORM name=buttons>
+<Br>
+Is Equal to:<P>
+<INPUT TYPE="text" Name="result" Size=30 Value="">
+</FORM>
+</CENTER>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Equivalents:  Temperature 2</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.35 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL TEMPERATURE EQUIVALENTS 2:
+
+   1.  Put the designated code into the HEAD of your HTML document
+   2.  Paste the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+function displayTemp(){
+if (document.forms[0].elements[1].checked){
+var tempVal = document.forms[0].yourInput.value
+var finalC = (tempVal-32)*5/9
+var finalTemp = Math.round(finalC) + " degrees Celcius"
+}
+if (document.forms[0].elements[2].checked){
+var tempVal = document.forms[0].yourInput.value
+var finalF = (tempVal*9/5)+32
+var finalTemp = Math.round(finalF) + " degrees Fahrenheit"
+}
+document.forms[1].result.value = finalTemp;
+}
+&lt;/script&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;CENTER&gt;
+&lt;FORM&gt;
+&lt;INPUT TYPE="text" name="yourInput" size=8 value="" onChange="displayTemp();"&gt;
+&lt;INPUT TYPE="radio" Name="F" Size=1 onclick="displayTemp();"&gt;Fahrenheit
+&lt;INPUT TYPE="radio" Name="F" Size=1 onclick="displayTemp();"&gt;Celsius
+&lt;/FORM&gt;
+&lt;P&gt;
+&lt;FORM name=buttons&gt;
+&lt;Br&gt;
+&lt;Br&gt;
+Is Equal to:&lt;P&gt;
+&lt;INPUT TYPE="text" Name="result" Size=30 Value=""&gt;
+&lt;/FORM&gt;
+&lt;/CENTER&gt;
+
+ 
+
+&lt;!-- Script Size:  1.35 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

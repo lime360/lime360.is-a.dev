@@ -1,0 +1,28 @@
+<HTML>
+<HEAD>
+<SCRIPT LANGUAGE="JavaScript">
+
+
+
+<!-- Original:  Ronnie T. Moore, Editor -->
+<!-- Web Site:  JavaScript Source Code 3000 -->
+
+<!-- Begin
+var blank = " "; // blank page
+
+function showInfo(description) {
+with (parent.frames[1]) {
+document.open();
+document.write("<html><body>" + description + "</body></html>");
+document.close(); 
+   }
+}
+// End -->
+</SCRIPT>
+</HEAD>
+
+<frameset rows="*,100">
+  <frame src="item-info-frames-top.html" /navigation/item-info-frames-top.html">
+  <frame src="javascript:parent.blank" scrolling=no>
+</frameset>
+</HTML>

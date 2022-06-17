@@ -1,0 +1,99 @@
+<html>
+<head>
+<script language="JavaScript">
+ Begin
+<!--
+// Add the selected items in the parent by calling method of parent
+function addSelectedItemsToParent() {
+self.opener.addToParentList(window.document.forms[0].destList);
+window.close();
+}
+// Fill the selcted item list with the items already present in parent.
+function fillInitialDestList() {
+var destList = window.document.forms[0].destList; 
+var srcList = self.opener.window.document.forms[0].parentList;
+for (var count = destList.options.length - 1; count >= 0; count--) {
+destList.options[count] = null;
+}
+for(var i = 0; i < srcList.options.length; i++) { 
+if (srcList.options[i] != null)
+destList.options[i] = new Option(srcList.options[i].text);
+   }
+}
+// Add the selected items from the source to destination list
+function addSrcToDestList() {
+destList = window.document.forms[0].destList;
+srcList = window.document.forms[0].srcList; 
+var len = destList.length;
+for(var i = 0; i < srcList.length; i++) {
+if ((srcList.options[i] != null) && (srcList.options[i].selected)) {
+//Check if this value already exist in the destList or not
+//if not then add it otherwise do not add it.
+var found = false;
+for(var count = 0; count < len; count++) {
+if (destList.options[count] != null) {
+if (srcList.options[i].text == destList.options[count].text) {
+found = true;
+break;
+      }
+   }
+}
+if (found != true) {
+destList.options[len] = new Option(srcList.options[i].text); 
+len++;
+         }
+      }
+   }
+}
+// Deletes from the destination list.
+function deleteFromDestList() {
+var destList  = window.document.forms[0].destList;
+var len = destList.options.length;
+for(var i = (len-1); i >= 0; i--) {
+if ((destList.options[i] != null) && (destList.options[i].selected == true)) {
+destList.options[i] = null;
+      }
+   }
+}
+// End -->
+</SCRIPT>
+</head>
+<body onLoad="javascript:fillInitialDestList();">
+<center>
+<form method="POST">
+<table bgcolor="#FFFFCC">
+<tr>
+<td bgcolor="#FFFFCC" width="74">Available</td>
+<td bgcolor="#FFFFCC">&nbsp;</td>
+<td bgcolor="#FFFFCC" width="69">Selected</td>
+</tr>
+<tr>
+<td bgcolor="#FFFFCC" width="85">
+<select size="6" name="srcList" multiple>
+<option value="1">Item 1
+<option value="2">Item 2
+<option value="3">Item 3
+<option value="4">Item 4
+<option value="5">Item 5
+<option value="6">Item 6
+</select>
+</td>
+<td bgcolor="#FFFFCC" width="74" align="center">
+<input type="button" value=" >> " onClick="javascript:addSrcToDestList()">
+<br><br>
+<input type="button" value=" << " onclick="javascript:deleteFromDestList();">
+</td>
+<td bgcolor="#FFFFCC" width="69">
+<select size="6" name="destList" multiple>
+</select>
+</td>
+</tr>
+<tr>
+<td colspan=3 align="center">
+<input type="button" value="Done" onClick = "javascript:addSelectedItemsToParent()">
+</td>
+</tr>
+</table>
+</form>
+</body>
+</html>

@@ -1,0 +1,257 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  BG Effects:  Alien Spacecraft</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Brian Gosselin (bgaudiodr@aol.com)">
+<META NAME="section" CONTENT="BG Effects">
+<META NAME="description" CONTENT="An alien spacecraft hovers around the background of the page using JavaScript and DHTML.  Best used with a space background.  Cool!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Brian Gosselin (bgaudiodr@aol.com) -->
+<!-- Web Site:  http://www.bgaudiodr.iwarp.com -->
+
+
+
+
+<!-- Begin
+var isNS = ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) >= 4));
+var _all = '';
+var _style = '';
+var wwidth, wheight;
+var ydir = '++';
+var xdir = '++';
+var id1, id2, id3;
+var x = 1;
+var y = 1;
+var x1, y1;
+if(!isNS) {
+_all='all.';
+_style='.style';
+}
+function getwindowsize() {
+clearTimeout(id1);
+clearTimeout(id2);
+clearTimeout(id3);
+if (isNS) {
+wwidth = window.innerWidth - 55;
+wheight = window.innerHeight - 50;
+} else {
+wwidth = document.body.clientWidth - 55;
+wheight = document.body.clientHeight - 50;
+}
+id3 = setTimeout('randomdir()', 20000);
+animate();
+}
+function randomdir() {
+if (Math.floor(Math.random()*2)) {
+(Math.floor(Math.random()*2)) ? xdir='--': xdir='++';
+} else {
+(Math.floor(Math.random()*2)) ? ydir='--': ydir='++';
+}
+id2 = setTimeout('randomdir()', 20000);
+}
+function animate() {
+eval('x'+xdir);
+eval('y'+ydir);
+if (isNS) {
+pic1.moveTo((x+pageXOffset),(y+pageYOffset))
+} else {
+pic1.pixelLeft = x+document.body.scrollLeft;
+pic1.pixelTop = y+document.body.scrollTop;
+}
+if (isNS) {
+if (pic1.top <= 5+pageYOffset) ydir = '++';
+if (pic1.top >= wheight+pageYOffset) ydir = '--';
+if (pic1.left >= wwidth+pageXOffset) xdir = '--';
+if (pic1.left <= 5+pageXOffset) xdir = '++';
+} else {
+if (pic1.pixelTop <= 5+document.body.scrollTop) ydir = '++';
+if (pic1.pixelTop >= wheight+document.body.scrollTop) ydir = '--';
+if (pic1.pixelLeft >= wwidth+document.body.scrollLeft) xdir = '--';
+if (pic1.pixelLeft <= 5+document.body.scrollLeft) xdir = '++';
+}
+id1 = setTimeout('animate()', 30);
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff text="white" OnLoad="getwindowsize()" OnResize="getwindowsize()" background="../img/alien-spacecraft/space.jpg" /img/alien-spacecraft/space.jpg">
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /bgeffects/"><font color="#FF0000"><b>BG Effects</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Alien Spacecraft</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+An alien spacecraft hovers around the background of the page using JavaScript and DHTML.  Best used with a space background.  Cool!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<div id="pic1" style="position:absolute; visibility:visible; left:0px; top:0px; z-index:-1">
+<img src="../img/alien-spacecraft/alien.gif" /img/alien-spacecraft/alien.gif" border="0">
+</div>
+
+<script language="javascript">
+var pic1=eval('document.'+_all+'pic1'+_style);
+</script>
+You must also save these images<br>
+to your server to use this script.<br>
+Right-click the images below and<br>
+select "Save Image As..."<br><br>
+<img src="../img/alien-spacecraft/space.jpg" /img/alien-spacecraft/space.jpg" width=50 height=50 border=1><br><br>
+<img src="../img/alien-spacecraft/alien.gif" /img/alien-spacecraft/alien.gif" width=50 height=50 border=1><br><br>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva" color="black"><b>JavaScript Source Code 3000:  BG Effects:  Alien Spacecraft</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.62 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL ALIEN SPACECRAFT:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the onLoad event handler into the BODY tag
+  3.  Put the last coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Brian Gosselin (bgaudiodr@aol.com) --&gt;
+&lt;!-- Web Site:  http://www.bgaudiodr.iwarp.com --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var isNS = ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) &gt;= 4));
+var _all = '';
+var _style = '';
+var wwidth, wheight;
+var ydir = '++';
+var xdir = '++';
+var id1, id2, id3;
+var x = 1;
+var y = 1;
+var x1, y1;
+if(!isNS) {
+_all='all.';
+_style='.style';
+}
+function getwindowsize() {
+clearTimeout(id1);
+clearTimeout(id2);
+clearTimeout(id3);
+if (isNS) {
+wwidth = window.innerWidth - 55;
+wheight = window.innerHeight - 50;
+} else {
+wwidth = document.body.clientWidth - 55;
+wheight = document.body.clientHeight - 50;
+}
+id3 = setTimeout('randomdir()', 20000);
+animate();
+}
+function randomdir() {
+if (Math.floor(Math.random()*2)) {
+(Math.floor(Math.random()*2)) ? xdir='--': xdir='++';
+} else {
+(Math.floor(Math.random()*2)) ? ydir='--': ydir='++';
+}
+id2 = setTimeout('randomdir()', 20000);
+}
+function animate() {
+eval('x'+xdir);
+eval('y'+ydir);
+if (isNS) {
+pic1.moveTo((x+pageXOffset),(y+pageYOffset))
+} else {
+pic1.pixelLeft = x+document.body.scrollLeft;
+pic1.pixelTop = y+document.body.scrollTop;
+}
+if (isNS) {
+if (pic1.top &lt;= 5+pageYOffset) ydir = '++';
+if (pic1.top &gt;= wheight+pageYOffset) ydir = '--';
+if (pic1.left &gt;= wwidth+pageXOffset) xdir = '--';
+if (pic1.left &lt;= 5+pageXOffset) xdir = '++';
+} else {
+if (pic1.pixelTop &lt;= 5+document.body.scrollTop) ydir = '++';
+if (pic1.pixelTop &gt;= wheight+document.body.scrollTop) ydir = '--';
+if (pic1.pixelLeft &gt;= wwidth+document.body.scrollLeft) xdir = '--';
+if (pic1.pixelLeft &lt;= 5+document.body.scrollLeft) xdir = '++';
+}
+id1 = setTimeout('animate()', 30);
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Insert the event handlers into your BODY tag  --&gt;
+
+&lt;BODY OnLoad="getwindowsize()" OnResize="getwindowsize()" background="space.jpg"&gt;
+
+&lt;!-- STEP THREE: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;div id="pic1" style="position:absolute; visibility:visible; left:0px; top:0px; z-index:-1"&gt;
+&lt;img src="alien.gif" border="0"&gt;
+&lt;/div&gt;
+
+&lt;script language="javascript"&gt;
+var pic1=eval('document.'+_all+'pic1'+_style);
+&lt;/script&gt;
+
+
+ 
+
+&lt;!-- Script Size:  2.62 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>
+
+
+

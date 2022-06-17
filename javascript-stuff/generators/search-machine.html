@@ -1,0 +1,707 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Code Generators:  Site Search Machine</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Code Generators">
+<META NAME="description" CONTENT="This script creates an internal site search engine for up to 8 web pages on your site, automatically.  It indexes webpages and generates a complete file, including the HTML and the JavaScript code for the search.  Just fill in the information for each page you wish to add,  or even you can paste that page's HTML
+source code in the textbox and let the script extract the text from it.  When you are finished, you will have your own site search script, for free!  And, we can even mail the generated code to you!  Just upload it as is.  Easy!  :-)">
+
+<SCRIPT LANGUAGE = "JavaScript">
+<!-- Begin
+var email = GetCookie('email_address');
+if (email == null) {
+email = 'your email here';
+}
+function getCookieVal (offset) {
+var endstr = document.cookie.indexOf (";", offset);
+if (endstr == -1)
+endstr = document.cookie.length;
+return unescape(document.cookie.substring(offset, endstr));
+}
+function GetCookie (name) {
+var arg = name + "=";
+var alen = arg.length;
+var clen = document.cookie.length;
+var i = 0;
+while (i < clen) {
+var j = i + alen;
+if (document.cookie.substring(i, j) == arg)
+return getCookieVal (j);
+i = document.cookie.indexOf(" ", i) + 1;
+if (i == 0)
+break;}
+return null;}
+function SetCookie (name, value) {var argv = SetCookie.arguments;
+var argc = SetCookie.arguments.length;
+var expires = (argc > 2) ? argv[2] : null;
+var path = (argc > 3) ? argv[3] : null;
+var domain = ".internet.com";
+// (argc > 4) ? argv[4] : null;
+var secure = (argc > 5) ? argv[5] : false;
+document.cookie = name + "=" + escape (value) +
+((expires == null) ? "" : ("; expires=" +
+expires.toGMTString())) +
+((path == null) ? "" : ("; path=" + path)) +
+((domain == null) ? "" : ("; domain=" + domain)) +
+((secure == true) ? "; secure" : "");}
+
+function checkCodeMail() {
+invalid = ""
+email = document.mail.user.value;
+code = document.mail.source.value;
+if (code == "") {
+invalid += "Before you can send your code to yourself you need to ";
+invalid += "follow the instructions above to output the code.  When "
+invalid += "the code has been generated, click \"Done\" to email it!\r\n\r\n";}
+if (email.indexOf("@")<1 || email == "your email here" || email == "") {
+invalid += "Invalid email address!  Be sure that in your email address ";
+invalid += "you included your Username, the '@' Sign, and the Domain Name.";}
+if (invalid == "") {
+doAd();
+return true;
+}
+else {
+alert(invalid);
+return false;}}
+function doAd() {
+pathname = location.pathname;
+myDomain = pathname.substring(0,pathname.lastIndexOf('/')) +'/';
+var largeExpDate = new Date ();
+largeExpDate.setTime(largeExpDate.getTime() + (24 * 3600 * 1000));
+SetCookie('email_address',email,largeExpDate,myDomain);
+page = "http://javascript.internet.com/sent.html?" + email;
+window.open(page, "AdWindow", "width=515,height=150");
+return true;}
+function uncode() {
+smut="&lt;";
+replacewords="< ";
+txt=document.mail.source2.value;
+tstx="";
+space=replacewords.indexOf(" ");
+wrd=replacewords.substring(0,space);
+wrdl=wrd.length
+replacewords=replacewords.substring(space+1,replacewords.length);
+while (txt.indexOf(wrd)>-1){
+space=txt.indexOf(wrd);
+txt=txt.substring(0,space)+smut+txt.substring((space+wrdl),txt.length);}
+smut="&gt;";
+replacewords="> ";
+space=replacewords.indexOf(" ");
+wrd=replacewords.substring(0,space);
+wrdl=wrd.length
+replacewords=replacewords.substring(space+1,replacewords.length);
+while (txt.indexOf(wrd)>-1){
+space=txt.indexOf(wrd);
+txt=txt.substring(0,space)+smut+txt.substring((space+wrdl),txt.length);}
+document.mail.source2.value=txt;}
+// End -->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<P>
+<center>
+
+	
+<P>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /generators/"><font color="#FF0000">Generators</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Search Machine</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica, verdana, arial" size="2">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+This script creates an internal site search engine for up to 8 web pages on your site, automatically.  It indexes webpages and generates a complete file, including the HTML and the JavaScript code for the search.  Just fill in the information for each page you wish to add,  or even you can paste that page's HTML
+source code in the textbox and let the script extract the text from it.  When you are finished, you will have your own site search script, for free!  And, we can even mail the generated code to you!  Just upload it as is.  Easy!  :-)
+</font>
+<br>
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<font face="arial, helvetica" size="-1"><b>Click the "Start" or "Instructions" button to begin.</b></font>
+<br>
+<SCRIPT TYPE="text/javascript">
+var nVer = navigator.appVersion;
+var fullVersion = parseFloat(nVer);
+if (fullVersion < 4) { document.write("<DIV ALIGN=\"CENTER\"><BR><BR>Your Browser is not new enough to utilize this Script.<BR>You should upgrade your Browser to a newer Version.<BR>Click on one of the Links below, they will contact you with<BR><BR><A HREF='http://www.microsoft.com/msdownload/iebuild/ie501_win32/en/ie501_win32.htm?FinishURL=%2Fdownloads%2Frelease%2Easp%3FReleaseID%3D15568%26redirect%3Dno'target=_blank><B>MICROSOFT</B></A><BR><BR>or with<BR><BR><A HREF='http://home.netscape.com/computing/download/index.html?cp=hom03p1'target=_blank><B>NETSCAPE</B></A><BR><BR>You can download there the newest Versions for free.</DIV>")
+}
+else
+{
+if(navigator.appName == "Microsoft Internet Explorer")
+{
+size = 35;
+size2 = 76;
+size3 = 118;
+sea = 40;
+tex = 90;
+fon = "X-SMALL";
+fon2 = "XX-SMALL";
+}
+else
+{
+sea = 25;
+tex = 80;
+fon = "SMALL";
+fon2 = "X-SMALL";
+size = 26;
+size2 = 53;
+size3 = 81
+}
+Basic = true;
+Okay = false;
+Sayfa = 0;
+star = 0;
+Generator = 0;
+Generator2 = 0;
+sifre = 0;
+duzen = 0;
+document.write("<STYLE TYPE=\"text/css\">BODY{BACKGROUND-COLOR:#E0E0E0}TD{COLOR:#333333;FONT-SIZE:" + fon2 + ";FONT-FAMILY:Ms Sans Serif}A:LINK{COLOR:#000099;TEXT-DECORATION:NONE}A:VISITED{COLOR:#000099;TEXT-DECORATION:NONE}A:ACTIVE,A:HOVER{COLOR:#000000}SPAN.HEA{COLOR:#000000;FONT-FAMILY:VERDANA;FONT-SIZE:LARGE;FONT-STYLE:ITALIC;FONT-WEIGHT:BOLD}SPAN.HEA2{COLOR:#FF0000;FONT-FAMILY:VERDANA;FONT-SIZE:LARGE;FONT-STYLE:ITALIC;FONT-WEIGHT:BOLD}SPAN.VERS{COLOR:#666666;FONT-FAMILY:VERDANA;FONT-SIZE:" + fon + ";FONT-WEIGHT:BOLD}</STYLE></HEAD><BODY>")
+document.write("<FORM><TABLE BORDER=\"0\" CELLSPACING=\"0\" CELLPADDING=\"0\" ALIGN=\"CENTER\"><TR><TD COLSPAN=\"3\" ALIGN=\"CENTER\"><SPAN CLASS=\"HEA\">Search Machine&nbsp;&nbsp;</SPAN><SPAN CLASS=\"HEA2\">Generator&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</SPAN><SPAN CLASS=\"VERS\">Version: 2.4.8</SPAN></TD></TR><TR><TD COLSPAN=\"3\"><TEXTAREA NAME=\"Machine\" COLS=\"" + tex + "\" ROWS=\"5\"></TEXTAREA></TD></TR><TR><TD><INPUT TYPE=\"BUTTON\" VALUE=\"START\" onClick=\"basla()\"> <INPUT TYPE=\"BUTTON\" VALUE=\"Preview\" onClick=\"Preview()\"> <INPUT TYPE=\"BUTTON\" VALUE=\"Clear\" onClick=\"Clear()\"> <INPUT TYPE=\"BUTTON\" VALUE=\"Undo\" NAME=\"GeriAl\" DISABLED onClick=\"Undo()\"></TD><TD COLSPAN=\"2\" ALIGN=\"RIGHT\">")
+if(navigator.appName == "Microsoft Internet Explorer")
+{
+document.write("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"TEXT\" SIZE=\"20\" NAME=\"SAYFA\" onFocus=\"document.forms[0].Machine.focus();\" style=\"background-color: #E0E0E0; color: #666666; font-family: Ms Sans Serif; font-size: xx-small; font-weight: bold; border: medium solid #E0E0E0\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<INPUT TYPE=\"TEXT\" SIZE=\"18\" NAME=\"BYTES\" VALUE=\"Total Bytes: \" onFocus=\"document.forms[0].Machine.focus();\" style=\"background-color: #E0E0E0; color: #666666; font-family: Ms Sans Serif; font-size: xx-small; font-weight: bold; border: medium solid #E0E0E0\">&nbsp;")
+}
+else
+{
+document.write("&nbsp;")
+}
+document.write("<INPUT TYPE=\"BUTTON\" VALUE=\"Protect Code\" onClick=\"sifrele();\"></TD></TR><TR><TD HEIGHT=\"45\" VALIGN=\"BOTTOM\"><B>Page - URL:</B><BR><INPUT NAME=\"URL\" SIZE=\"" + size + "\">&nbsp;&nbsp;</TD><TD COLSPAN=\"2\" VALIGN=\"BOTTOM\"><B>Title:</B><BR><INPUT NAME=\"TITLE\" SIZE=\"" + size2 + "\"></TD></TR><TR><TD COLSPAN=\"3\" ALIGN=\"CENTER\" VALIGN=\"BOTTOM\"><B>Description:</B><BR><TEXTAREA NAME=\"DESCRIPTION\" COLS=\"" + tex + "\" ROWS=\"2\"></TEXTAREA></TD></TR></TR><TD COLSPAN=\"3\" ALIGN=\"CENTER\" VALIGN=\"BOTTOM\"><B>Page Keywords (You may paste your HTML code in here):</B><BR><TEXTAREA NAME=\"TEXT\" COLS=\"" + tex + "\" ROWS=\"3\"></TEXTAREA><BR><INPUT TYPE=\"BUTTON\" VALUE=\"Add This Page\" ONCLICK=\"uygula();\"> or... <INPUT TYPE=\"BUTTON\" VALUE=\"Get Title from text field\" ONCLICK=\"tit();\"> <INPUT TYPE=\"BUTTON\" VALUE=\"Remove HTML from text field\" ONCLICK=\"cevir();\"> <INPUT TYPE=\"BUTTON\" VALUE=\"Remove Line Breaks\" ONCLICK=\"hizala();hizala2();\"> </TD></TR><TR><TD VALIGN=\"BOTTOM\"><B>Name of your Site:</B><BR><INPUT NAME=\"ISIM\" SIZE=\"" + size + "\"></TD><TD VALIGN=\"BOTTOM\"><B>E-mail Name:</B> ( will be seen on the page )<BR><INPUT NAME=\"ELINK\" SIZE=\"" + size + "\"></TD><TD HEIGHT=\"45\" VALIGN=\"BOTTOM\"><B>E-mail Link: </B>( your e-mail address ( optional ) )<BR><INPUT NAME=\"MAIL\" SIZE=\"" + size + "\"></TD></TR><TR><TD><B>Detailed Results Page:</B> &nbsp;&nbsp;<SELECT NAME=\"OUT\"><OPTION VALUE=\"false\">No</OPTION><OPTION VALUE=\"true\">Yes</OPTION></SELECT></TD><TD ALIGN=\"CENTER\"><INPUT TYPE=\"BUTTON\" VALUE=\"GENERATE  CODE\" onClick=\"generate();\"></TD><TD ALIGN=\"RIGHT\"><INPUT TYPE=\"BUTTON\" VALUE=\"Instructions\" onClick=\"Instruct();\"></TD></TR><TR><TD COLSPAN=\"2\" VALIGN=\"BOTTOM\" HEIGHT=\"40\">")
+document.write("</TD><TD ALIGN=\"RIGHT\" VALIGN=\"BOTTOM\">Powered by <A HREF=\"mailto:cenk@yurtseven.com?subject=Posted from Search Machine Web Site.&body=Dear Cenk,\">Cenk Yurtseven</A> &copy;2000</TD></TR></TABLE></FORM>")
+function Preview()
+{
+win = window.open("","","scrollbars=1,menubar=1,status=1,width=710,height=310,left=35,top=110")
+win.document.write(document.forms[0].Machine.value)
+}
+function Favori(){
+editor=window.external.AddFavorite("http://www.netchampion.com./", "Search Machine JavaScript Generator")
+}
+function Clear()
+{
+if(Basic)
+{
+Okay = true;
+{
+if(navigator.appName == "Microsoft Internet Explorer")
+{
+document.forms[0].GeriAl.disabled = false;
+}
+Value1 = document.forms[0].Machine.value;
+document.forms[0].Machine.value = "";
+document.forms[0].URL.value = "";
+document.forms[0].TITLE.value = "";
+document.forms[0].DESCRIPTION.value = "";
+document.forms[0].TEXT.value = "";
+document.forms[0].MAIL.value = "";
+document.forms[0].ELINK.value = "";
+document.forms[0].ISIM.value = "";
+}
+}
+}
+function Undo()
+{
+if(Basic)
+{
+if(!Okay)
+{
+Error()
+}
+else
+{
+document.forms[0].Machine.value = Value1;
+if(navigator.appName == "Microsoft Internet Explorer")
+{
+document.forms[0].GeriAl.disabled = true;
+}
+}
+}
+}
+function Bytes()
+{
+document.forms[0].BYTES.value = "Total Bytes: " + document.forms[0].Machine.value.length;
+setTimeout("Bytes()","3000")
+}
+if(navigator.appName == "Microsoft Internet Explorer")
+{
+Bytes();
+}
+function Sayfalar()
+{
+if(Sayfa == 0)
+{
+Say = "";
+sayf = "";
+}
+else
+{
+Say = Sayfa
+}
+if(Sayfa == 1)
+{
+sayf = "Page was added"
+}
+if (Sayfa >= 2)
+{
+sayf = "Pages were added"
+}
+document.forms[0].SAYFA.value = Say + " " + sayf;
+setTimeout("Sayfalar()","1")
+}
+if(navigator.appName == "Microsoft Internet Explorer")
+{
+Sayfalar();
+}
+function basla()
+{
+if (document.forms[0].Machine.value != "")
+{
+alert("For a new Start you must delete the current document first !")
+}
+else
+{
+var doc = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\"><HTML><HEAD><META HTTP-EQUIV=\"Content-Type\" CONTENT=\"text/html; charset= iso-8859-1\"><TITLE>Search Machine<\/TITLE><SCR"+"IPT TYPE=\"text\/javascript\">Cy=new Array();";
+document.forms[0].Machine.value += doc;
+document.forms[0].Machine.focus();
+document.forms[0].GeriAl.disabled = true;
+{
+if (star == 0)
+{
+confirm("C O N G R A T U L A T I O N S  !\n\nThe Basics were added.\n\nFrom now on, fill in the fields an press the  GET  CODE  button !")
+}
+star += 1;
+Generator = 0;
+Generator2 = 0;
+Sayfa = 0;
+sifre = 0;
+}
+}
+}
+function tit()
+{
+if (document.forms[0].TITLE.value != "")
+{
+return false;
+}
+else
+{
+Donus = document.forms[0].TEXT.value;
+DONUS = document.forms[0].TEXT.value.toUpperCase();
+Begin = DONUS.indexOf("<TITLE>");
+Ende = DONUS.indexOf("</TITLE>");
+Son = Donus.substring((Begin+7),Ende);
+document.forms[0].TITLE.value = Son;
+document.forms[0].TITLE.focus();
+}
+}
+function cevir()
+{
+if(Basic)
+{
+Okay = true;
+{
+if(navigator.appName == "Microsoft Internet Explorer")
+{
+document.forms[0].GeriAl.disabled = true;
+}
+Prova = window.document.forms[0].elements['TEXT'].value;
+Provabit = Taglar(Prova);
+window.document.forms[0].elements['TEXT'].value = Provabit;
+}
+}
+}
+function Taglar(DOk)
+{
+Cy = DOk.indexOf("<");
+cY = DOk.indexOf(">");
+Taglar2 = DOk.length;
+Cc = DOk.substring(0, Cy);
+if(cY == -1)
+cY = Cy;
+cC = DOk.substring((cY + 1), Taglar2);
+Son1 = Cc + cC;
+CccY = Son1.indexOf("<");
+if(CccY != -1)
+Son1 = Taglar(Son1);
+return Son1;
+}
+function hizala()
+{
+var Metin = "";
+var tus;
+var uzluk = document.forms[0].TEXT.value.length;
+for(var i  = 0; i < uzluk; i++)
+{
+tus = document.forms[0].TEXT.value.charAt(i);
+if( tus <= " ")
+{
+if( document.forms[0].TEXT.value.charAt(i+1) != " ")
+Metin += " ";
+}
+else if( tus == "\"" )
+{		
+i++;
+Metin += "&quot;";
+}
+else if( tus == "<" )
+{		
+i++;
+Metin += "&lt;";
+}
+else if( tus == ">" )
+{		
+i++;
+Metin += "&gt;";
+}
+else
+{
+Metin += document.forms[0].TEXT.value.charAt(i);
+}
+}
+document.forms[0].TEXT.value = Metin;
+}
+function hizala2()
+{
+var Metin = "";
+var tus;
+var uzluk = document.forms[0].TEXT.value.length;
+for(var i = 0; i < uzluk; i++)
+{
+tus = document.forms[0].TEXT.value.charAt(i);
+if( tus <= " ")
+{
+if( document.forms[0].TEXT.value.charAt(i+1) != " ")
+Metin += " ";
+}
+else if( tus == "\"" )
+{		
+i++;
+Metin += "&quot;";
+}
+else if( tus == "<" )
+{		
+i++;
+Metin += "&lt;";
+}
+else if( tus == ">" )
+{		
+i++;
+Metin += "&gt;";
+}
+else
+{
+Metin += document.forms[0].TEXT.value.charAt(i);
+}
+}
+document.forms[0].TEXT.value = Metin;
+}
+function sifrele()
+{
+if (sifre >= 1 && Generator >= 1 )
+{
+alert ("This function works only once !")
+}
+if (Generator == 0 )
+{
+confirm ("PROTECT CODE  function works only when the complete code is generated.")
+}
+Value1 = document.forms[0].Machine.value;
+if (Generator == 1 && sifre == 0 )
+{
+if(Basic)
+{
+Okay = true;
+if (confirm ("This function of  Search Machine  protects the code completely.\n\nBut it is nearly impossible to edit the code then !\n\nUse this option only when you do not want to make any more changes to the code."))
+{
+if(navigator.appName == "Microsoft Internet Explorer")
+{
+document.forms[0].GeriAl.disabled = false;
+}
+Code = escape(document.forms[0].Machine.value)
+document.forms[0].Machine.value = "<SCRIPT LANGUAGE=\"JavaScript\">\n<!--\nCodeCY = \"" + Code + "\";\ndocument.write(unescape(CodeCY));\n//-->\n</S" + "CRIPT>";
+document.forms[0].Machine.focus();
+sifre += 1;
+alert("haaaaaaaaaahhhhhhhhhh ............\n\nYour Code is completely protected now.\n\nYou may restore the normal version by using the  UNDO  button.")
+}
+else
+{
+document.forms[0].Machine.focus();
+}
+}
+}
+}
+function bosluk()
+{
+if (document.forms[0].Machine.value.length < 222 && star == 0)
+{
+return false
+}
+else
+{
+var tit = "";
+var desc = "";
+var Metin = "";
+var tus1;
+var tus2;
+var tus3;
+var uzluk1 = document.forms[0].TITLE.value.length;
+var uzluk2 = document.forms[0].DESCRIPTION.value.length;
+var uzluk3 = document.forms[0].TEXT.value.length;
+for(var i1 = 0; i1 < uzluk1; i1++)
+{
+tus1 = document.forms[0].TITLE.value.charAt(i1);
+if( tus1 <= " ")
+{
+if( document.forms[0].TITLE.value.charAt(i1+1) != " ")
+tit += " ";
+}
+else if( tus1 == "\"" )
+{		
+i1++;
+tit += "&quot;";
+}
+else if( tus1 == "<" )
+{		
+i1++;
+tit += "&lt;";
+}
+else if( tus1 == ">" )
+{		
+i1++;
+tit += "&gt;";
+}
+else
+{
+tit += document.forms[0].TITLE.value.charAt(i1);
+}
+}
+document.forms[0].TITLE.value = tit;
+for(var i2 = 0; i2 < uzluk2; i2++)
+{
+tus2 = document.forms[0].DESCRIPTION.value.charAt(i2);
+if( tus2 <= " ")
+{
+if( document.forms[0].DESCRIPTION.value.charAt(i2+1) != " ")
+desc += " ";
+}
+else if( tus2 == "\"" )
+{		
+i2++;
+desc += "&quot;";
+}
+else if( tus2 == "<" )
+{		
+i2++;
+desc += "&lt;";
+}
+else if( tus2 == ">" )
+{		
+i2++;
+desc += "&gt;";
+}
+else
+{
+desc += document.forms[0].DESCRIPTION.value.charAt(i2);
+}
+}
+document.forms[0].DESCRIPTION.value = desc;
+for(var i3 = 0; i3 < uzluk3; i3++)
+{
+tus3 = document.forms[0].TEXT.value.charAt(i3);
+if( tus3 <= " ")
+{
+if( document.forms[0].TEXT.value.charAt(i3+1) != " ")
+Metin += " ";
+}
+else if( tus3 == "\"" )
+{		
+i3++;
+Metin += "&quot;";
+}
+else if( tus3 == "<" )
+{		
+i3++;
+Metin += "&lt;";
+}
+else if( tus3 == ">" )
+{		
+i3++;
+Metin += "&gt;";
+}
+else
+{
+Metin += document.forms[0].TEXT.value.charAt(i3);
+}
+}
+document.forms[0].TEXT.value = Metin;
+}
+}
+function uygula()
+{
+if (document.forms[0].Machine.value.length < 222 )
+{
+alert("Please, click the  START  button before adding pages!")
+}
+else if ( Generator > 0 )
+{
+alert ("           IT 's  ALLREADY  DONE !\n\nThe Code can be generated only once,\n\nUse the PREVIEW button to view your new page.")
+}
+else if (Sayfa >= 8)
+{
+alert ("Sorry ....!!!  This Demo Version of Search Machine,\n\ngenerates up to 8 pages only !")
+}
+else if ((document.forms[0].URL.value == "")||(document.forms[0].URL.value == "http://"))
+{
+alert("Please fill in the  URL  Address field !\n\nInclude \" http:// \" for external links only !")
+}
+else if (document.forms[0].TITLE.value == "")
+{
+alert("Please fill in the  TITLE  field !")
+}
+else if (document.forms[0].DESCRIPTION.value == "")
+{
+alert("Please fill in the  DESCRIPTION  field !")
+}
+else if (document.forms[0].TEXT.value == "")
+{
+alert("Please fill in the  TEXT  field !")
+}
+else
+{
+if(Basic)
+{
+Okay = true;
+if (confirm (("Page  # ") + (Sayfa + 1) + ("  will be added.")))
+{
+if(navigator.appName == "Microsoft Internet Explorer")
+{
+document.forms[0].GeriAl.disabled = true;
+}
+Sayfa += 1;
+var say = ("Cy[" + Sayfa + "]=new Array(\""); var ur=document.forms[0].URL.value; var url=("" + ur + "\",\""); var titl=document.forms[0].TITLE.value; var title = ("\",\"") + titl; var descript = document.forms[0].DESCRIPTION.value; var description = ("\",\"") + descript; var bod=document.forms[0].TEXT.value; var TeXt = ("\",\"" + bod + "\");");
+Value1 = document.forms[0].Machine.value;
+document.forms[0].URL.value = "";
+document.forms[0].TITLE.value = "";
+document.forms[0].DESCRIPTION.value = "";
+document.forms[0].TEXT.value = "";
+document.forms[0].Machine.value += say + url + titl + description + TeXt;
+document.forms[0].Machine.focus();
+}
+else
+{
+document.forms[0].Machine.focus();
+}
+}
+}
+}
+function generate()
+{
+var C = "\\";
+var dt = document.forms[0].OUT.value
+var mail = document.forms[0].MAIL.value;
+var name = document.forms[0].ISIM.value;
+var elink = document.forms[0].ELINK.value;
+var CONT = "<B><SMALL><A HREF=" + C + "\"mailto:" + mail + "?subject=Posted from " + name + " Web Site.&body=Dear " + elink + "," +C + "\"><SPAN CLASS=" + C + "\"Cyxz" + C + "\">" + elink + "</SPAN></A></SMALL></B>";
+var cont = "<A HREF=\"mailto:" + mail + "?subject=Posted from " + name + " Web Site.&body=Dear " + elink + "," + "\"><SPAN CLASS=\"Cyxz\">"+  elink + "</SPAN></A>";
+if (document.forms[0].Machine.value.length < 222)
+{
+alert("Please, beginn with the  START  button !")
+}
+else if (Generator > 0)
+{
+alert ("           IT 's  ALLREADY  DONE !\n\nThe Code can be generated only once,\n\nUse the PREVIEW button to view your new page.")
+}
+else if (Sayfa == 0)
+{
+alert("Please, fill in the fields for your page !")
+}
+else if (name == "")
+{
+alert("Please enter the name of your site in the form then submit again.")
+}
+else
+{
+if(Basic)
+{
+Okay = true;
+if (confirm ("The  FINAL  CODE  will be created."))
+{
+if(navigator.appName == "Microsoft Internet Explorer")
+{
+document.forms[0].GeriAl.disabled = true;
+}
+if (mail == "")
+{
+cont = "";
+CONT = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+}
+if (mail == "" && elink != "")
+{
+cont = "<SPAN CLASS=\"Cyxz\">"+  elink + "</SPAN>";
+CONT = "<SPAN CLASS=" + C + "\"Cyxz" + C + "\">" + elink + "</SPAN>";
+}
+Generator += 1;
+Generator2 += 1;
+document.forms[0].Machine.value += "var V0=0;var Va=1;var Vb=2;var Vc=3;var Vd=4;var Ve=5;var Vf=6;var Vg=7;var Vh=8;var gS;var va;var vb;var vc;var Ak;var g1=true;var v1=1;var v2=2;var v3=3;var v4=4;var DT=" + dt + ";var G2=true;var ln=\"<SPAN CLASS=" + C + "\"Cyxz" + C + "\">Powered by </SPAN><A HREF=" + C + "\"http://www.netchampion.com/" + C + "\"><SPAN CLASS=" + C + "\"Cyxz" + C + "\">Cenk Yurtseven</SPAN></A><SPAN CLASS=" + C + "\"Cyxz" + C + "\">&nbsp;&copy; 2000</SPAN>\";var fn=\"Do not remove this! Powered by Cenk Yurtseven*&copy; 2000 http://www.netchampion.com/SearchMachine/\";function F1(A1){if((A1>=\"a\"&&A1<=\"z\")||(A1==\"&\")||(A1>=\"A\"&&A1<=\"Z\")||(A1>=\"0\"&&A1<=\"9\")){return true;}else{return false;}}function F2(A2,A3,A4){var A5=Cy[A2][A3].toUpperCase();var A6,A7,A8;var A9=0;Cy[A2][Ve]=0;A6=A5.indexOf(A4);while(A6>=0){A9=A9+A6+1;if((vb==-2)||(vb==-5)){A7=false;}else{if(A6==0){A7=false;}else{A7=F1(A5.charAt(A6-1));}}if((vb==-3)||(vb==-5)){A8=false;}else{if(A5.length-A6==A4.length){A8=false;}else{A8=F1(A5.charAt(A6+A4.length));}}if(!A7&&!A8){Cy[A2][Vh+Cy[A2][Ve]]=A9-1;Cy[A2][Ve]++;}A5=A5.substring(A6+1,A5.length);while(F1(A5.charAt(0))&&A5.length>0){A5=A5.substring(1,A5.length);A9++;}A6=A5.indexOf(A4);}}function F3(A2,A4){var A3=-1,B1;Cy[A2][Vd]=-1;while(++A3<=Vc&&Cy[A2][Vd]==-1){B1=A3==0?Va:(A3==1?V0:(A3==2?Vb:Vc));F2(A2,B1,A4);if(Cy[A2][Ve]>0){Cy[A2][Vd]=B1;}}}function F4(){var A2,A3,B2,B3;for(A2=1;A2<Cy.length;A2++){Cy[A2][Vg]=A2;}if(g1){for(A2=1;A2<Cy.length;A2++){if(Cy[A2][Vd]==Va){Cy[A2][Vf]=45000;}else if(Cy[A2][Vd]==Vb){Cy[A2][Vf]=30000;}else if(Cy[A2][Vd]==V0){Cy[A2][Vf]=15000;}else{Cy[A2][Vf]=Cy[A2][Ve];}}for(A2=2;A2<Cy.length;A2++){B2=Cy[A2][Vf];B3=Cy[A2][Vg];for(A3=A2;A3>1&&B2>Cy[A3-1][Vf];A3--){Cy[A3][Vf]=Cy[A3-1][Vf];Cy[A3][Vg]=Cy[A3-1][Vg];}Cy[A3][Vf]=B2;Cy[A3][Vg]=B3;}}}function F5(A2){var B4=Cy[A2][Ve]==1?\"\":\"s\";gS+=\"<BR><SPAN CLASS=" + C + "\"GRAY" + C + "\">\";gS+=\"(\"+Cy[A2][Ve]+\" quote\"+B4+\")\";gS+=\"</SPAN>\";}function F6(A2,B5){var B6;var B7;var B8=false;var B9=Cy[A2][Vh+B5-1];B6=B9<30?B6=0:B6=B9-30;B7=(B9+30>Cy[A2][Vc].length)?B7=Cy[A2][Vc].length:B7=B9+30;while((B6>=0)&&!B8){if(F1(Cy[A2][Vc].charAt(B6))){B6--;}else{B8=true;}}B6++;B8=false;while((B7>B9)&&!B8){if(F1(Cy[A2][Vc].charAt(B7))){B7--;}else{B8=true;}}gS+=\"<BR>&quot;...\"+Cy[A2][Vc].substring(B6,B9);gS+=\"<B><SPAN CLASS=" + C + "\"RED" + C + "\">\"+Cy[A2][Vc].substring(B9,B9+va.length)+\"</SPAN></B>\";gS+=Cy[A2][Vc].substring(B9+va.length,B7)+\"...&quot;\";}function F7(A2){if(DT){for(var A3=1;A3<=Cy[A2][Ve];A3++){F6(A2,A3);}}else{F6(A2,1);}if(G2){F5(A2);}}function F8(A5,B9){gS+=A5.substring(0,B9);gS+=\"<B>\"+A5.substring(B9,B9+va.length)+\"</B>\";gS+=A5.substring(B9+va.length,A5.length);}function F9(A2,C1){gS+=\"<DL><DT><B>\"+C1+\".\";gS+=\"<A HREF=" + C + "\"\"+Cy[A2][V0]+\"" + C + "\" TARGET=" + C + "\"_BLANK" + C + "\">\"+Cy[A2][Va]+\"</A></B><DD><SPAN CLASS=" + C + "\"Cyxz" + C + "\">\";gS+=\"URL:</SPAN>&nbsp;&nbsp;<SPAN CLASS=" + C + "\"Cyxb" + C + "\">\";{gS+=Cy[A2][V0]+\"</SPAN>\";}if(Cy[A2][Vd]==Vb){gS+=\"<BR>\";F8(Cy[A2][Vb],Cy[A2][Vh]);}else{if(Cy[A2][Vb].length>0){gS+=\"<BR>\"+Cy[A2][Vb];}else{}}if(Cy[A2][Vd]==Vc){F7(A2);}else{gS+=\"\";}gS+=\"</DD></DL>\";};function F10(){var C1=0;if(!(vc)){if((Cy.length<10)&&(ln.length==(Vd*Ve*Vh+Vb))&&(fn.length==(Vc*Vh*Vd+3))){for(var A2=1;A2<Cy.length;A2++){if(Cy[Cy[A2][Vg]][Ve]>0){F9(Cy[A2][Vg],++C1);}}}}else{if(vb==-4){gS+=\"<BR><BR><B><SPAN CLASS=" + C + "\"RED" + C + "\">Ooops:</SPAN></B>&nbsp;The Asterisk (*) character must be at the beginning or end of the text.\";}}}function F11(){gS+=\"<!DOCTYPE HTML PUBLIC " + C + "\"-//W3C//DTD HTML 4.0 Transitional//EN" + C + "\"><HTML><HEAD><META HTTP-EQUIV=" + C + "\"Content-Type" + C + "\"CONTENT=" + C + "\"text/html;charset=iso-8859-9" + C + "\"><TITLE>Searching for &quot;\"+Ak+\"&quot;</TITLE><META NAME=" + C + "\"author" + C + "\"CONTENT=" + C + "\"" + elink + "" + C + "\"><STYLE TYPE=" + C + "\"text/css" + C + "\">BODY{BACKGROUND-COLOR:#FFFFF6;COLOR:#000066}TD{FONT-SIZE:" + fon + ";FONT-FAMILY:Verdana}A:LINK{COLOR:#000FFF}A:VISITED{COLOR:#800FFF}A:ACTIVE,A:HOVER{COLOR:#FF0000}SPAN.RED{COLOR:#FF0000;FONT-WEIGHT:BOLD}SPAN.Cyxz{FONT-SIZE:" + fon2 + "}SPAN.Cyxb{FONT-SIZE:" + fon2 + ";FONT-WEIGHT:BOLD}SPAN.GRAY{COLOR:#999999;FONT-SIZE:" + fon2 + "}SPAN.HEADER{COLOR:#FFFFFF;FONT-SIZE:X-LARGE;FONT-STYLE:ITALIC}</STYLE></HEAD><BODY><TABLE WIDTH=" + C + "\"100%" + C + "\" BORDER=" + C + "\"0" + C + "\" CELLPADDING=" + C + "\"0" + C + "\" CELLSPACING=" + C + "\"0" + C + "\"><TR><TD COLSPAN=" + C + "\"4" + C + "\" BGCOLOR=" + C + "\"#99FFFF" + C + "\"></TD><TD ROWSPAN=" + C + "\"2" + C + "\" BGCOLOR=" + C + "\"#0066CC" + C + "\"></TD></TR><TR><TD BGCOLOR=" + C + "\"#99FFFF" + C + "\"></TD><TD COLSPAN=" + C + "\"3" + C + "\" BGCOLOR=" + C + "\"#33CCFF" + C + "\" ALIGN=" + C + "\"CENTER" + C + "\"><BR><BR><B><SPAN CLASS=" + C + "\"HEADER" + C + "\">" + name + "</SPAN></B><BR><BR></TD></TR><TR><TD COLSPAN=" + C + "\"5" + C + "\" BGCOLOR=" + C + "\"#0066CC" + C + "\"></TD></TR><TR><TD ROWSPAN=" + C + "\"3" + C + "\" BGCOLOR=" + C + "\"#CCCCCC" + C + "\"></TD><TD ALIGN=" + C + "\"CENTER" + C + "\" VALIGN=" + C + "\"BOTTOM" + C + "\" BGCOLOR=" + C + "\"#BBEEFF" + C + "\" NOWRAP>&nbsp;&nbsp;" + CONT + "&nbsp;&nbsp;<BR><BR></TD><TD>&nbsp;&nbsp;&nbsp;&nbsp;</TD><TD><BR><BR>\";gS+=\"Searching for: <B><SPAN CLASS=" + C + "\"RED" + C + "\">\"+Ak+\"</SPAN></B>\";}function F12(){var C2=0;if(!(vc)){for(var A2=1;A2<Cy.length;A2++){if(Cy[A2][Ve]>0){C2++;}}}if(C2==0){gS+=\"<br><br>Sorry, no pages matched your search.&nbsp;&nbsp;\";}else{var B4=C2==1?\"\":\"s\";gS+=\"<BR>\"+C2+\" Web Page\"+B4+\" listed.&nbsp;&nbsp;\";}gS+=\"<A HREF=" + C + "\"javascript:history.go(-1)" + C + "\"><B>Search again</B></A><BR><BR><BR></TD><TD BGCOLOR=" + C + "\"#808080" + C + "\"></TD></TR><TR><TD COLSPAN=" + C + "\"4" + C + "\" BGCOLOR=" + C + "\"#0099CC" + C + "\"></TD></TR><TR><TD COLSPAN=" + C + "\"3" + C + "\" ALIGN=" + C + "\"RIGHT" + C + "\"><BR>\";gS+=ln.substring(0,162)+\"&nbsp;&nbsp;<BR><BR></TD><TD BGCOLOR=" + C + "\"#808080" + C + "\"></TD></TR><TR><TD COLSPAN=" + C + "\"5" + C + "\" BGCOLOR=" + C + "\"#808080" + C + "\"></TD></TR></TABLE></BODY></HTML>\"}function F13(){var C3=gS;document.open();document.write(C3);document.close();}function F14(A5){var C4=\"\";for(var A2=0;A2<A5.length;A2++){if(A5.charAt(A2)==\"<\"){C4+=\"&lt;\";}else if(A5.charAt(A2)==\">\"){C4+=\"&gt;\";}else if(A5.charAt(A2)==\"" + C + "\"\"){C4+=\"&quot;\";}else{C4+=A5.charAt(A2);}}return (C4);}function F15(){vb=va.indexOf(fn.substring((Vf*Vc*2+(2*Vd+1)),ln.length/3-8));if(vb==0){vb=-2;vc=false;}else if(vb==va.length-1){vb=-3;vc=false;}else if(vb>0){vb=-4;vc=true;}else{vc=false;}if(va.indexOf(fn.substring((Vh*5+5),ln.length/3-8))!=va.lastIndexOf(fn.substring((Vf*Vc*2+(2*Vd+1)),ln.length/Vc-Vh))){if(vb==-2){if(va.lastIndexOf(fn.substring((Vf*Vc*2+(2*Vd+1)),ln.length/Vc-Vb*Vd))==va.length-1){vb=-5;}else{vb=-4;vc=true;}}}if((vb==-2)||(vb==-5)){va=va.substring(1,va.length);}if((vb==-3)||(vb==-5)){va=va.substring(0,va.length-1);}}function geronimo(){var A4;va=document.forms[0].MACHINE.value;if(va.length>0){gS=\"\";Ak=va;va=F14(va);F15();A4=va.toUpperCase();if(!(vc)){for(var A2=1;A2<Cy.length;A2++){F3(A2,A4);}F4();}F11();F10();F12();F13();}}\n<\/SCR"+"IPT><STYLE TYPE=\"text/css\">BODY{BACKGROUND-COLOR:#FFFFF6;COLOR:#000066;FONT-SIZE:" + fon + ";FONT-FAMILY:Verdana}SPAN.Cyxz{FONT-SIZE:" + fon2 + "}SPAN.HEADER{COLOR:#000FFF;FONT-SIZE:X-LARGE;FONT-STYLE:ITALIC}<\/STYLE><\/HEAD><BODY><DIV ALIGN=\"center\"><B><SPAN CLASS=\"HEADER\">" + name + "<\/SPAN><\/B><BR><BR>The Search will find pages on this entire Site.<FORM ACTION=\"javascript:geronimo()\/\/\"><INPUT TYPE=\"text\" NAME=\"MACHINE\" SIZE=\"" + sea + "\">&nbsp;<INPUT TYPE=\"SUBMIT\" VALUE=\"Search\"><BR><\/FORM>For detailed Search type two words or a phrase.<BR><BR>Use an asterisk (*) as a wildcard character.<\/DIV><BR><BR><BR>" + cont + "<\/BODY><\/HTML>"
+document.forms[0].Machine.focus();
+document.mail.source.value = document.forms[0].Machine.value;
+document.mail.source2.value = document.forms[0].Machine.value;
+document.mail.source.focus();
+uncode();
+}
+}
+}
+}
+function Instruct()
+{
+win = window.open("","","scrollbars=1,width=600,height=450,left=100,top=100")
+win.document.write("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\"><HTML><HEAD><TITLE>Search Machine Generator - Instructions</TITLE><META NAME=\"Author\" CONTENT=\"Cenk Yurtseven\"><STYLE TYPE=\"text/css\">BODY {background-color: #FFFFF9; font-family: Verdana; font-size: " + fon + "; color: #333333}span.header1{font-family: Verdana; font-style: italic; font-size: large; font-weight: bold; color: #0000CC}span.header2{font-family: Verdana; font-style: italic; font-size: large; font-weight: bold; color: #CC0000}span.sm{font-family: Verdana; font-size: " + fon + "; font-weight: bold; color: #0000CC}span.cp{font-family: Verdana; font-size: " + fon2 + "; color: #666666}span.sr{font-family: Verdana; font-size: " + fon + "; font-weight: bold; color: #000000; text-decoration: underline}span.sr{font-family: Verdana; font-size: " + fon + "; font-weight: bold; color: #000000; text-decoration: underline}A:LINK,A:VISITED{text-decoration: none; color: #000099}A:HOVER{text-decoration: none; color: #FF0000}</STYLE>\n<SCR"+"IPT TYPE=\"text\/javascript\">\nfunction Favori(){editor=window.external.AddFavorite(\"http:\/\/www.netchampion.com\", \"Search Machine Online Generator\")}\n</SCR"+"IPT></HEAD><BODY><DIV ALIGN=\"CENTER\"><SPAN CLASS=\"header1\">Search Machine&nbsp;&nbsp;</SPAN><SPAN CLASS=\"header2\">Online Generator</SPAN><BR><B>Tutorial</B><BR><BR><BR></DIV><DL><DT><B>With this Editor,</B><DD> you can generate your own <B><SPAN CLASS=\"sm\">Search Machine</SPAN></B> ( Site - Search - Engine ).</DD></DL><DL><DT><B>Easy to use,</B><DD>press the<SPAN CLASS=\"sm\"> &quot; Start &quot; </SPAN>button and fill in the forms required.</DD></DL><DL><DT><B>The more excactly</B><DD> you fill in the forms, the more beautyfull will be the Results Page.<BR><BR><SMALL>Use &quot; <B>http://</B>...... &quot; in the URL Address field when you index pages with external Urls in the World Wide Web.</SMALL></DD></DL><DL><DT><B>Clean Up</B><DD> all your pages to be indexed, by pressing the <SPAN CLASS=\"sm\"> &quot;Clean Up&quot;</SPAN> button before you add them to the code. You save space and the code is cleaned up from unuseable characters.</DD></DL><DL><DT><B>After adding</B><DD> all your pages to the index, press the <SPAN CLASS=\"sm\"> &quot;Generate Code&quot;</SPAN> button.<BR><BR><SMALL>Accidentaly deleted codes, can be taken back by pressing the <B>&quot; Undo &quot;</B> button.<BR>If the <B>Undo</B> button is <B>enabled</B> it will restore the previous document.</SMALL></DD></DL><DL><DT><B>Detailed Results</B><DD>This option gives you the chance to choose whether your <SPAN CLASS=\"sm\"> &quot;Search Machine&quot;</SPAN> shall have a detailed Results Page or not.</DD></DL><DL><DT><B>Finish</B><DD> your work by saving the generated page as a <B>htm</B> or <B>html</B> file in the same directory of the pages you have indexed.<BR>You <SPAN CLASS=\"sm\">can not</SPAN> save your work by using the <SPAN CLASS=\"sm\">&quot;Save As&quot;</SPAN> option in your Browser. You must <SPAN CLASS=\"sm\">copy</SPAN> the document from the <SPAN CLASS=\"sm\">&quot;Generated Text Area&quot;</SPAN> with Right-Click and save it in your HTML-Editor or in Notepad as a <SPAN CLASS=\"sm\">HTML</SPAN> or <SPAN CLASS=\"sm\">HTM</SPAN> File.<BR><SMALL><B>Netscape Browsers:</B> in the Preview window the Search works only once or may be not. So you need to save your work.<BR>If you don't see anything in the Preview Window, don't worry! Save your work as a <B>htm</b> or <B>html</B> file first. It will work then.</SMALL></DD></DL><BR><B><SPAN CLASS=\"sr\">Advantages of Search Machine:</SPAN></B><DL><DT><B><SPAN CLASS=\"sm\">Search Machine</SPAN></B>,<DD> scans the indexes in less than 1 second and prints out the Results immediately.</DD></DL><DL><DT><SPAN CLASS=\"sm\">Search Machine</SPAN>,<DD> works even on Servers without CGI Support.</DD></DL><DL><DT><SPAN CLASS=\"sm\">Search Machine </SPAN><DD> has an integrated <SPAN CLASS=\"sm\">&quot; Clean up Source &quot; </SPAN> function. This function cleans up the Source from empty spaces and characters which may damage the JavaScript code.</DD></DL><DL><DT><SPAN CLASS=\"sm\">Search Machine </SPAN><DD> also has an <SPAN CLASS=\"sm\">&quot; HTML Extractor &quot;</SPAN>. Thanks this function, you don't have to type the Text of your <B>HTML</B> page in the Text-Field. Just copy the whole <B>HTML-File</B> as it is and paste it into the Text-Field. Press the <SPAN CLASS=\"sm\">&quot; Extract HTML &quot; </SPAN> button and <SPAN CLASS=\"sm\">Search Machine </SPAN>will extract all HTML Tags and format it to a <B>Text-File</B>.<BR><BR><SMALL>Don't worry, if your Computer does not respond for a while when you use this function. Large files need some more time to be converted. </SMALL></DD></DL><DL><DT><SPAN CLASS=\"sm\">Search Machine </SPAN><DD> further has a <SPAN CLASS=\"sm\">&quot; Protect Code &quot; </SPAN> function. This function protects the Source Code of your generated page in a very special way. But it's heavy to make any changes to the code later. After protecting the code, you may restore the normal version by using the <SPAN CLASS=\"sm\">&quot; Undo &quot; </SPAN> button.<BR>So, be carefull with this function. It is recommended only when you do not want to make any more changes to the code.<BR>Even JavaScript programmers have difficulties to edit a protected code.<BR><BR><SMALL><B>Note:</B> protecting the Code will increase the Document Weight more than 50%.</SMALL></DD></DL><DL><DT><SPAN CLASS=\"sm\">Search Machine</SPAN>,<DD>itself is a 100% pure JavaScript. And even the Results Page is<BR><B>HTML 4.0 Transitional</B> without any faults<BR>This document itself is pure <B>XHTML 1.0 Transitional.</B><BR><BR>Inspected and certified by: &nbsp;&nbsp;<A HREF=\"http://validator.w3.org/check/referer?uri=http%3A%2F%2Fvalidator.w3.org%2Fcheck%2Freferer \"><B> validator.w3.org &nbsp;&nbsp;&nbsp;&nbsp;</B><IMG SRC=\"http://validator.w3.org/images/vxhtml10\" ALT=\"Valid XHTML 1.0!\" HEIGHT=\"31\" WIDTH=\"88\" BORDER=\"0\"></A></DD></DL><BR><BR><DL><DT><SMALL><B>This Free Version</B></SMALL><DD><SMALL> of <B>Search Machine</B>, indexes up to 8 pages. The &quot;Powered by Cenk Yurtseven&quot; letters cannot be deleted.<BR>If deleted or changed, the program stops working any more.</SMALL></DD></DL><DL><DT><SMALL><B>The Full Version</B></SMALL><DD><SMALL>of <B>Search Machine</B>, generates up to unlimited numbers of pages, is available for $ 20.<BR>With the Full Version, <BR>you can chose the Colors and Fonts and there is no Copyright sentence.</SMALL></DD></DL><DL><DT><DD><FORM><SPAN CLASS=\"sm\">Search Machine </SPAN>is a frequently developing JavaScript Generator.<BR><BR>")
+win.document.write("<SPAN CLASS=\"cp\">Powered by <A HREF=\"mailto:cenk@yurtseven.com?subject=Posted from Search Machine Web Site.&body=Dear Cenk,\">Cenk Yurtseven</A> &copy;2000</SPAN></DD></DL><DIV ALIGN=\"CENTER\"><FORM><INPUT TYPE=\"BUTTON\" VALUE=\"   OK   \" ONCLICK=\"self.close()\"></FORM></DIV></BODY></HTML>")
+}
+}
+</SCRIPT>
+</center>
+
+<p>
+<center>
+<form name="mail" action="http://javascript.internet.com/cgi-bin/code-mail.cgi" method="POST" onSubmit="return checkCodeMail()">
+<input type=hidden name=scriptname value="Search Machine">
+<table bgcolor="dedfdf" border="2" cellpadding="4" width=400>
+<tr><td align=center>
+<textarea name="source" rows=12 cols=80></textarea><br>
+<input type="hidden" name="source2"><br>
+<font size="2" face="arial">"Cut and Paste" the code above, or....</font><br><br>
+<table cellpadding=20 cellspacing=0 border=1>
+<tr bgcolor=#ebebeb><td align=center><tt>We'll send your generated code to you!<p></tt>
+<SCRIPT>
+<!-- Begin
+document.write('<input type=text size=25 name=user value="'+email+'" onfocus=\"select()\">');
+// End -->
+</SCRIPT>
+<NOSCRIPT>
+<input type=text size=25 name=email value="your email here">
+</NOSCRIPT>
+<input type=submit value="Send it!"><p><font size="-2">(just click "Send it!" once!)</font>
+</td>
+</tr>
+</table></td><p></tr>
+</table>
+</form>
+</center>
+</FONT>
+</CENTER>
+
+</CENTER>

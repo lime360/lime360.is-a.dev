@@ -1,0 +1,274 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Calculators:  Playoff Chart Maker</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Tom McComb (mrtuba@tampabay.rr.com)">
+<META NAME="section" CONTENT="Calculators">
+<META NAME="description" CONTENT="Enter the number of teams in your tournament and JavaScript will output the appropriate single-elimination playoff chart.  Just print it out and fill it in to track your tournament.  Great!">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /calculators/"><font color="#FF0000"><b>Calculators</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Playoff Chart Maker</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Enter the number of teams in your tournament and JavaScript will output the appropriate single-elimination playoff chart.  Just print it out and fill it in to track your tournament.  Great!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<form>
+<p>
+<font face="arial, helvetica" size="-1"><a href="playoff-chart-demo.html" /calculators/playoff-chart-demo.html" target="_new">View the Playoff Chart Demo</a> <p>(opens in a new window, simply close it when you are finished)</font>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Calculators:  Playoff Chart Maker</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  5.23 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- SIX STEPS TO INSTALL PLAYOFF CHART MAKER:
+
+  1.  Copy the coding into a new HTML document (frameset)
+  2.  Save the HTML document as playoff-chart.html
+  3.  Add the remaing HEAD and BODY sections into a new page
+  4.  Save the chart images to your server and change variable
+  5.  Save this HTML page as playoff-chart-top.html  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into a new document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;html&gt;
+&lt;head&gt;
+&lt;script&gt;
+empty = "&lt;html&gt;&lt;body&gt; &lt;/body&gt;&lt;/html&gt;";
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;frameset rows="97,*" frameborder=1&gt;
+&lt;frame name=header scrolling=no noresize target=main src="playoff-chart-top.html"&gt;
+&lt;frame name=main src="javascript:parent.empty;"&gt;
+&lt;noframes&gt;
+Oops!  Your browser doesn't support frames.
+&lt;/noframes&gt;
+&lt;/frameset&gt;
+&lt;/html&gt;
+
+&lt;!-- STEP TWO: Save the above file as playoff-chart.html  --&gt;
+
+&lt;!-- STEP THREE: Copy the file below into a new HTML window  --&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Tom McComb (mrtuba@tampabay.rr.com) --&gt;
+&lt;!-- Web Site:  http://home.tampabay.rr.com/mrtuba --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+
+// You may download the image ZIP file from URL:
+../img/playoff-chart/playoff-chart.zip
+
+image_directory = "http://WWW.your-web-site-address-here.com/where/you/put/the/playoff/chart/images/";
+
+// Be sure to leave the last '/' in the image_directory variable when you change it
+
+
+//  STEP FOUR: be sure to change the above line to where you saved the images !!
+
+
+function GeneratePlayoffs(TeamCountString) {
+var TeamSet = new Array();
+var GameSet = new Array();
+var MaxLevel = 1;
+var TeamCount = parseInt(document.forms[0].TeamCount.value)
+var OldTeam;
+var nextGame = 1;
+var Parent = new Array(4);
+var ParentNum;
+TeamSet[1] = 1;
+if (TeamCount &lt; 2) {
+alert("You cannot have playoffs without at least two teams.");
+return false;
+}
+MaxLevel++;
+var HalfCount = 3;
+for (var ThisTeam = 2; ThisTeam &lt;= TeamCount; ThisTeam++) {
+window.status = "Building Playoffs - " + ThisTeam;
+if (ThisTeam == HalfCount) {
+HalfCount = (2 * HalfCount) - 1;
+MaxLevel++;
+}
+OldTeam = HalfCount - ThisTeam;
+if (ThisTeam == 2) {
+TeamSet[2] = 1;
+GameSet[1] = newGame(0, 1, 2, true, true);
+}
+else {
+ParentNum = TeamSet[OldTeam];
+Parent = GameSet[ParentNum];
+if (Parent[1] == OldTeam) {
+GameSet[ParentNum] = newGame(Parent[0], nextGame, Parent[2], false, Parent[4]);
+}
+else {
+GameSet[ParentNum] = newGame(Parent[0], Parent[1], nextGame, Parent[3], false);
+}
+GameSet[nextGame] = newGame(ParentNum, OldTeam, ThisTeam, true, true);
+}
+TeamSet[ThisTeam] = nextGame;
+TeamSet[OldTeam] = nextGame;
+nextGame++;
+}
+var ThisLevel = MaxLevel + 1;
+var LevelStatus = new Array(ThisLevel);
+var doc = parent.frames[1].document;
+doc.clear();
+doc.writeln("&lt;font size=6&gt;&lt;b&gt;Playoff Chart for " + TeamCount + " Teams&lt;/b&gt;&lt;p&gt;");
+doc.write('&lt;table cellspacing=0 cellpadding=0&gt;&lt;tr&gt;&lt;td&gt;#&lt;/td&gt;');
+
+for (var x = 0; x &lt;= MaxLevel; x++) {
+LevelStatus[x] = 0;
+if (x &gt; 0) doc.write("&lt;td align=center&gt;Rnd " + x + " &lt;/td&gt;");
+}
+doc.writeln("&lt;/tr&gt;");
+var Bit = "";
+var GameCount = 0;
+GameCount = sendGame(GameSet, LevelStatus, MaxLevel - 1, 1, TeamCount, GameCount);
+doc.write("&lt;/table&gt;");
+doc.close();
+}
+function sendGame(GameSet, LevelStatus, ThisLevel, OneGame, total, howfar) {
+var GameNum = OneGame;
+var Game = new Array(4);
+Game = GameSet[GameNum];
+if (Game[3]) {
+howfar = sendTeam(Game[1], LevelStatus, GameNum, ThisLevel - 1, total, howfar);
+}
+else {
+howfar = sendGame(GameSet, LevelStatus, ThisLevel - 1, Game[1], total, howfar);
+}
+howfar = sendTeam(0, LevelStatus, GameNum, ThisLevel, total, howfar);
+if (Game[4]) {
+howfar = sendTeam(Game[2], LevelStatus, GameNum, ThisLevel - 1, total, howfar);
+}
+else {
+howfar = sendGame(GameSet, LevelStatus, ThisLevel - 1, Game[2], total, howfar);
+}
+return howfar;
+}
+function newGame(Parent, First, Second, FirstIsTeam, SecondIsTeam) {
+var Game = new Array(4);
+Game[0] = Parent;
+Game[1] = First;
+Game[2] = Second;
+Game[3] = FirstIsTeam;
+Game[4] = SecondIsTeam;
+return Game;
+}
+function increment(GameStatus) {
+GameStatus++;
+if (GameStatus == 4)
+GameStatus = 0;
+return GameStatus;
+}
+function sendTeam(TeamNumber, LevelStatus, GameNum, ThisLevel, total, howfar) {
+var CellStart = "&lt;td&gt;";
+var CellEnd = "&lt;/td&gt;";
+var Entries = new Array(4);
+Entries[0] = CellStart + " " + CellEnd;
+Entries[1] = CellStart + '&lt;img src = "' + image_directory + 'top.gif"&gt;' + CellEnd;
+Entries[2] = CellStart + '&lt;img src = "' + image_directory + 'mid.gif"&gt;' + CellEnd;
+Entries[3] = CellStart + '&lt;img src = "' + image_directory + 'low.gif"&gt;' + CellEnd;
+Entries[4] = CellStart + '&lt;img src = "' + image_directory + 'non.gif"&gt;' + CellEnd;
+LevelStatus[ThisLevel] = increment(LevelStatus[ThisLevel]);
+if (TeamNumber == 0) {
+var Outline = Entries[0];
+}
+else {
+howfar++;
+var Outline = CellStart + "&lt;center&gt;" + TeamNumber + "&lt;/center&gt;" + CellEnd;
+}
+for (var x = 0; x &lt; LevelStatus.length - 2; x++) {
+if (x == 0 && TeamNumber != 0&&LevelStatus[x] == 0) {
+Outline = Outline + Entries[4];
+}
+else {
+Outline = Outline + Entries[LevelStatus[x]];
+   }
+}
+if (GameNum == 1 && TeamNumber == 0)
+Outline = Outline + Entries[4];
+parent.frames[1].document.writeln("&lt;tr&gt;" + Outline + "&lt;/tr&gt;");
+LevelStatus[ThisLevel] = increment(LevelStatus[ThisLevel]);
+return howfar;
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;base target="main"&gt;
+&lt;/HEAD&gt;
+
+&lt;BODY&gt;
+
+&lt;p&gt;
+&lt;font face="arial, helvetica" size="-1"&gt;This page builds a single-elimination tournament based on the number of teams.  Enter the number of teams, then click "Go!"&lt;/font&gt;
+&lt;p&gt;
+&lt;form&gt;
+&lt;b&gt;Number of Teams:&lt;/b&gt;
+&lt;input type=text name=TeamCount size=6 value=2&gt;
+&lt;input type=button value="Go!" name=GoButton onClick="GeneratePlayoffs();"&gt;
+&lt;/form&gt;
+
+&lt;!-- STEP FIVE: Save the above file as playoff-chart-top.html  --&gt;
+
+ 
+
+&lt;!-- Script Size:  5.23 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

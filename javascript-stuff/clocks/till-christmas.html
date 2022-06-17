@@ -1,0 +1,154 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Clocks:  Till Christmas</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Clocks">
+<META NAME="description" CONTENT="Let your visitors know how many more days until Christmas.  On the day before Christmas, the script indicates that it is Christmas Eve.  You may also see how the script reacts to different dates by changing the date on your computer then reloading the script.">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /clocks/"><font color="#FF0000"><b>Clocks</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Till Christmas</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Let your visitors know how many more days until Christmas.  On the day before Christmas, the script indicates that it is Christmas Eve.  You may also see how the script reacts to different dates by changing the date on your computer then reloading the script.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<SCRIPT LANGUAGE="JavaScript">
+
+
+
+
+<!-- Begin
+var day_description = "Christmas";
+var day_before = "Christmas Eve";
+
+var today = new Date();
+var year = today.getYear();
+if ((navigator.appName == "Microsoft Internet Explorer") && (year < 2000))		
+year="19" + year;
+if (navigator.appName == "Netscape")
+year=1900 + year;
+var date = new Date("December 25, " + year);
+var diff = date.getTime() - today.getTime();
+var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+document.write("<center><h3>")
+
+if (days > 1)
+document.write("There are " + (days+1) + " days until " + day_description + "!");
+else if (days == 1)
+document.write("Tommorrow is " + day_before  + "!");
+else if (days == 0)
+document.write("Today is " + day_before + "!");
+else if (days == -1)
+document.write("It's " + day_description + "!");
+else if (days < -1)
+document.write(day_description + " was " + ((days+1)*-1) + (days < -2 ? " days" : " day") + " ago this year!");
+document.write("</h3></center>");
+//  End -->
+</script>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Clocks:  Till Christmas</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.34 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- ONE STEP TO INSTALL TILL CHRISTMAS:
+
+  1.  Copy the coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var day_description = "Christmas";
+var day_before = "Christmas Eve";
+
+var today = new Date();
+var year = today.getYear();
+if ((navigator.appName == "Microsoft Internet Explorer") && (year &lt; 2000))		
+year="19" + year;
+if (navigator.appName == "Netscape")
+year=1900 + year;
+var date = new Date("December 25, " + year);
+var diff = date.getTime() - today.getTime();
+var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+document.write("&lt;center&gt;&lt;h3&gt;")
+
+if (days &gt; 1)
+document.write("There are " + (days+1) + " days until " + day_description + "!");
+else if (days == 1)
+document.write("Tommorrow is " + day_before  + "!");
+else if (days == 0)
+document.write("Today is " + day_before + "!");
+else if (days == -1)
+document.write("It's " + day_description + "!");
+else if (days &lt; -1)
+document.write(day_description + " was " + ((days+1)*-1) + (days &lt; -2 ? " days" : " day") + " ago this year!");
+document.write("&lt;/h3&gt;&lt;/center&gt;");
+//  End --&gt;
+&lt;/script&gt;
+
+ 
+
+&lt;!-- Script Size:  1.34 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

@@ -1,0 +1,271 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Forms:  Selection Validation</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Forms">
+<META NAME="description" CONTENT="Use JavaScript to ensure that visitors choose both a radio button and a checkbox.  Invalid submissions are cancelled.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--  Begin
+var menu_selection="";
+var radio_selection="";
+function  checkForm() {
+if (dropDownMenu() && radioButtons()) {
+document.forms[0].results1.value=menu_selection;
+document.forms[0].results2.value=radio_selection;
+alert("\nForm has been filled out correctly.");
+   }
+}
+function dropDownMenu(form)  {
+var myindex=document.forms[0].menu.selectedIndex;
+if (myindex==0) {
+alert("\nYou must make a selection from the drop-down menu.");
+document.forms[0].menu.focus();
+}
+else {
+menu_selection=document.forms[0].menu.options[myindex].value;
+return true;
+   }
+}
+function radioButtons() {
+if (radio_selection=="")
+alert("\nYou must check one of the radio buttons.");
+else {
+return true;
+   }
+}
+function resetForm() {
+document.forms[0].menu.options[0].selected = true;
+menu_selection="";
+radio_selection="";
+}
+function about() {
+alert("\nVALIDATOR checks to see that a selection has been made from  the drop-down menu and that a radio button has been checked.\n\nIf filled out properly, the data will be displayed below.");
+}
+// End -->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /forms/" ><font color="#FF0000">Forms</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Select Validation</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<TABLE BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><TD><font FACE=" helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Use JavaScript to ensure that visitors choose both a radio button and a checkbox.  Invalid submissions are cancelled.
+<br>
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<BODY>
+<CENTER>
+<FORM>
+<TABLE BORDER=4  WIDTH=500>
+<TR>
+<TD align="center"><FONT SIZE=+1><B>MENU</B></FONT>
+<TD align="center"><FONT SIZE=+1><B>RADIOS</B></FONT>
+</TR>
+<TR>
+<TD align="center"><SELECT NAME="menu" SIZE=1>
+<OPTION SELECTED VALUE=""> --- How many times have you been to TJS?  ---
+<OPTION VALUE="one">Once
+<OPTION VALUE="two">Twice
+<OPTION VALUE="three">Three times
+<OPTION VALUE="four">Four times
+<OPTION VALUE="five">Five times
+<OPTION VALUE="six">Six times
+<OPTION VALUE="seven">Seven times
+<OPTION VALUE="eight">Eight times
+<OPTION VALUE="nine">Nine times
+<OPTION VALUE="ten">Ten+ times
+</SELECT>
+<TD align="center"><BR>Will you be back to TJS?<br>
+<INPUT TYPE="radio" NAME="radiobutton" onClick="radio_selection='yes'">YES
+<INPUT TYPE="radio" NAME="radiobutton" onClick="radio_selection='no'">NO
+<INPUT TYPE="radio" NAME="radiobutton" onClick="radio_selection='maybe'">MAYBE
+</TR>
+</TABLE>
+<BR>
+<TABLE BORDER=0 WIDTH=400>
+<TD align="center"><INPUT TYPE="reset"   VALUE="Reset" onClick="resetForm()">
+<TD align="center"><INPUT TYPE="button" VALUE="Check Form Fields" onClick="checkForm()">
+<TD align="center"><INPUT TYPE="button" VALUE="About" onClick="about()">
+</TABLE>
+<BR>
+<TABLE BORDER=4 WIDTH=250>
+<TR>
+<TD align="center">MENU: 
+<TD align="center">RADIO:
+</TR>
+<TR>
+<TD align="center"><INPUT  TYPE="text"  NAME="results1" SIZE=7>
+<TD align="center"><INPUT  TYPE="text"  NAME="results2" SIZE=7>
+</TR>
+</TABLE>
+<BR>
+</FORM>
+</CENTER>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Forms:  Selection Validation</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  3.04 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL SELECTION VALIDATION:
+
+   1.  Paste the coding into the HEAD of your HTML document
+   2.  Put the last code into the BODY of your HTML document  --&gt;
+
+&lt;!--  STEP ONE: Copy this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!--  Begin
+var menu_selection="";
+var radio_selection="";
+function  checkForm() {
+if (dropDownMenu() && radioButtons()) {
+document.forms[0].results1.value=menu_selection;
+document.forms[0].results2.value=radio_selection;
+alert("\nForm has been filled out correctly.");
+   }
+}
+function dropDownMenu(form)  {
+var myindex=document.forms[0].menu.selectedIndex;
+if (myindex==0) {
+alert("\nYou must make a selection from the drop-down menu.");
+document.forms[0].menu.focus();
+}
+else {
+menu_selection=document.forms[0].menu.options[myindex].value;
+return true;
+   }
+}
+function radioButtons() {
+if (radio_selection=="")
+alert("\nYou must check one of the radio buttons.");
+else {
+return true;
+   }
+}
+function resetForm() {
+document.forms[0].menu.options[0].selected = true;
+menu_selection="";
+radio_selection="";
+}
+function about() {
+alert("\nVALIDATOR checks to see that a selection has been made from  the drop-down menu and that a radio button has been checked.\n\nIf filled out properly, the data will be displayed below.");
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+&lt;!--  STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;CENTER&gt;
+&lt;FORM&gt;
+&lt;TABLE BORDER=4  WIDTH=500&gt;
+&lt;TR&gt;
+&lt;TD align="center"&gt;&lt;FONT SIZE=+1&gt;&lt;B&gt;MENU&lt;/B&gt;&lt;/FONT&gt;
+&lt;TD align="center"&gt;&lt;FONT SIZE=+1&gt;&lt;B&gt;RADIOS&lt;/B&gt;&lt;/FONT&gt;
+&lt;/TR&gt;
+&lt;TR&gt;
+&lt;TD align="center"&gt;&lt;SELECT NAME="menu" SIZE=1&gt;
+&lt;OPTION SELECTED VALUE=""&gt; --- How many times have you been to TJS?  ---
+&lt;OPTION VALUE="one"&gt;Once
+&lt;OPTION VALUE="two"&gt;Twice
+&lt;OPTION VALUE="three"&gt;Three times
+&lt;OPTION VALUE="four"&gt;Four times
+&lt;OPTION VALUE="five"&gt;Five times
+&lt;OPTION VALUE="six"&gt;Six times
+&lt;OPTION VALUE="seven"&gt;Seven times
+&lt;OPTION VALUE="eight"&gt;Eight times
+&lt;OPTION VALUE="nine"&gt;Nine times
+&lt;OPTION VALUE="ten"&gt;Ten+ times
+&lt;/SELECT&gt;
+&lt;TD align="center"&gt;&lt;BR&gt;Will you be back to TJS?&lt;br&gt;
+&lt;INPUT TYPE="radio" NAME="radiobutton" onClick="radio_selection='yes'"&gt;YES
+&lt;INPUT TYPE="radio" NAME="radiobutton" onClick="radio_selection='no'"&gt;NO
+&lt;INPUT TYPE="radio" NAME="radiobutton" onClick="radio_selection='maybe'"&gt;MAYBE
+&lt;/TR&gt;
+&lt;/TABLE&gt;
+&lt;BR&gt;
+&lt;TABLE BORDER=0 WIDTH=400&gt;
+&lt;TD align="center"&gt;&lt;INPUT TYPE="reset"   VALUE="Reset" onClick="resetForm()"&gt;
+&lt;TD align="center"&gt;&lt;INPUT TYPE="button" VALUE="Check Form Fields" onClick="checkForm()"&gt;
+&lt;TD align="center"&gt;&lt;INPUT TYPE="button" VALUE="About" onClick="about()"&gt;
+&lt;/TABLE&gt;
+&lt;BR&gt;
+&lt;TABLE BORDER=4 WIDTH=250&gt;
+&lt;TR&gt;
+&lt;TD align="center"&gt;MENU: 
+&lt;TD align="center"&gt;RADIO:
+&lt;/TR&gt;
+&lt;TR&gt;
+&lt;TD align="center"&gt;&lt;INPUT  TYPE="text"  NAME="results1" SIZE=7&gt;
+&lt;TD align="center"&gt;&lt;INPUT  TYPE="text"  NAME="results2" SIZE=7&gt;
+&lt;/TR&gt;
+&lt;/TABLE&gt;
+&lt;BR&gt;
+&lt;/FORM&gt;
+&lt;/CENTER&gt;
+
+ 
+
+&lt;!-- Script Size:  3.04 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

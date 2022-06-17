@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0058)http://javascript.internet.com/games/catch-a-spy-play.html -->
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 5.50.4611.1300" name=GENERATOR></HEAD>
+<BODY>
+<FORM>
+<TABLE cellPadding=3 border=1>
+  <TBODY>
+  <TR>
+    <TD align=right>Time: <INPUT size=5 value=0 name=CurTime> hrs<BR>You <IMG 
+      src="catch-a-spy-play_files/pol.gif" width=10> in <INPUT size=15 
+      name=Curplace><BR>Spy <IMG src="catch-a-spy-play_files/ali.gif" width=10> 
+      in <INPUT size=15 name=Crimplace>
+      <HR>
+       <INPUT onclick=alert(Intro) type=button value=Hints> </FONT></FONT>
+    <TD width=320>please click on your next flight... <BR><INPUT 
+      onclick=GetTo(0) type=radio name=GoHere><INPUT size=15 name=Dest0> 
+      Duration <INPUT size=5 value=0 name=Time0> hrs <BR><INPUT onclick=GetTo(1) 
+      type=radio name=GoHere><INPUT size=15 name=Dest1> Duration <INPUT size=5 
+      value=0 name=Time1> hrs <BR><INPUT onclick=GetTo(2) type=radio 
+      name=GoHere><INPUT size=15 name=Dest2> Duration <INPUT size=5 value=0 
+      name=Time2> hrs <BR><INPUT onclick=GetTo(3) type=radio name=GoHere><INPUT 
+      size=15 name=Dest3> Duration <INPUT size=5 value=0 name=Time3> hrs 
+      <BR><INPUT onclick=GetTo(4) type=radio name=GoHere><INPUT size=15 
+      name=Dest4> Duration <INPUT size=5 value=0 name=Time4> hrs 
+  <TR>
+    <TD><INPUT onclick=top.location.reload() type=button value="New Game"> 
+    <TD align=right><INPUT onclick=Decode() type=button value=Decode> 
+</TR></TBODY></TABLE></FORM>
+<SCRIPT>
+Intro = "Catch an International Spy\n\n";
+Intro += "You are an Interpol officer who needs to track down the movement of the Green Spy.\n";
+Intro += "He moves around the world in a predictable pattern.\n";
+Intro += "Your job is to track him down...Learn his moves.\n";
+Intro += "Once you're in the same airport with the Green Spy, you win!\n";
+Intro += "Aim for the shortest time...\n";
+Intro += "Good luck!\n\n";
+Intro += "psst:\n";
+Intro += "      If you feel you're not getting very far...try the Decode Button...\n";
+Intro += "      It's a cheat...But in this world of espionage, who cares?\n";
+
+N = (navigator.appName.indexOf("Netscape") != -1);
+M = (navigator.appName.indexOf("Microsoft") != -1);
+
+Destin = new Array("Sydney","New York","Frankfurt","paris","Moscow","peking","Tokyo","Capetown","Rio","Los Angeles","Saigon","New Dehli");
+Xof = new Array(545,165,310,295,355,478,521,340,216,100,475,424);
+Yof = new Array(204,90,70,65,52,80,90,195,159,84,125,109);
+curTime = 0;
+theOne = 0;
+cm = 0;
+for (x = 0; x < 5; x++) {
+eval("document.forms[0].Dest"+x+".value = Destin["+x+"+1]");
+}
+document.forms[0].Curplace.value = Destin[0];
+Num = new Array(1,2,3,4,5,6,7,8,9,10,11);
+shuf = new Array();
+x = 0;
+while (x < 11) {
+ran = Math.floor(Num.length*Math.random());
+shuf[x] = Num[ran];
+Fst = Num.slice(0,ran);
+Snd = Num.slice(ran+1);
+Num = Fst.concat(Snd);
+x++;
+}
+shuf[11] = Destin[0];
+document.forms[0].Crimplace.value = Destin[shuf[0]];
+if (M) {
+parent.world.document.all.player.style.left = Xof[0];
+parent.world.document.all.player.style.top = Yof[0];
+parent.world.document.all.Crim.style.left = Xof[shuf[0]];
+parent.world.document.all.Crim.style.top = Yof[shuf[0]];
+}
+if (N) {
+parent.world.document.layers.player.left = Xof[0];
+parent.world.document.layers.player.top = Yof[0];
+parent.world.document.layers.Crim.left = Xof[shuf[0]];
+parent.world.document.layers.Crim.top = Yof[shuf[0]];
+}
+function GetTo(d) {
+for (x = 0; x < Destin.length; x++) {
+if (Destin[x] == eval("document.forms[0].Dest"+d+".value")) theOne = x;
+}
+if (M) {parent.world.document.all.player.style.left = Xof[theOne];parent.world.document.all.player.style.top = Yof[theOne]}
+if (N) {parent.world.document.layers.player.left = Xof[theOne];parent.world.document.layers.player.top = Yof[theOne]}
+Destination = eval("document.forms[0].Dest"+d+".value");
+t = eval("document.forms[0].Time"+d+".value");
+if (isNaN(t)) t = 0;
+curTime+= parseInt(t);
+document.forms[0].Curplace.value = Destination;
+document.forms[0].CurTime.value = curTime;
+open('catch-a-spy-flight.html','flight','width=600,height=300,top=300,left=0,toolbar=no');
+document.forms[0].GoHere[0].checked = false;
+chOne = Math.floor(Math.random()*12);
+while(chOne == theOne) {chOne = Math.floor(Math.random()*12)}
+document.forms[0].Dest0.value = Destin[chOne];
+X1 = Xof[theOne];
+Y1 = Yof[theOne];
+X2 = Xof[chOne];
+Y2 = Yof[chOne];
+D = Math.floor(.1*Math.sqrt((X1-X2)*(X1-X2)+(Y1-Y2)*(Y1-Y2)));
+if (isNaN(D)) D = 0;
+document.forms[0].Time0.value = D;
+yx = theOne;
+for (v = 1;v<5;v++) {
+document.forms[0].GoHere[v].checked = false;
+yx++;
+if (yx>Destin.length-1)yx = 0;
+if (yx == chOne|yx == theOne)yx++;
+plc = Destin[yx];
+eval("document.forms[0].Dest"+v+".value = plc");
+X1 = Xof[theOne];
+Y1 = Yof[theOne];
+X2 = Xof[yx];
+Y2 = Yof[yx];
+D = Math.floor(.1*Math.sqrt((X1-X2)*(X1-X2)+(Y1-Y2)*(Y1-Y2)));
+if (isNaN(D)) D = 0;
+eval("document.forms[0].Time"+v+".value = D");
+}
+cm++;
+if (cm>11) {cm = 0}
+if (M) {parent.world.document.all.Crim.style.left = Xof[shuf[cm]];parent.world.document.all.Crim.style.top = Yof[shuf[cm]]}
+if (N) {parent.world.document.layers.Crim.left = Xof[shuf[cm]];parent.world.document.layers.Crim.top = Yof[shuf[cm]]}
+document.forms[0].Crimplace.value = Destin[shuf[cm]];
+}
+function Decode() {
+if (!confirm("Do you need special help?\nAre you really this hopeless?\n(Information like this is expensive!)"))return
+Deco = "List of scheduled flights:\n";
+for (x = 0; x < 12; x++) {
+Deco+= Destin[shuf[x]]+" ("+shuf[x]+")\n";
+}
+alert(Deco);
+}
+</SCRIPT>
+</BODY></HTML>

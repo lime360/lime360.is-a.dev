@@ -1,0 +1,340 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Equivalents:  Mass</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Equivalents">
+<META NAME="description" CONTENT="Use JavaScript to find mass equivalents.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+function initArray() {
+this.length = initArray.arguments.length;
+for (var i = 0; i < this.length; i++) {
+this[i] = initArray.arguments[i];
+   }
+}
+var isn06 = new initArray("4b","5b","8b","8b");
+isn06[0] = "~01~115432~232.15~335.27~42.6792~52.205~60.001102~70.0009842~80.001~9";
+isn06[1] = "~06.48e-5~11~20.002083~30.002286~40.0001736~50.0001429~67.143e-8~76.378e-8~86.48e-8~9";
+isn06[2] = "~00.0311~1480~21~31.09714~40.083333~50.06857~63.429e-5~73.061e-5~83.11e-5~9";
+isn06[3] = "~00.02835~1437.5~20.9115~31~40.07595~50.0625~63.125e-5~72.79e-5~82.835e-5~9";
+isn06[4] = "~00.3732~15760~212~313.17~41~50.8229~64.114e-4~73.673e-4~83.732e-4~9";
+isn06[5] = "~00.4536~17000~214.58~316~41.215~51~60.0005~74.464e-4~84.536e-4~9";
+isn06[6] = "~0907.2~114000000~229167~332000~42431~52000~61~70.8929~80.9072~9";
+isn06[7] = "~01016~115680000~232667~335840~42722~52240~61.12~71~81.016~9";
+isn06[8] = "~01000~115432356~232151~335274~42679~52205~61.102~70.9842~81~9";
+function masCon() {
+for (var i = 0; i < 9; i++) {
+if (document.isnform06.masi[i].checked) {
+masi = i;
+masinm = document.isnform06.masi[i].value;
+   }
+}
+for (var i = 0; i < 9; i++) {
+if (document.isnform06.maso[i].checked) {
+maso = i;
+masonm = document.isnform06.maso[i].value;
+   }
+}
+useri = document.isnform06.masinp.value;
+if (useri == 0) {
+useri = 1;
+document.isnform06.masinp.value = useri;
+}
+mulstr = isn06[masi];
+picker = "~" + maso;
+ps = mulstr.indexOf(picker);
+maso++;
+picker = "~" + maso;
+ps1 = mulstr.indexOf(picker);
+mulstr = mulstr.substring((ps + 2),ps1);
+ps = (useri * mulstr);
+picker = "";
+picker += ps
+ps1 = picker.indexOf(".");
+if (ps1 > -1) {
+ps = ps + .000001;
+picker = "";
+picker += ps;
+ps2 = picker.indexOf("e");
+if (ps2 < 0) {
+picker = picker.substring(0,(ps1 + 6));
+}
+if (ps2 == 0 || ps2 > 0) {
+ps3 = picker.indexOf("00000");
+if (ps3 > 0) {
+picker = picker.substring(0,ps3 + 1) + picker.substring(ps2,picker.length);
+      }
+   }
+}
+picker = useri + " " + masinm + " = " + picker + " " + masonm
+document.isnform06.masout.value = picker;
+}
+// End -->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /equivalents/"><font color="#FF0000">Equivalents</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Mass</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Use JavaScript to find mass equivalents.
+<br>
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<BODY>
+<CENTER>
+<TABLE BORDER=1 WIDTH=486>
+<TR><TD COLSPAN=10 ALIGN=CENTER><FORM NAME="isnform06"><FONT COLOR="blue"><B>Mass Equivalents</B></FONT></TD></TR>
+<TR><TD COLSPAN=10 VALIGN=TOP><FONT SIZE=1><B>First, type the number you wish converted here: </B>
+<INPUT TYPE="text" NAME="masinp" SIZE=30 VALUE="" onChange="masCon();"><BR><B>Then, click radio buttons for desired conversion:</FONT></TD></TR>
+<TR><TD ALIGN=CENTER><FONT COLOR="red" SIZE=1><B>From:</B></FONT></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>Kilograms<BR>Ý<BR>
+<INPUT TYPE="radio" NAME="masi" VALUE="Kilograms" CHECKED onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>Grains<BR>Ý<BR>
+<INPUT TYPE="radio" NAME="masi" VALUE="Grains" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>Troy Ounces<BR>
+<INPUT TYPE="radio" NAME="masi" VALUE="Troy Ounces" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>Avoirdupois Ounces*<BR>
+<INPUT TYPE="radio" NAME="masi" VALUE="Avoirdupois Ounces" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>Troy Pounds<BR>
+<INPUT TYPE="radio" NAME="masi" VALUE="Troy Pounds" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>Avoirdupois Pounds*<BR>
+<INPUT TYPE="radio" NAME="masi" VALUE="Avoirdupois Pounds" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>Short Tons<BR>
+<INPUT TYPE="radio" NAME="masi" VALUE="Short Tons" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>Long Tons<BR>
+<INPUT TYPE="radio" NAME="masi" VALUE="Long Tons" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>Metric Tons<BR>
+<INPUT TYPE="radio" NAME="masi" VALUE="Metric Tons" onClick = ""></TD></TR>
+<TR><TD ALIGN=CENTER><FONT COLOR="red" SIZE=1><B>To:</B></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>Kilograms<BR>Ý<BR>
+<INPUT TYPE="radio" NAME="maso" VALUE="Kilograms" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>Grains<BR>Ý<BR>
+<INPUT TYPE="radio" NAME="maso" VALUE="Grains" CHECKED onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>Troy Ounces<BR>
+<INPUT TYPE="radio" NAME="maso" VALUE="Troy Ounces" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>Avoirdupois Ounces*<BR>
+<INPUT TYPE="radio" NAME="maso" VALUE="Avoirdupois Ounces" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>Troy Pounds<BR>
+<INPUT TYPE="radio" NAME="maso" VALUE="Troy Pounds" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>Avoirdupois Pounds*<BR>
+<INPUT TYPE="radio" NAME="maso" VALUE="Avoirdupois Pounds" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>Short Tons<BR>
+<INPUT TYPE="radio" NAME="maso" VALUE="Short Tons" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>Long Tons<BR>
+<INPUT TYPE="radio" NAME="maso" VALUE="Long Tons" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>Metric Tons<BR>
+<INPUT TYPE="radio" NAME="maso" VALUE="Metric Tons" onClick = ""></TD></TR>
+<TR><TD COLSPAN=10 ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>
+<INPUT TYPE="button" VALUE=" Click for Conversion " onClick="masCon();"> 
+<INPUT TYPE="reset" VALUE=" Reset Values "><BR>
+<INPUT TYPE="text" NAME="masout" SIZE=60 VALUE="" onClick="masCon();"><
+BR>* Also known as Apothecary Ounces and Pounds
+</FONT></TD></TR>
+</TABLE>
+</FORM>
+</CENTER>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Equivalents:  Mass</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  5.93 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL MASS EQUIVALENTS:
+
+   1.  Paste the specified coding into the HEAD of your HTML document
+   2.  Put the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the HEAD of your HTML document  --&gt;
+		  
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function initArray() {
+this.length = initArray.arguments.length;
+for (var i = 0; i &lt; this.length; i++) {
+this[i] = initArray.arguments[i];
+   }
+}
+/* Please don't ask about this work-around. It works... We're sure arrays
+    will be better supported soon. */
+var isn06 = new initArray("4b","5b","8b","8b");
+isn06[0] = "~01~115432~232.15~335.27~42.6792~52.205~60.001102~70.0009842~80.001~9";
+isn06[1] = "~06.48e-5~11~20.002083~30.002286~40.0001736~50.0001429~67.143e-8~76.378e-8~86.48e-8~9";
+isn06[2] = "~00.0311~1480~21~31.09714~40.083333~50.06857~63.429e-5~73.061e-5~83.11e-5~9";
+isn06[3] = "~00.02835~1437.5~20.9115~31~40.07595~50.0625~63.125e-5~72.79e-5~82.835e-5~9";
+isn06[4] = "~00.3732~15760~212~313.17~41~50.8229~64.114e-4~73.673e-4~83.732e-4~9";
+isn06[5] = "~00.4536~17000~214.58~316~41.215~51~60.0005~74.464e-4~84.536e-4~9";
+isn06[6] = "~0907.2~114000000~229167~332000~42431~52000~61~70.8929~80.9072~9";
+isn06[7] = "~01016~115680000~232667~335840~42722~52240~61.12~71~81.016~9";
+isn06[8] = "~01000~115432356~232151~335274~42679~52205~61.102~70.9842~81~9";
+function masCon() {
+for (var i = 0; i &lt; 9; i++) {
+if (document.isnform06.masi[i].checked) {
+masi = i;
+masinm = document.isnform06.masi[i].value;
+   }
+}
+for (var i = 0; i &lt; 9; i++) {
+if (document.isnform06.maso[i].checked) {
+maso = i;
+masonm = document.isnform06.maso[i].value;
+   }
+}
+useri = document.isnform06.masinp.value;
+if (useri == 0) {
+useri = 1;
+document.isnform06.masinp.value = useri;
+}
+mulstr = isn06[masi];
+picker = "~" + maso;
+ps = mulstr.indexOf(picker);
+maso++;
+picker = "~" + maso;
+ps1 = mulstr.indexOf(picker);
+mulstr = mulstr.substring((ps + 2),ps1);
+ps = (useri * mulstr);
+picker = "";
+picker += ps
+ps1 = picker.indexOf(".");
+if (ps1 &gt; -1) {
+ps = ps + .000001;
+picker = "";
+picker += ps;
+ps2 = picker.indexOf("e");
+if (ps2 &lt; 0) {
+picker = picker.substring(0,(ps1 + 6));
+}
+if (ps2 == 0 || ps2 &gt; 0) {
+ps3 = picker.indexOf("00000");
+if (ps3 &gt; 0) {
+picker = picker.substring(0,ps3 + 1) + picker.substring(ps2,picker.length);
+      }
+   }
+}
+picker = useri + " " + masinm + " = " + picker + " " + masonm
+document.isnform06.masout.value = picker;
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;CENTER&gt;
+&lt;TABLE BORDER=1 WIDTH=486&gt;
+&lt;TR&gt;&lt;TD COLSPAN=10 ALIGN=CENTER&gt;&lt;FORM NAME="isnform06"&gt;&lt;FONT COLOR="blue"&gt;&lt;B&gt;Mass Equivalents&lt;/B&gt;&lt;/FONT&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;TR&gt;&lt;TD COLSPAN=10 VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;&lt;B&gt;First, type the number you wish converted here: &lt;/B&gt;
+&lt;INPUT TYPE="text" NAME="masinp" SIZE=30 VALUE="" onChange="masCon();"&gt;&lt;BR&gt;&lt;B&gt;Then, click radio buttons for desired conversion:&lt;/FONT&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;TR&gt;&lt;TD ALIGN=CENTER&gt;&lt;FONT COLOR="red" SIZE=1&gt;&lt;B&gt;From:&lt;/B&gt;&lt;/FONT&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;Kilograms&lt;BR&gt;Ý&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="masi" VALUE="Kilograms" CHECKED onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;Grains&lt;BR&gt;Ý&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="masi" VALUE="Grains" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;Troy Ounces&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="masi" VALUE="Troy Ounces" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;Avoirdupois Ounces*&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="masi" VALUE="Avoirdupois Ounces" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;Troy Pounds&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="masi" VALUE="Troy Pounds" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;Avoirdupois Pounds*&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="masi" VALUE="Avoirdupois Pounds" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;Short Tons&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="masi" VALUE="Short Tons" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;Long Tons&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="masi" VALUE="Long Tons" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;Metric Tons&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="masi" VALUE="Metric Tons" onClick = ""&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;TR&gt;&lt;TD ALIGN=CENTER&gt;&lt;FONT COLOR="red" SIZE=1&gt;&lt;B&gt;To:&lt;/B&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;Kilograms&lt;BR&gt;Ý&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="maso" VALUE="Kilograms" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;Grains&lt;BR&gt;Ý&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="maso" VALUE="Grains" CHECKED onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;Troy Ounces&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="maso" VALUE="Troy Ounces" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;Avoirdupois Ounces*&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="maso" VALUE="Avoirdupois Ounces" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;Troy Pounds&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="maso" VALUE="Troy Pounds" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;Avoirdupois Pounds*&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="maso" VALUE="Avoirdupois Pounds" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;Short Tons&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="maso" VALUE="Short Tons" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;Long Tons&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="maso" VALUE="Long Tons" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;Metric Tons&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="maso" VALUE="Metric Tons" onClick = ""&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;TR&gt;&lt;TD COLSPAN=10 ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;
+&lt;INPUT TYPE="button" VALUE=" Click for Conversion " onClick="masCon();"&gt; 
+&lt;INPUT TYPE="reset" VALUE=" Reset Values "&gt;&lt;BR&gt;
+&lt;INPUT TYPE="text" NAME="masout" SIZE=60 VALUE="" onClick="masCon();"&gt;&lt;
+BR&gt;* Also known as Apothecary Ounces and Pounds
+&lt;/FONT&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;/TABLE&gt;
+&lt;/FORM&gt;
+&lt;/CENTER&gt;
+
+ 
+
+&lt;!-- Script Size:  5.93 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

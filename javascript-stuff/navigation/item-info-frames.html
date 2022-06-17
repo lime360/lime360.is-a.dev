@@ -1,0 +1,148 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Navigation:  Item Info (in Frames)</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Ronnie T. Moore, Editor">
+<META NAME="section" CONTENT="Navigation">
+<META NAME="description" CONTENT="Displays information in the bottom frame about the current item from the top frame as the user hovers over the image or alternately a text link.  The bottom page returns to blank when no item is touched.  Useful to convey additional information about products or sections of your site.  Clicking the image loads the order page in the entire window.">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /navigation/"><font color="#FF0000"><b>Navigation</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Item Info (in Frames)</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Displays information in the bottom frame about the current item from the top frame as the user hovers over the image or alternately a text link.  The bottom page returns to blank when no item is touched.  Useful to convey additional information about products or sections of your site.  Clicking the image loads the order page in the entire window.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<CENTER><a href="item-info-frames-demo.html" /navigation/item-info-frames-demo.html" target="_new">Click here for a demonstration of the Item Info (In Frames Script)</A></CENTER>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Navigation:  Item Info (in Frames)</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.42 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL ITEM INFO (IN FRAMES):
+
+  1.  Copy the coding into a new frameset page
+  2.  Add the last code into the HEAD of your HTML document
+  3.  Paste the final code into the BODY of your items page  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into a new frameset page  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Original:  Ronnie T. Moore, Editor --&gt;
+&lt;!-- Web Site:  JavaScript Source Code 3000 --&gt;
+
+&lt;!-- Begin
+var blank = " "; // blank page
+
+function showInfo(description) {
+with (parent.frames[1]) {
+document.open();
+document.write("&lt;html&gt;&lt;body&gt;" + description + "&lt;/body&gt;&lt;/html&gt;");
+document.close(); 
+   }
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+&lt;/HEAD&gt;
+
+&lt;frameset rows="*,100"&gt;
+  &lt;frame src="item-info-top.html"&gt;
+  &lt;frame src="javascript:parent.blank" scrolling=no&gt;
+&lt;/frameset&gt;
+
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the HEAD of your items page  --&gt;
+
+&lt;BODY&gt;
+
+&lt;HEAD&gt;
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+
+if (window == top) location.href = "frameset-page.html";
+// change this URL to the address of your frameset page
+
+
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP THREE: Copy this code into the BODY of your items page  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+
+
+&lt;!-- Remember to change the "Description of the image...." text below --&gt;
+&lt;!-- And you change 'order-page.html' to an order page for the item --&gt;
+
+&lt;a href="order-page.html" target="_top" onMouseOver="javascript:parent.showInfo('Description of the image goes here');" onMouseOut="parent.showInfo('');"&gt;&lt;img src="http://www.your-web-site-address-here.com/logo.gif" ALT="Product Image" width=267 height=103&gt;&lt;/a&gt;
+
+&lt;/center&gt;
+
+&lt;p&gt;&lt;center&gt;
+&lt;font face="arial, helvetica" SIZE="-2"&gt;Free JavaScripts provided&lt;br&gt;
+by &lt;a href="http://javascriptsource.com"&gt;JavaScript Source Code 3000&lt;/a&gt;&lt;/font&gt;
+&lt;/center&gt;&lt;p&gt;
+
+&lt;!-- Script Size:  1.42 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

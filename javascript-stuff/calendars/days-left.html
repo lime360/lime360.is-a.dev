@@ -1,0 +1,130 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Calendars:  Days Left</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Justin Smith (jsmith@polbox.com)">
+<META NAME="section" CONTENT="Calendars">
+<META NAME="description" CONTENT="Procrastinators everywhere, rejoice!  If many of your projects end up being due on the first of the month, do you know how many days do you have left?  This script calculates and displays the number of days (not weekdays) left in the current month in a snap.  And, the script has no trouble with leap year or Y2K.">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /calendars/"><font color="#FF0000"><b>Calendars</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Days Left</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Procrastinators everywhere, rejoice!  If many of your projects end up being due on the first of the month, do you know how many days do you have left?  This script calculates and displays the number of days (not weekdays) left in the current month in a snap.  And, the script has no trouble with leap year or Y2K.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Justin Smith (jsmith@polbox.com) -->
+
+
+
+
+<!-- Begin
+var today = new Date();
+var now = today.getDate();
+var year = today.getYear();
+if (year < 2000) year += 1900; // Y2K fix
+var month = today.getMonth();
+
+var monarr = new Array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
+
+// check for leap year
+if (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)) monarr[1] = "29";
+
+// display day left
+document.write("There are " + (monarr[month]-now) + " days left in this Month.");
+//  End -->
+</script>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Calendars:  Days Left</b>
+<p>Simply click inside the window below, use your cursor to hilight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  0.90 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- ONE STEP TO INSTALL DAYS LEFT:
+
+  1.  Copy the coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Justin Smith (jsmith@polbox.com) --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var today = new Date();
+var now = today.getDate();
+var year = today.getYear();
+if (year &lt; 2000) year += 1900; // Y2K fix
+var month = today.getMonth();
+
+var monarr = new Array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
+
+// check for leap year
+if (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)) monarr[1] = "29";
+
+// display day left
+document.write("There are " + (monarr[month]-now) + " days left in this Month.");
+//  End --&gt;
+&lt;/script&gt;
+
+ 
+
+&lt;!-- Script Size:  0.90 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

@@ -1,0 +1,816 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Calculators:  Airport</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Joe Josey (jjosey@foxberry.net)">
+<META NAME="section" CONTENT="Calculators">
+<META NAME="description" CONTENT="This useful JavaScript calculator will tell you the degrees, Nautical Miles, Statute Miles, and Kilometers between your originating and destination airports.  It's got a built-in database of over 150 of the most traveled airports!  Very neat!  I've given a copy to everyone I know who fly often.  ;-)">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Joe Josey (jjosey@jomist.net) -->
+<!-- Web Site:  http://www.foxberry.net/jjosey -->
+
+<!-- Begin
+var Orig=new Array();
+var Dest=new Array();
+var nm=0;
+var tc=0;
+function DoCalc(form) {
+from_airport=form.from.options[form.from.selectedIndex].value;
+dest_airport=form.to.options[form.to.selectedIndex].value;
+
+if (from_airport=="" || dest_airport=="") {
+alert("Please enter both an Originating and Destination Airport.");
+}
+else {
+Orig=from_airport.split("/");
+Dest=dest_airport.split("/");
+d=Math.acos(Math.sin(Orig[2])
+*Math.sin(Dest[2])
++Math.cos(Orig[2])
+*Math.cos(Dest[2])
+*Math.cos(Orig[4]-Dest[4]));
+nm=Math.round(3437.747*d);
+if (Math.sin(Dest[4]-Orig[4]) < 0) {
+tc=Math.acos((Math.sin(Dest[2])
+-Math.sin(Orig[2])*Math.cos(d))
+/(Math.sin(d)*Math.cos(Orig[2])));
+} 
+else { 
+tc=2*Math.PI
+-Math.acos((Math.sin(Dest[2])
+-Math.sin(Orig[2])
+*Math.cos(d))/(Math.sin(d)
+*Math.cos(Orig[2])));
+}
+tc=Math.round(tc*(180/Math.PI));
+message=(Orig[0] + " to " + Dest[0] + "\n\n");
+message+=("Degrees:  " +tc+ "\n");
+message+=("Nautical Miles: "+nm+"\n");
+message+=("Statute Miles: "+Math.round(nm*1.13636)+"\n");
+message+=("Kilometers: "+Math.round(nm*1.6094));
+alert(message);
+   }
+}
+// End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<P>
+<center>
+
+	
+<P>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /calculators/"><font color="#FF0000">Calculators</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Airport</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE=" helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+This useful JavaScript calculator will tell you the degrees, Nautical Miles, Statute Miles, and Kilometers between your originating and destination airports.  It's got a built-in database of over 150 of the most traveled airports!  Very neat!  I've given a copy to everyone I know who fly often.  ;-)<br><hr>
+</td></tr>
+</table>
+<!--  Demonstration -->
+<center>
+<form>
+<table width=225 border=1 cellpadding=3>
+<tr><td colspan=2><center><font size="+2"><b>Airport Calculator</b></font></center></td></tr>
+<tr><td>From:</td><td><select name="from">
+<option value="">Originating Airport
+<option value="ABQ/1/0.61156/1/1.86064">Albuerque, NM
+<option value="ABY/1/0.55039/1/1.46945">Albany, GA
+<option value="ALB/1/0.75660/1/1.28811">Albany, NY
+<option value="AMA/1/0.61468/1/1.77509">Amarillo, TX
+<option value="ANC/1/1.06760/1/2.61774">Anchorage, AK
+<option value="ATW/1/0.77243/1/1.54494">Appleton, WI
+<option value="AHN/1/0.58251/1/1.45433">Athens, GA
+<option value="ATL/1/0.58713/1/1.47352">Atlanta, GA
+<option value="AUS/1/0.52884/1/1.70519">Austin, TX
+<option value="AVL/1/0.61846/1/1.44062">Ashville, NC
+<option value="BWI/1/0.68373/1/1.33812">Baltimore, MD
+<option value="BGR/1/0.78202/1/1.20128">Bangor, ME
+<option value="BHM/1/0.58579/1/1.51413">Birmingham, AL
+<option value="BOI/1/0.76035/1/2.02848">Boise, ID
+<option value="BOS/1/0.73938/1/1.23927">Boston, MA
+<option value="TRI/1/0.63661/1/1.43827">Bristol/Johnson City, TN
+<option value="BRO/1/0.45216/1/1.70039">Brownsville, TX
+<option value="BTR/1/0.53288/1/1.59084">Baton Rouge, LA
+<option value="BTV/1/0.77615/1/1.27674">Burlington, VT
+<option value="BUF/1/0.74944/1/1.37413">Buffalo, NY
+<option value="YYC/1/0.89209/1/1.99002">Calgary, AB
+<option value="CAE/1/0.77275/1/1.49083">Columbia, SC
+<option value="CAK/1/0.71410/1/1.42143">Canton/Akron, OH
+<option value="CID/1/0.73100/1/1.60064">Cedar Rapids, IA
+<option value="CHS/1/0.57418/1/1.39696">Charleston, SC
+<option value="CHA/1/0.61148/1/1.48708">Chattanooga, TN
+<option value="CEF/1/0.73647/1/1.26589">Chicopee, MA
+<option value="CLT/1/0.61459/1/1.41273">Charlotte, NC
+<option value="MDW/1/0.72929/1/1.53156">Chicago, IL (MDW)
+<option value="ORD/1/0.73266/1/1.53420">Chicago, IL (ORD)
+<option value="LUK/1/0.68245/1/1.47338">Cincinnati, OH (LUK)
+<option value="CLE/1/0.72274/1/1.42852">Cleveland, OH
+<option value="COS/1/0.67739/1/1.82753">Colorado Spgs, CO
+<option value="CSG/1/0.56749/1/1.48245">Columbus, GA
+<option value="CMH/1/0.69804/1/1.44665">Columbus, OH
+<option value="CRP/1/0.48468/1/1.70170">Corpus Christi, TX
+<option value="CYS/1/0.71829/1/1.82931">Cheyenne, WY
+<option value="CVG/1/0.68146/1/1.47760">Covington, KY
+<option value="DAL/1/0.57328/1/1.69035">Dallas, TX (DAL)
+<option value="DFW/1/0.57413/1/1.69367">Dallas, TX (DFW)
+<option value="DAY/1/0.61642/1/1.46989">Dayton, OH
+<option value="DEN/1/0.69418/1/1.83047">Denver, CO
+<option value="DSM/1/0.72489/1/1.63468">Des Moines, IA
+<option value="DET/1/0.74017/1/1.44877">Detroit, MI (DET)
+<option value="DTW/1/0.73679/1/1.45470">Detroit, MI (DTW)
+<option value="YIP/1/0.73717/1/1.45787">Detroit, MI (YIP)
+<option value="YEG/1/0.93033/1/1.98255">Edmonton, AB
+<option value="ELP/1/0.55510/1/1.85662">El Paso, TX
+<option value="EVV/1/0.66387/1/1.52769">Evansville, IN
+<option value="FYV/1/0.62841/1/1.64355">Fayetteville, AR
+<option value="FAY/1/0.61069/1/1.37672">Fayetteville, NC
+<option value="FNT/1/0.74988/1/1.46160">Flint, MI
+<option value="FLL/1/0.45504/1/1.39891">Ft. Lauderdale, FL
+<option value="FMY/1/0.46400/1/1.42879">Ft. Myers, FL (FMY)
+<option value="RSW/1/0.46312/1/1.42687">Ft. Myers, FL (RSW)
+<option value="FWA/1/0.71521/1/1.48690">Ft. Wayne, IN
+<option value="FAT/1/0.64185/1/2.08945">Fresno, CA
+<option value="YQX/1/0.85428/1/0.96231">Gander, NF
+<option value="GRR/1/0.74843/1/1.49266">Grand Rapids, MI
+<option value="GRB/1/0.77641/1/1.53813">Green Bay, WI
+<option value="GSO/1/0.63001/1/1.39516">Greensboro, NC
+<option value="GSP/1/0.60909/1/1.43489">Greer, SC
+<option value="IAH/1/0.52325/1/1.66397">Houston, TX (IAH)
+<option value="IND/1/0.69322/1/1.50599">Indianapolis, IN
+<option value="JAN/1/0.56392/1/1.57211">Jackson, MS
+<option value="JAX/1/0.53218/1/1.42573">Jacksonville, FL
+<option value="MCI/1/0.68589/1/1.65312">Kansas City, MO (MCI)
+<option value="MKC/1/0.68280/1/1.65094">Kansas City, MO (MKC)
+<option value="EYW/1/0.42857/1/1.42695">Key West, FL
+<option value="TYS/1/0.62503/1/1.46593">Knoxville, TN
+<option value="LAS/1/0.62972/1/2.00975">Las Vegas, NV
+<option value="LIT/1/0.60612/1/1.60960">Little Rock, AR
+<option value="LAX/1/0.59239/1/2.06659">Los Angeles, CA
+<option value="SDF/1/0.66625/1/1.49636">Louisville, KY
+<option value="LBB/1/0.58754/1/1.77712">Lubbock, TX
+<option value="MSN/1/0.75291/1/1.55922">Madison, WI
+<option value="MIA/1/0.45015/1/1.40133">Miami, FL
+<option value="MHT/1/0.74933/1/1.24681">Manchester, NH
+<option value="MEM/1/0.61168/1/1.57042">Memphis, TN
+<option value="MDT/1/0.70151/1/1.33977">Middletown, PA
+<option value="MBS/1/0.75977/1/1.46744">Midland, MI
+<option value="MKE/1/0.74956/1/1.53409">Milwaukee, WI
+<option value="MSP/1/0.78336/1/1.62688">Minneapolis, MN
+<option value="MOB/1/0.53564/1/1.54011">Mobile, AL
+<option value="MLI/1/0.72341/1/1.57961">Moline, IL
+<option value="TTF/1/0.73199/1/1.45621">Monroe, MI
+<option value="YUL/1/0.79349/1/1.28718">Montreal, QE (YUL)
+<option value="MYR/1/0.58780/1/1.37756">Myrtle Beach, SC
+<option value="APF/1/0.45643/1/1.42724">Naples, FL
+<option value="BNA/1/0.63050/1/1.51276">Nashville, TN
+<option value="EWR/1/0.71020/1/1.29448">Newark, NJ
+<option value="SWF/1/0.72437/1/1.29338">Newburgh, NY
+<option value="MSY/1/0.52345/1/1.57528">New Orleans, LA (MSY)
+<option value="NEW/1/0.52433/1/1.57126">New Orleans, LA (NEW)
+<option value="PHF/1/0.64807/1/1.33505">Newport News, VA
+<option value="JFK/1/0.70930/1/1.28765">New York, NY (JFK)
+<option value="LGA/1/0.71169/1/1.28930">New York, NY (LGA)
+<option value="ORF/1/0.64393/1/1.32996">Norfolk, VA
+<option value="OAK/1/0.65834/1/2.13311">Oakland, CA
+<option value="OKC/1/0.61770/1/1.70344">Oklahoma City, OK
+<option value="OMA/1/0.72085/1/1.67365">Omaha, NE
+<option value="ONT/1/0.59437/1/2.05251">Ontario, CA
+<option value="MCO/1/0.49617/1/1.41921">Orlando, FL (MCO)
+<option value="ORL/1/0.49820/1/1.41951">Orlando, FL (ORL)
+<option value="YOW/1/0.79100/1/1.32074">Ottawa, ON
+<option value="PSC/1/0.80745/1/2.07898">Pasco, WA
+<option value="PIA/1/0.70971/1/1.56539">Peoria, IL
+<option value="PHL/1/0.69586/1/1.31327">Philadelphia, PA
+<option value="PHX/1/0.58355/1/1.95491">Phoenix, AZ
+<option value="AGC/1/0.70430/1/1.39504">Pittsburgh, PA (AGC)
+<option value="PIT/1/0.70668/1/1.40031">Pittsburgh, PA (PIT)
+<option value="PWM/1/0.76175/1/1.22711">Portland, ME
+<option value="PDX/1/0.79567/1/2.13969">Portland, OR
+<option value="PVD/1/0.72821/1/1.24666">Providence, RI
+<option value="RDU/1/0.62617/1/1.37509">Raleigh, NC
+<option value="RAP/1/0.76873/1/1.79868">Rapid City, SD
+<option value="RNO/1/0.68938/1/2.09032">Reno, NV
+<option value="ROA/1/0.65144/1/1.39583">Roanoke, VA
+<option value="RST/1/0.76635/1/1.61437">Rochester, MN
+<option value="ROC/1/0.75256/1/1.35563">Rochester, NY
+<option value="RFD/1/0.73644/1/1.55494">Rockford, IL
+<option value="SMF/1/0.67536/1/2.12212">Sacremento, CA (SMF)
+<option value="CPS/1/0.67319/1/1.57352">St. Louis, MO (CPS)
+<option value="STL/1/0.67628/1/1.57708">St. Louis, MO (STL)
+<option value="SUX/1/0.74008/1/1.68221">Sioux City, IA
+<option value="SLC/1/0.71186/1/1.95419">Salt Lake City, UT
+<option value="SAT/1/0.51545/1/1.71860">San Antonio, TX
+<option value="SAN/1/0.57130/1/2.04529">San Diego, CA (SAN)
+<option value="SJC/1/0.65206/1/2.12802">San Jose, CA
+<option value="SJU/1/0.32186/1/1.15196">San Juan, PR
+<option value="BFI/1/0.82956/1/2.13454">Seattle, WA (BFI)
+<option value="SEA/1/0.82813/1/2.13465">Seattle, WA (SEA)
+<option value="SHV/1/0.56627/1/1.63756">Shreveport, LA
+<option value="SBN/1/0.72791/1/1.50654">South Bend, IN
+<option value="GEG/1/0.83110/1/2.05132">Spokane, WA
+<option value="SYR/1/0.75241/1/1.32831">Syracuse, NY
+<option value="TPA/1/0.48826/1/1.44048">Tampa, FL
+<option value="HUF/1/0.68856/1/1.52382">Terra Haute, IN
+<option value="YYZ/1/0.76235/1/1.38972">Toronto, ON
+<option value="TVC/1/0.78086/1/1.49368">Traverse City, MI
+<option value="TTN/1/0.70293/1/1.30574">Trenton, NJ
+<option value="TUL/1/0.63175/1/1.67354">Tulsa, OK
+<option value="TUS/1/0.56051/1/1.93627">Tucson, AZ
+<option value="YVR/1/0.85848/1/2.14999">Vancouver, BC
+<option value="IAD/1/0.67971/1/1.35186">Washington, DC (IAD)
+<option value="DCA/1/0.67810/1/1.34456">Washington, DC (DCA)
+<option value="ICT/1/0.65709/1/1.70050">Wichita, KS
+<option value="ILG/1/0.69252/1/1.31959">Wilmington, DE
+<option value="ILM/1/0.59812/1/1.35964">Wilmington, NC
+<option value="ILN/1/0.68818/1/1.46253">Wilmington, OH
+<option value="YWG/1/0.87092/1/1.69704">Winnipeg, MAN
+</select></td></tr>
+<tr><td>To:</td><td><select name="to">
+<option value="">Destination Airport
+<option value="ABQ/1/0.61156/1/1.86064">Albuerque, NM
+<option value="ABY/1/0.55039/1/1.46945">Albany, GA
+<option value="ALB/1/0.75660/1/1.28811">Albany, NY
+<option value="AMA/1/0.61468/1/1.77509">Amarillo, TX
+<option value="ANC/1/1.06760/1/2.61774">Anchorage, AK
+<option value="ATW/1/0.77243/1/1.54494">Appleton, WI
+<option value="AHN/1/0.58251/1/1.45433">Athens, GA
+<option value="ATL/1/0.58713/1/1.47352">Atlanta, GA
+<option value="AUS/1/0.52884/1/1.70519">Austin, TX
+<option value="AVL/1/0.61846/1/1.44062">Ashville, NC
+<option value="BWI/1/0.68373/1/1.33812">Baltimore, MD
+<option value="BGR/1/0.78202/1/1.20128">Bangor, ME
+<option value="BHM/1/0.58579/1/1.51413">Birmingham, AL
+<option value="BOI/1/0.76035/1/2.02848">Boise, ID
+<option value="BOS/1/0.73938/1/1.23927">Boston, MA
+<option value="TRI/1/0.63661/1/1.43827">Bristol/Johnson City, TN
+<option value="BRO/1/0.45216/1/1.70039">Brownsville, TX
+<option value="BTR/1/0.53288/1/1.59084">Baton Rouge, LA
+<option value="BTV/1/0.77615/1/1.27674">Burlington, VT
+<option value="BUF/1/0.74944/1/1.37413">Buffalo, NY
+<option value="YYC/1/0.89209/1/1.99002">Calgary, AB
+<option value="CAE/1/0.77275/1/1.49083">Columbia, SC
+<option value="CAK/1/0.71410/1/1.42143">Canton/Akron, OH
+<option value="CID/1/0.73100/1/1.60064">Cedar Rapids, IA
+<option value="CHS/1/0.57418/1/1.39696">Charleston, SC
+<option value="CHA/1/0.61148/1/1.48708">Chattanooga, TN
+<option value="CEF/1/0.73647/1/1.26589">Chicopee, MA
+<option value="CLT/1/0.61459/1/1.41273">Charlotte, NC
+<option value="MDW/1/0.72929/1/1.53156">Chicago, IL (MDW)
+<option value="ORD/1/0.73266/1/1.53420">Chicago, IL (ORD)
+<option value="LUK/1/0.68245/1/1.47338">Cincinnati, OH (LUK)
+<option value="CLE/1/0.72274/1/1.42852">Cleveland, OH
+<option value="COS/1/0.67739/1/1.82753">Colorado Spgs, CO
+<option value="CSG/1/0.56749/1/1.48245">Columbus, GA
+<option value="CMH/1/0.69804/1/1.44665">Columbus, OH
+<option value="CRP/1/0.48468/1/1.70170">Corpus Christi, TX
+<option value="CYS/1/0.71829/1/1.82931">Cheyenne, WY
+<option value="CVG/1/0.68146/1/1.47760">Covington, KY
+<option value="DAL/1/0.57328/1/1.69035">Dallas, TX (DAL)
+<option value="DFW/1/0.57413/1/1.69367">Dallas, TX (DFW)
+<option value="DAY/1/0.61642/1/1.46989">Dayton, OH
+<option value="DEN/1/0.69418/1/1.83047">Denver, CO
+<option value="DSM/1/0.72489/1/1.63468">Des Moines, IA
+<option value="DET/1/0.74017/1/1.44877">Detroit, MI (DET)
+<option value="DTW/1/0.73679/1/1.45470">Detroit, MI (DTW)
+<option value="YIP/1/0.73717/1/1.45787">Detroit, MI (YIP)
+<option value="YEG/1/0.93033/1/1.98255">Edmonton, AB
+<option value="ELP/1/0.55510/1/1.85662">El Paso, TX
+<option value="EVV/1/0.66387/1/1.52769">Evansville, IN
+<option value="FYV/1/0.62841/1/1.64355">Fayetteville, AR
+<option value="FAY/1/0.61069/1/1.37672">Fayetteville, NC
+<option value="FNT/1/0.74988/1/1.46160">Flint, MI
+<option value="FLL/1/0.45504/1/1.39891">Ft. Lauderdale, FL
+<option value="FMY/1/0.46400/1/1.42879">Ft. Myers, FL (FMY)
+<option value="RSW/1/0.46312/1/1.42687">Ft. Myers, FL (RSW)
+<option value="FWA/1/0.71521/1/1.48690">Ft. Wayne, IN
+<option value="FAT/1/0.64185/1/2.08945">Fresno, CA
+<option value="YQX/1/0.85428/1/0.96231">Gander, NF
+<option value="GRR/1/0.74843/1/1.49266">Grand Rapids, MI
+<option value="GRB/1/0.77641/1/1.53813">Green Bay, WI
+<option value="GSO/1/0.63001/1/1.39516">Greensboro, NC
+<option value="GSP/1/0.60909/1/1.43489">Greer, SC
+<option value="IAH/1/0.52325/1/1.66397">Houston, TX (IAH)
+<option value="IND/1/0.69322/1/1.50599">Indianapolis, IN
+<option value="JAN/1/0.56392/1/1.57211">Jackson, MS
+<option value="JAX/1/0.53218/1/1.42573">Jacksonville, FL
+<option value="MCI/1/0.68589/1/1.65312">Kansas City, MO (MCI)
+<option value="MKC/1/0.68280/1/1.65094">Kansas City, MO (MKC)
+<option value="EYW/1/0.42857/1/1.42695">Key West, FL
+<option value="TYS/1/0.62503/1/1.46593">Knoxville, TN
+<option value="LAS/1/0.62972/1/2.00975">Las Vegas, NV
+<option value="LIT/1/0.60612/1/1.60960">Little Rock, AR
+<option value="LAX/1/0.59239/1/2.06659">Los Angeles, CA
+<option value="SDF/1/0.66625/1/1.49636">Louisville, KY
+<option value="LBB/1/0.58754/1/1.77712">Lubbock, TX
+<option value="MSN/1/0.75291/1/1.55922">Madison, WI
+<option value="MIA/1/0.45015/1/1.40133">Miami, FL
+<option value="MHT/1/0.74933/1/1.24681">Manchester, NH
+<option value="MEM/1/0.61168/1/1.57042">Memphis, TN
+<option value="MDT/1/0.70151/1/1.33977">Middletown, PA
+<option value="MBS/1/0.75977/1/1.46744">Midland, MI
+<option value="MKE/1/0.74956/1/1.53409">Milwaukee, WI
+<option value="MSP/1/0.78336/1/1.62688">Minneapolis, MN
+<option value="MOB/1/0.53564/1/1.54011">Mobile, AL
+<option value="MLI/1/0.72341/1/1.57961">Moline, IL
+<option value="TTF/1/0.73199/1/1.45621">Monroe, MI
+<option value="YUL/1/0.79349/1/1.28718">Montreal, QE (YUL)
+<option value="MYR/1/0.58780/1/1.37756">Myrtle Beach, SC
+<option value="APF/1/0.45643/1/1.42724">Naples, FL
+<option value="BNA/1/0.63050/1/1.51276">Nashville, TN
+<option value="EWR/1/0.71020/1/1.29448">Newark, NJ
+<option value="SWF/1/0.72437/1/1.29338">Newburgh, NY
+<option value="MSY/1/0.52345/1/1.57528">New Orleans, LA (MSY)
+<option value="NEW/1/0.52433/1/1.57126">New Orleans, LA (NEW)
+<option value="PHF/1/0.64807/1/1.33505">Newport News, VA
+<option value="JFK/1/0.70930/1/1.28765">New York, NY (JFK)
+<option value="LGA/1/0.71169/1/1.28930">New York, NY (LGA)
+<option value="ORF/1/0.64393/1/1.32996">Norfolk, VA
+<option value="OAK/1/0.65834/1/2.13311">Oakland, CA
+<option value="OKC/1/0.61770/1/1.70344">Oklahoma City, OK
+<option value="OMA/1/0.72085/1/1.67365">Omaha, NE
+<option value="ONT/1/0.59437/1/2.05251">Ontario, CA
+<option value="MCO/1/0.49617/1/1.41921">Orlando, FL (MCO)
+<option value="ORL/1/0.49820/1/1.41951">Orlando, FL (ORL)
+<option value="YOW/1/0.79100/1/1.32074">Ottawa, ON
+<option value="PSC/1/0.80745/1/2.07898">Pasco, WA
+<option value="PIA/1/0.70971/1/1.56539">Peoria, IL
+<option value="PHL/1/0.69586/1/1.31327">Philadelphia, PA
+<option value="PHX/1/0.58355/1/1.95491">Phoenix, AZ
+<option value="AGC/1/0.70430/1/1.39504">Pittsburgh, PA (AGC)
+<option value="PIT/1/0.70668/1/1.40031">Pittsburgh, PA (PIT)
+<option value="PWM/1/0.76175/1/1.22711">Portland, ME
+<option value="PDX/1/0.79567/1/2.13969">Portland, OR
+<option value="PVD/1/0.72821/1/1.24666">Providence, RI
+<option value="RDU/1/0.62617/1/1.37509">Raleigh, NC
+<option value="RAP/1/0.76873/1/1.79868">Rapid City, SD
+<option value="RNO/1/0.68938/1/2.09032">Reno, NV
+<option value="ROA/1/0.65144/1/1.39583">Roanoke, VA
+<option value="RST/1/0.76635/1/1.61437">Rochester, MN
+<option value="ROC/1/0.75256/1/1.35563">Rochester, NY
+<option value="RFD/1/0.73644/1/1.55494">Rockford, IL
+<option value="SMF/1/0.67536/1/2.12212">Sacremento, CA (SMF)
+<option value="CPS/1/0.67319/1/1.57352">St. Louis, MO (CPS)
+<option value="STL/1/0.67628/1/1.57708">St. Louis, MO (STL)
+<option value="SUX/1/0.74008/1/1.68221">Sioux City, IA
+<option value="SLC/1/0.71186/1/1.95419">Salt Lake City, UT
+<option value="SAT/1/0.51545/1/1.71860">San Antonio, TX
+<option value="SAN/1/0.57130/1/2.04529">San Diego, CA (SAN)
+<option value="SJC/1/0.65206/1/2.12802">San Jose, CA
+<option value="SJU/1/0.32186/1/1.15196">San Juan, PR
+<option value="BFI/1/0.82956/1/2.13454">Seattle, WA (BFI)
+<option value="SEA/1/0.82813/1/2.13465">Seattle, WA (SEA)
+<option value="SHV/1/0.56627/1/1.63756">Shreveport, LA
+<option value="SBN/1/0.72791/1/1.50654">South Bend, IN
+<option value="GEG/1/0.83110/1/2.05132">Spokane, WA
+<option value="SYR/1/0.75241/1/1.32831">Syracuse, NY
+<option value="TPA/1/0.48826/1/1.44048">Tampa, FL
+<option value="HUF/1/0.68856/1/1.52382">Terra Haute, IN
+<option value="YYZ/1/0.76235/1/1.38972">Toronto, ON
+<option value="TVC/1/0.78086/1/1.49368">Traverse City, MI
+<option value="TTN/1/0.70293/1/1.30574">Trenton, NJ
+<option value="TUL/1/0.63175/1/1.67354">Tulsa, OK
+<option value="TUS/1/0.56051/1/1.93627">Tucson, AZ
+<option value="YVR/1/0.85848/1/2.14999">Vancouver, BC
+<option value="IAD/1/0.67971/1/1.35186">Washington, DC (IAD)
+<option value="DCA/1/0.67810/1/1.34456">Washington, DC (DCA)
+<option value="ICT/1/0.65709/1/1.70050">Wichita, KS
+<option value="ILG/1/0.69252/1/1.31959">Wilmington, DE
+<option value="ILM/1/0.59812/1/1.35964">Wilmington, NC
+<option value="ILN/1/0.68818/1/1.46253">Wilmington, OH
+<option value="YWG/1/0.87092/1/1.69704">Winnipeg, MAN
+</select></td></tr>
+<tr><td colspan=2 align=center>
+<input type=button value="Calculate Distances" onClick="DoCalc(this.form)">
+</td></tr>
+</table>
+</form>
+</center>
+<P>
+<BR>
+<P>
+<a name="source">
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Calculators:  Airport</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as NotePad or SimpleText) and save (Control-s or Apple-s).  The script is yours!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  18.7 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL AIRPORT:
+
+   1.  Paste the first code in the HEAD of your HTML document
+   2.  Add the last coding to the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste the first code in the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Joe Josey (jjosey@jomist.net) -->
+<!-- Web Site:  http://www.foxberry.net/jjosey -->
+
+
+
+
+<!-- Begin
+var Orig=new Array();
+var Dest=new Array();
+var nm=0;
+var tc=0;
+function DoCalc(form) {
+from_airport=form.from.options[form.from.selectedIndex].value;
+dest_airport=form.to.options[form.to.selectedIndex].value;
+
+if (from_airport=="" || dest_airport=="") {
+alert("Please enter both an Originating and Destination Airport.");
+}
+else {
+Orig=from_airport.split("/");
+Dest=dest_airport.split("/");
+d=Math.acos(Math.sin(Orig[2])
+*Math.sin(Dest[2])
++Math.cos(Orig[2])
+*Math.cos(Dest[2])
+*Math.cos(Orig[4]-Dest[4]));
+nm=Math.round(3437.747*d);
+if (Math.sin(Dest[4]-Orig[4]) < 0) {
+tc=Math.acos((Math.sin(Dest[2])
+-Math.sin(Orig[2])*Math.cos(d))
+/(Math.sin(d)*Math.cos(Orig[2])));
+} 
+else { 
+tc=2*Math.PI
+-Math.acos((Math.sin(Dest[2])
+-Math.sin(Orig[2])
+*Math.cos(d))/(Math.sin(d)
+*Math.cos(Orig[2])));
+}
+tc=Math.round(tc*(180/Math.PI));
+message=(Orig[0] + " to " + Dest[0] + "\n\n");
+message+=("Degrees:  " +tc+ "\n");
+message+=("Nautical Miles: "+nm+"\n");
+message+=("Statute Miles: "+Math.round(nm*1.13636)+"\n");
+message+=("Kilometers: "+Math.round(nm*1.6094));
+alert(message);
+   }
+}
+// End -->
+</script>
+
+&lt;!-- STEP TWO: Add the last coding to the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+<center>
+<form>
+<table width=225 border=1 cellpadding=3>
+<tr><td colspan=2><center><font size="+2"><b>Airport Calculator</b></font></center></td></tr>
+<tr><td>From:</td><td><select name="from">
+<option value="">Originating Airport
+<option value="ABQ/1/0.61156/1/1.86064">Albuerque, NM
+<option value="ABY/1/0.55039/1/1.46945">Albany, GA
+<option value="ALB/1/0.75660/1/1.28811">Albany, NY
+<option value="AMA/1/0.61468/1/1.77509">Amarillo, TX
+<option value="ANC/1/1.06760/1/2.61774">Anchorage, AK
+<option value="ATW/1/0.77243/1/1.54494">Appleton, WI
+<option value="AHN/1/0.58251/1/1.45433">Athens, GA
+<option value="ATL/1/0.58713/1/1.47352">Atlanta, GA
+<option value="AUS/1/0.52884/1/1.70519">Austin, TX
+<option value="AVL/1/0.61846/1/1.44062">Ashville, NC
+<option value="BWI/1/0.68373/1/1.33812">Baltimore, MD
+<option value="BGR/1/0.78202/1/1.20128">Bangor, ME
+<option value="BHM/1/0.58579/1/1.51413">Birmingham, AL
+<option value="BOI/1/0.76035/1/2.02848">Boise, ID
+<option value="BOS/1/0.73938/1/1.23927">Boston, MA
+<option value="TRI/1/0.63661/1/1.43827">Bristol/Johnson City, TN
+<option value="BRO/1/0.45216/1/1.70039">Brownsville, TX
+<option value="BTR/1/0.53288/1/1.59084">Baton Rouge, LA
+<option value="BTV/1/0.77615/1/1.27674">Burlington, VT
+<option value="BUF/1/0.74944/1/1.37413">Buffalo, NY
+<option value="YYC/1/0.89209/1/1.99002">Calgary, AB
+<option value="CAE/1/0.77275/1/1.49083">Columbia, SC
+<option value="CAK/1/0.71410/1/1.42143">Canton/Akron, OH
+<option value="CID/1/0.73100/1/1.60064">Cedar Rapids, IA
+<option value="CHS/1/0.57418/1/1.39696">Charleston, SC
+<option value="CHA/1/0.61148/1/1.48708">Chattanooga, TN
+<option value="CEF/1/0.73647/1/1.26589">Chicopee, MA
+<option value="CLT/1/0.61459/1/1.41273">Charlotte, NC
+<option value="MDW/1/0.72929/1/1.53156">Chicago, IL (MDW)
+<option value="ORD/1/0.73266/1/1.53420">Chicago, IL (ORD)
+<option value="LUK/1/0.68245/1/1.47338">Cincinnati, OH (LUK)
+<option value="CLE/1/0.72274/1/1.42852">Cleveland, OH
+<option value="COS/1/0.67739/1/1.82753">Colorado Spgs, CO
+<option value="CSG/1/0.56749/1/1.48245">Columbus, GA
+<option value="CMH/1/0.69804/1/1.44665">Columbus, OH
+<option value="CRP/1/0.48468/1/1.70170">Corpus Christi, TX
+<option value="CYS/1/0.71829/1/1.82931">Cheyenne, WY
+<option value="CVG/1/0.68146/1/1.47760">Covington, KY
+<option value="DAL/1/0.57328/1/1.69035">Dallas, TX (DAL)
+<option value="DFW/1/0.57413/1/1.69367">Dallas, TX (DFW)
+<option value="DAY/1/0.61642/1/1.46989">Dayton, OH
+<option value="DEN/1/0.69418/1/1.83047">Denver, CO
+<option value="DSM/1/0.72489/1/1.63468">Des Moines, IA
+<option value="DET/1/0.74017/1/1.44877">Detroit, MI (DET)
+<option value="DTW/1/0.73679/1/1.45470">Detroit, MI (DTW)
+<option value="YIP/1/0.73717/1/1.45787">Detroit, MI (YIP)
+<option value="YEG/1/0.93033/1/1.98255">Edmonton, AB
+<option value="ELP/1/0.55510/1/1.85662">El Paso, TX
+<option value="EVV/1/0.66387/1/1.52769">Evansville, IN
+<option value="FYV/1/0.62841/1/1.64355">Fayetteville, AR
+<option value="FAY/1/0.61069/1/1.37672">Fayetteville, NC
+<option value="FNT/1/0.74988/1/1.46160">Flint, MI
+<option value="FLL/1/0.45504/1/1.39891">Ft. Lauderdale, FL
+<option value="FMY/1/0.46400/1/1.42879">Ft. Myers, FL (FMY)
+<option value="RSW/1/0.46312/1/1.42687">Ft. Myers, FL (RSW)
+<option value="FWA/1/0.71521/1/1.48690">Ft. Wayne, IN
+<option value="FAT/1/0.64185/1/2.08945">Fresno, CA
+<option value="YQX/1/0.85428/1/0.96231">Gander, NF
+<option value="GRR/1/0.74843/1/1.49266">Grand Rapids, MI
+<option value="GRB/1/0.77641/1/1.53813">Green Bay, WI
+<option value="GSO/1/0.63001/1/1.39516">Greensboro, NC
+<option value="GSP/1/0.60909/1/1.43489">Greer, SC
+<option value="IAH/1/0.52325/1/1.66397">Houston, TX (IAH)
+<option value="IND/1/0.69322/1/1.50599">Indianapolis, IN
+<option value="JAN/1/0.56392/1/1.57211">Jackson, MS
+<option value="JAX/1/0.53218/1/1.42573">Jacksonville, FL
+<option value="MCI/1/0.68589/1/1.65312">Kansas City, MO (MCI)
+<option value="MKC/1/0.68280/1/1.65094">Kansas City, MO (MKC)
+<option value="EYW/1/0.42857/1/1.42695">Key West, FL
+<option value="TYS/1/0.62503/1/1.46593">Knoxville, TN
+<option value="LAS/1/0.62972/1/2.00975">Las Vegas, NV
+<option value="LIT/1/0.60612/1/1.60960">Little Rock, AR
+<option value="LAX/1/0.59239/1/2.06659">Los Angeles, CA
+<option value="SDF/1/0.66625/1/1.49636">Louisville, KY
+<option value="LBB/1/0.58754/1/1.77712">Lubbock, TX
+<option value="MSN/1/0.75291/1/1.55922">Madison, WI
+<option value="MIA/1/0.45015/1/1.40133">Miami, FL
+<option value="MHT/1/0.74933/1/1.24681">Manchester, NH
+<option value="MEM/1/0.61168/1/1.57042">Memphis, TN
+<option value="MDT/1/0.70151/1/1.33977">Middletown, PA
+<option value="MBS/1/0.75977/1/1.46744">Midland, MI
+<option value="MKE/1/0.74956/1/1.53409">Milwaukee, WI
+<option value="MSP/1/0.78336/1/1.62688">Minneapolis, MN
+<option value="MOB/1/0.53564/1/1.54011">Mobile, AL
+<option value="MLI/1/0.72341/1/1.57961">Moline, IL
+<option value="TTF/1/0.73199/1/1.45621">Monroe, MI
+<option value="YUL/1/0.79349/1/1.28718">Montreal, QE (YUL)
+<option value="MYR/1/0.58780/1/1.37756">Myrtle Beach, SC
+<option value="APF/1/0.45643/1/1.42724">Naples, FL
+<option value="BNA/1/0.63050/1/1.51276">Nashville, TN
+<option value="EWR/1/0.71020/1/1.29448">Newark, NJ
+<option value="SWF/1/0.72437/1/1.29338">Newburgh, NY
+<option value="MSY/1/0.52345/1/1.57528">New Orleans, LA (MSY)
+<option value="NEW/1/0.52433/1/1.57126">New Orleans, LA (NEW)
+<option value="PHF/1/0.64807/1/1.33505">Newport News, VA
+<option value="JFK/1/0.70930/1/1.28765">New York, NY (JFK)
+<option value="LGA/1/0.71169/1/1.28930">New York, NY (LGA)
+<option value="ORF/1/0.64393/1/1.32996">Norfolk, VA
+<option value="OAK/1/0.65834/1/2.13311">Oakland, CA
+<option value="OKC/1/0.61770/1/1.70344">Oklahoma City, OK
+<option value="OMA/1/0.72085/1/1.67365">Omaha, NE
+<option value="ONT/1/0.59437/1/2.05251">Ontario, CA
+<option value="MCO/1/0.49617/1/1.41921">Orlando, FL (MCO)
+<option value="ORL/1/0.49820/1/1.41951">Orlando, FL (ORL)
+<option value="YOW/1/0.79100/1/1.32074">Ottawa, ON
+<option value="PSC/1/0.80745/1/2.07898">Pasco, WA
+<option value="PIA/1/0.70971/1/1.56539">Peoria, IL
+<option value="PHL/1/0.69586/1/1.31327">Philadelphia, PA
+<option value="PHX/1/0.58355/1/1.95491">Phoenix, AZ
+<option value="AGC/1/0.70430/1/1.39504">Pittsburgh, PA (AGC)
+<option value="PIT/1/0.70668/1/1.40031">Pittsburgh, PA (PIT)
+<option value="PWM/1/0.76175/1/1.22711">Portland, ME
+<option value="PDX/1/0.79567/1/2.13969">Portland, OR
+<option value="PVD/1/0.72821/1/1.24666">Providence, RI
+<option value="RDU/1/0.62617/1/1.37509">Raleigh, NC
+<option value="RAP/1/0.76873/1/1.79868">Rapid City, SD
+<option value="RNO/1/0.68938/1/2.09032">Reno, NV
+<option value="ROA/1/0.65144/1/1.39583">Roanoke, VA
+<option value="RST/1/0.76635/1/1.61437">Rochester, MN
+<option value="ROC/1/0.75256/1/1.35563">Rochester, NY
+<option value="RFD/1/0.73644/1/1.55494">Rockford, IL
+<option value="SMF/1/0.67536/1/2.12212">Sacremento, CA (SMF)
+<option value="CPS/1/0.67319/1/1.57352">St. Louis, MO (CPS)
+<option value="STL/1/0.67628/1/1.57708">St. Louis, MO (STL)
+<option value="SUX/1/0.74008/1/1.68221">Sioux City, IA
+<option value="SLC/1/0.71186/1/1.95419">Salt Lake City, UT
+<option value="SAT/1/0.51545/1/1.71860">San Antonio, TX
+<option value="SAN/1/0.57130/1/2.04529">San Diego, CA (SAN)
+<option value="SJC/1/0.65206/1/2.12802">San Jose, CA
+<option value="SJU/1/0.32186/1/1.15196">San Juan, PR
+<option value="BFI/1/0.82956/1/2.13454">Seattle, WA (BFI)
+<option value="SEA/1/0.82813/1/2.13465">Seattle, WA (SEA)
+<option value="SHV/1/0.56627/1/1.63756">Shreveport, LA
+<option value="SBN/1/0.72791/1/1.50654">South Bend, IN
+<option value="GEG/1/0.83110/1/2.05132">Spokane, WA
+<option value="SYR/1/0.75241/1/1.32831">Syracuse, NY
+<option value="TPA/1/0.48826/1/1.44048">Tampa, FL
+<option value="HUF/1/0.68856/1/1.52382">Terra Haute, IN
+<option value="YYZ/1/0.76235/1/1.38972">Toronto, ON
+<option value="TVC/1/0.78086/1/1.49368">Traverse City, MI
+<option value="TTN/1/0.70293/1/1.30574">Trenton, NJ
+<option value="TUL/1/0.63175/1/1.67354">Tulsa, OK
+<option value="TUS/1/0.56051/1/1.93627">Tucson, AZ
+<option value="YVR/1/0.85848/1/2.14999">Vancouver, BC
+<option value="IAD/1/0.67971/1/1.35186">Washington, DC (IAD)
+<option value="DCA/1/0.67810/1/1.34456">Washington, DC (DCA)
+<option value="ICT/1/0.65709/1/1.70050">Wichita, KS
+<option value="ILG/1/0.69252/1/1.31959">Wilmington, DE
+<option value="ILM/1/0.59812/1/1.35964">Wilmington, NC
+<option value="ILN/1/0.68818/1/1.46253">Wilmington, OH
+<option value="YWG/1/0.87092/1/1.69704">Winnipeg, MAN
+</select></td></tr>
+<tr><td>To:</td><td><select name="to">
+<option value="">Destination Airport
+<option value="ABQ/1/0.61156/1/1.86064">Albuerque, NM
+<option value="ABY/1/0.55039/1/1.46945">Albany, GA
+<option value="ALB/1/0.75660/1/1.28811">Albany, NY
+<option value="AMA/1/0.61468/1/1.77509">Amarillo, TX
+<option value="ANC/1/1.06760/1/2.61774">Anchorage, AK
+<option value="ATW/1/0.77243/1/1.54494">Appleton, WI
+<option value="AHN/1/0.58251/1/1.45433">Athens, GA
+<option value="ATL/1/0.58713/1/1.47352">Atlanta, GA
+<option value="AUS/1/0.52884/1/1.70519">Austin, TX
+<option value="AVL/1/0.61846/1/1.44062">Ashville, NC
+<option value="BWI/1/0.68373/1/1.33812">Baltimore, MD
+<option value="BGR/1/0.78202/1/1.20128">Bangor, ME
+<option value="BHM/1/0.58579/1/1.51413">Birmingham, AL
+<option value="BOI/1/0.76035/1/2.02848">Boise, ID
+<option value="BOS/1/0.73938/1/1.23927">Boston, MA
+<option value="TRI/1/0.63661/1/1.43827">Bristol/Johnson City, TN
+<option value="BRO/1/0.45216/1/1.70039">Brownsville, TX
+<option value="BTR/1/0.53288/1/1.59084">Baton Rouge, LA
+<option value="BTV/1/0.77615/1/1.27674">Burlington, VT
+<option value="BUF/1/0.74944/1/1.37413">Buffalo, NY
+<option value="YYC/1/0.89209/1/1.99002">Calgary, AB
+<option value="CAE/1/0.77275/1/1.49083">Columbia, SC
+<option value="CAK/1/0.71410/1/1.42143">Canton/Akron, OH
+<option value="CID/1/0.73100/1/1.60064">Cedar Rapids, IA
+<option value="CHS/1/0.57418/1/1.39696">Charleston, SC
+<option value="CHA/1/0.61148/1/1.48708">Chattanooga, TN
+<option value="CEF/1/0.73647/1/1.26589">Chicopee, MA
+<option value="CLT/1/0.61459/1/1.41273">Charlotte, NC
+<option value="MDW/1/0.72929/1/1.53156">Chicago, IL (MDW)
+<option value="ORD/1/0.73266/1/1.53420">Chicago, IL (ORD)
+<option value="LUK/1/0.68245/1/1.47338">Cincinnati, OH (LUK)
+<option value="CLE/1/0.72274/1/1.42852">Cleveland, OH
+<option value="COS/1/0.67739/1/1.82753">Colorado Spgs, CO
+<option value="CSG/1/0.56749/1/1.48245">Columbus, GA
+<option value="CMH/1/0.69804/1/1.44665">Columbus, OH
+<option value="CRP/1/0.48468/1/1.70170">Corpus Christi, TX
+<option value="CYS/1/0.71829/1/1.82931">Cheyenne, WY
+<option value="CVG/1/0.68146/1/1.47760">Covington, KY
+<option value="DAL/1/0.57328/1/1.69035">Dallas, TX (DAL)
+<option value="DFW/1/0.57413/1/1.69367">Dallas, TX (DFW)
+<option value="DAY/1/0.61642/1/1.46989">Dayton, OH
+<option value="DEN/1/0.69418/1/1.83047">Denver, CO
+<option value="DSM/1/0.72489/1/1.63468">Des Moines, IA
+<option value="DET/1/0.74017/1/1.44877">Detroit, MI (DET)
+<option value="DTW/1/0.73679/1/1.45470">Detroit, MI (DTW)
+<option value="YIP/1/0.73717/1/1.45787">Detroit, MI (YIP)
+<option value="YEG/1/0.93033/1/1.98255">Edmonton, AB
+<option value="ELP/1/0.55510/1/1.85662">El Paso, TX
+<option value="EVV/1/0.66387/1/1.52769">Evansville, IN
+<option value="FYV/1/0.62841/1/1.64355">Fayetteville, AR
+<option value="FAY/1/0.61069/1/1.37672">Fayetteville, NC
+<option value="FNT/1/0.74988/1/1.46160">Flint, MI
+<option value="FLL/1/0.45504/1/1.39891">Ft. Lauderdale, FL
+<option value="FMY/1/0.46400/1/1.42879">Ft. Myers, FL (FMY)
+<option value="RSW/1/0.46312/1/1.42687">Ft. Myers, FL (RSW)
+<option value="FWA/1/0.71521/1/1.48690">Ft. Wayne, IN
+<option value="FAT/1/0.64185/1/2.08945">Fresno, CA
+<option value="YQX/1/0.85428/1/0.96231">Gander, NF
+<option value="GRR/1/0.74843/1/1.49266">Grand Rapids, MI
+<option value="GRB/1/0.77641/1/1.53813">Green Bay, WI
+<option value="GSO/1/0.63001/1/1.39516">Greensboro, NC
+<option value="GSP/1/0.60909/1/1.43489">Greer, SC
+<option value="IAH/1/0.52325/1/1.66397">Houston, TX (IAH)
+<option value="IND/1/0.69322/1/1.50599">Indianapolis, IN
+<option value="JAN/1/0.56392/1/1.57211">Jackson, MS
+<option value="JAX/1/0.53218/1/1.42573">Jacksonville, FL
+<option value="MCI/1/0.68589/1/1.65312">Kansas City, MO (MCI)
+<option value="MKC/1/0.68280/1/1.65094">Kansas City, MO (MKC)
+<option value="EYW/1/0.42857/1/1.42695">Key West, FL
+<option value="TYS/1/0.62503/1/1.46593">Knoxville, TN
+<option value="LAS/1/0.62972/1/2.00975">Las Vegas, NV
+<option value="LIT/1/0.60612/1/1.60960">Little Rock, AR
+<option value="LAX/1/0.59239/1/2.06659">Los Angeles, CA
+<option value="SDF/1/0.66625/1/1.49636">Louisville, KY
+<option value="LBB/1/0.58754/1/1.77712">Lubbock, TX
+<option value="MSN/1/0.75291/1/1.55922">Madison, WI
+<option value="MIA/1/0.45015/1/1.40133">Miami, FL
+<option value="MHT/1/0.74933/1/1.24681">Manchester, NH
+<option value="MEM/1/0.61168/1/1.57042">Memphis, TN
+<option value="MDT/1/0.70151/1/1.33977">Middletown, PA
+<option value="MBS/1/0.75977/1/1.46744">Midland, MI
+<option value="MKE/1/0.74956/1/1.53409">Milwaukee, WI
+<option value="MSP/1/0.78336/1/1.62688">Minneapolis, MN
+<option value="MOB/1/0.53564/1/1.54011">Mobile, AL
+<option value="MLI/1/0.72341/1/1.57961">Moline, IL
+<option value="TTF/1/0.73199/1/1.45621">Monroe, MI
+<option value="YUL/1/0.79349/1/1.28718">Montreal, QE (YUL)
+<option value="MYR/1/0.58780/1/1.37756">Myrtle Beach, SC
+<option value="APF/1/0.45643/1/1.42724">Naples, FL
+<option value="BNA/1/0.63050/1/1.51276">Nashville, TN
+<option value="EWR/1/0.71020/1/1.29448">Newark, NJ
+<option value="SWF/1/0.72437/1/1.29338">Newburgh, NY
+<option value="MSY/1/0.52345/1/1.57528">New Orleans, LA (MSY)
+<option value="NEW/1/0.52433/1/1.57126">New Orleans, LA (NEW)
+<option value="PHF/1/0.64807/1/1.33505">Newport News, VA
+<option value="JFK/1/0.70930/1/1.28765">New York, NY (JFK)
+<option value="LGA/1/0.71169/1/1.28930">New York, NY (LGA)
+<option value="ORF/1/0.64393/1/1.32996">Norfolk, VA
+<option value="OAK/1/0.65834/1/2.13311">Oakland, CA
+<option value="OKC/1/0.61770/1/1.70344">Oklahoma City, OK
+<option value="OMA/1/0.72085/1/1.67365">Omaha, NE
+<option value="ONT/1/0.59437/1/2.05251">Ontario, CA
+<option value="MCO/1/0.49617/1/1.41921">Orlando, FL (MCO)
+<option value="ORL/1/0.49820/1/1.41951">Orlando, FL (ORL)
+<option value="YOW/1/0.79100/1/1.32074">Ottawa, ON
+<option value="PSC/1/0.80745/1/2.07898">Pasco, WA
+<option value="PIA/1/0.70971/1/1.56539">Peoria, IL
+<option value="PHL/1/0.69586/1/1.31327">Philadelphia, PA
+<option value="PHX/1/0.58355/1/1.95491">Phoenix, AZ
+<option value="AGC/1/0.70430/1/1.39504">Pittsburgh, PA (AGC)
+<option value="PIT/1/0.70668/1/1.40031">Pittsburgh, PA (PIT)
+<option value="PWM/1/0.76175/1/1.22711">Portland, ME
+<option value="PDX/1/0.79567/1/2.13969">Portland, OR
+<option value="PVD/1/0.72821/1/1.24666">Providence, RI
+<option value="RDU/1/0.62617/1/1.37509">Raleigh, NC
+<option value="RAP/1/0.76873/1/1.79868">Rapid City, SD
+<option value="RNO/1/0.68938/1/2.09032">Reno, NV
+<option value="ROA/1/0.65144/1/1.39583">Roanoke, VA
+<option value="RST/1/0.76635/1/1.61437">Rochester, MN
+<option value="ROC/1/0.75256/1/1.35563">Rochester, NY
+<option value="RFD/1/0.73644/1/1.55494">Rockford, IL
+<option value="SMF/1/0.67536/1/2.12212">Sacremento, CA (SMF)
+<option value="CPS/1/0.67319/1/1.57352">St. Louis, MO (CPS)
+<option value="STL/1/0.67628/1/1.57708">St. Louis, MO (STL)
+<option value="SUX/1/0.74008/1/1.68221">Sioux City, IA
+<option value="SLC/1/0.71186/1/1.95419">Salt Lake City, UT
+<option value="SAT/1/0.51545/1/1.71860">San Antonio, TX
+<option value="SAN/1/0.57130/1/2.04529">San Diego, CA (SAN)
+<option value="SJC/1/0.65206/1/2.12802">San Jose, CA
+<option value="SJU/1/0.32186/1/1.15196">San Juan, PR
+<option value="BFI/1/0.82956/1/2.13454">Seattle, WA (BFI)
+<option value="SEA/1/0.82813/1/2.13465">Seattle, WA (SEA)
+<option value="SHV/1/0.56627/1/1.63756">Shreveport, LA
+<option value="SBN/1/0.72791/1/1.50654">South Bend, IN
+<option value="GEG/1/0.83110/1/2.05132">Spokane, WA
+<option value="SYR/1/0.75241/1/1.32831">Syracuse, NY
+<option value="TPA/1/0.48826/1/1.44048">Tampa, FL
+<option value="HUF/1/0.68856/1/1.52382">Terra Haute, IN
+<option value="YYZ/1/0.76235/1/1.38972">Toronto, ON
+<option value="TVC/1/0.78086/1/1.49368">Traverse City, MI
+<option value="TTN/1/0.70293/1/1.30574">Trenton, NJ
+<option value="TUL/1/0.63175/1/1.67354">Tulsa, OK
+<option value="TUS/1/0.56051/1/1.93627">Tucson, AZ
+<option value="YVR/1/0.85848/1/2.14999">Vancouver, BC
+<option value="IAD/1/0.67971/1/1.35186">Washington, DC (IAD)
+<option value="DCA/1/0.67810/1/1.34456">Washington, DC (DCA)
+<option value="ICT/1/0.65709/1/1.70050">Wichita, KS
+<option value="ILG/1/0.69252/1/1.31959">Wilmington, DE
+<option value="ILM/1/0.59812/1/1.35964">Wilmington, NC
+<option value="ILN/1/0.68818/1/1.46253">Wilmington, OH
+<option value="YWG/1/0.87092/1/1.69704">Winnipeg, MAN
+</select></td></tr>
+<tr><td colspan=2 align=center>
+<input type=button value="Calculate Distances" onClick="DoCalc(this.form)">
+</td></tr>
+</table>
+</form>
+</center>
+
+ 
+
+&lt;!-- Script Size:  18.7 KB  --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

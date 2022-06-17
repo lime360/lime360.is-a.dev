@@ -1,0 +1,311 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Calendars:  Monthly:  Day Highlighted</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Calendars">
+<META NAME="description" CONTENT="This is a very interesting fascinating JavaScript calendar.  It shows you the current month, the current day, and the current time on that day!  A very neat effect - some great JavaScripting!">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /calendars/"><font color="#FF0000">Calendars</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Monthly:  Day Highlighted</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+This is a very interesting fascinating JavaScript calendar.  It shows you the current month's calendar, and the current day is highlighted!  A very neat effect - some great JavaScripting!
+<br>
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<CENTER>
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+monthnames = new Array(
+"January",
+"Februrary",
+"March",
+"April",
+"May",
+"June",
+"July",
+"August",
+"September",
+"October",
+"November",
+"December");
+var linkcount=0;
+function addlink(month, day, href) {
+var entry = new Array(3);
+entry[0] = month;
+entry[1] = day;
+entry[2] = href;
+this[linkcount++] = entry;
+}
+Array.prototype.addlink = addlink;
+linkdays = new Array();
+monthdays = new Array(12);
+monthdays[0]=31;
+monthdays[1]=28;
+monthdays[2]=31;
+monthdays[3]=30;
+monthdays[4]=31;
+monthdays[5]=30;
+monthdays[6]=31;
+monthdays[7]=31;
+monthdays[8]=30;
+monthdays[9]=31;
+monthdays[10]=30;
+monthdays[11]=31;
+todayDate=new Date();
+thisday=todayDate.getDay();
+thismonth=todayDate.getMonth();
+thisdate=todayDate.getDate();
+thisyear=todayDate.getYear();
+thisyear = thisyear % 100;
+thisyear = ((thisyear < 50) ? (2000 + thisyear) : (1900 + thisyear));
+if (((thisyear % 4 == 0) 
+&& !(thisyear % 100 == 0))
+||(thisyear % 400 == 0)) monthdays[1]++;
+startspaces=thisdate;
+while (startspaces > 7) startspaces-=7;
+startspaces = thisday - startspaces + 1;
+if (startspaces < 0) startspaces+=7;
+document.write("<table border=2 bgcolor=white ");
+document.write("bordercolor=black><font color=black>");
+document.write("<tr><td colspan=7><center><strong>" 
++ monthnames[thismonth] + " " + thisyear 
++ "</strong></center></font></td></tr>");
+document.write("<tr>");
+document.write("<td align=center>Su</td>");
+document.write("<td align=center>M</td>");
+document.write("<td align=center>Tu</td>");
+document.write("<td align=center>W</td>");
+document.write("<td align=center>Th</td>");
+document.write("<td align=center>F</td>");
+document.write("<td align=center>Sa</td>"); 
+document.write("</tr>");
+document.write("<tr>");
+for (s=0;s<startspaces;s++) {
+document.write("<td>&nbsp</td>");
+}
+count=1;
+while (count <= monthdays[thismonth]) {
+for (b = startspaces;b<7;b++) {
+linktrue=false;
+document.write("<td>");
+for (c=0;c<linkdays.length;c++) {
+if (linkdays[c] != null) {
+if ((linkdays[c][0]==thismonth + 1) && (linkdays[c][1]==count)) {
+document.write("<a href=\"" + linkdays[c][2] + "\">");
+linktrue=true;
+      }
+   }
+}
+if (count==thisdate) {
+document.write("<font color='FF0000'><strong>");
+}
+if (count <= monthdays[thismonth]) {
+document.write(count);
+}
+else {
+document.write("&nbsp");
+}
+if (count==thisdate) {
+document.write("</strong></font>");
+}
+if (linktrue)
+document.write("</a>");
+document.write("</td>");
+count++;
+}
+document.write("</tr>");
+document.write("<tr>");
+startspaces=0;
+}
+document.write("</table></p>");
+// End -->
+</SCRIPT>
+</CENTER>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>The JavaScript
+Source:  Calendars:  Monthly:  Day Highlighted</b>
+<p>Simply click inside the window below, hilight the script (type Control-a or Apple-a)
+and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as
+Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  3.73 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- ONE STEP TO INSTALL MONTHLY:  DAY HIGHLIGHTED:
+
+   1.  Put the code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the HEAD your HTML document  --&gt;
+
+&lt;BODY&gt;
+&lt;CENTER&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+monthnames = new Array(
+"January",
+"Februrary",
+"March",
+"April",
+"May",
+"June",
+"July",
+"August",
+"September",
+"October",
+"November",
+"Decemeber");
+var linkcount=0;
+function addlink(month, day, href) {
+var entry = new Array(3);
+entry[0] = month;
+entry[1] = day;
+entry[2] = href;
+this[linkcount++] = entry;
+}
+Array.prototype.addlink = addlink;
+linkdays = new Array();
+monthdays = new Array(12);
+monthdays[0]=31;
+monthdays[1]=28;
+monthdays[2]=31;
+monthdays[3]=30;
+monthdays[4]=31;
+monthdays[5]=30;
+monthdays[6]=31;
+monthdays[7]=31;
+monthdays[8]=30;
+monthdays[9]=31;
+monthdays[10]=30;
+monthdays[11]=31;
+todayDate=new Date();
+thisday=todayDate.getDay();
+thismonth=todayDate.getMonth();
+thisdate=todayDate.getDate();
+thisyear=todayDate.getYear();
+thisyear = thisyear % 100;
+thisyear = ((thisyear &lt; 50) ? (2000 + thisyear) : (1900 + thisyear));
+if (((thisyear % 4 == 0) 
+&& !(thisyear % 100 == 0))
+||(thisyear % 400 == 0)) monthdays[1]++;
+startspaces=thisdate;
+while (startspaces &gt; 7) startspaces-=7;
+startspaces = thisday - startspaces + 1;
+if (startspaces &lt; 0) startspaces+=7;
+document.write("&lt;table border=2 bgcolor=white ");
+document.write("bordercolor=black&gt;&lt;font color=black&gt;");
+document.write("&lt;tr&gt;&lt;td colspan=7&gt;&lt;center&gt;&lt;strong&gt;" 
++ monthnames[thismonth] + " " + thisyear 
++ "&lt;/strong&gt;&lt;/center&gt;&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;");
+document.write("&lt;tr&gt;");
+document.write("&lt;td align=center&gt;Su&lt;/td&gt;");
+document.write("&lt;td align=center&gt;M&lt;/td&gt;");
+document.write("&lt;td align=center&gt;Tu&lt;/td&gt;");
+document.write("&lt;td align=center&gt;W&lt;/td&gt;");
+document.write("&lt;td align=center&gt;Th&lt;/td&gt;");
+document.write("&lt;td align=center&gt;F&lt;/td&gt;");
+document.write("&lt;td align=center&gt;Sa&lt;/td&gt;"); 
+document.write("&lt;/tr&gt;");
+document.write("&lt;tr&gt;");
+for (s=0;s&lt;startspaces;s++) {
+document.write("&lt;td&gt;&nbsp&lt;/td&gt;");
+}
+count=1;
+while (count &lt;= monthdays[thismonth]) {
+for (b = startspaces;b&lt;7;b++) {
+linktrue=false;
+document.write("&lt;td&gt;");
+for (c=0;c&lt;linkdays.length;c++) {
+if (linkdays[c] != null) {
+if ((linkdays[c][0]==thismonth + 1) && (linkdays[c][1]==count)) {
+document.write("&lt;a href=\"" + linkdays[c][2] + "\"&gt;");
+linktrue=true;
+      }
+   }
+}
+if (count==thisdate) {
+document.write("&lt;font color='FF0000'&gt;&lt;strong&gt;");
+}
+if (count &lt;= monthdays[thismonth]) {
+document.write(count);
+}
+else {
+document.write("&nbsp");
+}
+if (count==thisdate) {
+document.write("&lt;/strong&gt;&lt;/font&gt;");
+}
+if (linktrue)
+document.write("&lt;/a&gt;");
+document.write("&lt;/td&gt;");
+count++;
+}
+document.write("&lt;/tr&gt;");
+document.write("&lt;tr&gt;");
+startspaces=0;
+}
+document.write("&lt;/table&gt;&lt;/p&gt;");
+// End --&gt;
+&lt;/SCRIPT&gt;
+&lt;/CENTER&gt;
+
+ 
+
+&lt;!-- Script Size:  2.98 KB  --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

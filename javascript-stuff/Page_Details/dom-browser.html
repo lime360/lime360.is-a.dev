@@ -1,0 +1,286 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Page Details:  DOM Browser</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Cyanide_7 (leo7278@hotmail.com)">
+<META NAME="section" CONTENT="Page Details">
+<META NAME="description" CONTENT="The DOM Browser is a visual, interactive representation of the DOM (Document Object Model). It's helpful to beginners learning to interact with the DOM in JavaScript. It's also a great tool for side-by-side comparisons of Netscape, Internet Explorer, and other browsers and how they interpret the document and its elements.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Cyanide_7 (leo7278@hotmail.com) -->
+<!-- Web Site:  http://www7.ewebcity.com/cyanide7 -->
+
+
+
+
+<!-- Begin
+var objects = new Array(), browser = null, expanded = null;
+
+// begin objects array with the document
+objects[0] = new Array(document, "_document", false);
+
+function openDOMBrowser(activeElement){
+// finds index of incoming object by its key
+activeIndex = arrayIndexOf(objects, activeElement, 1);
+// toggles its expanded boolean
+objects[activeIndex][2] = !objects[activeIndex][2];
+// opens/reopens the window
+args = "width=500,height=600,left=20,top=20,scrollbars,resizable,top=0,left=0";
+browser = window.open('',"DOMBrowser",args);
+browser.focus();
+// clears the expanded array (to avoid infinate loops in the DOM)
+expanded = new Array();
+// document is about to be expanded
+expanded["_document"] = true;
+// writes HTML to the window
+browser.document.open("text/html","replace");
+browser.document.writeln("<HTML><HEAD><TITLE>DOM Browser</TITLE></HEAD>");
+browser.document.writeln("<BODY BGCOLOR=BBBBBB link=FFFFF vlink=FFFFF>");
+browser.document.writeln("<h3>document:</h3><ul>");
+// calls recurrsive property writing function
+getProps(document);
+// finishes writing HTML and closes
+browser.document.writeln("</ul></BODY></HTML>");
+browser.document.close();
+// returns false for event handlers
+return false;
+}
+// recurrsive function to get properties of objects
+function getProps(obj){
+// for loop to run through properties of incoming object
+for(var prop in obj){
+browser.document.writeln("<li>");
+// if the property is an object itself, but not null...
+if(typeof(obj[prop])=="object" && obj[prop]!=null){
+// get index of object in objects array
+valIndex = arrayIndexOf(objects, obj[prop], 0);
+// if not in index array, add it and create its key
+if(valIndex==-1){
+valIndex = objects.length;
+key = ((new Date()).getTime()%10000) + "_" + (Math.floor(Math.random()*10000));
+objects[valIndex] = new Array(obj[prop], key, false);
+}
+// write link for this object to call openDOMBrowser with its key
+browser.document.writeln("<b>"+prop+
+"</b> : <a href=\"javascript:void(0)\" onClick=\"window.opener.openDOMBrowser('"+
+objects[valIndex][1]+"');return false;\">"+(new String(obj[prop])).replace(/</g,"&lt;")+"</a>");
+// determine whether object should be expanded/was already expanded
+if(objects[valIndex][2] && !expanded[objects[valIndex][1]]){
+// if it needs to be expanded, add to expanded array
+expanded[objects[valIndex][1]] = true;
+// write nested list tag and recurrsive call to getProps
+browser.document.writeln("<ul>");
+getProps(obj[prop]);
+browser.document.writeln("</ul>");
+   }
+} else
+{
+// if not an object, just write property, value pair
+ie5fix = (typeof(obj[prop])=="unknown")?"":(new String(obj[prop])).replace(/</g,"&lt;");
+browser.document.writeln("<b>"+prop+"</b> : " + ie5fix);
+}
+browser.document.writeln("</li>");
+   }
+}
+// function to find object in an array by field value
+function arrayIndexOf(array, value, field){
+var found = false;
+var index = 0;
+while(!found && index < array.length){
+// field may be object reference or key
+if(array[index][field]==value)
+found = true;
+else
+index++;
+}
+return (found)?index:-1;
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /page-details/"><font color="#FF0000"><b>Page Details</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>DOM Browser</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+The DOM Browser is a visual, interactive representation of the DOM (Document Object Model). It's helpful to beginners learning to interact with the DOM in JavaScript. It's also a great tool for side-by-side comparisons of Netscape, Internet Explorer, and other browsers and how they interpret the document and its elements.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form>
+<input type=button value="Open DOM Browser" onClick="openDOMBrowser('_document');"><P>
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Page Details:  DOM Browser</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  3.78 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL DOM BROWSER:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Cyanide_7 (leo7278@hotmail.com) --&gt;
+&lt;!-- Web Site:  http://www7.ewebcity.com/cyanide7 --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var objects = new Array(), browser = null, expanded = null;
+
+// begin objects array with the document
+objects[0] = new Array(document, "_document", false);
+
+function openDOMBrowser(activeElement){
+// finds index of incoming object by its key
+activeIndex = arrayIndexOf(objects, activeElement, 1);
+// toggles its expanded boolean
+objects[activeIndex][2] = !objects[activeIndex][2];
+// opens/reopens the window
+args = "width=500,height=600,left=20,top=20,scrollbars,resizable,top=0,left=0";
+browser = window.open('',"DOMBrowser",args);
+browser.focus();
+// clears the expanded array (to avoid infinate loops in the DOM)
+expanded = new Array();
+// document is about to be expanded
+expanded["_document"] = true;
+// writes HTML to the window
+browser.document.open("text/html","replace");
+browser.document.writeln("&lt;HTML&gt;&lt;HEAD&gt;&lt;TITLE&gt;DOM Browser&lt;/TITLE&gt;&lt;/HEAD&gt;");
+browser.document.writeln("&lt;BODY BGCOLOR=BBBBBB link=FFFFF vlink=FFFFF&gt;");
+browser.document.writeln("&lt;h3&gt;document:&lt;/h3&gt;&lt;ul&gt;");
+// calls recurrsive property writing function
+getProps(document);
+// finishes writing HTML and closes
+browser.document.writeln("&lt;/ul&gt;&lt;/BODY&gt;&lt;/HTML&gt;");
+browser.document.close();
+// returns false for event handlers
+return false;
+}
+// recurrsive function to get properties of objects
+function getProps(obj){
+// for loop to run through properties of incoming object
+for(var prop in obj){
+browser.document.writeln("&lt;li&gt;");
+// if the property is an object itself, but not null...
+if(typeof(obj[prop])=="object" && obj[prop]!=null){
+// get index of object in objects array
+valIndex = arrayIndexOf(objects, obj[prop], 0);
+// if not in index array, add it and create its key
+if(valIndex==-1){
+valIndex = objects.length;
+key = ((new Date()).getTime()%10000) + "_" + (Math.floor(Math.random()*10000));
+objects[valIndex] = new Array(obj[prop], key, false);
+}
+// write link for this object to call openDOMBrowser with its key
+browser.document.writeln("&lt;b&gt;"+prop+
+"&lt;/b&gt; : &lt;a href=\"javascript:void(0)\" onClick=\"window.opener.openDOMBrowser('"+
+objects[valIndex][1]+"');return false;\"&gt;"+(new String(obj[prop])).replace(/&lt;/g,"&lt;")+"&lt;/a&gt;");
+// determine whether object should be expanded/was already expanded
+if(objects[valIndex][2] && !expanded[objects[valIndex][1]]){
+// if it needs to be expanded, add to expanded array
+expanded[objects[valIndex][1]] = true;
+// write nested list tag and recurrsive call to getProps
+browser.document.writeln("&lt;ul&gt;");
+getProps(obj[prop]);
+browser.document.writeln("&lt;/ul&gt;");
+   }
+} else
+// if not an object, just write property, value pair
+browser.document.writeln("&lt;b&gt;"+prop+"&lt;/b&gt; : " + (new String(obj[prop])).replace(/&lt;/g,"&lt;"));
+browser.document.writeln("&lt;/li&gt;");
+   }
+}
+// function to find object in an array by field value
+function arrayIndexOf(array, value, field){
+var found = false;
+var index = 0;
+while(!found && index &lt; array.length){
+// field may be object reference or key
+if(array[index][field]==value)
+found = true;
+else
+index++;
+}
+return (found)?index:-1;
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form&gt;
+&lt;input type=button value="Open DOM Browser" onClick="openDOMBrowser('_document');"&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  3.78 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>
+
+
+

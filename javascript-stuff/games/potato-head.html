@@ -1,0 +1,193 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Games:  Mr. Potato Head</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Michael Tartaglia (stonedstan@hotmail.com)">
+<META NAME="section" CONTENT="Games">
+<META NAME="description" CONTENT="Play a good old game of Mr. Potato Head - powered by JavaScript, of course!  Click buttons to change the hair, eyes, nose, and mouth!  And, click the "View It" button to see Mr. Potato Head!">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /games/"><font color="#FF0000">Games</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Mr. Potato Head</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE=" helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Play a good old game of Mr. Potato Head - powered by JavaScript, of course!  Click buttons to change the hair, eyes, nose, and mouth!  And, click the "View It" button to see Mr. Potato Head!<br><hr>
+</td></tr>
+</table>
+<!--  Demonstration -->
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+var h=0,e=0,n=0,m=0;
+var hChose="", eChose=":", nChose="-", mChose=")";
+document.write("<FORM NAME=\"theForm\"><CENTER>"
++ "<input type=text size=20 name=face>"
++"<BR><input type=button value=Hair onClick='changeHair()'>"
++"<input type=button value=Eyes onClick='changeEyes()'>"
++"<input type=button value=Nose onClick='changeNose()'>"
++"<input type=button value=Mouth onClick='changeMouth()'>&nbsp;&nbsp;");
+document.write("<input type=button value=View onClick='viewIt()'>");
+document.write("</CENTER></FORM>");
+document.theForm.face.value=hChose+" "+eChose+" "+nChose+mChose;
+hair=new Array("","[[[","2","3","(","\\/\\/","Ç");
+eyes=new Array("B",":\'",">:","<:",":",";","¦");
+nose=new Array("- ","^ ","* ","~ ","¤ ","");
+mouth=new Array("Þ","O","}","|",")","(",")~~",")===");
+function changeHair() {
+if (h == 6) {h=0} else (h++)
+hChose = hair[h];
+document.theForm.face.value=hChose+" "+eChose+" "+nChose+mChose;
+}
+function changeEyes() {
+if (e == 6) {e=0} else (e++)
+eChose = eyes[e];
+document.theForm.face.value=hChose+" "+eChose+" "+nChose+mChose;
+}
+function changeNose() {
+if (n == 5) {n=0} else (n++)
+nChose = nose[n];
+document.theForm.face.value=hChose+" "+eChose+" "+nChose+mChose;
+}
+function changeMouth() {
+if (m == 7) {m=0} else (m++)
+mChose = mouth[m];
+document.theForm.face.value=hChose+" "+eChose+" "+nChose+mChose;
+}
+function viewIt() {
+mth="";
+for (i=1;i<=mChose.length;i++) {mth += mChose.charAt(i)}
+see=window.open('','','width=200,height=175,toolbar=no,status=no,scrolling=no');
+see.document.write("<HTML><HEAD><TITLE>Mr. Potato Head</TITLE></HEAD><BODY>"
++ "<CENTER><FONT SIZE=7><B>"+hChose+" <FONT COLOR=blue>"
++ eChose + " </FONT>" + nChose + " <FONT COLOR=red>" 
++ mChose.charAt(0) + "</FONT>" + mth + "</B></FONT><br><br>"
++ "<FONT SIZE=2><I>Mr. Potato Head!</I></FONT><br>"
++ "<FONT SIZE=1>(<a href=\"javascript:this.close()\">"
++ "close</a>)</FONT></CENTER></BODY></HTML>");
+}
+// End -->
+</script>
+<P>
+<BR>
+<P>
+<a name="source">
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Games:  Mr. Potato Head</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as NotePad or SimpleText) and save (Control-s or Apple-s).  The script is yours!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.49 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- ONE STEP TO INSTALL MR. POTATO HEAD:
+
+   1.  Add the first code to the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Add the first code to the BODY of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Michael Tartaglia (stonedstan@hotmail.com) --&gt;
+&lt;!-- Web Site:  http://www.geocities.com/SiliconValley/Horizon/5235 --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var h=0,e=0,n=0,m=0;
+var hChose="", eChose=":", nChose="-", mChose=")";
+document.write("&lt;FORM NAME=\"theForm\"&gt;&lt;CENTER&gt;"
++ "&lt;input type=text size=20 name=face&gt;"
++"&lt;BR&gt;&lt;input type=button value=Hair onClick='changeHair()'&gt;"
++"&lt;input type=button value=Eyes onClick='changeEyes()'&gt;"
++"&lt;input type=button value=Nose onClick='changeNose()'&gt;"
++"&lt;input type=button value=Mouth onClick='changeMouth()'&gt;&nbsp;&nbsp;");
+document.write("&lt;input type=button value=View onClick='viewIt()'&gt;");
+document.write("&lt;/CENTER&gt;&lt;/FORM&gt;");
+document.theForm.face.value=hChose+" "+eChose+" "+nChose+mChose;
+hair=new Array("","[[[","2","3","(","\\/\\/","Ç");
+eyes=new Array("B",":\'","&gt;:","&lt;:",":",";","¦");
+nose=new Array("- ","^ ","* ","~ ","¤ ","");
+mouth=new Array("Þ","O","}","|",")","(",")~~",")===");
+function changeHair() {
+if (h == 6) {h=0} else (h++)
+hChose = hair[h];
+document.theForm.face.value=hChose+" "+eChose+" "+nChose+mChose;
+}
+function changeEyes() {
+if (e == 6) {e=0} else (e++)
+eChose = eyes[e];
+document.theForm.face.value=hChose+" "+eChose+" "+nChose+mChose;
+}
+function changeNose() {
+if (n == 5) {n=0} else (n++)
+nChose = nose[n];
+document.theForm.face.value=hChose+" "+eChose+" "+nChose+mChose;
+}
+function changeMouth() {
+if (m == 7) {m=0} else (m++)
+mChose = mouth[m];
+document.theForm.face.value=hChose+" "+eChose+" "+nChose+mChose;
+}
+function viewIt() {
+mth="";
+for (i=1;i&lt;=mChose.length;i++) {mth += mChose.charAt(i)}
+see=window.open('','','width=200,height=175,toolbar=no,status=no,scrolling=no');
+see.document.write("&lt;HTML&gt;&lt;HEAD&gt;&lt;TITLE&gt;Mr. Potato Head&lt;/TITLE&gt;&lt;/HEAD&gt;&lt;BODY&gt;"
++ "&lt;CENTER&gt;&lt;FONT SIZE=7&gt;&lt;B&gt;"+hChose+" &lt;FONT COLOR=blue&gt;"
++ eChose + " &lt;/FONT&gt;" + nChose + " &lt;FONT COLOR=red&gt;" 
++ mChose.charAt(0) + "&lt;/FONT&gt;" + mth + "&lt;/B&gt;&lt;/FONT&gt;&lt;br&gt;&lt;br&gt;"
++ "&lt;FONT SIZE=2&gt;&lt;I&gt;Mr. Potato Head!&lt;/I&gt;&lt;/FONT&gt;&lt;br&gt;"
++ "&lt;FONT SIZE=1&gt;(&lt;a href=\"javascript:this.close()\"&gt;"
++ "close&lt;/a&gt;)&lt;/FONT&gt;&lt;/CENTER&gt;&lt;/BODY&gt;&lt;/HTML&gt;");
+}
+// End --&gt;
+&lt;/script&gt;
+
+ 
+
+&lt;!-- Script Size:  2.49 KB  --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

@@ -1,0 +1,265 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Scrolls:  News Scroller</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Dion (yobo42@hotmail.com)">
+<META NAME="section" CONTENT="Scrolls">
+<META NAME="description" CONTENT="Scrolling words along the bottom of the page is cool and all, but this one takes the cake....  You can scroll text, links, images, buttons, basically anything you want, in a little news like box on your site.  And, you can have as many 'messages' as you want.  Amazing!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Dion (yobo42@hotmail.com) -->
+<!-- Web Site:  http://www.iinet.net.au/~biab/ -->
+
+
+
+
+<!-- Begin
+
+// change this to where you store the blank.gif image
+var blank = "..img/blank.gif";
+
+topedge = 130;  // location of news box from top of page
+leftedge = 10;  // location of news box from left edge
+boxheight = 150;  // height of news box
+boxwidth = 210;  // width of news box
+scrollheight = 240; // total height of all data to be scrolled
+
+function scrollnews(cliptop) {
+if (document.layers) {
+newsDiv = document.news;
+newsDiv.clip.top = cliptop;
+newsDiv.clip.bottom = cliptop + boxheight;
+newsDiv.clip.left = 0;
+newsDiv.clip.right = boxwidth + leftedge;
+newsDiv.left = leftedge;
+newsDiv.top = topedge - cliptop;
+}
+else {
+newsDiv = news.style;
+newsDiv.clip = "rect(" + cliptop + "px " + (boxwidth + leftedge) + "px " + (cliptop + boxheight) + "px 0px)";
+newsDiv.pixelLeft = leftedge;
+newsDiv.pixelTop = topedge - cliptop;
+}
+cliptop = (cliptop + 1) % (scrollheight + boxheight);
+newsDiv.visibility='visible';
+setTimeout("scrollnews(" + cliptop + ")", 150);
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff OnLoad="scrollnews(0)">
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /scrolls/"><font color="#FF0000"><b>Scrolls</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>News Scroller</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Scrolling words along the bottom of the page is cool and all, but this one takes the cake....  You can scroll text, links, images, buttons, basically anything you want, in a little news like box on your site.  And, you can have as many 'messages' as you want.  Amazing!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<div ID="news" style="position:absolute; visibility:hidden;
+top:1; left:1; height:600;
+clip:rect(10,100,100,10); border-width:0px;">
+<table border=0 cellpadding=1 cellspacing=0 bgcolor="white">
+<tr>
+<td>
+<script language="javascript">
+document.write('<img src=' + blank + ' width=1 height='+boxheight+'>');
+</script>
+</td>
+</tr>
+<tr>
+<td>
+
+<!-- Your News Items are Here -->
+
+This news scroller begins<br>
+Displaying text and images<br>
+From the bottom of the box<br>
+And restarts when all the<br>
+Information scrolls above<br>
+The top of the box.<br><br>
+Any HTML page content can<br>
+Be used in this JavaScript<br>
+Scroller.<br>
+<br>
+<a href="mailto:yobo42@hotmail.com">yobo42@hotmail.com</a>
+
+<!-- End Of Your News Items -->
+
+</td>
+</tr>
+<tr>
+<td>
+<script language="javascript">
+document.write('<img src=' + blank + ' width=1 height='+boxheight+'>');
+</script>
+</td>
+</tr>
+</table>
+</div>
+<br><br>
+You must also save these images<br>
+to your server to use this game.<br>
+Right-click the images below and<br>
+select "Save Image As..."<br><br>
+<img src="../img/blank.gif" /img/blank.gif" width=20 height=20 border=1><br><br>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Scrolls:  News Scroller</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.71 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL NEWS SCROLLER:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the onLoad event handler into the BODY tag
+  3.  Put the last coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Dion (yobo42@hotmail.com) --&gt;
+&lt;!-- Web Site:  http://www.iinet.net.au/~biab/ --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+
+// change this to where you store the blank.gif image
+var blank = "http://www.your-web-site-address-here.com/blank.gif";
+
+topedge = 130;  // location of news box from top of page
+leftedge = 10;  // location of news box from left edge
+boxheight = 150;  // height of news box
+boxwidth = 210;  // width of news box
+scrollheight = 240; // total height of all data to be scrolled
+
+function scrollnews(cliptop) {
+if (document.layers) {
+newsDiv = document.news;
+newsDiv.clip.top = cliptop;
+newsDiv.clip.bottom = cliptop + boxheight;
+newsDiv.clip.left = 0;
+newsDiv.clip.right = boxwidth + leftedge;
+newsDiv.left = leftedge;
+newsDiv.top = topedge - cliptop;
+}
+else {
+newsDiv = news.style;
+newsDiv.clip = "rect(" + cliptop + "px " + (boxwidth + leftedge) + "px " + (cliptop + boxheight) + "px 0px)";
+newsDiv.pixelLeft = leftedge;
+newsDiv.pixelTop = topedge - cliptop;
+}
+cliptop = (cliptop + 1) % (scrollheight + boxheight);
+newsDiv.visibility='visible';
+setTimeout("scrollnews(" + cliptop + ")", 150);
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Insert the onLoad event handler into your BODY tag  --&gt;
+
+&lt;BODY OnLoad="scrollnews(0)"&gt;
+
+&lt;!-- STEP THREE: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;div ID="news" style="position:absolute; visibility:hidden;
+top:1; left:1; height:600;
+clip:rect(10,100,100,10); border-width:0px;"&gt;
+&lt;table border=0 cellpadding=1 cellspacing=0 bgcolor="white"&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;script language="javascript"&gt;
+document.write('&lt;img src=' + blank + ' width=1 height='+boxheight+'&gt;');
+&lt;/script&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+
+&lt;!-- Your News Items are Here --&gt;
+
+This news scroller begins&lt;br&gt;
+Displaying text and images&lt;br&gt;
+From the bottom of the box&lt;br&gt;
+And restarts when all the&lt;br&gt;
+Information scrolls above&lt;br&gt;
+The top of the box.&lt;br&gt;&lt;br&gt;
+Any HTML page content can&lt;br&gt;
+Be used in this Javascript&lt;br&gt;
+Scroller.&lt;br&gt;
+&lt;br&gt;
+&lt;a href="mailto:yobo42@hotmail.com"&gt;yobo42@hotmail.com&lt;/a&gt;
+
+&lt;!-- End Of Your News Items --&gt;
+
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;script language="javascript"&gt;
+document.write('&lt;img src=' + blank + ' width=1 height='+boxheight+'&gt;');
+&lt;/script&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+ 
+
+&lt;!-- Script Size:  2.71 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

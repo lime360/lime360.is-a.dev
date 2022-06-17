@@ -1,0 +1,193 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Messages:  Logo Orbit</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="(IE Only)  This orbiting 3-D message follows your mouse around the screen.  The message, color and font are simple to modify!">
+<META NAME="date" CONTENT="2001-01-26">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Kurt Grigg">
+<META NAME="section" CONTENT="Messages">
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Kurt Grigg (kurt.grigg@virgin.net) -->
+<!-- Web Site:  http://website.lineone.net/~kurt.grigg/javascript -->
+
+
+
+
+<!-- Begin
+if (document.all) {
+//Things you can alter
+yourLogo = "JavaScript Source Code 3000-";  //Not less than 2 letters!
+logoFont = "Arial";
+logoColor = "000000";
+//Nothing needs altering below!
+yourLogo = yourLogo.split('');
+L = yourLogo.length; 
+TrigSplit = 360 / L;
+Sz = new Array()
+logoWidth = 100;
+logoHeight = -30;
+ypos = 0;
+xpos = 0;
+step = 0.03;
+currStep = 0;
+document.write('<div id="outer" style="position:absolute;top:0px;left:0px"><div style="position:relative">');
+for (i = 0; i < L; i++) {
+document.write('<div id="ie" style="position:absolute;top:0px;left:0px;'
++'width:10px;height:10px;font-family:'+logoFont+';font-size:12px;'
++'color:'+logoColor+';text-align:center">'+yourLogo[i]+'</div>');
+}
+document.write('</div></div>');
+function Mouse() {
+ypos = event.y;
+xpos = event.x - 5;
+}
+document.onmousemove=Mouse;
+function animateLogo() {
+outer.style.pixelTop = document.body.scrollTop; 
+for (i = 0; i < L; i++) {
+ie[i].style.top = ypos + logoHeight * Math.sin(currStep + i * TrigSplit * Math.PI / 180);
+ie[i].style.left = xpos + logoWidth * Math.cos(currStep + i * TrigSplit * Math.PI / 180);
+Sz[i] = ie[i].style.pixelTop - ypos;
+if (Sz[i] < 5) Sz[i] = 5;
+ie[i].style.fontSize = Sz[i] / 1.7;
+}
+currStep -= step;
+setTimeout('animateLogo()', 20);
+}
+window.onload = animateLogo;
+}
+//  End -->
+</script>
+
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /messages/"><font color="#FF0000"><b>Messages</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Logo Orbit</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+(IE Only)  This orbiting 3-D message follows your mouse around the screen.  The message, color and font are simple to modify!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Messages:  Logo Orbit</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Command-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.93 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- ONE STEP TO INSTALL LOGO ORBIT:
+
+  1.  Copy the coding into the HEAD of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Kurt Grigg (kurt.grigg@virgin.net) --&gt;
+&lt;!-- Web Site:  http://website.lineone.net/~kurt.grigg/javascript --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+if (document.all) {
+//Things you can alter
+yourLogo = "JavaScript Source Code 3000-";  //Not less than 2 letters!
+logoFont = "Arial";
+logoColor = "000000";
+//Nothing needs altering below!
+yourLogo = yourLogo.split('');
+L = yourLogo.length; 
+TrigSplit = 360 / L;
+Sz = new Array()
+logoWidth = 100;
+logoHeight = -30;
+ypos = 0;
+xpos = 0;
+step = 0.03;
+currStep = 0;
+document.write('&lt;div id="outer" style="position:absolute;top:0px;left:0px"&gt;&lt;div style="position:relative"&gt;');
+for (i = 0; i &lt; L; i++) {
+document.write('&lt;div id="ie" style="position:absolute;top:0px;left:0px;'
++'width:10px;height:10px;font-family:'+logoFont+';font-size:12px;'
++'color:'+logoColor+';text-align:center"&gt;'+yourLogo[i]+'&lt;/div&gt;');
+}
+document.write('&lt;/div&gt;&lt;/div&gt;');
+function Mouse() {
+ypos = event.y;
+xpos = event.x - 5;
+}
+document.onmousemove=Mouse;
+function animateLogo() {
+outer.style.pixelTop = document.body.scrollTop; 
+for (i = 0; i &lt; L; i++) {
+ie[i].style.top = ypos + logoHeight * Math.sin(currStep + i * TrigSplit * Math.PI / 180);
+ie[i].style.left = xpos + logoWidth * Math.cos(currStep + i * TrigSplit * Math.PI / 180);
+Sz[i] = ie[i].style.pixelTop - ypos;
+if (Sz[i] &lt; 5) Sz[i] = 5;
+ie[i].style.fontSize = Sz[i] / 1.7;
+}
+currStep -= step;
+setTimeout('animateLogo()', 20);
+}
+window.onload = animateLogo;
+}
+//  End --&gt;
+&lt;/script&gt;
+
+
+ 
+
+&lt;!-- Script Size:  1.93 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

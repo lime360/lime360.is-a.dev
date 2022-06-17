@@ -1,0 +1,450 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Cookies:  Address Book</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Joe Norman (joe@wdrealty.com)">
+<META NAME="section" CONTENT="Cookies">
+<META NAME="description" CONTENT="Saves an address book database as a cookie on the user's computer.  The author explains that although the actual example may not be particularly useful, the underlying code could be very beneficial for use in other projects.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Joe Norman (joe@wdrealty.com) -->
+<!-- Web Site:  http://www.jacksonville.net/~joman/ArraysNCookies.html -->
+
+
+
+
+<!-- Begin
+var arrRecords = new Array();
+var arrCookie = new Array();
+var recCount = 0;
+var strRecord="";
+expireDate = new Date;
+expireDate.setDate(expireDate.getDate()+365);
+function cookieVal(cookieName) {
+thisCookie = document.cookie.split("; ")
+for (i = 0; i < thisCookie.length; i++) {
+if (cookieName == thisCookie[i].split("=")[0]) {
+return thisCookie[i].split("=")[1];
+   }
+}
+return 0;
+}
+function loadCookie() {
+if(document.cookie != "") {
+arrRecords = cookieVal("Records").split(",");
+currentRecord();
+   }
+}
+function setRec() {
+strRecord = "";
+for(i = 0; i < document.frm1.elements.length; i++) {
+strRecord = strRecord + document.frm1.elements[i].value + ":";
+}
+arrRecords[recCount] = strRecord;
+document.frm2.add.value = "  NEW  ";
+document.cookie = "Records="+arrRecords+";expires=" + expireDate.toGMTString();
+}
+function newRec() {
+switch (document.frm2.add.value) {
+case "  NEW  " :
+   varTemp = recCount;
+   for(i = 0; i < document.frm1.elements.length; i++) {
+   document.frm1.elements[i].value = ""
+   }
+   recCount = arrRecords.length;
+   document.frm2.add.value = "CANCEL";
+   break;
+case "CANCEL" :
+   recCount = varTemp;
+   document.frm2.add.value = "  NEW  ";
+   currentRecord();
+   break;
+   }
+}
+function countRecords() {
+document.frm2.actual.value = "Record " + (recCount+1)+";  "+arrRecords.length+" saved records";
+}
+function delRec() {
+arrRecords.splice(recCount,1);
+navigate("previous");
+setRec();
+}
+function currentRecord() {
+if (arrRecords.length != "") {
+strRecord = arrRecords[recCount];
+currRecord = strRecord.split(":");
+for(i = 0; i < document.frm1.elements.length; i++) {
+document.frm1.elements[i].value = currRecord[i];
+      }
+   }
+}
+function navigate(control) {
+switch (control) {
+case "first" :
+   recCount = 0;
+   currentRecord();
+   document.frm2.add.value = "  NEW  ";
+   break;
+case "last" :
+   recCount = arrRecords.length - 1;
+   currentRecord();
+   document.frm2.add.value = "  NEW  ";
+   break;
+case "next" :
+   if (recCount < arrRecords.length - 1) {
+   recCount = recCount + 1;
+   currentRecord();
+   document.frm2.add.value = "  NEW  ";
+   }
+   break;
+case "previous" :
+   if (recCount > 0) {
+   recCount = recCount - 1;
+   currentRecord();
+   }
+   document.frm2.add.value = "  NEW  ";
+   break;
+   default:
+   }
+}
+
+// Splice method Protype Function
+// Peter Belesis, Internet.com
+// http://www.dhtmlab.com/
+ 
+if (!Array.prototype.splice) {
+function array_splice(ind,cnt) {
+if (arguments.length == 0) return ind;
+if (typeof ind != "number") ind = 0;
+if (ind < 0) ind = Math.max(0,this.length + ind);
+if (ind > this.length) {
+if (arguments.length > 2) ind = this.length;
+else return [];
+}
+if (arguments.length < 2) cnt = this.length-ind;
+cnt = (typeof cnt == "number") ? Math.max(0,cnt) : 0;
+removeArray = this.slice(ind,ind+cnt);
+endArray = this.slice(ind+cnt);
+this.length = ind;
+for (var i = 2; i < arguments.length; i++) {
+this[this.length] = arguments[i];
+}
+for(var i = 0; i < endArray.length; i++) {
+this[this.length] = endArray[i];
+}
+return removeArray;
+}
+Array.prototype.splice = array_splice;
+}
+recCount = 0;
+loadCookie();
+countRecords();
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /cookies/"><font color="#FF0000"><b>Cookies</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Address Book</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Saves an address book database as a cookie on the user's computer.  The author explains that although the actual example may not be particularly useful, the underlying code could be very beneficial for use in other projects.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name="frm1">
+<table align="center" resize="none" border="0">
+<tr>
+<td align="right">Name:</td>
+<td colspan="5"><input type="box" name="name" size="49"></td>
+</tr>
+<tr>
+<td align="right">Address:</td><td colspan="5"><input type="box" name="address" size="49"></td></tr>
+<td align="right">Address 2:</td><td colspan="5" align="left"><input type="box" name="address2" size="49"></td></tr>
+<tr>
+<td align="right">City:</td>
+<td><input type="box" name="city" size="15"></td>
+<td>State:</td><td><input type="box" name="state" size="15"></td>
+<td>Zip:</td><td><input type="box" size="6" name="zip"></td>
+</tr>
+<td align="right">Phone:</td>
+<td align="left"><input type="box" name="phone" size="15"></td>
+<td align="right">Fax:</td><td align="left"><input type="box" name="fax" size="15"></td>
+</tr>
+<tr>
+<td align="right">Web Page:<td colspan="5" align="left"><input type="box" name="address" size="49"></td></tr>
+<td align="right">E-Mail:<td colspan="5" align="left"><input type="box" name="email" size="49"></td></tr>
+<tr><td align="right" valign="top">Comments:</td>
+<td colspan="5" align="left"><input type="box" name="comment1" size="49"><br>
+<input type="box" name="comment2" size="49"><br>
+<input type="box" name="comment3" size="49"><br>
+<input type="box" name="comment4" size="49"><br>
+<input type="box" name="comment5" size="49">
+</td></tr></table>
+</form>
+<form name="frm2">
+<table align="center" border="1" resize="none"><tr><td align="center">
+<input type="button" name="first" value="|<<  " onClick="navigate('first');countRecords()">
+<input type="button" name="previous" value="  <  " onClick="navigate('previous');countRecords()">
+<input type="button" name="next" value="  >  " onClick="navigate('next');countRecords()">
+<input type="button" name="last" value="  >>|" onClick="navigate('last');countRecords()">
+<input type="box" name="actual" size=30></td></tr>
+<tr><td align="center"><input type="button" name="add" value="  NEW  " onClick="newRec();countRecords()">
+<input type="button" name="set" value="SAVE RECORD" onClick="setRec();countRecords()">
+<input type="button" name="del" value="Delete" onClick="delRec();countRecords()"></td></tr></table>
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Cookies:  Address Book</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  6.01 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL ADDRESS BOOK:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Joe Norman (joe@wdrealty.com) --&gt;
+&lt;!-- Web Site:  http://www.jacksonville.net/~joman/ArraysNCookies.html --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var arrRecords = new Array();
+var arrCookie = new Array();
+var recCount = 0;
+var strRecord="";
+expireDate = new Date;
+expireDate.setDate(expireDate.getDate()+365);
+function cookieVal(cookieName) {
+thisCookie = document.cookie.split("; ")
+for (i = 0; i &lt; thisCookie.length; i++) {
+if (cookieName == thisCookie[i].split("=")[0]) {
+return thisCookie[i].split("=")[1];
+   }
+}
+return 0;
+}
+function loadCookie() {
+if(document.cookie != "") {
+arrRecords = cookieVal("Records").split(",");
+currentRecord();
+   }
+}
+function setRec() {
+strRecord = "";
+for(i = 0; i &lt; document.frm1.elements.length; i++) {
+strRecord = strRecord + document.frm1.elements[i].value + ":";
+}
+arrRecords[recCount] = strRecord;
+document.frm2.add.value = "  NEW  ";
+document.cookie = "Records="+arrRecords+";expires=" + expireDate.toGMTString();
+}
+function newRec() {
+switch (document.frm2.add.value) {
+case "  NEW  " :
+   varTemp = recCount;
+   for(i = 0; i &lt; document.frm1.elements.length; i++) {
+   document.frm1.elements[i].value = ""
+   }
+   recCount = arrRecords.length;
+   document.frm2.add.value = "CANCEL";
+   break;
+case "CANCEL" :
+   recCount = varTemp;
+   document.frm2.add.value = "  NEW  ";
+   currentRecord();
+   break;
+   }
+}
+function countRecords() {
+document.frm2.actual.value = "Record " + (recCount+1)+";  "+arrRecords.length+" saved records";
+}
+function delRec() {
+arrRecords.splice(recCount,1);
+navigate("previous");
+setRec();
+}
+function currentRecord() {
+if (arrRecords.length != "") {
+strRecord = arrRecords[recCount];
+currRecord = strRecord.split(":");
+for(i = 0; i &lt; document.frm1.elements.length; i++) {
+document.frm1.elements[i].value = currRecord[i];
+      }
+   }
+}
+function navigate(control) {
+switch (control) {
+case "first" :
+   recCount = 0;
+   currentRecord();
+   document.frm2.add.value = "  NEW  ";
+   break;
+case "last" :
+   recCount = arrRecords.length - 1;
+   currentRecord();
+   document.frm2.add.value = "  NEW  ";
+   break;
+case "next" :
+   if (recCount &lt; arrRecords.length - 1) {
+   recCount = recCount + 1;
+   currentRecord();
+   document.frm2.add.value = "  NEW  ";
+   }
+   break;
+case "previous" :
+   if (recCount &gt; 0) {
+   recCount = recCount - 1;
+   currentRecord();
+   }
+   document.frm2.add.value = "  NEW  ";
+   break;
+   default:
+   }
+}
+
+// Splice method Protype Function
+// Peter Belesis, Internet.com
+// http://www.dhtmlab.com/
+ 
+if (!Array.prototype.splice) {
+function array_splice(ind,cnt) {
+if (arguments.length == 0) return ind;
+if (typeof ind != "number") ind = 0;
+if (ind &lt; 0) ind = Math.max(0,this.length + ind);
+if (ind &gt; this.length) {
+if (arguments.length &gt; 2) ind = this.length;
+else return [];
+}
+if (arguments.length &lt; 2) cnt = this.length-ind;
+cnt = (typeof cnt == "number") ? Math.max(0,cnt) : 0;
+removeArray = this.slice(ind,ind+cnt);
+endArray = this.slice(ind+cnt);
+this.length = ind;
+for (var i = 2; i &lt; arguments.length; i++) {
+this[this.length] = arguments[i];
+}
+for(var i = 0; i &lt; endArray.length; i++) {
+this[this.length] = endArray[i];
+}
+return removeArray;
+}
+Array.prototype.splice = array_splice;
+}
+recCount = 0;
+loadCookie();
+countRecords();
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form name="frm1"&gt;
+&lt;table align="center" resize="none" border="0"&gt;
+&lt;tr&gt;
+&lt;td align="right"&gt;Name:&lt;/td&gt;
+&lt;td colspan="5"&gt;&lt;input type="box" name="name" size="49"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="right"&gt;Address:&lt;/td&gt;&lt;td colspan="5"&gt;&lt;input type="box" name="address" size="49"&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;td align="right"&gt;Address 2:&lt;/td&gt;&lt;td colspan="5" align="left"&gt;&lt;input type="box" name="address2" size="49"&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="right"&gt;City:&lt;/td&gt;
+&lt;td&gt;&lt;input type="box" name="city" size="15"&gt;&lt;/td&gt;
+&lt;td&gt;State:&lt;/td&gt;&lt;td&gt;&lt;input type="box" name="state" size="15"&gt;&lt;/td&gt;
+&lt;td&gt;Zip:&lt;/td&gt;&lt;td&gt;&lt;input type="box" size="6" name="zip"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;td align="right"&gt;Phone:&lt;/td&gt;
+&lt;td align="left"&gt;&lt;input type="box" name="phone" size="15"&gt;&lt;/td&gt;
+&lt;td align="right"&gt;Fax:&lt;/td&gt;&lt;td align="left"&gt;&lt;input type="box" name="fax" size="15"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="right"&gt;Web Page:&lt;td colspan="5" align="left"&gt;&lt;input type="box" name="address" size="49"&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;td align="right"&gt;E-Mail:&lt;td colspan="5" align="left"&gt;&lt;input type="box" name="email" size="49"&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td align="right" valign="top"&gt;Comments:&lt;/td&gt;
+&lt;td colspan="5" align="left"&gt;&lt;input type="box" name="comment1" size="49"&gt;&lt;br&gt;
+&lt;input type="box" name="comment2" size="49"&gt;&lt;br&gt;
+&lt;input type="box" name="comment3" size="49"&gt;&lt;br&gt;
+&lt;input type="box" name="comment4" size="49"&gt;&lt;br&gt;
+&lt;input type="box" name="comment5" size="49"&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/form&gt;
+&lt;form name="frm2"&gt;
+&lt;table align="center" border="1" resize="none"&gt;&lt;tr&gt;&lt;td align="center"&gt;
+&lt;input type="button" name="first" value="|&lt;&lt;  " onClick="navigate('first');countRecords()"&gt;
+&lt;input type="button" name="previous" value="  &lt;  " onClick="navigate('previous');countRecords()"&gt;
+&lt;input type="button" name="next" value="  &gt;  " onClick="navigate('next');countRecords()"&gt;
+&lt;input type="button" name="last" value="  &gt;&gt;|" onClick="navigate('last');countRecords()"&gt;
+&lt;input type="box" name="actual" size=30&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td align="center"&gt;&lt;input type="button" name="add" value="  NEW  " onClick="newRec();countRecords()"&gt;
+&lt;input type="button" name="set" value="SAVE RECORD" onClick="setRec();countRecords()"&gt;
+&lt;input type="button" name="del" value="Delete" onClick="delRec();countRecords()"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  6.01 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

@@ -1,0 +1,323 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Equivalents:  Pressure</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Cut-N-Paste JavaScript">
+<META NAME="section" CONTENT="Equivalents">
+<META NAME="description" CONTENT="Use JavaScript to find pressure equivalents.">
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Hide JavaScript from Java-Impaired Browsers
+function initArray() {
+  this.length = initArray.arguments.length;
+  for (var i = 0; i < this.length; i++) {
+    this[i] = initArray.arguments[i];
+    }
+  }
+var isn09 = new initArray("4b","5b","8b","8b");
+isn09[0] = "~01~11.0197~214.5~30.9869~40.7501~529.53~610.21~7401.8~833.49~9";
+isn09[1] = "~00.9807~11~214.22~30.9678~40.7356~528.96~610.01~7394.1~832.84~9";
+isn09[2] = "~00.06895~10.07031~21~30.06805~40.05171~52.036~60.7037~727.7~82.309~9";
+isn09[3] = "~01.0133~11.0332~214.7~31~40.76~529.92~610.34~7407.1~833.93~9";
+isn09[4] = "~01.3332~11.3595~219.34~31.316~41~539.37~613.61~7535.7~844.64~9";
+isn09[5] = "~00.03386~10.03453~20.4912~30.03342~40.0254~51~60.3456~713.61~81.134~9";
+isn09[6] = "~00.09798~10.09991~21.421~30.0967~40.07349~52.893~61~739.37~83.281~9";
+isn09[7] = "~00.002489~10.002538~20.03609~30.002456~40.001867~50.07349~60.02540~71~80.083333~9";
+isn09[8] = "~00.02986~10.03045~20.4331~30.02947~40.0224~50.8819~60.3048~712~81~9";
+
+
+function preCon() {
+  // First, get the variables checked by the user
+  for (var i = 0; i < 9; i++) {
+    if (document.isnform09.prei[i].checked) {
+      prei = i;
+      preinm = document.isnform09.prei[i].value;
+      }
+    }
+  for (var i = 0; i < 9; i++) {
+    if (document.isnform09.preo[i].checked) {
+      preo = i;
+      preonm = document.isnform09.preo[i].value;
+      }
+    }
+  // Now grab the numeric input by user and parse to be sure numeric
+  useri = document.isnform09.preinp.value;
+  if (useri == 0) {
+    useri = 1;
+    document.isnform09.preinp.value = useri;
+    }
+  mulstr = isn09[prei];
+  picker = "~" + preo;
+  ps = mulstr.indexOf(picker);
+  preo++;
+  picker = "~" + preo;
+  ps1 = mulstr.indexOf(picker);
+  mulstr = mulstr.substring((ps + 2),ps1);
+  ps = (useri * mulstr);
+  picker = "";
+  picker += ps
+  ps1 = picker.indexOf(".");
+  if (ps1 > -1) {
+    // Correct for binary/floating point conversion error
+    ps = ps + .000001;
+    picker = "";
+    picker += ps;
+    ps2 = picker.indexOf("e");
+    if (ps2 < 0) {
+      picker = picker.substring(0,(ps1 + 6));
+      }
+    if (ps2 == 0 || ps2 > 0) {
+      ps3 = picker.indexOf("00000");
+      if (ps3 > 0) {
+        picker = picker.substring(0,ps3 + 1) + picker.substring(ps2,picker.length);
+        }
+      }
+    }
+  picker = useri + " " + preinm + " = " + picker + " " + preonm
+  document.isnform09.preout.value = picker;
+  }
+// End Hiding -->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /equivalents/"><font color="#FF0000">Equivalents</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Pressure</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Use JavaScript to find pressure equivalents.
+<br>
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<BODY BGCOLOR="white">
+<CENTER>
+<TABLE BORDER=1 WIDTH=486>
+<TR><TD COLSPAN=10 ALIGN=CENTER><FORM NAME="isnform09"><FONT COLOR="blue"><B>Pressure Equivalents</B></TD></TR>
+<TR><TD COLSPAN=10 VALIGN=TOP><FONT SIZE=1><B>First, type the number you wish converted here: </B>
+<INPUT TYPE="text" NAME="preinp" SIZE=30 VALUE="" onChange="preCon();"><BR><B>Then, click radio buttons for desired conversion:</FONT></TD></TR>
+<TR><TD ALIGN=CENTER><FONT COLOR="red" SIZE=1><B>Fm:</B></FONT></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>megadynes/<BR>sq cm<BR><INPUT TYPE="radio" NAME="prei" VALUE="megadynes/sq cm" CHECKED onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>kg/<BR>sq cm<BR><INPUT TYPE="radio" NAME="prei" VALUE="kg/sq cm" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>lb/<BR>sq in<BR><INPUT TYPE="radio" NAME="prei" VALUE="lb/sq in" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>atmos-<BR>pheres<BR><INPUT TYPE="radio" NAME="prei" VALUE="atmospheres" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>Hg*<BR>Meters<BR><INPUT TYPE="radio" NAME="prei" VALUE="Std Hg Col Meters" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>Hg*<BR>Inches<BR><INPUT TYPE="radio" NAME="prei" VALUE="Std Hg Col Inches" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>H2O*<BR>Meters<BR><INPUT TYPE="radio" NAME="prei" VALUE="Std H20 Col Meters" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>H20*<BR>Inches<BR><INPUT TYPE="radio" NAME="prei" VALUE="Std H20 Col Inches" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>H20*<BR>Feet<BR><INPUT TYPE="radio" NAME="prei" VALUE="Std H20 Col Feet" onClick = ""></TD></TR>
+<TR><TD ALIGN=CENTER><FONT COLOR="red" SIZE=1><B>To:</B></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>megadynes/<BR>sq cm<BR><INPUT TYPE="radio" NAME="preo" VALUE="megadynes/sq cm" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>kg/<BR>sq cm<BR><INPUT TYPE="radio" NAME="preo" VALUE="kg/sq cm" CHECKED onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>lb/<BR>sq in<BR><INPUT TYPE="radio" NAME="preo" VALUE="lb/sq in" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>atmos-<BR>pheres<BR><INPUT TYPE="radio" NAME="preo" VALUE="atmospheres" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>Hg*<BR>Meters<BR><INPUT TYPE="radio" NAME="preo" VALUE="Std Hg Col Meters" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>Hg*<BR>Inches<BR><INPUT TYPE="radio" NAME="preo" VALUE="Std Hg Col Inches" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>H2O*<BR>Meters<BR><INPUT TYPE="radio" NAME="preo" VALUE="Std H20 Col Meters" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>H2O*<BR>Inches<BR><INPUT TYPE="radio" NAME="preo" VALUE="Std H20 Col Inches" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>H20*<BR>Feet<BR><INPUT TYPE="radio" NAME="preo" VALUE="Std H20 Col Feet" onClick = ""></TD></TR>
+<TR><TD COLSPAN=10 ALIGN=CENTER VALIGN=TOP><FONT SIZE=1><INPUT TYPE="button" VALUE=" Click for Conversion " onClick="preCon();"> <INPUT TYPE="reset" VALUE=" Reset Values "><BR><INPUT TYPE="text" NAME="preout" SIZE=60 VALUE="" onClick="preCon();"><BR>*Standard columns of Mercury at 0<SUP>o</SUP> C, <I>g</i> = 980.665 cm/sec/sec<BR> Standard columns of Water at 60<SUP>o</SUP> F, <I>g</I> = 32.1756 ft/sec/sec
+</FONT></TD></TR>
+</TABLE></FORM>
+</CENTER>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Equivalents:  Pressure</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  6.31 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL PRESSURE EQUIVALENTS:
+
+   1.  Paste the specified coding into the HEAD of your HTML document
+   2.  Put the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the HEAD of your HTML document  --&gt;
+		  
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;!-- Original:  Cut-N-Paste JavaScript Copyright 1996  --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function initArray() {
+this.length = initArray.arguments.length;
+for (var i = 0; i &lt; this.length; i++) {
+this[i] = initArray.arguments[i];
+   }
+}
+/* Please don't ask about this work-around. It works... We're sure arrays
+will be better supported soon. */
+var isn09 = new initArray("4b","5b","8b","8b");
+isn09[0] = "~01~11.0197~214.5~30.9869~40.7501~529.53~610.21~7401.8~833.49~9";
+isn09[1] = "~00.9807~11~214.22~30.9678~40.7356~528.96~610.01~7394.1~832.84~9";
+isn09[2] = "~00.06895~10.07031~21~30.06805~40.05171~52.036~60.7037~727.7~82.309~9";
+isn09[3] = "~01.0133~11.0332~214.7~31~40.76~529.92~610.34~7407.1~833.93~9";
+isn09[4] = "~01.3332~11.3595~219.34~31.316~41~539.37~613.61~7535.7~844.64~9";
+isn09[5] = "~00.03386~10.03453~20.4912~30.03342~40.0254~51~60.3456~713.61~81.134~9";
+isn09[6] = "~00.09798~10.09991~21.421~30.0967~40.07349~52.893~61~739.37~83.281~9";
+isn09[7] = "~00.002489~10.002538~20.03609~30.002456~40.001867~50.07349~60.02540~71~80.083333~9";
+isn09[8] = "~00.02986~10.03045~20.4331~30.02947~40.0224~50.8819~60.3048~712~81~9";
+function preCon() {
+// First, get the variables checked by the user
+for (var i = 0; i &lt; 9; i++) {
+if (document.isnform09.prei[i].checked) {
+prei = i;
+preinm = document.isnform09.prei[i].value;
+   }
+}
+for (var i = 0; i &lt; 9; i++) {
+if (document.isnform09.preo[i].checked) {
+preo = i;
+preonm = document.isnform09.preo[i].value;
+   }
+}
+// Now grab the numeric input by user and parse to be sure numeric
+useri = document.isnform09.preinp.value;
+if (useri == 0) {
+useri = 1;
+document.isnform09.preinp.value = useri;
+}
+mulstr = isn09[prei];
+picker = "~" + preo;
+ps = mulstr.indexOf(picker);
+preo++;
+picker = "~" + preo;
+ps1 = mulstr.indexOf(picker);
+mulstr = mulstr.substring((ps + 2),ps1);
+ps = (useri * mulstr);
+picker = "";
+picker += ps
+ps1 = picker.indexOf(".");
+if (ps1 &gt; -1) {
+// Correct for binary/floating point conversion error
+ps = ps + .000001;
+picker = "";
+picker += ps;
+ps2 = picker.indexOf("e");
+if (ps2 &lt; 0) {
+picker = picker.substring(0,(ps1 + 6));
+}
+if (ps2 == 0 || ps2 &gt; 0) {
+ps3 = picker.indexOf("00000");
+if (ps3 &gt; 0) {
+picker = picker.substring(0,ps3 + 1) + picker.substring(ps2,picker.length);
+      }
+   }
+}
+picker = useri + " " + preinm + " = " + picker + " " + preonm
+document.isnform09.preout.value = picker;
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;CENTER&gt;
+&lt;TABLE BORDER=1 WIDTH=486&gt;
+&lt;TR&gt;&lt;TD COLSPAN=10 ALIGN=CENTER&gt;&lt;FORM NAME="isnform09"&gt;&lt;FONT COLOR="blue"&gt;&lt;B&gt;Pressure Equivalents&lt;/B&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;TR&gt;&lt;TD COLSPAN=10 VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;&lt;B&gt;First, type the number you wish converted here: &lt;/B&gt;
+&lt;INPUT TYPE="text" NAME="preinp" SIZE=30 VALUE="" onChange="preCon();"&gt;&lt;BR&gt;&lt;B&gt;Then, click radio buttons for desired conversion:&lt;/FONT&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;TR&gt;&lt;TD ALIGN=CENTER&gt;&lt;FONT COLOR="red" SIZE=1&gt;&lt;B&gt;Fm:&lt;/B&gt;&lt;/FONT&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;megadynes/&lt;BR&gt;sq cm&lt;BR&gt;&lt;INPUT TYPE="radio" NAME="prei" VALUE="megadynes/sq cm" CHECKED onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;kg/&lt;BR&gt;sq cm&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="prei" VALUE="kg/sq cm" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;lb/&lt;BR&gt;sq in&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="prei" VALUE="lb/sq in" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;atmos-&lt;BR&gt;pheres&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="prei" VALUE="atmospheres" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;Hg*&lt;BR&gt;Meters&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="prei" VALUE="Std Hg Col Meters" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;Hg*&lt;BR&gt;Inches&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="prei" VALUE="Std Hg Col Inches" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;H2O*&lt;BR&gt;Meters&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="prei" VALUE="Std H20 Col Meters" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;H20*&lt;BR&gt;Inches&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="prei" VALUE="Std H20 Col Inches" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;H20*&lt;BR&gt;Feet&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="prei" VALUE="Std H20 Col Feet" onClick = ""&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;TR&gt;&lt;TD ALIGN=CENTER&gt;&lt;FONT COLOR="red" SIZE=1&gt;&lt;B&gt;To:&lt;/B&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;megadynes/&lt;BR&gt;sq cm&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="preo" VALUE="megadynes/sq cm" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;kg/&lt;BR&gt;sq cm&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="preo" VALUE="kg/sq cm" CHECKED onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;lb/&lt;BR&gt;sq in&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="preo" VALUE="lb/sq in" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;atmos-&lt;BR&gt;pheres&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="preo" VALUE="atmospheres" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;Hg*&lt;BR&gt;Meters&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="preo" VALUE="Std Hg Col Meters" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;Hg*&lt;BR&gt;Inches&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="preo" VALUE="Std Hg Col Inches" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;H2O*&lt;BR&gt;Meters&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="preo" VALUE="Std H20 Col Meters" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;H2O*&lt;BR&gt;Inches&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="preo" VALUE="Std H20 Col Inches" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;H20*&lt;BR&gt;Feet&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="preo" VALUE="Std H20 Col Feet" onClick = ""&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;TR&gt;&lt;TD COLSPAN=10 ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;
+&lt;INPUT TYPE="button" VALUE=" Click for Conversion " onClick="preCon();"&gt; 
+&lt;INPUT TYPE="reset" VALUE=" Reset Values "&gt;&lt;BR&gt;
+&lt;INPUT TYPE="text" NAME="preout" SIZE=60 VALUE="" onClick="preCon();"&gt;&lt;BR&gt;*Standard columns of Mercury at 0&lt;SUP&gt;o&lt;/SUP&gt; C, &lt;I&gt;g&lt;/i&gt; = 980.665 cm/sec/sec&lt;BR&gt; Standard columns of Water at 60&lt;SUP&gt;o&lt;/SUP&gt; F, &lt;I&gt;g&lt;/I&gt; = 32.1756 ft/sec/sec
+&lt;/FONT&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;/TABLE&gt;&lt;/FORM&gt;
+&lt;/CENTER&gt;
+
+ 
+
+&lt;!-- Script Size:  6.31 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

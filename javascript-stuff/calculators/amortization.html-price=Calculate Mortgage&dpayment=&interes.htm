@@ -1,0 +1,718 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 2002:  Calculators:  Amortization</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 2002" CONTENT = "no-cache">
+<META NAME="description" CONTENT="Calculate monthly mortgage payments quickly and easily.  Displays an Amortization Table.  Great!">
+<META NAME="date" CONTENT="2000-11-27">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Brian Cordeau">
+<META NAME="section" CONTENT="Calculators">
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Brian Cordeau (stdbsc13@shsu.edu) -->
+<!-- Web Site:  http://www.shsu.edu/~stdbsc13 -->
+
+<!-- This script and many more are available free online at -->
+<!-- JavaScript Source Code 2002!! http://javascript.internet.com -->
+
+<!-- Begin
+function Loan() {
+var housePrice;
+var IR;
+var dpayment;
+var years;
+var monthPay;
+var month;
+switch(document.calcform.startm.value) {
+case "january":
+document.calcform.startm.value="0";
+parseInt(document.calcform.startm.value)
+break;
+case "february":
+document.calcform.startm.value="1";
+parseInt(document.calcform.startm.value)
+break;
+case "march":
+document.calcform.startm.value="2";
+parseInt(document.calcform.startm.value);
+break;
+case "april":
+document.calcform.startm.value="3";
+parseInt(document.calcform.startm.value);
+break;
+case "may":
+document.calcform.startm.value="4";
+parseInt(document.calcform.startm.value);
+break;
+case "june":
+document.calcform.startm.value="5";
+parseInt(document.calcform.startm.value);
+break;
+case "july":
+document.calcform.startm.value="6";
+parseInt(document.calcform.startm.value);
+break;
+case "august":
+document.calcform.startm.value="7";
+parseInt(document.calcform.startm.value);
+break;
+case "september":
+document.calcform.startm.value="8";
+parseInt(document.calcform.startm.value);
+break;
+case "october":
+document.calcform.startm.value="9";
+parseInt(document.calcform.startm.value);
+break;
+case "november":
+document.calcform.startm.value="10";
+parseInt(document.calcform.startm.value);
+break;
+case "december":
+document.calcform.startm.value="11";
+parseInt(document.calcform.startm.value);
+break;
+default:
+document.calcform.startm.value="0";
+parseInt(document.calcform.startm.value);
+break;
+}
+housePrice = parseFloat(document.calcform.price.value);
+dpayment = parseFloat(document.calcform.dpayment.value);
+IR = parseFloat(document.calcform.interest.value);
+years = parseFloat(document.calcform.time.value);
+housePrice = housePrice - dpayment;
+month = years * 12;
+interestRate = IR / 12;
+negmonth =- 1 * month;
+var bottom = 1 - (Math.pow(interestRate+1,negmonth));
+var top = interestRate;
+var mid = top / bottom;
+var dec;
+document.calcform.monthPay.value = (housePrice * mid);
+monthPay = document.calcform.monthPay.value;
+document.calcform.monthPay.value = eval(monthPay);
+housePrice = housePrice - document.calcform.monthPay.value;
+document.calcform.month.value = month;
+}
+function convert() {
+var startmonth = new String();
+startmonth = document.calcform.startm.value;
+document.calcform.startm.value = startmonth.toLowerCase();
+}
+function changenum() {
+document.calcform.startyear.value=parseInt(document.calcform.startyear.value);
+}
+var d = new Date;
+function getFieldValue (strFieldName) {
+var strFieldValue;
+var objRegExp = new RegExp(strFieldName + "=([^&]+)","gi");
+if (objRegExp.test(location.search))
+strFieldValue = unescape(RegExp.$1);
+else strFieldValue="";
+return strFieldValue;
+}
+function Currency(money1) {
+var money = new String(money1);
+var decimal = money.indexOf(".",[0]);
+var money = money.substring(0,decimal+3);
+var money1 = parseFloat(money);
+return money;
+}
+var startmonth;
+startmonth = getFieldValue("startm");
+var monthofpayment = new String;
+month = getFieldValue("month");
+monthPay = getFieldValue("monthPay");
+Houseprice = getFieldValue("price");
+Ir = getFieldValue("interest");
+Ir = Ir/12;
+year = getFieldValue("startyear")
+function check() {
+var dPayment = document.calcform.dpayment.value;
+var price = document.calcform.price.value;
+if(price.indexOf(",") >= 0) {
+alert("Please do not put commas in the Price number")
+   }
+}
+function check1() {
+var dPayment = document.calcform.dpayment.value;
+if(dPayment.indexOf(",") >= 0) {
+alert("Please do not put commas in the Down Payment number");
+   }
+}
+//  End -->
+</script>
+
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    <!-- AdSpace site=internetcom&size=468x60&PagePos=10&channel=_CHANNEL_&content_site=_SITE_&feature=_FEATURE_ -->
+    <a target="_blank" href="javascript:if(confirm('http://javascript.internet.com/event.ng/Type=click&ProfileID=499&RunID=14736&AdID=8979&TagValues=194.208.222.250.313.572.579.619.915&FamilyID=1284&GroupID=7&Redirect=http:/seminars.internet.com/webdev/chicago01/index.html  \n\nThis file was not retrieved by Teleport Pro, because it was redirected to an invalid location.  You should report this problem to the site\'s webmaster.  \n\nDo you want to open it from the server?'))window.location='http://javascript.internet.com/event.ng/Type=click&ProfileID=499&RunID=14736&AdID=8979&TagValues=194.208.222.250.313.572.579.619.915&FamilyID=1284&GroupID=7&Redirect=http:/seminars.internet.com/webdev/chicago01/index.html'" /event.ng/Type=click&ProfileID=499&RunID=14736&AdID=8979&TagValues=194.208.222.250.313.572.579.619.915&FamilyID=1284&GroupID=7&Redirect=http:/seminars.internet.com/webdev/chicago01/index.html"><img src="../../images.internet.com/ads/2001/02/bdws01_468.gif" tppabs="http://images.internet.com/ads/2001/02/bdws01_468.gif" border=0 height=60 width=468 alt=""></a>
+    <!-- /AdSpace -->
+</td>
+<td width=120 align=center>
+    <!-- AdSpace site=internetcom&size=120x60&PagePos=10&channel=_CHANNEL_&content_site=_SITE_&feature=_FEATURE_ -->
+    <a target="_blank" href="javascript:if(confirm('http://javascript.internet.com/event.ng/Type=click&ProfileID=2&RunID=14953&AdID=675&TagValues=196.208.222.250.313.572.579.619.915&FamilyID=3&GroupID=1&Redirect=http:/serverwatch.internet.com  \n\nThis file was not retrieved by Teleport Pro, because it was redirected to an invalid location.  You should report this problem to the site\'s webmaster.  \n\nDo you want to open it from the server?'))window.location='http://javascript.internet.com/event.ng/Type=click&ProfileID=2&RunID=14953&AdID=675&TagValues=196.208.222.250.313.572.579.619.915&FamilyID=3&GroupID=1&Redirect=http:/serverwatch.internet.com'" /event.ng/Type=click&ProfileID=2&RunID=14953&AdID=675&TagValues=196.208.222.250.313.572.579.619.915&FamilyID=3&GroupID=1&Redirect=http:/serverwatch.internet.com"><img src="../../images.internet.com/ads/1999/06/swatch-tile.gif" tppabs="http://images.internet.com/ads/1999/06/swatch-tile.gif" border=0 height=60 width=120 alt="The Quintessential Resource for Internet Servers"></a>
+    <!-- /AdSpace -->
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /calculators/"><font color="#FF0000"><b>Calculators</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Amortization</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Calculate monthly mortgage payments quickly and easily.  Displays an Amortization Table.  Great!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<form method="get" name=calcform action="amortization.html-price=Calculate Mortgage&dpayment=&interest=&time=&startm=&startyear=&month=&monthPay=.htm" /calculators/amortization.html?price=Calculate Mortgage&dpayment=&interest=&time=&startm=&startyear=&month=&monthPay=">
+<table border=0>
+<tr>
+<td valign="top">
+Anticipated Amount of House
+<br>
+</td>
+<td valign="top">
+$
+<input name=price onblur="check()" size=10>
+</td>
+</tr>
+<tr>
+<td>
+Amount of Down Payment
+</td>
+<td>
+$
+<input name=dpayment onblur="check1()" size=10>
+<br>
+</td>
+</tr>
+<tr>
+<td>
+Anticipated Interest Rate(.00 format)
+<br>
+</td>
+<td>
+<input name=interest size=10>
+<br>
+</td>
+<tr>
+<td>
+Anticipated length of loan, in years.
+<br>
+</td>
+<td>
+<input name="time" size=10>
+<br>
+</tr>
+<tr>
+<td>
+Start Date of Loan (month and year)
+</td>
+<td>
+<input name=startm onblur="convert()" size=10>
+<input name=startyear onblur="changenum()" size=10>
+</td>
+</td>
+</tr>
+<input name=month type=hidden>
+<input name=monthPay type=hidden>
+<tr>
+<td>
+<input type=submit value="Calculate Mortgage" onmouseover="check()" onclick="Loan()">
+</td>
+</tr>
+</table>
+<table border=0>
+<tr>
+<td>
+House Price
+</td>
+<td>
+$
+<script language="javascript">
+<!--
+document.write(getFieldValue("price"));
+//-->
+</script>
+</td>
+</tr>
+<tr>
+<td>
+Down Payment
+</td>
+<td>
+$
+<script language="javascript">
+<!--
+document.write((getFieldValue("dpayment")));
+//-->
+</script>
+</td>
+</tr>
+<tr>
+<td>
+Monthly Payment
+</td>
+<td>
+$
+<script language="javascript">
+<!--
+var payment = getFieldValue("monthPay");
+payment=Currency(payment);
+document.write(payment);
+//-->
+</script>
+</td>
+</tr>
+<tr>
+<td>
+# of years
+</td>
+<td>
+<script language="javascript">
+<!--
+document.write(month/12);
+-->
+</script>
+</td>
+</tr>
+</table>
+<table border="1">
+<tr>
+<th width="125">
+Month/Year
+</th>
+<th width="125">
+Interest
+</th>
+<th width="125">
+Principal
+</th>
+</tr>
+<script language="JavaScript">
+<!--
+var halfmonth;
+halfmonth = month / 2;
+for(y = 0; y <= month; y++) {
+var interest = Houseprice * Ir;
+var principal = monthPay - interest;
+Houseprice = Houseprice - principal;
+interest = Currency(interest);
+principal = Currency(principal);
+if(startmonth > 11) {
+startmonth = 0;
+year++;
+}
+switch(startmonth.toString()) {
+case "0":monthofpayment="January";
+break;
+case "1":monthofpayment="February";
+break;
+case "2":monthofpayment="March";
+break;
+case "3":monthofpayment="April";
+break;
+case "4":monthofpayment="May";
+break;
+case "5":monthofpayment="June";
+break;
+case "6":monthofpayment="July";
+break;
+case "7":monthofpayment="August";
+break;
+case "8":monthofpayment="September";
+break;
+case "9":monthofpayment="October";
+break;
+case "10":monthofpayment="November";
+break;
+case "11":monthofpayment="December";
+}
+document.write("<tr><td width='125'>")
+document.write(monthofpayment+" "+year+"</td>"+"<td width='125'>"+"$"+interest+"</td><td width='125'>"+"$"+principal);
+document.write("</td></tr>");
+startmonth++;
+}
+//-->
+</script>
+</table>
+</form>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 2002:  Calculators:  Amortization</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Command-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  7.76 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL AMORTIZATION:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Brian Cordeau (stdbsc13@shsu.edu) --&gt;
+&lt;!-- Web Site:  http://www.shsu.edu/~stdbsc13 --&gt;
+
+&lt;!-- This script and many more are available free online at --&gt;
+&lt;!-- JavaScript Source Code 2002!! http://javascript.internet.com --&gt;
+
+&lt;!-- Begin
+function Loan() {
+var housePrice;
+var IR;
+var dpayment;
+var years;
+var monthPay;
+var month;
+switch(document.calcform.startm.value) {
+case "january":
+document.calcform.startm.value="0";
+parseInt(document.calcform.startm.value)
+break;
+case "february":
+document.calcform.startm.value="1";
+parseInt(document.calcform.startm.value)
+break;
+case "march":
+document.calcform.startm.value="2";
+parseInt(document.calcform.startm.value);
+break;
+case "april":
+document.calcform.startm.value="3";
+parseInt(document.calcform.startm.value);
+break;
+case "may":
+document.calcform.startm.value="4";
+parseInt(document.calcform.startm.value);
+break;
+case "june":
+document.calcform.startm.value="5";
+parseInt(document.calcform.startm.value);
+break;
+case "july":
+document.calcform.startm.value="6";
+parseInt(document.calcform.startm.value);
+break;
+case "august":
+document.calcform.startm.value="7";
+parseInt(document.calcform.startm.value);
+break;
+case "september":
+document.calcform.startm.value="8";
+parseInt(document.calcform.startm.value);
+break;
+case "october":
+document.calcform.startm.value="9";
+parseInt(document.calcform.startm.value);
+break;
+case "november":
+document.calcform.startm.value="10";
+parseInt(document.calcform.startm.value);
+break;
+case "december":
+document.calcform.startm.value="11";
+parseInt(document.calcform.startm.value);
+break;
+default:
+document.calcform.startm.value="0";
+parseInt(document.calcform.startm.value);
+break;
+}
+housePrice = parseFloat(document.calcform.price.value);
+dpayment = parseFloat(document.calcform.dpayment.value);
+IR = parseFloat(document.calcform.interest.value);
+years = parseFloat(document.calcform.time.value);
+housePrice = housePrice - dpayment;
+month = years * 12;
+interestRate = IR / 12;
+negmonth =- 1 * month;
+var bottom = 1 - (Math.pow(interestRate+1,negmonth));
+var top = interestRate;
+var mid = top / bottom;
+var dec;
+document.calcform.monthPay.value = (housePrice * mid);
+monthPay = document.calcform.monthPay.value;
+document.calcform.monthPay.value = eval(monthPay);
+housePrice = housePrice - document.calcform.monthPay.value;
+document.calcform.month.value = month;
+}
+function convert() {
+var startmonth = new String();
+startmonth = document.calcform.startm.value;
+document.calcform.startm.value = startmonth.toLowerCase();
+}
+function changenum() {
+document.calcform.startyear.value=parseInt(document.calcform.startyear.value);
+}
+var d = new Date;
+function getFieldValue (strFieldName) {
+var strFieldValue;
+var objRegExp = new RegExp(strFieldName + "=([^&]+)","gi");
+if (objRegExp.test(location.search))
+strFieldValue = unescape(RegExp.$1);
+else strFieldValue="";
+return strFieldValue;
+}
+function Currency(money1) {
+var money = new String(money1);
+var decimal = money.indexOf(".",[0]);
+var money = money.substring(0,decimal+3);
+var money1 = parseFloat(money);
+return money;
+}
+var startmonth;
+startmonth = getFieldValue("startm");
+var monthofpayment = new String;
+month = getFieldValue("month");
+monthPay = getFieldValue("monthPay");
+Houseprice = getFieldValue("price");
+Ir = getFieldValue("interest");
+Ir = Ir/12;
+year = getFieldValue("startyear")
+function check() {
+var dPayment = document.calcform.dpayment.value;
+var price = document.calcform.price.value;
+if(price.indexOf(",") &gt;= 0) {
+alert("Please do not put commas in the Price number")
+   }
+}
+function check1() {
+var dPayment = document.calcform.dpayment.value;
+if(dPayment.indexOf(",") &gt;= 0) {
+alert("Please do not put commas in the Down Payment number");
+   }
+}
+//  End --&gt;
+&lt;/script&gt;
+
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;form method="get" name=calcform action="amortization.html"&gt;
+&lt;table border=0&gt;
+&lt;tr&gt;
+&lt;td valign="top"&gt;
+Anticipated Amount of House
+&lt;br&gt;
+&lt;/td&gt;
+&lt;td valign="top"&gt;
+$
+&lt;input name=price onblur="check()" size=10&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+Amount of Down Payment
+&lt;/td&gt;
+&lt;td&gt;
+$
+&lt;input name=dpayment onblur="check1()" size=10&gt;
+&lt;br&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+Anticipated Interest Rate(.00 format)
+&lt;br&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;input name=interest size=10&gt;
+&lt;br&gt;
+&lt;/td&gt;
+&lt;tr&gt;
+&lt;td&gt;
+Anticipated length of loan, in years.
+&lt;br&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;input name="time" size=10&gt;
+&lt;br&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+Start Date of Loan (month and year)
+&lt;/td&gt;
+&lt;td&gt;
+&lt;input name=startm onblur="convert()" size=10&gt;
+&lt;input name=startyear onblur="changenum()" size=10&gt;
+&lt;/td&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;input name=month type=hidden&gt;
+&lt;input name=monthPay type=hidden&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;input type=submit value="Calculate Mortgage" onmouseover="check()" onclick="Loan()"&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;table border=0&gt;
+&lt;tr&gt;
+&lt;td&gt;
+House Price
+&lt;/td&gt;
+&lt;td&gt;
+$
+&lt;script language="javascript"&gt;
+&lt;!--
+document.write(getFieldValue("price"));
+//--&gt;
+&lt;/script&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+Down Payment
+&lt;/td&gt;
+&lt;td&gt;
+$
+&lt;script language="javascript"&gt;
+&lt;!--
+document.write((getFieldValue("dpayment")));
+//--&gt;
+&lt;/script&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+Monthly Payment
+&lt;/td&gt;
+&lt;td&gt;
+$
+&lt;script language="javascript"&gt;
+&lt;!--
+var payment = getFieldValue("monthPay");
+payment=Currency(payment);
+document.write(payment);
+//--&gt;
+&lt;/script&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+# of years
+&lt;/td&gt;
+&lt;td&gt;
+&lt;script language="javascript"&gt;
+&lt;!--
+document.write(month/12);
+--&gt;
+&lt;/script&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;table border="1" align="left"&gt;
+&lt;tr&gt;
+&lt;th width="125"&gt;
+Month/Year
+&lt;/th&gt;
+&lt;th width="125"&gt;
+Interest
+&lt;/th&gt;
+&lt;th width="125"&gt;
+Principal
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;script language="JavaScript"&gt;
+&lt;!--
+var halfmonth;
+halfmonth = month / 2;
+for(y = 0; y &lt;= month; y++) {
+var interest = Houseprice * Ir;
+var principal = monthPay - interest;
+Houseprice = Houseprice - principal;
+interest = Currency(interest);
+principal = Currency(principal);
+if(startmonth &gt; 11) {
+startmonth = 0;
+year++;
+}
+switch(startmonth.toString()) {
+case "0":monthofpayment="January";
+break;
+case "1":monthofpayment="February";
+break;
+case "2":monthofpayment="March";
+break;
+case "3":monthofpayment="April";
+break;
+case "4":monthofpayment="May";
+break;
+case "5":monthofpayment="June";
+break;
+case "6":monthofpayment="July";
+break;
+case "7":monthofpayment="August";
+break;
+case "8":monthofpayment="September";
+break;
+case "9":monthofpayment="October";
+break;
+case "10":monthofpayment="November";
+break;
+case "11":monthofpayment="December";
+}
+document.write("&lt;tr&gt;&lt;td width='125'&gt;")
+document.write(monthofpayment+" "+year+"&lt;/td&gt;"+"&lt;td width='125'&gt;"+"$"+interest+"&lt;/td&gt;&lt;td width='125'&gt;"+"$"+principal);
+document.write("&lt;/td&gt;&lt;/tr&gt;");
+startmonth++;
+}
+//--&gt;
+&lt;/script&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;center&gt;
+&lt;font face="arial, helvetica" size"-2"&gt;Free JavaScripts provided&lt;br&gt;
+by &lt;a href="http://javascriptsource.com"&gt;JavaScript Source Code 2002&lt;/a&gt;&lt;/font&gt;
+&lt;/center&gt;&lt;p&gt;
+
+&lt;!-- Script Size:  7.76 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

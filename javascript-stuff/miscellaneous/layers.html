@@ -1,0 +1,322 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Misc.:  Layers</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Randy Bennett (rbennett@thezone.net)">
+<META NAME="section" CONTENT="Miscellaneous">
+<META NAME="description" CONTENT="(Requires Netscape 4.0 or better)  Here's a perfect example of Netscape's newest feature - layers.  Layers can seemingly "float" objects around this screen, pictures, tables, text, etc.  It's something that's undoubtedly going to be widely used in the future!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+function doit() {
+right_box1();
+}
+function hideit() {
+document.box1.visibility="hide"
+document.box2.visibility="hide"
+document.box3.visibility="hide"
+document.box4.visibility="hide"
+document.box5.visibility="hide"
+document.box6.visibility="hide"
+document.box7.visibility="hide"
+document.box8.visibility="hide"
+}
+function showit() {
+document.box1.visibility="show"
+document.box2.visibility="show"
+document.box3.visibility="show"
+document.box4.visibility="show"
+document.box5.visibility="show"
+document.box6.visibility="show"
+document.box7.visibility="show"
+document.box8.visibility="show"
+}
+function right_box1() {
+move1();
+if (document.box1.left<150) setTimeout("right_box1()",10);
+if (document.box1.left>=150) setTimeout("down_box1()",5);
+}
+function down_box1() {
+move2();
+if (document.box1.top<230) setTimeout("down_box1()",5);
+if (document.box1.top>=230) setTimeout("left_box1()",10);
+}
+function left_box1() {
+move3();
+if (document.box1.left>150) setTimeout("left_box1()",10);
+if (document.box1.left<=150) setTimeout("up_box1()",5);
+}
+function up_box1() {
+move4();
+if (document.box1.top>120) setTimeout("up_box1()",5);
+if (document.box1.top<=120) setTimeout("right_box1()",10);
+}
+function move1() {
+document.box1.offset(10,2)
+document.box2.offset(5,1)
+document.box3.offset(-10,2)
+document.box4.offset(-5,1)
+document.box5.offset(10,-2)
+document.box6.offset(5,-1)
+document.box7.offset(-10,-2)
+document.box8.offset(-5,-1)
+}
+function move2() {
+document.box1.offset(6,6)
+document.box2.offset(6,7)
+document.box3.offset(-6,6)
+document.box4.offset(-6,7)
+document.box5.offset(6,-6)
+document.box6.offset(6,-7)
+document.box7.offset(-6,-6)
+document.box8.offset(-6,-7)
+}
+function move3() {
+document.box1.offset(-10,-2)
+document.box2.offset(-5,-1)
+document.box3.offset(10,-2)
+document.box4.offset(5,-1)
+document.box5.offset(-10,2)
+document.box6.offset(-5,1)
+document.box7.offset(10,2)
+document.box8.offset(5,1)
+}
+function move4() {
+document.box1.offset(-6,-6)
+document.box2.offset(-6,-7)
+document.box3.offset(6,-6)
+document.box4.offset(6,-7)
+document.box5.offset(-6,6)
+document.box6.offset(-6,7)
+document.box7.offset(6,6)
+document.box8.offset(6,7)
+}
+// End -->
+
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff onLoad="doit()">
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /miscellaneous/"><font color="#FF0000">Misc.</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Layers</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE=" helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+(Requires Netscape 4.0 or better)  Here's a perfect example of Netscape's newest feature - layers.  Layers can seemingly "float" objects around this screen, pictures, tables, text, etc.  It's something that's undoubtedly going to be widely used in the future!<br><hr>
+</td></tr>
+</table>
+<!--  Demonstration -->
+
+<BODY onLoad="doit()">
+
+<div id="box1" style="position:absolute; align:center; align:center; visibility:show; left:5px; top:250px; z-index:1">
+o </div>
+<div id="box2" style="position:absolute; align:center; visibility:show; left:5px; top:250px; z-index:1">
+o </div>
+<div id="box3" style="position:absolute; align:center; visibility:show; left:5px; top:250px; z-index:1">
+o </div>
+<div id="box4" style="position:absolute; align:center; visibility:show; left:5px; top:250px; z-index:1">
+o </div>
+<div id="box5" style="position:absolute; align:center; visibility:show; left:5px; top:250px; z-index:1">
+o </div>
+<div id="box6" style="position:absolute; align:center; visibility:show; left:5px; top:250px; z-index:1">
+o </div>
+<div id="box7" style="position:absolute; align:center; visibility:show; left:5px; top:250px; z-index:1">
+o </div>
+<div id="box8" style="position:absolute; align:center; visibility:show; left:5px; top:250px; z-index:1">
+o </div>
+<table cellpadding=1 border=1><td><a href="javascript:hideit()">
+<font color=#0000FF>hide all</font></td></a></table>
+<table cellpadding=1 border=1><td><a href="javascript:showit()"><font color=#0000FF>show all</font></a></td></table>
+
+<P>
+<BR>
+<P>
+<a name="source">
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Misc.:  Layers</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as NotePad or SimpleText) and save (Control-s or Apple-s).  The script is yours!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  4.32 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL LAYERS:
+
+   1.  Paste the first code in the HEAD of your HTML document
+   2.  Copy the onLoad event handler into the BODY tag
+   3.  Add the last code in the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste the first code in the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Randy Bennett (rbennett@thezone.net) --&gt;
+&lt;!-- Web Site:  http://home.thezone.net/~rbennett/utility/javahead.htm --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function doit() {
+right_box1();
+}
+function hideit() {
+document.box1.visibility="hide"
+document.box2.visibility="hide"
+document.box3.visibility="hide"
+document.box4.visibility="hide"
+document.box5.visibility="hide"
+document.box6.visibility="hide"
+document.box7.visibility="hide"
+document.box8.visibility="hide"
+}
+function showit() {
+document.box1.visibility="show"
+document.box2.visibility="show"
+document.box3.visibility="show"
+document.box4.visibility="show"
+document.box5.visibility="show"
+document.box6.visibility="show"
+document.box7.visibility="show"
+document.box8.visibility="show"
+}
+function right_box1() {
+move1();
+if (document.box1.left&lt;150) setTimeout("right_box1()",10);
+if (document.box1.left&gt;=150) setTimeout("down_box1()",5);
+}
+function down_box1() {
+move2();
+if (document.box1.top&lt;230) setTimeout("down_box1()",5);
+if (document.box1.top&gt;=230) setTimeout("left_box1()",10);
+}
+function left_box1() {
+move3();
+if (document.box1.left&gt;150) setTimeout("left_box1()",10);
+if (document.box1.left&lt;=150) setTimeout("up_box1()",5);
+}
+function up_box1() {
+move4();
+if (document.box1.top&gt;120) setTimeout("up_box1()",5);
+if (document.box1.top&lt;=120) setTimeout("right_box1()",10);
+}
+function move1() {
+document.box1.offset(10,2)
+document.box2.offset(5,1)
+document.box3.offset(-10,2)
+document.box4.offset(-5,1)
+document.box5.offset(10,-2)
+document.box6.offset(5,-1)
+document.box7.offset(-10,-2)
+document.box8.offset(-5,-1)
+}
+function move2() {
+document.box1.offset(6,6)
+document.box2.offset(6,7)
+document.box3.offset(-6,6)
+document.box4.offset(-6,7)
+document.box5.offset(6,-6)
+document.box6.offset(6,-7)
+document.box7.offset(-6,-6)
+document.box8.offset(-6,-7)
+}
+function move3() {
+document.box1.offset(-10,-2)
+document.box2.offset(-5,-1)
+document.box3.offset(10,-2)
+document.box4.offset(5,-1)
+document.box5.offset(-10,2)
+document.box6.offset(-5,1)
+document.box7.offset(10,2)
+document.box8.offset(5,1)
+}
+function move4() {
+document.box1.offset(-6,-6)
+document.box2.offset(-6,-7)
+document.box3.offset(6,-6)
+document.box4.offset(6,-7)
+document.box5.offset(-6,6)
+document.box6.offset(-6,7)
+document.box7.offset(6,6)
+document.box8.offset(6,7)
+}
+// End --&gt;
+&lt;/script&gt;
+
+&lt;BODY onLoad="doit()"&gt;
+
+&lt;!-- STEP THREE: Add the last code in the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+<div id="box1" style="position:absolute; align:center; align:center; visibility:show; left:5px; top:250px; z-index:1">
+o </div>
+<div id="box2" style="position:absolute; align:center; visibility:show; left:5px; top:250px; z-index:1">
+o </div>
+<div id="box3" style="position:absolute; align:center; visibility:show; left:5px; top:250px; z-index:1">
+o </div>
+<div id="box4" style="position:absolute; align:center; visibility:show; left:5px; top:250px; z-index:1">
+o </div>
+<div id="box5" style="position:absolute; align:center; visibility:show; left:5px; top:250px; z-index:1">
+o </div>
+<div id="box6" style="position:absolute; align:center; visibility:show; left:5px; top:250px; z-index:1">
+o </div>
+<div id="box7" style="position:absolute; align:center; visibility:show; left:5px; top:250px; z-index:1">
+o </div>
+<div id="box8" style="position:absolute; align:center; visibility:show; left:5px; top:250px; z-index:1">
+o </div>
+<div id="hideall" style="position:absolute; align:center; visibility:show; left:10px; top:10px; z-index:1">
+<table cellpadding=1 border=1><td><a href="javascript:hideit()">
+<font color=#0000FF>hide all</font></td></a></table>
+</div>
+<div id="showall" style="position:absolute; align:center; visibility:show; left:10px; top:200px; z-index:1">
+<table cellpadding=1 border=1><td><a href="javascript:showit()"><font color=#0000FF>show all</font></a></td></table>
+</div>
+
+ 
+
+&lt;!-- Script Size:  4.32 KB  --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

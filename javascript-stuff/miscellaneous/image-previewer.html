@@ -1,0 +1,174 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Miscellaneous:  Image Previewer</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Ronnie T. Moore, Editor">
+<META NAME="section" CONTENT="Miscellaneous">
+<META NAME="description" CONTENT="Users can see a preview of the image they select from the pulldown menu before loading the full image.  They can then view the full image by clicking the Go button or the preview image.  This is great for allowing sites with large images to offer image previews visitors to to see an image preview first.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Ronnie T. Moore, Editor -->
+<!-- Idea and images by:  Stuart King (stuart@ciceron.com) -->
+
+
+
+
+<!-- Begin
+function previewPic(sel) {
+document.previewpic.src = "" + sel.options[sel.selectedIndex].value;
+}
+function showPic(sel) {
+images = new Array();
+images[1] = "../img/preview/axe.jpg";
+images[2] = "../img/preview/castle.jpg";
+images[3] = "../img/preview/iceberg.jpg";
+images[4] = "../img/preview/ocean.jpg";
+images[5] = "../img/preview/olympus.jpg";
+images[6] = "../img/preview/temple.jpg";
+window.location.href = images[sel.selectedIndex+1];
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /miscellaneous/"><font color="#FF0000"><b>Miscellaneous</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Image Previewer</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Users can see a preview of the image they select from the pulldown menu before loading the full image.  They can then view the full image by clicking the Go button or the preview image.  This is great for allowing sites with large images to offer image previews visitors to to see an image preview first.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name=picform>
+<select name=selbox size=1 onChange="previewPic(this)">
+<option value="../img/preview/axe-small.jpg">Axe
+<option value="../img/preview/castle-small.jpg">Castle
+<option value="../img/preview/iceberg-small.jpg">Iceberg
+<option value="../img/preview/ocean-small.jpg">Ocean
+<option value="../img/preview/olympus-small.jpg">Olympus
+<option value="../img/preview/temple-small.jpg">Temple
+</select>
+<p>
+<img name="previewpic" src="../img/preview/axe-small.jpg" /img/preview/axe-small.jpg" width=150 height=113 border=1>
+<p>
+<input type=button value="Show Image" onclick="showPic(this.form.selbox)">
+</form>
+<p>
+<font size="-1">Images (C) <a href="http://thistledownhall.com/">Stuart King</a></font>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Miscellaneous:  Image Previewer</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.59 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL IMAGE PREVIEWER:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Ronnie T. Moore, Editor --&gt;
+&lt;!-- Idea and images by:  Stuart King (stuart@ciceron.com) --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function previewPic(sel) {
+document.previewpic.src = "" + sel.options[sel.selectedIndex].value;
+}
+function showPic(sel) {
+images = new Array();
+images[1] = "axe.jpg";
+images[2] = "castle.jpg";
+images[3] = "iceberg.jpg";
+images[4] = "ocean.jpg";
+images[5] = "olympus.jpg";
+images[6] = "temple.jpg";
+window.location.href = images[sel.selectedIndex+1];
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form name=picform&gt;
+&lt;select name=selbox size=1 onChange="previewPic(this)"&gt;
+&lt;option value="axe-small.jpg"&gt;Axe
+&lt;option value="castle-small.jpg"&gt;Castle
+&lt;option value="iceberg-small.jpg"&gt;Iceberg
+&lt;option value="ocean-small.jpg"&gt;Ocean
+&lt;option value="olympus-small.jpg"&gt;Olympus
+&lt;option value="temple-small.jpg"&gt;Temple
+&lt;/select&gt;
+&lt;p&gt;
+&lt;img name="previewpic" src="axe-small.jpg" width=150 height=113 border=1&gt;
+&lt;p&gt;
+&lt;input type=button value="Show Image" onclick="showPic(this.form.selbox)"&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  1.59 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

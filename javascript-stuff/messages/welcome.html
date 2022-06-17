@@ -1,0 +1,250 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Messages:  Welcome</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="Customize this Flash style intro to display a welcome message on your site.  Awesome!">
+<META NAME="date" CONTENT="2000-12-22">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Kurt Grigg">
+<META NAME="section" CONTENT="Messages">
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Kurt Grigg (kurt.grigg@virgin.net) -->
+<!-- Web Site:  http://website.lineone.net/~kurt.grigg/javascript -->
+
+
+
+
+<!-- Begin
+message = "JavaScript Source Code 3000 Free JavaScripts! Place your message here! ";
+colours = new Array('0000ff','ff0000')//Pick your colors, any amount.
+siZe = 20;//Explorer only! can be outrageous size.
+message = message.split(' ');
+timer = null;
+clrPos = 0;
+msgPos = 0;
+jog = 1;
+currentStep = 10;
+step = 8;
+ns = (document.layers)?1:0;
+viz = (document.layers)?'hide':'hidden';
+if (ns)
+document.write("<div id='T' style='position:absolute'></div><br>");
+else {
+document.write("<div style='position:absolute'>");
+document.write("<div align='center' style='position:relative'>");
+document.write("<div id='T' style='position:absolute;width:0;height:0;font-family:Arial;font-size:0'>kurt</div>");
+document.write("</div></div><br>");
+}
+function Message() {
+var pageHeight = (document.layers)?window.innerHeight:window.document.body.offsetHeight;
+var pageWidth = (document.layers)?window.innerWidth:window.document.body.offsetWidth;
+if (ns) {
+ypos = pageHeight / 2;
+var Write = '<div align="center" style="width:0px;height:0px;font-family:Arial,Verdana;font-size:'+currentStep/4+'px;color:'+colours[clrPos]+'">'+message[msgPos]+'</div>';
+document.T.top = ypos + -currentStep / 8 + window.pageYOffset;
+document.T.document.write(Write)
+document.T.document.close();
+}
+else {
+ypos = pageHeight / 2;
+xpos = pageWidth / 2;
+T.style.width = currentStep;
+T.style.pixelTop = ypos + -currentStep / 16 + document.body.scrollTop;
+T.style.pixelLeft = (xpos - 20)+ -currentStep / 2;
+T.style.fontSize = currentStep / 8;
+T.innerHTML = message[msgPos];
+T.style.color = colours[clrPos];
+}
+if (ns)step += 5;
+else step += 15;
+currentStep += step
+if (ns) {
+if (currentStep > pageWidth) {
+currentStep = 10;
+step = 8;
+msgPos += jog;
+clrPos += jog;
+}
+if (clrPos >= colours.length) clrPos = 0;
+}
+else {
+if (currentStep > pageWidth * siZe) {
+currentStep = 10;
+step = 8;
+msgPos += jog;
+clrPos += jog;
+}
+if (clrPos >= colours.length) clrPos = 0;
+}
+if (msgPos >= message.length) {
+clearTimeout(timer);
+if (ns) document.T.visibility = viz;
+else T.style.visibility = viz;
+}
+timer = setTimeout("Message()",40)
+}
+//  End -->
+</script>
+
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff onLoad="Message()">
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /messages/"><font color="#FF0000"><b>Messages</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Welcome</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Customize this Flash style intro to display a welcome message on your site.  Awesome!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Messages:  Welcome</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Command-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.93 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL WELCOME:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the onLoad event handler into the BODY tag  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Kurt Grigg (kurt.grigg@virgin.net) --&gt;
+&lt;!-- Web Site:  http://website.lineone.net/~kurt.grigg/javascript --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+message = "JavaScript Source Code 3000 Free JavaScripts! Place your message here! ";
+colours = new Array('fff000','00ff00')//Pick your colors, any amount.
+siZe = 20;//Explorer only! can be outrageous size.
+message = message.split(' ');
+timer = null;
+clrPos = 0;
+msgPos = 0;
+jog = 1;
+currentStep = 10;
+step = 8;
+ns = (document.layers)?1:0;
+viz = (document.layers)?'hide':'hidden';
+if (ns)
+document.write("&lt;div id='T' style='position:absolute'&gt;&lt;/div&gt;&lt;br&gt;");
+else {
+document.write("&lt;div style='position:absolute'&gt;");
+document.write("&lt;div align='center' style='position:relative'&gt;");
+document.write("&lt;div id='T' style='position:absolute;width:0;height:0;font-family:Arial;font-size:0'&gt;kurt&lt;/div&gt;");
+document.write("&lt;/div&gt;&lt;/div&gt;&lt;br&gt;");
+}
+function Message() {
+var pageHeight = (document.layers)?window.innerHeight:window.document.body.offsetHeight;
+var pageWidth = (document.layers)?window.innerWidth:window.document.body.offsetWidth;
+if (ns) {
+ypos = pageHeight / 2;
+var Write = '&lt;div align="center" style="width:0px;height:0px;font-family:Arial,Verdana;font-size:'+currentStep/4+'px;color:'+colours[clrPos]+'"&gt;'+message[msgPos]+'&lt;/div&gt;';
+document.T.top = ypos + -currentStep / 8 + window.pageYOffset;
+document.T.document.write(Write)
+document.T.document.close();
+}
+else {
+ypos = pageHeight / 2;
+xpos = pageWidth / 2;
+T.style.width = currentStep;
+T.style.pixelTop = ypos + -currentStep / 16 + document.body.scrollTop;
+T.style.pixelLeft = (xpos - 20)+ -currentStep / 2;
+T.style.fontSize = currentStep / 8;
+T.innerHTML = message[msgPos];
+T.style.color = colours[clrPos];
+}
+if (ns)step += 5;
+else step += 15;
+currentStep += step
+if (ns) {
+if (currentStep &gt; pageWidth) {
+currentStep = 10;
+step = 8;
+msgPos += jog;
+clrPos += jog;
+}
+if (clrPos &gt;= colours.length) clrPos = 0;
+}
+else {
+if (currentStep &gt; pageWidth * siZe) {
+currentStep = 10;
+step = 8;
+msgPos += jog;
+clrPos += jog;
+}
+if (clrPos &gt;= colours.length) clrPos = 0;
+}
+if (msgPos &gt;= message.length) {
+clearTimeout(timer);
+if (ns) document.T.visibility = viz;
+else T.style.visibility = viz;
+}
+timer = setTimeout("Message()",40)
+}
+//  End --&gt;
+&lt;/script&gt;
+
+
+&lt;!-- STEP TWO: Insert the onLoad event handler into your BODY tag  --&gt;
+
+&lt;BODY onLoad="Message()"&gt;
+
+ 
+
+&lt;!-- Script Size:  2.93 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

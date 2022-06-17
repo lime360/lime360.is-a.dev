@@ -1,0 +1,161 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Miscellaneous:  Coin Flipper</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Hanz Broden (webmeister@v-wave.com)">
+<META NAME="section" CONTENT="Miscellaneous">
+<META NAME="description" CONTENT="When you do not have a coin, use this quick and easy virtual coin-flipping script.  Sweet!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Hanz Broden (webmeister@v-wave.com) -->
+<!-- Web Site:  http://plaza.v-wave.com/dotcom -->
+<!-- Modified By:  Ronnie T. Moore, Editor -->
+
+
+
+
+<!-- Begin
+function flipCoin() {
+var x = parseInt(Math.random() * 2, 10);
+coinsrc = (!x) ? "../img/coins/heads.gif" : "../img/coins/tails.gif";
+document.coinform.coinbutton.value = 'Flipping';
+ID = window.setTimeout("changeCoin();", 750);
+}
+function changeCoin() {
+document['coin'].src = coinsrc;
+document.coinform.coinbutton.value = 'Flip Coin';
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /miscellaneous/"><font color="#FF0000"><b>Miscellaneous</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Coin Flipper</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+When you do not have a coin, use this quick and easy virtual coin-flipping script.  Sweet!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name=coinform>
+<table border=0 height=200>
+<tr valign=top>
+<td><input type=button name=coinbutton value="Flip Coin" onClick="flipCoin();"></td>
+<td><img name=coin src="../img/coins/heads.gif" /img/coins/heads.gif" width=190 height=190></td>
+</tr>
+</table>
+</form>
+</center>
+<br><br>
+The two necessary coin images<br>
+for this script are included<br>
+in this ZIP file.<br><br>
+<a href="../img/coins/coins.zip" /img/coins/coins.zip">coins.zip</a>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Miscellaneous:  Coin Flipper</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.29 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL COIN FLIPPER:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Hanz Broden (webmeister@v-wave.com) --&gt;
+&lt;!-- Web Site:  http://plaza.v-wave.com/dotcom --&gt;
+&lt;!-- Modified By:  Ronnie T. Moore, Editor --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function flipCoin() {
+var x = parseInt(Math.random() * 2, 10);
+coinsrc = (!x) ? "heads.gif" : "tails.gif";
+document.coinform.coinbutton.value = 'Flipping';
+ID = window.setTimeout("changeCoin();", 750);
+}
+function changeCoin() {
+document['coin'].src = coinsrc;
+document.coinform.coinbutton.value = 'Flip Coin';
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form name=coinform&gt;
+&lt;table border=0 height=200&gt;
+&lt;tr valign=top&gt;
+&lt;td&gt;&lt;input type=button name=coinbutton value="Flip Coin" onClick="flipCoin();"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img name=coin src="heads.gif" width=190 height=190&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  1.29 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

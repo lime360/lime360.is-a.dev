@@ -1,0 +1,218 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Messages:  Date Message</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Messages">
+<META NAME="description" CONTENT="Displays your message on the appropriate day you indicate.  For example, you can have it print messages on holidays, birthdays, or other dates that are important to you and your site's visitors!  Cool!">
+
+<SCRIPT LANGUAGE="JavaScript">
+
+
+
+
+<!-- Begin
+var days = new Array();
+var msgs = new Array();
+
+days[0] = "December 20, 1999";
+msgs[0] = "Thanks for stopping by on my birthday!";
+
+days[1] = "December 21, 1999";
+msgs[1] = "Not Christmas yet, it's only the 21st.";
+
+days[2] = "December 22, 1999";
+msgs[2] = "Another day closer, almost there!";
+
+days[3] = "December 23, 1999";
+msgs[3] = "Wow, tomorrow is Christmas Eve!";
+
+days[4] = "December 24, 1999";
+msgs[4] = "It's Christmas Eve, thanks for visiting!";
+
+days[5] = "December 25, 1999";
+msgs[5] = "Welcome to this page on Christmas Day!";
+
+var months = new Array("", 
+"January", "February", "March", "April", "May", "June",
+"July", "August", "September", "October", "November", "December"
+);
+
+var today = new Date(); // today
+var mon = months[today.getMonth() + 1]; // month
+var day = today.getDate(); // day
+var year = y2k(today.getYear()); // year
+
+function dateMsg() {
+for (i = 0; i < days.length; i++) {
+tempdate = new Date(days[i]);
+tempmonth = months[tempdate.getMonth() + 1];
+tempday = tempdate.getDate();
+tempyear = y2k(tempdate.getYear());
+if (year == tempyear && mon == tempmonth && day == tempday)
+return("Today is " + days[i] + ".  " + msgs[i]); // returns day message
+   }
+return("Today is " + mon + " " + day + ", " + year + "."); // returns default
+}
+
+// Y2K Fix Function
+function y2k(year) {
+if (year < 2000)		
+year = year + 1900;
+return year;
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /messages/"><font color="#FF0000"><b>Messages</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Date Message</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Displays your message on the appropriate day you indicate.  For example, you can have it print messages on holidays, birthdays, or other dates that are important to you and your site's visitors!  Cool!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<script>
+document.write(dateMsg());
+</script>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Messages:  Date Message</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.13 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL DATE MESSAGE:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var days = new Array();
+var msgs = new Array();
+
+days[0] = "December 20, 1999";
+msgs[0] = "Thanks for stopping by on my birthday!";
+
+days[1] = "December 21, 1999";
+msgs[1] = "Not Christmas yet, it's only the 21st.";
+
+days[2] = "December 22, 1999";
+msgs[2] = "Another day closer, almost there!";
+
+days[3] = "December 23, 1999";
+msgs[3] = "Wow, tomorrow is Christmas Eve!";
+
+days[4] = "December 24, 1999";
+msgs[4] = "It's Christmas Eve, thanks for visiting!";
+
+days[5] = "December 25, 1999";
+msgs[5] = "Welcome to this page on Christmas Day!";
+
+var months = new Array("", 
+"January", "February", "March", "April", "May", "June",
+"July", "August", "September", "October", "November", "December"
+);
+
+var today = new Date(); // today
+var mon = months[today.getMonth() + 1]; // month
+var day = today.getDate(); // day
+var year = y2k(today.getYear()); // year
+
+function dateMsg() {
+for (i = 0; i &lt; days.length; i++) {
+tempdate = new Date(days[i]);
+tempmonth = months[tempdate.getMonth() + 1];
+tempday = tempdate.getDate();
+tempyear = y2k(tempdate.getYear());
+if (year == tempyear && mon == tempmonth && day == tempday)
+return("Today is " + days[i] + ".  " + msgs[i]); // returns day message
+   }
+return("Today is " + mon + " " + day + ", " + year + "."); // returns default
+}
+
+// Y2K Fix Function
+function y2k(year) {
+if (year < 2000)		
+year = year + 1900;
+return year;
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;script&gt;
+document.write(dateMsg());
+&lt;/script&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  2.13 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

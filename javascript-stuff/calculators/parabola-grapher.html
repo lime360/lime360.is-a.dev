@@ -1,0 +1,237 @@
+<xbasehref="../img/parabola-grapher/">
+
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Calculators:  Parabola Grapher</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Andreas Verhoeven (ave2233@yahoo.com)">
+<META NAME="section" CONTENT="Calculators">
+<META NAME="description" CONTENT="Enter a parabolic equation, like 5x^2 + 18x + 27 and this calculator will determine all the vital information about the graph.  And, a rough graph of the curve is available.  I wish I know about JavaScript back in high school....">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Andreas Verhoeven (ave2233@yahoo.com) -->
+
+
+
+
+<!-- Begin
+var a, b, c;
+function xtop(form) {
+form.u.value = (form.b.value * -1) / (form.a.value * 2);
+}
+function ytop(form) {
+form.u2.value = -1 * (form.b.value * form.b.value) / (4 * form.a.value) - (-1 * form.c.value);
+}
+function doCoord(form) {
+form.co.value = form.u.value + "," + form.u2.value;
+}
+function disc(form) {
+form.o.value = (form.b.value * form.b.value) - (form.a.value * form.c.value * 4);
+}
+function zeroes1(form) {
+form.n.value = ((form.b.value * -1) - (Math.sqrt(form.o.value))) / (form.a.value * 2);
+}
+function zeroes2(form) {
+form.n2.value = ((form.b.value * -1) - (-1 * Math.sqrt(form.o.value))) / (form.a.value * 2);
+}
+function move_in(img_name,img_src) {
+document[img_name].src=img_src;
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<font color="#FF0000"><b>Calculators</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Parabola Grapher</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Enter a parabolic equation, like 5x^2 + 18x + 27 and this calculator will determine all the vital information about the graph.  And, a rough graph of the curve is available.  I wish I know about JavaScript back in high school....
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form>
+<table bgcolor="#C0C0C0" cellspacing=2 cellpadding=2 border=3>
+<tr>
+<td>
+<b>
+<h3>Parabolic Calculator</h3>
+<input name="a" size="3">X<sup>2</sup>+
+<input name="b" size="3">X +
+<input name="c" size="3">
+<br>
+<input type="button" value="x-top" name="x-top" onclick="xtop(this.form)">
+<input type="button" value="y-top" name="y-top" onclick="ytop(this.form)">
+<input type="button" value="crd" name="crd" onclick="doCoord(this.form)">
+<input type="button" value="disc." name="D" onclick="disc(this.form)">
+<br>
+<input type="button" value="0-points" name="zeroes" onclick="zeroes1(this.form);zeroes2(this.form)">
+<input type="button" onclick="xtop(this.form);ytop(this.form);doCoord(this.form);disc(this.form);zeroes1(this.form);zeroes2(this.form)" value="do all">
+<input type="button" name="pics" value="show e.g." onClick="if(form.a.value>0 && form.o.value>0)move_in('p','p2.gif');if (form.a.value<0 && form.o.value>0)move_in('p','p3.gif'); if(form.a.value>0 && form.o.value==0) move_in('p','p4.gif'); if(form.a.value<0 && form.o.value==0) move_in('p','p5.gif'); if(form.a.value>0 && form.o.value<0) move_in('p','p6.gif'); if(form.a.value<0 && form.o.value<0) move_in('p','p7.gif')" value="show e.g.">
+<br>
+<input type="text" name="u" size="8"> x-top<br>
+<input type="text" name="u2" size="8"> y-top<br>
+<input type="text" size="8" name="co" onmouseover="form.rem.value=form.co.value"> Coord.<br>
+<input type="text" size="8" name="o"> Discriminant<br>
+<input type="text" size="8" name="n"> neg zero pt.<br>
+<input type="text" size="8" name="n2"> pos zero pt.
+<input type="hidden" value="" name="rem"><br>
+<input type="reset" value="reset"><br>
+</b>
+</td>
+<td><img src="../img/parabola-grapher/p1.gif" /img/parabola-grapher/p1.gif" width=200 name="p" height=200 border=0 alt=""></td>
+</tr>
+</table>
+</form>
+</center>
+<br>
+<br>
+Quick Download of Parabola Images:<br>
+<a href="../img/parabola-grapher/parabola-grapher.zip" /img/parabola-grapher/parabola-grapher.zip">../img/parabola-grapher/parabola-grapher.zip</a>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Calculators:  Parabola Grapher</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  3.10 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL PARABOLA GRAPHER:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document
+  3.  Also be sure to save the Parabola images to your site  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Andreas Verhoeven (ave2233@yahoo.com) --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var a, b, c;
+function xtop(form) {
+form.u.value = (form.b.value * -1) / (form.a.value * 2);
+}
+function ytop(form) {
+form.u2.value = -1 * (form.b.value * form.b.value) / (4 * form.a.value) - (-1 * form.c.value);
+}
+function doCoord(form) {
+form.co.value = form.u.value + "," + form.u2.value;
+}
+function disc(form) {
+form.o.value = (form.b.value * form.b.value) - (form.a.value * form.c.value * 4);
+}
+function zeroes1(form) {
+form.n.value = ((form.b.value * -1) - (Math.sqrt(form.o.value))) / (form.a.value * 2);
+}
+function zeroes2(form) {
+form.n2.value = ((form.b.value * -1) - (-1 * Math.sqrt(form.o.value))) / (form.a.value * 2);
+}
+function move_in(img_name,img_src) {
+document[img_name].src=img_src;
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form&gt;
+&lt;table bgcolor="#C0C0C0" cellspacing=2 cellpadding=2 border=3&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;b&gt;
+&lt;h3&gt;Parabolic Calculator&lt;/h3&gt;
+&lt;input name="a" size="3"&gt;X&lt;sup&gt;2&lt;/sup&gt;+
+&lt;input name="b" size="3"&gt;X +
+&lt;input name="c" size="3"&gt;
+&lt;br&gt;
+&lt;input type="button" value="x-top" name="x-top" onclick="xtop(this.form)"&gt;
+&lt;input type="button" value="y-top" name="y-top" onclick="ytop(this.form)"&gt;
+&lt;input type="button" value="crd" name="crd" onclick="doCoord(this.form)"&gt;
+&lt;input type="button" value="disc." name="D" onclick="disc(this.form)"&gt;
+&lt;br&gt;
+&lt;input type="button" value="0-points" name="zeroes" onclick="zeroes1(this.form);zeroes2(this.form)"&gt;
+&lt;input type="button" onclick="xtop(this.form);ytop(this.form);doCoord(this.form);disc(this.form);zeroes1(this.form);zeroes2(this.form)" value="do all"&gt;
+&lt;input type="button" name="pics" value="show e.g." onClick="if(form.a.value&gt;0 && form.o.value&gt;0)move_in('p','p2.gif');if (form.a.value&lt;0 && form.o.value&gt;0)move_in('p','p3.gif'); if(form.a.value&gt;0 && form.o.value==0) move_in('p','p4.gif'); if(form.a.value&lt;0 && form.o.value==0) move_in('p','p5.gif'); if(form.a.value&gt;0 && form.o.value&lt;0) move_in('p','p6.gif'); if(form.a.value&lt;0 && form.o.value&lt;0) move_in('p','p7.gif')" value="show e.g."&gt;
+&lt;br&gt;
+&lt;input type="text" name="u" size="8"&gt; x-top&lt;br&gt;
+&lt;input type="text" name="u2" size="8"&gt; y-top&lt;br&gt;
+&lt;input type="text" size="8" name="co" onmouseover="form.rem.value=form.co.value"&gt; Coord.&lt;br&gt;
+&lt;input type="text" size="8" name="o"&gt; Discriminant&lt;br&gt;
+&lt;input type="text" size="8" name="n"&gt; neg zero pt.&lt;br&gt;
+&lt;input type="text" size="8" name="n2"&gt; pos zero pt.
+&lt;input type="hidden" value="" name="rem"&gt;&lt;br&gt;
+&lt;input type="reset" value="reset"&gt;&lt;br&gt;
+&lt;/b&gt;
+&lt;/td&gt;
+&lt;td&gt;&lt;img src="p1.gif" width=200 name="p" height=200 border=0 alt=""&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+&lt;!-- STEP THREE: Be sure to save the parabola images from: --&gt;
+&lt;!-- ../img/parabola-grapher/parabola-grapher.zip --&gt;
+&lt;!-- to the same web site directory where you are using this script.  --&gt;
+
+ 
+
+&lt;!-- Script Size:  3.10 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

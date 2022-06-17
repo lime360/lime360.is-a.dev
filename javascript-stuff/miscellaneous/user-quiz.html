@@ -1,0 +1,344 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Misc.:  User Quiz</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Monichar">
+<META NAME="section" CONTENT="Miscellaneous">
+<META NAME="description" CONTENT="If you'd like to present your visitors with a JavaScript quiz, this script would be perfect.  It administers and scores the test, and even catches the user if they try to cheat!  You can even make additional quizzes for it to continue with after the first quiz.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+
+function explainAddLevels() {
+explainwin = window.open('', 'explainwin','top=150,left=150,width=475,height=200');
+with (explainwin.document) {
+write('<pre>');
+write('First, create another quiz page.  Then, when you have<br>');
+write('two quiz pages, you can join them together by changing<br>');
+write('part of this code at the end of the first quiz script:<p>');
+write('<p>');
+write('<table cellpadding=10><tr><td><code><font color="blue">if (score >= 7 && score <= 11) {<br>');
+write('alert("Access permitted!  ...")<br>');
+write('//change previous line to: self.location="url.html"<br>');
+write('  if you add more</font></code></td></tr></table><br>');
+write('<p>See, it says you can change the previous alert line to<br>');
+write(' ....  a URL for your next quiz page.<br>');
+write('</pre>');
+close();
+   }
+}
+
+var ans = new Array;
+var done = new Array;
+var score = 0;
+ans[1] = "c";
+ans[2] = "a";
+ans[3] = "b";
+ans[4] = "b";
+ans[5] = "d";
+ans[6] = "c";
+ans[7] = "c";
+ans[8] = "c";
+ans[9] = "d";
+ans[10] = "a";
+function Engine(question, answer) {
+if (answer != ans[question]) {
+if (!done[question]) {
+done[question] = -1;
+alert("Wrong!\n\nYour score is now: " + score);
+}
+else {
+alert("You have already answered that!");
+   }
+}
+else {
+if (!done[question]) {
+done[question] = -1;
+score++;
+alert("Correct!\n\nYour score is now: " + score);
+}
+else {		
+alert("You have already answered that!");
+      }
+   }
+}
+		
+function NextLevel () {
+if (score > 10) {
+alert("Cheater!");
+}
+if (score >= 7 && score <= 11) {
+alert("Access permitted!  But there are no more levels if you don't make any ...")
+
+//change previous line to: self.location="js_misc_userquiz2.html" if you make more
+
+}
+else {
+alert("Access denied!  You need 7 points to enter the next level.")
+   }
+}
+// End -->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /miscellaneous/"><font color="#FF0000">Miscellaneous</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">User Quiz</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE=" helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+If you'd like to present your visitors with a JavaScript quiz, this script would be perfect.  It administers and scores the test, and even catches the user if they try to cheat!<p>
+Also learn how to <a href="#" onClick="javascript:explainAddLevels();return false;">add additional quiz levels</a> after the first quiz.<br><hr>
+</td></tr>
+</table>
+<!--  Demonstration -->
+<BODY>
+<font size=6 face=Arial>Gamer's Quiz</font><br><p>
+<b>Objective: answer 7 questions correctly.  JavaScript required!</b><p>
+<noscript>JavaScript is <b><i>disabled</b></i>.  Get Netscape 3.0 or turn it on!</noscript>
+<hr noshade>
+<FORM>
+<b>1. WARM-UP: Who created the famous <i>WarCraft 2</i>?</b><p>
+<input type=radio value="a" onClick="Engine(1, this.value)">Sierra On-Line<br>
+<input type=radio value="b" onClick="Engine(1, this.value)">BlueByte<br>
+<input type=radio value="c" onClick="Engine(1, this.value)">Blizzard Entertainment<br>
+<input type=radio value="d" onClick="Engine(1, this.value)">Microsoft<p>
+<b>2. This famous 3D shooter claimed <i>PC Gamer's</i> Game of 1994 Award.</b><p>
+<input type=radio value="a" onClick="Engine(2, this.value)">Doom<br>
+<input type=radio value="b" onClick="Engine(2, this.value)">Hexen<br>
+<input type=radio value="c" onClick="Engine(2, this.value)">Descent<br>
+<input type=radio value="d" onClick="Engine(2, this.value)">Wolfenstein 3D<p>
+<b>3. The first intergalatic combat game.  Name it.</b><p>
+<input type=radio value="a" onClick="Engine(3, this.value)">Master of Orion<br>
+<input type=radio value="b" onClick="Engine(3, this.value)">Star Control<br>
+<input type=radio value="c" onClick="Engine(3, this.value)">StarCraft<br>
+<input type=radio value="d" onClick="Engine(3, this.value)">Star Trek<p>
+<b>4. The game ever to contain graphics was this classic by Roberta Williams.</b><p>
+<input type=radio value="a" onClick="Engine(4, this.value)">King's Quest<br>
+<input type=radio value="b" onClick="Engine(4, this.value)">Mystery House<br>
+<input type=radio value="c" onClick="Engine(4, this.value)">Time Zone<br>
+<input type=radio value="d" onClick="Engine(4, this.value)">Mission: Asteriod<p>
+<b>5. The first real-time strategy game was: </b><p>
+<input type=radio value="a" onClick="Engine(5, this.value)">WarCraft: Orcs & Humans<br>
+<input type=radio value="b" onClick="Engine(5, this.value)">Command & Conquer<br>
+<input type=radio value="c" onClick="Engine(5, this.value)">Dune<br>
+<input type=radio value="d" onClick="Engine(5, this.value)">Dune 2<p>
+<b>6. In PC Gamer, Quake won these 'of-the-year' awards (1996): </b><p>
+<input type=radio value="a" onClick="Engine(6, this.value)">Best Game, Best Action Game<br>
+<input type=radio value="b" onClick="Engine(6, this.value)">Best Action Game, Best Multiplayer<br>
+<input type=radio value="c" onClick="Engine(6, this.value)">Best Sound Effects, Best Multiplayer<br>
+<input type=radio value="d" onClick="Engine(6, this.value)">All of the above<p>
+<b>7. The best selling game of all time is: </b><p>
+<input type=radio value="a" onClick="Engine(7, this.value)">WarCraft 2<br>
+<input type=radio value="b" onClick="Engine(7, this.value)">C&C: Red Alert<br>
+<input type=radio value="c" onClick="Engine(7, this.value)">Sim City<br>
+<input type=radio value="d" onClick="Engine(7, this.value)">King's Quest 5<p>
+<b>8. This is a turn-based strategy game: </b><p>
+<input type=radio value="a" onClick="Engine(8, this.value)">C&C: Red Alert<br>
+<input type=radio value="b" onClick="Engine(8, this.value)">Might and Magic 3<br>
+<input type=radio value="c" onClick="Engine(8, this.value)">Heroes of Might and Magic<br>
+<input type=radio value="d" onClick="Engine(8, this.value)">Daggerfall: The Elder Scrolls<p>
+<b>9. PC Gamer's <i>Best Game of the 1996</i> went to: </b><p>
+<input type=radio value="a" onClick="Engine(9, this.value)">C&C: Red Alert<br>
+<input type=radio value="b" onClick="Engine(9, this.value)">Tomb Raider<br>
+<input type=radio value="c" onClick="Engine(9, this.value)">Quake<br>
+<input type=radio value="d" onClick="Engine(9, this.value)">Civilization 2<p>
+<b>10. Blizzard's new release, <i>Diablo</i> is a: </b><p>
+<input type=radio value="a" onClick="Engine(10, this.value)">Role Playing Game<br>
+<input type=radio value="b" onClick="Engine(10, this.value)">2D Action Game<br>
+<input type=radio value="c" onClick="Engine(10, this.value)">3D Action Game<br>
+<input type=radio value="d" onClick="Engine(10, this.value)">Simulation<p>
+<CENTER>
+<input type=button onClick="NextLevel()" value="Advance to next level">
+</CENTER>
+</FORM>
+<P>
+<BR>
+<P>
+<a name="source">
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Misc.:  User Quiz</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as NotePad or SimpleText) and save (Control-s or Apple-s).  The script is yours!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  5.64 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL USER QUIZ:
+
+   1.  Paste the coding into the HEAD of your HTML document
+   2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Monichar --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var ans = new Array;
+var done = new Array;
+var score = 0;
+ans[1] = "c";
+ans[2] = "a";
+ans[3] = "b";
+ans[4] = "b";
+ans[5] = "d";
+ans[6] = "c";
+ans[7] = "c";
+ans[8] = "c";
+ans[9] = "d";
+ans[10] = "a";
+function Engine(question, answer) {
+if (answer != ans[question]) {
+if (!done[question]) {
+done[question] = -1;
+alert("Wrong!\n\nYour score is now: " + score);
+}
+else {
+alert("You have already answered that!");
+   }
+}
+else {
+if (!done[question]) {
+done[question] = -1;
+score++;
+alert("Correct!\n\nYour score is now: " + score);
+}
+else {		
+alert("You have already answered that!");
+      }
+   }
+}
+	
+function NextLevel () {
+if (score &gt; 10) {
+alert("Cheater!");
+}
+if (score &gt;= 7 && score &lt;= 11) {
+alert("Access permitted!  But there are no more levels if you don't make any ...")
+
+//change previous line to: self.location="js_misc_userquiz2.html" if you make more
+
+}
+else {
+alert("Access denied!  You need 7 points to enter the next level.")
+   }
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+&lt;!-- STEP TWO: Put this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;font size=6 face=Arial&gt;Gamer's Quiz&lt;/font&gt;&lt;br&gt;&lt;p&gt;
+&lt;b&gt;Objective: answer 7 questions correctly.  JavaScript required!&lt;/b&gt;&lt;p&gt;
+&lt;noscript&gt;JavaScript is &lt;b&gt;&lt;i&gt;disabled&lt;/b&gt;&lt;/i&gt;.  Get Netscape 3.0 or turn it on!&lt;/noscript&gt;
+&lt;hr noshade&gt;
+&lt;FORM&gt;
+&lt;b&gt;1. WARM-UP: Who created the famous &lt;i&gt;WarCraft 2&lt;/i&gt;?&lt;/b&gt;&lt;p&gt;
+&lt;input type=radio value="a" onClick="Engine(1, this.value)"&gt;Sierra On-Line&lt;br&gt;
+&lt;input type=radio value="b" onClick="Engine(1, this.value)"&gt;BlueByte&lt;br&gt;
+&lt;input type=radio value="c" onClick="Engine(1, this.value)"&gt;Blizzard Entertainment&lt;br&gt;
+&lt;input type=radio value="d" onClick="Engine(1, this.value)"&gt;Microsoft&lt;p&gt;
+&lt;b&gt;2. This famous 3D shooter claimed &lt;i&gt;PC Gamer's&lt;/i&gt; Game of 1994 Award.&lt;/b&gt;&lt;p&gt;
+&lt;input type=radio value="a" onClick="Engine(2, this.value)"&gt;Doom&lt;br&gt;
+&lt;input type=radio value="b" onClick="Engine(2, this.value)"&gt;Hexen&lt;br&gt;
+&lt;input type=radio value="c" onClick="Engine(2, this.value)"&gt;Descent&lt;br&gt;
+&lt;input type=radio value="d" onClick="Engine(2, this.value)"&gt;Wolfenstein 3D&lt;p&gt;
+&lt;b&gt;3. The first intergalatic combat game.  Name it.&lt;/b&gt;&lt;p&gt;
+&lt;input type=radio value="a" onClick="Engine(3, this.value)"&gt;Master of Orion&lt;br&gt;
+&lt;input type=radio value="b" onClick="Engine(3, this.value)"&gt;Star Control&lt;br&gt;
+&lt;input type=radio value="c" onClick="Engine(3, this.value)"&gt;StarCraft&lt;br&gt;
+&lt;input type=radio value="d" onClick="Engine(3, this.value)"&gt;Star Trek&lt;p&gt;
+&lt;b&gt;4. The game ever to contain graphics was this classic by Roberta Williams.&lt;/b&gt;&lt;p&gt;
+&lt;input type=radio value="a" onClick="Engine(4, this.value)"&gt;King's Quest&lt;br&gt;
+&lt;input type=radio value="b" onClick="Engine(4, this.value)"&gt;Mystery House&lt;br&gt;
+&lt;input type=radio value="c" onClick="Engine(4, this.value)"&gt;Time Zone&lt;br&gt;
+&lt;input type=radio value="d" onClick="Engine(4, this.value)"&gt;Mission: Asteriod&lt;p&gt;
+&lt;b&gt;5. The first real-time strategy game was: &lt;/b&gt;&lt;p&gt;
+&lt;input type=radio value="a" onClick="Engine(5, this.value)"&gt;WarCraft: Orcs & Humans&lt;br&gt;
+&lt;input type=radio value="b" onClick="Engine(5, this.value)"&gt;Command & Conquer&lt;br&gt;
+&lt;input type=radio value="c" onClick="Engine(5, this.value)"&gt;Dune&lt;br&gt;
+&lt;input type=radio value="d" onClick="Engine(5, this.value)"&gt;Dune 2&lt;p&gt;
+&lt;b&gt;6. In PC Gamer, Quake won these 'of-the-year' awards (1996): &lt;/b&gt;&lt;p&gt;
+&lt;input type=radio value="a" onClick="Engine(6, this.value)"&gt;Best Game, Best Action Game&lt;br&gt;
+&lt;input type=radio value="b" onClick="Engine(6, this.value)"&gt;Best Action Game, Best Multiplayer&lt;br&gt;
+&lt;input type=radio value="c" onClick="Engine(6, this.value)"&gt;Best Sound Effects, Best Multiplayer&lt;br&gt;
+&lt;input type=radio value="d" onClick="Engine(6, this.value)"&gt;All of the above&lt;p&gt;
+&lt;b&gt;7. The best selling game of all time is: &lt;/b&gt;&lt;p&gt;
+&lt;input type=radio value="a" onClick="Engine(7, this.value)"&gt;WarCraft 2&lt;br&gt;
+&lt;input type=radio value="b" onClick="Engine(7, this.value)"&gt;C&C: Red Alert&lt;br&gt;
+&lt;input type=radio value="c" onClick="Engine(7, this.value)"&gt;Sim City&lt;br&gt;
+&lt;input type=radio value="d" onClick="Engine(7, this.value)"&gt;King's Quest 5&lt;p&gt;
+&lt;b&gt;8. This is a turn-based strategy game: &lt;/b&gt;&lt;p&gt;
+&lt;input type=radio value="a" onClick="Engine(8, this.value)"&gt;C&C: Red Alert&lt;br&gt;
+&lt;input type=radio value="b" onClick="Engine(8, this.value)"&gt;Might and Magic 3&lt;br&gt;
+&lt;input type=radio value="c" onClick="Engine(8, this.value)"&gt;Heroes of Might and Magic&lt;br&gt;
+&lt;input type=radio value="d" onClick="Engine(8, this.value)"&gt;Daggerfall: The Elder Scrolls&lt;p&gt;
+&lt;b&gt;9. PC Gamer's &lt;i&gt;Best Game of the 1996&lt;/i&gt; went to: &lt;/b&gt;&lt;p&gt;
+&lt;input type=radio value="a" onClick="Engine(9, this.value)"&gt;C&C: Red Alert&lt;br&gt;
+&lt;input type=radio value="b" onClick="Engine(9, this.value)"&gt;Tomb Raider&lt;br&gt;
+&lt;input type=radio value="c" onClick="Engine(9, this.value)"&gt;Quake&lt;br&gt;
+&lt;input type=radio value="d" onClick="Engine(9, this.value)"&gt;Civilization 2&lt;p&gt;
+&lt;b&gt;10. Blizzard's new release, &lt;i&gt;Diablo&lt;/i&gt; is a: &lt;/b&gt;&lt;p&gt;
+&lt;input type=radio value="a" onClick="Engine(10, this.value)"&gt;Role Playing Game&lt;br&gt;
+&lt;input type=radio value="b" onClick="Engine(10, this.value)"&gt;2D Action Game&lt;br&gt;
+&lt;input type=radio value="c" onClick="Engine(10, this.value)"&gt;3D Action Game&lt;br&gt;
+&lt;input type=radio value="d" onClick="Engine(10, this.value)"&gt;Simulation&lt;p&gt;
+&lt;CENTER&gt;
+&lt;input type=button onClick="NextLevel()" value="Advance to next level"&gt;
+&lt;/CENTER&gt;
+&lt;/FORM&gt;
+
+ 
+
+&lt;!-- Script Size:  5.64 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

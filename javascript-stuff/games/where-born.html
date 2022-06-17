@@ -1,0 +1,513 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Games:  Where Born?</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Games">
+<META NAME="description" CONTENT="Rumor has it the Feds have a way to track where you were born.  This JavaScript uses their database to find out where you were born.  Give it a try!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+function makeArray(n) {
+this.length = n
+for (var i=1; i <= n; i++)
+this[i] = null
+return this
+}
+var ssn = new makeArray(57)
+ssn[1] = 3
+ssn[2] = 7
+ssn[3] = 9
+ssn[4] = 34
+ssn[5] = 39
+ssn[6] = 49
+ssn[7] = 134
+ssn[8] = 158
+ssn[9] = 211
+ssn[10] = 220
+ssn[11] = 222
+ssn[12] = 231
+ssn[13] = 236
+ssn[14] = 246
+ssn[15] = 251
+ssn[16] = 260
+ssn[17] = 267
+ssn[18] = 302
+ssn[19] = 317
+ssn[20] = 361
+ssn[21] = 386
+ssn[22] = 399
+ssn[23] = 407
+ssn[24] = 415
+ssn[25] = 424
+ssn[26] = 428
+ssn[27] = 432
+ssn[28] = 439
+ssn[29] = 448
+ssn[30] = 467
+ssn[31] = 477
+ssn[32] = 485
+ssn[33] = 500
+ssn[34] = 502
+ssn[35] = 504
+ssn[36] = 508
+ssn[37] = 515
+ssn[38] = 517
+ssn[39] = 519
+ssn[40] = 520
+ssn[41] = 524
+ssn[42] = 525
+ssn[43] = 527
+ssn[44] = 529
+ssn[45] = 530
+ssn[46] = 539
+ssn[47] = 544
+ssn[48] = 573
+ssn[49] = 574
+ssn[50] = 576
+ssn[51] = 579
+ssn[52] = 580
+ssn[53] = 584
+ssn[54] = 585
+ssn[55] = 586
+ssn[56] = 599
+ssn[57] = 728
+var geo = new makeArray(57)
+geo[1] = "New Hampshire"
+geo[2] = "Maine"
+geo[3] = "Vermont"
+geo[4] = "Massachusetts"
+geo[5] = "Rhode Island"
+geo[6] = "Connecticut"
+geo[7] = "New York"
+geo[8] = "New Jersey"
+geo[9] = "Pennsylvania"
+geo[10] = "Maryland"
+geo[11] = "Delaware"
+geo[12] = "Virginia"
+geo[13] = "West Virginia"
+geo[14] = "North Carolina"
+geo[15] = "South Carolina"
+geo[16] = "Georgia"
+geo[17] = "Florida"
+geo[18] = "Ohio"
+geo[19] = "Indiana"
+geo[20] = "Illinois"
+geo[21] = "Michigan"
+geo[22] = "Wisconsin"
+geo[23] = "Kentucky"
+geo[24] = "Tennessee"
+geo[25] = "Alabama"
+geo[26] = "Mississippi"
+geo[27] = "Arkansas"
+geo[28] = "Louisiana"
+geo[29] = "Oklahoma"
+geo[30] = "Texas"
+geo[31] = "Minnesota"
+geo[32] = "Iowa"
+geo[33] = "Missouri"
+geo[34] = "North Dakota"
+geo[35] = "South Dakota"
+geo[36] = "Nebraska"
+geo[37] = "Kansas"
+geo[38] = "Montana"
+geo[39] = "Idaho"
+geo[40] = "Wyoming"
+geo[41] = "Colorado"
+geo[42] = "New Mexico"
+geo[43] = "Arizona"
+geo[44] = "Utah"
+geo[45] = "Nevada"
+geo[46] = "Washington"
+geo[47] = "Oregon"
+geo[48] = "California"
+geo[49] = "Alaska"
+geo[50] = "Hawaii"
+geo[51] = "District of Columbia"
+geo[52] = "Virgin Islands"
+geo[53] = "Puerto Rico"
+geo[54] = "New Mexico"
+geo[55] = "Guam, American Samoa, N. Mariana Isl., Philippines"
+geo[56] = "Puerto Rico"
+geo[57] = "Long-time or retired railroad workers"
+function stripZeros(inputStr) {
+var result = inputStr
+while (result.substring(0,1) == "0") {
+result = result.substring(1,result.length)
+}
+return result
+}
+function isEmpty(inputStr) {
+if (inputStr == "" || inputStr == null) {
+return true
+}
+return false
+}
+function isNumber(inputStr) {
+for (var i = 0; i < inputStr.length; i++) {
+var oneChar = inputStr.substring(i, i + 1)
+if (oneChar < "0" || oneChar > "9") {
+return false
+   }
+}
+return true
+}
+function inRange(inputStr) {
+num = parseInt(inputStr)
+if (num < 1 || num > 586 && num < 596 || num > 599 && num < 700 || num > 728) {
+return false
+}
+return true
+}
+function isValid(inputStr) {
+if (isEmpty(inputStr)) {
+alert("Please enter a number into the field before clicking the button.")
+return false
+} else {
+if (!isNumber(inputStr)) {
+alert("Please make sure entries are numbers only.")
+return false
+} else {
+if (!inRange(inputStr)) {
+alert("Sorry, the number you entered is not part of our database.  Try another three-digit number.")
+return false
+      }
+   }
+}
+return true
+}
+function search(form) {
+var foundMatch = false
+var inputStr = stripZeros(form.entry.value)
+if (isValid(inputStr)) {
+inputValue = inputStr
+for (var i = 1; i <= ssn.length; i++) {
+if (inputValue <= ssn[i]) {
+foundMatch = true
+break
+      }
+   }
+}
+form.result.value = (foundMatch) ? geo[i] : ""
+form.entry.focus()
+form.entry.select()
+}
+// End -->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /games/"><font color="#FF0000">Games</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Where Born?</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+According to an article in the <CITE>Wall Street Journal</CITE>, the first three digits of a U.S. Social Security number is a code that <B>may indicate</B> the state or territory in which your application stated you were born (because the code reveals the state in which you registered).  For recent immigrants, the number is supposed to match up with the state or territory in which you were living when you received proper working papers.<P>Note: The database in this document is not 100 percent complete or 100 percent accurate.  Please don't e-mail me to inform me that it was not correct.  Nothing is perfect.  Populous states have added numeric ranges not contained here.<br><hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<BODY>
+<FORM METHOD=post>
+Instructions:
+<OL><LI>Enter the first three digits of a U.S. Social 
+Security number in question.</LI>
+<LI>Click on the Search button.</LI>
+<LI>See the corresponding state or territory in the field.</L1>
+</OL>
+<CENTER>
+<P>Enter the first <B>three</B> digits of a Social Security number:
+<INPUT TYPE="text" NAME="entry" SIZE=3>
+<INPUT TYPE="button" VALUE="Search" ONCLICK="search(this.form)">
+<P>
+The Federal Government links this number to:  
+<INPUT TYPE="text" NAME="result" SIZE=50></center>
+<BR>
+<HR>
+<BR><BR><BR>
+<P><B>For the paranoiad:</B> No information you enter here is recorded or monitored - it stays entirely within your browser.
+</CENTER>
+</FORM>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Games:  Where Born?</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  4.95 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL WHERE BORN?:
+
+   1.  Put the designated coding into the HEAD of your HTML document
+   2.  Paste the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function makeArray(n) {
+this.length = n
+for (var i=1; i &lt;= n; i++)
+this[i] = null
+return this
+}
+var ssn = new makeArray(57)
+ssn[1] = 3
+ssn[2] = 7
+ssn[3] = 9
+ssn[4] = 34
+ssn[5] = 39
+ssn[6] = 49
+ssn[7] = 134
+ssn[8] = 158
+ssn[9] = 211
+ssn[10] = 220
+ssn[11] = 222
+ssn[12] = 231
+ssn[13] = 236
+ssn[14] = 246
+ssn[15] = 251
+ssn[16] = 260
+ssn[17] = 267
+ssn[18] = 302
+ssn[19] = 317
+ssn[20] = 361
+ssn[21] = 386
+ssn[22] = 399
+ssn[23] = 407
+ssn[24] = 415
+ssn[25] = 424
+ssn[26] = 428
+ssn[27] = 432
+ssn[28] = 439
+ssn[29] = 448
+ssn[30] = 467
+ssn[31] = 477
+ssn[32] = 485
+ssn[33] = 500
+ssn[34] = 502
+ssn[35] = 504
+ssn[36] = 508
+ssn[37] = 515
+ssn[38] = 517
+ssn[39] = 519
+ssn[40] = 520
+ssn[41] = 524
+ssn[42] = 525
+ssn[43] = 527
+ssn[44] = 529
+ssn[45] = 530
+ssn[46] = 539
+ssn[47] = 544
+ssn[48] = 573
+ssn[49] = 574
+ssn[50] = 576
+ssn[51] = 579
+ssn[52] = 580
+ssn[53] = 584
+ssn[54] = 585
+ssn[55] = 586
+ssn[56] = 599
+ssn[57] = 728
+var geo = new makeArray(57)
+geo[1] = "New Hampshire"
+geo[2] = "Maine"
+geo[3] = "Vermont"
+geo[4] = "Massachusetts"
+geo[5] = "Rhode Island"
+geo[6] = "Connecticut"
+geo[7] = "New York"
+geo[8] = "New Jersey"
+geo[9] = "Pennsylvania"
+geo[10] = "Maryland"
+geo[11] = "Delaware"
+geo[12] = "Virginia"
+geo[13] = "West Virginia"
+geo[14] = "North Carolina"
+geo[15] = "South Carolina"
+geo[16] = "Georgia"
+geo[17] = "Florida"
+geo[18] = "Ohio"
+geo[19] = "Indiana"
+geo[20] = "Illinois"
+geo[21] = "Michigan"
+geo[22] = "Wisconsin"
+geo[23] = "Kentucky"
+geo[24] = "Tennessee"
+geo[25] = "Alabama"
+geo[26] = "Mississippi"
+geo[27] = "Arkansas"
+geo[28] = "Louisiana"
+geo[29] = "Oklahoma"
+geo[30] = "Texas"
+geo[31] = "Minnesota"
+geo[32] = "Iowa"
+geo[33] = "Missouri"
+geo[34] = "North Dakota"
+geo[35] = "South Dakota"
+geo[36] = "Nebraska"
+geo[37] = "Kansas"
+geo[38] = "Montana"
+geo[39] = "Idaho"
+geo[40] = "Wyoming"
+geo[41] = "Colorado"
+geo[42] = "New Mexico"
+geo[43] = "Arizona"
+geo[44] = "Utah"
+geo[45] = "Nevada"
+geo[46] = "Washington"
+geo[47] = "Oregon"
+geo[48] = "California"
+geo[49] = "Alaska"
+geo[50] = "Hawaii"
+geo[51] = "District of Columbia"
+geo[52] = "Virgin Islands"
+geo[53] = "Puerto Rico"
+geo[54] = "New Mexico"
+geo[55] = "Guam, American Samoa, N. Mariana Isl., Philippines"
+geo[56] = "Puerto Rico"
+geo[57] = "Long-time or retired railroad workers"
+function stripZeros(inputStr) {
+var result = inputStr
+while (result.substring(0,1) == "0") {
+result = result.substring(1,result.length)
+}
+return result
+}
+function isEmpty(inputStr) {
+if (inputStr == "" || inputStr == null) {
+return true
+}
+return false
+}
+function isNumber(inputStr) {
+for (var i = 0; i &lt; inputStr.length; i++) {
+var oneChar = inputStr.substring(i, i + 1)
+if (oneChar &lt; "0" || oneChar &gt; "9") {
+return false
+   }
+}
+return true
+}
+function inRange(inputStr) {
+num = parseInt(inputStr)
+if (num &lt; 1 || num &gt; 586 && num &lt; 596 || num &gt; 599 && num &lt; 700 || num &gt; 728) {
+return false
+}
+return true
+}
+function isValid(inputStr) {
+if (isEmpty(inputStr)) {
+alert("Please enter a number into the field before clicking the button.")
+return false
+} else {
+if (!isNumber(inputStr)) {
+alert("Please make sure entries are numbers only.")
+return false
+} else {
+if (!inRange(inputStr)) {
+alert("Sorry, the number you entered is not part of our database.  Try another three-digit number.")
+return false
+      }
+   }
+}
+return true
+}
+function search(form) {
+var foundMatch = false
+var inputStr = stripZeros(form.entry.value)
+if (isValid(inputStr)) {
+inputValue = inputStr
+for (var i = 1; i &lt;= ssn.length; i++) {
+if (inputValue &lt;= ssn[i]) {
+foundMatch = true
+break
+      }
+   }
+}
+form.result.value = (foundMatch) ? geo[i] : ""
+form.entry.focus()
+form.entry.select()
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+&lt;!-- STEP TWO: Paste this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;FORM METHOD=post&gt;
+Instructions:
+&lt;OL&gt;&lt;LI&gt;Enter the first three digits of a U.S. Social 
+Security number in question.&lt;/LI&gt;
+&lt;LI&gt;Click on the Search button.&lt;/LI&gt;
+&lt;LI&gt;See the corresponding state or territory in the field.&lt;/L1&gt;
+&lt;/OL&gt;
+&lt;CENTER&gt;
+&lt;P&gt;Enter the first &lt;B&gt;three&lt;/B&gt; digits of a Social Security number:
+&lt;INPUT TYPE="text" NAME="entry" SIZE=3&gt;
+&lt;INPUT TYPE="button" VALUE="Search" ONCLICK="search(this.form)"&gt;
+&lt;P&gt;
+The Federal Government links this number to:  
+&lt;INPUT TYPE="text" NAME="result" SIZE=50&gt;&lt;/center&gt;
+&lt;BR&gt;
+&lt;HR&gt;
+&lt;BR&gt;&lt;BR&gt;&lt;BR&gt;
+&lt;P&gt;&lt;B&gt;For the paranoiad:&lt;/B&gt; No information you enter here is recorded or monitored - it stays entirely within your browser.
+&lt;/CENTER&gt;
+&lt;/FORM&gt;
+
+ 
+
+&lt;!-- Script Size:  4.95 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

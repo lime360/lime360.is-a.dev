@@ -1,0 +1,466 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Miscellaneous:  Color Cube</TITLE>
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+
+//  Original:  Scott Yanoff
+//  Modifications:  Willem Jonkman
+//  http://www.geocities.com/SiliconValley/Way/1265
+
+var bg = "#FFFFFF";
+var fg = "#000000";
+var link = "#0000FF";
+var vlink = "#663399";
+var alink = "#FF0000";
+var bold = "xb";
+var notbold = "xb";
+var isbold = "b";
+var italic = "xi";
+var notitalic = "xi";
+var isitalic = "i";
+var fontsize = "3";
+var size1 = "1";
+var size2 = "2";
+var size3 = "3";
+var size4 = "4";
+var size5 = "5";
+var size6 = "6";
+var size7 = "7";
+function SendColor(color) {
+if (top.frames[1].document.colors.elements[0].checked) bg = color;
+else if (top.frames[1].document.colors.elements[1].checked) fg = color;
+else if (top.frames[1].document.colors.elements[2].checked) link = color;
+else if (top.frames[1].document.colors.elements[3].checked) vlink = color;
+else if (top.frames[1].document.colors.elements[4].checked) alink = color;
+if (top.frames[1].document.colors.checkBold.checked) bold = isbold;
+else bold = notbold;
+// Find out if the italics box is checked
+if (top.frames[1].document.colors.checkItalic.checked) italic = isitalic;
+else italic = notitalic;
+// Find out the font size selected
+if (top.frames[1].document.sizes.elements[0].checked) fontsize = size1;
+else if (top.frames[1].document.sizes.elements[1].checked) fontsize = size2;
+else if (top.frames[1].document.sizes.elements[2].checked) fontsize = size3;
+else if (top.frames[1].document.sizes.elements[3].checked) fontsize = size4;
+else if (top.frames[1].document.sizes.elements[4].checked) fontsize = size5;
+else if (top.frames[1].document.sizes.elements[5].checked) fontsize = size6;
+else if (top.frames[1].document.sizes.elements[6].checked) fontsize = size7;
+top.frames[1].document.colors.fileUp.focus();
+top.frames[1].document.colors.fileUp.blur();
+var fileName = top.frames[1].document.colors.fileUp.value;
+var driveLetter = fileName.charAt(0);
+var fileNameLength = fileName.length;
+var n1 = fileName.length;
+var newFilename = ""; 
+var letter01 = "\\";
+var letter02 = "/";
+while (n1 > 2) {
+n1 = n1 - 1;
+var letter = fileName.charAt(n1);
+if ( letter == letter01 ) 
+letter = letter02
+else letter = letter
+newFilename = letter + newFilename;
+}
+var backgroundFile = "";
+var b1 = fileName.length;
+var b2 = b1;
+var letter03 = fileName.charAt(b1);
+if (b1 == 0) backgroundFile = "jj";
+else while (letter03 != letter01) {
+b1 = b1 - 1;
+letter03 = fileName.charAt(b1);
+}
+b1 = b1 + 1
+backgroundFile = fileName.substring(b2,b1);
+backgroundFile = backgroundFile.toLowerCase();
+top.frames[2].document.clear();
+top.frames[2].document.write("<HTML>");
+top.frames[2].document.write("<HEAD>");
+top.frames[2].document.write("<TITLE>The Pick A Colour O'Mat</TITLE>");
+top.frames[2].document.write("</HEAD>");
+top.frames[2].document.write("<BODY BGCOLOR='"+bg+"' TEXT='"+fg+"' LINK='"+link+"' VLINK='"+vlink+"' ALINK='"+alink+"' BACKGROUND='file:///"+driveLetter+"|"+newFilename+"'>");
+top.frames[2].document.write("<FONT FACE=\"arial\" color="+fg+" size=4>and view the results . . . . .</FONT><P>");
+top.frames[2].document.write("<FONT FACE=\""+"\" size="+fontsize+" color="+fg+"><"+italic+"><"+bold+">text color</"+bold+"></"+italic+"></FONT><P>");
+top.frames[2].document.write("<FONT FACE=\""+"\" size="+fontsize+" color="+link+"><"+italic+"><"+bold+"><U>regular link color</U></"+bold+"></"+italic+"></FONT><P>");
+top.frames[2].document.write("<FONT FACE=\""+"\" size="+fontsize+" color="+vlink+"><"+italic+"><"+bold+"><U>visited link color</U></"+bold+"></"+italic+"></FONT><P>");
+top.frames[2].document.write("<FONT face=\""+"\" size="+fontsize+" color="+alink+"><"+italic+"><"+bold+"><U>active link color</U></"+bold+"></"+italic+"></FONT><P>");
+top.frames[2].document.write("This is the HTML coding you need :<P>");
+top.frames[2].document.write("<TT><B>");
+top.frames[2].document.write("&nbsp;&nbsp;&lt;BODY<BR>");
+top.frames[2].document.write("&nbsp;&nbsp;BGCOLOR=\""+bg+"\"<BR>");
+top.frames[2].document.write("&nbsp;&nbsp;BACKGROUND=\""+backgroundFile+"\"<BR>");
+top.frames[2].document.write("&nbsp;&nbsp;TEXT=\""+fg+"\"<BR>");
+top.frames[2].document.write("&nbsp;&nbsp;LINK=\""+link+"\"<BR>");
+top.frames[2].document.write("&nbsp;&nbsp;VLINK=\""+vlink+"\"<BR>");
+top.frames[2].document.write("&nbsp;&nbsp;ALINK=\""+alink+"\"&gt;<BR>");
+top.frames[2].document.write("</B></TT>");
+top.frames[2].document.write("</BODY>");
+top.frames[2].document.write("</HTML>");
+top.frames[2].document.close();
+}
+function SendOther() {
+if (top.frames[1].document.colors.checkBold.checked) bold = isbold;
+else bold = notbold;
+if (top.frames[1].document.colors.checkItalic.checked) italic = isitalic;
+else italic = notitalic;
+if (top.frames[1].document.sizes.elements[0].checked) fontsize = size1;
+else if (top.frames[1].document.sizes.elements[1].checked) fontsize = size2;
+else if (top.frames[1].document.sizes.elements[2].checked) fontsize = size3;
+else if (top.frames[1].document.sizes.elements[3].checked) fontsize = size4;
+else if (top.frames[1].document.sizes.elements[4].checked) fontsize = size5;
+else if (top.frames[1].document.sizes.elements[5].checked) fontsize = size6;
+else if (top.frames[1].document.sizes.elements[6].checked) fontsize = size7;
+top.frames[1].document.colors.fileUp.focus();
+top.frames[1].document.colors.fileUp.blur();
+var fileName = top.frames[1].document.colors.fileUp.value;
+var driveLetter = fileName.charAt(0);
+var fileNameLength = fileName.length;
+var n1 = fileName.length;
+var newFilename = ""; 
+var letter01 = "\\";
+var letter02 = "/";
+while (n1 > 2) {
+n1 = n1 - 1;
+var letter = fileName.charAt(n1);
+if ( letter == letter01 ) 
+letter = letter02
+else letter = letter
+newFilename = letter + newFilename;
+}
+var backgroundFile = "";
+var b1 = fileName.length;
+var b2 = b1;
+var letter03 = fileName.charAt(b1);
+if (b1 == 0) backgroundFile = "jj";
+else while (letter03 != letter01) {
+b1 = b1 - 1;
+letter03 = fileName.charAt(b1);
+}
+b1 = b1 + 1
+backgroundFile = fileName.substring(b2,b1);
+backgroundFile = backgroundFile.toLowerCase();
+top.frames[2].document.clear();
+top.frames[2].document.write("<HTML>");
+top.frames[2].document.write("<HEAD>");
+top.frames[2].document.write("<TITLE>The Pick A Colour O'Mat</TITLE>");
+top.frames[2].document.write("</HEAD>");
+top.frames[2].document.write("<BODY BGCOLOR='"+bg+"' TEXT='"+fg+"' LINK='"+link+"' VLINK='"+vlink+"' ALINK='"+alink+"' BACKGROUND='file:///"+driveLetter+"|"+newFilename+"'>");
+top.frames[2].document.write("<FONT FACE=\"arial\" color="+fg+" size=4>and view the results . . . . .</FONT><P>");
+top.frames[2].document.write("<FONT FACE=\""+"\" size="+fontsize+" color="+fg+"><"+italic+"><"+bold+">text color</"+bold+"></"+italic+"></FONT><P>");
+top.frames[2].document.write("<FONT FACE=\""+"\" size="+fontsize+" color="+link+"><"+italic+"><"+bold+"><U>regular link color</U></"+bold+"></"+italic+"></FONT><P>");
+top.frames[2].document.write("<FONT FACE=\""+"\" size="+fontsize+" color="+vlink+"><"+italic+"><"+bold+"><U>visited link color</U></"+bold+"></"+italic+"></FONT><P>");
+top.frames[2].document.write("<FONT FACE=\""+"\" size="+fontsize+" color="+alink+"><"+italic+"><"+bold+"><U>active link color</U></"+bold+"></"+italic+"></FONT><P>");
+top.frames[2].document.write("This is the HTML string you need :<P>");
+top.frames[2].document.write("<TT><B>");
+top.frames[2].document.write("&nbsp;&nbsp;&lt;BODY<BR>");
+top.frames[2].document.write("&nbsp;&nbsp;BGCOLOR=\""+bg+"\"<BR>");
+top.frames[2].document.write("&nbsp;&nbsp;BACKGROUND=\""+backgroundFile+"\"<BR>");
+top.frames[2].document.write("&nbsp;&nbsp;TEXT=\""+fg+"\"<BR>");
+top.frames[2].document.write("&nbsp;&nbsp;LINK=\""+link+"\"<BR>");
+top.frames[2].document.write("&nbsp;&nbsp;VLINK=\""+vlink+"\"<BR>");
+top.frames[2].document.write("&nbsp;&nbsp;ALINK=\""+alink+"\"&gt;<BR>");
+top.frames[2].document.write("</B></TT>");
+top.frames[2].document.write("</BODY>");
+top.frames[2].document.write("</HTML>");
+top.frames[2].document.close();
+ }
+// End -->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR=#FFFFFF>
+<MAP NAME="map_webpal">
+<!--- Row 1 --->
+<AREA COORDS="2,2,18,18" HREF="javascript:SendColor('#330000')">   
+<AREA COORDS="18,2,34,18" HREF="javascript:SendColor('#333300')">   
+<AREA COORDS="34,2,50,18" HREF="javascript:SendColor('#336600')">   
+<AREA COORDS="50,2,66,18" HREF="javascript:SendColor('#339900')">   
+<AREA COORDS="66,2,82,18" HREF="javascript:SendColor('#33CC00')">   
+<AREA COORDS="82,2,98,18" HREF="javascript:SendColor('#33FF00')">   
+<AREA COORDS="98,2,114,18" HREF="javascript:SendColor('#66FF00')">   
+<AREA COORDS="114,2,130,18" HREF="javascript:SendColor('#66CC00')">   
+<AREA COORDS="130,2,146,18" HREF="javascript:SendColor('#669900')">   
+<AREA COORDS="146,2,162,18" HREF="javascript:SendColor('#666600')">   
+<AREA COORDS="162,2,178,18" HREF="javascript:SendColor('#663300')">   
+<AREA COORDS="178,2,194,18" HREF="javascript:SendColor('#660000')">   
+<AREA COORDS="194,2,210,18" HREF="javascript:SendColor('#FF0000')">   
+<AREA COORDS="210,2,226,18" HREF="javascript:SendColor('#FF3300')">   
+<AREA COORDS="226,2,242,18" HREF="javascript:SendColor('#FF6600')">   
+<AREA COORDS="242,2,258,18" HREF="javascript:SendColor('#FF9900')">   
+<AREA COORDS="258,2,274,18" HREF="javascript:SendColor('#FFCC00')">   
+<AREA COORDS="274,2,290,18" HREF="javascript:SendColor('#FFFF00')"> 
+<!--- Row 2 --->
+<AREA COORDS="2,18,18,34" HREF="javascript:SendColor('#330033')">   
+<AREA COORDS="18,18,34,34" HREF="javascript:SendColor('#333333')">   
+<AREA COORDS="34,18,50,34" HREF="javascript:SendColor('#336633')">   
+<AREA COORDS="50,18,66,34" HREF="javascript:SendColor('#339933')">   
+<AREA COORDS="66,18,82,34" HREF="javascript:SendColor('#33CC33')">   
+<AREA COORDS="82,18,98,34" HREF="javascript:SendColor('#33FF33')">   
+<AREA COORDS="98,18,114,34" HREF="javascript:SendColor('#66FF33')">   
+<AREA COORDS="114,18,130,34" HREF="javascript:SendColor('#66CC33')">   
+<AREA COORDS="130,18,146,34" HREF="javascript:SendColor('#669933')">   
+<AREA COORDS="146,18,162,34" HREF="javascript:SendColor('#666633')">   
+<AREA COORDS="162,18,178,34" HREF="javascript:SendColor('#663333')">   
+<AREA COORDS="178,18,194,34" HREF="javascript:SendColor('#660033')">   
+<AREA COORDS="194,18,210,34" HREF="javascript:SendColor('#FF0033')">   
+<AREA COORDS="210,18,226,34" HREF="javascript:SendColor('#FF3333')">   
+<AREA COORDS="226,18,242,34" HREF="javascript:SendColor('#FF6633')">   
+<AREA COORDS="242,18,258,34" HREF="javascript:SendColor('#FF9933')">   
+<AREA COORDS="258,18,274,34" HREF="javascript:SendColor('#FFCC33')">   
+<AREA COORDS="274,18,290,34" HREF="javascript:SendColor('#FFFF33')"> 
+<!--- Row 3 --->
+<AREA COORDS="2,34,18,50" HREF="javascript:SendColor('#330066')">
+<AREA COORDS="18,34,34,50" HREF="javascript:SendColor('#333366')"> 
+<AREA COORDS="34,34,50,50" HREF="javascript:SendColor('#336666')"> 
+<AREA COORDS="50,34,66,50" HREF="javascript:SendColor('#339966')"> 
+<AREA COORDS="66,34,82,50" HREF="javascript:SendColor('#33CC66')"> 
+<AREA COORDS="82,34,98,50" HREF="javascript:SendColor('#33FF66')"> 
+<AREA COORDS="98,34,114,50" HREF="javascript:SendColor('#66FF66')"> 
+<AREA COORDS="114,34,130,50" HREF="javascript:SendColor('#66CC66')"> 
+<AREA COORDS="130,34,146,50" HREF="javascript:SendColor('#669966')"> 
+<AREA COORDS="146,34,162,50" HREF="javascript:SendColor('#666666')"> 
+<AREA COORDS="162,34,178,50" HREF="javascript:SendColor('#663366')"> 
+<AREA COORDS="178,34,194,50" HREF="javascript:SendColor('#660066')"> 
+<AREA COORDS="194,34,210,50" HREF="javascript:SendColor('#FF0066')"> 
+<AREA COORDS="210,34,226,50" HREF="javascript:SendColor('#FF3366')"> 
+<AREA COORDS="226,34,242,50" HREF="javascript:SendColor('#FF6666')"> 
+<AREA COORDS="242,34,258,50" HREF="javascript:SendColor('#FF9966')"> 
+<AREA COORDS="258,34,274,50" HREF="javascript:SendColor('#FFCC66')"> 
+<AREA COORDS="274,34,290,50" HREF="javascript:SendColor('#FFFF66')"> 
+<!--- Row 4 --->
+<AREA COORDS="2,50,18,66" HREF="javascript:SendColor('#330099')"> 
+<AREA COORDS="18,50,34,66" HREF="javascript:SendColor('#333399')"> 
+<AREA COORDS="34,50,50,66" HREF="javascript:SendColor('#336699')"> 
+<AREA COORDS="50,50,66,66" HREF="javascript:SendColor('#339999')"> 
+<AREA COORDS="66,50,82,66" HREF="javascript:SendColor('#33CC99')"> 
+<AREA COORDS="82,50,98,66" HREF="javascript:SendColor('#33FF99')"> 
+<AREA COORDS="98,50,114,66" HREF="javascript:SendColor('#66FF99')"> 
+<AREA COORDS="114,50,130,66" HREF="javascript:SendColor('#66CC99')"> 
+<AREA COORDS="130,50,146,66" HREF="javascript:SendColor('#669999')"> 
+<AREA COORDS="146,50,162,66" HREF="javascript:SendColor('#666699')"> 
+<AREA COORDS="162,50,178,66" HREF="javascript:SendColor('#663399')">
+<AREA COORDS="178,50,194,66" HREF="javascript:SendColor('#660099')"> 
+<AREA COORDS="194,50,210,66" HREF="javascript:SendColor('#FF0099')"> 
+<AREA COORDS="210,50,226,66" HREF="javascript:SendColor('#FF3399')"> 
+<AREA COORDS="226,50,242,66" HREF="javascript:SendColor('#FF6699')"> 
+<AREA COORDS="242,50,258,66" HREF="javascript:SendColor('#FF9999')"> 
+<AREA COORDS="258,50,274,66" HREF="javascript:SendColor('#FFCC99')"> 
+<AREA COORDS="274,50,290,66" HREF="javascript:SendColor('#FFFF99')"> 
+<!--- Row 5 --->
+<AREA COORDS="2,66,18,82" HREF="javascript:SendColor('#3300CC')"> 
+<AREA COORDS="18,66,34,82" HREF="javascript:SendColor('#3333CC')"> 
+<AREA COORDS="34,66,50,82" HREF="javascript:SendColor('#3366CC')"> 
+<AREA COORDS="50,66,66,82" HREF="javascript:SendColor('#3399CC')"> 
+<AREA COORDS="66,66,82,82" HREF="javascript:SendColor('#33CCCC')"> 
+<AREA COORDS="82,66,98,82" HREF="javascript:SendColor('#33FFCC')"> 
+<AREA COORDS="98,66,114,82" HREF="javascript:SendColor('#66FFCC')"> 
+<AREA COORDS="114,66,130,82" HREF="javascript:SendColor('#66CCCC')"> 
+<AREA COORDS="130,66,146,82" HREF="javascript:SendColor('#6699CC')"> 
+<AREA COORDS="146,66,162,82" HREF="javascript:SendColor('#6666CC')"> 
+<AREA COORDS="162,66,178,82" HREF="javascript:SendColor('#6633CC')"> 
+<AREA COORDS="178,66,194,82" HREF="javascript:SendColor('#6600CC')"> 
+<AREA COORDS="194,66,210,82" HREF="javascript:SendColor('#FF00CC')"> 
+<AREA COORDS="210,66,226,82" HREF="javascript:SendColor('#FF33CC')"> 
+<AREA COORDS="226,66,242,82" HREF="javascript:SendColor('#FF66CC')"> 
+<AREA COORDS="242,66,258,82" HREF="javascript:SendColor('#FF99CC')"> 
+<AREA COORDS="258,66,274,82" HREF="javascript:SendColor('#FFCCCC')"> 
+<AREA COORDS="274,66,290,82" HREF="javascript:SendColor('#FFFFCC')"> 
+<!--- Row 6 --->
+<AREA COORDS="2,82,18,98" HREF="javascript:SendColor('#3300FF')"> 
+<AREA COORDS="18,82,34,98" HREF="javascript:SendColor('#3333FF')"> 
+<AREA COORDS="34,82,50,98" HREF="javascript:SendColor('#3366FF')"> 
+<AREA COORDS="50,82,66,98" HREF="javascript:SendColor('#3399FF')"> 
+<AREA COORDS="66,82,82,98" HREF="javascript:SendColor('#33CCFF')"> 
+<AREA COORDS="82,82,98,98" HREF="javascript:SendColor('#33FFFF')"> 
+<AREA COORDS="98,82,114,98" HREF="javascript:SendColor('#66FFFF')"> 
+<AREA COORDS="114,82,130,98" HREF="javascript:SendColor('#66CCFF')"> 
+<AREA COORDS="130,82,146,98" HREF="javascript:SendColor('#6699FF')"> 
+<AREA COORDS="146,82,162,98" HREF="javascript:SendColor('#6666FF')"> 
+<AREA COORDS="162,82,178,98" HREF="javascript:SendColor('#6633FF')"> 
+<AREA COORDS="178,82,194,98" HREF="javascript:SendColor('#6600FF')"> 
+<AREA COORDS="194,82,210,98" HREF="javascript:SendColor('#FF00FF')"> 
+<AREA COORDS="210,82,226,98" HREF="javascript:SendColor('#FF33FF')"> 
+<AREA COORDS="226,82,242,98" HREF="javascript:SendColor('#FF66FF')"> 
+<AREA COORDS="242,82,258,98" HREF="javascript:SendColor('#FF99FF')"> 
+<AREA COORDS="258,82,274,98" HREF="javascript:SendColor('#FFCCFF')"> 
+<AREA COORDS="274,82,290,98" HREF="javascript:SendColor('#FFFFFF')"> 
+<!--- Row 7 --->
+<AREA COORDS="2,98,18,114" HREF="javascript:SendColor('#0000FF')"> 
+<AREA COORDS="18,98,34,114" HREF="javascript:SendColor('#0033FF')"> 
+<AREA COORDS="34,98,50,114" HREF="javascript:SendColor('#0066FF')"> 
+<AREA COORDS="50,98,66,114" HREF="javascript:SendColor('#0099FF')"> 
+<AREA COORDS="66,98,82,114" HREF="javascript:SendColor('#00CCFF')"> 
+<AREA COORDS="82,98,98,114" HREF="javascript:SendColor('#00FFFF')"> 
+<AREA COORDS="98,98,114,114" HREF="javascript:SendColor('#99FFFF')"> 
+<AREA COORDS="114,98,130,114" HREF="javascript:SendColor('#99CCFF')"> 
+<AREA COORDS="130,98,146,114" HREF="javascript:SendColor('#9999FF')"> 
+<AREA COORDS="146,98,162,114" HREF="javascript:SendColor('#9966FF')"> 
+<AREA COORDS="162,98,178,114" HREF="javascript:SendColor('#9933FF')"> 
+<AREA COORDS="178,98,194,114" HREF="javascript:SendColor('#9900FF')"> 
+<AREA COORDS="194,98,210,114" HREF="javascript:SendColor('#CC00FF')"> 
+<AREA COORDS="210,98,226,114" HREF="javascript:SendColor('#CC33FF')"> 
+<AREA COORDS="226,98,242,114" HREF="javascript:SendColor('#CC66FF')"> 
+<AREA COORDS="242,98,258,114" HREF="javascript:SendColor('#CC99FF')"> 
+<AREA COORDS="258,98,274,114" HREF="javascript:SendColor('#CCCCFF')"> 
+<AREA COORDS="274,98,290,114" HREF="javascript:SendColor('#CCFFFF')"> 
+<!--- Row 8 --->
+<AREA COORDS="2,114,18,130" HREF="javascript:SendColor('#0000CC')"> 
+<AREA COORDS="18,114,34,130" HREF="javascript:SendColor('#0033CC')"> 
+<AREA COORDS="34,114,50,130" HREF="javascript:SendColor('#0066CC')"> 
+<AREA COORDS="50,114,66,130" HREF="javascript:SendColor('#0099CC')"> 
+<AREA COORDS="66,114,82,130" HREF="javascript:SendColor('#00CCCC')"> 
+<AREA COORDS="82,114,98,130" HREF="javascript:SendColor('#00FFCC')"> 
+<AREA COORDS="98,114,114,130" HREF="javascript:SendColor('#99FFCC')"> 
+<AREA COORDS="114,114,130,130" HREF="javascript:SendColor('#99CCCC')"> 
+<AREA COORDS="130,114,146,130" HREF="javascript:SendColor('#9999CC')"> 
+<AREA COORDS="146,114,162,130" HREF="javascript:SendColor('#9966CC')"> 
+<AREA COORDS="162,114,178,130" HREF="javascript:SendColor('#9933CC')"> 
+<AREA COORDS="178,114,194,130" HREF="javascript:SendColor('#9900CC')"> 
+<AREA COORDS="194,114,210,130" HREF="javascript:SendColor('#CC00CC')"> 
+<AREA COORDS="210,114,226,130" HREF="javascript:SendColor('#CC33CC')"> 
+<AREA COORDS="226,114,242,130" HREF="javascript:SendColor('#CC66CC')"> 
+<AREA COORDS="242,114,258,130" HREF="javascript:SendColor('#CC99CC')"> 
+<AREA COORDS="258,114,274,130" HREF="javascript:SendColor('#CCCCCC')"> 
+<AREA COORDS="274,114,290,130" HREF="javascript:SendColor('#CCFFCC')"> 
+<!--- Row 9 --->
+<AREA COORDS="2,130,18,146" HREF="javascript:SendColor('#000099')"> 
+<AREA COORDS="18,130,34,146" HREF="javascript:SendColor('#003399')"> 
+<AREA COORDS="34,130,50,146" HREF="javascript:SendColor('#006699')"> 
+<AREA COORDS="50,130,66,146" HREF="javascript:SendColor('#009999')"> 
+<AREA COORDS="66,130,82,146" HREF="javascript:SendColor('#00CC99')"> 
+<AREA COORDS="82,130,98,146" HREF="javascript:SendColor('#00FF99')"> 
+<AREA COORDS="98,130,114,146" HREF="javascript:SendColor('#99FF99')"> 
+<AREA COORDS="114,130,130,146" HREF="javascript:SendColor('#99CC99')"> 
+<AREA COORDS="130,130,146,146" HREF="javascript:SendColor('#999999')"> 
+<AREA COORDS="146,130,162,146" HREF="javascript:SendColor('#996699')"> 
+<AREA COORDS="162,130,178,146" HREF="javascript:SendColor('#993399')"> 
+<AREA COORDS="178,130,194,146" HREF="javascript:SendColor('#990099')"> 
+<AREA COORDS="194,130,210,146" HREF="javascript:SendColor('#CC0099')"> 
+<AREA COORDS="210,130,226,146" HREF="javascript:SendColor('#CC3399')"> 
+<AREA COORDS="226,130,242,146" HREF="javascript:SendColor('#CC6699')"> 
+<AREA COORDS="242,130,258,146" HREF="javascript:SendColor('#CC9999')"> 
+<AREA COORDS="258,130,274,146" HREF="javascript:SendColor('#CCCC99')"> 
+<AREA COORDS="274,130,290,146" HREF="javascript:SendColor('#CCFF99')"> 
+<!--- Row 10 --->
+<AREA COORDS="2,146,18,162" HREF="javascript:SendColor('#000066')"> 
+<AREA COORDS="18,146,34,162" HREF="javascript:SendColor('#003366')"> 
+<AREA COORDS="34,146,50,162" HREF="javascript:SendColor('#006666')"> 
+<AREA COORDS="50,146,66,162" HREF="javascript:SendColor('#009966')"> 
+<AREA COORDS="66,146,82,162" HREF="javascript:SendColor('#00CC66')"> 
+<AREA COORDS="82,146,98,162" HREF="javascript:SendColor('#00FF66')"> 
+<AREA COORDS="98,146,114,162" HREF="javascript:SendColor('#99FF66')"> 
+<AREA COORDS="114,146,130,162" HREF="javascript:SendColor('#99CC66')"> 
+<AREA COORDS="130,146,146,162" HREF="javascript:SendColor('#999966')"> 
+<AREA COORDS="146,146,162,162" HREF="javascript:SendColor('#996666')"> 
+<AREA COORDS="162,146,178,162" HREF="javascript:SendColor('#993366')"> 
+<AREA COORDS="178,146,194,162" HREF="javascript:SendColor('#990066')"> 
+<AREA COORDS="194,146,210,162" HREF="javascript:SendColor('#CC0066')"> 
+<AREA COORDS="210,146,226,162" HREF="javascript:SendColor('#CC3366')"> 
+<AREA COORDS="226,146,242,162" HREF="javascript:SendColor('#CC6666')"> 
+<AREA COORDS="242,146,258,162" HREF="javascript:SendColor('#CC9966')"> 
+<AREA COORDS="258,146,274,162" HREF="javascript:SendColor('#CCCC66')"> 
+<AREA COORDS="274,146,290,162" HREF="javascript:SendColor('#CCFF66')"> 
+<!--- Row 11 --->
+<AREA COORDS="2,162,18,178" HREF="javascript:SendColor('#000033')"> 
+<AREA COORDS="18,162,34,178" HREF="javascript:SendColor('#003333')"> 
+<AREA COORDS="34,162,50,178" HREF="javascript:SendColor('#006633')"> 
+<AREA COORDS="50,162,66,178" HREF="javascript:SendColor('#009933')"> 
+<AREA COORDS="66,162,82,178" HREF="javascript:SendColor('#00CC33')"> 
+<AREA COORDS="82,162,98,178" HREF="javascript:SendColor('#00FF33')"> 
+<AREA COORDS="98,162,114,178" HREF="javascript:SendColor('#99FF33')"> 
+<AREA COORDS="114,162,130,178" HREF="javascript:SendColor('#99CC33')"> 
+<AREA COORDS="130,162,146,178" HREF="javascript:SendColor('#999933')"> 
+<AREA COORDS="146,162,162,178" HREF="javascript:SendColor('#996633')"> 
+<AREA COORDS="162,162,178,178" HREF="javascript:SendColor('#993333')"> 
+<AREA COORDS="178,162,194,178" HREF="javascript:SendColor('#990033')"> 
+<AREA COORDS="194,162,210,178" HREF="javascript:SendColor('#CC0033')"> 
+<AREA COORDS="210,162,226,178" HREF="javascript:SendColor('#CC3333')"> 
+<AREA COORDS="226,162,242,178" HREF="javascript:SendColor('#CC6633')"> 
+<AREA COORDS="242,162,258,178" HREF="javascript:SendColor('#CC9933')"> 
+<AREA COORDS="258,162,274,178" HREF="javascript:SendColor('#CCCC33')"> 
+<AREA COORDS="274,162,290,178" HREF="javascript:SendColor('#CCFF33')"> 
+<!--- Row 12 --->
+<AREA COORDS="2,178,18,194" HREF="javascript:SendColor('#000000')"> 
+<AREA COORDS="18,178,34,194" HREF="javascript:SendColor('#003300')"> 
+<AREA COORDS="34,178,50,194" HREF="javascript:SendColor('#006600')"> 
+<AREA COORDS="50,178,66,194" HREF="javascript:SendColor('#009900')"> 
+<AREA COORDS="66,178,82,194" HREF="javascript:SendColor('#00CC00')"> 
+<AREA COORDS="82,178,98,194" HREF="javascript:SendColor('#00FF00')"> 
+<AREA COORDS="98,178,114,194" HREF="javascript:SendColor('#99FF00')"> 
+<AREA COORDS="114,178,130,194" HREF="javascript:SendColor('#99CC00')"> 
+<AREA COORDS="130,178,146,194" HREF="javascript:SendColor('#999900')"> 
+<AREA COORDS="146,178,162,194" HREF="javascript:SendColor('#996600')"> 
+<AREA COORDS="162,178,178,194" HREF="javascript:SendColor('#993300')"> 
+<AREA COORDS="178,178,194,194" HREF="javascript:SendColor('#990000')"> 
+<AREA COORDS="194,178,210,194" HREF="javascript:SendColor('#CC0000')"> 
+<AREA COORDS="210,178,226,194" HREF="javascript:SendColor('#CC3300')"> 
+<AREA COORDS="226,178,242,194" HREF="javascript:SendColor('#CC6600')"> 
+<AREA COORDS="242,178,258,194" HREF="javascript:SendColor('#CC9900')"> 
+<AREA COORDS="258,178,274,194" HREF="javascript:SendColor('#CCCC00')"> 
+<AREA COORDS="274,178,290,194" HREF="javascript:SendColor('#CCFF00')"> 
+</MAP>
+<CENTER>
+<TABLE BORDER=0 CELLPADDING=3 CELLSPACING=0 WIDTH=292>
+<TR>
+<TD VALIGN=TOP><FONT SIZE=4 FACE=ARIAL COLOR=#0000FF>Set your preferences</TD>
+</TR>
+
+<TR>
+<TD>
+<A HREF="javascript:if(confirm('http://javascript.internet.com/miscellaneous/webpal.map  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://javascript.internet.com/miscellaneous/webpal.map'" /miscellaneous/webpal.map"><IMG SRC="../img/colorcube/cube.gif" /img/colorcube/cube.gif" WIDTH=292 HEIGHT=196 BORDER=0 ALT="" USEMAP="#map_webpal" ISMAP></A>
+</TD>
+</TR>
+
+<FORM NAME="colors">
+<TR>
+<TD ALIGN=LEFT>
+<INPUT TYPE="radio" NAME="choice" VALUE="bg" CHECKED><FONT SIZE=2 FACE=ARIAL>Background</FONT>
+&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="radio" NAME="choice" VALUE="text"><FONT SIZE=2 FACE=ARIAL>Text</FONT>
+&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="radio" NAME="choice" VALUE="link"><FONT SIZE=2 FACE=ARIAL>Link</FONT>
+</TD>
+</TR>
+
+<TR>
+<TD ALIGN=LEFT>
+<INPUT TYPE="radio" NAME="choice" VALUE="vlink"><FONT SIZE=2 FACE=ARIAL>Visited Link</FONT>
+&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="radio" NAME="choice" VALUE="alink"><FONT SIZE=2 FACE=ARIAL>Active Link</FONT>
+</TD>
+</TR>
+
+<TR>
+<TD ALIGN=LEFT>
+<FONT SIZE=2 FACE=ARIAL>&nbsp;Background Image:</FONT>&nbsp;<FONT SIZE=2 FACE=ARIAL>&nbsp;<INPUT NAME="fileUp" TYPE="file" SIZE=12 onClick="SendOther()"></FONT><BR>
+</TD>
+</TR>
+
+<TR>
+<TD ALIGN=LEFT>
+<INPUT TYPE="checkbox" NAME="checkBold" onClick="SendOther()"><FONT SIZE=2 FACE=ARIAL><B>Bold</B></FONT>
+&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="checkbox" NAME="checkItalic" onClick="SendOther()"><FONT SIZE=2 FACE=ARIAL><I>Italic</I></FONT>
+</TD>
+</TR>
+
+</FORM>
+
+<FORM NAME="sizes">
+<TR>
+<TD ALIGN=LEFT>
+<FONT SIZE=2 FACE=ARIAL>&nbsp;Font size:</FONT>&nbsp;
+<INPUT TYPE="radio" NAME="size" onClick="SendOther()"><FONT SIZE=2 FACE=ARIAL>1</FONT>
+<INPUT TYPE="radio" NAME="size" onClick="SendOther()"><FONT SIZE=2 FACE=ARIAL>2</FONT>
+<INPUT TYPE="radio" NAME="size" checked onClick="SendOther()"><FONT SIZE=2 FACE=ARIAL>3</FONT>
+<INPUT TYPE="radio" NAME="size" onClick="SendOther()"><FONT SIZE=2 FACE=ARIAL>4</FONT>
+<INPUT TYPE="radio" NAME="size" onClick="SendOther()"><FONT SIZE=2 FACE=ARIAL>5</FONT>
+</TD>
+</TR>
+</FORM>
+</TD></TR></TABLE>
+</CENTER>
+</BODY>
+</HTML>

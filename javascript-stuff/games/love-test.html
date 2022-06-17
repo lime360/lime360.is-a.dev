@@ -1,0 +1,232 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Games:  Love Test</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Games">
+<META NAME="description" CONTENT="Here's a neat little script to figure the "love compatibility" between two people.  Just enter their names and hit calculate!  We are not responsible for any broken relationships resulting from this script.  ;-)">
+
+<HEAD>
+
+<SCRIPT LANGUAGE="JavaScript">
+
+
+
+
+<!-- Begin
+function calc() {
+
+first = document.loveform.name1.value.toUpperCase();
+firstlength = document.loveform.name1.value.length;
+second = document.loveform.name2.value.toUpperCase();
+secondlength = document.loveform.name2.value.length;
+var LoveCount=0;
+
+for (Count=0; Count < firstlength; Count++) {
+letter1=first.substring(Count,Count+1);
+if (letter1=='L') LoveCount+=2; 
+if (letter1=='O') LoveCount+=2; 
+if (letter1=='V') LoveCount+=2; 
+if (letter1=='E') LoveCount+=2; 
+if (letter1=='Y') LoveCount+=3; 
+if (letter1=='O') LoveCount+=1; 
+if (letter1=='U') LoveCount+=3;
+}
+
+for (Count=0; Count < secondlength; Count++) {
+letter2=second.substring(Count,Count+1);
+if (letter2=='L') LoveCount+=2;
+if (letter2=='O') LoveCount+=2; 
+if (letter2=='V') LoveCount+=2; 
+if (letter2=='E') LoveCount+=2;
+if (letter2=='Y') LoveCount+=3;
+if (letter2=='O') LoveCount+=1;
+if (letter2=='U') LoveCount+=3; 
+}
+
+amount=0;
+if (LoveCount> 0) amount=  5-((firstlength+secondlength)/2)
+if (LoveCount> 2) amount= 10-((firstlength+secondlength)/2)
+if (LoveCount> 4) amount= 20-((firstlength+secondlength)/2)
+if (LoveCount> 6) amount= 30-((firstlength+secondlength)/2)
+if (LoveCount> 8) amount= 40-((firstlength+secondlength)/2)
+if (LoveCount>10) amount= 50-((firstlength+secondlength)/2)
+if (LoveCount>12) amount= 60-((firstlength+secondlength)/2)
+if (LoveCount>14) amount= 70-((firstlength+secondlength)/2)
+if (LoveCount>16) amount= 80-((firstlength+secondlength)/2)
+if (LoveCount>18) amount= 90-((firstlength+secondlength)/2)
+if (LoveCount>20) amount=100-((firstlength+secondlength)/2)
+if (LoveCount>22) amount=110-((firstlength+secondlength)/2)
+
+if (firstlength==0 || secondlength==0) amount= "Err";
+if (amount < 0) amount= 0;
+if (amount >99) amount=99;
+
+document.loveform.output.value=amount+"%";
+}
+//  End -->
+</script></HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /games/"><font color="#FF0000">Games</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Love Test</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Here's a neat little script to figure the "love compatibility" between two people.  Just enter their names and hit calculate!  We are not responsible for any broken relationships resulting from this script.  ;-)
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<BODY>
+
+<form name=loveform>
+<input value="Bill Clinton" name="name1" type="text" size="20"> + 
+<input value="Monica Lewinsky" name="name2" type="text" size="20"> = 
+<input value="" name="output" type="text" size="6">
+<br>
+<br>
+<input value="Calculate!" name="calculate" type="button" value="calculate" onclick="calc()">
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Games:  Love Test:</b>
+<p>Simply click inside the window below, use your cursor to highlight the 
+script, and copy (type Control-c or Apple-c) the script into a new file in 
+your text editor (such as Note Pad or Simple Text) and save (Control-s or 
+Apple-s).  The script is yours!!!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.65 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL LOVE TEST:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function calc() {
+
+first = document.loveform.name1.value.toUpperCase();
+firstlength = document.loveform.name1.value.length;
+second = document.loveform.name2.value.toUpperCase();
+secondlength = document.loveform.name2.value.length;
+var LoveCount=0;
+
+for (Count=0; Count &lt; firstlength; Count++) {
+letter1=first.substring(Count,Count+1);
+if (letter1=='L') LoveCount+=2; 
+if (letter1=='O') LoveCount+=2; 
+if (letter1=='V') LoveCount+=2; 
+if (letter1=='E') LoveCount+=2; 
+if (letter1=='Y') LoveCount+=3; 
+if (letter1=='O') LoveCount+=1; 
+if (letter1=='U') LoveCount+=3;
+}
+
+for (Count=0; Count &lt; secondlength; Count++) {
+letter2=second.substring(Count,Count+1);
+if (letter2=='L') LoveCount+=2;
+if (letter2=='O') LoveCount+=2; 
+if (letter2=='V') LoveCount+=2; 
+if (letter2=='E') LoveCount+=2;
+if (letter2=='Y') LoveCount+=3;
+if (letter2=='O') LoveCount+=1;
+if (letter2=='U') LoveCount+=3; 
+}
+
+amount=0;
+if (LoveCount&gt; 0) amount=  5-((firstlength+secondlength)/2)
+if (LoveCount&gt; 2) amount= 10-((firstlength+secondlength)/2)
+if (LoveCount&gt; 4) amount= 20-((firstlength+secondlength)/2)
+if (LoveCount&gt; 6) amount= 30-((firstlength+secondlength)/2)
+if (LoveCount&gt; 8) amount= 40-((firstlength+secondlength)/2)
+if (LoveCount&gt;10) amount= 50-((firstlength+secondlength)/2)
+if (LoveCount&gt;12) amount= 60-((firstlength+secondlength)/2)
+if (LoveCount&gt;14) amount= 70-((firstlength+secondlength)/2)
+if (LoveCount&gt;16) amount= 80-((firstlength+secondlength)/2)
+if (LoveCount&gt;18) amount= 90-((firstlength+secondlength)/2)
+if (LoveCount&gt;20) amount=100-((firstlength+secondlength)/2)
+if (LoveCount&gt;22) amount=110-((firstlength+secondlength)/2)
+
+if (firstlength==0 || secondlength==0) amount= "Err";
+if (amount &lt; 0) amount= 0;
+if (amount &gt;99) amount=99;
+
+document.loveform.output.value=amount+"%";
+}
+//  End --&gt;
+&lt;/script&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;form name=loveform&gt;
+&lt;input value="Bill Clinton" name="name1" type="text" size="20"&gt; + 
+&lt;input value="Monica Lewinsky" name="name2" type="text" size="20"&gt; = 
+&lt;input value="" name="output" type="text" size="6"&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;input value="Calculate!" name="calculate" type="button" value="calculate" onclick="calc()"&gt;
+&lt;/form&gt;
+
+ 
+
+&lt;!-- Script Size:  2.65 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

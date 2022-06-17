@@ -1,0 +1,329 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Forms:  Items Popup List</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Pankaj Mittal (pankajm@writeme.com)">
+<META NAME="section" CONTENT="Forms">
+<META NAME="description" CONTENT="If you have several items for the user to pick from, you may notice that your page can quickly becomes cluttered.  This script helps solve that problem by opening a new window when the user wants to add items to the list.  The new window displays the items and passes the selected item information back to the list in the main window.  Slick!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Pankaj Mittal (pankajm@writeme.com) -->
+<!-- Web Site:  http://www.fortunecity.com/lavendar/lavender/21 -->
+
+
+
+
+<!-- Begin
+function small_window(myurl) {
+var newWindow;
+var props = 'scrollBars=yes,resizable=yes,toolbar=no,menubar=no,location=no,directories=no,width=300,height=200';
+newWindow = window.open(myurl, "Add_from_Src_to_Dest", props);
+}
+// Adds the list of selected items selected in the child
+// window to its list. It is called by child window to do so.  
+function addToParentList(sourceList) {
+destinationList = window.document.forms[0].parentList;
+for(var count = destinationList.options.length - 1; count >= 0; count--) {
+destinationList.options[count] = null;
+}
+for(var i = 0; i < sourceList.options.length; i++) {
+if (sourceList.options[i] != null)
+destinationList.options[i] = new Option(sourceList.options[i].text, sourceList.options[i].value );
+   }
+}
+// Marks all the items as selected for the submit button.  
+function selectList(sourceList) {
+sourceList = window.document.forms[0].parentList;
+for(var i = 0; i < sourceList.options.length; i++) {
+if (sourceList.options[i] != null)
+sourceList.options[i].selected = true;
+}
+return true;
+}
+
+// Deletes the selected items of supplied list.
+function deleteSelectedItemsFromList(sourceList) {
+var maxCnt = sourceList.options.length;
+for(var i = maxCnt - 1; i >= 0; i--) {
+if ((sourceList.options[i] != null) && (sourceList.options[i].selected == true)) {
+sourceList.options[i] = null;
+      }
+   }
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /forms/" ><font color="#FF0000"><b>Forms</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Items Popup List</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+If you have several items for the user to pick from, you may notice that your page can quickly becomes cluttered.  This script helps solve that problem by opening a new window when the user wants to add items to the list.  The new window displays the items and passes the selected item information back to the list in the main window.  Slick!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<br>
+<form method=post>
+<table border=1 bgcolor="#ffffcc">
+<tr>
+<td>
+<select size=5 name=parentList multiple>
+</select>
+</td>
+</tr>
+<tr>
+<td align=center>
+<input type=button value="Add Item" onclick = "javascript:small_window('items-popup-list-modify.html');">
+<input type=button value="Delete Item" onclick = "javascript:deleteSelectedItemsFromList(parentList);">
+</td>
+</tr>
+</table>
+</form>
+<br>
+<font color="red">(Click "Add Item" to demo this script!)</font>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Forms:  Items Popup List</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  5.27 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL ITEMS POPUP LIST:
+
+  1.  Paste the first code into a new file, save it as: modify.html
+  2.  Copy the coding into the HEAD of your HTML document
+  3.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste the first code into a new file, save it as: modify.html  --&gt;
+
+&lt;html&gt;
+&lt;head&gt;
+&lt;script language="JavaScript"&gt;
+ Begin
+&lt;!--
+// Add the selected items in the parent by calling method of parent
+function addSelectedItemsToParent() {
+self.opener.addToParentList(window.document.forms[0].destList);
+window.close();
+}
+// Fill the selcted item list with the items already present in parent.
+function fillInitialDestList() {
+var destList = window.document.forms[0].destList; 
+var srcList = self.opener.window.document.forms[0].parentList;
+for (var count = destList.options.length - 1; count &gt;= 0; count--) {
+destList.options[count] = null;
+}
+for(var i = 0; i &lt; srcList.options.length; i++) { 
+if (srcList.options[i] != null)
+destList.options[i] = new Option(srcList.options[i].text);
+   }
+}
+// Add the selected items from the source to destination list
+function addSrcToDestList() {
+destList = window.document.forms[0].destList;
+srcList = window.document.forms[0].srcList; 
+var len = destList.length;
+for(var i = 0; i &lt; srcList.length; i++) {
+if ((srcList.options[i] != null) && (srcList.options[i].selected)) {
+//Check if this value already exist in the destList or not
+//if not then add it otherwise do not add it.
+var found = false;
+for(var count = 0; count &lt; len; count++) {
+if (destList.options[count] != null) {
+if (srcList.options[i].text == destList.options[count].text) {
+found = true;
+break;
+      }
+   }
+}
+if (found != true) {
+destList.options[len] = new Option(srcList.options[i].text); 
+len++;
+         }
+      }
+   }
+}
+// Deletes from the destination list.
+function deleteFromDestList() {
+var destList  = window.document.forms[0].destList;
+var len = destList.options.length;
+for(var i = (len-1); i &gt;= 0; i--) {
+if ((destList.options[i] != null) && (destList.options[i].selected == true)) {
+destList.options[i] = null;
+      }
+   }
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+&lt;/head&gt;
+&lt;body onLoad="javascript:fillInitialDestList();"&gt;
+&lt;center&gt;
+&lt;form method="POST"&gt;
+&lt;table bgcolor="#FFFFCC"&gt;
+&lt;tr&gt;
+&lt;td bgcolor="#FFFFCC" width="74"&gt;Available&lt;/td&gt;
+&lt;td bgcolor="#FFFFCC"&gt;&nbsp;&lt;/td&gt;
+&lt;td bgcolor="#FFFFCC" width="69"&gt;Selected&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td bgcolor="#FFFFCC" width="85"&gt;
+&lt;select size="6" name="srcList" multiple&gt;
+&lt;option value="1"&gt;Item 1
+&lt;option value="2"&gt;Item 2
+&lt;option value="3"&gt;Item 3
+&lt;option value="4"&gt;Item 4
+&lt;option value="5"&gt;Item 5
+&lt;option value="6"&gt;Item 6
+&lt;/select&gt;
+&lt;/td&gt;
+&lt;td bgcolor="#FFFFCC" width="74" align="center"&gt;
+&lt;input type="button" value=" &gt;&gt; " onClick="javascript:addSrcToDestList()"&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;input type="button" value=" &lt;&lt; " onclick="javascript:deleteFromDestList();"&gt;
+&lt;/td&gt;
+&lt;td bgcolor="#FFFFCC" width="69"&gt;
+&lt;select size="6" name="destList" multiple&gt;
+&lt;/select&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td colspan=3 align="center"&gt;
+&lt;input type="button" value="Done" onClick = "javascript:addSelectedItemsToParent()"&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+&lt;!-- STEP TWO: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Pankaj Mittal (pankajm@writeme.com) --&gt;
+&lt;!-- Web Site:  http://www.fortunecity.com/lavendar/lavender/21 --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function small_window(myurl) {
+var newWindow;
+var props = 'scrollBars=yes,resizable=yes,toolbar=no,menubar=no,location=no,directories=no,width=300,height=200';
+newWindow = window.open(myurl, "Add_from_Src_to_Dest", props);
+}
+// Adds the list of selected items selected in the child
+// window to its list. It is called by child window to do so.  
+function addToParentList(sourceList) {
+destinationList = window.document.forms[0].parentList;
+for(var count = destinationList.options.length - 1; count &gt;= 0; count--) {
+destinationList.options[count] = null;
+}
+for(var i = 0; i &lt; sourceList.options.length; i++) {
+if (sourceList.options[i] != null)
+destinationList.options[i] = new Option(sourceList.options[i].text, sourceList.options[i].value );
+   }
+}
+// Marks all the items as selected for the submit button.  
+function selectList(sourceList) {
+sourceList = window.document.forms[0].parentList;
+for(var i = 0; i &lt; sourceList.options.length; i++) {
+if (sourceList.options[i] != null)
+sourceList.options[i].selected = true;
+}
+return true;
+}
+
+// Deletes the selected items of supplied list.
+function deleteSelectedItemsFromList(sourceList) {
+var maxCnt = sourceList.options.length;
+for(var i = maxCnt - 1; i &gt;= 0; i--) {
+if ((sourceList.options[i] != null) && (sourceList.options[i].selected == true)) {
+sourceList.options[i] = null;
+      }
+   }
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form method=post&gt;
+&lt;table border=1 bgcolor="#ffffcc"&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;select size=5 name=parentList multiple&gt;
+&lt;/select&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=center&gt;
+&lt;input type=button value="Add Item" onclick = "javascript:small_window('modify.html');"&gt;
+&lt;input type=button value="Delete Item" onclick = "javascript:deleteSelectedItemsFromList(parentList);"&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  5.27 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

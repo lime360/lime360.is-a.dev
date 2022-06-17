@@ -1,0 +1,624 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Password Protection:  Text Encryption</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Tomislav Sereg (tsereg@net.hr)">
+<META NAME="section" CONTENT="Password Protection">
+<META NAME="description" CONTENT="This JavaScript library provides encryption using simple, text-oriented method called column transposition. The idea is to write the plain text in block on the row-first bases. The text is then read column-first. The trick is in that the columns are not read from left to right, but in the order specified by the encryption key. Transliteration is also used.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Tomislav Sereg (tsereg@net.hr) -->
+<!-- Web Site:  http://www.inet.hr/~tsereg/jse -->
+
+
+
+
+<!-- Begin
+function doSecure() {
+alert( 'JavaScript 1.2 or above required.' );
+}
+function doUnsecure() {
+alert( 'JavaScript 1.2 or above required.' );
+}
+// End -->
+</script>
+<script language="JavaScript1.2">
+<!-- Begin
+function permutationGenerator(nNumElements) {
+this.nNumElements     = nNumElements;
+this.antranspositions = new Array;
+var k = 0;
+for (i = 0; i < nNumElements - 1; i++)
+for (j = i + 1; j < nNumElements; j++)
+this.antranspositions[ k++ ] = ( i << 8 ) | j;
+// keep two positions as lo and hi byte!
+this.nNumtranspositions = k;
+this.fromCycle = permutationGenerator_fromCycle;
+}
+function permutationGenerator_fromCycle(anCycle) {
+var anpermutation = new Array(this.nNumElements);
+for (var i = 0; i < this.nNumElements; i++) anpermutation[i] = i;
+for (var i = 0; i < anCycle.length; i++) {
+var nT = this.antranspositions[anCycle[i]];
+var n1 = nT & 255;
+var n2 = (nT >> 8) & 255;
+nT = anpermutation[n1];
+anpermutation[n1] = anpermutation[n2];
+anpermutation[n2] = nT;
+}
+return anpermutation;
+}
+function password(strpasswd) {
+this.strpasswd = strpasswd;
+this.getHashValue   = password_getHashValue;
+this.getpermutation = password_getpermutation;
+}
+function password_getHashValue() {
+var m = 907633409;
+var a = 65599;
+var h = 0;
+for (var i = 0; i < this.strpasswd.length; i++) 
+h = (h % m) * a + this.strpasswd.charCodeAt(i);
+return h;
+}
+function password_getpermutation() {
+var nNUMELEMENTS = 13;
+var nCYCLELENGTH = 21;
+pg = new permutationGenerator(nNUMELEMENTS);
+var anCycle = new Array(nCYCLELENGTH);
+var npred   = this.getHashValue();
+for (var i = 0; i < nCYCLELENGTH; i++) {
+npred = 314159269 * npred + 907633409;
+anCycle[i] = npred % pg.nNumtranspositions;
+}
+return pg.fromCycle(anCycle);
+}
+function SecureContext(strText, strSignature, bEscape) {
+this.strSIGNATURE = strSignature || '';
+this.bESCApE      = bEscape || false;
+this.strText = strText;
+this.escape        = SecureContext_escape;
+this.unescape      = SecureContext_unescape;
+this.transliterate = SecureContext_transliterate;
+this.encypher      = SecureContext_encypher;
+this.decypher      = SecureContext_decypher;
+this.sign          = SecureContext_sign;
+this.unsign        = SecureContext_unsign;
+this.secure   = SecureContext_secure;
+this.unsecure = SecureContext_unsecure;
+}
+function SecureContext_escape(strToEscape) {
+var strEscaped = '';
+for (var i = 0; i < strToEscape.length; i++) {
+var chT = strToEscape.charAt( i );
+switch(chT) {
+case '\r': strEscaped += '\\r'; break;
+case '\n': strEscaped += '\\n'; break;
+case '\\': strEscaped += '\\\\'; break;
+default: strEscaped += chT;
+   }
+}
+return strEscaped;
+}
+function SecureContext_unescape(strToUnescape) {
+var strUnescaped = '';
+var i = 0;
+while (i < strToUnescape.length) {
+var chT = strToUnescape.charAt(i++);
+if ('\\' == chT) {
+chT = strToUnescape.charAt( i++ );
+switch( chT ) {
+case 'r': strUnescaped += '\r'; break;
+case 'n': strUnescaped += '\n'; break;
+case '\\': strUnescaped += '\\'; break;
+default: // not possible
+   }
+}
+else strUnescaped += chT;
+}
+return strUnescaped;
+}
+function SecureContext_transliterate(btransliterate) {
+var strDest = '';
+
+var nTextIter  = 0;
+var nTexttrail = 0;
+
+while (nTextIter < this.strText.length) {
+var strRun = '';
+var cSkipped   = 0;
+while (cSkipped < 7 && nTextIter < this.strText.length) {
+var chT = this.strText.charAt(nTextIter++);
+if (-1 == strRun.indexOf(chT)) {
+strRun += chT;
+cSkipped = 0;
+}
+else cSkipped++;
+}
+while (nTexttrail < nTextIter) {
+var nRunIdx = strRun.indexOf(this.strText.charAt(nTexttrail++));
+if (btransliterate) {
+nRunIdx++
+if (nRunIdx == strRun.length) nRunIdx = 0;
+}
+else {
+nRunIdx--;
+if (nRunIdx == -1) nRunIdx += strRun.length;
+}
+strDest += strRun.charAt(nRunIdx);
+   }
+}
+this.strText = strDest;
+}
+function SecureContext_encypher(anperm) {
+var strEncyph = '';
+var nCols     = anperm.length;
+var nRows     = this.strText.length / nCols;
+for (var i = 0; i < nCols; i++) {
+var k = anperm[ i ];
+for (var j = 0; j < nRows; j++) {
+strEncyph += this.strText.charAt(k);
+k         += nCols;
+   }
+}
+this.strText = strEncyph;
+}
+function SecureContext_decypher(anperm) {
+var nRows    = anperm.length;
+var nCols    = this.strText.length / nRows;
+var anRowOfs = new Array;
+for (var i = 0 ; i < nRows; i++) anRowOfs[ anperm[ i ] ] = i * nCols;
+var strplain = '';
+for (var i = 0; i < nCols; i++) {
+for (var j = 0; j < nRows; j++)
+strplain += this.strText.charAt(anRowOfs[ j ] + i);
+}
+this.strText = strplain;
+}
+function SecureContext_sign(nCols) {
+if (this.bESCApE) {
+this.strText      = this.escape(this.strText);
+this.strSIGNATURE = this.escape(this.strSIGNATURE);
+}
+var nTextLen     = this.strText.length + this.strSIGNATURE.length;
+var nMissingCols = nCols - (nTextLen % nCols);
+var strpadding   = '';  
+if (nMissingCols < nCols)
+for (var i = 0; i < nMissingCols; i++) strpadding += ' ';
+var x = this.strText.length;
+this.strText +=  strpadding + this.strSIGNATURE;
+}
+function SecureContext_unsign(nCols) {
+if (this.bESCApE) {
+this.strText      = this.unescape(this.strText);
+this.strSIGNATURE = this.unescape(this.strSIGNATURE);
+}
+if ('' == this.strSIGNATURE) return true;
+var nTextLen = this.strText.lastIndexOf(this.strSIGNATURE);
+if (-1 == nTextLen) return false;
+this.strText = this.strText.substr(0, nTextLen);
+return true;
+}
+function SecureContext_secure(strpasswd) {
+var passwd = new password(strpasswd);
+var anperm   = passwd.getpermutation()
+this.sign(anperm.length);
+this.transliterate(true);
+this.encypher(anperm);
+}
+function SecureContext_unsecure(strpasswd) {
+var passwd = new password(strpasswd);
+var anperm = passwd.getpermutation()
+this.decypher(anperm);
+this.transliterate(false);
+return this.unsign(anperm.length);
+}
+// End -->
+</script>
+
+<script language="JavaScript1.2">
+<!-- Begin
+function doSecure() {
+var sc = new SecureContext(document.frmSecurity.txtUnsecure.value, 
+document.frmSecurity.txtSign.value, document.frmSecurity.chkNewLines.checked);
+sc.secure(document.frmSecurity.txtPassw.value);
+document.frmSecurity.txtSecure.value = sc.strText;
+document.frmSecurity.txtUnsecure.value = '';
+}
+function doUnsecure() {
+var sc = new SecureContext(document.frmSecurity.txtSecure.value, 
+document.frmSecurity.txtSign.value, document.frmSecurity.chkNewLines.checked);
+if (!sc.unsecure(document.frmSecurity.txtPassw.value)) 
+alert('Invalid password used.');
+document.frmSecurity.txtSecure.value = '';
+document.frmSecurity.txtUnsecure.value = sc.strText;
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /passwords/"><font color="#FF0000"><b>Password Protection</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Text Encryption</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+This JavaScript library provides encryption using simple, text-oriented method called column transposition. The idea is to write the plain text in block on the row-first bases. The text is then read column-first. The trick is in that the columns are not read from left to right, but in the order specified by the encryption key. Transliteration is also used.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<table border=1>
+<tr>
+<td>Instructions:<p>
+<ol>
+<li>Input the password into the password field.</li>
+<li>Optionally, input the signature into the signature field:</li>
+<li>Input the plain text into the plain text field.</li>
+<li>Press the SECURE button and observe the encrypted text.</li>
+<li>Press the UNSECURE button and look at the decrypted text.</li>
+<li>Check the 'new lines used' if you used new lines in the plain text</li>
+</ol>
+<form name=frmSecurity>
+<p>Password: <input type=text name=txtPassw size=20 value="12345678">
+Optional signature: <input type=text name=txtSign size=20><br>
+<input type=checkbox name=chkNewLines value="1"> New lines used</p>
+<table border=0>
+<tr>
+<td><p>Plain text:</p></td>
+<td></td>
+<td><p>Encrypted text:</p></td>
+</tr>
+<tr>
+<td><textarea rows=4 name=txtUnsecure cols=20 wrap=virtual>the quick brown fox jumps over the lazy dog</textarea></td>
+<td align=center><input type=button value="SECURE &gt;&gt;"
+name=btnSecure onclick="doSecure()"><br>
+<input type=button value="&lt;&lt; UNSECURE"
+name=btnUnsecure onclick="doUnsecure()"></td>
+<td><textarea rows=4 name=txtSecure cols=20 wrap=virtual></textarea></td>
+</tr>
+</table>
+</form>
+</td>
+</tr>
+</table>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Password Protection:  Text Encryption</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  8.32 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL TEXT ENCRYPTION:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Tomislav Sereg (tsereg@net.hr) --&gt;
+&lt;!-- Web Site:  http://www.inet.hr/~tsereg/jse --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function doSecure() {
+alert( 'JavaScript 1.2 or above required.' );
+}
+function doUnsecure() {
+alert( 'JavaScript 1.2 or above required.' );
+}
+// End --&gt;
+&lt;/script&gt;
+&lt;script language="JavaScript1.2"&gt;
+&lt;!-- Begin
+function permutationGenerator(nNumElements) {
+this.nNumElements     = nNumElements;
+this.antranspositions = new Array;
+var k = 0;
+for (i = 0; i &lt; nNumElements - 1; i++)
+for (j = i + 1; j &lt; nNumElements; j++)
+this.antranspositions[ k++ ] = ( i &lt;&lt; 8 ) | j;
+// keep two positions as lo and hi byte!
+this.nNumtranspositions = k;
+this.fromCycle = permutationGenerator_fromCycle;
+}
+function permutationGenerator_fromCycle(anCycle) {
+var anpermutation = new Array(this.nNumElements);
+for (var i = 0; i &lt; this.nNumElements; i++) anpermutation[i] = i;
+for (var i = 0; i &lt; anCycle.length; i++) {
+var nT = this.antranspositions[anCycle[i]];
+var n1 = nT & 255;
+var n2 = (nT &gt;&gt; 8) & 255;
+nT = anpermutation[n1];
+anpermutation[n1] = anpermutation[n2];
+anpermutation[n2] = nT;
+}
+return anpermutation;
+}
+function password(strpasswd) {
+this.strpasswd = strpasswd;
+this.getHashValue   = password_getHashValue;
+this.getpermutation = password_getpermutation;
+}
+function password_getHashValue() {
+var m = 907633409;
+var a = 65599;
+var h = 0;
+for (var i = 0; i &lt; this.strpasswd.length; i++) 
+h = (h % m) * a + this.strpasswd.charCodeAt(i);
+return h;
+}
+function password_getpermutation() {
+var nNUMELEMENTS = 13;
+var nCYCLELENGTH = 21;
+pg = new permutationGenerator(nNUMELEMENTS);
+var anCycle = new Array(nCYCLELENGTH);
+var npred   = this.getHashValue();
+for (var i = 0; i &lt; nCYCLELENGTH; i++) {
+npred = 314159269 * npred + 907633409;
+anCycle[i] = npred % pg.nNumtranspositions;
+}
+return pg.fromCycle(anCycle);
+}
+function SecureContext(strText, strSignature, bEscape) {
+this.strSIGNATURE = strSignature || '';
+this.bESCApE      = bEscape || false;
+this.strText = strText;
+this.escape        = SecureContext_escape;
+this.unescape      = SecureContext_unescape;
+this.transliterate = SecureContext_transliterate;
+this.encypher      = SecureContext_encypher;
+this.decypher      = SecureContext_decypher;
+this.sign          = SecureContext_sign;
+this.unsign        = SecureContext_unsign;
+this.secure   = SecureContext_secure;
+this.unsecure = SecureContext_unsecure;
+}
+function SecureContext_escape(strToEscape) {
+var strEscaped = '';
+for (var i = 0; i &lt; strToEscape.length; i++) {
+var chT = strToEscape.charAt( i );
+switch(chT) {
+case '\r': strEscaped += '\\r'; break;
+case '\n': strEscaped += '\\n'; break;
+case '\\': strEscaped += '\\\\'; break;
+default: strEscaped += chT;
+   }
+}
+return strEscaped;
+}
+function SecureContext_unescape(strToUnescape) {
+var strUnescaped = '';
+var i = 0;
+while (i &lt; strToUnescape.length) {
+var chT = strToUnescape.charAt(i++);
+if ('\\' == chT) {
+chT = strToUnescape.charAt( i++ );
+switch( chT ) {
+case 'r': strUnescaped += '\r'; break;
+case 'n': strUnescaped += '\n'; break;
+case '\\': strUnescaped += '\\'; break;
+default: // not possible
+   }
+}
+else strUnescaped += chT;
+}
+return strUnescaped;
+}
+function SecureContext_transliterate(btransliterate) {
+var strDest = '';
+
+var nTextIter  = 0;
+var nTexttrail = 0;
+
+while (nTextIter &lt; this.strText.length) {
+var strRun = '';
+var cSkipped   = 0;
+while (cSkipped &lt; 7 && nTextIter &lt; this.strText.length) {
+var chT = this.strText.charAt(nTextIter++);
+if (-1 == strRun.indexOf(chT)) {
+strRun += chT;
+cSkipped = 0;
+}
+else cSkipped++;
+}
+while (nTexttrail &lt; nTextIter) {
+var nRunIdx = strRun.indexOf(this.strText.charAt(nTexttrail++));
+if (btransliterate) {
+nRunIdx++
+if (nRunIdx == strRun.length) nRunIdx = 0;
+}
+else {
+nRunIdx--;
+if (nRunIdx == -1) nRunIdx += strRun.length;
+}
+strDest += strRun.charAt(nRunIdx);
+   }
+}
+this.strText = strDest;
+}
+function SecureContext_encypher(anperm) {
+var strEncyph = '';
+var nCols     = anperm.length;
+var nRows     = this.strText.length / nCols;
+for (var i = 0; i &lt; nCols; i++) {
+var k = anperm[ i ];
+for (var j = 0; j &lt; nRows; j++) {
+strEncyph += this.strText.charAt(k);
+k         += nCols;
+   }
+}
+this.strText = strEncyph;
+}
+function SecureContext_decypher(anperm) {
+var nRows    = anperm.length;
+var nCols    = this.strText.length / nRows;
+var anRowOfs = new Array;
+for (var i = 0 ; i &lt; nRows; i++) anRowOfs[ anperm[ i ] ] = i * nCols;
+var strplain = '';
+for (var i = 0; i &lt; nCols; i++) {
+for (var j = 0; j &lt; nRows; j++)
+strplain += this.strText.charAt(anRowOfs[ j ] + i);
+}
+this.strText = strplain;
+}
+function SecureContext_sign(nCols) {
+if (this.bESCApE) {
+this.strText      = this.escape(this.strText);
+this.strSIGNATURE = this.escape(this.strSIGNATURE);
+}
+var nTextLen     = this.strText.length + this.strSIGNATURE.length;
+var nMissingCols = nCols - (nTextLen % nCols);
+var strpadding   = '';  
+if (nMissingCols &lt; nCols)
+for (var i = 0; i &lt; nMissingCols; i++) strpadding += ' ';
+var x = this.strText.length;
+this.strText +=  strpadding + this.strSIGNATURE;
+}
+function SecureContext_unsign(nCols) {
+if (this.bESCApE) {
+this.strText      = this.unescape(this.strText);
+this.strSIGNATURE = this.unescape(this.strSIGNATURE);
+}
+if ('' == this.strSIGNATURE) return true;
+var nTextLen = this.strText.lastIndexOf(this.strSIGNATURE);
+if (-1 == nTextLen) return false;
+this.strText = this.strText.substr(0, nTextLen);
+return true;
+}
+function SecureContext_secure(strpasswd) {
+var passwd = new password(strpasswd);
+var anperm   = passwd.getpermutation()
+this.sign(anperm.length);
+this.transliterate(true);
+this.encypher(anperm);
+}
+function SecureContext_unsecure(strpasswd) {
+var passwd = new password(strpasswd);
+var anperm = passwd.getpermutation()
+this.decypher(anperm);
+this.transliterate(false);
+return this.unsign(anperm.length);
+}
+// End --&gt;
+&lt;/script&gt;
+
+&lt;script language="JavaScript1.2"&gt;
+&lt;!-- Begin
+function doSecure() {
+var sc = new SecureContext(document.frmSecurity.txtUnsecure.value, 
+document.frmSecurity.txtSign.value, document.frmSecurity.chkNewLines.checked);
+sc.secure(document.frmSecurity.txtPassw.value);
+document.frmSecurity.txtSecure.value = sc.strText;
+document.frmSecurity.txtUnsecure.value = '';
+}
+function doUnsecure() {
+var sc = new SecureContext(document.frmSecurity.txtSecure.value, 
+document.frmSecurity.txtSign.value, document.frmSecurity.chkNewLines.checked);
+if (!sc.unsecure(document.frmSecurity.txtPassw.value)) 
+alert('Invalid password used.');
+document.frmSecurity.txtSecure.value = '';
+document.frmSecurity.txtUnsecure.value = sc.strText;
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;table border=1&gt;
+&lt;tr&gt;
+&lt;td&gt;Instructions:&lt;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Input the password into the password field.&lt;/li&gt;
+&lt;li&gt;Optionally, input the signature into the signature field:&lt;/li&gt;
+&lt;li&gt;Input the plain text into the plain text field.&lt;/li&gt;
+&lt;li&gt;Press the SECURE button and observe the encrypted text.&lt;/li&gt;
+&lt;li&gt;Press the UNSECURE button and look at the decrypted text.&lt;/li&gt;
+&lt;li&gt;Check the 'new lines used' if you used new lines in the plain text&lt;/li&gt;
+&lt;/ol&gt;
+&lt;form name=frmSecurity&gt;
+&lt;p&gt;Password: &lt;input type=text name=txtPassw size=20 value="12345678"&gt;
+Optional signature: &lt;input type=text name=txtSign size=20&gt;&lt;br&gt;
+&lt;input type=checkbox name=chkNewLines value="1"&gt; New lines used&lt;/p&gt;
+&lt;table border=0&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;p&gt;Plain text:&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;Encrypted text:&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;textarea rows=4 name=txtUnsecure cols=20 wrap=virtual&gt;the quick brown fox jumps over the lazy dog&lt;/textarea&gt;&lt;/td&gt;
+&lt;td align=center&gt;&lt;input type=button value="SECURE &gt;&gt;"
+name=btnSecure onclick="doSecure()"&gt;&lt;br&gt;
+&lt;input type=button value="&lt;&lt; UNSECURE"
+name=btnUnsecure onclick="doUnsecure()"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;textarea rows=4 name=txtSecure cols=20 wrap=virtual&gt;&lt;/textarea&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  8.32 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

@@ -1,0 +1,277 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  BG Effects:  Roulette</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Michael Tartaglia (stonedstan@hotmail.com)">
+<META NAME="section" CONTENT="BG Effects">
+<META NAME="description" CONTENT="Select a new background color on this roulette wheel!  Stop each wheel and hit "view" to see that background "color" /bgeffects/color" wheel combination!  Cool!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+color=new Array("0","8","F");
+speed=250;
+document.bgColor="FFFFFF";
+bg=new Array("FFFFFF","FFFFFF","FFFFFF");
+function begin() {
+document.form.col1.value=" X "; document.form.col2.value=" X ";
+document.form.col3.value=" X "; i=0; roll(speed);
+}
+function roll(speedB) {
+if (document.form.col1.value==" X ") {
+document.form.c1.value=document.form.b1.value;
+document.form.b1.value=document.form.a1.value;
+document.form.a1.value=
+color[Math.round(Math.random()*10)%3]+
+color[Math.round(Math.random()*10)%3];
+}
+if (document.form.col2.value==" X ") {
+document.form.c2.value=document.form.b2.value;
+document.form.b2.value=document.form.a2.value;
+document.form.a2.value=
+color[Math.round(Math.random()*10)%3]+
+color[Math.round(Math.random()*10)%3];
+}
+if (document.form.col3.value==" X ") {
+document.form.c3.value=document.form.b3.value;
+document.form.b3.value=document.form.a3.value;
+document.form.a3.value=
+color[Math.round(Math.random()*10)%3]+
+color[Math.round(Math.random()*10)%3];
+}
+setTimeout("roll("+speedB+")",speedB);
+}
+function stop(col) {
+if (col==1) {document.form.col1.value="   ";i++;}
+if (col==2) {document.form.col2.value="   ";i++;}
+if (col==3) {document.form.col3.value="   ";i++;}
+if (i==3) {
+bg[0]=document.form.a1.value+
+document.form.a2.value+
+document.form.a3.value;
+bg[1]=document.form.b1.value+
+document.form.b2.value+
+document.form.b3.value;
+bg[2]=document.form.c1.value+
+document.form.c2.value+
+document.form.c3.value;
+speedB=500000;roll(speedB);
+   }
+}
+function view(letter) {
+document.bgColor=bg[letter];
+document.form.color.value="#"+bg[letter];
+}
+// End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /bgeffects/"><font color="#FF0000">Background Effects</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Roulette</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Select a new background color on this roulette wheel!  Stop each wheel and hit "view" to see that background color wheel combination!  Cool! 
+<br>
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<BODY>
+<center>
+<form name="form">
+<table cellpadding=2>
+<tr><td align=center>
+<input type=text name="a1" size=2 onFocus="this.blur()" value=" ">
+<input type=text name="a2" size=2 onFocus="this.blur()" value=" ">
+<input type=text name="a3" size=2 onFocus="this.blur()" value=" ">
+<input type=button onClick="view(0)" value="View"><br>
+<input type=text name="b1" size=2 onFocus="this.blur()" value=" ">
+<input type=text name="b2" size=2 onFocus="this.blur()" value=" ">
+<input type=text name="b3" size=2 onFocus="this.blur()" value=" ">
+<input type=button onClick="view(1)" value="View"><br>
+<input type=text name="c1" size=2 onFocus="this.blur()" value=" ">
+<input type=text name="c2" size=2 onFocus="this.blur()" value=" ">
+<input type=text name="c3" size=2 onFocus="this.blur()" value=" ">
+<input type=button onClick="view(2)" value="View"><br>
+<input type=button onClick="stop(1)" value=" X " name="col1">&nbsp;
+<input type=button onClick="stop(2)" value=" X " name="col2">&nbsp;
+<input type=button onClick="stop(3)" value=" X " name="col3">&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</td>
+<td valign=middle align=center>
+<input type=button onClick="begin()" value="Spin!"><p>
+<table bgcolor=FFFFFF border=1 cellspacing=0>
+<tr><td align=center valign=middle>"X" stops each wheel.<p>
+BG Color = <input type=text size=7 value="#FFFFFF" name=color>
+</td></tr>
+</table>
+</td></tr>
+</table>
+</form>
+</center>
+
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  BG Effects:  Roulette</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE=" Script Size:  3.67 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL ROULETTE:
+
+   1.  Paste designated code into HEAD of your HTML document
+   2.  Add the second script to the BODY of your HTML document  --&gt;
+	    
+&lt;!-- STEP ONE:  Paste this code into HEAD of your document  --&gt;
+ 
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;!-- Original:  Michael Tartaglia (stonedstan@hotmail.com) --&gt;
+&lt;!-- Web Site:  http://www.geocities.com/SiliconValley/Horizon/5235 --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+color=new Array("0","8","F");
+speed=250;
+document.bgColor="FFFFFF";
+bg=new Array("FFFFFF","FFFFFF","FFFFFF");
+function begin() {
+document.form.col1.value=" X "; document.form.col2.value=" X ";
+document.form.col3.value=" X "; i=0; roll(speed);
+}
+function roll(speedB) {
+if (document.form.col1.value==" X ") {
+document.form.c1.value=document.form.b1.value;
+document.form.b1.value=document.form.a1.value;
+document.form.a1.value=
+color[Math.round(Math.random()*10)%3]+
+color[Math.round(Math.random()*10)%3];
+}
+if (document.form.col2.value==" X ") {
+document.form.c2.value=document.form.b2.value;
+document.form.b2.value=document.form.a2.value;
+document.form.a2.value=
+color[Math.round(Math.random()*10)%3]+
+color[Math.round(Math.random()*10)%3];
+}
+if (document.form.col3.value==" X ") {
+document.form.c3.value=document.form.b3.value;
+document.form.b3.value=document.form.a3.value;
+document.form.a3.value=
+color[Math.round(Math.random()*10)%3]+
+color[Math.round(Math.random()*10)%3];
+}
+setTimeout("roll("+speedB+")",speedB);
+}
+function stop(col) {
+if (col==1) {document.form.col1.value="   ";i++;}
+if (col==2) {document.form.col2.value="   ";i++;}
+if (col==3) {document.form.col3.value="   ";i++;}
+if (i==3) {
+bg[0]=document.form.a1.value+
+document.form.a2.value+
+document.form.a3.value;
+bg[1]=document.form.b1.value+
+document.form.b2.value+
+document.form.b3.value;
+bg[2]=document.form.c1.value+
+document.form.c2.value+
+document.form.c3.value;
+speedB=500000;roll(speedB);
+   }
+}
+function view(letter) {
+document.bgColor=bg[letter];
+document.form.color.value="#"+bg[letter];
+}
+// End --&gt;
+&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;!-- STEP TWO:  Add this form to the body of the HTML document  --&gt;
+
+&lt;center&gt;
+&lt;form name="form"&gt;
+&lt;table cellpadding=2&gt;
+&lt;tr&gt;&lt;td align=center&gt;
+&lt;input type=text name="a1" size=2 onFocus="this.blur()" value=" "&gt;
+&lt;input type=text name="a2" size=2 onFocus="this.blur()" value=" "&gt;
+&lt;input type=text name="a3" size=2 onFocus="this.blur()" value=" "&gt;
+&lt;input type=button onClick="view(0)" value="View"&gt;&lt;br&gt;
+&lt;input type=text name="b1" size=2 onFocus="this.blur()" value=" "&gt;
+&lt;input type=text name="b2" size=2 onFocus="this.blur()" value=" "&gt;
+&lt;input type=text name="b3" size=2 onFocus="this.blur()" value=" "&gt;
+&lt;input type=button onClick="view(1)" value="View"&gt;&lt;br&gt;
+&lt;input type=text name="c1" size=2 onFocus="this.blur()" value=" "&gt;
+&lt;input type=text name="c2" size=2 onFocus="this.blur()" value=" "&gt;
+&lt;input type=text name="c3" size=2 onFocus="this.blur()" value=" "&gt;
+&lt;input type=button onClick="view(2)" value="View"&gt;&lt;br&gt;
+&lt;input type=button onClick="stop(1)" value=" X " name="col1"&gt;&nbsp;
+&lt;input type=button onClick="stop(2)" value=" X " name="col2"&gt;&nbsp;
+&lt;input type=button onClick="stop(3)" value=" X " name="col3"&gt;&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;/td&gt;
+&lt;td valign=middle align=center&gt;
+&lt;input type=button onClick="begin()" value="Spin!"&gt;&lt;p&gt;
+&lt;table bgcolor=FFFFFF border=1 cellspacing=0&gt;
+&lt;tr&gt;&lt;td align=center valign=middle&gt;"X" stops each wheel.&lt;p&gt;
+BG Color = &lt;input type=text size=7 value="#FFFFFF" name=color&gt;
+&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  3.67 KB  --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

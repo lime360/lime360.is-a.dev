@@ -1,0 +1,205 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Messages:  Glow Text</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="(Internet Explorer 5.5)  Present text with an amazing glowing border.  Automatically changes color, height, and width of message at a specified rate.  Note:  Text appears normal in all other browsers.">
+<META NAME="date" CONTENT="2001-02-01">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="CodeLifter.com">
+<META NAME="section" CONTENT="Messages">
+<style>
+.F1 {filter: glow(Color=#FF8000,Strength=10);
+     width=200px;
+     height=200px;}
+.F2 {filter: glow(Color=#00FF00,Strength=9);
+     width=150px;
+     height=200px;}
+.F3 {filter: glow(Color=#0080FF,Strength=12);
+     width=250px;
+     height=200px;}
+</style>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  CodeLifter.com (support@codelifter.com) -->
+<!-- Web Site:  http://www.codelifter.com -->
+
+
+
+
+<!-- Begin
+var rate = 1000
+// do not edit below this line
+var i = 0;
+var F = 'F1';
+function doThing() {
+if (document.getElementById&&document.all) {
+ok = true;
+i++;
+if (i==1) F = 'F1';
+if (i==2) F = 'F2';
+if (i==3) F = 'F3';
+YammaYamma.className = F;
+if (i > 2) i = 0;
+timer = setTimeout('doThing()', rate);
+   }         
+}
+//  End -->
+</script>
+
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff onLoad="doThing()">
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /messages/"><font color="#FF0000"><b>Messages</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Glow Text</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+(Internet Explorer 5.5)  Present text with an amazing glowing border.  Automatically changes color, height, and width of message at a specified rate.  Note:  Text appears normal in all other browsers.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<table width="300" cellspacing="0" cellpadding="10" bgcolor="#000000">
+<tr>
+<td>
+<center>
+<font face="Courier" size="5" color="#FFFFFF">
+<p id="YammaYamma">
+<br>
+<b>JavaScript Source Code 3000 - The best place to find JavaScripts!</b>
+</p>
+</font>
+</center>
+</td>
+</tr>
+</table>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Messages:  Glow Text</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Command-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.88 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL GLOW TEXT:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the onLoad event handler into the BODY tag
+  3.  Put the last coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;style&gt;
+.F1 {filter: glow(Color=#FF8000,Strength=10);
+     width=200px;
+     height=200px;}
+.F2 {filter: glow(Color=#00FF00,Strength=9);
+     width=150px;
+     height=200px;}
+.F3 {filter: glow(Color=#0080FF,Strength=12);
+     width=250px;
+     height=200px;}
+&lt;/style&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  CodeLifter.com (support@codelifter.com) --&gt;
+&lt;!-- Web Site:  http://www.codelifter.com --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var rate = 1000
+// do not edit below this line
+var i = 0;
+var F = 'F1';
+function doThing() {
+if (document.getElementById&&document.all) {
+ok = true;
+i++;
+if (i==1) F = 'F1';
+if (i==2) F = 'F2';
+if (i==3) F = 'F3';
+YammaYamma.className = F;
+if (i &gt; 2) i = 0;
+timer = setTimeout('doThing()', rate);
+   }         
+}
+//  End --&gt;
+&lt;/script&gt;
+
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Insert the onLoad event handler into your BODY tag  --&gt;
+
+&lt;BODY onLoad="doThing()"&gt;
+
+&lt;!-- STEP THREE: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;center&gt;
+&lt;table width="250" cellspacing="0" cellpadding="10"&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;center&gt;
+&lt;font face="Courier" size="5" color="#FFFFFF"&gt;
+&lt;p id="YammaYamma"&gt;
+&lt;b&gt;JavaScript Source Code 3000 - The best place to find JavaScripts!&lt;/b&gt;
+&lt;/p&gt;
+&lt;/font&gt;
+&lt;/center&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  1.88 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

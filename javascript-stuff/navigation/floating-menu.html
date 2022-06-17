@@ -1,0 +1,306 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Navigation:  Floating Menu</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Randy Bennett (rbennett@thezone.net)">
+<META NAME="section" CONTENT="Navigation">
+<META NAME="description" CONTENT="JavaScript can power a floating menu, that actually can 'float' a navigation bar menu to anywhere on the page, with the click of a mouse!  Amazing!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Randy Bennett (rbennett@thezone.net) -->
+<!-- Web Site:  http://home.thezone.net/~rbennett/utility/javahead.htm -->
+
+
+
+
+<!-- Begin
+function checkVersion4() {
+var x = navigator.appVersion;
+y = x.substring(0,4);
+if (y>=4) setVariables();moveOB();
+}
+
+function setVariables() {
+if (navigator.appName == "Netscape") {
+h=".left=";v=".top=";dS="document.";sD="";
+}
+else{
+h=".pixelLeft=";v=".pixelTop=";dS="";sD=".style";
+}
+objectX="object11"
+XX=-70;
+YY=-70;
+OB=11;
+}
+
+function setObject(a) {
+objectX="object"+a;
+OB=a;
+XX=eval("xpos"+a);
+YY=eval("ypos"+a);
+}
+
+function getObject() {
+if (isNav) document.captureEvents(Event.MOUSEMOVE);
+}
+
+function releaseObject() {
+if (isNav) document.releaseEvents(Event.MOUSEMOVE);
+check="no";
+objectX="object11";
+document.close();
+}
+
+function moveOB() {
+eval(dS + objectX + sD + h + Xpos);
+eval(dS + objectX + sD + v + Ypos);
+}
+
+var isNav = (navigator.appName.indexOf("Netscape") !=-1);
+var isIE = (navigator.appName.indexOf("Microsoft") !=-1);
+nsValue=(document.layers);
+check="no";
+function MoveHandler(e) {
+Xpos = (isIE) ? event.clientX : e.pageX;
+Ypos = (nsValue) ? e.pageY : event.clientY;
+if (check=="no") {
+diffX=XX-Xpos;
+diffY=YY-Ypos;
+check="yes";
+if (objectX=="object11") check="no";
+}
+Xpos+=diffX;
+Ypos+=diffY;
+if (OB=="1") xpos1=Xpos,ypos1=Ypos;
+moveOB();
+}
+if (isNav) {
+document.captureEvents(Event.CLICK);
+document.captureEvents(Event.DBLCLICK);
+}
+xpos1=50;  // make this the left pixel value for object1 below
+ypos1=50;  // make this the top pixel value for object1 below
+xpos11 = -50;
+ypos11 = -50;
+Xpos=5;
+Ypos=5;
+document.onmousemove = MoveHandler;
+document.onclick = getObject;
+document.ondblclick = releaseObject;
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff OnLoad="checkVersion4()">
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /navigation/"><font color="#FF0000"><b>Navigation</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Floating Menu</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+JavaScript can power a floating menu, that actually can 'float' a navigation bar menu to anywhere on the page, with the click of a mouse!  Amazing!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<b>Click on "Moveable Menu" to pick<br>
+ it up and Double Click to drop it!</b>
+<br>
+<div id="object1" style="position:absolute; visibility:show; left:50px; top:50px; z-index:2">
+<table border=1 cellpadding=5>
+<tr>
+<td bgcolor=eeeeee><a href="javascript:void(0)" onmousedown="setObject(1)">Movable Menu</a></td>
+</tr>
+<tr>
+<td>
+<br>
+<A HREF="javascript:void(0)">Menu Item # 1</A><br>
+<A HREF="javascript:void(0)">Menu Item # 2</a><br>
+<A HREF="javascript:void(0)">Menu Item # 3</a>
+</td>
+</tr>
+</table>
+</div>
+
+<div id="object11" style="position:absolute; visibility:show; left:-70px; top:-70px; z-index:2">
+</div>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Navigation:  Floating Menu</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  3.09 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL FLOATING MENU:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the onLoad event handler into the BODY tag
+  3.  Put the last coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Randy Bennett (rbennett@thezone.net) --&gt;
+&lt;!-- Web Site:  http://home.thezone.net/~rbennett/utility/javahead.htm --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function checkVersion4() {
+var x = navigator.appVersion;
+y = x.substring(0,4);
+if (y&gt;=4) setVariables();moveOB();
+}
+
+function setVariables() {
+if (navigator.appName == "Netscape") {
+h=".left=";v=".top=";dS="document.";sD="";
+}
+else{
+h=".pixelLeft=";v=".pixelTop=";dS="";sD=".style";
+}
+objectX="object11"
+XX=-70;
+YY=-70;
+OB=11;
+}
+
+function setObject(a) {
+objectX="object"+a;
+OB=a;
+XX=eval("xpos"+a);
+YY=eval("ypos"+a);
+}
+
+function getObject() {
+if (isNav) document.captureEvents(Event.MOUSEMOVE);
+}
+
+function releaseObject() {
+if (isNav) document.releaseEvents(Event.MOUSEMOVE);
+check="no";
+objectX="object11";
+document.close();
+}
+
+function moveOB() {
+eval(dS + objectX + sD + h + Xpos);
+eval(dS + objectX + sD + v + Ypos);
+}
+
+var isNav = (navigator.appName.indexOf("Netscape") !=-1);
+var isIE = (navigator.appName.indexOf("Microsoft") !=-1);
+nsValue=(document.layers);
+check="no";
+function MoveHandler(e) {
+Xpos = (isIE) ? event.clientX : e.pageX;
+Ypos = (nsValue) ? e.pageY : event.clientY;
+if (check=="no") {
+diffX=XX-Xpos;
+diffY=YY-Ypos;
+check="yes";
+if (objectX=="object11") check="no";
+}
+Xpos+=diffX;
+Ypos+=diffY;
+if (OB=="1") xpos1=Xpos,ypos1=Ypos;
+moveOB();
+}
+if (isNav) {
+document.captureEvents(Event.CLICK);
+document.captureEvents(Event.DBLCLICK);
+}
+xpos1=50;  // make this the left pixel value for object1 below
+ypos1=50;  // make this the top pixel value for object1 below
+xpos11 = -50;
+ypos11 = -50;
+Xpos=5;
+Ypos=5;
+document.onmousemove = MoveHandler;
+document.onclick = getObject;
+document.ondblclick = releaseObject;
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Insert the onLoad event handler into your BODY tag  --&gt;
+
+<BODY OnLoad="checkVersion4()">
+
+&lt;!-- STEP THREE: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;b&gt;Click on "Moveable Menu" to pick&lt;br&gt;
+ it up and Double Click to drop it!&lt;/b&gt;
+&lt;br&gt;
+&lt;div id="object1" style="position:absolute; visibility:show; left:50px; top:50px; z-index:2"&gt;
+&lt;table border=1 cellpadding=5&gt;
+&lt;tr&gt;
+&lt;td bgcolor=eeeeee&gt;&lt;a href="javascript:void(0)" onmousedown="setObject(1)"&gt;Movable Menu&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;br&gt;
+&lt;A HREF="javascript:void(0)"&gt;Menu Item # 1&lt;/A&gt;&lt;br&gt;
+&lt;A HREF="javascript:void(0)"&gt;Menu Item # 2&lt;/a&gt;&lt;br&gt;
+&lt;A HREF="javascript:void(0)"&gt;Menu Item # 3&lt;/a&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;div id="object11" style="position:absolute; visibility:show; left:-70px; top:-70px; z-index:2"&gt;
+&lt;/div&gt;
+
+ 
+
+&lt;!-- Script Size:  3.09 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

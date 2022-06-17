@@ -1,0 +1,319 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Equivalents:  Hex-RGB Converter</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="Converts Hex to RGB and back in real-time.  Also displays current value as background color.  Cool!">
+<META NAME="date" CONTENT="2001-02-27">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Ryan Sokol">
+<META NAME="section" CONTENT="Equivalents">
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Ryan Sokol -->
+<!-- Web Site:  http://www.logicode.net -->
+
+
+
+
+<!-- Begin
+function NumToHex(num1,num2) {
+strNum=document.forms[0].elements[num1].value;
+for(i = 0; i < strNum.length; i++) {
+chr=strNum.substring(i, i + 1);		
+if((isNaN(chr))||(chr == ' ')) {
+alert('You must enter a digit between 0 and 9!');
+document.forms[0].elements[num1].select();
+document.forms[0].elements[num2].value='';
+return false;
+   }
+}
+if(strNum > 255) {
+alert('You must enter a number between 0 and 255!');
+document.forms[0].elements[num1].select();
+document.forms[0].elements[num2].value='';
+return false;
+}
+else {
+base = strNum / 16;
+rem = strNum % 16;
+base = base - (rem / 16);
+baseS = MakeHex(base);
+remS = MakeHex(rem);
+document.forms[0].elements[num2].value=baseS + '' + remS;
+ChangeBackground(3, 4, 5);
+return true;
+   }
+}
+function MakeHex(x) {
+if((x >= 0) && (x <= 9))
+return x;
+else {
+switch(x) {
+case 10: return "A"; 
+case 11: return "B";  
+case 12: return "C";  
+case 13: return "D";  
+case 14: return "E";  
+case 15: return "F";  
+      }
+   }
+}
+function HexToNum(num1,num2) {
+numberS = document.forms[0].elements[num1].value;
+tens = MakeNum(numberS.substring(0,1));
+if(tens == 'X') {
+document.forms[0].elements[num1].select();
+document.forms[0].elements[num2].value='';
+return false;
+}
+ones = 0;
+if(numberS.length > 1) // means two characters entered
+ones=MakeNum(numberS.substring(1,2));
+if(ones == 'X') {
+document.forms[0].elements[num1].select();
+document.forms[0].elements[num2].value='';
+return false;
+}
+document.forms[0].elements[num2].value = (tens * 16) + (ones * 1);
+document.forms[0].elements[num1].value = document.forms[0].elements[num1].value.toUpperCase();
+ChangeBackground(3, 4, 5);
+return true;
+}
+function MakeNum(str) {
+if((str >= 0) && (str <= 9))
+return str;
+switch(str.toUpperCase()) {
+case "A": return 10;
+case "B": return 11;
+case "C": return 12;
+case "D": return 13;
+case "E": return 14;
+case "F": return 15;
+default:  alert('You must choose a number between 0 and 9 or a letter between A and F!');
+return 'X';
+   }
+}
+function ChangeBackground(num1, num2, num3) {
+document.bgColor = '#'+document.forms[0].elements[num1].value + document.forms[0].elements[num2].value + document.forms[0].elements[num3].value;
+}
+//  End -->
+</script>
+
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /equivalents/"><font color="#FF0000"><b>Equivalents</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Hex-RGB Converter</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Converts Hex to RGB and back in real-time.  Also displays current value as background color.  Cool!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<form>
+<table border=1 align=center cellpadding=10 bgcolor=white>
+<tr>
+<th>Color/Code</th>
+<th>Red</th>
+<th>Green</th>
+<th>Blue</th>
+</tr>
+<tr>
+<th>0-255</th>
+<td><input type=text name=rr_num size=4 maxlength=3 onKeyUp="return NumToHex(0,3);"></td>
+<td><input type=text name=gg_num size=4 maxlength=3 onKeyUp="return NumToHex(1,4);"></td>
+<td><input type=text name=bb_num size=4 maxlength=3 onKeyUp="return NumToHex(2,5);"></td>
+</tr>
+<tr>
+<th>HEX</th>
+<td><input type=text name=rr_hex size=4 maxlength=2 onKeyUp="return HexToNum(3,0);"></td>
+<td><input type=text name=gg_hex size=4 maxlength=2 onKeyUp="return HexToNum(4,1);"></td>
+<td><input type=text name=bb_hex size=4 maxlength=2 onKeyUp="return HexToNum(5,2);"></td>
+</tr>
+</table>
+</form>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Equivalents:  Hex-RGB Converter</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Command-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  3.91 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL HEX-RGB CONVERTER:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Ryan Sokol --&gt;
+&lt;!-- Web Site:  http://www.logicode.net --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function NumToHex(num1,num2) {
+strNum=document.forms[0].elements[num1].value;
+for(i = 0; i &lt; strNum.length; i++) {
+chr=strNum.substring(i, i + 1);		
+if((isNaN(chr))||(chr == ' ')) {
+alert('You must enter a digit between 0 and 9!');
+document.forms[0].elements[num1].select();
+document.forms[0].elements[num2].value='';
+return false;
+   }
+}
+if(strNum &gt; 255) {
+alert('You must enter a number between 0 and 255!');
+document.forms[0].elements[num1].select();
+document.forms[0].elements[num2].value='';
+return false;
+}
+else {
+base = strNum / 16;
+rem = strNum % 16;
+base = base - (rem / 16);
+baseS = MakeHex(base);
+remS = MakeHex(rem);
+document.forms[0].elements[num2].value=baseS + '' + remS;
+ChangeBackground(3, 4, 5);
+return true;
+   }
+}
+function MakeHex(x) {
+if((x &gt;= 0) && (x &lt;= 9))
+return x;
+else {
+switch(x) {
+case 10: return "A"; 
+case 11: return "B";  
+case 12: return "C";  
+case 13: return "D";  
+case 14: return "E";  
+case 15: return "F";  
+      }
+   }
+}
+function HexToNum(num1,num2) {
+numberS = document.forms[0].elements[num1].value;
+tens = MakeNum(numberS.substring(0,1));
+if(tens == 'X') {
+document.forms[0].elements[num1].select();
+document.forms[0].elements[num2].value='';
+return false;
+}
+ones = 0;
+if(numberS.length &gt; 1) // means two characters entered
+ones=MakeNum(numberS.substring(1,2));
+if(ones == 'X') {
+document.forms[0].elements[num1].select();
+document.forms[0].elements[num2].value='';
+return false;
+}
+document.forms[0].elements[num2].value = (tens * 16) + (ones * 1);
+document.forms[0].elements[num1].value = document.forms[0].elements[num1].value.toUpperCase();
+ChangeBackground(3, 4, 5);
+return true;
+}
+function MakeNum(str) {
+if((str &gt;= 0) && (str &lt;= 9))
+return str;
+switch(str.toUpperCase()) {
+case "A": return 10;
+case "B": return 11;
+case "C": return 12;
+case "D": return 13;
+case "E": return 14;
+case "F": return 15;
+default:  alert('You must choose a number between 0 and 9 or a letter between A and F!');
+return 'X';
+   }
+}
+function ChangeBackground(num1, num2, num3) {
+document.bgColor = '#'+document.forms[0].elements[num1].value + document.forms[0].elements[num2].value + document.forms[0].elements[num3].value;
+}
+//  End --&gt;
+&lt;/script&gt;
+
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;form&gt;
+&lt;table border=1 align=center cellpadding=10 bgcolor=white&gt;
+&lt;tr&gt;
+&lt;th&gt;Color/Code&lt;/th&gt;
+&lt;th&gt;Red&lt;/th&gt;
+&lt;th&gt;Green&lt;/th&gt;
+&lt;th&gt;Blue&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;0-255&lt;/th&gt;
+&lt;td&gt;&lt;input type=text name=rr_num size=4 maxlength=3 onKeyUp="return NumToHex(0,3);"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name=gg_num size=4 maxlength=3 onKeyUp="return NumToHex(1,4);"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name=bb_num size=4 maxlength=3 onKeyUp="return NumToHex(2,5);"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;HEX&lt;/th&gt;
+&lt;td&gt;&lt;input type=text name=rr_hex size=4 maxlength=2 onKeyUp="return HexToNum(3,0);"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name=gg_hex size=4 maxlength=2 onKeyUp="return HexToNum(4,1);"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name=bb_hex size=4 maxlength=2 onKeyUp="return HexToNum(5,2);"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+
+ 
+
+&lt;!-- Script Size:  3.91 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

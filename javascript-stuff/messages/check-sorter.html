@@ -1,0 +1,415 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Messages:  Check Sorter</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Tom Folkes (tfolkes@cpcug.org)">
+<META NAME="section" CONTENT="Messages">
+<META NAME="description" CONTENT="JavaScript can sort data based on any field of information. In this example, a checkbook register can be sorted by date, check number, check amount, or paid to person.  We're one step closer to online banking...  ;-)">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Tom Folkes (tfolkes@cpcug.org) -->
+
+<!-- Begin
+function dates(datea,dateb){  
+var yeara = 1 * datea.substring(6,8);
+var yearb = 1 * dateb.substring(6,8);
+if (yeara > yearb) return true;
+if (yeara < yearb) return false;
+
+var montha = 1 * datea.substring(0,2);
+var monthb = 1 * dateb.substring(0,2);
+if (montha > monthb) return true;
+if (montha < monthb) return false;
+
+var daya = 1 * datea.substring(3,5);
+var dayb = 1 * dateb.substring(3,5);
+if (daya > dayb) return true;
+return false;
+}
+
+function exchange(i,form){     
+/* This function swaps the information in the various cells */
+document.forms[6].check.value = document.forms[i].check.value;
+document.forms[i].check.value = document.forms[i+1].check.value;
+document.forms[i+1].check.value = document.forms[6].check.value;
+document.forms[6].units.value = document.forms[i].units.value;
+document.forms[i].units.value = document.forms[i+1].units.value;
+document.forms[i+1].units.value = document.forms[6].units.value;  
+document.forms[6].amount.value = document.forms[i].amount.value;
+document.forms[i].amount.value = document.forms[i+1].amount.value;
+document.forms[i+1].amount.value = document.forms[6].amount.value; 
+document.forms[6].presented.value = document.forms[i].presented.value;
+document.forms[i].presented.value = document.forms[i+1].presented.value;
+document.forms[i+1].presented.value = document.forms[6].presented.value; 
+}
+
+function amountSort(form){
+/* orders the table by amount */   
+for (var j = 0; j<5; j++){
+for(var i=0; i<5; i++){
+var l = 1 * i + 1;
+if(1 * document.forms[i].amount.value > 1 * document.forms[i+1].amount.value) {   
+exchange(i,form);
+         }
+      }
+   }
+}
+
+function checkSort(form){
+/* orders the table by check number */
+for (var j = 0; j<5; j++){
+for(var i=0; i<5; i++){
+var l = 1 * i + 1;
+if(1 * document.forms[i].check.value > 1 * document.forms[i+1].check.value){   
+exchange(i,form);  
+         }
+      }
+   }
+}
+
+function dateSort(form){
+/* orders the table by date */
+for (var j = 0; j<5; j++){
+for(var i=0; i<5; i++){
+var l = 1 * i + 1;
+if(dates(document.forms[i].units.value,document.forms[i+1].units.value)){
+exchange(i,form);  
+         }
+      }
+   }
+}
+
+function presentSort(form){   
+/* orders the table by presenter */
+for (var j = 0; j<5; j++){    
+for(var i=0; i<5; i++){
+var l = 1 * i + 1;
+if(document.forms[i].presented.value >document.forms[i+1].presented.value){    
+exchange(i,form);   
+         }
+      }
+   }
+}
+
+// End -->
+</SCRIPT>
+</HEAD></HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /messages/"><font color="#FF0000">Messages</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Check Sorter</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+JavaScript can sort data based on any field of information. In this example, a checkbook register can be sorted by date, check number, check amount, or paid to person.  We're one step closer to online banking...  ;-)
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+
+<table border=4>
+
+<form method=post>
+<tr>
+<td><div align=center> <input type="button" value="DATE" onclick=dateSort(this.form)> </div></td>
+<td><div align=center> <input type="button" value="CK #" onClick=checkSort(this.form)> </div></td>
+<td><div align=center> <input type="button" value="AMOUNT" onClick=amountSort(this.form)> </div></td>
+<td><div align=center> <input type="button" value="PAID TO" onClick=presentSort(this.form)> </div></td>
+</tr>
+<tr>
+<td><input type=text name=units size=8 value=12/07/95></td>
+<td><input type=text name=check size=6 value=3></td>
+<td><input type=text name=amount size=9 value=99.10></td>
+<td><input type=text name=presented size=20 value="Sears"></td>
+</tr>
+</form>
+
+<form method=post>
+<tr>
+<td><input type=text name=units size=8 value=11/05/95></td>
+<td><input type=text name=check size=6 value=7></td>
+<td><input type=text name=amount size=9 value=12.01></td>
+<td><input type=text name=presented size=20 value="Holiday Inn"></td>
+</tr>
+</form>
+
+<form method=post>
+<tr>
+<td><input type=text name=units size=8 value=11/03/95></td>
+<td><input type=text name=check size=6 value=1></td>
+<td><input type=text name=amount size=9 value=1.08></td>
+<td><input type=text name=presented size=20 value="McDonalds"></td>
+</tr>
+</form>
+
+<form method=post>
+<tr>
+<td><input type=text name=units size=8 value=12/01/94></td>
+<td><input type=text name=check size=6 value=33></td>
+<td><input type=text name=amount size=9 value=22.05></td>
+<td><input type=text name=presented size=20 value="IBM"></td>
+</tr>
+</form>
+
+<form method=post>
+<tr>
+<td><input type=text name=units size=8 value=12/23/95></td>
+<td><input type=text name=check size=6 value=22></td>
+<td><input type=text name=amount size=9 value=11.95></td>
+<td><input type=text name=presented size=20 value="American Airlines"></td>
+</tr>
+</form>
+
+<form method=post>
+<tr>
+<td><input type=text name=units size=8 value=12/26/95> </td>
+<td><input type=text name=check size=6 value=11></td>
+<td><input type=text name=amount size=9 value=22.65></td>
+<td><input type=text name=presented size=20 value="Disney Land"></td>
+</tr>
+</form>
+
+</table>
+</center>
+
+<form method=post>
+<tr>
+<td><input type=hidden name=units size=5></td>
+<td><input type=hidden name=check size=6></td>
+<td><input type=hidden name=amount size=5></td>
+<td><input type=hidden name=presented size=20></td>
+<tr>
+</form>
+[ click the buttons to sort by that column ]
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Messages:  Check Sorter:</b>
+<p>Simply click inside the window below, use your cursor to highlight the 
+script, and copy (type Control-c or Apple-c) the script into a new file in 
+your text editor (such as Note Pad or Simple Text) and save (Control-s or 
+Apple-s).  The script is yours!!!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  5.26 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL CHECK SORTER:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Tom Folkes (tfolkes@cpcug.org) --&gt;
+
+&lt;!-- Begin
+function dates(datea,dateb){  
+var yeara = 1 * datea.substring(6,8);
+var yearb = 1 * dateb.substring(6,8);
+if (yeara &gt; yearb) return true;
+if (yeara &lt; yearb) return false;
+
+var montha = 1 * datea.substring(0,2);
+var monthb = 1 * dateb.substring(0,2);
+if (montha &gt; monthb) return true;
+if (montha &lt; monthb) return false;
+
+var daya = 1 * datea.substring(3,5);
+var dayb = 1 * dateb.substring(3,5);
+if (daya &gt; dayb) return true;
+return false;
+}
+
+function exchange(i,form){     
+/* This function swaps the information in the various cells */
+document.forms[6].check.value = document.forms[i].check.value;
+document.forms[i].check.value = document.forms[i+1].check.value;
+document.forms[i+1].check.value = document.forms[6].check.value;
+document.forms[6].units.value = document.forms[i].units.value;
+document.forms[i].units.value = document.forms[i+1].units.value;
+document.forms[i+1].units.value = document.forms[6].units.value;  
+document.forms[6].amount.value = document.forms[i].amount.value;
+document.forms[i].amount.value = document.forms[i+1].amount.value;
+document.forms[i+1].amount.value = document.forms[6].amount.value; 
+document.forms[6].presented.value = document.forms[i].presented.value;
+document.forms[i].presented.value = document.forms[i+1].presented.value;
+document.forms[i+1].presented.value = document.forms[6].presented.value; 
+}
+
+function amountSort(form){
+/* orders the table by amount */   
+for (var j = 0; j&lt;5; j++){
+for(var i=0; i&lt;5; i++){
+var l = 1 * i + 1;
+if(1 * document.forms[i].amount.value &gt; 1 * document.forms[i+1].amount.value) {   
+exchange(i,form);
+         }
+      }
+   }
+}
+
+function checkSort(form){
+/* orders the table by check number */
+for (var j = 0; j&lt;5; j++){
+for(var i=0; i&lt;5; i++){
+var l = 1 * i + 1;
+if(1 * document.forms[i].check.value &gt; 1 * document.forms[i+1].check.value){   
+exchange(i,form);  
+         }
+      }
+   }
+}
+
+function dateSort(form){
+/* orders the table by date */
+for (var j = 0; j&lt;5; j++){
+for(var i=0; i&lt;5; i++){
+var l = 1 * i + 1;
+if(dates(document.forms[i].units.value,document.forms[i+1].units.value)){
+exchange(i,form);  
+         }
+      }
+   }
+}
+
+function presentSort(form){   
+/* orders the table by presenter */
+for (var j = 0; j&lt;5; j++){    
+for(var i=0; i&lt;5; i++){
+var l = 1 * i + 1;
+if(document.forms[i].presented.value &gt;document.forms[i+1].presented.value){    
+exchange(i,form);   
+         }
+      }
+   }
+}
+
+// End --&gt;
+&lt;/SCRIPT&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;center&gt;
+&lt;table border=4&gt;
+
+&lt;form method=post&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;div align=center&gt; &lt;input type="button" value="DATE" onclick=dateSort(this.form)&gt; &lt;/div&gt;&lt;/td&gt;
+&lt;td&gt;&lt;div align=center&gt; &lt;input type="button" value="CK #" onClick=checkSort(this.form)&gt; &lt;/div&gt;&lt;/td&gt;
+&lt;td&gt;&lt;div align=center&gt; &lt;input type="button" value="AMOUNT" onClick=amountSort(this.form)&gt; &lt;/div&gt;&lt;/td&gt;
+&lt;td&gt;&lt;div align=center&gt; &lt;input type="button" value="PAID TO" onClick=presentSort(this.form)&gt; &lt;/div&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;input type=text name=units size=8 value=12/07/95&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name=check size=6 value=3&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name=amount size=9 value=99.10&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name=presented size=20 value="Sears"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/form&gt;
+
+&lt;form method=post&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;input type=text name=units size=8 value=11/05/95&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name=check size=6 value=7&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name=amount size=9 value=12.01&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name=presented size=20 value="Holiday Inn"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/form&gt;
+
+&lt;form method=post&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;input type=text name=units size=8 value=11/03/95&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name=check size=6 value=1&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name=amount size=9 value=1.08&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name=presented size=20 value="McDonalds"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/form&gt;
+
+&lt;form method=post&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;input type=text name=units size=8 value=12/01/94&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name=check size=6 value=33&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name=amount size=9 value=22.05&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name=presented size=20 value="IBM"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/form&gt;
+
+&lt;form method=post&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;input type=text name=units size=8 value=12/23/95&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name=check size=6 value=22&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name=amount size=9 value=11.95&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name=presented size=20 value="American Airlines"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/form&gt;
+
+&lt;form method=post&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;input type=text name=units size=8 value=12/26/95&gt; &lt;/td&gt;
+&lt;td&gt;&lt;input type=text name=check size=6 value=11&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name=amount size=9 value=22.65&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name=presented size=20 value="Disney Land"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/form&gt;
+
+&lt;/table&gt;
+&lt;/center&gt;
+
+&lt;form method=post&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;input type=hidden name=units size=5&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=hidden name=check size=6&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=hidden name=amount size=5&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=hidden name=presented size=20&gt;&lt;/td&gt;
+&lt;tr&gt;
+&lt;/form&gt;
+
+ 
+
+&lt;!-- Script Size:  5.26 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

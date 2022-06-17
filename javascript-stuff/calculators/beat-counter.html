@@ -1,0 +1,252 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Calculators:  Beat Counter</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Derek Chilcote-Bacco (dac-b@usa.net)">
+<META NAME="section" CONTENT="Calculators">
+<META NAME="description" CONTENT="A manual Beats per Minute (BPM) counter for DJs.  Counts the beats-per-minute of a song by tapping a key or the mouse to the beat of a song.  Simply click on the page to start the time then tap any key to the beat.  Cool!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Derek Chilcote-Bacco (dac-b@usa.net) -->
+<!-- Web Site:  http://www.mixed.net -->
+<!-- Modified by:  Ronnie T. Moore, Editor -->
+
+
+
+
+<!-- Begin
+secs2 = 0;
+count = 0;
+allBpm = 0;
+avgBpm = 0;
+bpm = 0;
+ns = (navigator.appName == 'Netscape');
+ie = (navigator.appName == 'Microsoft Internet Explorer');
+function bpmCounter(e) {
+if (ns) clearBpm = e.which;
+else if (ie) clearBpm = event.button;
+timeSeconds = new Date;
+secs = timeSeconds.getTime();
+if (count == 0) {
+document.BEATSPERMINUTE.AVG.value = "";
+document.BEATSPERMINUTE.NOW.value = "READY!  Start NOW!";
+document.BEATSPERMINUTE.HIT.value = "";
+document.BEATSPERMINUTE.ACG.value = "";
+document.BEATSPERMINUTE.NCG.value = "";
+secs2 = secs;
+count++;
+}
+else {
+oldBpm = bpm;
+bpm = (1 / ((secs - secs2) / 1000)) * 60;
+bpmChg = (Math.round((bpm - oldBpm) * 10)) / 10;
+count++;
+allBpm = allBpm + bpm;
+oldAvg = avgBpm;
+avgBpm = allBpm / (count - 1);
+avgChg = (Math.round((avgBpm - oldAvg) * 10)) / 10;
+secs2 = secs;
+if (bpmChg >= 0) { PbpmChg = "+" + bpmChg } else { PbpmChg = bpmChg }
+if (avgChg >= 0) { PavgChg = "+" + avgChg } else { PavgChg = avgChg }
+document.BEATSPERMINUTE.AVG.value = (Math.round(avgBpm * 100)) / 100;
+document.BEATSPERMINUTE.ACG.value = PavgChg;
+document.BEATSPERMINUTE.NOW.value = (Math.round(bpm * 100)) / 100;
+document.BEATSPERMINUTE.NCG.value = PbpmChg;
+document.BEATSPERMINUTE.HIT.value = count;
+}
+return true;
+}
+document.onkeydown = bpmCounter;
+document.onmousedown = bpmCounter;
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /calculators/"><font color="#FF0000"><b>Calculators</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Beat Counter</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+A manual Beats per Minute (BPM) counter for DJs.  Counts the beats-per-minute of a song by tapping a key or the mouse to the beat of a song.  Simply click on the page to start the time then tap any key to the beat.  Cool!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<table border=0 width=400>
+<tr><td width=50% align=middle valign=top>
+<form name="BEATSPERMINUTE">
+<table border=0 cellpadding=3 cellspacing=0 bgcolor="#007700">
+<tr><td align=middle>
+<table border=0 cellpadding=3 cellspacing=0 bgcolor="#00FF00">
+<tr><td align=middle>
+<table border=0 cellpadding=4 cellspacing=0 bgcolor="#efefef">
+<tr><td><font color="#000000"><tt>AVERAGE BPM</tt></td>
+<td><input name="AVG"></td><td><input name="ACG" size=6></td></tr>
+<tr><td><font color="#000000"><tt>ONCLICK BPM</tt></td>
+<td><input name="NOW"></td><td><input name="NCG" size=6></td></tr>
+<tr><td><font color="#000000"><tt>TIMING HITS</tt></td>
+<td><input name="HIT"></td><td> &nbsp; </td></tr>
+</table>
+</td></tr></table>
+</td></tr></table>
+Click on the page to start the bpm counter<p>
+Press a key or click your mouse to measure beats.<br>
+You may also <input type=reset value="RESET "> the counter.<br>
+Netscape 4.x+ and MSIE 4.x+ compatible.<p>
+</form>
+</table>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Calculators:  Beat Counter</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  3.00 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL BEAT COUNTER:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Derek Chilcote-Batto (dac-b@usa.net) --&gt;
+&lt;!-- Web Site:  http://www.mixed.net --&gt;
+&lt;!-- Modified by:  Ronnie T. Moore, Editor --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+secs2 = 0;
+count = 0;
+allBpm = 0;
+avgBpm = 0;
+bpm = 0;
+ns = (navigator.appName == 'Netscape');
+ie = (navigator.appName == 'Microsoft Internet Explorer');
+function bpmCounter(e) {
+if (ns) clearBpm = e.which;
+else if (ie) clearBpm = event.button;
+timeSeconds = new Date;
+secs = timeSeconds.getTime();
+if (count == 0) {
+document.BEATSPERMINUTE.AVG.value = "";
+document.BEATSPERMINUTE.NOW.value = "READY!  Start NOW!";
+document.BEATSPERMINUTE.HIT.value = "";
+document.BEATSPERMINUTE.ACG.value = "";
+document.BEATSPERMINUTE.NCG.value = "";
+secs2 = secs;
+count++;
+}
+else {
+oldBpm = bpm;
+bpm = (1 / ((secs - secs2) / 1000)) * 60;
+bpmChg = (Math.round((bpm - oldBpm) * 10)) / 10;
+count++;
+allBpm = allBpm + bpm;
+oldAvg = avgBpm;
+avgBpm = allBpm / (count - 1);
+avgChg = (Math.round((avgBpm - oldAvg) * 10)) / 10;
+secs2 = secs;
+if (bpmChg &gt;= 0) { PbpmChg = "+" + bpmChg } else { PbpmChg = bpmChg }
+if (avgChg &gt;= 0) { PavgChg = "+" + avgChg } else { PavgChg = avgChg }
+document.BEATSPERMINUTE.AVG.value = (Math.round(avgBpm * 100)) / 100;
+document.BEATSPERMINUTE.ACG.value = PavgChg;
+document.BEATSPERMINUTE.NOW.value = (Math.round(bpm * 100)) / 100;
+document.BEATSPERMINUTE.NCG.value = PbpmChg;
+document.BEATSPERMINUTE.HIT.value = count;
+}
+return true;
+}
+document.onkeydown = bpmCounter;
+document.onmousedown = bpmCounter;
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;table border=0 width=400&gt;
+&lt;tr&gt;&lt;td width=50% align=middle valign=top&gt;
+&lt;form name="BEATSPERMINUTE"&gt;
+&lt;table border=0 cellpadding=3 cellspacing=0 bgcolor="#007700"&gt;
+&lt;tr&gt;&lt;td align=middle&gt;
+&lt;table border=0 cellpadding=3 cellspacing=0 bgcolor="#00FF00"&gt;
+&lt;tr&gt;&lt;td align=middle&gt;
+&lt;table border=0 cellpadding=4 cellspacing=0 bgcolor="#efefef"&gt;
+&lt;tr&gt;&lt;td&gt;&lt;font color="#000000"&gt;&lt;tt&gt;AVERAGE BPM&lt;/tt&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input name="AVG"&gt;&lt;/td&gt;&lt;td&gt;&lt;input name="ACG" size=6&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;font color="#000000"&gt;&lt;tt&gt;ONCLICK BPM&lt;/tt&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input name="NOW"&gt;&lt;/td&gt;&lt;td&gt;&lt;input name="NCG" size=6&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;font color="#000000"&gt;&lt;tt&gt;TIMING HITS&lt;/tt&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input name="HIT"&gt;&lt;/td&gt;&lt;td&gt; &nbsp; &lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+Click on the page to start the bpm counter&lt;p&gt;
+Press a key or click your mouse to measure beats.&lt;br&gt;
+You may also &lt;input type=reset value="RESET "&gt; the counter.&lt;br&gt;
+Netscape 4.x+ and MSIE 4.x+ compatible.&lt;p&gt;
+&lt;/form&gt;
+&lt;/table&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  3.00 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

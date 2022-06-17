@@ -1,0 +1,372 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Calculators:  Income Calculator</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Ashley Steele (ashleys@inetport.com)">
+<META NAME="section" CONTENT="Calculators">
+<META NAME="description" CONTENT="Estimates your weekly, bi-weekly, monthly, and yearly income.  Very useful when job hunting when offered an income per hour, month, or year.  The tax bracket numbers are adjustable with each year's income tax levels.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Ashley Steele (ashleys@inetport.com) -->
+
+
+
+
+<!-- Begin
+function GrossTextTotal() {
+var Calc = document.NetIncome;
+if (Calc.InputRad[0].checked & Calc.HoursPerWeekText.value == "") {
+Calc.GrossText.value = (parseFloat(Calc.HourlyText.value) * 2080) + " $";
+}
+else {
+if (Calc.InputRad[0].checked & Calc.HoursPerWeekText.value < "41") {
+Calc.GrossText.value = (parseFloat(Calc.HourlyText.value) * parseFloat(Calc.HoursPerWeekText.value) * 52) + " $";
+}
+else
+if (Calc.InputRad[0].checked & Calc.HoursPerWeekText.value > "40") {
+Calc.OTHoursText.value = Calc.HoursPerWeekText.value - 40;
+Calc.OTWagesText.value = Calc.HourlyText.value * 2 / 4 * 3;
+Calc.OTPayText.value = Calc.OTWagesText.value * Calc.OTHoursText.value + " $";
+Calc.GrossText.value = (parseFloat(Calc.HourlyText.value * 40) + parseFloat(Calc.OTPayText.value)) * 52 + " $";
+      }
+   }
+}
+function TotalGrossPerYear() {
+var Calc = document.NetIncome;
+if (!(Calc.GrossText.value < 49800)) {
+Bracket2();
+}
+else {
+if (!(Calc.GrossText.value > 49800)) {
+Bracket1();
+      }
+   }
+}
+function Bracket1() {
+var Calc = document.NetIncome;
+if (Calc.InputRad[0].checked) {
+// This number is modified every year and per tax bracket
+Calc.GH1Text.value = (parseFloat(Calc.GrossText.value) - 3090) + " $";
+
+// This number is modified every year and per tax bracket
+Calc.GH2Text.value = (parseFloat(Calc.GrossText.value) - 20600) + " $";
+
+// This number is modified every year and per tax bracket
+Calc.GH3Text.value = (parseFloat(Calc.GH2Text.value) * 28 / 100) + " $";
+
+Calc.NetText.value = (parseFloat(Calc.GH1Text.value) - parseFloat(Calc.GH3Text.value)) + " $";
+Calc.MonthlyText.value = Math.round(parseFloat(Calc.NetText.value) / 12.991) + " $";
+Calc.Bi_WeeklyText.value = (parseFloat(Calc.MonthlyText.value) / 2) + " $";
+Calc.WeeklyText.value = (parseFloat(Calc.Bi_WeeklyText.value) / 2) + " $";
+}
+else {
+if (Calc.InputRad[1].checked) {
+Calc.GH1Text.value = (parseFloat(Calc.GrossText.value) - 3090) + " $";
+Calc.GH2Text.value = (parseFloat(Calc.GrossText.value) - 20600) + " $";
+Calc.GH3Text.value = (parseFloat(Calc.GH2Text.value) * 28 / 100) + " $";   
+Calc.NetText.value = (parseFloat(Calc.GH1Text.value) - parseFloat(Calc.GH3Text.value)) + " $";
+Calc.MonthlyText.value = Math.round(parseFloat(Calc.NetText.value) / 12.991) + " $";
+Calc.Bi_WeeklyText.value = (parseFloat(Calc.MonthlyText.value) / 2) + " $";
+Calc.WeeklyText.value = (parseFloat(Calc.Bi_WeeklyText.value) / 2) + " $";
+Calc.HourlyText.value = "N/A";
+      }
+   }
+}
+function Bracket2() {
+var Calc = document.NetIncome;
+if (Calc.InputRad[0].checked) {
+Calc.GH1Text.value = (parseFloat(Calc.GrossText.value) - 11266) + " $";
+Calc.GH2Text.value = (parseFloat(Calc.GrossText.value) - 49800) + " $";
+Calc.GH3Text.value = (parseFloat(Calc.GH2Text.value) * 31 / 100) + " $";   
+Calc.NetText.value = (parseFloat(Calc.GH1Text.value) - parseFloat(Calc.GH3Text.value)) + " $";
+Calc.MonthlyText.value = Math.round(parseFloat(Calc.NetText.value) / 12.991) + " $";
+Calc.Bi_WeeklyText.value = (parseFloat(Calc.MonthlyText.value) / 2) + " $";
+Calc.WeeklyText.value = (parseFloat(Calc.Bi_WeeklyText.value) / 2) + " $";
+}
+else {
+if (Calc.InputRad[1].checked) {
+Calc.GH1Text.value = (parseFloat(Calc.GrossText.value) - 11266) + " $";
+Calc.GH2Text.value = (parseFloat(Calc.GrossText.value) - 49800) + " $";
+Calc.GH3Text.value = (parseFloat(Calc.GH2Text.value) * 31 / 100) + " $";   
+Calc.NetText.value = (parseFloat(Calc.GH1Text.value) - parseFloat(Calc.GH3Text.value)) + " $";
+Calc.MonthlyText.value = Math.round(parseFloat(Calc.NetText.value) / 12.991) + " $";
+Calc.Bi_WeeklyText.value = (parseFloat(Calc.MonthlyText.value) / 2) + " $";
+Calc.WeeklyText.value = (parseFloat(Calc.Bi_WeeklyText.value) / 2) + " $";
+Calc.HourlyText.value = "N/A";
+      }
+   }
+}
+function NAHourlyText() {
+var Calc = document.NetIncome;
+Calc.HourlyText.value = "N/A";
+Calc.HoursPerWeekText.value = "N/A";
+Calc.GrossText.value = "";
+}
+function NAGrossText() {
+var Calc = document.NetIncome;
+Calc.GrossText.value = "N/A";
+Calc.HoursPerWeekText.value = "";
+Calc.HourlyText.value = "";
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /calculators/"><font color="#FF0000"><b>Calculators</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Income Calculator</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Estimates your weekly, bi-weekly, monthly, and yearly income.  Very useful when job hunting when offered an income per hour, month, or year.  The tax bracket numbers are adjustable with each year's income tax levels.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form method=post name=NetIncome>
+<input type=hidden name=OTHoursText size=10>
+<input type=hidden name=GH1Text size=10>
+<input type=hidden name=GH2Text size=10>
+<input type=hidden name=GH3Text size=10>
+<table border=5>
+<th align=left>
+<ol>
+<li>Choose Hourly or Yearly format.
+<li>Fill out the form, skipping N/A fields.
+<li>Press the TAB key when finished.
+</ol>
+</th>
+<tr>
+<td><font size=5><input type=radio checked name=InputRad value=PerHour onClick="NAGrossText()"><u>Hourly Pay</u><input type=radio name=InputRad value=PerYear onClick="NAHourlyText()"><u>Yearly Pay</u></font></td>
+</tr>
+<tr><td><input type=text name=HoursPerWeekText size=10>Hours per Week</td></tr>
+<tr>
+<td><input type=text name=HourlyText size=10 onChange="GrossTextTotal();TotalGrossPerYear()">Hourly Wages</td>
+</tr>
+<tr><td><input type=text name=OTWagesText size=10 value="-------">OverTime Wages Per Hour</td></tr>
+<tr><td><input type=text name=OTPayText size=10 value="-------">OverTime PAY Total</td></tr>
+<tr><td><input type=text name=GrossText size=10 onChange="TotalGrossPerYear()" value="N/A">Total Gross per year
+</td></tr>
+<tr><td><input type=text name=NetText size=10 value="-------">Total Net income</td></tr>
+<tr><td><input type=text name=MonthlyText size=10 value="-------">Total Monthly Net</font></td></tr>
+<tr><td><input type=text name=Bi_WeeklyText size=10 value="-------">Total bi-weekly Net</td></tr>
+<tr><td><input type=text name=WeeklyText size=10 value="-------">Total Weekly Net</td></tr>
+<tr><td align=center><input type=reset Value="Reset Form"></td></tr>
+</table>
+</form>
+Read the <a href="javascript:void(0);" onClick="alert('This assumes you are working 40 hours a week (2080 a year)\nunless you enter your own hours.  This script is compliant\nwith the 1997 Income-tax Standard.  However, it may vary\nslightly.  Please do not use these results as your quote.');">fine print</a>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Calculators:  Income Calculator</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  6.53 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL INCOME CALCULATOR:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Ashley Steele (ashleys@inetport.com) --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function GrossTextTotal() {
+var Calc = document.NetIncome;
+if (Calc.InputRad[0].checked & Calc.HoursPerWeekText.value == "") {
+Calc.GrossText.value = (parseFloat(Calc.HourlyText.value) * 2080) + " $";
+}
+else {
+if (Calc.InputRad[0].checked & Calc.HoursPerWeekText.value &lt; "41") {
+Calc.GrossText.value = (parseFloat(Calc.HourlyText.value) * parseFloat(Calc.HoursPerWeekText.value) * 52) + " $";
+}
+else
+if (Calc.InputRad[0].checked & Calc.HoursPerWeekText.value &gt; "40") {
+Calc.OTHoursText.value = Calc.HoursPerWeekText.value - 40;
+Calc.OTWagesText.value = Calc.HourlyText.value * 2 / 4 * 3;
+Calc.OTPayText.value = Calc.OTWagesText.value * Calc.OTHoursText.value + " $";
+Calc.GrossText.value = (parseFloat(Calc.HourlyText.value * 40) + parseFloat(Calc.OTPayText.value)) * 52 + " $";
+      }
+   }
+}
+function TotalGrossPerYear() {
+var Calc = document.NetIncome;
+if (!(Calc.GrossText.value &lt; 49800)) {
+Bracket2();
+}
+else {
+if (!(Calc.GrossText.value &gt; 49800)) {
+Bracket1();
+      }
+   }
+}
+function Bracket1() {
+var Calc = document.NetIncome;
+if (Calc.InputRad[0].checked) {
+// This number is modified every year and per tax bracket
+Calc.GH1Text.value = (parseFloat(Calc.GrossText.value) - 3090) + " $";
+
+// This number is modified every year and per tax bracket
+Calc.GH2Text.value = (parseFloat(Calc.GrossText.value) - 20600) + " $";
+
+// This number is modified every year and per tax bracket
+Calc.GH3Text.value = (parseFloat(Calc.GH2Text.value) * 28 / 100) + " $";
+
+Calc.NetText.value = (parseFloat(Calc.GH1Text.value) - parseFloat(Calc.GH3Text.value)) + " $";
+Calc.MonthlyText.value = Math.round(parseFloat(Calc.NetText.value) / 12.991) + " $";
+Calc.Bi_WeeklyText.value = (parseFloat(Calc.MonthlyText.value) / 2) + " $";
+Calc.WeeklyText.value = (parseFloat(Calc.Bi_WeeklyText.value) / 2) + " $";
+}
+else {
+if (Calc.InputRad[1].checked) {
+Calc.GH1Text.value = (parseFloat(Calc.GrossText.value) - 3090) + " $";
+Calc.GH2Text.value = (parseFloat(Calc.GrossText.value) - 20600) + " $";
+Calc.GH3Text.value = (parseFloat(Calc.GH2Text.value) * 28 / 100) + " $";   
+Calc.NetText.value = (parseFloat(Calc.GH1Text.value) - parseFloat(Calc.GH3Text.value)) + " $";
+Calc.MonthlyText.value = Math.round(parseFloat(Calc.NetText.value) / 12.991) + " $";
+Calc.Bi_WeeklyText.value = (parseFloat(Calc.MonthlyText.value) / 2) + " $";
+Calc.WeeklyText.value = (parseFloat(Calc.Bi_WeeklyText.value) / 2) + " $";
+Calc.HourlyText.value = "N/A";
+      }
+   }
+}
+function Bracket2() {
+var Calc = document.NetIncome;
+if (Calc.InputRad[0].checked) {
+Calc.GH1Text.value = (parseFloat(Calc.GrossText.value) - 11266) + " $";
+Calc.GH2Text.value = (parseFloat(Calc.GrossText.value) - 49800) + " $";
+Calc.GH3Text.value = (parseFloat(Calc.GH2Text.value) * 31 / 100) + " $";   
+Calc.NetText.value = (parseFloat(Calc.GH1Text.value) - parseFloat(Calc.GH3Text.value)) + " $";
+Calc.MonthlyText.value = Math.round(parseFloat(Calc.NetText.value) / 12.991) + " $";
+Calc.Bi_WeeklyText.value = (parseFloat(Calc.MonthlyText.value) / 2) + " $";
+Calc.WeeklyText.value = (parseFloat(Calc.Bi_WeeklyText.value) / 2) + " $";
+}
+else {
+if (Calc.InputRad[1].checked) {
+Calc.GH1Text.value = (parseFloat(Calc.GrossText.value) - 11266) + " $";
+Calc.GH2Text.value = (parseFloat(Calc.GrossText.value) - 49800) + " $";
+Calc.GH3Text.value = (parseFloat(Calc.GH2Text.value) * 31 / 100) + " $";   
+Calc.NetText.value = (parseFloat(Calc.GH1Text.value) - parseFloat(Calc.GH3Text.value)) + " $";
+Calc.MonthlyText.value = Math.round(parseFloat(Calc.NetText.value) / 12.991) + " $";
+Calc.Bi_WeeklyText.value = (parseFloat(Calc.MonthlyText.value) / 2) + " $";
+Calc.WeeklyText.value = (parseFloat(Calc.Bi_WeeklyText.value) / 2) + " $";
+Calc.HourlyText.value = "N/A";
+      }
+   }
+}
+function NAHourlyText() {
+var Calc = document.NetIncome;
+Calc.HourlyText.value = "N/A";
+Calc.HoursPerWeekText.value = "N/A";
+Calc.GrossText.value = "";
+}
+function NAGrossText() {
+var Calc = document.NetIncome;
+Calc.GrossText.value = "N/A";
+Calc.HoursPerWeekText.value = "";
+Calc.HourlyText.value = "";
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form method=post name=NetIncome&gt;
+&lt;input type=hidden name=OTHoursText size=10&gt;
+&lt;input type=hidden name=GH1Text size=10&gt;
+&lt;input type=hidden name=GH2Text size=10&gt;
+&lt;input type=hidden name=GH3Text size=10&gt;
+&lt;table border=5&gt;
+&lt;th align=left&gt;
+&lt;ol&gt;
+&lt;li&gt;Choose Hourly or Yearly format.
+&lt;li&gt;Fill out the form, skipping N/A fields.
+&lt;li&gt;Press the TAB key when finished.
+&lt;/ol&gt;
+&lt;/th&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;font size=5&gt;&lt;input type=radio checked name=InputRad value=PerHour onClick="NAGrossText()"&gt;&lt;u&gt;Hourly Pay&lt;/u&gt;&lt;input type=radio name=InputRad value=PerYear onClick="NAHourlyText()"&gt;&lt;u&gt;Yearly Pay&lt;/u&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;input type=text name=HoursPerWeekText size=10&gt;Hours per Week&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;input type=text name=HourlyText size=10 onChange="GrossTextTotal();TotalGrossPerYear()"&gt;Hourly Wages&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;input type=text name=OTWagesText size=10 value="-------"&gt;OverTime Wages Per Hour&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;input type=text name=OTPayText size=10 value="-------"&gt;OverTime PAY Total&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;input type=text name=GrossText size=10 onChange="TotalGrossPerYear()" value="N/A"&gt;Total Gross per year
+&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;input type=text name=NetText size=10 value="-------"&gt;Total Net income&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;input type=text name=MonthlyText size=10 value="-------"&gt;Total Monthly Net&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;input type=text name=Bi_WeeklyText size=10 value="-------"&gt;Total bi-weekly Net&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;input type=text name=WeeklyText size=10 value="-------"&gt;Total Weekly Net&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td align=center&gt;&lt;input type=reset Value="Reset Form"&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+Read the &lt;a href="javascript:void(0);" onClick="alert('This assumes you are working 40 hours a week (2080 a year)\nunless you enter your own hours.  This script is compliant\nwith the 1997 Income-tax Standard.  However, it may vary\nslightly.  Please do not use these results as your quote.');"&gt;fine print&lt;/a&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  6.53 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>ªxÿ÷-˘UO
+M◊ÒYpŒ˚¨|◊»CLÿŒ4Á»	_·M7W	ù’Û≤Á›ë3 àtV7èECôñ«U`m¿I•ﬁ.…b=¢µ«‹µ≥g+c—_h¢´;Íhô—ˆ ±Ìa¿‹çxTc6†ÇxëzÖf4:xçÀ$&ˆª∑^  jc&°ó¢ù±ﬁ„â<>™iÅî(+k_Sƒﬂ∆èr⁄9ﬂ
+œ~l≥\∆§[oö œfÛµ˜?y-«àÊnL<Å’Ñ°CïïﬂbÖ˚Ã€v{’%,Î‹∞Ã∏°ëÅê!(›ƒ\Î∂ˇ {J)œ,€∞Ë‹~™ª&FL∞òeñÍ∫∆-s†·∫Î∂˛[˚UEﬁ4ˇ SËΩı˙ÍÚñH»∞©nÄÎo{èe;FÍlßçV

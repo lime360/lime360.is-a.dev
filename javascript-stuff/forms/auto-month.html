@@ -1,0 +1,233 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Forms:  Auto Month</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="This pulldown menu will automatically adjust the range of months so that the current month is at the top.  The remaining months are placed in order after the current month.">
+<META NAME="date" CONTENT="2001-02-05">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Don Demrow">
+<META NAME="section" CONTENT="Forms">
+
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /forms/" ><font color="#FF0000"><b>Forms</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Auto Month</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+This pulldown menu will automatically adjust the range of months so that the current month is at the top.  The remaining months are placed in order after the current month.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Don Demrow (d1102@home.com) -->
+<!-- Modified:  Benjamin Wright, JavaScript Source Editor -->
+<!-- Web Site:  http://resume.w3site.com -->
+
+
+
+
+<!-- Begin
+var time = new Date();
+var month = time.getMonth();
+var date = month - 12;
+var realJavaScriptMonth = month;
+var future = month + 0;
+month = month + 1; /* Compensate for "January" being "0" */
+document.writeln ("<FORM><SELECT><OPTION value=\"\">Month");
+do {
+month = date;
+if (month >= 12) {
+month = month - 12;
+}
+if (month < 0) {
+month = month + 12;
+}
+date++;
+var dateName ="";
+switch (month) {
+case 0:
+dateName = "January";
+break;
+case 1:
+dateName = "February";
+break;
+case 2:
+dateName = "March";
+break;
+case 3:
+dateName = "April";
+break;
+case 4:
+dateName = "May";
+break;
+case 5:
+dateName = "June";
+break;
+case 6:
+dateName = "July";
+break;
+case 7:
+dateName = "August";
+break;
+case 8:
+dateName = "September";
+break;
+case 9:
+dateName = "October";
+break;
+case 10:
+dateName = "November";
+break;
+case 11:
+dateName = "December";
+break
+}
+month++;
+realJavaScriptMonth++;
+document.write ("<OPTION value=\"" + realJavaScriptMonth + "\">" + dateName + "");
+realJavaScriptMonth++;
+}
+while (date < future)
+document.write ("</SELECT></FORM>");
+//  End -->
+</script>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Forms:  Auto Month</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Command-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.74 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- ONE STEP TO INSTALL AUTO MONTH:
+
+  1.  Copy the coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Don Demrow (d1102@home.com) --&gt;
+&lt;!-- Modified:  Benjamin Wright, JavaScript Source Editor --&gt;
+&lt;!-- Web Site:  http://resume.w3site.com --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var time = new Date();
+var month = time.getMonth();
+var date = month - 12;
+var realJavaScriptMonth = month;
+var future = month + 0;
+month = month + 1; /* Compensate for "January" being "0" */
+document.writeln ("&lt;FORM&gt;&lt;SELECT&gt;&lt;OPTION value=\"\"&gt;Month");
+do {
+month = date;
+if (month &gt;= 12) {
+month = month - 12;
+}
+if (month &lt; 0) {
+month = month + 12;
+}
+date++;
+var dateName ="";
+switch (month) {
+case 0:
+dateName = "January";
+break;
+case 1:
+dateName = "February";
+break;
+case 2:
+dateName = "March";
+break;
+case 3:
+dateName = "April";
+break;
+case 4:
+dateName = "May";
+break;
+case 5:
+dateName = "June";
+break;
+case 6:
+dateName = "July";
+break;
+case 7:
+dateName = "August";
+break;
+case 8:
+dateName = "September";
+break;
+case 9:
+dateName = "October";
+break;
+case 10:
+dateName = "November";
+break;
+case 11:
+dateName = "December";
+break
+}
+month++;
+realJavaScriptMonth++;
+document.write ("&lt;OPTION value=\"" + realJavaScriptMonth + "\"&gt;" + dateName + "");
+realJavaScriptMonth++;
+}
+while (date &lt; future)
+document.write ("&lt;/SELECT&gt;&lt;/FORM&gt;");
+//  End --&gt;
+&lt;/script&gt;
+
+ 
+
+&lt;!-- Script Size:  1.74 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

@@ -1,0 +1,342 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Calculators:  Download</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Calculators">
+<META NAME="description" CONTENT="This calculator will help you estimate how long it will take to download a file at any of a number of modem speeds.  Try it out!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+function MakeArray(n) {
+this.length = n;
+for (var i = 1; i <= n; i++) { 
+this[i] = 0 }
+return this
+}
+speedVar = new MakeArray(11);
+speedVar[1] = "1.1719"
+speedVar[2] = "1.7578"
+speedVar[3] = "3.5156"
+speedVar[4] = "6.8359"
+speedVar[5] = "7.8125"
+speedVar[6] = "16.6250"
+speedVar[7] = "187.9883"
+speedVar[8] = "1220.7031"
+speedVar[9] = "3295.8984"
+speedVar[10] = "5493.1641"
+speedVar[11] = "18920.8984"
+function compute(form, mult){
+for (i=1; i < 12; i++){
+if (form.size.value==null||form.size.value.length==0){
+form.size.value=0;}
+if (form[i+"hour"].value==null||form[i+"hour"].value.length==0){
+form[i+"hour"].value=0;}       
+if (form[i+"minute"].value==null||form[i+"minute"].value.length==0){
+form[i+"minute"].value=0;}
+if (form[i+"second"].value==null||form[i+"second"].value.length==0){
+form[i+"second"].value=0;}
+if (mult != 0 && form.size.value != 0){
+with (Math){
+var speed = speedVar[i];
+var TotalTime = ((form.size.value*mult)/speed);
+var TotalHours = floor((TotalTime/3600));
+var TotalHoursMod = (TotalTime%3600);
+var TotalMin = floor(TotalHoursMod/60);
+var TotalMinMod = (TotalHoursMod%60);
+var TotalSec = floor(TotalMinMod);
+form[i+"hour"].value=TotalHours;
+form[i+"minute"].value=TotalMin;
+form[i+"second"].value=TotalSec;
+      }
+   }
+}
+return;
+}
+// End -->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<P>
+<center>
+
+	
+<P>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /calculators/"><font color="#FF0000">Calculators</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Download</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+This calculator will help you estimate how long it will take to download a file at any of a number of modem speeds.  Try it out!
+<br>
+
+<br>
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<FORM METHOD="POST">
+
+<CENTER>
+<TABLE BORDER="4">
+<TR>
+<TD>File Size?
+<INPUT TYPE="TEXT" NAME="size" SIZE="10"> 
+<INPUT TYPE="BUTTON" OnClick="compute(this.form, 1)" VALUE="KB">
+<INPUT TYPE="BUTTON" OnClick="compute(this.form, 1024)" VALUE="MB">
+</TD>
+<TD colspan=3><center><B>It will take you ....</B></CENTER>
+</TD>
+</TR>
+<TR>
+<TH>If your modem is a ....</TH>
+<TH>Hours </TH>
+<TH>Minutes </TH>
+<TH>Seconds</TH>
+</TR>
+<TR>
+<TD BGCOLOR="#ffffff">9.6 Kb</TD>
+<TD><INPUT TYPE="TEXT" NAME="1hour" SIZE="6"> </TD>
+<TD><INPUT TYPE="TEXT" NAME="1minute" SIZE="6"> </TD>
+<TD><INPUT TYPE="TEXT" NAME="1second" SIZE="6"></TD>
+</TR>
+<TR>
+<TD BGCOLOR="#ffffff">14.4 Kb</TD>
+<TD><INPUT TYPE="TEXT" NAME="2hour" SIZE="6"> </TD>
+<TD><INPUT TYPE="TEXT" NAME="2minute" SIZE="6"> </TD>
+<TD><INPUT TYPE="TEXT" NAME="2second" SIZE="6"></TD>
+</TR>
+<TR>
+<TD BGCOLOR="#ffffff">28.8 Kb</TD>
+<TD><INPUT TYPE="TEXT" NAME="3hour" SIZE="6"> </TD>
+<TD><INPUT TYPE="TEXT" NAME="3minute" SIZE="6"> </TD>
+<TD><INPUT TYPE="TEXT" NAME="3second" SIZE="6"></TD>
+</TR>
+<TR>
+<TD BGCOLOR="#ffffff">56 Kb</TD>
+<TD><INPUT TYPE="TEXT" NAME="4hour" SIZE="6"> </TD>
+<TD><INPUT TYPE="TEXT" NAME="4minute" SIZE="6"> </TD>
+<TD><INPUT TYPE="TEXT" NAME="4second" SIZE="6"></TD>
+</TR>
+<TR>
+<TD BGCOLOR="#ffffff">ISDN (64 Kb)</TD>
+<TD><INPUT TYPE="TEXT" NAME="5hour" SIZE="6"> </TD>
+<TD><INPUT TYPE="TEXT" NAME="5minute" SIZE="6"> </TD>
+<TD><INPUT TYPE="TEXT" NAME="5second" SIZE="6"></TD>
+</TR>
+<TR>
+<TD BGCOLOR="#ffffff">ISDN (128 Kb)</TD>
+<TD><INPUT TYPE="TEXT" NAME="6hour" SIZE="6"> </TD>
+<TD><INPUT TYPE="TEXT" NAME="6minute" SIZE="6"> </TD>
+<TD><INPUT TYPE="TEXT" NAME="6second" SIZE="6"></TD>
+</TR>
+<TR>
+<TD BGCOLOR="#ffffff"></TD>
+<TD><INPUT TYPE="HIDDEN" NAME="7hour" SIZE="6"> </TD>
+<TD><INPUT TYPE="HIDDEN" NAME="7minute" SIZE="6"> </TD>
+<TD><INPUT TYPE="HIDDEN" NAME="7second" SIZE="6"></TD>
+</TR>
+<INPUT TYPE="HIDDEN" NAME="8hour" SIZE="6">
+<INPUT TYPE="HIDDEN" NAME="8minute" SIZE="6">
+<INPUT TYPE="HIDDEN" NAME="8second" SIZE="6">
+<INPUT TYPE="HIDDEN" NAME="9hour" SIZE="6">
+<INPUT TYPE="HIDDEN" NAME="9minute" SIZE="6">
+<INPUT TYPE="HIDDEN" NAME="9second" SIZE="6">
+<INPUT TYPE="HIDDEN" NAME="10hour" SIZE="6">
+<INPUT TYPE="HIDDEN" NAME="10minute" SIZE="6">
+<INPUT TYPE="HIDDEN" NAME="10second" SIZE="6">
+<INPUT TYPE="HIDDEN" NAME="11hour" SIZE="6">
+<INPUT TYPE="HIDDEN" NAME="11minute" SIZE="6">
+<INPUT TYPE="HIDDEN" NAME="11second" SIZE="6">
+</TABLE>
+</FORM>
+</CENTER>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Calculators:  Download Calculator</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  4.30 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL DOWNLOAD CALCULATOR:
+
+   1.  Paste the coding into the HEAD of your HTML document
+   2.  Add the last coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function MakeArray(n) {
+this.length = n;
+for (var i = 1; i &lt;= n; i++) { 
+this[i] = 0 }
+return this
+}
+speedVar = new MakeArray(11);
+speedVar[1] = "1.1719"
+speedVar[2] = "1.7578"
+speedVar[3] = "3.5156"
+speedVar[4] = "6.8359"
+speedVar[5] = "7.8125"
+speedVar[6] = "16.6250"
+speedVar[7] = "187.9883"
+speedVar[8] = "1220.7031"
+speedVar[9] = "3295.8984"
+speedVar[10] = "5493.1641"
+speedVar[11] = "18920.8984"
+function compute(form, mult){
+for (i=1; i &lt; 12; i++){
+if (form.size.value==null||form.size.value.length==0){
+form.size.value=0;}
+if (form[i+"hour"].value==null||form[i+"hour"].value.length==0){
+form[i+"hour"].value=0;}       
+if (form[i+"minute"].value==null||form[i+"minute"].value.length==0){
+form[i+"minute"].value=0;}
+if (form[i+"second"].value==null||form[i+"second"].value.length==0){
+form[i+"second"].value=0;}
+if (mult != 0 && form.size.value != 0){
+with (Math){
+var speed = speedVar[i];
+var TotalTime = ((form.size.value*mult)/speed);
+var TotalHours = floor((TotalTime/3600));
+var TotalHoursMod = (TotalTime%3600);
+var TotalMin = floor(TotalHoursMod/60);
+var TotalMinMod = (TotalHoursMod%60);
+var TotalSec = floor(TotalMinMod);
+form[i+"hour"].value=TotalHours;
+form[i+"minute"].value=TotalMin;
+form[i+"second"].value=TotalSec;
+      }
+   }
+}
+return;
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;FORM METHOD="POST"&gt;
+
+&lt;CENTER&gt;
+&lt;TABLE BORDER="4"&gt;
+&lt;TR&gt;
+&lt;TD&gt;File Size?
+&lt;INPUT TYPE="TEXT" NAME="size" SIZE="10"&gt; 
+&lt;INPUT TYPE="BUTTON" OnClick="compute(this.form, 1)" VALUE="KB"&gt;
+&lt;INPUT TYPE="BUTTON" OnClick="compute(this.form, 1024)" VALUE="MB"&gt;
+&lt;/TD&gt;
+&lt;TD colspan=3&gt;&lt;center&gt;&lt;B&gt;It will take you ....&lt;/B&gt;&lt;/CENTER&gt;
+&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;TR&gt;
+&lt;TH&gt;If your modem is a ....&lt;/TH&gt;
+&lt;TH&gt;Hours &lt;/TH&gt;
+&lt;TH&gt;Minutes &lt;/TH&gt;
+&lt;TH&gt;Seconds&lt;/TH&gt;
+&lt;/TR&gt;
+&lt;TR&gt;
+&lt;TD BGCOLOR="#ffffff"&gt;9.6 Kb&lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE="TEXT" NAME="1hour" SIZE="6"&gt; &lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE="TEXT" NAME="1minute" SIZE="6"&gt; &lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE="TEXT" NAME="1second" SIZE="6"&gt;&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;TR&gt;
+&lt;TD BGCOLOR="#ffffff"&gt;14.4 Kb&lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE="TEXT" NAME="2hour" SIZE="6"&gt; &lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE="TEXT" NAME="2minute" SIZE="6"&gt; &lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE="TEXT" NAME="2second" SIZE="6"&gt;&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;TR&gt;
+&lt;TD BGCOLOR="#ffffff"&gt;28.8 Kb&lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE="TEXT" NAME="3hour" SIZE="6"&gt; &lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE="TEXT" NAME="3minute" SIZE="6"&gt; &lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE="TEXT" NAME="3second" SIZE="6"&gt;&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;TR&gt;
+&lt;TD BGCOLOR="#ffffff"&gt;56 Kb&lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE="TEXT" NAME="4hour" SIZE="6"&gt; &lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE="TEXT" NAME="4minute" SIZE="6"&gt; &lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE="TEXT" NAME="4second" SIZE="6"&gt;&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;TR&gt;
+&lt;TD BGCOLOR="#ffffff"&gt;ISDN (64 Kb)&lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE="TEXT" NAME="5hour" SIZE="6"&gt; &lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE="TEXT" NAME="5minute" SIZE="6"&gt; &lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE="TEXT" NAME="5second" SIZE="6"&gt;&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;TR&gt;
+&lt;TD BGCOLOR="#ffffff"&gt;ISDN (128 Kb)&lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE="TEXT" NAME="6hour" SIZE="6"&gt; &lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE="TEXT" NAME="6minute" SIZE="6"&gt; &lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE="TEXT" NAME="6second" SIZE="6"&gt;&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;TR&gt;
+&lt;TD BGCOLOR="#ffffff"&gt;&lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE="HIDDEN" NAME="7hour" SIZE="6"&gt; &lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE="HIDDEN" NAME="7minute" SIZE="6"&gt; &lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE="HIDDEN" NAME="7second" SIZE="6"&gt;&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;INPUT TYPE="HIDDEN" NAME="8hour" SIZE="6"&gt;
+&lt;INPUT TYPE="HIDDEN" NAME="8minute" SIZE="6"&gt;
+&lt;INPUT TYPE="HIDDEN" NAME="8second" SIZE="6"&gt;
+&lt;INPUT TYPE="HIDDEN" NAME="9hour" SIZE="6"&gt;
+&lt;INPUT TYPE="HIDDEN" NAME="9minute" SIZE="6"&gt;
+&lt;INPUT TYPE="HIDDEN" NAME="9second" SIZE="6"&gt;
+&lt;INPUT TYPE="HIDDEN" NAME="10hour" SIZE="6"&gt;
+&lt;INPUT TYPE="HIDDEN" NAME="10minute" SIZE="6"&gt;
+&lt;INPUT TYPE="HIDDEN" NAME="10second" SIZE="6"&gt;
+&lt;INPUT TYPE="HIDDEN" NAME="11hour" SIZE="6"&gt;
+&lt;INPUT TYPE="HIDDEN" NAME="11minute" SIZE="6"&gt;
+&lt;INPUT TYPE="HIDDEN" NAME="11second" SIZE="6"&gt;
+&lt;/TABLE&gt;
+&lt;/FORM&gt;
+&lt;/CENTER&gt;
+
+ 
+
+&lt;!-- Script Size:  4.30 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

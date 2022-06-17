@@ -1,0 +1,117 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  BG Effects:  Sound</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Kipp W. Shinabarger (kipps@bigfoot.com)">
+<META NAME="section" CONTENT="BG Effects">
+<META NAME="description" CONTENT="Due to the different nature that Netscape and other browsers use a background sound, getting it to work for your visitors can be difficult - unless you use this script.  It will determine which browser they have and print the background sound command correctly for that browser!  Very cool!">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /bgeffects/"><font color="#FF0000">BG Effects</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Sound</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE=" helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Due to the different nature that Netscape and other browsers use a background sound, getting it to work for your visitors can be difficult - unless you use this script.  It will determine which browser they have and print the background sound command correctly for that browser!  Very cool!<br><hr>
+</td></tr>
+</table>
+<!--  Demonstration -->
+<BODY>
+<CENTER>
+<SCRIPT LANGUAGE="JavaScript">
+var MSIE=navigator.userAgent.indexOf("MSIE");
+var NETS=navigator.userAgent.indexOf("Netscape");
+var OPER=navigator.userAgent.indexOf("Opera");
+if((MSIE>-1) || (OPER>-1)) {
+document.write("Correct BG Sound command for Internet Explorer or Opera would be here.");
+} else {
+document.write("Correct BG Sound command for Netscape browsers would be here.");
+}
+</SCRIPT>
+</CENTER>
+<P>
+<BR>
+<P>
+<a name="source">
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  BG Effects:  Sound</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as NotePad or SimpleText) and save (Control-s or Apple-s).  The script is yours!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  0.81 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- ONE STEP TO INSTALL SOUND:
+
+   1.  Put the code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;!-- Original:  Kipp W. Shinabarger (kipps@bigfoot.com) --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!--  Begin
+var MSIE=navigator.userAgent.indexOf("MSIE");
+var NETS=navigator.userAgent.indexOf("Netscape");
+var OPER=navigator.userAgent.indexOf("Opera");
+if((MSIE&gt;-1) || (OPER&gt;-1)) {
+document.write("&lt;BGSOUND SRC=sound.mid LOOP=INFINITE&gt;");
+} else {
+document.write("&lt;EMBED SRC=sound.mid AUTOSTART=TRUE ");
+document.write("HIDDEN=true VOLUME=100 LOOP=TRUE&gt;");
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+ 
+
+&lt;!-- Script Size:  0.81 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

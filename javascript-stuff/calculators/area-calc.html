@@ -1,0 +1,180 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Calculators:  Area Calculator</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Michael Hundt (mchundt@nglic.com)">
+<META NAME="section" CONTENT="Calculators">
+<META NAME="description" CONTENT="A simple calculator to determine the area of a square, triangle, rectangle, circle or sphere.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Michael Hundt (mchundt@nglic.com) -->
+<!-- Web Site:  http://www.cinet.net/~mhundt/mystuff.htm -->
+<!-- Modified by:  Ronnie T. Moore (JavaScript Source) -->
+
+
+
+
+<!-- Begin
+function doArea(num) {
+switch(num) {
+case 0 : return (""); break;
+case 1 : var length = prompt("Please enter the length of your square:", "");
+         length = length * length;
+         return (length); break;
+case 2 : var width = prompt("Please enter the width of the base:", "");
+         var height = prompt("Please enter the height of the triangle:", "");
+         return (width * height / 2); break;
+case 3 : var width = prompt("Please enter the width of your rectangle:", "");
+         var height = prompt("Please enter the height of your rectangle:", "");
+         return (width * height); break;
+case 4 : var radius = prompt("Please enter the radius of the circle: ", "");
+         return (Math.PI * Math.pow(radius, 2)); break;
+case 5 : var radius = prompt("Please enter the radious of the sphere:", 0);
+         return (4 * Math.PI * (Math.pow(radius, 2))); break;
+   }
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /calculators/"><font color="#FF0000"><b>Calculators</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Area Calculator</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+A simple calculator to determine the area of a square, triangle, rectangle, circle or sphere.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name=calcarea>
+Find the area of a 
+<select name="shape" size="1" onChange="this.form.area.value = doArea(this.selectedIndex);">
+<option> ...
+<option value="square">Square
+<option value="triangle">Triangle
+<option value="rectangle">Rectangle
+<option value="circle">Circle
+<option value="sphere">Sphere
+</select>
+= <input type=text name=area size=10>
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Calculators:  Area Calculator</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.01 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL AREA CALCULATOR:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Michael Hundt (mchundt@nglic.com) --&gt;
+&lt;!-- Web Site:  http://www.cinet.net/~mhundt/mystuff.htm --&gt;
+&lt;!-- Modified by:  Ronnie T. Moore (JavaScript Source) --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function doArea(num) {
+switch(num) {
+case 0 : return (""); break;
+case 1 : var length = prompt("Please enter the length of your square:", "");
+         length = length * length;
+         return (length); break;
+case 2 : var width = prompt("Please enter the width of the base:", "");
+         var height = prompt("Please enter the height of the triangle:", "");
+         return (width * height / 2); break;
+case 3 : var width = prompt("Please enter the width of your rectangle:", "");
+         var height = prompt("Please enter the height of your rectangle:", "");
+         return (width * height); break;
+case 4 : var radius = prompt("Please enter the radius of the circle: ", "");
+         return (Math.PI * Math.pow(radius, 2)); break;
+case 5 : var radius = prompt("Please enter the radious of the sphere:", 0);
+         return (4 * Math.PI * (Math.pow(radius, 2))); break;
+   }
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form name=calcarea&gt;
+Find the area of a 
+&lt;select name="shape" size="1" onChange="this.form.area.value = doArea(this.selectedIndex);"&gt;
+&lt;option&gt; ...
+&lt;option value="square"&gt;Square
+&lt;option value="triangle"&gt;Triangle
+&lt;option value="rectangle"&gt;Rectangle
+&lt;option value="circle"&gt;Circle
+&lt;option value="sphere"&gt;Sphere
+&lt;/select&gt;
+= &lt;input type=text name=area size=10&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  2.01 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

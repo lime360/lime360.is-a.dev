@@ -1,0 +1,344 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Calendars:  Cookie Calendar</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="This calendar, written entirely in JavaScript, uses cookies to allow users to save information on specific dates.  Includes daily and monthly summaries and a complete help file.  Cookie Calendar works as its own program as well.  Great!">
+<META NAME="date" CONTENT="2001-02-16">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Greg Quilop">
+<META NAME="section" CONTENT="Calendars">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /calendars/"><font color="#FF0000"><b>Calendars</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Cookie Calendar</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+This calendar, written entirely in JavaScript, uses cookies to allow users to save information on specific dates.  Includes daily and monthly summaries and a complete help file.  Cookie Calendar works as its own program as well.  Great!
+<hr>
+<!-- Demonstration -->
+<center>
+<a href="cookie-calendar/calendar.html" /calendars/cookie-calendar/calendar.html" TARGET="NEW">Click here to see the Demo</a>
+<br>
+<br>
+Download the <a href="cookie-calendar/cookie-calendar.zip" /calendars/cookie-calendar/cookie-calendar.zip">cookie-calendar.zip</a> file.  It contains all the files necessary to add Cookie Calendar to your site!
+</center>
+<br>
+<br>
+The following code should be added to the &lt;HEAD&gt; and the &lt;BODY&gt; sections of the page on which you would like the calendar displayed (The file must be named calendar.html).  The remaining files in the <a href="cookie-calendar/cookie-calendar.zip" /calendars/cookie-calendar/cookie-calendar.zip">cookie-calendar.zip</a> file must be placed in the same directory.
+<br>
+</td></tr>
+</table>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Calendars:  Cookie Calendar</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Command-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  9.18 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL COOKIE CALENDAR:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document
+  3.  Download the COOKIE-CALENDAR.ZIP file and place files in the same directory as your web page (The file must be named calendar.html)  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;script language="javascript" src="cengine.js"&gt;&lt;/script&gt;
+&lt;script language="javascript" src="other_scripts.js"&gt;&lt;/script&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Greg Quilop (web@queriousdesigns.com) --&gt;
+&lt;!-- Web Site:  http://www.queriousdesigns.com --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var mo = "";
+var year = "";
+var currentmonth = today.getMonth();
+var currentyear = today.getFullYear();
+//cookies are not found
+if(document.cookie == "") {
+mo = today.getMonth();
+year = today.getFullYear();
+}
+else {
+mo = getCookie('whichmonth');
+//correct cookie is NOT set
+if(mo == null) {
+mo = today.getMonth();
+year = today.getFullYear();
+//alert number of reminders to user
+alertReminders();
+}
+//correct cookie is set
+else {
+mo = getCookie('whichmonth');
+year = getCookie('whichyear');
+   }
+}
+//set a session cookie
+setCookie('whichmonth',mo);
+setCookie('whichyear', year);
+//backup one month and refresh
+function backup() {
+//check for a new year being set
+if(mo &gt; 0) {
+mo--;
+} else {
+mo = 11;
+//check for 19**
+if(year == 2000) {
+year = 1999;
+} else if(year &lt;= 1999) {
+syear = year.substring(2,year.length);
+syear--;
+year = "19" + syear;
+Number(year);
+}
+else {
+year--;
+   }
+}
+setCookie('whichmonth',mo);
+setCookie('whichyear', year);
+//check for open child windows and close.
+if(child && !child.closed) {
+child.close();
+}
+document.location="calendar.html";
+}
+//go forward one month and refresh
+function stepup() {
+//check for a new year being set
+if(mo &lt;  11) {
+mo++;
+}
+else {
+mo = 0;
+year++;
+}
+setCookie('whichmonth',mo);
+setCookie('whichyear', year);
+//check for open child windows and close.
+if(child && !child.closed) {
+child.close();
+}
+document.location="calendar.html";
+}
+//first starting day of month
+var first = months[mo] + " 01, " + year;
+firstday = new Date(first);
+startday = firstday.getDay();
+//variable for day count
+var count = 1;
+//variables for leap year
+var factor = startday - 1;
+var endday = parseInt(monthlen[mo]) + factor;
+var calbg = "#666666";
+var calwidth = "80%";
+var twidth = "14%";
+var theight = "70";
+var monthbg = "#000000";
+var monfam = "verdana,arial,helvetica";
+var monsize = "3"
+var moncol = "#ffffff"
+var weekbg = "#eeeeee";
+var weekfam = "verdana,arial,helvetica";
+var weeksize = "2";
+var weekcol = "#ff0000";
+var daybg = "#eeeeee";
+var dayfam = "verdana,arial,helvetica";
+var daysize = "1";
+var daycol = "#000000";
+var sdaycol = "#ff0000";
+var calendar = "";
+calendar =  "&lt;table bgcolor='" + calbg + "' width='" + calwidth + "' border='0' cellpadding='1' cellspacing='0'&gt;";
+calendar += "&lt;tr&gt;";
+calendar += "&lt;td align='center'&gt;";
+
+&lt;!-- Month Starts Here --&gt;
+calendar += "&lt;table width='100%' border='0' cellpadding='3' cellspacing='0'&gt;";
+calendar += "&lt;tr&gt;";
+calendar += "&lt;td align='center'&gt; &lt;a href='javascript:backup();'&gt;&lt;font color='#ffffff'&gt;&lt;b&gt;&lt;&lt;&lt;/b&gt;&lt;/font&gt;&lt;/a&gt; &lt;/td&gt;";
+calendar += "&lt;td width='100%' bgcolor='" + monthbg + "' align='center'&gt;&lt;font face='" + monfam + "' size=" + monsize + " color=" + moncol + "&gt;&lt;b&gt;";
+calendar += "&lt;a href='javascript://' onclick='open_all(\"all_reminders.html\");'&gt;&lt;font color='#ffffff'&gt;" + months[mo] + ", " + year + "&lt;/font&gt;&lt;/a&gt;";
+calendar += "&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;";
+calendar += "&lt;td align='center'&gt; &lt;a href='javascript:stepup();'&gt;&lt;font color='#ffffff'&gt;&lt;b&gt;&gt;&gt;&lt;/b&gt;&lt;/font&gt;&lt;/a&gt; &lt;/td&gt;";
+calendar += "&lt;/tr&gt;";
+calendar += "&lt;/table&gt;";
+&lt;!-- Month Ends Here --&gt;
+
+calendar += "&lt;/td&gt;";
+calendar += "&lt;/tr&gt;";
+calendar += "&lt;tr&gt;";
+calendar += "&lt;td align='center'&gt;";
+
+&lt;!-- Week Starts Here --&gt;
+calendar += "&lt;table width='100%' border='0' cellpadding='3' cellspacing='0'&gt;";
+calendar += "&lt;tr&gt;";
+for(i = 0; i &lt; 7; i++) {
+calendar += "&lt;td width='" + twidth + "' bgcolor='" + weekbg + "' align='center' valign='middle'&gt;&lt;font face='" + weekfam + "' size=" + weeksize + " color=" + weekcol + "&gt;&lt;b&gt;";
+calendar += days[i];
+calendar += "&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;";
+}
+calendar += "&lt;/tr&gt;";
+calendar += "&lt;/table&gt;";
+&lt;!-- Week Ends Here --&gt;
+
+calendar += "&lt;/td&gt;";
+calendar += "&lt;/tr&gt;";
+calendar += "&lt;tr&gt;";
+calendar += "&lt;td align='center'&gt;";
+
+&lt;!-- Day Starts Here --&gt;
+calendar += "&lt;table width='100%' border='0' cellpadding='2' cellspacing='1'&gt;";
+calendar += "&lt;tr&gt;";
+if(startday &gt; 0) {
+for(empty = 0; empty &lt; startday; empty++) {
+calendar += "&lt;td width='" + twidth + "' height='" + theight + "'&gt;&nbsp;&lt;/td&gt;";
+   }
+}
+for(i = startday; i &lt;= endday; i++) {
+if( (i % 7) == 0) {
+calendar += "&lt;/tr&gt;&lt;tr&gt;";
+}
+//keep highlight info on the current month and day
+if( (i - (startday - 1)) == dt && currentmonth == mo && currentyear == year) {
+calendar += "&lt;td width='" + twidth + "' height='" + theight + "' bgcolor='" + daybg + "' align='right' valign='top'&gt;&lt;font face='" + dayfam + "' size=" + daysize + "&gt;&lt;b&gt;";
+calendar += "&lt;a href='javascript://' onclick=javascript:open_window('day_scheduler.html?" + months[mo] + "&" + count + "',300,350,0,1);&gt;&lt;font color=" + sdaycol + "&gt;" + count + "&lt;/font&gt;&lt;/a&gt;";
+if(currentmonth == mo && currentyear == year && document.cookie) {
+var isremind = getCookie(months[mo] + count);
+if(isremind) { //if a reminder exists for this day
+isremind = isremind.split("|");
+calendar += "&lt;p&gt;&lt;div align='center'&gt;&lt;img src='reminder.gif' width='11' height='11' alt='you have " + isremind.length + " reminder(s)'&gt;&lt;/div&gt;";
+   }
+}
+calendar += "&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;";
+}
+else {
+calendar += "&lt;td width='" + twidth + "' height='" + theight + "' bgcolor='" + daybg + "' align='right' valign='top'&gt;&lt;font face='" + dayfam + "' size=" + daysize + "&gt;";
+calendar += "&lt;a href='javascript://' onclick=javascript:open_window('day_scheduler.html?" + months[mo] + "&" + count + "',300,350,0,1);&gt;&lt;font color=" + daycol + "&gt;" + count + "&lt;/font&gt;&lt;/a&gt;";
+if(document.cookie) { //allows reminders to be displayed on other months
+var isremind = getCookie(months[mo] + count);
+if(isremind) { //if a reminder exists for this day
+isremind = isremind.split("|");
+calendar += "&lt;p&gt;&lt;div align='center'&gt;&lt;img src='reminder.gif' width='11' height='11' alt='you have " + isremind.length + " reminder(s)'&gt;&lt;/div&gt;";
+   }
+}
+calendar += "&lt;/font&gt;&lt;/td&gt;";
+}
+count++;
+}
+calendar += "&lt;/tr&gt;";
+calendar += "&lt;/table&gt;";
+&lt;!-- Day Ends Here --&gt;
+
+calendar += "&lt;/td&gt;";
+calendar += "&lt;/tr&gt;";
+calendar += "&lt;/table&gt;";
+function open_all(url) {
+child = window.open(url,"allreminders", "width=430,height=400,resizable=0,scrollbars=1");
+}
+function alertReminders() {
+var alertit = getCookie(months[today.getMonth()] + dt);
+if(alertit != null) {
+alertit = alertit.split("|");
+//write out reminders into a string for display
+textit = "  1. " + alertit[0];
+for(var i = 1; i &lt; alertit.length; i++) {
+textit += "\n  " + (i + 1) + ". " + alertit[i];
+}
+//alert user of number of reminders for which day and display those reminders
+alert("You have " + alertit.length + " reminder(s) for " + months[today.getMonth()] + " " + dt + ".\n\n" + textit);
+   }
+}
+//  End --&gt;
+&lt;/script&gt;
+
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;a href="http://javascript.internet.com/calendars/cookie-calendar/cookie-calendar.html"&gt;Click here to see the Demo&lt;/a&gt;
+&lt;br&gt;
+&lt;br&gt;
+Download the &lt;a href="http://javascript.internet.com/calendars/cookie-calendar/cookie-calendar.zip"&gt;cookie-calendar.zip&lt;/a&gt; file.  It contains all the files necessary to add Cookie Calendar to your site!
+&lt;br&gt;
+&lt;br&gt;
+The following code should be added to the &lt;HEAD&gt; and the &lt;BODY&gt; sections of the page on which you would like the calendar displayed.  The remaining files in the &lt;a href="http://javascript.internet.com/calendars/cookie-calendar/cookie-calendar.zip"&gt;cookie-calendar.zip&lt;/a&gt; file must be placed in the same directory.
+&lt;/center&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;table width="80%"&gt;
+&lt;tr&gt;
+&lt;td align="right"&gt;&lt;a href="javascript://" onclick="open_window('help_file.html',300,350,0,1);"&gt;&lt;font face="verdana,arial,helvetica" size="2"&gt;help file&lt;/font&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;script language="javascript"&gt;
+&lt;!--
+document.write(calendar);
+if(child && !child.closed) {
+child.focus();
+}
+//--&gt;
+&lt;/script&gt;
+&lt;/div&gt;
+
+ 
+
+&lt;!-- Script Size:  9.18 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

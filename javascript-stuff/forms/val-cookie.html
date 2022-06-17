@@ -1,0 +1,278 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Forms:  Form Validation</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Forms">
+<META NAME="description" CONTENT="Use JavaScript to ensure that all elements of a form are properly filled out before they can be mailed to you.  This definitely saves me from getting a lot of junk mail....">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+function getCookie(name){
+var cname = name + "=";               
+var dc = document.cookie;             
+if (dc.length > 0) {              
+begin = dc.indexOf(cname);       
+if (begin != -1) {           
+begin += cname.length;       
+end = dc.indexOf(";", begin);
+if (end == -1) end = dc.length;
+return unescape(dc.substring(begin, end));
+} 
+}
+return null;
+}
+function setCookie(name, value) {
+var now = new Date();
+var then = new Date(now.getTime() + 31536000000);
+document.cookie = name + "=" + escape(value) + "; expires=" + then.toGMTString() + "; path=/";
+}
+function getInfo(form) {
+form.info.value = "Browser Information: " + navigator.userAgent;
+}
+function getValue(element) {
+var value = getCookie(element.name);
+if (value != null) element.value = value;
+}
+function setValue(element) {
+setCookie(element.name, element.value);
+}
+function fixElement(element, message) {
+alert(message);
+element.focus();
+}
+function isMailReady(form) {
+var passed = false;
+if (form.fullname.value == "") {
+fixElement(form.fullname, "Please include your name.");
+}
+else if (form.email.value.indexOf("@") == -1 ||
+form.email.value.indexOf(".") == -1) {
+fixElement(form.email, "Please include a proper email address.");
+}
+else if (form.message.value == "") {
+fixElement(form.message, "Please include a message.");
+}
+else {
+getInfo(form);
+passed = true;
+}
+var toNameval=form.email.value;
+toNameval = "mailto:" + toNameval + "?subject=Cookie Guest Book example";
+this.document.mail.action = toNameval;
+return passed;
+}
+// End -->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /forms/" ><font color="#FF0000">Forms</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Form Validation</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Use JavaScript to ensure that all elements of a form are properly filled out before they can be mailed to you.  This definitely saves me from getting a lot of junk mail....
+<br>
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<BODY>
+<CENTER>
+<FORM NAME = "mail" ACTION= "" METHOD = "POST" ENCTYPE = "text/plain" onSubmit = "return isMailReady(this);">
+<INPUT TYPE = "hidden" NAME = "info">
+<TABLE BORDER = 0 CELLPADDING = 5 CELLSPACING = 0>
+<TR>
+<TD>
+Your Name:
+<P>
+<INPUT TYPE = "TEXT" NAME = "fullname" onFocus = "getValue(this)" onBlur = "setValue(this)"> 
+</TD>
+<TD>
+Your Email Address:
+<P>
+<INPUT TYPE = "TEXT" NAME = "email" onFocus = "getValue(this)" onBlur = "setValue(this)">
+</TD>
+</TR>
+<TR>
+<TD COLSPAN = "2">
+Enter your Message:
+<P>
+<TEXTAREA ROWS = "8" COLS = "38" NAME = "message">
+</TEXTAREA>
+</TD>
+</TR>
+<TR>
+<TD COLSPAN = "2">
+<INPUT TYPE = "SUBMIT" VALUE = " Submit ">
+<INPUT TYPE = "RESET" VALUE = " Cancel ">
+</TD>
+</TR>
+</TABLE>
+</FORM>
+</CENTER>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Form:  Form Validation</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.71 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL FORM VALIDATION:
+
+   1.  Paste the first coding into the HEAD of your HTML document
+   2.  Put the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the HEAD your HTML document  --&gt;
+		  
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function getCookie(name){
+var cname = name + "=";               
+var dc = document.cookie;             
+if (dc.length &gt; 0) {              
+begin = dc.indexOf(cname);       
+if (begin != -1) {           
+begin += cname.length;       
+end = dc.indexOf(";", begin);
+if (end == -1) end = dc.length;
+return unescape(dc.substring(begin, end));
+} 
+}
+return null;
+}
+function setCookie(name, value) {
+var now = new Date();
+var then = new Date(now.getTime() + 31536000000);
+document.cookie = name + "=" + escape(value) + "; expires=" + then.toGMTString() + "; path=/";
+}
+function getInfo(form) {
+form.info.value = "Browser Information: " + navigator.userAgent;
+}
+function getValue(element) {
+var value = getCookie(element.name);
+if (value != null) element.value = value;
+}
+function setValue(element) {
+setCookie(element.name, element.value);
+}
+function fixElement(element, message) {
+alert(message);
+element.focus();
+}
+function isMailReady(form) {
+var passed = false;
+if (form.fullname.value == "") {
+fixElement(form.fullname, "Please include your name.");
+}
+else if (form.email.value.indexOf("@") == -1 ||
+form.email.value.indexOf(".") == -1) {
+fixElement(form.email, "Please include a proper email address.");
+}
+else if (form.message.value == "") {
+fixElement(form.message, "Please include a message.");
+}
+else {
+getInfo(form);
+passed = true;
+}
+return passed;
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;CENTER&gt;
+&lt;FORM NAME = "mail" ACTION = "mailto:youremailaddress.com" METHOD = "POST" ENCTYPE = "text/plain" onSubmit = "return isMailReady(this);"&gt;
+&lt;INPUT TYPE = "hidden" NAME = "info"&gt;
+&lt;TABLE BORDER = 0 CELLPADDING = 5 CELLSPACING = 0&gt;
+&lt;TR&gt;
+&lt;TD&gt;
+Your Name:
+&lt;P&gt;
+&lt;INPUT TYPE = "TEXT" NAME = "fullname" onFocus = "getValue(this)" onBlur = "setValue(this)"&gt; 
+&lt;/TD&gt;
+&lt;TD&gt;
+Your Email Address:
+&lt;P&gt;
+&lt;INPUT TYPE = "TEXT" NAME = "email" onFocus = "getValue(this)" onBlur = "setValue(this)"&gt;
+&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;TR&gt;
+&lt;TD COLSPAN = "2"&gt;
+Enter your Message:
+&lt;P&gt;
+&lt;TEXTAREA ROWS = "8" COLS = "38" NAME = "message"&gt;
+&lt;/TEXTAREA&gt;
+&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;TR&gt;
+&lt;TD COLSPAN = "2"&gt;
+&lt;INPUT TYPE = "SUBMIT" VALUE = " Submit "&gt;
+&lt;INPUT TYPE = "RESET" VALUE = " Cancel "&gt;
+&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;/TABLE&gt;
+&lt;/FORM&gt;
+&lt;/CENTER&gt;
+
+ 
+
+&lt;!-- Script Size:  2.71 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

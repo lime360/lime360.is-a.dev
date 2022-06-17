@@ -1,0 +1,179 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Forms:  Items List</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Forms">
+<META NAME="description" CONTENT="Javascript can remember a list of several items you enter.  Just enter an item and click 'Add to List'.  When you are finished, click 'Show List' to see the entries.">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /forms/" ><font color="#FF0000">Forms</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Items List</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<TABLE BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<TR><TD><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Javascript can remember a list of several items you enter.  Just enter an item and click 'Add to List'.  When you are finished, click 'Show List' to see the entries.
+<br>
+<hr>
+</TD></TR>
+</TABLE>
+<!-- Demonstration -->
+<CENTER>
+<FORM name="history">
+<INPUT name="command" type="text" value="">
+<INPUT type="button" value="Add to List" onclick="f_store(document.history.command.value)">
+<INPUT name="history" type="button" value="Show List" onclick="f_print()">
+</FORM>
+<P>
+<SCRIPT language="JavaScript">
+<!-- hide it ...
+function MakeArray( n ) {
+if( n <= 0 ) {
+this.length = 0;
+return this;
+}
+this.length = n;
+for( var i = 1; i <= n; i++ ) {
+this[ i ] = 0;
+}
+return this;
+}
+var history = new MakeArray( 15 );
+var index = 0;
+var cmmnd = 1;
+function f_store( sTR ) {
+var i;
+if( index >= history.length ) {
+for( i = 1; i < history.length; i++ )
+history[i-1] = history[i];
+index = history.length - 1;
+}
+history[ index ] = cmmnd + ":" + sTR;
+++cmmnd;
+++index;
+document.history.command.value="";
+}
+function f_print() {
+var allCmmnds, i;
+allCmmnds = "";
+for( i = 0; i < index; i++ )
+allCmmnds += history[i] + "\n";
+alert( allCmmnds );
+}
+// End -->
+</SCRIPT>
+<P>
+<P>
+<a name="source">
+<TABLE BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<TR><TD BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Forms:  Items List</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!<br><br></font></td></tr>
+<TR><TD BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.30 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- ONE STEP TO INSTALL ITEMS LIST:
+
+   1.  Copy the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Add this code into the BODY of your HTML document  --&gt; 
+
+&lt;BODY&gt;
+
+&lt;CENTER&gt;
+&lt;FORM name="history"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;INPUT name="command" type="text" value=""&gt;
+&lt;INPUT type="button" value="Add to List" onclick="f_store(document.history.command.value)"&gt;
+&lt;INPUT name="history" type="button" value="Show List" onclick="f_print()"&gt;
+&lt;/FORM&gt;
+&lt;P&gt;
+&lt;SCRIPT language="JavaScript"&gt;
+&lt;!-- hide it ...
+function MakeArray( n ) {
+if( n &lt;= 0 ) {
+this.length = 0;
+return this;
+}
+this.length = n;
+for( var i = 1; i &lt;= n; i++ ) {
+this[ i ] = 0;
+}
+return this;
+}
+var history = new MakeArray( 15 );
+var index = 0;
+var cmmnd = 1;
+function f_store( sTR ) {
+var i;
+if( index &gt;= history.length ) {
+for( i = 1; i &lt; history.length; i++ )
+history[i-1] = history[i];
+index = history.length - 1;
+}
+history[ index ] = cmmnd + ":" + sTR;
+++cmmnd;
+++index;
+document.history.command.value="";
+}
+function f_print() {
+var allCmmnds, i;
+allCmmnds = "";
+for( i = 0; i &lt; index; i++ )
+allCmmnds += history[i] + "\n";
+alert( allCmmnds );
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+ 
+
+&lt;!-- Script Size:  1.30 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

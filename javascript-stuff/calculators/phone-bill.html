@@ -1,0 +1,216 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Calculators:  Phone Bill</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Calculators">
+<META NAME="description" CONTENT="Does it ever bother you how much a long-distance phone call is going to cost, after you hung up?  With this script, all you have to do is enter the amount per minute, and any initial amount, then click start when the call begins and see the total charge at any time!  Save time, money, and learn JavaScript all with this script! :-)">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+function decimal(num) {
+string = "" + num;
+if (string.indexOf('.') == -1)
+return string + '.00';
+seperation = string.length - string.indexOf('.');
+if (seperation > 3)
+return string.substring(0,string.length-seperation+3);
+else if (seperation == 2)
+return string + '0';
+return string;
+}
+i=0;
+x=0;
+countit="yes";
+function count() {
+if (i == 60) { i=0; x=(x + 1)}
+document.money.minutes.value = x;
+i++;
+document.money.seconds.value = i;
+document.money.owed.value = "$" + 
+decimal((x * document.money.permin.value) + 
+eval(document.money.initial.value));
+if (countit != "no") {
+setTimeout('count()',1000);
+   }
+}
+function stop() {
+countit="no";
+}
+// End -->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /calculators/"><font color="#FF0000">Calculators</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Phone Bill</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE=" helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Does it ever bother you how much a long-distance phone call is going to cost, after you hung up?  With this script, all you have to do is enter the amount per minute, and any initial amount, then click start when the call begins and see the total charge at any time!  Save time, money, and learn JavaScript all with this script! :-)<br><hr>
+</td></tr>
+</table>
+<!--  Demonstration -->
+<form name=money>
+<table border=1 bgcolor="#f5f5f5">
+<tr>
+<td>Initial amount added to every call:</td>
+<td>
+<input name=initial type=text value="1.25" size=20 onChange="document.money.owed.value = decimal(document.money.initial.value)"></td>
+</tr>
+<tr>
+<td>Amount per minute:</td>
+<td><input name=permin type=text value=".10" size=20></td>
+</tr>
+<tr>
+<td>Number of minutes passed:</td>
+<td><input name=minutes type=text size=20></td>
+</tr>
+<tr>
+<td>Seconds in current minute:</td>
+<td><input name=seconds type=text size=20></td>
+</tr>
+<tr>
+<td>Amount of phone call:</td>
+<td><input name=owed type=text size=20 value="$0.00"></td>
+</tr>
+<tr>
+<td colspan=2 align=center><input type=button value=" Start " onClick="countit='yes'; count()"><input type=button value=" Stop " onClick="stop()"></td>
+</tr>
+</table>
+</form>
+<P>
+<BR>
+<P>
+<a name="source">
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Calculators:  Phone Bill</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as NotePad or SimpleText) and save (Control-s or Apple-s).  The script is yours!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.04 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL PHONE BILL:
+
+   1.  Paste the first code in the HEAD of your HTML document
+   2.  Add the last coding to the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste the first code in the HEAD of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+<SCRIPT LANGUAGE="JavaScript">
+
+<!-- This script and many more are available online frre at -->
+
+
+<!-- Begin
+function decimal(num) {
+string = "" + num;
+if (string.indexOf('.') == -1)
+return string + '.00';
+seperation = string.length - string.indexOf('.');
+if (seperation > 3)
+return string.substring(0,string.length-seperation+3);
+else if (seperation == 2)
+return string + '0';
+return string;
+}
+i=0;
+x=0;
+countit="yes";
+function count() {
+if (i == 60) { i=0; x=(x + 1)}
+document.money.minutes.value = x;
+i++;
+document.money.seconds.value = i;
+document.money.owed.value = "$" + 
+decimal((x * document.money.permin.value) + 
+eval(document.money.initial.value));
+if (countit != "no") {
+setTimeout('count()',1000);
+   }
+}
+function stop() {
+countit="no";
+}
+// End -->
+</SCRIPT>
+
+&lt;!-- STEP TWO: Add the last coding to the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+<form name=money>
+<table border=1 bgcolor="#f5f5f5">
+<tr>
+<td>Initial amount added to every call:</td>
+<td>
+<input name=initial type=text value="1.25" size=20 onChange="document.money.owed.value = decimal(document.money.initial.value)"></td>
+</tr>
+<tr>
+<td>Amount per minute:</td>
+<td><input name=permin type=text value=".10" size=20></td>
+</tr>
+<tr>
+<td>Number of minutes passed:</td>
+<td><input name=minutes type=text size=20></td>
+</tr>
+<tr>
+<td>Seconds in current minute:</td>
+<td><input name=seconds type=text size=20></td>
+</tr>
+<tr>
+<td>Amount of phone call:</td>
+<td><input name=owed type=text size=20 value="$0.00"></td>
+</tr>
+<tr>
+<td colspan=2 align=center><input type=button value=" Start " onClick="countit='yes'; count()"><input type=button value=" Stop " onClick="stop()"></td>
+</tr>
+</table>
+</form>
+
+ 
+
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

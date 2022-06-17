@@ -1,0 +1,190 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  User Details:  Visitor Monitor</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="User Details">
+<META NAME="description" CONTENT="This script will send you an e-mail whenever the page with the script is loaded.  This script works great as long as you don't have too many visitors or it spams your e-mail box! ">
+
+<script language="JavaScript">
+<!--
+var startTime = new Date();
+startTime = startTime.getTime();
+var submissions = 0;
+
+function checkForDuplicate() {
+ if (document.form1) {
+  document.form1.REFERRER.value = document.referrer;
+  document.form1.PLATFORM.value = navigator.appName
+   + " " + navigator.appVersion;
+  submissions++;
+  if (submissions > 1)
+   return false;
+  else
+   return true;
+ } else {
+  return false;
+ }
+} // goes with function
+
+function doneLoading() {
+ var stopTime = new Date();
+ stopTime = stopTime.getTime();
+ document.form1.LOADING_TIME.value = ((stopTime - startTime) / 1000)
+  + " seconds";
+ document.form1.PAGE.value = document.title;
+ document.form1.SUBMITTER.click(); // triggers submission of form
+ // equivalent to form.submit(), but
+ // Netscape blocks form.submit() calls to forms with mailto actions
+ // this is a workaround for that problem
+}
+
+// -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff onLoad="doneLoading()">
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /user-details/"><font color="#FF0000">User Details</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Visitor Monitor</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+This script will send you an e-mail whenever the page with the script is loaded.  This script works great as long as you don't have too many visitors or it spams your e-mail box! <BR><P>(As a security precaution, newer browsers pop up a security alert box for this script - you can't prevent it from showing)
+<br>
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<FORM name="form1"
+	METHOD=post 
+	action="mailto:antispammer@earthling.net?SUBJECT=Devious Visitor Monitor"
+	enctype="text/plain"
+	onSubmit="return checkForDuplicate()">
+<input type="hidden" name="PAGE" value="none">
+<input type="hidden" name="REFERRER" value="none">
+<input type="hidden" name="PLATFORM" value="none">
+<input type="hidden" name="LOADING_TIME" value="none">
+<input type="submit"
+	name="SUBMITTER"
+	value="Click me to let me know you were here">
+</form>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  User Details:  Visitor Monitor</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE=" Script Size: 2.16 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- FOUR STEPS TO INSTALL VISITOR MONITOR:
+
+   1. Put the first code into the HEAD of your HTML document
+   2. Add the onLoad event handler to the BODY tag
+   3. Paste the last code into the BODY of your HTML document
+   4. Change the 'dummy' e-mail address to your instead.  --&gt;
+
+&lt;!-- STEP ONE: paste this code into the HEAD of your HTML document --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var startTime = new Date();
+startTime = startTime.getTime();
+var submissions = 0;
+
+function checkForDuplicate() {
+if (document.form1) {
+document.form1.REFERRER.value = document.referrer;
+document.form1.PLATFORM.value = navigator.appName
++ " " + navigator.appVersion;
+submissions++;
+if (submissions &gt; 1)
+return false;
+else
+return true;
+}
+else {
+return false;
+   }
+}
+function doneLoading() {
+var stopTime = new Date();
+stopTime = stopTime.getTime();
+document.form1.LOADING_TIME.value = ((stopTime - startTime) / 1000)
++ " seconds";
+document.form1.PAGE.value = document.title;
+document.form1.SUBMITTER.click();
+}
+// End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Add the onLoad event handler to your BODY tag --&gt;
+
+&lt;BODY onLoad="doneLoading()"&gt;
+
+&lt;!-- STEP THREE:  Paste this code into the BODY of your HTML document  --&gt;
+
+&lt;FORM name="form1" METHOD=post action="mailto:antispammer@earthling.net?SUBJECT=Devious Visitor Monitor" enctype="text/plain" onSubmit="return checkForDuplicate()"&gt;
+&lt;input type="hidden" name="PAGE" value="none"&gt;
+&lt;input type="hidden" name="REFERRER" value="none"&gt;
+&lt;input type="hidden" name="PLATFORM" value="none"&gt;
+&lt;input type="hidden" name="LOADING_TIME" value="none"&gt;
+&lt;input type="submit" name="SUBMITTER" value="Click me to let me know you were here"&gt;
+&lt;/form&gt;
+
+&lt;!-- STEP FOUR:  Change the 'dummy' e-mail address to yours.  =-)  --&gt;
+
+ 
+
+&lt;!-- Script Size:  2.16 KB  --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

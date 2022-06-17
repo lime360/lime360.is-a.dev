@@ -1,0 +1,280 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Calculators:  Adjusted Cost Base</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Gordon Coverley (gordonc@mondenet.com)">
+<META NAME="section" CONTENT="Calculators">
+<META NAME="description" CONTENT="Computes the average cost base (or cost per share) for a series of stock or mutual fund purchases.  When a sale is entered, the capital gain (or loss) is calculated.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Gordon Coverley (gordonc@mondenet.com) -->
+
+
+
+
+<!-- Begin
+var tot_units = 0;
+var tot_cost = 0;
+function acbCalc(acbForm) {
+with (acbForm) {
+if (!unitsnum.value || isNaN(unitsnum.value) || !unitscost.value || isNaN(unitscost.value) ) {
+alert("Please re-enter the units and cost amounts again.");
+return;
+}
+else {
+if (saletype[0].checked) { // bought
+CapGain.value = "";
+tot_units += unitsnum.value*1;
+total_units.value = tot_units;
+tot_cost += (unitsnum.value*1) * (unitscost.value*1);
+total_cost.value = d_places(tot_cost, 4);
+acb.value = d_places(tot_cost/tot_units, 4);
+CapGain.value = "-- sales only --";
+}
+else { // sold
+if ((unitsnum.value*-1 + tot_units*1) >= 0) {
+tot_units -= unitsnum.value;
+total_units.value = tot_units;
+tot_cost = tot_units * acb.value;
+total_cost.value = d_places(tot_cost, 4);
+CapGain.value = d_places(unitsnum.value*(unitscost.value - acb.value), 2);
+}
+else {
+alert("You don't have that many units to sell."); return;
+         }
+      }
+   }
+}
+// sets the decimal precision
+function d_places(n,p) {
+var factor = 1;
+var ans  = 0;
+var j = 0;
+for (j = 1; j <= p; j++)
+factor =  factor * 10.0;
+ans = (Math.round((n + 0.05 / (factor) ) * factor)) / factor;
+return ans;
+   }
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /calculators/"><font color="#FF0000"><b>Calculators</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Adjusted Cost Base</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Computes the average cost base (or cost per share) for a series of stock or mutual fund purchases.  When a sale is entered, the capital gain (or loss) is calculated.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form>
+<table border=1 cellpadding=5 cellspacing=0><tr><td>
+<table>
+<th colspan=2>Adjusted Cost Base Calculator<p></th>
+<tr>
+<td># of Units</td>
+<td><input type=text name=unitsnum size=15 maxlength=10></td>
+</tr>
+<tr>
+<td>Cost per Unit</td>
+<td><input type=text name=unitscost size=15 maxlength=10></td>
+</tr>
+<tr>
+<td>Transaction Type</td>
+<td><input type=radio name=saletype value="1" checked>Bought
+<br><input type=radio name=saletype value="-1">Sold
+</td>
+</tr>
+<tr>
+<td colspan=2 align=center><input type=button value="Add This Transaction" onClick="acbCalc(this.form);"></td>
+</tr>
+<tr>
+<td>Total Units</td>
+<td><input type=text name=total_units size=15 readonly></td>
+</tr>
+<td>Total Cost</td>
+<td><input type=text name=total_cost size=15 maxlength=10 readonly></td>
+</tr>
+<tr>
+<td>Adjusted Base Cost</td>
+<td><input type=text name=acb size=15 readonly></td>
+</tr>
+<tr>
+<td>Gain or Loss</td>
+<td><input type=text name=CapGain size=15 maxlength=10 readonly></td>
+</tr>
+</table>
+</td></tr></table>
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Calculators:  Adjusted Cost Base</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.84 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL ADJUSTED COST BASE:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Gordon Coverley (gordonc@mondenet.com) --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var tot_units = 0;
+var tot_cost = 0;
+function acbCalc(acbForm) {
+with (acbForm) {
+if (!unitsnum.value || isNaN(unitsnum.value) || !unitscost.value || isNaN(unitscost.value) ) {
+alert("Please re-enter the units and cost amounts again.");
+return;
+}
+else {
+if (saletype[0].checked) { // bought
+CapGain.value = "";
+tot_units += unitsnum.value*1;
+total_units.value = tot_units;
+tot_cost += (unitsnum.value*1) * (unitscost.value*1);
+total_cost.value = d_places(tot_cost, 4);
+acb.value = d_places(tot_cost/tot_units, 4);
+CapGain.value = "-- sales only --";
+}
+else { // sold
+if ((unitsnum.value*-1 + tot_units*1) &gt;= 0) {
+tot_units -= unitsnum.value;
+total_units.value = tot_units;
+tot_cost = tot_units * acb.value;
+total_cost.value = d_places(tot_cost, 4);
+CapGain.value = d_places(unitsnum.value*(unitscost.value - acb.value), 2);
+}
+else {
+alert("You don't have that many units to sell."); return;
+         }
+      }
+   }
+}
+// sets the decimal precision
+function d_places(n,p) {
+var factor = 1;
+var ans  = 0;
+var j = 0;
+for (j = 1; j &lt;= p; j++)
+factor =  factor * 10.0;
+ans = (Math.round((n + 0.05 / (factor) ) * factor)) / factor;
+return ans;
+   }
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form&gt;
+&lt;table border=1 cellpadding=5 cellspacing=0&gt;&lt;tr&gt;&lt;td&gt;
+&lt;table&gt;
+&lt;th colspan=2&gt;Adjusted Cost Base Calculator&lt;p&gt;&lt;/th&gt;
+&lt;tr&gt;
+&lt;td&gt;# of Units&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name=unitsnum size=15 maxlength=10&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Cost per Unit&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name=unitscost size=15 maxlength=10&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Transaction Type&lt;/td&gt;
+&lt;td&gt;&lt;input type=radio name=saletype value="1" checked&gt;Bought
+&lt;br&gt;&lt;input type=radio name=saletype value="-1"&gt;Sold
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td colspan=2 align=center&gt;&lt;input type=button value="Add This Transaction" onClick="acbCalc(this.form);"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Total Units&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name=total_units size=15 readonly&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;td&gt;Total Cost&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name=total_cost size=15 maxlength=10 readonly&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Adjusted Base Cost&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name=acb size=15 readonly&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Gain or Loss&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name=CapGain size=15 maxlength=10 readonly&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  2.84 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

@@ -1,0 +1,170 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Navigation:  Customized Popup</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Navigation">
+<META NAME="description" CONTENT="Allow your visitors to have a popup page on your site appear exactly as they want!  They can customize the width, height, and placement of a popup window on your site before the window is opened.">
+
+<SCRIPT LANGUAGE="JavaScript">
+
+
+
+
+<!-- Begin
+function popupPage(l, t, w, h) {
+var windowprops = "location=no,scrollbars=no,menubars=no,toolbars=no,resizable=yes" +
+",left=" + l + ",top=" + t + ",width=" + w + ",height=" + h;
+
+var URL = "http://www.yahoo.com";
+popup = window.open(URL,"MenuPopup",windowprops);
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /navigation/"><font color="#FF0000"><b>Navigation</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Customized Popup</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Allow your visitors to have a popup page on your site appear exactly as they want!  They can customize the width, height, and placement of a popup window on your site before the window is opened.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<table>
+<tr>
+
+<td>
+<form name=popupform>
+<pre>
+Customize Your Popup Window!<br>
+Distance from left edge:  <input type=text name=left size=2 maxlength=4> pixels
+Distance from top edge:   <input type=text name=top size=2 maxlength=4> pixels
+
+Width of popup window:    <input type=text name=width size=2 maxlength=4> pixels
+Height of popup window:   <input type=text name=height size=2 maxlength=4> pixels
+</pre>
+<center>
+<input type=button value="Open the Popup!" onClick="popupPage(this.form.left.value, this.form.top.value, this.form.width.value, this.form.height.value)">
+</center>
+</form>
+</td>
+
+</tr>
+</table>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Navigation:  Customized Popup</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.48 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL CUSTOMIZED POPUP:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function popupPage(l, t, w, h) {
+var windowprops = "location=no,scrollbars=no,menubars=no,toolbars=no,resizable=yes" +
+",left=" + l + ",top=" + t + ",width=" + w + ",height=" + h;
+
+var URL = "http://www.yahoo.com";
+popup = window.open(URL,"MenuPopup",windowprops);
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;table&gt;
+&lt;tr&gt;
+
+&lt;td&gt;
+&lt;form name=popupform&gt;
+&lt;pre&gt;
+Customize Your Popup Window!&lt;br&gt;
+Distance from left edge:  &lt;input type=text name=left size=2 maxlength=4&gt; pixels
+Distance from top edge:   &lt;input type=text name=top size=2 maxlength=4&gt; pixels
+
+Width of popup window:    &lt;input type=text name=width size=2 maxlength=4&gt; pixels
+Height of popup window:   &lt;input type=text name=height size=2 maxlength=4&gt; pixels
+&lt;/pre&gt;
+&lt;center&gt;
+&lt;input type=button value="Open the Popup!" onClick="popupPage(this.form.left.value, this.form.top.value, this.form.width.value, this.form.height.value)"&gt;
+&lt;/center&gt;
+&lt;/form&gt;
+&lt;/td&gt;
+
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  1.48 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

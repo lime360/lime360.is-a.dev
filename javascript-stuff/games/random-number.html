@@ -1,0 +1,208 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Games:  Random Number</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Games">
+<META NAME="description" CONTENT="The computer will thinks of a random number between 0 and 49.  Just guess it!  Higher and lower hints included!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+var RNumber;
+var RTries;
+limit = 50;
+function Random() {
+today = new Date();
+num = today.getTime();
+num = Math.round(Math.abs(Math.sin(num) * 1000000)) % limit;
+return num;
+}
+function Init(){
+RNumber = Random();
+RTries = 0;
+document.FGame.Output.value='I am thinking of a number between 0 and ' + (limit-1) +' Guess it....';
+document.FGame.Tries.value=RTries;
+document.FGame.HighLow.value='';
+document.FGame.Input.value='';
+}
+function Game(Number) {
+if(Number==RNumber) {
+RTries++;
+document.FGame.Output.value='You guessed it in ' + RTries + ' tries! It was ' + RNumber + '! Hit Restart to play again.';
+document.FGame.HighLow.value='Got It!';
+} 
+else {
+RTries++;
+document.FGame.Output.value='Nope, ' + Number + ' is not the number I am thinking about!';
+document.FGame.HighLow.value=(RNumber > Number) ? 'Higher!' : 'Lower!';
+document.FGame.Tries.value=RTries;
+   }
+}
+// End -->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /games/"><font color="#FF0000">Games</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Random Number</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE=" helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+The computer will thinks of a random number between 0 and 49.  Just guess it!  Higher and lower hints included!<br><hr>
+</td></tr>
+</table>
+<!--  Demonstration -->
+<center>
+<FORM NAME="FGame">
+<INPUT TYPE="txt" NAME="Output" VALUE="" Size="70"><br>
+<INPUT TYPE="txt" NAME="Input" VALUE='' Size="20">
+The number is:
+<INPUT TYPE="txt" NAME="HighLow" VALUE='' Size="20">
+You guessed:
+<INPUT TYPE="txt" NAME="Tries"  VALUE="0" SIZE="3"> Times.<br>
+<INPUT TYPE="button" NAME="one"  VALUE="  1  " OnClick="FGame.Input.value += 1">
+<INPUT TYPE="button" NAME="one"  VALUE="  2  " OnClick="FGame.Input.value += 2">
+<INPUT TYPE="button" NAME="one"  VALUE="  3  " OnClick="FGame.Input.value += 3"><br>
+<INPUT TYPE="button" NAME="one"  VALUE="  4  " OnClick="FGame.Input.value += 4">
+<INPUT TYPE="button" NAME="one"  VALUE="  5  " OnClick="FGame.Input.value += 5">
+<INPUT TYPE="button" NAME="one"  VALUE="  6  " OnClick="FGame.Input.value += 6"><br>
+<INPUT TYPE="button" NAME="one"  VALUE="  7  " OnClick="FGame.Input.value += 7">
+<INPUT TYPE="button" NAME="one"  VALUE="  8  " OnClick="FGame.Input.value += 8">
+<INPUT TYPE="button" NAME="one"  VALUE="  9  " OnClick="FGame.Input.value += 9"><br>
+<INPUT TYPE="button" NAME="one"  VALUE="  0  " OnClick="FGame.Input.value += 0">
+<INPUT TYPE="button" NAME="DoIt" VALUE=" Try it!  " OnClick="Game(FGame.Input.value); FGame.Input.value=''"><br>
+<INPUT TYPE="button" NAME="init" VALUE="      Start/Restart     " OnClick="Init()">  
+</FORM>
+</center>
+<P>
+<BR>
+<P>
+<a name="source">
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Games:  Random Number</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as NotePad or SimpleText) and save (Control-s or Apple-s).  The script is yours!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.75 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL RANDOM NUMBER:
+
+   1.  Paste the first code in the HEAD of your HTML document
+   2.  Add the last coding to the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste the first code in the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var RNumber;
+var RTries;
+limit = 50;
+function Random() {
+today = new Date();
+num = today.getTime();
+num = Math.round(Math.abs(Math.sin(num) * 1000000)) % limit;
+return num;
+}
+function Init(){
+RNumber = Random();
+RTries = 0;
+document.FGame.Output.value='I am thinking of a number between 0 and ' + (limit-1) +' Guess it....';
+document.FGame.Tries.value=RTries;
+document.FGame.HighLow.value='';
+document.FGame.Input.value='';
+}
+function Game(Number) {
+if(Number==RNumber) {
+RTries++;
+document.FGame.Output.value='You guessed it in ' + RTries + ' tries! It was ' + RNumber + '! Hit Restart to play again.';
+document.FGame.HighLow.value='Got It!';
+} 
+else {
+RTries++;
+document.FGame.Output.value='Nope, ' + Number + ' is not the number I am thinking about!';
+document.FGame.HighLow.value=(RNumber &gt; Number) ? 'Higher!' : 'Lower!';
+document.FGame.Tries.value=RTries;
+   }
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+&lt;!-- STEP TWO: Add the last coding to the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;FORM NAME="FGame"&gt;
+&lt;INPUT TYPE="txt" NAME="Output" VALUE="" Size="70"&gt;&lt;br&gt;
+&lt;INPUT TYPE="txt" NAME="Input" VALUE='' Size="20"&gt;
+The number is:
+&lt;INPUT TYPE="txt" NAME="HighLow" VALUE='' Size="20"&gt;
+You guessed:
+&lt;INPUT TYPE="txt" NAME="Tries"  VALUE="0" SIZE="3"&gt; Times.&lt;br&gt;
+&lt;INPUT TYPE="button" NAME="one"  VALUE="  1  " OnClick="FGame.Input.value += 1"&gt;
+&lt;INPUT TYPE="button" NAME="one"  VALUE="  2  " OnClick="FGame.Input.value += 2"&gt;
+&lt;INPUT TYPE="button" NAME="one"  VALUE="  3  " OnClick="FGame.Input.value += 3"&gt;&lt;br&gt;
+&lt;INPUT TYPE="button" NAME="one"  VALUE="  4  " OnClick="FGame.Input.value += 4"&gt;
+&lt;INPUT TYPE="button" NAME="one"  VALUE="  5  " OnClick="FGame.Input.value += 5"&gt;
+&lt;INPUT TYPE="button" NAME="one"  VALUE="  6  " OnClick="FGame.Input.value += 6"&gt;&lt;br&gt;
+&lt;INPUT TYPE="button" NAME="one"  VALUE="  7  " OnClick="FGame.Input.value += 7"&gt;
+&lt;INPUT TYPE="button" NAME="one"  VALUE="  8  " OnClick="FGame.Input.value += 8"&gt;
+&lt;INPUT TYPE="button" NAME="one"  VALUE="  9  " OnClick="FGame.Input.value += 9"&gt;&lt;br&gt;
+&lt;INPUT TYPE="button" NAME="one"  VALUE="  0  " OnClick="FGame.Input.value += 0"&gt;
+&lt;INPUT TYPE="button" NAME="DoIt" VALUE=" Try it!  " OnClick="Game(FGame.Input.value); FGame.Input.value=''"&gt;&lt;br&gt;
+&lt;INPUT TYPE="button" NAME="init" VALUE="      Start/Restart     " OnClick="Init()"&gt;  
+&lt;/FORM&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  2.75 KB  --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

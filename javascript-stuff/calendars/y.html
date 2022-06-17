@@ -1,0 +1,223 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Calendars:  Year</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Calendars">
+<META NAME="description" CONTENT="Check out this script!  See the whole year!  A very neat effect - some great JavaScripting!">
+
+<script language="javascript">
+<!--
+function day_title(day_name){
+document.write("<TD ALIGN=center WIDTH=35>"+day_name+"</TD>")
+}
+function fill_table(month,month_length) {
+day=1
+document.write("<TABLE BORDER=3 CELLSPACING=3 CELLPADDING=%3><TR>")
+document.write("<TD COLSPAN=7 ALIGN=center><B>"+month+"   "+year+"</B><TR>")
+day_title("Sun")
+day_title("Mon")
+day_title("Tue")
+day_title("Wed")
+day_title("Thu")
+day_title("Fri")
+day_title("Sat")
+document.write("</TR><TR>")
+for (var i=1;i<start_day;i++) {
+document.write("<TD>")
+}
+for (var i=start_day;i<8;i++) {
+document.write("<TD ALIGN=center>"+day+"</TD>")
+day++}
+document.write("<TR>")
+while (day <= month_length) {
+for (var i=1;i<=7 && day<=month_length;i++) {
+document.write("<TD ALIGN=center>"+day+"</TD>")
+day++
+}
+document.write("</TR><TR>")
+start_day=i
+}
+document.write("</TR></TABLE><BR>")
+}
+// End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /calendars/"><font color="#FF0000">Calendars</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Year Calendar</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<CENTER><table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Check out this script!  See the whole year!  A very neat effect - some great JavaScripting!
+<br>
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<BODY>
+<script language="javascript">
+today = new Date();
+year = today.getYear();
+if (year < 2000)    // Y2K Fix, Isaac Powell
+year = year + 1900; // http://onyx.idbsu.edu/~ipowell
+today= new Date("January 1, "+year)
+start_day = today.getDay() + 1   
+fill_table("January",31)
+
+if (((year % 4)==0) && ((year % 100)!=0) || ((year % 400)==0)) 
+{ fill_table("February", 29); }
+else { fill_table("February", 28); }
+
+fill_table("March",31)
+fill_table("April",30)
+fill_table("May",31)
+fill_table("June",30)
+fill_table("July",31)
+fill_table("August",31)
+fill_table("September",30)
+fill_table("October",31)
+fill_table("November",30)
+fill_table("December",31)
+</script>
+</BODY>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Calendars:  Year</b>
+<p>Simply click inside the window below, use your cursor to hilight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.83 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL YEAR CALENDAR:
+
+   1.  Paste the specified coding into the HEAD of your HTML document 
+   2.  Put the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the HEAD your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function day_title(day_name){
+document.write("&lt;TD ALIGN=center WIDTH=35&gt;"+day_name+"&lt;/TD&gt;")
+}
+function fill_table(month,month_length) {
+day=1
+document.write("&lt;TABLE BORDER=3 CELLSPACING=3 CELLPADDING=%3&gt;&lt;TR&gt;")
+document.write("&lt;TD COLSPAN=7 ALIGN=center&gt;&lt;B&gt;"+month+"   "+year+"&lt;/B&gt;&lt;TR&gt;")
+day_title("Sun")
+day_title("Mon")
+day_title("Tue")
+day_title("Wed")
+day_title("Thu")
+day_title("Fri")
+day_title("Sat")
+document.write("&lt;/TR&gt;&lt;TR&gt;")
+for (var i=1;i&lt;start_day;i++) {
+document.write("&lt;TD&gt;")
+}
+for (var i=start_day;i&lt;8;i++) {
+document.write("&lt;TD ALIGN=center&gt;"+day+"&lt;/TD&gt;")
+day++}
+document.write("&lt;TR&gt;")
+while (day &lt;= month_length) {
+for (var i=1;i&lt;=7 && day&lt;=month_length;i++) {
+document.write("&lt;TD ALIGN=center&gt;"+day+"&lt;/TD&gt;")
+day++
+}
+document.write("&lt;/TR&gt;&lt;TR&gt;")
+start_day=i
+}
+document.write("&lt;/TR&gt;&lt;/TABLE&gt;&lt;BR&gt;")
+}
+// End --&gt;
+&lt;/script&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Begin
+today = new Date();
+year = today.getYear();
+if (year < 2000)    // Y2K Fix, Isaac Powell
+year = year + 1900; // http://onyx.idbsu.edu/~ipowell
+today= new Date("January 1, "+year)
+start_day = today.getDay() + 1   
+fill_table("January",31)
+
+if (((year % 4)==0) && ((year % 100)!=0) || ((year % 400)==0)) 
+{ fill_table("February", 29); }
+else { fill_table("February", 28); }
+
+fill_table("March",31)
+fill_table("April",30)
+fill_table("May",31)
+fill_table("June",30)
+fill_table("July",31)
+fill_table("August",31)
+fill_table("September",30)
+fill_table("October",31)
+fill_table("November",30)
+fill_table("December",31)
+&lt;/SCRIPT&gt;
+&lt;/BODY&gt;
+
+ 
+
+&lt;!-- Script Size:  1.83 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

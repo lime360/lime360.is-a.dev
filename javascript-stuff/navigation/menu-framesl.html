@@ -1,0 +1,38 @@
+<HTML>
+<HEAD>
+
+<SCRIPT LANGUAGE="JavaScript">
+
+
+
+
+<!-- Begin
+function leapto(form) {
+var myindex=form.dest.selectedIndex;
+parent.right.location.href=(form.dest.options[myindex].value);
+myindex = 0; // reset pulldown menu
+}
+// End -->
+</SCRIPT>
+
+
+</HEAD>
+
+<BODY>
+
+<CENTER>
+<FORM NAME="myform">
+<SELECT NAME="dest" SIZE=1>
+<OPTION SELECTED VALUE="http://www.yahoo.com">Yahoo
+<OPTION VALUE="http://www.excite.com">Excite
+<OPTION VALUE="http://www.altavista.com">Altavista
+<OPTION VALUE="http://www.hotbot.com">Hotbot
+<OPTION VALUE="http://www.lycos.com">Lycos
+<OPTION VALUE="http://www.metacrawler.com">Metacrawler
+</SELECT>
+<INPUT TYPE="BUTTON" VALUE="Go" onClick="leapto(this.form)">
+</FORM>
+</CENTER>
+
+</BODY>
+</HTML>

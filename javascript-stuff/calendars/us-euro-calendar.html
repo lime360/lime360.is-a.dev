@@ -1,0 +1,947 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Calendars:  US-Euro Calendar</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="A powerful calendar that allows you to scroll through the months.  Displays monthly calendars in U.S. or Euro style, three months at a time.  It even lets you define the holidays!">
+<META NAME="date" CONTENT="2000-11-15">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Doug Lawson">
+<META NAME="section" CONTENT="Calendars">
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Doug Lawson (dlawson@clark.net) -->
+
+
+
+
+<!-- Begin
+var calStartDOW = 0;
+var holidays = new Array();
+holidays["1 Jan 2000"] = true;
+holidays["17Jan 2000"] = true;
+holidays["21 Feb 2000"] = true;
+holidays["21 Apr 2000"] = true;
+holidays["29 May 2000"] = true;
+holidays["3 Jul 2000"] = true;
+holidays["4 Jul 2000"] = true;
+holidays["4 Sep 2000"] = true;
+holidays["10 Nov 2000"] = true;
+holidays["23 Nov 2000"] = true;
+holidays["24 Nov 2000"] = true;
+holidays["25 Dec 2000"] = true;
+holidays["31 Dec 2000"] = true;
+////////////////////////////////////////////////
+// ABBREVIATED MONTH NAMES
+// months[] is used internally for (among other things) compatibility with 
+// javascript Date.parse() methods.  You should only have to change it if 
+// your language variable changes. 
+var months = new Array( "Jan","Feb","Mar", "Apr","May","Jun", "Jul","Aug","Sep","Oct", "Nov", "Dec");
+///////////////////////////////////////////////
+// Long month names 
+// longmonths is used for calendar titles. They don't have to be long, 
+// just whatever you would like to display 
+// 
+var longmonths = new Array( "January", "February", "March",
+									 "April", "May", "June",
+									 "July", "August", "September",
+									 "October", "November", "December" ); 
+
+var leapdays = new Array(31,29,31, 30,31,30, 31,31,30, 31,30,31); 
+var yeardays = new Array(31,28,31, 30,31,30, 31,31,30, 31,30,31); 
+//////////////////////////////////////////////// 
+// the symbols to use at the top of the calendars
+var dow = new Array("S","M","T","W","T","F","S"); 
+// globalCalWidth is the default width for calendar tables
+var globalCalWidth = "95%"; 
+// colors
+// changing colors here is a lot easier than slogging through the code 
+//
+// actually, it would be better to do all this with classes and style sheets 
+// but we want to support some older browsers 
+var colorWhite = "#FFFFFF"; 
+var colorDarkRed = "#800000";
+var colorMedRed  = "#B00000"; 
+var colorLightGrey = "#E0E0E0"; 
+var colorMedGray = "#808080"; 
+var colorOffWhite = "#F8F8F8"; 
+var colorDkBlue   = "#0000E0"; 
+// colors for various parts of the calendars
+var holidayColor = colorMedRed;     // fg color for weekends and holidays 
+var dowBGColor   = colorLightGrey;  // bg for days of week at top of calendar
+var dowFGColor   = colorDkBlue;     // fg for days of week 
+var calHdrBGColor = colorMedGray;   // bg for month and year
+var calHdrFGColor = colorOffWhite;  // fg for month and year
+//////////////////////////////////////////////////////////////////
+// a global date object to speed things up a little, since 
+// there are lots of places where we need today's date
+var myDate = new Date(); 
+////////////////////////////////////////////////////////////////
+// thisMonth and thisYear are used as static vars for 
+// newCalendars() (for persistence between calls, which may 
+// or may not involve reloading the document) 
+// 
+// whether these are important or not depends on how you
+// handle the PREVIOUS and NEXT buttons. If you reload the 
+// script from the server using GET, you won't use these variables. 
+// 
+// if you want to cahnge the target so that going backward or 
+// forward does not require a reload, then you will be setting these
+// from the buttons, probably best done with a handler for onClick()
+var thisMonth = myDate.getMonth(); 
+var thisYear  = myDate.getFullYear(); 
+// Now, figure out the arguments the page was loaded with 
+// and what they mean
+//
+// you won't need the next four lines if you don't use GET for
+// the PREVIOUS and NEXT features. Comment them out 
+// if that is the case 
+var URLargs = getURLArgs(true); 
+if (URLargs.year)    { thisYear = parseInt(URLargs.year);            } 
+if (URLargs.month)   { thisMonth = (parseInt(URLargs.month)%12);     } 
+if (URLargs.starton) { calStartDOW = (parseInt(URLargs.starton)%7);  }
+function isLeapYear( year ){
+  // is it leap year ? returns a boolean
+  return ( (0 == (year%4)) && ( (0 != (year%100)) || (0 == (year%400)))); 
+  // ie, if the year divides by 4, but not by 100 except when it divides by
+  // 400, it is leap year
+} 
+function isValidDayOfMonth( day, month, year) 
+{ 
+  // determines whether a day is valid 
+  // (ie, prevents Feb 30 from being processed) 
+  // ( not used but left here for other pages that use 
+  // this calendar, like the time-off request form ) 
+  // 
+  if (day <= 0) { return false; }
+  if (isLeapYear(year)) { return (day <= leapdays[month])}
+  return ( day <= yeardays[month]); 
+} 
+function canonicalDate(day, month, year) 
+{ 
+  // return the number of days since the Jan 0 2000 (ie, 1/1/2K returns 1, 31/12/1999 returns 0) 
+  // for days before Jan 1 2000, returns negative numbers
+  var canonDate = 0;
+  // if the function had no arguments, use today's date; 
+  var mday = myDate.getDate(); 
+  var mmon = myDate.getMonth(); 
+  var myr  = myDate.getFullYear(); 
+  if( arguments.length > 0 ) 	 { mday = arguments[0];	 } 
+  if( arguments.length > 1 ) 	 { mmon = arguments[1];	 } 
+  if( arguments.length > 2 ) 	 { myr  = arguments[2];	 } 
+ if(myr >= 2000) 
+	{ canonDate += mday; 
+	  while(mmon > 0)  { canonDate += isLeapYear(myr) ? leapdays[mmon]: yeardays[mmon]; mmon--;} 
+	  while(myr > 2000){ canonDate += isLeapYear(myr) ? 366: 365; myr--;  } 
+	} 
+ else
+	{ canonDate -= isLeapYear(myr) ? leapdays[mmon] - mday: yeardays[mmon] - mday; 
+	  while(mmon < 11)  { mmon++; canonDate -= isLeapYear(myr) ? leapdays[mmon]: yeardays[mmon];} 
+	  while(myr < 1999){ myr++; canonDate -= isLeapYear(myr) ? 366: 365;} 
+	} 
+ return canonDate; 
+} 
+function dateDiff(firstDate, secondDate) 
+{ 
+  // returns the result in days of subtracting firstDate from secondDate. Result is 
+  // negative if secondDate came before firstDate. 
+  var days= ( canonicalDate(secondDate.getDate(), secondDate.getMonth(), secondDate.getFullYear()) -  
+				  canonicalDate(firstDate.getDate(), firstDate.getMonth(), firstDate.getFullYear())); 
+  return days; 
+} 
+function shiftArray(myArray) 
+{ 
+  // since Array.shift() is missing or broken on some versions of MSIE
+  // we fake it here. 
+  if(-1 != navigator.appVersion.indexOf("MSIE")) 		{ 
+	 var myVal = myArray[0];
+	 for(i=0; i<(myArray.length -1); i++)
+		{ myArray[i] = myArray[i+1];}
+	 myArray.length = myArray.length -1; 
+	 return myVal; 		} 
+	 else return myArray.shift(); 
+} 
+function isHoliday(year,mon,mday)
+{ 
+  // it the date on the list? 
+  // the format is a little sensitive, you
+  // have to make sure that 'mon' is
+  // something that Date.parse() can 
+  // understand 
+  var dStr = mday + " " + mon + " " + year; 
+  if(holidays[dStr]) { return true; } 
+  return false; 
+} 
+function isWeekend( year, mon, mday) 
+{ 
+  var mDate = new Date(mday + " " + mon + " " + year); 
+  return ( ( 0 == mDate.getDay())  ||  ( 6 == mDate.getDay()  )); 
+} 
+function calculateWorkDays( startDate, endDate) 
+{ 
+  // called with 2 Date Objects as arguments. 
+  // calculates the number of workdays between two dates by adding up the 
+  // number of days and subtracting weekends and holidays. 
+  var myEndDate = canonicalDate(endDate.getDate(), endDate.getMonth(), endDate.getFullYear()); 
+  var counter = 0; 
+  var mDay = startDate.getDate(); 
+  var mMonth = startDate.getMonth(); 
+  var mYear  = startDate.getFullYear(); 
+  while  (canonicalDate(mDay, mMonth, mYear) <= myEndDate)
+    { 
+		if(! ( isHoliday(mYear,months[mMonth],mDay) ||	 isWeekend(mYear,months[mMonth],mDay)) ) 
+		{ counter++; } 
+
+      // increment the date
+      // are we at the end of a month ? 
+      var omDay = mDay;
+      var omMonth = mMonth; 
+      var omYear = mYear; 
+      mDay = isLeapYear(mYear) ? 
+		  ((mDay >= leapdays[mMonth]) ? 1 : mDay+1):
+		  ((mDay >= yeardays[mMonth]) ? 1 : mDay+1);
+      // do we need to increment the month ? 
+      mMonth = (mDay == 1) ?  (mMonth +1) % 12: mMonth; 
+      // do we need to increment the year? 
+      mYear = ( (mDay == 1) && (mMonth == 0)) ? mYear + 1: mYear;
+      // startDate = new Date(mDay, mMonth, mYear); 
+    }
+  return counter; 
+} 
+function writeCalendar(target, myYear, myMonth, sday, eday)
+{ 
+  // writes a calendar to target  for myMonth myYear. 
+  // sday and eday are optional values indicating the range of dates 
+  // to be set in bold. 
+  // get a new date for the first day of the month the user is looking at
+  var calDate = new Date( myYear,  myMonth, 1, 0,0,0,0 ); 
+  // how many days are in the month ? 
+  var mDays = isLeapYear(myYear) ? leapdays[myMonth]: yeardays[myMonth]; 
+  var i = 0; 
+  // what day of the week does the month start on? 
+  var wkDay = calDate.getDay(); 
+  var dateBgAtt = ""; 
+  var dateFontTag = "";
+  var fontCloseTag = ""; 
+  var boldTag = "";
+  var unBoldTag = ""; 
+  // if the function was called with the sday and eday arguments, then the 
+  // caller wants a range of dates written in bold 
+  var useBold = arguments.length >= 5 ? true: false; 
+  // write the header for the calendar ( month and year ) 
+  target.write("<CENTER>\n<TABLE BORDER='0' CELLPADDING='6' CELLSPACING='0' WIDTH=\"80%\">\n");
+  // set the background color in the TR tag
+  target.write("<TR BGCOLOR=\"", calHdrBGColor,  "\">");
+  // set the FG color using a FONT tag, better would be style sheets 
+  target.write(
+					"<TD COLSPAN='5'><FONT COLOR=\"", calHdrFGColor,  "\"><STRONG>",
+					longmonths[myMonth],
+					"</STRONG></FONT></TD>","<TD COLSPAN='2'><FONT COLOR=\"", calHdrFGColor,  "\"><STRONG>", 	
+					myYear, 
+					"</STRONG></FONT></TD></TR>\n"
+					); 
+  // write the abbreviations for days of the week into the top line of the calendar
+  target.write("<TR BGCOLOR=\"", dowBGColor, "\">"); 
+  for(i=0; i< 7; i++) 
+	 { target.write("<TD><FONT COLOR=\"", dowFGColor,   
+						 "\">", dow[((i+calStartDOW)%7)], 
+						 "</FONT></TD>");}
+  target.write("</TR>\n");
+  // start the first line with blank spaces until we get to the first day of the month
+  target.write("<TR ALIGN='RIGHT'>"); 
+  for(i=0 ; i < ((7 - calStartDOW + wkDay)%7); i++) 
+	 { target.write("<TD>&nbsp\;&nbsp\;&nbsp\;</TD>");	 }
+  // since javascript doesn't do modulus on negative numbers, 
+  // add 7 to anything that might be negative
+  var cmdate = i - ((7 - calStartDOW + wkDay)%7); 
+  // write the weekdays
+  for( i=i; cmdate < mDays ; i++) 
+	 {  
+		// what is the date ? 
+		cmdate++; 
+	   // if we have reached the end of a week, start another one
+		if(0 == (i%7)){ target.write("</TR>\n<TR ALIGN='RIGHT'>"); } 
+		// if the date is a holiday or weekend, set it in color
+		if( (isHoliday(calDate.getFullYear(),months[calDate.getMonth()],cmdate))
+		    || (isWeekend(calDate.getFullYear(),months[calDate.getMonth()],cmdate)) )
+		  { 	 
+			 dateBgAtt = ""; 
+			 dateFontTag = "<FONT COLOR=\"" +  holidayColor +  "\">";
+			 fontCloseTag = "</FONT>"; 		  }
+		else  
+		  {	 dateBgAtt = ""; 
+			 dateFontTag = "";
+			 fontCloseTag = "";   		  } 
+
+		// set the days off in bold
+		if( ( useBold )  && (cmdate >= sday) && (cmdate <= eday))
+		  { 	 boldTag = "<STRONG><EM>"; 
+			 unBoldTag = "</EM></STRONG>"; } 
+		else  { 
+			 boldTag = ""; 
+			 unBoldTag = "";   } 
+		target.write("<TD ", dateBgAtt, " >", dateFontTag, boldTag, cmdate, unBoldTag, fontCloseTag, "</TD>");
+	 }
+  while(0 != (i%7)) { 	target.write("<TD>&nbsp;&nbsp;&nbsp;</TD>"); i++; }
+  target.write("</TR>"); 
+  target.write("</TABLE></CENTER>\n"); 
+} 
+function drawCalendar( ourTarget, ourYear, ourMonth, startDay, endDay)
+{
+  // serves as a wrapper for writeCalendar() 
+  // if you want to do anything special, such as changing the colors, 
+  // or opening a special window, you can do it here before calling writeCalendar(). 
+  // sday and eday are optional values indicating the range of dates 
+  // to be set in bold. 
+  // arguments: 
+  // ourTarget - document to write to 
+  // ourYear, ourMonth - integers, typically returned by Date.getMonth() and Date.getDate()
+  // startDay, endDay  - optional start and end days for bolding 
+  var myMonth = myDate.getMonth(); 
+  var myYear  = myDate.getFullYear(); 
+  var target = document; 
+  // strictly speaking, all the arguments are optional. 
+  // if you only want this month's calendar, called drawCalendar() with no args. 
+  if(arguments.length >= 1) { target = ourTarget; }
+  if(arguments.length >= 2) { myYear = ourYear; } 
+  if(arguments.length >= 3) { myMonth = ourMonth; } 
+	 { writeCalendar(target, myYear, myMonth, startDay, endDay); }
+} 
+function getURLArgs(caseBool) 
+{ 
+  // gets the arguments the page was loaded with - that is, 
+  // everything after the first '?' 
+  // parameters:
+  // caseBool - set to true or positive integer to force lowercase 
+  // for parameter values 
+  // 
+  // values are ALWAYS case sensitive 
+  // 
+  var casefree = ( (true == caseBool) || (caseBool >= 1)) ? true: false; 
+  var args  = new Object(); 
+  var query = location.search.substring(1); 
+  //  alert(query); 
+  var pairs = query.split("&"); 
+  for(var i = 0; i< pairs.length; i++) 
+	 { 
+		pairs[i]= unescape(pairs[i]); 
+		var pos=pairs[i].indexOf('='); 
+		if(-1 == pos) continue; 
+		var argname; 
+		if(true != casefree) { argname = pairs[i].substring(0,pos); } 
+		else { argname = pairs[i].substring(0,pos).toLowerCase(); } 
+		var value = pairs[i].substring(pos+1); 
+		args[argname] = value; 
+	 } 
+  return args; 
+} 
+function newCalendars(myear, mmonth)
+{ 
+  // puts three calendars on the page from which it 
+  // was called. (last month, this month, next month) 
+  // Params
+  // 
+  // when called with 2 arguments
+  // myear  -  the year for the center calendar
+  // mmonth -  the month for the center calendar
+  var myMonth = thisMonth; 
+  var myYear  = thisYear; 
+  if(arguments.length == 2) { myMonth = mmonth; myYear == myear; } 
+  // it's surprising how many coders don't use modular arithmetic to 
+  // do date and time. Javascript doesn't understand negative numbers in
+  // positive modulus, so we add 11 instead of subtracting 1. 
+  var lastMonth = (myMonth + 11) % 12; 
+  var lmYear    = (myMonth == 0)? myYear -1: myYear; 
+  var nextMonth = (myMonth +1)%12; 
+  var nmYear    = (myMonth == 11)? myYear + 1: myYear;
+  ///////////////////////////////////////////////////////////////////////////
+  // WRITE CALENDAR #1
+  // 
+  document.write("<TABLE ALIGN=\"TOP\" WIDTH=\"90\%\"><TR VALIGN=\"TOP\"><TD>");
+  var isThisMonth = ((lastMonth == myDate.getMonth())&& (lmYear==myDate.getFullYear())); 
+  drawCalendar(document, lmYear, lastMonth,
+					(isThisMonth ? myDate.getDate():0), 
+					(isThisMonth ? myDate.getDate():0)
+					); 
+  isThisMonth = ((myMonth == myDate.getMonth())&& (myYear==myDate.getFullYear())); 
+  document.write("</TD>\n<TD>");
+  ///////////////////////////////////////////////////////////////////////////
+  // WRITE CALENDAR #2
+  // 
+  drawCalendar(document, myYear, myMonth, 
+					(isThisMonth? myDate.getDate():0), 
+					(isThisMonth? myDate.getDate():0)); 
+  document.write("</TD>\n<TD>");
+  ///////////////////////////////////////////////////////////////////////////
+  // WRITE CALENDAR #3
+  // 
+  isThisMonth = ((nextMonth == myDate.getMonth())&& (nmYear==myDate.getFullYear())); 
+  drawCalendar(document, nmYear, nextMonth,
+					(isThisMonth ? myDate.getDate():0), 
+					(isThisMonth ? myDate.getDate():0)); 
+  document.write("</TD></TR></TABLE>\n");
+  //////////////////////////////////////////////////////////////////////////////
+  // write the NEXT and PREVIOUS buttons
+  // 
+  // note that we create a form and use the document URL as the target,
+  // with the METHOD of GET. 
+  // 
+  // if we were writing the calendars into a separate window or frame, 
+  // we wouldn't need to reload; we could just change the global values 
+  // for thisYear, thisMonth, and calStartDOW, and refresh that window
+  // by calling newCalendars() with that window as target. 
+  // 
+  var docName = location.pathname; 
+  var buttonString = "<INPUT TYPE=\"BUTTON\" VALUE=\"Previous\"" +
+	 " onClick='document.newCal.month.value=\"" + lastMonth+  "\"; " + 
+	 "document.newCal.year.value=" + lmYear + "; " + 
+	 "submit();' > "; 
+  document.write("<FORM NAME=\"newCal\" METHOD=\"GET\" ACTION="http://javascript.internet.com/""" + docName + "\">"); 
+  document.write("<INPUT TYPE=\"hidden\" NAME=\"month\" VALUE=\"" + myMonth +"\">");  
+  document.write("<INPUT TYPE=\"hidden\" NAME=\"year\" VALUE=\"" + myYear +"\">");  
+  document.write("<INPUT TYPE=\"hidden\" NAME=\"startOn\" VALUE=\"" + calStartDOW +"\">");  
+  document.write("<CENTER>"); 
+  document.write( buttonString); 
+  buttonString = "<INPUT TYPE=\"BUTTON\" VALUE=\"&nbsp;&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;\"" +
+	 " onClick='document.newCal.month.value=" + nextMonth+  "; " + 
+	 "document.newCal.year.value=" + nmYear + "; " + 
+	 "submit();' > "; 
+  document.write("&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;"); 
+  document.write( buttonString); 
+  document.write("</CENTER><P>\n"); 
+  var calStyleString = "" + 
+	 "<SMALL>calendar style: US" + 
+	 "<INPUT TYPE='radio' NAME='calStyle' VALUE='us'" +
+	 ((calStartDOW == 0)? " CHECKED " : " ") + 
+	 " onClick='document.newCal.startOn.value=\"0\"; " +  
+	 "document.newCal.submit();'>&nbsp;&nbsp;" +
+	 "" + 
+	 "Euro <INPUT TYPE='radio' NAME='calStyle' VALUE='euro'" +
+	 ((calStartDOW == 1)? " CHECKED " : " ") + 
+	 " onClick='document.newCal.startOn.value=\"1\"; " +  
+	 "submit();'></SMALL>"; 
+  document.write(calStyleString); 
+  document.write("</FORM>"); 
+} 
+//  End -->
+</script>
+
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /calendars/"><font color="#FF0000"><b>Calendars</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>US-Euro Calendar</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+A powerful calendar that allows you to scroll through the months.  Displays monthly calendars in U.S. or Euro style, three months at a time.  It even lets you define the holidays!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Doug Lawson (dlawson@clark.net) -->
+
+
+
+
+<!-- Begin
+newCalendars();
+//  End -->
+</script>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Calendars:  US-Euro Calendar</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Command-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  18.57 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL US-EURO CALENDAR:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Doug Lawson (dlawson@clark.net) --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var calStartDOW = 0;
+var holidays = new Array();
+holidays["1 Jan 2000"] = true;
+holidays["17Jan 2000"] = true;
+holidays["21 Feb 2000"] = true;
+holidays["21 Apr 2000"] = true;
+holidays["29 May 2000"] = true;
+holidays["3 Jul 2000"] = true;
+holidays["4 Jul 2000"] = true;
+holidays["4 Sep 2000"] = true;
+holidays["10 Nov 2000"] = true;
+holidays["23 Nov 2000"] = true;
+holidays["24 Nov 2000"] = true;
+holidays["25 Dec 2000"] = true;
+holidays["31 Dec 2000"] = true;
+////////////////////////////////////////////////
+// ABBREVIATED MONTH NAMES
+// months[] is used internally for (among other things) compatibility with 
+// javascript Date.parse() methods.  You should only have to change it if 
+// your language variable changes. 
+var months = new Array( "Jan","Feb","Mar", "Apr","May","Jun", "Jul","Aug","Sep","Oct", "Nov", "Dec");
+///////////////////////////////////////////////
+// Long month names 
+// longmonths is used for calendar titles. They don't have to be long, 
+// just whatever you would like to display 
+// 
+var longmonths = new Array( "January", "February", "March",
+									 "April", "May", "June",
+									 "July", "August", "September",
+									 "October", "November", "December" ); 
+
+var leapdays = new Array(31,29,31, 30,31,30, 31,31,30, 31,30,31); 
+var yeardays = new Array(31,28,31, 30,31,30, 31,31,30, 31,30,31); 
+//////////////////////////////////////////////// 
+// the symbols to use at the top of the calendars
+var dow = new Array("S","M","T","W","T","F","S"); 
+// globalCalWidth is the default width for calendar tables
+var globalCalWidth = "95%"; 
+// colors
+// changing colors here is a lot easier than slogging through the code 
+//
+// actually, it would be better to do all this with classes and style sheets 
+// but we want to support some older browsers 
+var colorWhite = "#FFFFFF"; 
+var colorDarkRed = "#800000";
+var colorMedRed  = "#B00000"; 
+var colorLightGrey = "#E0E0E0"; 
+var colorMedGray = "#808080"; 
+var colorOffWhite = "#F8F8F8"; 
+var colorDkBlue   = "#0000E0"; 
+// colors for various parts of the calendars
+var holidayColor = colorMedRed;     // fg color for weekends and holidays 
+var dowBGColor   = colorLightGrey;  // bg for days of week at top of calendar
+var dowFGColor   = colorDkBlue;     // fg for days of week 
+var calHdrBGColor = colorMedGray;   // bg for month and year
+var calHdrFGColor = colorOffWhite;  // fg for month and year
+//////////////////////////////////////////////////////////////////
+// a global date object to speed things up a little, since 
+// there are lots of places where we need today's date
+var myDate = new Date(); 
+////////////////////////////////////////////////////////////////
+// thisMonth and thisYear are used as static vars for 
+// newCalendars() (for persistence between calls, which may 
+// or may not involve reloading the document) 
+// 
+// whether these are important or not depends on how you
+// handle the PREVIOUS and NEXT buttons. If you reload the 
+// script from the server using GET, you won't use these variables. 
+// 
+// if you want to cahnge the target so that going backward or 
+// forward does not require a reload, then you will be setting these
+// from the buttons, probably best done with a handler for onClick()
+var thisMonth = myDate.getMonth(); 
+var thisYear  = myDate.getFullYear(); 
+// Now, figure out the arguments the page was loaded with 
+// and what they mean
+//
+// you won't need the next four lines if you don't use GET for
+// the PREVIOUS and NEXT features. Comment them out 
+// if that is the case 
+var URLargs = getURLArgs(true); 
+if (URLargs.year)    { thisYear = parseInt(URLargs.year);            } 
+if (URLargs.month)   { thisMonth = (parseInt(URLargs.month)%12);     } 
+if (URLargs.starton) { calStartDOW = (parseInt(URLargs.starton)%7);  }
+function isLeapYear( year ){
+  // is it leap year ? returns a boolean
+  return ( (0 == (year%4)) && ( (0 != (year%100)) || (0 == (year%400)))); 
+  // ie, if the year divides by 4, but not by 100 except when it divides by
+  // 400, it is leap year
+} 
+function isValidDayOfMonth( day, month, year) 
+{ 
+  // determines whether a day is valid 
+  // (ie, prevents Feb 30 from being processed) 
+  // ( not used but left here for other pages that use 
+  // this calendar, like the time-off request form ) 
+  // 
+  if (day &lt;= 0) { return false; }
+  if (isLeapYear(year)) { return (day &lt;= leapdays[month])}
+  return ( day &lt;= yeardays[month]); 
+} 
+function canonicalDate(day, month, year) 
+{ 
+  // return the number of days since the Jan 0 2000 (ie, 1/1/2K returns 1, 31/12/1999 returns 0) 
+  // for days before Jan 1 2000, returns negative numbers
+  var canonDate = 0;
+  // if the function had no arguments, use today's date; 
+  var mday = myDate.getDate(); 
+  var mmon = myDate.getMonth(); 
+  var myr  = myDate.getFullYear(); 
+  if( arguments.length &gt; 0 ) 	 { mday = arguments[0];	 } 
+  if( arguments.length &gt; 1 ) 	 { mmon = arguments[1];	 } 
+  if( arguments.length &gt; 2 ) 	 { myr  = arguments[2];	 } 
+ if(myr &gt;= 2000) 
+	{ canonDate += mday; 
+	  while(mmon &gt; 0)  { canonDate += isLeapYear(myr) ? leapdays[mmon]: yeardays[mmon]; mmon--;} 
+	  while(myr &gt; 2000){ canonDate += isLeapYear(myr) ? 366: 365; myr--;  } 
+	} 
+ else
+	{ canonDate -= isLeapYear(myr) ? leapdays[mmon] - mday: yeardays[mmon] - mday; 
+	  while(mmon &lt; 11)  { mmon++; canonDate -= isLeapYear(myr) ? leapdays[mmon]: yeardays[mmon];} 
+	  while(myr &lt; 1999){ myr++; canonDate -= isLeapYear(myr) ? 366: 365;} 
+	} 
+ return canonDate; 
+} 
+function dateDiff(firstDate, secondDate) 
+{ 
+  // returns the result in days of subtracting firstDate from secondDate. Result is 
+  // negative if secondDate came before firstDate. 
+  var days= ( canonicalDate(secondDate.getDate(), secondDate.getMonth(), secondDate.getFullYear()) -  
+				  canonicalDate(firstDate.getDate(), firstDate.getMonth(), firstDate.getFullYear())); 
+  return days; 
+} 
+function shiftArray(myArray) 
+{ 
+  // since Array.shift() is missing or broken on some versions of MSIE
+  // we fake it here. 
+  if(-1 != navigator.appVersion.indexOf("MSIE")) 		{ 
+	 var myVal = myArray[0];
+	 for(i=0; i&lt;(myArray.length -1); i++)
+		{ myArray[i] = myArray[i+1];}
+	 myArray.length = myArray.length -1; 
+	 return myVal; 		} 
+	 else return myArray.shift(); 
+} 
+function isHoliday(year,mon,mday)
+{ 
+  // it the date on the list? 
+  // the format is a little sensitive, you
+  // have to make sure that 'mon' is
+  // something that Date.parse() can 
+  // understand 
+  var dStr = mday + " " + mon + " " + year; 
+  if(holidays[dStr]) { return true; } 
+  return false; 
+} 
+function isWeekend( year, mon, mday) 
+{ 
+  var mDate = new Date(mday + " " + mon + " " + year); 
+  return ( ( 0 == mDate.getDay())  ||  ( 6 == mDate.getDay()  )); 
+} 
+function calculateWorkDays( startDate, endDate) 
+{ 
+  // called with 2 Date Objects as arguments. 
+  // calculates the number of workdays between two dates by adding up the 
+  // number of days and subtracting weekends and holidays. 
+  var myEndDate = canonicalDate(endDate.getDate(), endDate.getMonth(), endDate.getFullYear()); 
+  var counter = 0; 
+  var mDay = startDate.getDate(); 
+  var mMonth = startDate.getMonth(); 
+  var mYear  = startDate.getFullYear(); 
+  while  (canonicalDate(mDay, mMonth, mYear) &lt;= myEndDate)
+    { 
+		if(! ( isHoliday(mYear,months[mMonth],mDay) ||	 isWeekend(mYear,months[mMonth],mDay)) ) 
+		{ counter++; } 
+
+      // increment the date
+      // are we at the end of a month ? 
+      var omDay = mDay;
+      var omMonth = mMonth; 
+      var omYear = mYear; 
+      mDay = isLeapYear(mYear) ? 
+		  ((mDay &gt;= leapdays[mMonth]) ? 1 : mDay+1):
+		  ((mDay &gt;= yeardays[mMonth]) ? 1 : mDay+1);
+      // do we need to increment the month ? 
+      mMonth = (mDay == 1) ?  (mMonth +1) % 12: mMonth; 
+      // do we need to increment the year? 
+      mYear = ( (mDay == 1) && (mMonth == 0)) ? mYear + 1: mYear;
+      // startDate = new Date(mDay, mMonth, mYear); 
+    }
+  return counter; 
+} 
+function writeCalendar(target, myYear, myMonth, sday, eday)
+{ 
+  // writes a calendar to target  for myMonth myYear. 
+  // sday and eday are optional values indicating the range of dates 
+  // to be set in bold. 
+  // get a new date for the first day of the month the user is looking at
+  var calDate = new Date( myYear,  myMonth, 1, 0,0,0,0 ); 
+  // how many days are in the month ? 
+  var mDays = isLeapYear(myYear) ? leapdays[myMonth]: yeardays[myMonth]; 
+  var i = 0; 
+  // what day of the week does the month start on? 
+  var wkDay = calDate.getDay(); 
+  var dateBgAtt = ""; 
+  var dateFontTag = "";
+  var fontCloseTag = ""; 
+  var boldTag = "";
+  var unBoldTag = ""; 
+  // if the function was called with the sday and eday arguments, then the 
+  // caller wants a range of dates written in bold 
+  var useBold = arguments.length &gt;= 5 ? true: false; 
+  // write the header for the calendar ( month and year ) 
+  target.write("&lt;CENTER&gt;\n&lt;TABLE BORDER='0' CELLPADDING='6' CELLSPACING='0' WIDTH=\"80%\"&gt;\n");
+  // set the background color in the TR tag
+  target.write("&lt;TR BGCOLOR=\"", calHdrBGColor,  "\"&gt;");
+  // set the FG color using a FONT tag, better would be style sheets 
+  target.write(
+					"&lt;TD COLSPAN='5'&gt;&lt;FONT COLOR=\"", calHdrFGColor,  "\"&gt;&lt;STRONG&gt;",
+					longmonths[myMonth],
+					"&lt;/STRONG&gt;&lt;/FONT&gt;&lt;/TD&gt;","&lt;TD COLSPAN='2'&gt;&lt;FONT COLOR=\"", calHdrFGColor,  "\"&gt;&lt;STRONG&gt;", 	
+					myYear, 
+					"&lt;/STRONG&gt;&lt;/FONT&gt;&lt;/TD&gt;&lt;/TR&gt;\n"
+					); 
+  // write the abbreviations for days of the week into the top line of the calendar
+  target.write("&lt;TR BGCOLOR=\"", dowBGColor, "\"&gt;"); 
+  for(i=0; i&lt; 7; i++) 
+	 { target.write("&lt;TD&gt;&lt;FONT COLOR=\"", dowFGColor,   
+						 "\"&gt;", dow[((i+calStartDOW)%7)], 
+						 "&lt;/FONT&gt;&lt;/TD&gt;");}
+  target.write("&lt;/TR&gt;\n");
+  // start the first line with blank spaces until we get to the first day of the month
+  target.write("&lt;TR ALIGN='RIGHT'&gt;"); 
+  for(i=0 ; i &lt; ((7 - calStartDOW + wkDay)%7); i++) 
+	 { target.write("&lt;TD&gt;&nbsp\;&nbsp\;&nbsp\;&lt;/TD&gt;");	 }
+  // since javascript doesn't do modulus on negative numbers, 
+  // add 7 to anything that might be negative
+  var cmdate = i - ((7 - calStartDOW + wkDay)%7); 
+  // write the weekdays
+  for( i=i; cmdate &lt; mDays ; i++) 
+	 {  
+		// what is the date ? 
+		cmdate++; 
+	   // if we have reached the end of a week, start another one
+		if(0 == (i%7)){ target.write("&lt;/TR&gt;\n&lt;TR ALIGN='RIGHT'&gt;"); } 
+		// if the date is a holiday or weekend, set it in color
+		if( (isHoliday(calDate.getFullYear(),months[calDate.getMonth()],cmdate))
+		    || (isWeekend(calDate.getFullYear(),months[calDate.getMonth()],cmdate)) )
+		  { 	 
+			 dateBgAtt = ""; 
+			 dateFontTag = "&lt;FONT COLOR=\"" +  holidayColor +  "\"&gt;";
+			 fontCloseTag = "&lt;/FONT&gt;"; 		  }
+		else  
+		  {	 dateBgAtt = ""; 
+			 dateFontTag = "";
+			 fontCloseTag = "";   		  } 
+
+		// set the days off in bold
+		if( ( useBold )  && (cmdate &gt;= sday) && (cmdate &lt;= eday))
+		  { 	 boldTag = "&lt;STRONG&gt;&lt;EM&gt;"; 
+			 unBoldTag = "&lt;/EM&gt;&lt;/STRONG&gt;"; } 
+		else  { 
+			 boldTag = ""; 
+			 unBoldTag = "";   } 
+		target.write("&lt;TD ", dateBgAtt, " &gt;", dateFontTag, boldTag, cmdate, unBoldTag, fontCloseTag, "&lt;/TD&gt;");
+	 }
+  while(0 != (i%7)) { 	target.write("&lt;TD&gt;&nbsp;&nbsp;&nbsp;&lt;/TD&gt;"); i++; }
+  target.write("&lt;/TR&gt;"); 
+  target.write("&lt;/TABLE&gt;&lt;/CENTER&gt;\n"); 
+} 
+function drawCalendar( ourTarget, ourYear, ourMonth, startDay, endDay)
+{
+  // serves as a wrapper for writeCalendar() 
+  // if you want to do anything special, such as changing the colors, 
+  // or opening a special window, you can do it here before calling writeCalendar(). 
+  // sday and eday are optional values indicating the range of dates 
+  // to be set in bold. 
+  // arguments: 
+  // ourTarget - document to write to 
+  // ourYear, ourMonth - integers, typically returned by Date.getMonth() and Date.getDate()
+  // startDay, endDay  - optional start and end days for bolding 
+  var myMonth = myDate.getMonth(); 
+  var myYear  = myDate.getFullYear(); 
+  var target = document; 
+  // strictly speaking, all the arguments are optional. 
+  // if you only want this month's calendar, called drawCalendar() with no args. 
+  if(arguments.length &gt;= 1) { target = ourTarget; }
+  if(arguments.length &gt;= 2) { myYear = ourYear; } 
+  if(arguments.length &gt;= 3) { myMonth = ourMonth; } 
+	 { writeCalendar(target, myYear, myMonth, startDay, endDay); }
+} 
+function getURLArgs(caseBool) 
+{ 
+  // gets the arguments the page was loaded with - that is, 
+  // everything after the first '?' 
+  // parameters:
+  // caseBool - set to true or positive integer to force lowercase 
+  // for parameter values 
+  // 
+  // values are ALWAYS case sensitive 
+  // 
+  var casefree = ( (true == caseBool) || (caseBool &gt;= 1)) ? true: false; 
+  var args  = new Object(); 
+  var query = location.search.substring(1); 
+  //  alert(query); 
+  var pairs = query.split("&"); 
+  for(var i = 0; i&lt; pairs.length; i++) 
+	 { 
+		pairs[i]= unescape(pairs[i]); 
+		var pos=pairs[i].indexOf('='); 
+		if(-1 == pos) continue; 
+		var argname; 
+		if(true != casefree) { argname = pairs[i].substring(0,pos); } 
+		else { argname = pairs[i].substring(0,pos).toLowerCase(); } 
+		var value = pairs[i].substring(pos+1); 
+		args[argname] = value; 
+	 } 
+  return args; 
+} 
+function newCalendars(myear, mmonth)
+{ 
+  // puts three calendars on the page from which it 
+  // was called. (last month, this month, next month) 
+  // Params
+  // 
+  // when called with 2 arguments
+  // myear  -  the year for the center calendar
+  // mmonth -  the month for the center calendar
+  var myMonth = thisMonth; 
+  var myYear  = thisYear; 
+  if(arguments.length == 2) { myMonth = mmonth; myYear == myear; } 
+  // it's surprising how many coders don't use modular arithmetic to 
+  // do date and time. Javascript doesn't understand negative numbers in
+  // positive modulus, so we add 11 instead of subtracting 1. 
+  var lastMonth = (myMonth + 11) % 12; 
+  var lmYear    = (myMonth == 0)? myYear -1: myYear; 
+  var nextMonth = (myMonth +1)%12; 
+  var nmYear    = (myMonth == 11)? myYear + 1: myYear;
+  ///////////////////////////////////////////////////////////////////////////
+  // WRITE CALENDAR #1
+  // 
+  document.write("&lt;TABLE ALIGN=\"TOP\" WIDTH=\"90\%\"&gt;&lt;TR VALIGN=\"TOP\"&gt;&lt;TD&gt;");
+  var isThisMonth = ((lastMonth == myDate.getMonth())&& (lmYear==myDate.getFullYear())); 
+  drawCalendar(document, lmYear, lastMonth,
+					(isThisMonth ? myDate.getDate():0), 
+					(isThisMonth ? myDate.getDate():0)
+					); 
+  isThisMonth = ((myMonth == myDate.getMonth())&& (myYear==myDate.getFullYear())); 
+  document.write("&lt;/TD&gt;\n&lt;TD&gt;");
+  ///////////////////////////////////////////////////////////////////////////
+  // WRITE CALENDAR #2
+  // 
+  drawCalendar(document, myYear, myMonth, 
+					(isThisMonth? myDate.getDate():0), 
+					(isThisMonth? myDate.getDate():0)); 
+  document.write("&lt;/TD&gt;\n&lt;TD&gt;");
+  ///////////////////////////////////////////////////////////////////////////
+  // WRITE CALENDAR #3
+  // 
+  isThisMonth = ((nextMonth == myDate.getMonth())&& (nmYear==myDate.getFullYear())); 
+  drawCalendar(document, nmYear, nextMonth,
+					(isThisMonth ? myDate.getDate():0), 
+					(isThisMonth ? myDate.getDate():0)); 
+  document.write("&lt;/TD&gt;&lt;/TR&gt;&lt;/TABLE&gt;\n");
+  //////////////////////////////////////////////////////////////////////////////
+  // write the NEXT and PREVIOUS buttons
+  // 
+  // note that we create a form and use the document URL as the target,
+  // with the METHOD of GET. 
+  // 
+  // if we were writing the calendars into a separate window or frame, 
+  // we wouldn't need to reload; we could just change the global values 
+  // for thisYear, thisMonth, and calStartDOW, and refresh that window
+  // by calling newCalendars() with that window as target. 
+  // 
+  var docName = location.pathname; 
+  var buttonString = "&lt;INPUT TYPE=\"BUTTON\" VALUE=\"Previous\"" +
+	 " onClick='document.newCal.month.value=\"" + lastMonth+  "\"; " + 
+	 "document.newCal.year.value=" + lmYear + "; " + 
+	 "submit();' &gt; "; 
+  document.write("&lt;FORM NAME=\"newCal\" METHOD=\"GET\" ACTION=\"" + docName + "\"&gt;"); 
+  document.write("&lt;INPUT TYPE=\"hidden\" NAME=\"month\" VALUE=\"" + myMonth +"\"&gt;");  
+  document.write("&lt;INPUT TYPE=\"hidden\" NAME=\"year\" VALUE=\"" + myYear +"\"&gt;");  
+  document.write("&lt;INPUT TYPE=\"hidden\" NAME=\"startOn\" VALUE=\"" + calStartDOW +"\"&gt;");  
+  document.write("&lt;CENTER&gt;"); 
+  document.write( buttonString); 
+  buttonString = "&lt;INPUT TYPE=\"BUTTON\" VALUE=\"&nbsp;&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;\"" +
+	 " onClick='document.newCal.month.value=" + nextMonth+  "; " + 
+	 "document.newCal.year.value=" + nmYear + "; " + 
+	 "submit();' &gt; "; 
+  document.write("&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;"); 
+  document.write( buttonString); 
+  document.write("&lt;/CENTER&gt;&lt;P&gt;\n"); 
+  var calStyleString = "" + 
+	 "&lt;SMALL&gt;calendar style: US" + 
+	 "&lt;INPUT TYPE='radio' NAME='calStyle' VALUE='us'" +
+	 ((calStartDOW == 0)? " CHECKED " : " ") + 
+	 " onClick='document.newCal.startOn.value=\"0\"; " +  
+	 "document.newCal.submit();'&gt;&nbsp;&nbsp;" +
+	 "" + 
+	 "Euro &lt;INPUT TYPE='radio' NAME='calStyle' VALUE='euro'" +
+	 ((calStartDOW == 1)? " CHECKED " : " ") + 
+	 " onClick='document.newCal.startOn.value=\"1\"; " +  
+	 "submit();'&gt;&lt;/SMALL&gt;"; 
+  document.write(calStyleString); 
+  document.write("&lt;/FORM&gt;"); 
+} 
+//  End --&gt;
+&lt;/script&gt;
+
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Doug Lawson (dlawson@clark.net) --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+newCalendars();
+//  End --&gt;
+&lt;/script&gt;
+
+ 
+
+&lt;!-- Script Size:  18.57 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

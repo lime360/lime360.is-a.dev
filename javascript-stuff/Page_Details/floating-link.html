@@ -1,0 +1,182 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Page Details:  Floating Link</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="This link will float in the upper right corner of the browser window and return you to the top of the window when clicked.  Easily modified to include floating text or image!">
+<META NAME="date" CONTENT="2001-02-08">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Richard Cleaver">
+<META NAME="section" CONTENT="Page Details">
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Richard Cleaver (richard@cleaver.org.uk) -->
+<!-- Web Site:  http://www.cleaver.org.uk -->
+
+
+
+
+<!-- Begin
+function floatButton () {
+if (document.all) {
+document.all.topButton.style.pixelTop = document.body.scrollTop;
+}
+else if (document.layers) {
+document.topButton.top = window.pageYOffset;
+}
+else if (document.getElementById) {
+document.getElementById('topButton').style.top = window.pageYOffset + 'px';
+   }
+}
+if (document.all)
+window.onscroll = floatButton;
+else
+setInterval ('floatButton()', 100);
+function initButton () {
+if (document.all) {
+document.all.topButton.style.pixelLeft = document.body.clientWidth - document.all.topButton.offsetWidth;
+document.all.topButton.style.visibility = 'visible';
+}
+else if (document.layers) {
+document.topButton.left = window.innerWidth - document.topButton.clip.width - 15;
+document.topButton.visibility = 'show';
+}
+else if (document.getElementById) {
+document.getElementById('topButton').style.left = (window.innerWidth - 35) + 'px';
+document.getElementById('topButton').style.visibility = 'visible';
+   }
+}
+//  End -->
+</script>
+
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff onLoad="initButton()">
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /page-details/"><font color="#FF0000"><b>Page Details</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Floating Link</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+This link will float in the upper right corner of the browser window and return you to the top of the window when clicked.  Easily modified to include floating text or image!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<SPAN ID="topButton" STYLE="position: absolute; visibility: hidden; top: 0px;">
+<A HREF="javascript: window.scrollTo(0, 0); void 0" ONMOUSEOVER="window.status = 'top'; return true;" ONMOUSEOUT="window.status = ''; return true;">Back to Top</A>
+</SPAN>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Page Details:  Floating Link</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Command-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.14 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL FLOATING LINK:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the onLoad event handler into the BODY tag
+  3.  Put the last coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Richard Cleaver (richard@cleaver.org.uk) --&gt;
+&lt;!-- Web Site:  http://www.cleaver.org.uk --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function floatButton () {
+if (document.all) {
+document.all.topButton.style.pixelTop = document.body.scrollTop;
+}
+else if (document.layers) {
+document.topButton.top = window.pageYOffset;
+}
+else if (document.getElementById) {
+document.getElementById('topButton').style.top = window.pageYOffset + 'px';
+   }
+}
+if (document.all)
+window.onscroll = floatButton;
+else
+setInterval ('floatButton()', 100);
+function initButton () {
+if (document.all) {
+document.all.topButton.style.pixelLeft = document.body.clientWidth - document.all.topButton.offsetWidth;
+document.all.topButton.style.visibility = 'visible';
+}
+else if (document.layers) {
+document.topButton.left = window.innerWidth - document.topButton.clip.width - 15;
+document.topButton.visibility = 'show';
+}
+else if (document.getElementById) {
+document.getElementById('topButton').style.left = (window.innerWidth - 35) + 'px';
+document.getElementById('topButton').style.visibility = 'visible';
+   }
+}
+//  End --&gt;
+&lt;/script&gt;
+
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Insert the onLoad event handler into your BODY tag  --&gt;
+
+&lt;BODY onLoad="initButton()"&gt;
+
+&lt;!-- STEP THREE: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;SPAN ID="topButton" STYLE="position: absolute; visibility: hidden; top: 0px;"&gt;
+&lt;A HREF="javascript: window.scrollTo(0, 0); void 0" ONMOUSEOVER="window.status = 'top'; return true;" ONMOUSEOUT="window.status = ''; return true;"&gt;Back to Top&lt;/A&gt;
+&lt;/SPAN&gt;
+
+ 
+
+&lt;!-- Script Size:  2.14 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

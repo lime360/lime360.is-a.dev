@@ -1,0 +1,505 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Calculators:  Phone Number Converter</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Kevin Steffler (ksteff@ionsys.com) ">
+<META NAME="section" CONTENT="Calculators">
+<META NAME="description" CONTENT="Have you ever wondered if your phone number has a memorable text equivalent, like 555-HELP?  Just type it in and this script will generate all possible combinations, just pick your favorite one and tell the world how to reach you.">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<P>
+<center>
+
+	
+<P>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /calculators/"><font color="#FF0000">Calculators</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Phone Number Converter</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE=" helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Have you ever wondered if your phone number has a memorable text equivalent, like 555-HELP?  Just type it in and this script will generate all possible combinations, just pick your favorite one and tell the world how to reach you.<br><hr>
+</td></tr>
+</table>
+<!--  Demonstration -->
+
+<SCRIPT LANGUAGE="JavaScript">
+
+<!-- Original:  Kevin Steffler (ksteff@ionsys.com)  -->
+<!-- Web Site:  http://web.ionsys.com/~ksteff  -->
+
+<!-- Begin
+function MakeArray(n) {
+this.length = n;
+for (var i = 1; i <=n; i++) {
+this[i] = 0;
+   }
+}
+function SetDecodes() {
+Decode = new MakeArray(101);
+DecodeMax = new MakeArray(10);
+Decode[11] = "1";
+DecodeMax[1] = 1;
+Decode[21] = "A";
+Decode[22] = "B";
+Decode[23] = "C";
+DecodeMax[2] = 3;
+Decode[31] = "D";
+Decode[32] = "E";
+Decode[33] = "F";
+DecodeMax[3] = 3;
+Decode[41] = "G";
+Decode[42] = "H";
+Decode[43] = "I";
+DecodeMax[4] = 3;
+Decode[51] = "J";
+Decode[52] = "K";
+Decode[53] = "L";
+DecodeMax[5] = 3;
+Decode[61] = "M";
+Decode[62] = "N";
+Decode[63] = "O";
+DecodeMax[6] = 3;
+Decode[71] = "P";
+Decode[72] = "R";
+Decode[73] = "S";
+DecodeMax[7] = 3;
+Decode[81] = "T";
+Decode[82] = "U";
+Decode[83] = "V";
+DecodeMax[8] = 3;
+Decode[91] = "W";
+Decode[92] = "X";
+Decode[93] = "Y";
+DecodeMax[9] = 3;
+Decode[101] = "0";
+DecodeMax[10] = 1;
+}
+
+function compute(form) {
+var count = 0;
+var First3Var = form.First3.value;
+var GoodNumber = true;
+var i;
+var i1;
+var i2;
+var i3;
+var i4;
+var i5;
+var i6;
+var i7;
+var j;
+var j1;
+var j2;
+var j3;
+var j4;
+var j5;
+var j6;
+var j7;
+var Last4Var = form.Last4.value;
+var n;
+var PctCompTemp;
+SetDecodes();
+if (First3Var.length!=3 || isNaN(First3Var)) {
+alert ("This field must contain 3 numbers.");
+document.Form1.First3.select();
+document.Form1.First3.focus();
+GoodNumber = false;
+}
+
+if (GoodNumber) {
+if (Last4Var.length!=4 || isNaN(Last4Var)) {
+alert ("This field must contain 4 numbers.");
+document.Form1.Last4.select();
+document.Form1.Last4.focus();
+GoodNumber = false;
+   }
+}
+if (GoodNumber) {
+form.TextArea1.value = First3Var+"-"+Last4Var+"\n";
+form.TextArea1.value += "--------\n";
+digit = new MakeArray(7);
+for (i = 1; i <=3; i++) {
+digit[i] = First3Var.substring(i-1, i);
+}
+for (i = 1; i <=4; i++) {
+digit[i+3] = Last4Var.substring(i-1, i);
+}
+if(digit[1]==0) {j1=10} else {j1=digit[1]}
+if(digit[2]==0) {j2=10} else {j2=digit[2]}
+if(digit[3]==0) {j3=10} else {j3=digit[3]}
+if(digit[4]==0) {j4=10} else {j4=digit[4]}
+if(digit[5]==0) {j5=10} else {j5=digit[5]}
+if(digit[6]==0) {j6=10} else {j6=digit[6]}
+if(digit[7]==0) {j7=10} else {j7=digit[7]}
+form.ComboCount.value = DecodeMax[j1] 
+* DecodeMax[j2] * DecodeMax[j3] 
+* DecodeMax[j4] * DecodeMax[j5] 
+* DecodeMax[j6] * DecodeMax[j7];
+count = 0;
+for (i1=1;i1<=DecodeMax[j1]; i1++) {
+for (i2=1;i2<=DecodeMax[j2]; i2++) {
+for (i3=1;i3<=DecodeMax[j3]; i3++) {
+for (i4=1;i4<=DecodeMax[j4]; i4++) {
+for (i5=1;i5<=DecodeMax[j5]; i5++) {
+for (i6=1;i6<=DecodeMax[j6]; i6++) {
+for (i7=1;i7<=DecodeMax[j7]; i7++) {
+form.TextArea1.value += Decode[j1*10+i1];
+form.TextArea1.value += Decode[j2*10+i2];
+form.TextArea1.value += Decode[j3*10+i3];
+form.TextArea1.value += "-";
+form.TextArea1.value += Decode[j4*10+i4];
+form.TextArea1.value += Decode[j5*10+i5];
+form.TextArea1.value += Decode[j6*10+i6];
+form.TextArea1.value += Decode[j7*10+i7]+"\n";
+count+=1;
+form.ComputingCombo.value = count;
+PctCompTemp = count * 100 / form.ComboCount.value;
+form.PctComplete.value = Math.floor(PctCompTemp);
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      }
+   }
+else {
+form.TextArea1.value = "Bad input.  No output generated."
+   }
+}
+// End -->
+</SCRIPT>
+
+<center>
+<form name="Form1">
+
+<h3>Phone Number Converter</h3>
+<P>
+Phone Number:  
+<input type="text" name="First3" size="3" maxlength="3">
+<input type="text" name="Last4" size="4" maxlength="4">
+<p>
+<input type="button" value="Convert to letters" onclick="compute(this.form)">
+<p>
+<input type="reset" value="Clear">
+<table border=0>
+<tr>
+<td valign=top><br><br>
+<table border=1>
+<tr><td align=center>1=1</td>
+<td align=center>2=ABC</td>
+<td align=center>3=DEF</td>
+</tr>
+<tr>
+<td align=center>4=GHI</td>
+<td align=center>5=JKL</td>
+<td align=center>6=MNO</td>
+</tr>
+<tr>
+<td align=center>7=PRS</td>
+<td align=center>8=TUV</td>
+<td align=center>9=WXY</td>
+</tr>
+<tr>
+<td></td>
+<td align=center>0=0</td>
+<td></td>
+</tr>
+</table>
+</td>
+<td align=center>
+<p>
+<textarea name="TextArea1" rows=10 cols=10>
+</textarea>
+</td>
+<td valign=top><br><br>
+<table border=0>
+<tr>
+<td align=right>Computing</td>
+<td><input type="text" name="ComputingCombo" size="6"></td>
+</tr>
+<tr>
+<td align=right>of</td>
+<td><input type="text" name="ComboCount" size="6"></td>
+</tr>
+<tr>
+<td align=right>Completed</td>
+<td><input type="text" name="PctComplete" size="6">%</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</form>
+</center>
+<center>
+<b>Note:</B>
+When converting a number (e.g. 234-5678), you may <br>
+find it faster to convert 234-0000, then convert 000-5678.
+</center>
+<P>
+<BR>
+<P>
+<a name="source">
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Calculators:  Phone Number Converter</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as NotePad or SimpleText) and save (Control-s or Apple-s).  The script is yours!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  5.25 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL PHONE NUMBER CONVERTER:
+
+   1.  Paste the coding into the HEAD of your HTML document
+   2.  Add  the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;!-- Original:  Kevin Steffler (ksteff@ionsys.com)  --&gt;
+&lt;!-- Web Site:  http://web.ionsys.com/~ksteff  --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function MakeArray(n) {
+this.length = n;
+for (var i = 1; i &lt;=n; i++) {
+this[i] = 0;
+   }
+}
+function SetDecodes() {
+Decode = new MakeArray(101);
+DecodeMax = new MakeArray(10);
+Decode[11] = "1";
+DecodeMax[1] = 1;
+Decode[21] = "A";
+Decode[22] = "B";
+Decode[23] = "C";
+DecodeMax[2] = 3;
+Decode[31] = "D";
+Decode[32] = "E";
+Decode[33] = "F";
+DecodeMax[3] = 3;
+Decode[41] = "G";
+Decode[42] = "H";
+Decode[43] = "I";
+DecodeMax[4] = 3;
+Decode[51] = "J";
+Decode[52] = "K";
+Decode[53] = "L";
+DecodeMax[5] = 3;
+Decode[61] = "M";
+Decode[62] = "N";
+Decode[63] = "O";
+DecodeMax[6] = 3;
+Decode[71] = "P";
+Decode[72] = "R";
+Decode[73] = "S";
+DecodeMax[7] = 3;
+Decode[81] = "T";
+Decode[82] = "U";
+Decode[83] = "V";
+DecodeMax[8] = 3;
+Decode[91] = "W";
+Decode[92] = "X";
+Decode[93] = "Y";
+DecodeMax[9] = 3;
+Decode[101] = "0";
+DecodeMax[10] = 1;
+}
+function compute(form) {
+var count = 0;
+var First3Var = form.First3.value;
+var GoodNumber = true;
+var i;
+var i1;
+var i2;
+var i3;
+var i4;
+var i5;
+var i6;
+var i7;
+var j;
+var j1;
+var j2;
+var j3;
+var j4;
+var j5;
+var j6;
+var j7;
+var Last4Var = form.Last4.value;
+var n;
+var PctCompTemp;
+SetDecodes();
+if (First3Var.length!=3 || isNaN(First3Var)) {
+alert ("This field must contain 3 numbers.");
+document.Form1.First3.select();
+document.Form1.First3.focus();
+GoodNumber = false;
+}
+if (GoodNumber) {
+if (Last4Var.length!=4 || isNaN(Last4Var)) {
+alert ("This field must contain 4 numbers.");
+document.Form1.Last4.select();
+document.Form1.Last4.focus();
+GoodNumber = false;
+   }
+}
+if (GoodNumber) {
+form.TextArea1.value = First3Var+"-"+Last4Var+"\n";
+form.TextArea1.value += "--------\n";
+digit = new MakeArray(7);
+for (i = 1; i &lt;=3; i++) {
+digit[i] = First3Var.substring(i-1, i);
+}
+for (i = 1; i &lt;=4; i++) {
+digit[i+3] = Last4Var.substring(i-1, i);
+}
+if(digit[1]==0) {j1=10} else {j1=digit[1]}
+if(digit[2]==0) {j2=10} else {j2=digit[2]}
+if(digit[3]==0) {j3=10} else {j3=digit[3]}
+if(digit[4]==0) {j4=10} else {j4=digit[4]}
+if(digit[5]==0) {j5=10} else {j5=digit[5]}
+if(digit[6]==0) {j6=10} else {j6=digit[6]}
+if(digit[7]==0) {j7=10} else {j7=digit[7]}
+form.ComboCount.value = DecodeMax[j1] 
+* DecodeMax[j2] * DecodeMax[j3] 
+* DecodeMax[j4] * DecodeMax[j5] 
+* DecodeMax[j6] * DecodeMax[j7];
+count = 0;
+for (i1=1;i1&lt;=DecodeMax[j1]; i1++) {
+for (i2=1;i2&lt;=DecodeMax[j2]; i2++) {
+for (i3=1;i3&lt;=DecodeMax[j3]; i3++) {
+for (i4=1;i4&lt;=DecodeMax[j4]; i4++) {
+for (i5=1;i5&lt;=DecodeMax[j5]; i5++) {
+for (i6=1;i6&lt;=DecodeMax[j6]; i6++) {
+for (i7=1;i7&lt;=DecodeMax[j7]; i7++) {
+form.TextArea1.value += Decode[j1*10+i1];
+form.TextArea1.value += Decode[j2*10+i2];
+form.TextArea1.value += Decode[j3*10+i3];
+form.TextArea1.value += "-";
+form.TextArea1.value += Decode[j4*10+i4];
+form.TextArea1.value += Decode[j5*10+i5];
+form.TextArea1.value += Decode[j6*10+i6];
+form.TextArea1.value += Decode[j7*10+i7]+"\n";
+count+=1;
+form.ComputingCombo.value = count;
+PctCompTemp = count * 100 / form.ComboCount.value;
+form.PctComplete.value = Math.floor(PctCompTemp);
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      }
+   }
+else {
+form.TextArea1.value = "Bad input.  No output generated."
+   }
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;center&gt;
+&lt;form name=Form1&gt;
+
+&lt;h3&gt;Phone Number Converter&lt;/h3&gt;&lt;P&gt;
+Phone Number:  
+&lt;input type="text" name="First3" size="3" maxlength="3"&gt;
+&lt;input type="text" name="Last4" size="4" maxlength="4"&gt;&lt;p&gt;
+&lt;input type="button" value="Convert to letters" onclick="compute(this.form)"&gt;
+&lt;p&gt;&lt;input type="reset" value="Clear"&gt;
+&lt;table border=0&gt;
+&lt;tr&gt;
+&lt;td valign=top&gt;&lt;br&gt;&lt;br&gt;
+&lt;table border=1&gt;
+&lt;tr&gt;&lt;td align=center&gt;1=1&lt;/td&gt;
+&lt;td align=center&gt;2=ABC&lt;/td&gt;
+&lt;td align=center&gt;3=DEF&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=center&gt;4=GHI&lt;/td&gt;
+&lt;td align=center&gt;5=JKL&lt;/td&gt;
+&lt;td align=center&gt;6=MNO&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=center&gt;7=PRS&lt;/td&gt;
+&lt;td align=center&gt;8=TUV&lt;/td&gt;
+&lt;td align=center&gt;9=WXY&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td align=center&gt;0=0&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/td&gt;
+&lt;td align=center&gt;
+&lt;p&gt;
+&lt;textarea name="TextArea1" rows=10 cols=10&gt;
+&lt;/textarea&gt;
+&lt;/td&gt;
+&lt;td valign=top&gt;&lt;br&gt;&lt;br&gt;
+&lt;table border=0&gt;
+&lt;tr&gt;
+&lt;td align=right&gt;Computing&lt;/td&gt;
+&lt;td&gt;&lt;input type="text" name="ComputingCombo" size="6"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=right&gt;of&lt;/td&gt;
+&lt;td&gt;&lt;input type="text" name="ComboCount" size="6"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=right&gt;Completed&lt;/td&gt;
+&lt;td&gt;&lt;input type="text" name="PctComplete" size="6"&gt;%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+&lt;center&gt;
+&lt;b&gt;Note:&lt;/B&gt;
+When converting a number (e.g. 234-5678), you may &lt;br&gt;
+find it faster to convert 234-0000, then convert 000-5678.
+&lt;/center&gt;
+
+ 
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

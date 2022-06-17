@@ -1,0 +1,222 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Clocks:  Current Week</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Mark McCain (sub235k@worldnet.att.net)">
+<META NAME="section" CONTENT="Clocks">
+<META NAME="description" CONTENT="Displays the date the current week starts on.  Useful if you want a new link each week or just to show the first day of the current week.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Mark McCain (sub235k@worldnet.att.net) -->
+
+
+
+
+<!-- Begin
+page_extension = ".html";
+var today = new Date();
+var day = today.getDate();
+var month = today.getMonth() + 1;
+var year = today.getYear();
+if (year < 2000)    // Y2K Fix, Isaac Powell
+year = year + 1900; // http://onyx.idbsu.edu/~ipowell
+var offset = today.getDay();
+var week;
+
+if(offset != 0) {
+day = day - offset;
+if ( day < 1) {
+if ( month == 1) day = 31 + day;
+if (month == 2) day = 31 + day;
+if (month == 3) {
+if (( year == 00) || ( year == 04)) {
+day = 29 + day;
+}
+else {
+day = 28 + day;
+   }
+}
+if (month == 4) day = 31 + day;
+if (month == 5) day = 30 + day;
+if (month == 6) day = 31 + day;
+if (month == 7) day = 30 + day;
+if (month == 8) day = 31 + day;
+if (month == 9) day = 31 + day;
+if (month == 10) day = 30 + day;
+if (month == 11) day = 31 + day;
+if (month == 12) day = 30 + day;
+if (month == 1) {
+month = 12;
+year = year - 1;
+}
+else {
+month = month - 1;
+      }
+   }
+}
+
+week = month + "-" + day + "-" + year; // i.e. 10-31-99
+page = week + page_extension;          // i.e. 10-31.99.html
+
+link = "If this was a real example, a Page of the Week link here would point to " + page + "."; // link to 10-31-99.html
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /clocks/"><font color="#FF0000"><b>Clocks</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Current Week</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Displays the date the current week starts on.  Useful if you want a new link each week or just to show the first day of the current week.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<script>
+document.write(link);
+
+// or you can use
+// document.write(week)
+// or
+// document.write(page)
+
+</script>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Clocks:  Current Week</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.75 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL CURRENT WEEK:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Mark McCain (sub235k@worldnet.att.net) --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+page_extension = ".html";
+var today = new Date();
+var day = today.getDate();
+var month = today.getMonth() + 1;
+var year = today.getYear();
+if (year < 2000)    // Y2K Fix, Isaac Powell
+year = year + 1900; // http://onyx.idbsu.edu/~ipowell
+var offset = today.getDay();
+var week;
+
+if(offset != 0) {
+day = day - offset;
+if ( day &lt; 1) {
+if ( month == 1) day = 31 + day;
+if (month == 2) day = 31 + day;
+if (month == 3) {
+if (( year == 00) || ( year == 04)) {
+day = 29 + day;
+}
+else {
+day = 28 + day;
+   }
+}
+if (month == 4) day = 31 + day;
+if (month == 5) day = 30 + day;
+if (month == 6) day = 31 + day;
+if (month == 7) day = 30 + day;
+if (month == 8) day = 31 + day;
+if (month == 9) day = 31 + day;
+if (month == 10) day = 30 + day;
+if (month == 11) day = 31 + day;
+if (month == 12) day = 30 + day;
+if (month == 1) {
+month = 12;
+year = year - 1;
+}
+else {
+month = month - 1;
+      }
+   }
+}
+
+week = month + "-" + day + "-" + year; // i.e. 10-31-99
+page = week + page_extension;          // i.e. 10-31.99.html
+
+link = "&lt;a href='" + page + "'&gt;Page of the Week&lt;/a&gt;"; // link to 10-31-99.html
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;script&gt;
+document.write(link);
+
+// or you can use
+// document.write(week)
+// or
+// document.write(page)
+
+&lt;/script&gt;
+
+ 
+
+&lt;!-- Script Size:  1.75 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

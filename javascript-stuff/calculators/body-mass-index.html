@@ -1,0 +1,258 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Calculators:  Body Mass Index</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Marat Rikelman (rikelman@bellsouth.net)">
+<META NAME="section" CONTENT="Calculators">
+<META NAME="description" CONTENT="Just enter your height and your weight, and JavaScript can use a formula created by the Panel on Energy, Obesity, and Body Weight Standards to figure out your Body Mass Index.  This index classifies you into one of several categories, from underweight to desirable to obese.">
+
+<SCRIPT LANGUAGE="JavaScript">
+
+<!-- Original:  Marat Rikelman (rikelman@bellsouth.net) -->
+
+
+
+
+<!-- Begin
+function mod(div,base) {
+return Math.round(div - (Math.floor(div/base)*base));
+}
+function calcBmi() {
+var w = document.bmi.weight.value * 1;
+var HeightFeetInt = document.bmi.htf.value * 1;
+var HeightInchesInt = document.bmi.hti.value * 1;
+HeightFeetConvert = HeightFeetInt * 12;
+h = HeightFeetConvert + HeightInchesInt;
+displaybmi = (Math.round((w * 703) / (h * h)));
+var rvalue = true;
+if ( (w <= 35) || (w >= 500)  || (h <= 48) || (h >= 120) ) {
+alert ("Invalid data.  Please check and re-enter!");
+rvalue = false;
+}
+if (rvalue) {
+if (HeightInchesInt > 11) {
+reminderinches = mod(HeightInchesInt,12);
+document.bmi.hti.value = reminderinches;
+document.bmi.htf.value = HeightFeetInt + 
+((HeightInchesInt - reminderinches)/12);
+document.bmi.answer.value = displaybmi;
+}
+if (displaybmi <19) 
+document.bmi.comment.value = "Underweight";
+if (displaybmi >=19 && displaybmi <=25) 
+document.bmi.comment.value = "Desirable";
+if (displaybmi >=26 && displaybmi <=29) 
+document.bmi.comment.value = "prone to health risks";
+if (displaybmi >=30 && displaybmi <=40) 
+document.bmi.comment.value = "Obese";
+if (displaybmi >40) 
+document.bmi.comment.value = "Extremely obese";
+document.bmi.answer.value = displaybmi; }
+return rvalue;
+}
+//  End -->
+
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /calculators/"><font color="#FF0000"><b>Calculators</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Body Mass Index</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Just enter your height and your weight, and JavaScript can use a formula created by the Panel on Energy, Obesity, and Body Weight Standards to figure out your Body Mass Index.  This index classifies you into one of several categories, from underweight to desirable to obese.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<form name=bmi>
+<center>
+<table width=200 border=0>
+<tr>
+<td align=center><B>Weight:</B>
+<input type=text name=weight SIZE=3 maxlength=3> lbs.</td>
+</tr>
+<tr>
+<td align=center><B>Height:</B>
+<input type=text name=htf size=1 maxlength=1> Ft.&nbsp;        
+<input type=text name=hti size=2 maxlength=2> In.
+</td>
+</tr>
+<tr>
+<td align=center>
+<input type=button value="Calculate BMI" onclick="calcBmi()">
+&nbsp;
+<hr></td>
+</tr>
+<tr>
+<td><B>Body Mass Index</B>
+<input type=text name=answer size=3>
+</td>
+</tr>
+<tr>
+<td>
+According to the Panel on Energy, Obesity, and 
+Body Weight Standards published by American 
+Journal of Clinical Nutrition, your category is:<br>
+<input type=text name=comment size=25>
+</td>
+</tr>
+</table>
+</center>
+</form>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Calculators:  Body Mass Index</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.56 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL BODY MASS INDEX:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;!-- Original:  Marat Rikelman (rikelman@bellsouth.net) --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function mod(div,base) {
+return Math.round(div - (Math.floor(div/base)*base));
+}
+function calcBmi() {
+var w = document.bmi.weight.value * 1;
+var HeightFeetInt = document.bmi.htf.value * 1;
+var HeightInchesInt = document.bmi.hti.value * 1;
+HeightFeetConvert = HeightFeetInt * 12;
+h = HeightFeetConvert + HeightInchesInt;
+displaybmi = (Math.round((w * 703) / (h * h)));
+var rvalue = true;
+if ( (w &lt;= 35) || (w &gt;= 500)  || (h &lt;= 48) || (h &gt;= 120) ) {
+alert ("Invalid data.  Please check and re-enter!");
+rvalue = false;
+}
+if (rvalue) {
+if (HeightInchesInt &gt; 11) {
+reminderinches = mod(HeightInchesInt,12);
+document.bmi.hti.value = reminderinches;
+document.bmi.htf.value = HeightFeetInt + 
+((HeightInchesInt - reminderinches)/12);
+document.bmi.answer.value = displaybmi;
+}
+if (displaybmi &lt;19) 
+document.bmi.comment.value = "Underweight";
+if (displaybmi &gt;=19 && displaybmi &lt;=25) 
+document.bmi.comment.value = "Desirable";
+if (displaybmi &gt;=26 && displaybmi &lt;=29) 
+document.bmi.comment.value = "prone to health risks";
+if (displaybmi &gt;=30 && displaybmi &lt;=40) 
+document.bmi.comment.value = "Obese";
+if (displaybmi &gt;40) 
+document.bmi.comment.value = "Extremely obese";
+document.bmi.answer.value = displaybmi; }
+return rvalue;
+}
+//  End --&gt;
+
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;form name=bmi&gt;
+&lt;center&gt;
+&lt;table width=200 border=0&gt;
+&lt;tr&gt;
+&lt;td align=center&gt;&lt;B&gt;Weight:&lt;/B&gt;
+&lt;input type=text name=weight SIZE=3 maxlength=3&gt; lbs.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=center&gt;&lt;B&gt;Height:&lt;/B&gt;
+&lt;input type=text name=htf size=1 maxlength=1&gt; Ft.&nbsp;        
+&lt;input type=text name=hti size=2 maxlength=2&gt; In.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=center&gt;
+&lt;input type=button value="Calculate BMI" onclick="calcBmi()"&gt;
+&nbsp;
+&lt;hr&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;B&gt;Body Mass Index&lt;/B&gt;
+&lt;input type=text name=answer size=3&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+According to the Panel on Energy, Obesity, and 
+Body Weight Standards published by American 
+Journal of Clinical Nutrition, your category is:&lt;br&gt;
+&lt;input type=text name=comment size=25&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/center&gt;
+&lt;/form&gt;
+
+ 
+
+&lt;!-- Script Size:  2.56 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

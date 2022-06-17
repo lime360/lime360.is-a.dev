@@ -1,0 +1,188 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Misc.:  Meta Tag Maker</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Michiel Van Velthoven">
+<META NAME="section" CONTENT="Miscellaneous">
+<META NAME="description" CONTENT="To get higher on search engines, you're going to have to use Meta Tags.  If you don't know how to write them for yourself, use this JavaScript!  Just enter the information about your site and it'll spit out the Meta Tags that you need to put on your pages (in the HEAD tags).">
+
+
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--  Begin
+function MakeIt(form){
+var txt='<META NAME="DESCRIPTION" CONTENT="'+form.description.value+'">\r\n';
+txt+='<META NAME="KEYWORDS" CONTENT="';
+if (form.keywords.value) 
+txt+=form.keywords.value+'">\r\n';
+form.source.value=txt;
+}
+function AddText(form, Action){
+var AddTxt="";
+var txt="";
+form.keywords.value+=AddTxt;
+}
+function ResetPage(form){
+if(confirm("Do you want to clear all and start a new META-tag Creation?")){	
+form.description.value="";	
+form.source.value="";	
+form.keywords.value="";	
+   }
+}
+// End -->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /miscellaneous/"><font color="#FF0000">Miscellaneous</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Meta Tag Maker</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE=" helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+To get higher on search engines, you're going to have to use Meta Tags.  If you don't know how to write them for yourself, use this JavaScript!  Just enter the information about your site and it'll spit out the Meta Tags that you need to put on your pages (in the HEAD tags).  JavaScript, don't you love it?<br><hr>
+</td></tr>
+</table>
+<!--  Demonstration -->
+<BODY><center>
+<FORM ACTION="">
+<TABLE BGCOLOR="dedfdf" border="2" cellpadding="4">
+<TR>
+<TD align="center"><FONT SIZE="3" FACE="arial"><B>Site Description<BR><font size="-2">(more descriptive the better)</font></TD>
+<TD align="center"><INPUT TYPE="text" NAME="description" size=32></TD>
+</TR>
+
+<TR>
+<TD align="center"><FONT SIZE="3" FACE="arial"><B><CENTER>Up to 10 Keywords<BR><font size="-2">(separated with spaces)</font></TD>
+<TD align="center"><input type="text" name="keywords" size=32></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE="3" FACE="arial"><B><CENTER><input type="button" value="Create Tags" onClick="MakeIt(this.form);"></B></TD>
+<TD align="center"><FONT SIZE="2"><B>Here is your META - tag coding.
+<BR>Put it in the HEAD of your HTML document.<BR><P><textarea name="source" rows=5 Cols=45></textarea></TD>
+</TR>
+
+</TABLE>
+</FORM>
+<P>
+<BR>
+<P>
+<a name="source">
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Misc.:  Meta Tag Maker</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as NotePad or SimpleText) and save (Control-s or Apple-s).  The script is yours!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.07 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL META TAG MAKER:
+
+   1.  Paste the coding into the HEAD of your HTML document
+   2.  Put the last coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Copy this coding into the HEAD of your HTML document  --&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Original:  Michiel Van Velthoven  --&gt;
+
+&lt;!--  Begin
+function MakeIt(form){
+var txt='&lt;META NAME="DESCRIPTION" CONTENT="'+form.description.value+'"&gt;\r\n';
+txt+='&lt;META NAME="KEYWORDS" CONTENT="';
+if (form.keywords.value) 
+txt+=form.keywords.value+'"&gt;\r\n';
+form.source.value=txt;
+}
+function AddText(form, Action){
+var AddTxt="";
+var txt="";
+form.keywords.value+=AddTxt;
+}
+function ResetPage(form){
+if(confirm("Do you want to clear all and start a new META-tag Creation?")){	
+form.description.value="";	
+form.source.value="";	
+form.keywords.value="";	
+   }
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+&lt;!-- STEP TWO: Put this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;CENTER&gt;
+&lt;FORM ACTION=""&gt;
+&lt;TABLE BGCOLOR="dedfdf" border="2" cellpadding="4"&gt;
+&lt;TR&gt;
+&lt;TD align="center"&gt;&lt;FONT SIZE="3" FACE="arial"&gt;&lt;B&gt;Site Description&lt;BR&gt;&lt;font size="-2"&gt;(more descriptive the better)&lt;/font&gt;&lt;/TD&gt;
+&lt;TD align="center"&gt;&lt;INPUT TYPE="text" NAME="description" size=32&gt;&lt;/TD&gt;
+&lt;/TR&gt;
+
+&lt;TR&gt;
+&lt;TD align="center"&gt;&lt;FONT SIZE="3" FACE="arial"&gt;&lt;B&gt;&lt;CENTER&gt;Up to 10 Keywords&lt;BR&gt;&lt;font size="-2"&gt;(separated with spaces)&lt;/font&gt;&lt;/TD&gt;
+&lt;TD align="center"&gt;&lt;input type="text" name="keywords" size=32&gt;&lt;/TD&gt;
+&lt;/TR&gt;
+
+&lt;TR&gt;
+&lt;TD&gt;&lt;FONT SIZE="3" FACE="arial"&gt;&lt;B&gt;&lt;CENTER&gt;&lt;input type="button" value="Create Tags" onClick="MakeIt(this.form);"&gt;&lt;/B&gt;&lt;/TD&gt;
+&lt;TD align="center"&gt;&lt;FONT SIZE="2"&gt;&lt;B&gt;Here is your META - tag coding.
+&lt;BR&gt;Put it in the HEAD of your HTML document.&lt;BR&gt;&lt;P&gt;&lt;textarea name="source" rows=5 Cols=45&gt;&lt;/textarea&gt;&lt;/TD&gt;
+&lt;/TR&gt;
+
+&lt;/TABLE&gt;
+&lt;/FORM&gt;
+&lt;/CENTER&gt;
+
+ 
+
+&lt;!-- Script Size:  2.07 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

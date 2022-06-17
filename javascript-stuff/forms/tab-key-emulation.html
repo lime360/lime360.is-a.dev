@@ -1,0 +1,177 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Forms:  Tab Key Emulation</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Ronnie T. Moore">
+<META NAME="section" CONTENT="Forms">
+<META NAME="description" CONTENT="The tab key is no longer required to tab between fields.  The user can go to the next form field just by pressing the enter key instead of the tab key.  Useful with 10-key form input.  What a time saver!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Ronnie T. Moore -->
+<!-- Web Site:  JavaScript Source Code 3000 -->
+
+
+
+
+<!-- Begin
+nextfield = "box1"; // name of first box on page
+netscape = "";
+ver = navigator.appVersion; len = ver.length;
+for(iln = 0; iln < len; iln++) if (ver.charAt(iln) == "(") break;
+netscape = (ver.charAt(iln+1).toUpperCase() != "C");
+
+function keyDown(DnEvents) { // handles keypress
+// determines whether Netscape or Internet Explorer
+k = (netscape) ? DnEvents.which : window.event.keyCode;
+if (k == 13) { // enter key pressed
+if (nextfield == 'done') { alert('The form would now be submitted, but this is just a demo.'); return true; } // submit, we finished all fields
+else { // we're not done yet, send focus to next box
+eval('document.yourform.' + nextfield + '.focus()');
+return false;
+      }
+   }
+}
+document.onkeydown = keyDown; // work together to analyze keystrokes
+if (netscape) document.captureEvents(Event.KEYDOWN|Event.KEYUP);
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff onLoad="document.yourform.box1.focus();">
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /forms/" ><font color="#FF0000"><b>Forms</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Tab Key Emulation</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+The tab key is no longer required to tab between fields.  The user can go to the next form field just by pressing the enter key instead of the tab key.  Useful with 10-key form input.  What a time saver!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<font face="arial, helvetica" size="-1">
+Click enter in each field and watch as<br>
+it tabs to the next field for you. Wow!</font>
+<p>
+<form name=yourform onSubmit="return false;">
+Box 1: <input type=text name=box1 onFocus="nextfield ='box2';"><br>
+Box 2: <input type=text name=box2 onFocus="nextfield ='box3';"><br>
+Box 3: <input type=text name=box3 onFocus="nextfield ='box4';"><br>
+Box 4: <input type=text name=box4 onFocus="nextfield ='done';"><br>
+<input type=submit name=done value="Submit">
+</form>
+</center>
+
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Forms:  Tab Key Emulation</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.78 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL TAB KEY EMULATION:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Ronnie T. Moore --&gt;
+&lt;!-- Web Site:  JavaScript Source Code 3000 --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+nextfield = "box1"; // name of first box on page
+netscape = "";
+ver = navigator.appVersion; len = ver.length;
+for(iln = 0; iln &lt; len; iln++) if (ver.charAt(iln) == "(") break;
+netscape = (ver.charAt(iln+1).toUpperCase() != "C");
+
+function keyDown(DnEvents) { // handles keypress
+// determines whether Netscape or Internet Explorer
+k = (netscape) ? DnEvents.which : window.event.keyCode;
+if (k == 13) { // enter key pressed
+if (nextfield == 'done') return true; // submit, we finished all fields
+else { // we're not done yet, send focus to next box
+eval('document.yourform.' + nextfield + '.focus()');
+return false;
+      }
+   }
+}
+document.onkeydown = keyDown; // work together to analyze keystrokes
+if (netscape) document.captureEvents(Event.KEYDOWN|Event.KEYUP);
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form name=yourform&gt;
+Box 1: &lt;input type=text name=box1 onFocus="nextfield ='box2';"&gt;&lt;br&gt;
+Box 2: &lt;input type=text name=box2 onFocus="nextfield ='box3';"&gt;&lt;br&gt;
+Box 3: &lt;input type=text name=box3 onFocus="nextfield ='box4';"&gt;&lt;br&gt;
+Box 4: &lt;input type=text name=box4 onFocus="nextfield ='done';"&gt;&lt;br&gt;
+&lt;input type=submit name=done value="Submit"&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+
+ 
+
+&lt;!-- Script Size:  1.78 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>
+

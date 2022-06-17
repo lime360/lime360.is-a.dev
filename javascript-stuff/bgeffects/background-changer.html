@@ -1,0 +1,158 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  BG Effects:  Image BG Changer</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Mark Whitnell (mwhitnel@southeast.net)">
+<META NAME="section" CONTENT="BG Effects">
+<META NAME="description" CONTENT="(Internet Explorer Only)  Changes the page's background to each of the images on the page as you touch them.  The background returns to white when you move your cursor off the image.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Mark Whitnell (mwhitnel@southeast.net) -->
+<!-- Web Site:  http://users.leading.net/~mwhitnel -->
+
+
+
+
+<!-- Begin
+if (navigator.appName == "Microsoft Internet Explorer") {
+image_directory = "../img/bg-changer/";
+clear = new Image();  clear.src = image_directory + "clear.jpg";
+pic1 = new Image();  pic1.src = image_directory + "chameleon.jpg";
+pic2 = new Image();  pic2.src = image_directory + "gecko.jpg";
+pic3 = new Image();  pic3.src = image_directory + "lizard.jpg";
+pic4 = new Image();  pic4.src = image_directory + "toad.jpg";
+}
+function imagechange(imgName) {
+if (navigator.appName == "Microsoft Internet Explorer") {
+document.body.background = eval(imgName + ".src");
+   }
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /bgeffects/"><font color="#FF0000"><b>BG Effects</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Image BG Changer</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+(Internet Explorer Only)  Changes the page's background to each of the images on the page as you touch them.  The background returns to white when you move your cursor off the image.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<body background="../img/bg-changer/clear.jpg" /img/bg-changer/clear.jpg" name=bg>
+
+<a href="#" onMouseOver="imagechange('pic1');" onMouseOut="imagechange('clear');"><img src="../img/bg-changer/chameleon.jpg" /img/bg-changer/chameleon.jpg"></a>
+<a href="#" onMouseOver="imagechange('pic2');" onMouseOut="imagechange('clear');"><img src="../img/bg-changer/gecko.jpg" /img/bg-changer/gecko.jpg"></a>
+<a href="#" onMouseOver="imagechange('pic3');" onMouseOut="imagechange('clear');"><img src="../img/bg-changer/lizard.jpg" /img/bg-changer/lizard.jpg"></a>
+<a href="#" onMouseOver="imagechange('pic4');" onMouseOut="imagechange('clear');"><img src="../img/bg-changer/toad.jpg" /img/bg-changer/toad.jpg"></a>
+<br><br>
+You must also save these images<br>
+to your server to use this script.<br>
+Right-click the zip file below and<br>
+select "Save Target As..."<br><br>
+<a href="javascript:if(confirm('../img/bg-changer/bg-changer.zip  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='../img/bg-changer/bg-changer.zip'" /img/bg-changer/bg-changer.zip" border=1>bg-changer.zip</a><br><br>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  BG Effects:  Image BG Changer</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.75 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL BACKGROUND CHANGER:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Mark Whitnell (mwhitnel@southeast.net) --&gt;
+&lt;!-- Web Site:  http://users.leading.net/~mwhitnel --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+if (navigator.appName == "Microsoft Internet Explorer") {
+image_directory = "../img/bg-changer/";
+clear = new Image();  clear.src = image_directory + "clear.jpg";
+pic1 = new Image();  pic1.src = image_directory + "chameleon.jpg";
+pic2 = new Image();  pic2.src = image_directory + "gecko.jpg";
+pic3 = new Image();  pic3.src = image_directory + "lizard.jpg";
+pic4 = new Image();  pic4.src = image_directory + "toad.jpg";
+}
+function imagechange(imgName) {
+if (navigator.appName == "Microsoft Internet Explorer") {
+document.body.background = eval(imgName + ".src");
+   }
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;body background="clear.jpg" name=bg&gt;
+
+&lt;a href="#" onMouseOver="imagechange('pic1');" onMouseOut="imagechange('clear');"&gt;&lt;img src="chameleon.jpg"&gt;&lt;/a&gt;
+&lt;a href="#" onMouseOver="imagechange('pic2');" onMouseOut="imagechange('clear');"&gt;&lt;img src="gecko.jpg"&gt;&lt;/a&gt;
+&lt;a href="#" onMouseOver="imagechange('pic3');" onMouseOut="imagechange('clear');"&gt;&lt;img src="lizard.jpg"&gt;&lt;/a&gt;
+&lt;a href="#" onMouseOver="imagechange('pic4');" onMouseOut="imagechange('clear');"&gt;&lt;img src="toad.jpg"&gt;&lt;/a&gt;
+
+ 
+
+&lt;!-- Script Size:  1.75 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

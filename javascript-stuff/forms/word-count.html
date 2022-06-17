@@ -1,0 +1,219 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Forms:  Word Count</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="Finally, an easy way to count the number of words that are entered into a form!">
+<META NAME="date" CONTENT="2001-01-03">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Shawn Seley">
+<META NAME="section" CONTENT="Forms">
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Shawn Seley -->
+
+
+
+
+<!-- Begin
+function CountWords (this_field, alertWords, alertChars) {
+if (alertWords == null) {
+alertWords = true;
+}
+if (alertChars == null) {
+alertChars = false;
+}
+var fullStr = this_field.value;
+var charCount = fullStr.length;
+var rExp = /[^A-Za-z0-9]/gi;
+var spacesStr = fullStr.replace(rExp, " ");
+var cleanedStr = spacesStr + " ";
+do {
+var old_str = cleanedStr;
+cleanedStr = cleanedStr.replace("  ", " ");
+} while(old_str != cleanedStr);
+var splitString = cleanedStr.split(" ");
+var wordCount = splitString.length -1;
+if (fullStr.length <1) {
+wordCount = 0;
+}
+if (wordCount == 1) {
+wordOrWords = " word";
+}
+else {
+wordOrWords = " words";
+}
+if (charCount == 1) {
+charOrChars = " character";
+} else {
+charOrChars = " characters";
+}
+if (alertWords & alertChars) {
+alert ("Word Count:\n" + "    " + wordCount + wordOrWords + "\n" + "    " + charCount + charOrChars);
+}
+else {
+if (alertWords) {
+alert ("Word Count:  " + wordCount + wordOrWords);
+}
+else {
+if (alertChars) {
+alert ("Character Count:  " + charCount + charOrChars);
+      }
+   }
+}
+return wordCount;
+}
+//  End -->
+</script>
+
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /forms/" ><font color="#FF0000"><b>Forms</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Word Count</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Finally, an easy way to count the number of words that are entered into a form!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<form>
+<textarea cols=40 rows=5 name=x>
+</textarea>
+<br>
+<input type=button value="Count Words" OnClick ="CountWords(this.form.x, true, true);">
+</form>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Forms:  Word Count</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Command-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.94 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL WORD COUNT:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Shawn Seley --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function CountWords (this_field, alertWords, alertChars) {
+if (alertWords == null) {
+alertWords = true;
+}
+if (alertChars == null) {
+alertChars = false;
+}
+var fullStr = this_field.value;
+var charCount = fullStr.length;
+var rExp = /[^A-Za-z0-9]/gi;
+var spacesStr = fullStr.replace(rExp, " ");
+var cleanedStr = spacesStr + " ";
+do {
+var old_str = cleanedStr;
+cleanedStr = cleanedStr.replace("  ", " ");
+} while(old_str != cleanedStr);
+var splitString = cleanedStr.split(" ");
+var wordCount = splitString.length -1;
+if (fullStr.length &lt;1) {
+wordCount = 0;
+}
+if (wordCount == 1) {
+wordOrWords = " word";
+}
+else {
+wordOrWords = " words";
+}
+if (charCount == 1) {
+charOrChars = " character";
+} else {
+charOrChars = " characters";
+}
+if (alertWords & alertChars) {
+alert ("Word Count:\n" + "    " + wordCount + wordOrWords + "\n" + "    " + charCount + charOrChars);
+}
+else {
+if (alertWords) {
+alert ("Word Count:  " + wordCount + wordOrWords);
+}
+else {
+if (alertChars) {
+alert ("Character Count:  " + charCount + charOrChars);
+      }
+   }
+}
+return wordCount;
+}
+//  End --&gt;
+&lt;/script&gt;
+
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;form&gt;
+&lt;textarea cols=40 rows=5 name=x&gt;
+&lt;/textarea&gt;
+&lt;br&gt;
+&lt;input type=button value="Count Words" OnClick ="CountWords(this.form.x, true, true);"&gt;
+&lt;/form&gt;
+
+ 
+
+&lt;!-- Script Size:  1.94 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

@@ -1,0 +1,156 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  User Details:  Style Sheets by Resolution</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="Loads a style sheet depending on the user's screen resolution.  Includes a default size for Netscape users.">
+<META NAME="date" CONTENT="2001-03-07">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Bob Pearson and Leah Murray">
+<META NAME="section" CONTENT="User Details">
+<!-- Set default stylesheet for Netscape users at 800 x 600 -->
+<!-- Set variable stylesheets for Internet Explorer users -->
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Bob Pearson and Leah Murray (bob@pagecraft.on.ca) -->
+<!-- Web Site:  http://www.pagecraft.on.ca -->
+
+
+
+
+<!-- Begin
+//document.write('Your settings are ' + screen.width + ' x ' + screen.height + '');
+if (screen.width == 640) {
+//document.write('<link rel="stylesheet" type="text/css" href="640.css">');
+alert("Style Sheet for 640 x 480 would have been loaded, but this is just a demo.");
+}
+if (screen.width == 800) {
+//document.write('<link rel="stylesheet" type="text/css" href="800.css">');
+alert("Style Sheet for 800 x 600 would have been loaded, but this is just a demo.");
+}
+if (screen.width == 1024) {
+//document.write('<link rel="stylesheet" type="text/css" href="1024.css">');
+alert("Style Sheet for 1024 x 768 would have been loaded, but this is just a demo.");
+}
+if (screen.width == 1280) {
+//document.write('<link rel="stylesheet" type="text/css" href="1280.css">');
+alert("Style Sheet for 1280 x 960 would have been loaded, but this is just a demo.");
+}
+if (screen.width == 1600) {
+//document.write('<link rel="stylesheet" type="text/css" href="1600.css">');
+alert("Style Sheet for 1600 x 1200 would have been loaded, but this is just a demo.");
+}
+//  End -->
+</script>
+
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /user-details/"><font color="#FF0000"><b>User Details</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Style Sheets by Resolution</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Loads a style sheet depending on the user's screen resolution.  Includes a default size for Netscape users.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  User Details:  Style Sheets by Resolution</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Command-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.74 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- ONE STEP TO INSTALL STYLE SHEETS BY RESOLUTION:
+
+  1.  Copy the coding into the HEAD of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;!-- Set default stylesheet for Netscape users at 800 x 600 --&gt;
+&lt;link rel="stylesheet" type="text/css" href="netscape.css"&gt;
+&lt;!-- Set variable stylesheets for Internet Explorer users --&gt;
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Bob Pearson and Leah Murray (bob@pagecraft.on.ca) --&gt;
+&lt;!-- Web Site:  http://www.pagecraft.on.ca --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+//document.write('Your settings are ' + screen.width + ' x ' + screen.height + '');
+if (screen.width == 640) {
+document.write('&lt;link rel="stylesheet" type="text/css" href="640.css"&gt;');
+//alert("Style Sheet for 640 x 480 would have been loaded.");
+}
+if (screen.width == 800) {
+document.write('&lt;link rel="stylesheet" type="text/css" href="800.css"&gt;');
+//alert("Style Sheet for 800 x 600 would have been loaded.");
+}
+if (screen.width == 1024) {
+document.write('&lt;link rel="stylesheet" type="text/css" href="1024.css"&gt;');
+//alert("Style Sheet for 1024 x 768 would have been loaded.");
+}
+if (screen.width == 1280) {
+document.write('&lt;link rel="stylesheet" type="text/css" href="1280.css"&gt;');
+//alert("Style Sheet for 1280 x 960 would have been loaded.");
+}
+if (screen.width == 1600) {
+document.write('&lt;link rel="stylesheet" type="text/css" href="1600.css"&gt;');
+//alert("Style Sheet for 1600 x 1200 would have been loaded.");
+}
+//  End --&gt;
+&lt;/script&gt;
+
+
+ 
+
+&lt;!-- Script Size:  1.74 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

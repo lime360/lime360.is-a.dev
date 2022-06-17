@@ -1,0 +1,284 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Miscellaneous:  Image Slideshow</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Ricocheting (ricocheting@hotmail.com)">
+<META NAME="section" CONTENT="Miscellaneous">
+<META NAME="description" CONTENT="Displays a series of images in an automated slide show, a pulldown menu, or the various slideshow controls that are included, such as previous and next.  The demo uses the author's image creations, of course you would use your own.  ;-)">
+<META NAME="date" CONTENT="2000-10-03">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Ricocheting">
+<META NAME="section" CONTENT="Miscellaneous">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Ricocheting (ricocheting@hotmail.com) -->
+<!-- Web Site:  http://www.ricocheting.com -->
+
+
+
+
+<!-- Begin
+var rotate_delay = 5000; // delay in milliseconds (5000 = 5 secs)
+current = 0;
+function next() {
+if (document.slideform.slide[current+1]) {
+document.images.show.src = document.slideform.slide[current+1].value;
+document.slideform.slide.selectedIndex = ++current;
+   }
+else first();
+}
+function previous() {
+if (current-1 >= 0) {
+document.images.show.src = document.slideform.slide[current-1].value;
+document.slideform.slide.selectedIndex = --current;
+   }
+else last();
+}
+function first() {
+current = 0;
+document.images.show.src = document.slideform.slide[0].value;
+document.slideform.slide.selectedIndex = 0;
+}
+function last() {
+current = document.slideform.slide.length-1;
+document.images.show.src = document.slideform.slide[current].value;
+document.slideform.slide.selectedIndex = current;
+}
+function ap(text) {
+document.slideform.slidebutton.value = (text == "Stop") ? "Start" : "Stop";
+rotate();
+}
+function change() {
+current = document.slideform.slide.selectedIndex;
+document.images.show.src = document.slideform.slide[current].value;
+}
+function rotate() {
+if (document.slideform.slidebutton.value == "Stop") {
+current = (current == document.slideform.slide.length-1) ? 0 : current+1;
+document.images.show.src = document.slideform.slide[current].value;
+document.slideform.slide.selectedIndex = current;
+window.setTimeout("rotate()", rotate_delay);
+   }
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /miscellaneous/"><font color="#FF0000"><b>Miscellaneous</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Image Slideshow</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Displays a series of images in an automated slide show, a pulldown menu, or the various slideshow controls that are included, such as previous and next.  The demo uses the author's image creations, of course you would use your own.  ;-)
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name=slideform>
+<table cellspacing=1 cellpadding=4 bgcolor="#000000">
+<tr>
+<td align=center bgcolor="white">
+<b>Image Slideshow</b>
+</td>
+</tr>
+<tr>
+<td align=center bgcolor="white" width=200 height=150>
+<img src="../img/image-slideshow/cart.gif" /img/image-slideshow/cart.gif" name="show">
+</td>
+</tr>
+<tr>
+<td align=center bgcolor="#C0C0C0">
+<select name="slide" onChange="change();">
+<option value="../img/image-slideshow/cart.gif" selected>Cart
+<option value="../img/image-slideshow/aat.gif">AAT
+<option value="../img/image-slideshow/boat.gif">Boat
+<option value="../img/image-slideshow/enterprise.gif">Enterprise
+<option value="../img/image-slideshow/ewing.gif">E-Wing
+<option value="../img/image-slideshow/f18.gif">F-18
+<option value="../img/image-slideshow/klingon.gif">Klingon
+<option value="../img/image-slideshow/landingcraft.gif">Landing Craft
+<option value="../img/image-slideshow/hoverracer.gif">Hover Racer
+<option value="../img/image-slideshow/sith.gif">Sith
+</select>
+</td>
+</tr>
+<tr>
+<td align=center bgcolor="#C0C0C0">
+<input type=button onClick="first();" value="|&lt;&lt;" title="Beginning">
+<input type=button onClick="previous();" value="&lt;&lt;" title="Previous">
+<input type=button name="slidebutton" onClick="ap(this.value);" value="Start" title="AutoPlay">
+<input type=button onClick="next();" value="&gt;&gt;" title="Next">
+<input type=button onClick="last();" value="&gt;&gt;|" title="End">
+</td>
+</tr>
+</table>
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Miscellaneous:  Image Slideshow</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  3.24 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL IMAGE SLIDESHOW:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Ricocheting (ricocheting@hotmail.com) --&gt;
+&lt;!-- Web Site:  http://www.ricocheting.com --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var rotate_delay = 5000; // delay in milliseconds (5000 = 5 secs)
+current = 0;
+function next() {
+if (document.slideform.slide[current+1]) {
+document.images.show.src = document.slideform.slide[current+1].value;
+document.slideform.slide.selectedIndex = ++current;
+   }
+else first();
+}
+function previous() {
+if (current-1 &gt;= 0) {
+document.images.show.src = document.slideform.slide[current-1].value;
+document.slideform.slide.selectedIndex = --current;
+   }
+else last();
+}
+function first() {
+current = 0;
+document.images.show.src = document.slideform.slide[0].value;
+document.slideform.slide.selectedIndex = 0;
+}
+function last() {
+current = document.slideform.slide.length-1;
+document.images.show.src = document.slideform.slide[current].value;
+document.slideform.slide.selectedIndex = current;
+}
+function ap(text) {
+document.slideform.slidebutton.value = (text == "Stop") ? "Start" : "Stop";
+rotate();
+}
+function change() {
+current = document.slideform.slide.selectedIndex;
+document.images.show.src = document.slideform.slide[current].value;
+}
+function rotate() {
+if (document.slideform.slidebutton.value == "Stop") {
+current = (current == document.slideform.slide.length-1) ? 0 : current+1;
+document.images.show.src = document.slideform.slide[current].value;
+document.slideform.slide.selectedIndex = current;
+window.setTimeout("rotate()", rotate_delay);
+   }
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form name=slideform&gt;
+&lt;table cellspacing=1 cellpadding=4 bgcolor="#000000"&gt;
+&lt;tr&gt;
+&lt;td align=center bgcolor="white"&gt;
+&lt;b&gt;Image Slideshow&lt;/b&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=center bgcolor="white" width=200 height=150&gt;
+&lt;img src="cart.gif" name="show"&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=center bgcolor="#C0C0C0"&gt;
+&lt;select name="slide" onChange="change();"&gt;
+&lt;option value="cart.gif" selected&gt;Cart
+&lt;option value="aat.gif"&gt;AAT
+&lt;option value="boat.gif"&gt;Boat
+&lt;option value="enterprise.gif"&gt;Enterprise
+&lt;option value="ewing.gif"&gt;E-Wing
+&lt;option value="f18.gif"&gt;F-18
+&lt;option value="klingon.gif"&gt;Klingon
+&lt;option value="landingcraft.gif"&gt;Landing Craft
+&lt;option value="hoverracer.gif"&gt;Hover Racer
+&lt;option value="sith.gif"&gt;Sith
+&lt;/select&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=center bgcolor="#C0C0C0"&gt;
+&lt;input type=button onClick="first();" value="|&lt;&lt;" title="Beginning"&gt;
+&lt;input type=button onClick="previous();" value="&lt;&lt;" title="Previous"&gt;
+&lt;input type=button name="slidebutton" onClick="ap(this.value);" value="Start" title="AutoPlay"&gt;
+&lt;input type=button onClick="next();" value="&gt;&gt;" title="Next"&gt;
+&lt;input type=button onClick="last();" value="&gt;&gt;|" title="End"&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  3.24 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

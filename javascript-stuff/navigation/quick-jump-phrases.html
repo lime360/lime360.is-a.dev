@@ -1,0 +1,209 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Navigation:  Quick Jump Phrases</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Jay Bienvenu (jay@bienvenu.net)">
+<META NAME="section" CONTENT="Navigation">
+<META NAME="description" CONTENT="Allows the user to quick jump to the site of their choice just by entering the short phrase for that site.  It even displays a list of all the sites and the phrases to go there automatically!  Definitely a clever way to allow visitors to navigate your site.  (Be sure to put this script on it's own page of your site.)">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /navigation/"><font color="#FF0000"><b>Navigation</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Quick Jump Phrases</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Allows the user to quick jump to the site of their choice just by entering the short phrase for that site.  It even displays a list of all the sites and the phrases to go there automatically!  Definitely a clever way to allow visitors to navigate your site.  (Be sure to put this script on it's own page of your site.)
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name="openpage">
+<input type=button value="Open Quick Jump Page" onClick="window.open('quick-jump-phrases-demo.html');">
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Navigation:  Quick Jump Phrases</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  4.91 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL QUICK JUMP PHRASES:
+
+  1.  Add the first code into the BODY of your opening page (index.html)
+  2.  Copy the next coding into the HEAD of your popup page (demo.html)
+  3.  Paste the last code into the BODY of the popup page  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Jay Bienvenu (jay@bienvenu.net) --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+fontFace = "&lt;FONT SIZE=2 FACE='Arial'&gt;";
+keyBuffer = "";
+var key = new Array();  // Define jump-key pages here
+var name = new Array();  // Define jump-key pages here
+key['a'] = "http://www.acadiananow.com";        name['a'] = "Acadiana Now/&lt;I&gt;Daily Advertiser&lt;/I&gt;";
+key['br'] = "http://www.broadcast.com";		name['br'] = "Broadcast.com";
+key['bt'] = "http://www.backtrax.com/hear";	name['bt'] = "BackTrax USA";
+key['c'] = "http://www.cnet.com";		name['c'] = "CNet";
+key['d'] = "http://www.dictionary.com";		name['d'] = "Dictionary.com";
+key['gr'] = "http://www.dailygrammar.com";	name['gr'] = "Daily Grammar";
+key['go'] = "http://www.go.com";		name['go'] = "Go Network";
+key['in'] = "http://info.louisiana.edu/dept";	name['in'] = "Information Networks";
+key['jd'] = "http://www.webreference.com/js/";	name['jd'] = "Doc JavaScript";
+key['jg'] = "http://developer.netscape.com/docs/manuals/communicator/jsguide4/index.htm";	
+						name['jg'] = "Netscape JavaScript Guide";
+key['jr'] = "http://developer.netscape.com/docs/manuals/communicator/jsref/index.htm";	
+						name['jr'] = "Netscape JavaScript Reference";
+key['js'] = "http://javascript.internet.com";	name['js'] = "JavaScript Source";
+
+key['k'] = "http://www.keirsey.com";		name['k'] = "Keirsey Character Sorter";
+key['ly'] = "http://www.lycos.com";		name['ly'] = "Lycos";
+key['l4'] = "http://www.discjockey.com/audio/lost45.asx";   name['l4'] = "Lost 45s";
+key['ms'] = "http://www.microsoft.com";		name['ms'] = "Microsoft";
+key['p'] = "http://www.perl.com";		name['p'] = "Perl.com";
+key['q'] = "http://www.quixtar.com";		name['q'] = "Quixtar";
+key['rc'] = "http://www.compaq.com/rcfoc/";	name['rc'] = "Rapidly Changing Face of Computing";
+key['rr'] = "http://www.reelradio.com";		name['rr'] = "ReelRadio";
+key['st'] = "http://style.webreview.com";	name['st'] = "Style Sheets Guide";
+key['tb'] = "http://www.tidbits.com";		name['tb'] = "TidBits";
+key['ul'] = "http://www.louisiana.edu";		name['ul'] = "UL";
+key['ur'] = "http://www.netsquirrel.com/combatkit/"; name['ur'] = "Urban Legend Combat Kit";
+key['v'] = "http://webreference.com";		name['v'] = "WebReference";
+key['w'] = "http://www.weather.com";		name['w'] = "The Weather Channel";
+key['y/'] = "http://www.yahoo.com";		name['y/'] = "Yahoo hp";
+key['yl'] = "http://dir.yahoo.com/Regional/U_S__States/Louisiana/Cities/Lafayette/"; 
+						name['yl'] = "Yahoo Local (Lafayette)";
+key['ym'] = "http://mail.yahoo.com";		name['ym'] = "Yahoo Mail";
+key['yn'] = "http://news.yahoo.com";		name['yn'] = "Yahoo News";
+key['yv'] = "http://movies.yahoo.com";		name['yv'] = "Yahoo Movies";
+key['z'] = "http://info.louisiana.edu/dept/netmon.html";	name['z'] = "Network Monitor";
+
+
+function getKeySite(keyStroke) {
+isNetscape=(document.layers);
+eventChooser = (isNetscape) ? keyStroke.which : event.keyCode;
+which = String.fromCharCode(eventChooser).toLowerCase();
+keyBuffer += which;
+window.status = "keyBuffer='" + keyBuffer + "'";
+for (var i in key) if (keyBuffer == i) {
+window.location = key[i];
+keyBuffer = ""; // clear buffer
+}
+var matches = 0;
+var kbLength = keyBuffer.length;
+for (var i in key) if (keyBuffer == i.substr(0,kbLength)) matches++;
+if (matches == 0)  {
+window.status = "No match on '" + keyBuffer + "'.";
+keyBuffer = "";// clear buffer
+   }
+}
+document.onkeypress = getKeySite; 
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your opening HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form name="openpage"&gt;
+&lt;input type=button value="Open Quick Jump Page" onClick="window.open('quick-jump-phrases-demo.html');"&gt;
+&lt;/form&gt;
+
+&lt;!-- STEP THREE: Copy this code into the BODY of your popup HTML document  --&gt;
+
+&lt;center&gt;
+&lt;table align="right" bgcolor="#eeeeee"&gt;
+&lt;tr&gt;&lt;td colspan=3&gt;&lt;font face="Arial"&gt;&lt;b&gt;Jump Keys&lt;/b&gt; - Enter any key sequence to jump to the page.&lt;/TD&gt;&lt;/TR&gt;
+&lt;tr valign="top"&gt;
+&lt;td&gt;&lt;table&gt;
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Display list of Jump Keys
+balanceFactor = 15; /* (name.length - name.length%3)/3 + 1; */
+/*
+document.write ("&lt;TR&gt;&lt;TD&gt;" + key.length + "&lt;/TD&gt;&lt;/TR&gt;");
+document.write ("&lt;TR&gt;&lt;TD&gt;" + balanceFactor + "&lt;/TD&gt;&lt;/TR&gt;");
+*/
+balanceCounter = 0;
+for (var i in key) {
+dispstring  = "&lt;TR&gt;&lt;TD&gt;" + fontFace + i.toUpperCase() + "&lt;/TD&gt;&lt;TD&gt;";
+dispstring += fontFace + "&lt;A HREF=" + key[i] + "&gt;" + name[i] + "&lt;/A&gt;&lt;/TD&gt;&lt;/TR&gt;";
+document.write (dispstring);
+balanceCounter++;
+if (balanceCounter == balanceFactor) {
+document.write ("&lt;/TABLE&gt;&lt;/TD&gt;&lt;TD&gt;&lt;TABLE&gt;");
+balanceCounter = 0;
+   }
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+&lt;/table&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  4.91 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>
+
+
+

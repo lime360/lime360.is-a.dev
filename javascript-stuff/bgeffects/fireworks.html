@@ -1,0 +1,356 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  BG Effects:  Fireworks</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Kurt Grigg (kurt.grigg@virgin.net)">
+<META NAME="section" CONTENT="BG Effects">
+<META NAME="description" CONTENT="Produces a multi-colored fireworks display as the background of the page.  Works in both Netscape and Internet Explorer.">
+</HEAD>
+
+<BODY vlink=#0000ff bgcolor="black" text="white">
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /bgeffects/"><font color="#FF0000"><b>BG Effects</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Fireworks</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva" color="white">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Produces a multi-colored fireworks display as the background of the page.  Works in both Netscape and Internet Explorer.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<layer name="a0" left=10 top=10 visibility=show bgcolor="#ffffff" clip="0,0,1,1"></layer>
+<layer name="a1" left=10 top=10 visibility=show bgcolor="#fff000" clip="0,0,1,1"></layer>
+<layer name="a2" left=10 top=10 visibility=show bgcolor="#ffa000" clip="0,0,1,1"></layer>
+<layer name="a3" left=10 top=10 visibility=show bgcolor="#ff00ff" clip="0,0,1,1"></layer>
+<layer name="a4" left=10 top=10 visibility=show bgcolor="#00ff00" clip="0,0,1,1"></layer>
+<layer name="a5" left=10 top=10 visibility=show bgcolor="#ff00ff" clip="0,0,1,1"></layer>
+<layer name="a6" left=10 top=10 visibility=show bgcolor="#ff0000" clip="0,0,1,1"></layer>
+<layer name="a7" left=10 top=10 visibility=show bgcolor="#ffffff" clip="0,0,1,1"></layer>
+<layer name="a8" left=10 top=10 visibility=show bgcolor="#fff000" clip="0,0,1,1"></layer>
+<layer name="a9" left=10 top=10 visibility=show bgcolor="#ffa000" clip="0,0,1,1"></layer>
+<layer name="a10" left=10 top=10 visibility=show bgcolor="#ff00ff" clip="0,0,1,1"></layer>
+<layer name="a11" left=10 top=10 visibility=show bgcolor="#00ff00" clip="0,0,2,2"></layer>
+<layer name="a12" left=10 top=10 visibility=show bgcolor="#0000ff" clip="0,0,2,2"></layer>
+<layer name="a13" left=10 top=10 visibility=show bgcolor="#ff0000" clip="0,0,2,2"></layer>
+<div id="starsDiv" style="position:absolute;top:0px;left:0px">
+<div style="position:relative;width:2px;height:2px;background:#ffffff;font-size:2px"></div>
+<div style="position:relative;width:1px;height:1px;background:#fff000;font-size:1px"></div>
+<div style="position:relative;width:1px;height:1px;background:#ffa000;font-size:1px"></div>
+<div style="position:relative;width:1px;height:1px;background:#ff00ff;font-size:1px"></div>
+<div style="position:relative;width:1px;height:1px;background:#00ff00;font-size:1px"></div>
+<div style="position:relative;width:1px;height:1px;background:#0000ff;font-size:1px"></div>
+<div style="position:relative;width:1px;height:1px;background:#FF0000;font-size:1px"></div>
+<div style="position:relative;width:1px;height:1px;background:#ffffff;font-size:1px"></div>
+<div style="position:relative;width:1px;height:1px;background:#fff000;font-size:1px"></div>
+<div style="position:relative;width:1px;height:1px;background:#ffa000;font-size:1px"></div>
+<div style="position:relative;width:1px;height:1px;background:#ff00ff;font-size:1px"></div>
+<div style="position:relative;width:2px;height:2px;background:#ff00ff;font-size:2px"></div>
+<div style="position:relative;width:1px;height:1px;background:#0000ff;font-size:1px"></div>
+<div style="position:relative;width:1px;height:1px;background:#FF0000;font-size:1px"></div>
+</div>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Kurt Grigg (kurt.grigg@virgin.net) -->
+<!-- Web Site:  http://freespace.virgin.net/kurt.grigg -->
+
+
+
+
+<!-- Begin
+var Clrs = new Array(9);
+Clrs[0] = 'ff0000';
+Clrs[1] = '00ff00';
+Clrs[2] = '000aff';
+Clrs[3] = 'ff00ff';
+Clrs[4] = 'ffa500';
+Clrs[5] = 'ffff00';
+Clrs[6] = '00ff00';
+Clrs[7] = 'ffffff';
+Clrs[8] = 'fffff0';
+var sClrs = new Array(5);
+sClrs[0] = 'ffa500';
+sClrs[1] = '55ff66';
+sClrs[2] = 'AC9DFC';
+sClrs[3] = 'fff000';
+sClrs[4] = 'fffff0';
+var yBase;
+var xBase;
+var step;
+var currStep = 0;
+var Xpos = 1;
+var Ypos = 1;
+var initialStarColor = 'ffa000';
+var Mtop = 250;
+var Mleft = 250;
+function Fireworks() {
+if (document.all) {
+yBase = window.document.body.offsetHeight / 3;
+xBase = window.document.body.offsetWidth / 8;
+}
+else if (document.layers) {
+yBase = window.innerHeight / 3;
+xBase = window.innerWidth / 8;
+}
+if (document.all) {
+step = 5;
+for ( i = 0 ; i < starsDiv.all.length ; i++ ) {
+for (ai = 0; ai < Clrs.length; ai++) {
+var c = Math.round(Math.random()*[ai]);
+}
+if (currStep < 90)
+starsDiv.all[i].style.background=initialStarColor;
+if (currStep > 90)
+starsDiv.all[i].style.background=Clrs[c];
+starsDiv.all[i].style.top = Mtop + yBase*Math.sin((currStep+i*5)/3)*Math.sin(550+currStep/100)
+starsDiv.all[i].style.left = Mleft + yBase*Math.cos((currStep+i*5)/3)*Math.sin(550+currStep/100)
+   }
+}
+else if (document.layers) {
+step = 5;
+for ( j = 0 ; j < 14 ; j++ ) { //number of NS layers!
+var templayer = "a"+j;
+for (ai = 0; ai < Clrs.length; ai++) {
+var c = Math.round(Math.random()*[ai]);
+}
+if (currStep < 90)
+document.layers[templayer].bgColor=initialStarColor;
+if (currStep > 90)
+document.layers[templayer].bgColor=Clrs[c];
+document.layers[templayer].top = Mtop + yBase*Math.sin((currStep+j*5)/3)*Math.sin(550+currStep/100)
+document.layers[templayer].left = Mleft + yBase*Math.cos((currStep+j*5)/3)*Math.sin(550+currStep/100)
+   }
+}
+currStep+= step;
+T=setTimeout("Fireworks()",5);
+if (currStep == 220) {
+currStep = -10;
+for (n = 0; n < sClrs.length; n++) {
+var k = Math.round(Math.random()*n);
+}
+initialStarColor = sClrs[k];
+if (document.all) {
+Dtop = window.document.body.clientHeight - 250;
+Dleft = xBase * 3.5;
+Mtop = Math.round(Math.random()*Dtop);
+Mleft = Math.round(Math.random()*Dleft);
+document.all.starsDiv.style.top = Mtop+document.body.scrollTop;
+document.all.starsDiv.style.left = Mleft+document.body.scrollLeft;
+}
+else if (document.layers) {
+Dleft = window.innerWidth - 100;
+Dtop = window.innerHeight - 100;
+Mtop = Math.round(Math.random()*Dtop+window.pageYOffset);
+Mleft = Math.round(Math.random()*Dleft+window.pageXOffset);
+document.layers[templayer].top = Mtop;
+document.layers[templayer].left = Mleft;
+}
+if ((Mtop < 20) || (Mleft < 20)) {
+Mtop += 90;
+Mleft += 90;
+      } 
+   }
+}
+Fireworks();
+//  End -->
+</script>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva" color="black"><b>JavaScript Source Code 3000:  BG Effects:  Fireworks</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  5.76 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- ONE STEP TO INSTALL FIREWORKS:
+
+  1.  Copy the coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;layer name="a0" left=10 top=10 visibility=show bgcolor="#ffffff" clip="0,0,1,1"&gt;&lt;/layer&gt;
+&lt;layer name="a1" left=10 top=10 visibility=show bgcolor="#fff000" clip="0,0,1,1"&gt;&lt;/layer&gt;
+&lt;layer name="a2" left=10 top=10 visibility=show bgcolor="#ffa000" clip="0,0,1,1"&gt;&lt;/layer&gt;
+&lt;layer name="a3" left=10 top=10 visibility=show bgcolor="#ff00ff" clip="0,0,1,1"&gt;&lt;/layer&gt;
+&lt;layer name="a4" left=10 top=10 visibility=show bgcolor="#00ff00" clip="0,0,1,1"&gt;&lt;/layer&gt;
+&lt;layer name="a5" left=10 top=10 visibility=show bgcolor="#ff00ff" clip="0,0,1,1"&gt;&lt;/layer&gt;
+&lt;layer name="a6" left=10 top=10 visibility=show bgcolor="#ff0000" clip="0,0,1,1"&gt;&lt;/layer&gt;
+&lt;layer name="a7" left=10 top=10 visibility=show bgcolor="#ffffff" clip="0,0,1,1"&gt;&lt;/layer&gt;
+&lt;layer name="a8" left=10 top=10 visibility=show bgcolor="#fff000" clip="0,0,1,1"&gt;&lt;/layer&gt;
+&lt;layer name="a9" left=10 top=10 visibility=show bgcolor="#ffa000" clip="0,0,1,1"&gt;&lt;/layer&gt;
+&lt;layer name="a10" left=10 top=10 visibility=show bgcolor="#ff00ff" clip="0,0,1,1"&gt;&lt;/layer&gt;
+&lt;layer name="a11" left=10 top=10 visibility=show bgcolor="#00ff00" clip="0,0,2,2"&gt;&lt;/layer&gt;
+&lt;layer name="a12" left=10 top=10 visibility=show bgcolor="#0000ff" clip="0,0,2,2"&gt;&lt;/layer&gt;
+&lt;layer name="a13" left=10 top=10 visibility=show bgcolor="#ff0000" clip="0,0,2,2"&gt;&lt;/layer&gt;
+&lt;div id="starsDiv" style="position:absolute;top:0px;left:0px"&gt;
+&lt;div style="position:relative;width:2px;height:2px;background:#ffffff;font-size:2px"&gt;&lt;/div&gt;
+&lt;div style="position:relative;width:1px;height:1px;background:#fff000;font-size:1px"&gt;&lt;/div&gt;
+&lt;div style="position:relative;width:1px;height:1px;background:#ffa000;font-size:1px"&gt;&lt;/div&gt;
+&lt;div style="position:relative;width:1px;height:1px;background:#ff00ff;font-size:1px"&gt;&lt;/div&gt;
+&lt;div style="position:relative;width:1px;height:1px;background:#00ff00;font-size:1px"&gt;&lt;/div&gt;
+&lt;div style="position:relative;width:1px;height:1px;background:#0000ff;font-size:1px"&gt;&lt;/div&gt;
+&lt;div style="position:relative;width:1px;height:1px;background:#FF0000;font-size:1px"&gt;&lt;/div&gt;
+&lt;div style="position:relative;width:1px;height:1px;background:#ffffff;font-size:1px"&gt;&lt;/div&gt;
+&lt;div style="position:relative;width:1px;height:1px;background:#fff000;font-size:1px"&gt;&lt;/div&gt;
+&lt;div style="position:relative;width:1px;height:1px;background:#ffa000;font-size:1px"&gt;&lt;/div&gt;
+&lt;div style="position:relative;width:1px;height:1px;background:#ff00ff;font-size:1px"&gt;&lt;/div&gt;
+&lt;div style="position:relative;width:2px;height:2px;background:#ff00ff;font-size:2px"&gt;&lt;/div&gt;
+&lt;div style="position:relative;width:1px;height:1px;background:#0000ff;font-size:1px"&gt;&lt;/div&gt;
+&lt;div style="position:relative;width:1px;height:1px;background:#FF0000;font-size:1px"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Kurt Grigg (kurt.grigg@virgin.net) --&gt;
+&lt;!-- Web Site:  http://freespace.virgin.net/kurt.grigg --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var Clrs = new Array(9);
+Clrs[0] = 'ff0000';
+Clrs[1] = '00ff00';
+Clrs[2] = '000aff';
+Clrs[3] = 'ff00ff';
+Clrs[4] = 'ffa500';
+Clrs[5] = 'ffff00';
+Clrs[6] = '00ff00';
+Clrs[7] = 'ffffff';
+Clrs[8] = 'fffff0';
+var sClrs = new Array(5);
+sClrs[0] = 'ffa500';
+sClrs[1] = '55ff66';
+sClrs[2] = 'AC9DFC';
+sClrs[3] = 'fff000';
+sClrs[4] = 'fffff0';
+var yBase;
+var xBase;
+var step;
+var currStep = 0;
+var Xpos = 1;
+var Ypos = 1;
+var initialStarColor = 'ffa000';
+var Mtop = 250;
+var Mleft = 250;
+function Fireworks() {
+if (document.all) {
+yBase = window.document.body.offsetHeight / 3;
+xBase = window.document.body.offsetWidth / 8;
+}
+else if (document.layers) {
+yBase = window.innerHeight / 3;
+xBase = window.innerWidth / 8;
+}
+if (document.all) {
+step = 5;
+for ( i = 0 ; i &lt; starsDiv.all.length ; i++ ) {
+for (ai = 0; ai &lt; Clrs.length; ai++) {
+var c = Math.round(Math.random()*[ai]);
+}
+if (currStep &lt; 90)
+starsDiv.all[i].style.background=initialStarColor;
+if (currStep &gt; 90)
+starsDiv.all[i].style.background=Clrs[c];
+starsDiv.all[i].style.top = Mtop + yBase*Math.sin((currStep+i*5)/3)*Math.sin(550+currStep/100)
+starsDiv.all[i].style.left = Mleft + yBase*Math.cos((currStep+i*5)/3)*Math.sin(550+currStep/100)
+   }
+}
+else if (document.layers) {
+step = 5;
+for ( j = 0 ; j &lt; 14 ; j++ ) { //number of NS layers!
+var templayer = "a"+j;
+for (ai = 0; ai &lt; Clrs.length; ai++) {
+var c = Math.round(Math.random()*[ai]);
+}
+if (currStep &lt; 90)
+document.layers[templayer].bgColor=initialStarColor;
+if (currStep &gt; 90)
+document.layers[templayer].bgColor=Clrs[c];
+document.layers[templayer].top = Mtop + yBase*Math.sin((currStep+j*5)/3)*Math.sin(550+currStep/100)
+document.layers[templayer].left = Mleft + yBase*Math.cos((currStep+j*5)/3)*Math.sin(550+currStep/100)
+   }
+}
+currStep+= step;
+T=setTimeout("Fireworks()",5);
+if (currStep == 220) {
+currStep = -10;
+for (n = 0; n &lt; sClrs.length; n++) {
+var k = Math.round(Math.random()*n);
+}
+initialStarColor = sClrs[k];
+if (document.all) {
+Dtop = window.document.body.clientHeight - 250;
+Dleft = xBase * 3.5;
+Mtop = Math.round(Math.random()*Dtop);
+Mleft = Math.round(Math.random()*Dleft);
+document.all.starsDiv.style.top = Mtop+document.body.scrollTop;
+document.all.starsDiv.style.left = Mleft+document.body.scrollLeft;
+}
+else if (document.layers) {
+Dleft = window.innerWidth - 100;
+Dtop = window.innerHeight - 100;
+Mtop = Math.round(Math.random()*Dtop+window.pageYOffset);
+Mleft = Math.round(Math.random()*Dleft+window.pageXOffset);
+document.layers[templayer].top = Mtop;
+document.layers[templayer].left = Mleft;
+}
+if ((Mtop &lt; 20) || (Mleft &lt; 20)) {
+Mtop += 90;
+Mleft += 90;
+      } 
+   }
+}
+Fireworks();
+//  End --&gt;
+&lt;/script&gt;
+
+ 
+
+&lt;!-- Script Size:  5.76 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

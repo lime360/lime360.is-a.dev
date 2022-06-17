@@ -1,0 +1,416 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Calculators:  Armor</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Cut-N-Paste JavaScript from ISN Toolbox
+
+<!-- This script and many more are available free online at">
+<META NAME="section" CONTENT="Calculators">
+<META NAME="description" CONTENT="JavaScript can help you figure armor penetration.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Cut-N-Paste JavaScript from ISN Toolbox
+
+
+
+
+<!-- Begin
+var c1;
+var c2;
+var convert_to_degrees = (2*3.1415)/360.0;
+function compute_pen(c1,c2,r,ang) {
+if (is_number(r)) {
+new_pen = Math.pow((c1*Math.exp(-c2*range3)),0.7);
+if (is_number(ang)) {
+ang = parseInt(ang);
+ang = ang*convert_to_degrees;
+new_pen = new_pen*Math.pow(Math.cos(ang),1.5);
+}
+return Math.round(new_pen);
+} 
+else {
+return "";
+	}
+}
+function is_number(a_string) {
+tc = a_string.charAt(0);
+if (tc == "0" || tc == "1" || tc == "2" || tc == "3" ||	tc == "4" || tc == "5" || tc == "6" || tc == "7" || tc == "8" || tc == "9") {
+return true;
+} 
+else {
+return false;
+   }
+}
+function compute_constants(form) {
+range1 =form.inputrange1.value;
+range2 =form.inputrange2.value;
+pen1 = form.pen1.value;
+pen2 =form.pen2.value;
+if (is_number(range1) && is_number(range2) && is_number(pen1) && is_number(pen2)) {
+range1 = parseInt(range1);
+range2 = parseInt(range2);
+pen1 = parseInt(pen1);
+pen2 = parseInt(pen2);
+ang1 = form.ang1.value;
+ang2 = form.ang2.value;
+if (is_number(ang1)) {
+ang1 = parseInt(ang1);
+ang1 = ang1 * convert_to_degrees;
+pen1 = pen1/Math.pow(Math.cos(ang1),1.5);
+}
+if (is_number(ang2)) {
+ang2 = parseInt(ang2);
+ang2 = ang2 * convert_to_degrees;
+pen2 = pen2/Math.pow(Math.cos(ang2),1.5);
+}	   		 
+c2 = Math.log(Math.pow(pen2,1.4286)/Math.pow(pen1,1.4286))/(-range2 + range1);
+temp = (range1*c2);
+c1 = Math.pow(pen1,1.4286) * Math.exp(temp);
+return true;		
+} 
+else {
+alert("You need to enter two different ranges and the penetration at those ranges.");
+return false;
+   }
+}
+function armorpen(form) {
+if (compute_constants(form)) {
+range3 = form.computerange1.value;
+ang = form.c_ang_1.value;
+new_pen = compute_pen(c1,c2,range3,ang);
+form.computepen1.value = new_pen;
+range3 = form.computerange2.value;
+ang = form.c_ang_2.value;
+new_pen = compute_pen(c1,c2,range3,ang);
+form.computepen2.value = new_pen;
+range3 =form.computerange3.value;
+ang = form.c_ang_3.value;
+new_pen = compute_pen(c1,c2,range3,ang);
+form.computepen3.value = new_pen;
+range3 =form.computerange4.value;
+ang = form.c_ang_4.value;
+new_pen = compute_pen(c1,c2,range3,ang);
+form.computepen4.value = new_pen;
+range3 =form.computerange5.value;
+ang = form.c_ang_5.value;
+new_pen = compute_pen(c1,c2,range3,ang);
+form.computepen5.value = new_pen;
+range3 =form.computerange6.value;
+ang = form.c_ang_6.value;
+new_pen = compute_pen(c1,c2,range3,ang);
+form.computepen6.value = new_pen;
+range3 =form.computerange7.value;
+ang = form.c_ang_7.value;
+new_pen = compute_pen(c1,c2,range3,ang);
+form.computepen7.value = new_pen;
+range3 =form.computerange8.value;
+ang = form.c_ang_8.value;
+new_pen = compute_pen(c1,c2,range3,ang);
+form.computepen8.value = new_pen;
+range3 =form.computerange9.value;
+ang = form.c_ang_9.value;
+new_pen = compute_pen(c1,c2,range3,ang);
+form.computepen9.value = new_pen;
+range3 =form.computerange10.value;
+ang = form.c_ang_10.value;
+new_pen = compute_pen(c1,c2,range3,ang);
+form.computepen10.value = new_pen;
+   }
+}
+// End -->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /calculators/"><font color="#FF0000"><b>Calculators</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Armor</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+JavaScript can help you figure armor penetration.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<FORM>
+<H3>Gun Type</H3>
+<INPUT NAME="gunname" TYPE="text" SIZE="30">
+<PRE>   Range    Penetration   Angle</PRE>
+<INPUT NAME="inputrange1" TYPE="text" SIZE="10" VALUE = "500">
+<INPUT NAME="pen1" TYPE="text" SIZE="10" >
+<INPUT NAME="ang1" TYPE="text" SIZE="10">
+<BR>
+<INPUT NAME="inputrange2" TYPE="text" SIZE="10" VALUE = "1000"> 
+<INPUT NAME="pen2" TYPE="text" SIZE="10" >
+<INPUT NAME="ang2" TYPE="text" SIZE="10">
+<BR>
+<INPUT NAME="compute" TYPE="button" VALUE="Compute" onClick="armorpen(this.form)">
+<BR>
+<HR>
+<INPUT NAME="computerange1" TYPE="text" SIZE="10" VALUE = "250"> 
+<INPUT NAME="computepen1" TYPE="text" SIZE="10">
+<INPUT NAME="c_ang_1" TYPE="text" SIZE="10"><BR>
+<INPUT NAME="computerange2" TYPE="text" SIZE="10" VALUE = "500"> 
+<INPUT NAME="computepen2" TYPE="text" SIZE="10">
+<INPUT NAME="c_ang_2" TYPE="text" SIZE="10">
+<BR>
+<INPUT NAME="computerange3" TYPE="text" SIZE="10" VALUE = "750">
+<INPUT NAME="computepen3"  TYPE="text" SIZE="10">
+<INPUT NAME="c_ang_3" TYPE="text" SIZE="10"><BR>
+<INPUT NAME="computerange4" TYPE="text" SIZE="10" VALUE = "1000">
+<INPUT NAME="computepen4"TYPE="text" SIZE="10">
+<INPUT NAME="c_ang_4" TYPE="text" SIZE="10"><BR>
+<INPUT NAME="computerange5" TYPE="text" SIZE="10" VALUE = "1250">
+<INPUT NAME="computepen5"TYPE="text" SIZE="10">
+<INPUT NAME="c_ang_5" TYPE="text" SIZE="10"><BR>
+<INPUT NAME="computerange6" TYPE="text" SIZE="10" VALUE = "1500">
+<INPUT NAME="computepen6"TYPE="text" SIZE="10">
+<INPUT NAME="c_ang_6" TYPE="text" SIZE="10"><BR>
+<INPUT NAME="computerange7" TYPE="text" SIZE="10" VALUE = "1750">
+<INPUT NAME="computepen7"TYPE="text" SIZE="10">
+<INPUT NAME="c_ang_7" TYPE="text" SIZE="10"><BR>
+<INPUT NAME="computerange8" TYPE="text" SIZE="10" VALUE = "2000">
+<INPUT NAME="computepen8"TYPE="text" SIZE="10">
+<INPUT NAME="c_ang_8" TYPE="text" SIZE="10"><BR>
+<INPUT NAME="computerange9" TYPE="text" SIZE="10">
+<INPUT NAME="computepen9"TYPE="text" SIZE="10">
+<INPUT NAME="c_ang_9" TYPE="text" SIZE="10"><BR>
+<INPUT NAME="computerange10" TYPE="text" SIZE="10">
+<INPUT NAME="computepen10"TYPE="text" SIZE="10">
+<INPUT NAME="c_ang_10" TYPE="text" SIZE="10"><BR>
+</FORM>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Calculators:  Armor</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  5.70 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL ARMOR:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Cut-N-Paste JavaScript from ISN Toolbox
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var c1;
+var c2;
+var convert_to_degrees = (2*3.1415)/360.0;
+function compute_pen(c1,c2,r,ang) {
+if (is_number(r)) {
+new_pen = Math.pow((c1*Math.exp(-c2*range3)),0.7);
+if (is_number(ang)) {
+ang = parseInt(ang);
+ang = ang*convert_to_degrees;
+new_pen = new_pen*Math.pow(Math.cos(ang),1.5);
+}
+return Math.round(new_pen);
+} 
+else {
+return "";
+	}
+}
+function is_number(a_string) {
+tc = a_string.charAt(0);
+if (tc == "0" || tc == "1" || tc == "2" || tc == "3" ||	tc == "4" || tc == "5" || tc == "6" || tc == "7" || tc == "8" || tc == "9") {
+return true;
+} 
+else {
+return false;
+   }
+}
+function compute_constants(form) {
+range1 =form.inputrange1.value;
+range2 =form.inputrange2.value;
+pen1 = form.pen1.value;
+pen2 =form.pen2.value;
+if (is_number(range1) && is_number(range2) && is_number(pen1) && is_number(pen2)) {
+range1 = parseInt(range1);
+range2 = parseInt(range2);
+pen1 = parseInt(pen1);
+pen2 = parseInt(pen2);
+ang1 = form.ang1.value;
+ang2 = form.ang2.value;
+if (is_number(ang1)) {
+ang1 = parseInt(ang1);
+ang1 = ang1 * convert_to_degrees;
+pen1 = pen1/Math.pow(Math.cos(ang1),1.5);
+}
+if (is_number(ang2)) {
+ang2 = parseInt(ang2);
+ang2 = ang2 * convert_to_degrees;
+pen2 = pen2/Math.pow(Math.cos(ang2),1.5);
+}	   		 
+c2 = Math.log(Math.pow(pen2,1.4286)/Math.pow(pen1,1.4286))/(-range2 + range1);
+temp = (range1*c2);
+c1 = Math.pow(pen1,1.4286) * Math.exp(temp);
+return true;		
+} 
+else {
+alert("You need to enter two different ranges and the penetration at those ranges.");
+return false;
+   }
+}
+function armorpen(form) {
+if (compute_constants(form)) {
+range3 = form.computerange1.value;
+ang = form.c_ang_1.value;
+new_pen = compute_pen(c1,c2,range3,ang);
+form.computepen1.value = new_pen;
+range3 = form.computerange2.value;
+ang = form.c_ang_2.value;
+new_pen = compute_pen(c1,c2,range3,ang);
+form.computepen2.value = new_pen;
+range3 =form.computerange3.value;
+ang = form.c_ang_3.value;
+new_pen = compute_pen(c1,c2,range3,ang);
+form.computepen3.value = new_pen;
+range3 =form.computerange4.value;
+ang = form.c_ang_4.value;
+new_pen = compute_pen(c1,c2,range3,ang);
+form.computepen4.value = new_pen;
+range3 =form.computerange5.value;
+ang = form.c_ang_5.value;
+new_pen = compute_pen(c1,c2,range3,ang);
+form.computepen5.value = new_pen;
+range3 =form.computerange6.value;
+ang = form.c_ang_6.value;
+new_pen = compute_pen(c1,c2,range3,ang);
+form.computepen6.value = new_pen;
+range3 =form.computerange7.value;
+ang = form.c_ang_7.value;
+new_pen = compute_pen(c1,c2,range3,ang);
+form.computepen7.value = new_pen;
+range3 =form.computerange8.value;
+ang = form.c_ang_8.value;
+new_pen = compute_pen(c1,c2,range3,ang);
+form.computepen8.value = new_pen;
+range3 =form.computerange9.value;
+ang = form.c_ang_9.value;
+new_pen = compute_pen(c1,c2,range3,ang);
+form.computepen9.value = new_pen;
+range3 =form.computerange10.value;
+ang = form.c_ang_10.value;
+new_pen = compute_pen(c1,c2,range3,ang);
+form.computepen10.value = new_pen;
+   }
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;FORM&gt;
+&lt;H3&gt;Gun Type&lt;/H3&gt;
+&lt;INPUT NAME="gunname" TYPE="text" SIZE="30"&gt;
+&lt;PRE&gt;   Range    Penetration   Angle&lt;/PRE&gt;
+&lt;INPUT NAME="inputrange1" TYPE="text" SIZE="10" VALUE = "500"&gt;
+&lt;INPUT NAME="pen1" TYPE="text" SIZE="10" &gt;
+&lt;INPUT NAME="ang1" TYPE="text" SIZE="10"&gt;
+&lt;BR&gt;
+&lt;INPUT NAME="inputrange2" TYPE="text" SIZE="10" VALUE = "1000"&gt; 
+&lt;INPUT NAME="pen2" TYPE="text" SIZE="10" &gt;
+&lt;INPUT NAME="ang2" TYPE="text" SIZE="10"&gt;
+&lt;BR&gt;
+&lt;INPUT NAME="compute" TYPE="button" VALUE="Compute" onClick="armorpen(this.form)"&gt;
+&lt;BR&gt;
+&lt;HR&gt;
+&lt;INPUT NAME="computerange1" TYPE="text" SIZE="10" VALUE = "250"&gt; 
+&lt;INPUT NAME="computepen1" TYPE="text" SIZE="10"&gt;
+&lt;INPUT NAME="c_ang_1" TYPE="text" SIZE="10"&gt;&lt;BR&gt;
+&lt;INPUT NAME="computerange2" TYPE="text" SIZE="10" VALUE = "500"&gt; 
+&lt;INPUT NAME="computepen2" TYPE="text" SIZE="10"&gt;
+&lt;INPUT NAME="c_ang_2" TYPE="text" SIZE="10"&gt;
+&lt;BR&gt;
+&lt;INPUT NAME="computerange3" TYPE="text" SIZE="10" VALUE = "750"&gt;
+&lt;INPUT NAME="computepen3"  TYPE="text" SIZE="10"&gt;
+&lt;INPUT NAME="c_ang_3" TYPE="text" SIZE="10"&gt;&lt;BR&gt;
+&lt;INPUT NAME="computerange4" TYPE="text" SIZE="10" VALUE = "1000"&gt;
+&lt;INPUT NAME="computepen4"TYPE="text" SIZE="10"&gt;
+&lt;INPUT NAME="c_ang_4" TYPE="text" SIZE="10"&gt;&lt;BR&gt;
+&lt;INPUT NAME="computerange5" TYPE="text" SIZE="10" VALUE = "1250"&gt;
+&lt;INPUT NAME="computepen5"TYPE="text" SIZE="10"&gt;
+&lt;INPUT NAME="c_ang_5" TYPE="text" SIZE="10"&gt;&lt;BR&gt;
+&lt;INPUT NAME="computerange6" TYPE="text" SIZE="10" VALUE = "1500"&gt;
+&lt;INPUT NAME="computepen6"TYPE="text" SIZE="10"&gt;
+&lt;INPUT NAME="c_ang_6" TYPE="text" SIZE="10"&gt;&lt;BR&gt;
+&lt;INPUT NAME="computerange7" TYPE="text" SIZE="10" VALUE = "1750"&gt;
+&lt;INPUT NAME="computepen7"TYPE="text" SIZE="10"&gt;
+&lt;INPUT NAME="c_ang_7" TYPE="text" SIZE="10"&gt;&lt;BR&gt;
+&lt;INPUT NAME="computerange8" TYPE="text" SIZE="10" VALUE = "2000"&gt;
+&lt;INPUT NAME="computepen8"TYPE="text" SIZE="10"&gt;
+&lt;INPUT NAME="c_ang_8" TYPE="text" SIZE="10"&gt;&lt;BR&gt;
+&lt;INPUT NAME="computerange9" TYPE="text" SIZE="10"&gt;
+&lt;INPUT NAME="computepen9"TYPE="text" SIZE="10"&gt;
+&lt;INPUT NAME="c_ang_9" TYPE="text" SIZE="10"&gt;&lt;BR&gt;
+&lt;INPUT NAME="computerange10" TYPE="text" SIZE="10"&gt;
+&lt;INPUT NAME="computepen10"TYPE="text" SIZE="10"&gt;
+&lt;INPUT NAME="c_ang_10" TYPE="text" SIZE="10"&gt;&lt;BR&gt;
+&lt;/FORM&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  5.70 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

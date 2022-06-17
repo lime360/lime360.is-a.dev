@@ -1,0 +1,288 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Games:  Snake</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Clayton Carlson (clayton@awebmaker.com)">
+<META NAME="section" CONTENT="Games">
+<META NAME="description" CONTENT="(Internet Explorer Only)  A one player game where the point is to direct the snake to the apples.  For each apple you eat, you earn points and the snake grows longer.  Don't run into your own tail or the walls and see how many points you can earn!">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /games/"><font color="#FF0000"><b>Games</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Snake</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+(Internet Explorer Only)  A one player game where the point is to direct the snake to the apples.  For each apple you eat, you earn points and the snake grows longer.  Don't run into your own tail or the walls and see how many points you can earn!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name="open-snake">
+<input type=button value="Play Snake" onClick="window.open('snake-example.html','falcon','top=100,left=100,width=575,height=400');">
+</form>
+</center>
+<br><br>
+You must also upload all these<br>
+necessary images to your website.<br>
+Download this .zip file and upload<br>
+the images to your web server.<br><br>
+<a href="../img/snake/snake.zip" /img/snake/snake.zip">Dowload snake.zip</a><br><br>
+<P>
+<P>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Games:  Snake</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  4.90 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL SNAKE:
+
+  1.  Put the first code in your opening HTMl document --&gt;
+  2.  Save the remaining code to a new file, save as snake.html  --&gt;
+  3.  Upload all the snake images to the same web site directory --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the opening HTML document  --&gt;
+
+&lt;center&gt;
+&lt;form name="open-snake"&gt;
+&lt;input type=button value="Play Snake" onClick="window.open('snake.html','snake','top=100,left=100,width=575,height=400');"&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+&lt;!-- STEP TWO: Paste this code into a new document, save it as snake.html  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;STYLE TYPE="text/css"&gt;
+.item{}
+.worm1 {
+  font-weight:bold;
+  font-size:12pt;
+  color:blue;
+  background:white;
+  width:150px;
+  BORDER-BOTTOM: #ffffff solid 0px; 
+  BORDER-TOP: #ffffff solid 0px; 
+  BORDER-LEFT: #ffffff solid 0px; 
+  BORDER-RIGHT: #ffffff solid 0px; 
+}
+.worm2 {
+  font-weight:bold;
+  font-size:12pt;
+  color:red;
+  background:white;
+  width:150px;
+  BORDER-BOTTOM: #ffffff solid 0px; 
+  BORDER-TOP: #ffffff solid 0px; 
+  BORDER-LEFT: #ffffff solid 0px; 
+  BORDER-RIGHT: #ffffff solid 0px; 
+}
+.info {
+  font-weight:bold;
+  font-size:10pt;
+  color:black;
+  background:white;
+  width:150px;
+  height:100px;
+  BORDER-BOTTOM: #ffffff solid 0px; 
+  BORDER-TOP: #ffffff solid 0px; 
+  BORDER-LEFT: #ffffff solid 0px; 
+  BORDER-RIGHT: #ffffff solid 0px; 
+}
+&lt;/style&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Clayton Carlson (clayton@awebmaker.com) --&gt;
+&lt;!-- Web Site:  http://www.awebmaker.com --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var height = 20; //height of the game area
+var width = 20;	//width of the game area
+var speed = 100	//speed, higher = slower
+width += 2;
+var a = 0;
+var b = 0;
+document.write("&lt;table bgcolor=white bordercolor=black ");
+document.write("align=center border=1 cellpadding=0 cellspacing=0&gt;&lt;tr&gt;&lt;td&gt;");
+for (b = 0; b &lt; height+2; b++) {
+document.write("&lt;img src=end.gif width=0 height=0&gt;");
+for (a = 0; a &lt; width- 2; a++) {
+if ((b == 0) || (b == height+1)) {
+document.write("&lt;img src=end.gif width=0 height=0&gt;");
+}
+else {
+document.write("&lt;img src=blank.gif width=15 height=15&gt;");
+   }
+}
+document.write("&lt;img src=end.gif width=0 height=0&gt;&lt;br&gt;");
+}
+document.write("&lt;/td&gt;");
+document.write("&lt;td valign=top align=center bgcolor=white&gt;");
+document.write("&lt;p align=center&gt;&lt;strong&gt;&lt;font color=blue&gt;Snake&lt;/font&gt;&lt;/strong&gt;&lt;/p&gt;");
+document.write("&lt;br&gt;");
+document.write("&lt;form name=info&gt;");
+document.write("&lt;input type=button size=28 value=0 class=worm1&gt;&lt;/form&gt;");
+document.write("&lt;br&gt;&lt;font size=-2&gt;Press any arrow key to start&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;");
+
+var points = 0;
+var go = 1;
+var di = 0;
+var x = 0;
+var y = 0;
+var n = 0;
+document.images[1].src = "blank.gif"; 
+var blank = document.images[1].src;
+var hw = (height * width);
+var o = Math.floor(Math.random() * hw - 2);
+do {
+o = Math.floor(Math.random() * hw-2);
+} while(document.images[o].src != blank);
+var i = o;
+var food = 0;
+do {
+food = Math.floor(Math.random() * hw-2);
+} while (document.images[food].src != blank);
+document.images[i].src = "worm.gif";
+document.images[width-1].src="end.gif";
+var end = document.images[width-1].src;
+var file = document.images[i].src;
+var length = 1;
+var worm = new Array();
+var k = 0;
+var ie = document.all ? 1 : 0;
+var  enableScroll = ((navigator.appName == "Microsoft Internet Explorer") && (parseInt(navigator.appVersion) &gt;3)) ;
+var height = document.images[0].height;
+var tScroll;
+var d = 0;
+function runTimer() {
+if (d != 0) { n++; }
+if (d == 1) { i--; }
+if (d == 2) { i++; }
+if (d == 3) { i += width; }
+if (d == 4) { i -= width; }
+if (document.images[i].src == end) {
+speed -= 400; i = worm[n-1]; di = 1; die();
+}
+worm[n] = i;
+if(i == food) {
+length++; points += (10*length);
+do {
+food = Math.floor(Math.random() * hw-2);
+} while (document.images[food].src != blank);
+if (di == 0) {
+document.info.elements[0].value = points;
+   }
+}
+if (n &gt; length){
+o = worm[n-length];
+}
+if ((document.images[i].src == file) && (n &gt; 1)) {
+speed -= 400; d = 0; di = 1; die();
+}
+if(di == 0) {
+document.images[o].src = "blank.gif";
+document.images[i].src = "worm.gif";
+document.images[food].src = "food.gif";
+tScroll = window.setTimeout("runTimer();", speed);
+   }
+}
+if (enableScroll){
+if (ie) window.onload = runTimer;
+if (ie) window.onunload = new Function("clearTimeout(tScroll)");
+}
+systm = "";
+ver = navigator.appVersion;
+len = ver.length;
+for (iln = 0;iln &lt; len; iln++) if (ver.charAt(iln) == "(") break;
+systm = ver.charAt(iln+1).toUpperCase();
+document.onkeydown = keyDown;
+if (systm != "C") {
+document.captureEvents(Event.KEYDOWN);
+}
+function keyDown(DnEvents) {
+if (systm != "C") {
+k = DnEvents.which;
+} else {
+k = window.event.keyCode;
+}
+if (k == 37) { d = 1; }
+if (k == 39) { d = 2; }
+if (k == 40) { d = 3; }
+if (k == 38) { d = 4; }
+}
+function die() {
+i = 0;
+o = 0;
+food = 0;
+document.info.elements[0].value = "Died with " + document.info.elements[0].value;
+var restart=confirm("Play Again?");
+if(restart){ location.reload(); }
+}
+// End --&gt;
+&lt;/script&gt;
+
+
+&lt;!-- STEP THREE: You will need these images for this game: --&gt;
+&lt;!-- ../img/snake/snake.zip --&gt;
+
+
+&lt;p&gt;&lt;center&gt;
+&lt;font face="arial, helvetica" SIZE="-2"&gt;Free JavaScripts provided&lt;br&gt;
+by &lt;a href="http://javascriptsource.com"&gt;JavaScript Source Code 3000&lt;/a&gt;&lt;/font&gt;
+&lt;/center&gt;&lt;p&gt;
+
+&lt;!-- Script Size:  4.90 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

@@ -1,0 +1,166 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Clocks:  Time Remaining</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="Have you ever wanted to know the exact amount of time remaining until a certain time on a certain day?  This script uses a textbox and to display days, hours, minutes and seconds.  Great!">
+<META NAME="date" CONTENT="2001-01-08">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Steve Dondley">
+<META NAME="section" CONTENT="Clocks">
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Steve Dondley (steve@dondley.com) -->
+<!-- Web Site:  http://www.progressivevalley.com -->
+
+
+
+
+<!-- Begin
+function getTime() {
+now = new Date();
+y2k = new Date("Jan 1 2005 14:00:00");
+days = (y2k - now) / 1000 / 60 / 60 / 24;
+daysRound = Math.floor(days);
+hours = (y2k - now) / 1000 / 60 / 60 - (24 * daysRound);
+hoursRound = Math.floor(hours);
+minutes = (y2k - now) / 1000 /60 - (24 * 60 * daysRound) - (60 * hoursRound);
+minutesRound = Math.floor(minutes);
+seconds = (y2k - now) / 1000 - (24 * 60 * 60 * daysRound) - (60 * 60 * hoursRound) - (60 * minutesRound);
+secondsRound = Math.round(seconds);
+sec = (secondsRound == 1) ? " second." : " seconds.";
+min = (minutesRound == 1) ? " minute" : " minutes, ";
+hr = (hoursRound == 1) ? " hour" : " hours, ";
+dy = (daysRound == 1)  ? " day" : " days, "
+document.timeForm.input1.value = "Time remaining: " + daysRound  + dy + hoursRound + hr + minutesRound + min + secondsRound + sec;
+newtime = window.setTimeout("getTime();", 1000);
+}
+//  End -->
+</script>
+
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff onLoad="getTime()">
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /clocks/"><font color="#FF0000"><b>Clocks</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Time Remaining</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Have you ever wanted to know the exact amount of time remaining until a certain time on a certain day?  This script uses a textbox and to display days, hours, minutes and seconds.  Great!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+Date:  Jan 1, 2005 2:00:00 p.m.
+<form name=timeForm>
+<input type=text name=input1 size=70 border-style="none" style="border-bottom: 0px solid; border-left: 0px solid;border-right: 0px solid;border-top: 0px solid;font:12px arial, helvetica,sans-serif">
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Clocks:  Time Remaining</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Command-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.08 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL TIME REMAINING:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the onLoad event handler into the BODY tag
+  3.  Put the last coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Steve Dondley (steve@dondley.com) --&gt;
+&lt;!-- Web Site:  http://www.progressivevalley.com --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function getTime() {
+now = new Date();
+y2k = new Date("Jan 1 2005 14:00:00");
+days = (y2k - now) / 1000 / 60 / 60 / 24;
+daysRound = Math.floor(days);
+hours = (y2k - now) / 1000 / 60 / 60 - (24 * daysRound);
+hoursRound = Math.floor(hours);
+minutes = (y2k - now) / 1000 /60 - (24 * 60 * daysRound) - (60 * hoursRound);
+minutesRound = Math.floor(minutes);
+seconds = (y2k - now) / 1000 - (24 * 60 * 60 * daysRound) - (60 * 60 * hoursRound) - (60 * minutesRound);
+secondsRound = Math.round(seconds);
+sec = (secondsRound == 1) ? " second." : " seconds.";
+min = (minutesRound == 1) ? " minute" : " minutes, ";
+hr = (hoursRound == 1) ? " hour" : " hours, ";
+dy = (daysRound == 1)  ? " day" : " days, "
+document.timeForm.input1.value = "Time remaining: " + daysRound  + dy + hoursRound + hr + minutesRound + min + secondsRound + sec;
+newtime = window.setTimeout("getTime();", 1000);
+}
+//  End --&gt;
+&lt;/script&gt;
+
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Insert the onLoad event handler into your BODY tag  --&gt;
+
+&lt;BODY onLoad="getTime()"&gt;
+
+&lt;!-- STEP THREE: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;center&gt;
+Date:  Jan 1, 2005 2:00:00 p.m.
+&lt;form name=timeForm&gt;
+&lt;input type=text name=input1 size=70 border-style="none" style="border-bottom: 0px solid; border-left: 0px solid;border-right: 0px solid;border-top: 0px solid;font:12px arial, helvetica,sans-serif"&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  2.08 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

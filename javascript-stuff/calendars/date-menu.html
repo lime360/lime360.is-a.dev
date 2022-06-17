@@ -1,0 +1,254 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Calendars:  Date Menu</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Ben McFarlin (mcfarlin@netscape.net)">
+<META NAME="section" CONTENT="Calendars">
+<META NAME="description" CONTENT="This JavaScript uses the Date function to dynamically generate accurate dates for the pull-down menus.  Each time the user selects a year or month, JavaScript gets the correct number of days in that month and updates the pull down menu. The script is Y2K compliant and also works for leap years.  Cool!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Ben McFarlin (mcfarlin@netscape.net) -->
+<!-- Web Site:  http://sites.netscape.net/mcfarlin -->
+
+
+
+
+<!-- Begin
+function populate(objForm,selectIndex) {
+timeA = new Date(objForm.year.options[objForm.year.selectedIndex].text, objForm.month.options[objForm.month.selectedIndex].value,1);
+timeDifference = timeA - 86400000;
+timeB = new Date(timeDifference);
+var daysInMonth = timeB.getDate();
+for (var i = 0; i < objForm.day.length; i++) {
+objForm.day.options[0] = null;
+}
+for (var i = 0; i < daysInMonth; i++) {
+objForm.day.options[i] = new Option(i+1);
+}
+document.f1.day.options[0].selected = true;
+}
+function getYears() {
+
+// You can easily customize what years can be used
+var years = new Array(1997,1998,1999,2000,2001,2005)
+
+for (var i = 0; i < document.f1.year.length; i++) {
+document.f1.year.options[0] = null;
+}
+timeC = new Date();
+currYear = timeC.getFullYear();
+for (var i = 0; i < years.length; i++) {
+document.f1.year.options[i] = new Option(years[i]);
+}
+document.f1.year.options[2].selected=true;
+}
+window.onLoad = getYears;
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /calendars/"><font color="#FF0000"><b>Calendars</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Date Menu</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+This JavaScript uses the Date function to dynamically generate accurate dates for the pull-down menus.  Each time the user selects a year or month, JavaScript gets the correct number of days in that month and updates the pull down menu. The script is Y2K compliant and also works for leap years.  Cool!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name=f1>
+<table border=0>
+<tr>
+<td align=center>
+<select name=year onChange="populate(this.form,this.form.month.selectedIndex);">
+<option selected value=99>1999</option>
+<option value=00>2000</option>
+<option value=01>2001</option>
+<option value=02>2002</option>
+</select>
+
+<select name=month onChange="populate(this.form,this.selectedIndex);">
+<option value=01>January</option>
+<option value=02>February</option>
+<option value=03>March</option>
+<option value=04>April</option>
+<option value=05>May</option>
+<option value=06>June</option>
+<option value=07>July</option>
+<option value=08>August</option>
+<option value=09>September</option>
+<option value=10>October</option>
+<option value=11>November</option>
+<option value=12>December</option>
+</select>
+
+<select name=day>
+<option>&nbsp;&nbsp;</option>
+<option>&nbsp;&nbsp;</option>
+<option>&nbsp;&nbsp;</option>
+<option>&nbsp;&nbsp;</option>
+<option>&nbsp;&nbsp;</option>
+<option>&nbsp;&nbsp;</option>
+<option>&nbsp;&nbsp;</option>
+</select>
+</td>
+</tr>
+</table>
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Calendars:  Date Menu</b>
+<p>Simply click inside the window below, use your cursor to hilight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.67 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL DATE MENU:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Ben McFarlin (mcfarlin@netscape.net) --&gt;
+&lt;!-- Web Site:  http://sites.netscape.net/mcfarlin --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function populate(objForm,selectIndex) {
+timeA = new Date(objForm.year.options[objForm.year.selectedIndex].text, objForm.month.options[objForm.month.selectedIndex].value,1);
+timeDifference = timeA - 86400000;
+timeB = new Date(timeDifference);
+var daysInMonth = timeB.getDate();
+for (var i = 0; i &lt; objForm.day.length; i++) {
+objForm.day.options[0] = null;
+}
+for (var i = 0; i &lt; daysInMonth; i++) {
+objForm.day.options[i] = new Option(i+1);
+}
+document.f1.day.options[0].selected = true;
+}
+function getYears() {
+
+// You can easily customize what years can be used
+var years = new Array(1997,1998,1999,2000,2001,2005)
+
+for (var i = 0; i &lt; document.f1.year.length; i++) {
+document.f1.year.options[0] = null;
+}
+timeC = new Date();
+currYear = timeC.getFullYear();
+for (var i = 0; i &lt; years.length; i++) {
+document.f1.year.options[i] = new Option(years[i]);
+}
+document.f1.year.options[2].selected=true;
+}
+window.onLoad = getYears;
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form name=f1&gt;
+&lt;table border=0&gt;
+&lt;tr&gt;
+&lt;td align=center&gt;
+&lt;select name=year onChange="populate(this.form,this.form.month.selectedIndex);"&gt;
+&lt;option selected value=99&gt;1999&lt;/option&gt;
+&lt;option value=00&gt;2000&lt;/option&gt;
+&lt;option value=01&gt;2001&lt;/option&gt;
+&lt;option value=02&gt;2002&lt;/option&gt;
+&lt;/select&gt;
+
+&lt;select name=month onChange="populate(this.form,this.selectedIndex);"&gt;
+&lt;option value=01&gt;January&lt;/option&gt;
+&lt;option value=02&gt;February&lt;/option&gt;
+&lt;option value=03&gt;March&lt;/option&gt;
+&lt;option value=04&gt;April&lt;/option&gt;
+&lt;option value=05&gt;May&lt;/option&gt;
+&lt;option value=06&gt;June&lt;/option&gt;
+&lt;option value=07&gt;July&lt;/option&gt;
+&lt;option value=08&gt;August&lt;/option&gt;
+&lt;option value=09&gt;September&lt;/option&gt;
+&lt;option value=10&gt;October&lt;/option&gt;
+&lt;option value=11&gt;November&lt;/option&gt;
+&lt;option value=12&gt;December&lt;/option&gt;
+&lt;/select&gt;
+
+&lt;select name=day&gt;
+&lt;option&gt;&nbsp;&nbsp;&lt;/option&gt;
+&lt;option&gt;&nbsp;&nbsp;&lt;/option&gt;
+&lt;option&gt;&nbsp;&nbsp;&lt;/option&gt;
+&lt;option&gt;&nbsp;&nbsp;&lt;/option&gt;
+&lt;option&gt;&nbsp;&nbsp;&lt;/option&gt;
+&lt;option&gt;&nbsp;&nbsp;&lt;/option&gt;
+&lt;option&gt;&nbsp;&nbsp;&lt;/option&gt;
+&lt;/select&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  2.67 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

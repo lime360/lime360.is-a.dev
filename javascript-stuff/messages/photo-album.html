@@ -1,0 +1,376 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Messages:  Photo Album</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Jennifer Stuart (jenniferstuart@yahoo.com)">
+<META NAME="section" CONTENT="Messages">
+<META NAME="description" CONTENT="Display your pictures in a JavaScript-powered photo album.  The number of images, name of the album, and other details can be changed.  On the individual page for each image, previous and next buttons allow the user to easily view the rest of the images.  Great!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Jennifer Stuart (jenniferstuart@yahoo.com) -->
+
+
+
+
+<!-- Begin
+
+/*************************************************************************
+I N S T R U C T I O N S:
+1)  Save your LARGE photos as JPEGS, and name them 
+sequentially with the word "picture" before the number and 
+.jpg as the extension. (ie. picture1.jpg, picture2.jpg, picture3.jpg)
+(For netscape compatibility - make sure all pictures are the same 
+size! suggestion: Pick a width or height to be constant and fill in 
+the rest with white space... see demo for example of doing this)
+
+2)  Save your THUMBNAIL photos as JPEGS, and name them 
+sequentially with the word "small" before the number and .jpg 
+as the extension. (ie. small1.jpg, small2.jpg, small3.jpg)
+
+3)  Upload all the images and this script to the same directory
+
+************************************************************************/
+
+totalPictures = 6; // Number of pictures
+albumName = "My Pictures"; // Name of Photo Album
+subheadName = "From:  7/01/00 - 8/01/00"; // Sub-title
+
+numThumbnailsPerRow = 3;
+font = "Arial, Helvetica, sans-serif";
+
+function openInsidePage(i) {
+
+var leftArrowNormal = "../img/photo-album/leftarrow.gif";
+var leftArrowGray = "../img/photo-album/leftarrowgray.gif";
+var rightArrowNormal = "../img/photo-album/rightarrow.gif";
+var rightArrowGray = "../img/photo-album/rightarrowgray.gif";
+var backArrow = "../img/photo-album/back.gif";
+
+
+var albumName = this.albumName;
+var pageName = this.pageName;
+var totalPictures = this.totalPictures;
+with (document) {
+open();
+writeln('<HTML><HEAD>');
+writeln('<TITLE>' + albumName + '</TITLE>');
+writeln('<script language="JavaScript">');
+writeln('\<\!\-\-');
+writeln('var totalPictures = ' + totalPictures);
+writeln('var currentPicture = ' + i);
+writeln('function previousImage() {');
+writeln('if (currentPicture != 1) {');
+writeln('currentPicture--;');
+writeln('document.mainimage.src = "../img/photo-album/picture" + currentPicture + ".jpg";');
+writeln('document.next.src = ' + rightArrowNormal + '";');
+writeln('if (currentPicture == 1) {');
+writeln('document.previous.src = ' + leftArrowGray + '"');
+writeln('}}}');
+writeln('function nextImage() {');
+writeln('if (currentPicture != totalPictures) {');
+writeln('currentPicture++');
+writeln('document.mainimage.src = "../img/photo-album/picture" + currentPicture + ".jpg"');
+writeln('document.previous.src = ' + leftArrowNormal + '"');
+writeln('if (totalPictures == currentPicture) {');
+writeln('document.next.src = ' + rightArrowGray + '"');
+writeln('}}}');
+writeln('\/\/ \-\->');
+writeln('<\/script>');
+writeln('</head>');
+writeln('<div align=center>');
+writeln('<h1><font face="' + font + '">~ ' + albumName + ' ~</font></h1>');
+writeln('<table width=100 border=0 cellspacing=0 cellpadding=3>');
+writeln('<tr>');
+writeln('<td bgcolor="#FFFFFF"><img src="../img/photo-album/picture' + i + '.jpg" name=mainimage></td>');
+writeln('</tr>');
+writeln('<tr valign=middle align=center>');
+leftarrow = ((i == 1) ? leftArrowGray : leftArrowNormal);
+writeln('<td bgcolor="#FFFFFF"><center><a href="javascript:previousImage();"><img src="' + leftarrow + '" alt= "Previous" width=49 height=43 border=0 name=previous></a>');
+writeln('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
+writeln('<a href="javascript:window.location.href=window.location.href;"><img src="' + backArrow + '" width=51 height=44 border = "0"></a>');
+writeln('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
+rightarrow = ((i == totalPictures) ? rightArrowGray : rightArrowNormal);
+writeln('<a href="javascript:nextImage();"><img src="' + rightarrow + '" width=52 height=44 border=0 name=next></a></center></td>');
+writeln('</tr></table>');
+writeln('</div>');
+writeln('</body>');
+writeln('</html>');
+close();
+   }
+}
+// End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /messages/"><font color="#FF0000"><b>Messages</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Photo Album</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Display your pictures in a JavaScript-powered photo album.  The number of images, name of the album, and other details can be changed.  On the individual page for each image, previous and next buttons allow the user to easily view the rest of the images.  Great!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<SCRIPT LANGUAGE="JavaScript">
+
+
+
+
+<!-- Begin
+document.write('<div align=center>');
+document.write('<h1><font face="' + font + '">~ ' + albumName + ' ~ </font></h1>');
+document.write('<h4><font face="' + font + '">' + subheadName + '</font></h4>');
+document.write('<table width=500>');
+var numOfRows;
+var numOfPicsDiv = totalPictures / 4;
+if (numOfPicsDiv > parseInt(numOfPicsDiv)) {
+numOfRows = parseInt(numOfPicsDiv) + 1;
+} else {
+numOfRows = numOfPicsDiv;
+}
+var thisPic = 1;
+var helpCount = 1;
+for (i = 1; i <= numOfRows; i++) {
+document.write('<tr align=center valign=bottom>');
+for (thumbCount = 1; thumbCount <= numThumbnailsPerRow; thumbCount++) {
+if (thisPic <= totalPictures) {
+document.write('<td><a href="javascript:openInsidePage(' + thisPic + ')"><img src="../img/photo-album/small' + thisPic + '.jpg" border=0></a></td>');
+thisPic++;
+} else {
+document.write('<td>&nbsp;</td>');
+thisPic++;
+   }
+}
+thisPic = helpCount;
+document.write('</tr>');
+document.write('<tr align = center valign = top>');
+for (textCount = 1; textCount <= numThumbnailsPerRow; textCount++) {
+if (thisPic <= totalPictures) {
+document.write('<td><b><font face="' + font + '"><a href="javascript:openInsidePage(' + thisPic + ')">Image ' + thisPic + '</a></font></b></td>');
+thisPic++;
+} else {
+document.write('<td>&nbsp;</td>');
+thisPic++;
+   }
+}
+document.write('</tr>');
+helpCount = helpCount + numThumbnailsPerRow;
+}
+document.write('</table>');
+//  End -->
+</script>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Messages:  Photo Album</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  7.24 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL PHOTO ALBUM:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Jennifer Stuart (jenniferstuart@yahoo.com) --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+
+/*************************************************************************
+I N S T R U C T I O N S:
+1)  Save your LARGE photos as JPEGS, and name them 
+sequentially with the word "picture" before the number and 
+.jpg as the extension. (ie. picture1.jpg, picture2.jpg, picture3.jpg)
+(For netscape compatibility - make sure all pictures are the same 
+size! suggestion: Pick a width or height to be constant and fill in 
+the rest with white space... see demo for example of doing this)
+
+2)  Save your THUMBNAIL photos as JPEGS, and name them 
+sequentially with the word "small" before the number and .jpg 
+as the extension. (ie. small1.jpg, small2.jpg, small3.jpg)
+
+3)  Upload all the images and this script to the same directory
+
+************************************************************************/
+
+totalPictures = 6; // Number of pictures
+albumName = "My Pictures"; // Name of Photo Album
+subheadName = "From:  7/01/00 - 8/01-00"; // Sub-title
+
+numThumbnailsPerRow = 3;
+font = "Arial, Helvetica, sans-serif";
+
+leftArrowNormal = "leftarrow.gif";
+leftArrowGray = "leftarrowgray.gif";
+rightArrowNormal = "rightarrow.gif";
+rightArrowGray = "rightarrowgray.gif";
+backArrow = "back.gif";
+
+function openInsidePage(i) {
+var albumName = this.albumName;
+var pageName = this.pageName;
+var totalPictures = this.totalPictures;
+with (document) {
+open();
+writeln('&lt;HTML&gt;&lt;HEAD&gt;');
+writeln('&lt;TITLE&gt;' + albumName + '&lt;/TITLE&gt;');
+writeln('&lt;script language="JavaScript"&gt;');
+writeln('\&lt;\!\-\-');
+writeln('var totalPictures = ' + totalPictures);
+writeln('var currentPicture = ' + i);
+writeln('function previousImage() {');
+writeln('if (currentPicture != 1) {');
+writeln('currentPicture--;');
+writeln('document.mainimage.src = "picture" + currentPicture + ".jpg";');
+writeln('document.next.src = "' + rightArrowNormal + '";');
+writeln('if (currentPicture == 1) {');
+writeln('document.previous.src = "' + leftArrowGray + '"');
+writeln('}}}');
+writeln('function nextImage() {');
+writeln('if (currentPicture != totalPictures) {');
+writeln('currentPicture++');
+writeln('document.mainimage.src = "picture" + currentPicture + ".jpg"');
+writeln('document.previous.src = "' + leftArrowNormal + '"');
+writeln('if (totalPictures == currentPicture) {');
+writeln('document.next.src = "' + rightArrowGray + '"');
+writeln('}}}');
+writeln('\/\/ \-\-&gt;');
+writeln('&lt;\/script&gt;');
+writeln('&lt;/head&gt;');
+writeln('&lt;div align=center&gt;');
+writeln('&lt;h1&gt;&lt;font face="' + font + '"&gt;~ ' + albumName + ' ~&lt;/font&gt;&lt;/h1&gt;');
+writeln('&lt;table width=100 border=0 cellspacing=0 cellpadding=3&gt;');
+writeln('&lt;tr&gt;');
+writeln('&lt;td bgcolor="#FFFFFF"&gt;&lt;img src="picture' + i + '.jpg" name=mainimage&gt;&lt;/td&gt;');
+writeln('&lt;/tr&gt;');
+writeln('&lt;tr valign=middle align=center&gt;');
+leftarrow = (i == 1) ? leftArrowGray : leftArrowNormal;
+writeln('&lt;td bgcolor="#FFFFFF"&gt;&lt;center&gt;&lt;a href="javascript:previousImage();"&gt;&lt;img src="' + leftarrow + '" alt= "Previous" width=49 height=43 border=0 name=previous&gt;&lt;/a&gt;');
+writeln('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
+writeln('&lt;a href="javascript:window.location.href=window.location.href;"&gt;&lt;img src="' + backArrow + '" width=51 height=44 border = "0"&gt;&lt;/a&gt;');
+writeln('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
+rightarrow = (i == totalPictures) ? rightArrowGray : rightArrowNormal;
+writeln('&lt;a href="javascript:nextImage();"&gt;&lt;img src="' + rightarrow + '" width=52 height=44 border=0 name=next&gt;&lt;/a&gt;&lt;/center&gt;&lt;/td&gt;');
+writeln('&lt;/tr&gt;&lt;/table&gt;');
+writeln('&lt;/div&gt;');
+writeln('&lt;/body&gt;');
+writeln('&lt;/html&gt;');
+close();
+   }
+}
+// End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+document.write('&lt;div align=center&gt;');
+document.write('&lt;h1&gt;&lt;font face="' + font + '"&gt;~ ' + albumName + ' ~ &lt;/font&gt;&lt;/h1&gt;');
+document.write('&lt;h4&gt;&lt;font face="' + font + '"&gt;' + subheadName + '&lt;/font&gt;&lt;/h4&gt;');
+document.write('&lt;table width=500&gt;');
+var numOfRows;
+var numOfPicsDiv = totalPictures / 4;
+if (numOfPicsDiv &gt; parseInt(numOfPicsDiv)) {
+numOfRows = parseInt(numOfPicsDiv) + 1;
+} else {
+numOfRows = numOfPicsDiv;
+}
+var thisPic = 1;
+var helpCount = 1;
+for (i = 1; i &lt;= numOfRows; i++) {
+document.write('&lt;tr align=center valign=bottom&gt;');
+for (thumbCount = 1; thumbCount &lt;= numThumbnailsPerRow; thumbCount++) {
+if (thisPic &lt;= totalPictures) {
+document.write('&lt;td&gt;&lt;a href="javascript:openInsidePage(' + thisPic + ')"&gt;&lt;img src="small' + thisPic + '.jpg" border=0&gt;&lt;/a&gt;&lt;/td&gt;');
+thisPic++;
+} else {
+document.write('&lt;td&gt;&nbsp;&lt;/td&gt;');
+thisPic++;
+   }
+}
+thisPic = helpCount;
+document.write('&lt;/tr&gt;');
+document.write('&lt;tr align = center valign = top&gt;');
+for (textCount = 1; textCount &lt;= numThumbnailsPerRow; textCount++) {
+if (thisPic &lt;= totalPictures) {
+document.write('&lt;td&gt;&lt;b&gt;&lt;font face="' + font + '"&gt;&lt;a href="javascript:openInsidePage(' + thisPic + ')"&gt;Image ' + thisPic + '&lt;/a&gt;&lt;/font&gt;&lt;/b&gt;&lt;/td&gt;');
+thisPic++;
+} else {
+document.write('&lt;td&gt;&nbsp;&lt;/td&gt;');
+thisPic++;
+   }
+}
+document.write('&lt;/tr&gt;');
+helpCount = helpCount + numThumbnailsPerRow;
+}
+document.write('&lt;/table&gt;');
+//  End --&gt;
+&lt;/script&gt;
+
+ 
+
+&lt;!-- Script Size:  7.24 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

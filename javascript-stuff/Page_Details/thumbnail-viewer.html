@@ -1,0 +1,174 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Page Details:  Thumbnail Viewer</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Anders Jennerberg (anders@katedral.se) ">
+<META NAME="section" CONTENT="Page Details">
+<META NAME="description" CONTENT="Save page space by opening a new window to display larger images on your site when a thumbnail image or a picture text link is clicked.  The same window is re-used when the images are the same size.  Cool!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Anders Jennerberg (anders@katedral.se)  -->
+
+
+
+
+<!-- Begin
+function ViewImage(ifile,ix,iy,ititle) { 
+var win;
+var sWidth;
+var sHeight;
+var NS = (document.layers) ? 1 : 0;
+win = window.open("","imageviewer","width="+ix+",height="+iy+",menubar=no,toolbar=no");
+if (NS) {
+sWidth = win.innerWidth;
+sHeight = win.innerHeight;
+} else {
+sWidth = win.document.body.clientWidth;
+sHeight = win.document.body.clientHeight;
+}
+if(sWidth!=ix || sHeight!=iy) {
+win.close();
+setTimeout("ViewImage('"+ifile+"',"+ix+","+iy+",'"+ititle+"')", 250);
+return;
+}
+win.document.open();
+win.document.write("<html><head><title>"+ititle+"</title>");
+win.document.write("</head><body>");
+win.document.write('<div style="position:absolute;width:'+ix+'px;height:'+iy+'px;left:0px;top:0px">');
+win.document.write("<img src="+ifile+"></div></body></html>");
+win.document.close();
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /page-details/"><font color="#FF0000"><b>Page Details</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Thumbnail Viewer</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Save page space by opening a new window to display larger images on your site when a thumbnail image or a picture text link is clicked.  The same window is re-used when the images are the same size.  Cool!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<a href="javascript:ViewImage('../img/thumbnail-viewer/apartment-small.jpg',576,303,'An Apartment')"><img src="../img/thumbnail-viewer/apartment-small.jpg" /img/thumbnail-viewer/apartment-small.jpg" width=288 height=152 border=1></a>
+<br>
+or
+<br>
+<a href="javascript:ViewImage('../img/thumbnail-viewer/apartment-small.jpg',576,303,'An Apartment')">View the apartment</a>
+
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Page Details:  Thumbnail Viewer</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.72 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL THUMBNAIL VIEWER:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Anders Jennerberg (anders@katedral.se)  --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function ViewImage(ifile,ix,iy,ititle) { 
+var win;
+var sWidth;
+var sHeight;
+var NS = (document.layers) ? 1 : 0;
+win = window.open("","imageviewer","width="+ix+",height="+iy+",menubar=no,toolbar=no");
+if (NS) {
+sWidth = win.innerWidth;
+sHeight = win.innerHeight;
+} else {
+sWidth = win.document.body.clientWidth;
+sHeight = win.document.body.clientHeight;
+}
+if(sWidth!=ix || sHeight!=iy) {
+win.close();
+setTimeout("ViewImage('"+ifile+"',"+ix+","+iy+",'"+ititle+"')", 250);
+return;
+}
+win.document.open();
+win.document.write("&lt;html&gt;&lt;head&gt;&lt;title&gt;"+ititle+"&lt;/title&gt;");
+win.document.write("&lt;/head&gt;&lt;body&gt;");
+win.document.write('&lt;div style="position:absolute;width:'+ix+'px;height:'+iy+'px;left:0px;top:0px"&gt;');
+win.document.write("&lt;img src="+ifile+"&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;");
+win.document.close();
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;a href="javascript:ViewImage('../img/thumbnail-viewer/apartment-large.jpg',576,303,'An Apartment')"&gt;&lt;img src="apartment-small.jpg" width=288 height=152 border=1&gt;&lt;/a&gt;
+&lt;br&gt;
+or
+&lt;br&gt;
+&lt;a href="javascript:ViewImage('../img/thumbnail-viewer/apartment-large.jpg',576,303,'An Apartment')"&gt;View the apartment&lt;/a&gt;
+
+
+ 
+
+&lt;!-- Script Size:  1.72 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

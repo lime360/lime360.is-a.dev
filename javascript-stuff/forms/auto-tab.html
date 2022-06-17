@@ -1,0 +1,208 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Forms:  Auto Tab</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Cyanide_7 (leo7278@hotmail.com)">
+<META NAME="section" CONTENT="Forms">
+<META NAME="description" CONTENT="Automatically sets focus to the next form element when the current form element's maxlength has been reached. This way, the user does not have to manually click in or tab to the next field.  This script is perfectly suited for constant-length strings such as a phone number or social security numbers.  Nice!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Cyanide_7 (leo7278@hotmail.com) -->
+<!-- Web Site:  http://members.xoom.com/cyanide_7 -->
+
+
+
+
+<!-- Begin
+var isNN = (navigator.appName.indexOf("Netscape")!=-1);
+function autoTab(input,len, e) {
+var keyCode = (isNN) ? e.which : e.keyCode; 
+var filter = (isNN) ? [0,8,9] : [0,8,9,16,17,18,37,38,39,40,46];
+if(input.value.length >= len && !containsElement(filter,keyCode)) {
+input.value = input.value.slice(0, len);
+input.form[(getIndex(input)+1) % input.form.length].focus();
+}
+function containsElement(arr, ele) {
+var found = false, index = 0;
+while(!found && index < arr.length)
+if(arr[index] == ele)
+found = true;
+else
+index++;
+return found;
+}
+function getIndex(input) {
+var index = -1, i = 0, found = false;
+while (i < input.form.length && index == -1)
+if (input.form[i] == input)index = i;
+else i++;
+return index;
+}
+return true;
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /forms/" ><font color="#FF0000"><b>Forms</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Auto Tab</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Automatically sets focus to the next form element when the current form element's maxlength has been reached. This way, the user does not have to manually click in or tab to the next field.  This script is perfectly suited for constant-length strings such as a phone number or social security numbers.  Nice!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form>
+<table>
+<tr>
+<td>Phone Number : <br>
+1 - (
+<small><input onKeyUp="return autoTab(this, 3, event);" size="4" maxlength="3"></small>) - 
+<small><input onKeyUp="return autoTab(this, 3, event);" size="4" maxlength="3"></small> - 
+<small><input onKeyUp="return autoTab(this, 4, event);" size="5" maxlength="4"></small>
+</td>
+</tr>
+<tr>
+<td>Social Security Number : <br>
+<small><input onKeyUp="return autoTab(this, 3, event);" size="4" maxlength="3"></small> - 
+<small><input onKeyUp="return autoTab(this, 2, event);" size="3" maxlength="2"></small> - 
+<small><input onKeyUp="return autoTab(this, 4, event);" size="5" maxlength="4"></small>
+</td>
+</tr>
+</table>
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Forms:  Auto Tab</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.68 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL AUTO TAB:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Cyanide_7 (leo7278@hotmail.com) --&gt;
+&lt;!-- Web Site:  http://members.xoom.com/cyanide_7 --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var isNN = (navigator.appName.indexOf("Netscape")!=-1);
+function autoTab(input,len, e) {
+var keyCode = (isNN) ? e.which : e.keyCode; 
+var filter = (isNN) ? [0,8,9] : [0,8,9,16,17,18,37,38,39,40,46];
+if(input.value.length >= len && !containsElement(filter,keyCode)) {
+input.value = input.value.slice(0, len);
+input.form[(getIndex(input)+1) % input.form.length].focus();
+}
+function containsElement(arr, ele) {
+var found = false, index = 0;
+while(!found && index < arr.length)
+if(arr[index] == ele)
+found = true;
+else
+index++;
+return found;
+}
+function getIndex(input) {
+var index = -1, i = 0, found = false;
+while (i < input.form.length && index == -1)
+if (input.form[i] == input)index = i;
+else i++;
+return index;
+}
+return true;
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td&gt;Phone Number : &lt;br&gt;
+1 - (
+&lt;small&gt;&lt;input onKeyUp="return autoTab(this, 3, event);" size="4" maxlength="3"&gt;&lt;/small&gt;) - 
+&lt;small&gt;&lt;input onKeyUp="return autoTab(this, 3, event);" size="4" maxlength="3"&gt;&lt;/small&gt; - 
+&lt;small&gt;&lt;input onKeyUp="return autoTab(this, 4, event);" size="5" maxlength="4"&gt;&lt;/small&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Social Security Number : &lt;br&gt;
+&lt;small&gt;&lt;input onKeyUp="return autoTab(this, 3, event);" size="4" maxlength="3"&gt;&lt;/small&gt; - 
+&lt;small&gt;&lt;input onKeyUp="return autoTab(this, 2, event);" size="3" maxlength="2"&gt;&lt;/small&gt; - 
+&lt;small&gt;&lt;input onKeyUp="return autoTab(this, 4, event);" size="5" maxlength="4"&gt;&lt;/small&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  1.68 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

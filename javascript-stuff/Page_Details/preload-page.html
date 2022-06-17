@@ -1,0 +1,155 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Page Details:  Preload Page</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Gilbert Davis">
+<META NAME="section" CONTENT="Page Details">
+<META NAME="description" CONTENT="Displays a loading message as the page, including images and sound elements, are loaded in the background.  When the page finishes loading the screen is shown, similar to how Macromedia's Flash plugin works. Easy!">
+<META NAME="date" CONTENT="2000-09-28">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Gilbert Davis">
+<META NAME="section" CONTENT="Page Details">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Gilbert Davis -->
+
+
+
+
+<!-- Begin
+function loadImages() {
+if (document.getElementById) {  // DOM3 = IE5, NS6
+document.getElementById('hidepage').style.visibility = 'hidden';
+}
+else {
+if (document.layers) {  // Netscape 4
+document.hidepage.visibility = 'hidden';
+}
+else {  // IE 4
+document.all.hidepage.style.visibility = 'hidden';
+      }
+   }
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff OnLoad="loadImages()">
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /page-details/"><font color="#FF0000"><b>Page Details</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Preload Page</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Displays a loading message as the page, including images and sound elements, are loaded in the background.  When the page finishes loading the screen is shown, similar to how Macromedia's Flash plugin works. Easy!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<div id="hidepage" style="position: absolute; left:5px; top:5px; background-color: #FFFFCC; layer-background-color: #FFFFCC; height: 100%; width: 100%;"> 
+
+<table width=100%><tr><td>Page loading ... Please wait.</td></tr></table></div> 
+
+<!-- put the rest of your page contents here -->
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Page Details:  Preload Page</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.20 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL PRELOAD PAGE:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the onLoad event handler into the BODY tag
+  3.  Put the last coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Gilbert Davis --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function loadImages() {
+if (document.getElementById) {  // DOM3 = IE5, NS6
+document.getElementById('hidepage').style.visibility = 'hidden';
+}
+else {
+if (document.layers) {  // Netscape 4
+document.hidepage.visibility = 'hidden';
+}
+else {  // IE 4
+document.all.hidepage.style.visibility = 'hidden';
+      }
+   }
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Insert the onLoad event handler into your BODY tag  --&gt;
+
+&lt;BODY OnLoad="loadImages()"&gt;
+
+&lt;!-- STEP THREE: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;div id="hidepage" style="position: absolute; left:5px; top:5px; background-color: #FFFFCC; layer-background-color: #FFFFCC; height: 100%; width: 100%;"&gt; 
+
+&lt;table width=100%&gt;&lt;tr&gt;&lt;td&gt;Page loading ... Please wait.&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt; 
+
+&lt;!-- put the rest of your page contents here --&gt;
+
+ 
+
+&lt;!-- Script Size:  1.20 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

@@ -1,0 +1,291 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Games:  Mind Reader</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="(Internet Explorer Only)  Think of a number between 1 and 63 and answer YES or NO to the questions.  The Mind Reader will tell you the number.  Amazing!">
+<META NAME="date" CONTENT="2000-11-13">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Darren Cummings">
+<META NAME="section" CONTENT="Games">
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Darren Cummings -->
+<!-- Web Site:  www.spen500.fsnet.co.uk -->
+
+
+
+
+<!-- Begin
+var cards = new Array(6);
+var play = 0;
+var cn = 0;
+var ttl = 0;
+cards[1] = "        CARD  ONE        \n  1  3  5  7  9 11 13 15 \n 17 19 21 23 25 27 29 31 \n 33 35 37 39 41 43 45 47 \n 49 51 53 55 57 59 61 63";
+cards[2] = "        CARD  TWO        \n  2  3  6  7 10 11 14 15 \n 18 19 22 23 26 27 30 31 \n 34 35 38 39 42 43 46 47 \n 50 51 54 55 58 59 62 63";
+cards[3] = "       CARD  THREE       \n  4  5  6  7 12 13 14 15 \n 20 21 22 23 28 29 30 31 \n 36 37 38 39 44 45 46 47 \n 52 53 54 55 60 61 62 63";
+cards[4] = "        CARD FOUR        \n  8  9 10 11 12 13 14 15 \n 24 25 26 27 28 29 30 31 \n 40 41 42 43 44 45 46 47 \n 56 57 58 59 60 61 62 63";
+cards[5] = "        CARD FIVE        \n 16 17 18 19 20 21 22 23 \n 24 25 26 27 28 29 30 31 \n 48 49 50 51 52 53 54 55 \n 56 57 58 59 60 61 62 63";
+cards[6] = "        CARD  SIX        \n 32 33 34 35 36 37 38 39 \n 40 41 42 43 44 45 46 47 \n 48 49 50 51 52 53 54 55 \n 56 57 58 59 60 61 62 63";
+var ccol = new Array("","#FF7777","Green","Blue","Gray","Red","Black");
+var knos = new Array("",1,2,4,8,16,32);
+function Nextcard() {
+cn++;
+if(cn == 7)
+End();
+else {
+document.x.card.value=cards[cn];
+document.x.card.style.backgroundColor=ccol[cn];
+document.x.text.value="Is your number on the card above?";
+   }
+}
+function Restart() {
+play=0;
+cn=0;
+ttl=0;
+document.x.card.style.backgroundColor = "#FFFFFF";
+document.x.card.style.color = "#000000";
+document.x.card.value = "Think of a number between 1 and 63. Six cards will be displayed. After the last one, your number is revealed.";
+document.x.text.value = "Click Start";
+document.x.stbt.value = "Start";
+}
+function Yes() {
+ttl = ttl + knos[cn];
+Nextcard();
+}
+function Start() {
+document.x.card.style.color = "White";
+document.x.stbt.value = "Restart";
+play = 1;
+Nextcard();
+}
+function End() {
+play = 2;
+if(ttl < 10)
+ttl = " " + ttl;
+ttl = " " + ttl;
+var one = ttl.charAt(1);
+var two = ttl.charAt(2);
+document.x.card.value = "\n   THE NUMBER YOU WERE   \n    THINKING OF WAS :    \n      -- [ "+one+" "+two+" ] --";
+document.x.card.style.color = "Red";
+document.x.text.value = "Click Restart to play again";
+}
+function click() {
+event.cancelBubble = true;
+event.returnValue = false;
+}
+document.oncontextmenu = click;
+//  End -->
+</script>
+
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /games/"><font color="#FF0000"><b>Games</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Mind Reader</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+(Internet Explorer Only)  Think of a number between 1 and 63 and answer YES or NO to the questions.  The Mind Reader will tell you the number.  Amazing!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<form name="x">
+<center>
+<table border="0">
+<tr>
+<td>
+<center>
+<textarea name="card" rows="5" cols="25">Think of a number between 1 and 63. Six cards will be displayed. After the last one, your number is revealed.
+</textarea>
+</center>
+</td>
+</tr>
+<tr>
+<td>
+<center>
+<input type="text" size="36" name="text" value="Click Start" style="FONT-SIZE: 8pt">
+</center>
+</td>
+</tr>
+<tr>
+<td>
+<center>
+<input type="button" value="YES" onclick="if(play==1) Yes()" style="FONT-SIZE: 8pt">
+<input type="button" value="NO" onclick="if(play==1) Nextcard()" style="FONT-SIZE: 8pt">
+<input type="button" name="stbt" value=" Start " onclick="if(play==0) Start(); else Restart()" style="FONT-SIZE: 8pt">
+</center>
+</td>
+</tr>
+</table>
+</center>
+</form>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Games:  Mind Reader</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Command-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  3.87 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL MIND READER:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Darren Cummings --&gt;
+&lt;!-- Web Site:  www.spen500.fsnet.co.uk --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var cards = new Array(6);
+var play = 0;
+var cn = 0;
+var ttl = 0;
+cards[1] = "        CARD  ONE        \n  1  3  5  7  9 11 13 15 \n 17 19 21 23 25 27 29 31 \n 33 35 37 39 41 43 45 47 \n 49 51 53 55 57 59 61 63";
+cards[2] = "        CARD  TWO        \n  2  3  6  7 10 11 14 15 \n 18 19 22 23 26 27 30 31 \n 34 35 38 39 42 43 46 47 \n 50 51 54 55 58 59 62 63";
+cards[3] = "       CARD  THREE       \n  4  5  6  7 12 13 14 15 \n 20 21 22 23 28 29 30 31 \n 36 37 38 39 44 45 46 47 \n 52 53 54 55 60 61 62 63";
+cards[4] = "        CARD FOUR        \n  8  9 10 11 12 13 14 15 \n 24 25 26 27 28 29 30 31 \n 40 41 42 43 44 45 46 47 \n 56 57 58 59 60 61 62 63";
+cards[5] = "        CARD FIVE        \n 16 17 18 19 20 21 22 23 \n 24 25 26 27 28 29 30 31 \n 48 49 50 51 52 53 54 55 \n 56 57 58 59 60 61 62 63";
+cards[6] = "        CARD  SIX        \n 32 33 34 35 36 37 38 39 \n 40 41 42 43 44 45 46 47 \n 48 49 50 51 52 53 54 55 \n 56 57 58 59 60 61 62 63";
+var ccol = new Array("","#FF7777","Green","Blue","Gray","Red","Black");
+var knos = new Array("",1,2,4,8,16,32);
+function Nextcard() {
+cn++;
+if(cn == 7)
+End();
+else {
+document.x.card.value=cards[cn];
+document.x.card.style.backgroundColor=ccol[cn];
+document.x.text.value="Is your number on the card above?";
+   }
+}
+function Restart() {
+play=0;
+cn=0;
+ttl=0;
+document.x.card.style.backgroundColor = "#FFFFFF";
+document.x.card.style.color = "#000000";
+document.x.card.value = "Think of a number between 1 and 63. Six cards will be displayed. After the last one, your number is revealed.";
+document.x.text.value = "Click Start";
+document.x.stbt.value = "Start";
+}
+function Yes() {
+ttl = ttl + knos[cn];
+Nextcard();
+}
+function Start() {
+document.x.card.style.color = "White";
+document.x.stbt.value = "Restart";
+play = 1;
+Nextcard();
+}
+function End() {
+play = 2;
+if(ttl &lt; 10)
+ttl = " " + ttl;
+ttl = " " + ttl;
+var one = ttl.charAt(1);
+var two = ttl.charAt(2);
+document.x.card.value = "\n   THE NUMBER YOU WERE   \n    THINKING OF WAS :    \n      -- [ "+one+" "+two+" ] --";
+document.x.card.style.color = "Red";
+document.x.text.value = "Click Restart to play again";
+}
+function click() {
+event.cancelBubble = true;
+event.returnValue = false;
+}
+document.oncontextmenu = click;
+//  End --&gt;
+&lt;/script&gt;
+
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;form name="x"&gt;
+&lt;center&gt;
+&lt;table border="0"&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;center&gt;
+&lt;textarea name="card" rows="5" cols="25"&gt;Think of a number between 1 and 63. Six cards will be displayed. After the last one, your number is revealed.
+&lt;/textarea&gt;
+&lt;/center&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;center&gt;
+&lt;input type="text" size="36" name="text" value="Click Start" style="FONT-SIZE: 8pt"&gt;
+&lt;/center&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;center&gt;
+&lt;input type="button" value="YES" onclick="if(play==1) Yes()" style="FONT-SIZE: 8pt"&gt;
+&lt;input type="button" value="NO" onclick="if(play==1) Nextcard()" style="FONT-SIZE: 8pt"&gt;
+&lt;input type="button" name="stbt" value=" Start " onclick="if(play==0) Start(); else Restart()" style="FONT-SIZE: 8pt"&gt;
+&lt;/center&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/center&gt;
+&lt;/form&gt;
+
+ 
+
+&lt;!-- Script Size:  3.87 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

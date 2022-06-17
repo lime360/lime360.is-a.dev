@@ -1,0 +1,132 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  User Details:  CSS Support Redirect</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Ronnie T. Moore, Editor">
+<META NAME="section" CONTENT="User Details">
+<META NAME="description" CONTENT="Cascading Style Sheets (CSS), supported in version 4.0 and new browsers, allows webmasters to have more control over how their sites are viewed.  Because some visitors do browse with them turned off, this script checks if CSS is supported AND enabled -- If CSS is on, they are redirected to your CSS-enhanced page.  Otherwise, they are sent to a normal page without CSS.  Cool!">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /user-details/"><font color="#FF0000"><b>User Details</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>CSS Support Redirect</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Cascading Style Sheets (CSS), supported in version 4.0 and new browsers, allows webmasters to have more control over how their sites are viewed.  Because some visitors do browse with them turned off, this script checks if CSS is supported AND enabled -- If CSS is on, they are redirected to your CSS-enhanced page.  Otherwise, they are sent to a normal page without CSS.  Cool!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<div id="checkcss" style="position:absolute;"></div> 
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Ronnie T. Moore, Editor -->
+<!-- Web Site:  JavaScript Source Code 3000 -->
+
+
+
+
+<!-- Begin
+var yes = "Your browser supports and has CSS enabled.\nYou would have been forwarded to the CSS page automatically, but this is just a demo.";
+var no  = "Your browser does not support CSS, or you have it disabled.\nYou would have been forwarded to the non-CSS page automatically, but this is just a demo.";
+
+// How should we look for the (CSS) DIV ?
+// Netscape will look with:  document.checkcss
+// Internet Explorer will look with:  checkcss
+
+checktype = document.layers ? document.checkcss : checkcss;
+
+document.write((checktype) ? yes : no);
+//  End -->
+</script>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  User Details:  CSS Support Redirect</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  0.89 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- ONE STEP TO INSTALL CSS SUPPORT REDIRECT:
+
+  1.  Copy the coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;div id="checkcss" style="position:absolute;"&gt;&lt;/div&gt; 
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Ronnie T. Moore, Editor --&gt;
+&lt;!-- Web Site:  JavaScript Source Code 3000 --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var yes = "yes-css.html"; // CSS page
+var no  = "no-css.html";  // Non-CSS page
+
+// How should we look for the (CSS) DIV ?
+// Netscape will look with:  document.checkcss
+// Internet Explorer will look with:  checkcss
+
+checktype = document.layers ? document.checkcss : checkcss;
+
+window.location = (checktype) ? yes : no;
+//  End --&gt;
+&lt;/script&gt;
+
+ 
+
+&lt;!-- Script Size:  0.89 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>
+
+

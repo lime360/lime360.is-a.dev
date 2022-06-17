@@ -1,0 +1,180 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Page Details:  Dynamic Sized Image</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Ed Churnside">
+<META NAME="section" CONTENT="Page Details">
+<META NAME="description" CONTENT="Sometimes, your image does not look very good in different sized browser windows.  This script will proportionally resize a graphic to fit within the current window or frame when a page is loaded, thus giving a more consistent and attractive look to your page.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Ed Churnside -->
+<!-- Web Site:  http://www.dragonquest.com/inddpl.htm -->
+
+<!-- Additional documention available online at -->
+<!-- http://www.dragonquest.com/dplsspic.htm -->
+
+
+
+
+<!-- Begin
+function showpic(src, w, h, alt, aln, pw, ph, bw, bh) {
+if (src == null) return;
+var iw, ih; // Set inner width and height
+if (window.innerWidth == null) {
+iw = document.body.clientWidth;
+ih=document.body.clientHeight; 
+}
+else {
+iw = window.innerWidth;
+ih = window.innerHeight;
+}
+if (w == null) w = iw;
+if(h == null)  h = ih;
+if(alt == null) alt = "Picture";
+if(aln == null) aln = "left";
+if(pw == null) pw = 100;
+if(ph == null) ph = 100;
+if(bw == null) bw = 24;
+if(bh == null) bh = 24;
+var sw = Math.round((iw - bw) * pw / 100);
+var sh = Math.round((ih - bh) * ph / 100);
+if ((w * sh) / (h * sw) < 1) sw = Math.round(w * sh / h);
+else sh = Math.round(h * sw / w);
+document.write('<img src="'+src+'" alt="'+alt+'" width="'+sw+'" height="'+sh+'" align="'+aln+'">');
+}
+// End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /page-details/"><font color="#FF0000"><b>Page Details</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Dynamic Sized Image</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Sometimes, your image does not look very good in different sized browser windows.  This script will proportionally resize a graphic to fit within the current window or frame when a page is loaded, thus giving a more consistent and attractive look to your page.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<font face="verdana" size="-2" color="red">
+Notice how the image fits your browser window perfectly. <br> 
+Try resizing your browser window and then <b>reload</b> the page.</font>
+<p>
+<script language="javascript">
+showpic("../img/dynamic-sized-image/crowd.gif", 350, 113, "A crows of people", "middle");
+</script>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Page Details:  Dynamic Sized Image</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.64 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL DYNAMIC SIZED IMAGE:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Ed Churnside --&gt;
+&lt;!-- Web Site:  http://www.dragonquest.com/inddpl.htm --&gt;
+
+&lt;!-- Additional documention available online at --&gt;
+&lt;!-- http://www.dragonquest.com/dplsspic.htm --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function showpic(src, w, h, alt, aln, pw, ph, bw, bh) {
+if (src == null) return;
+var iw, ih; // Set inner width and height
+if (window.innerWidth == null) {
+iw = document.body.clientWidth;
+ih=document.body.clientHeight; 
+}
+else {
+iw = window.innerWidth;
+ih = window.innerHeight;
+}
+if (w == null) w = iw;
+if(h == null)  h = ih;
+if(alt == null) alt = "Picture";
+if(aln == null) aln = "left";
+if(pw == null) pw = 100;
+if(ph == null) ph = 100;
+if(bw == null) bw = 24;
+if(bh == null) bh = 24;
+var sw = Math.round((iw - bw) * pw / 100);
+var sh = Math.round((ih - bh) * ph / 100);
+if ((w * sh) / (h * sw) &lt; 1) sw = Math.round(w * sh / h);
+else sh = Math.round(h * sw / w);
+document.write('&lt;img src="'+src+'" alt="'+alt+'" width="'+sw+'" height="'+sh+'" align="'+aln+'"&gt;');
+}
+// End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;script language="javascript"&gt;
+showpic("crowd.gif", 362, 113, "A crows of people", "middle");
+&lt;/script&gt;
+
+ 
+
+&lt;!-- Script Size:  1.64 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

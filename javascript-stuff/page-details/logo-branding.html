@@ -1,0 +1,199 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Page Details:  Logo Branding</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Randy Bennett (rbennett@thezone.net)">
+<META NAME="section" CONTENT="Page Details">
+<META NAME="description" CONTENT="Have you seen the floating logo on Geocities sites?  How would you like to have your own logo floating in the corner of your site?  This script does just that!  Awesome!">
+
+<SCRIPT LANGUAGE="JavaScript">
+function setVariables() {
+imgwidth=235;
+imgheight=19;
+if (navigator.appName == "Netscape") {
+horz=".left";
+vert=".top";
+docStyle="document.";
+styleDoc="";
+innerW="window.innerWidth";
+innerH="window.innerHeight";
+offsetX="window.pageXOffset";
+offsetY="window.pageYOffset";
+}
+else {
+horz=".pixelLeft";
+vert=".pixelTop";
+docStyle="";
+styleDoc=".style";
+innerW="document.body.clientWidth";
+innerH="document.body.clientHeight";
+offsetX="document.body.scrollLeft";
+offsetY="document.body.scrollTop";
+   }
+}
+function checkLocation() {
+objectXY="branding";
+var availableX=eval(innerW);
+var availableY=eval(innerH);
+var currentX=eval(offsetX);
+var currentY=eval(offsetY);
+x=availableX-(imgwidth+30)+currentX;
+y=availableY-(imgheight+20)+currentY;
+evalMove();
+setTimeout("checkLocation()",10);
+}
+function evalMove() {
+eval(docStyle + objectXY + styleDoc + horz + "=" + x);
+eval(docStyle + objectXY + styleDoc + vert + "=" + y);
+}
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff onload="setVariables(); checkLocation();">
+<center>
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /page-details/"><font color="#FF0000">Page Details</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Logo Branding</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE=" helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Have you seen the floating logo on Geocities sites?  How would you like to have your own logo floating in the corner of your site?  This script does just that!  Awesome!
+<br><hr>
+</td></tr>
+</table>
+<!--  Demonstration  -->
+<BODY>
+Scroll up and down this page and watch the logo in the corner!
+<br>
+<div id="branding" style="position:absolute; visibility:show; left:235px; top:-50px; z-index:2">
+<table width=10 bgcolor=#ffffff><td>
+<a href="../index.htm" /" onmouseover="window.status='JavaScript Source Code 3000';return true" onmouseout="window.status='';return true"><center><img src="../img/branding/branding.gif" /img/branding/branding.gif" width="235" height="19" border="0"></center></a></font></td>
+</table>
+</div>
+<P>
+<BR>
+<P>
+<a name="source">
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Page Details:  Logo Branding</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as NotePad or SimpleText) and save (Control-s or Apple-s).  The script is yours!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.22 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL LOGO BRANDING:
+
+   1.  Insert the first code into the HEAD of your HTML document
+   2.  Add the onLoad event handler to the BODY tag
+   3.  the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Put this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Randy Bennett (rbennett@thezone.net) --&gt;
+&lt;!-- Web Site:  http//home.thezone.net/~rbennett/utility/javahead.htm --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function setVariables() {
+imgwidth=235;  // logo width, in pixels
+imgheight=19;  // logo height, in pixels
+if (navigator.appName == "Netscape") {
+horz=".left";
+vert=".top";
+docStyle="document.";
+styleDoc="";
+innerW="window.innerWidth";
+innerH="window.innerHeight";
+offsetX="window.pageXOffset";
+offsetY="window.pageYOffset";
+}
+else {
+horz=".pixelLeft";
+vert=".pixelTop";
+docStyle="";
+styleDoc=".style";
+innerW="document.body.clientWidth";
+innerH="document.body.clientHeight";
+offsetX="document.body.scrollLeft";
+offsetY="document.body.scrollTop";
+   }
+}
+function checkLocation() {
+objectXY="branding";
+var availableX=eval(innerW);
+var availableY=eval(innerH);
+var currentX=eval(offsetX);
+var currentY=eval(offsetY);
+x=availableX-(imgwidth+30)+currentX;
+y=availableY-(imgheight+20)+currentY;
+evalMove();
+setTimeout("checkLocation()",10);
+}
+function evalMove() {
+eval(docStyle + objectXY + styleDoc + horz + "=" + x);
+eval(docStyle + objectXY + styleDoc + vert + "=" + y);
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+&lt;!-- STEP TWO: Add this onLoad event handler to the BODY tag    --&gt;
+
+&lt;BODY onload="setVariables(); checkLocation();"&gt;
+
+&lt;!-- STEP THREE: Put this code into the BODY of your HTML document  --&gt;
+
+&lt;div id="branding" style="position:absolute; visibility:show; left:235px; top:-50px; z-index:2"&gt;
+&lt;table width=10 bgcolor=#ffffff&gt;&lt;td&gt;
+&lt;a href="http://www.yoursite.com" onmouseover="window.status='Thanks for visiting!';return true" onmouseout="window.status='';return true"&gt;&lt;center&gt;&lt;img src="your-logo.gif" width="235" height="19" border="0"&gt;&lt;/center&gt;&lt;/a&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+ 
+
+&lt;!-- Script Size:  2.22 KB  --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

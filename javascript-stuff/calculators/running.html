@@ -1,0 +1,391 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Calculators:  Running Calculator</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Keith Jenci">
+<META NAME="section" CONTENT="Calculators">
+<META NAME="description" CONTENT="Allows runners to calculate their time, distance covered, or pace by entering the other two values.  Distance and pace can be converted between various measurements.  A great 3-in-1 script for runners!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Keith Jenci -->
+<!-- Web Site:  http://www.geocities.com/ResearchTriangle/Campus/3835 -->
+
+
+
+
+<!-- Begin
+var TIME = 1;
+var DISTANCE = 2;
+var PACE = 3;
+var MILES = 0;
+var METERS = 1;
+var KILOMETERS = 2;
+var TRUE = 1;
+var FALSE = 0;
+
+function calcIT() {
+min=document.Calc.timeM.value;
+sec=document.Calc.timeS.value;
+time = (min * 1) + (sec / 60);
+distance = document.Calc.distance.value;
+minP = document.Calc.paceM.value;
+secP = document.Calc.paceS.value;
+pace = (minP * 1) + (secP / 60);
+result = document.Calc.CalcWhat.options[document.Calc.CalcWhat.selectedIndex].value;
+if (result == TIME) {
+distConversion(TRUE);
+paceConversion(TRUE);
+time = distance * pace;
+min = document.Calc.timeM.value = Math.floor(time);
+document.Calc.timeS.value = Math.round(60 * (time - min)); 
+}
+else
+if (result == DISTANCE) {
+paceConversion(TRUE);
+distance = time / pace;
+distConversion(FALSE);
+document.Calc.distance.value = decimalPlaces(distance, 2);
+}
+else 
+if (result == PACE) {
+distConversion(TRUE);
+pace = time / distance;
+paceConversion(FALSE);
+minP = Math.floor(pace);
+secP = Math.round(60 * (pace - minP));
+if (secP == 60) {
+minP++;
+secP = 0;
+}
+document.Calc.paceM.value = minP;
+document.Calc.paceS.value = secP;
+   }
+}
+function distConversion(toMeters) {
+if (document.Calc.optDist[MILES].checked) {
+distance = (toMeters) ? (distance * 1609) : (distance / 1609); 
+}
+else 
+if (document.Calc.optDist[METERS].checked) {}
+else 
+if (document.Calc.optDist[KILOMETERS].checked) {
+distance = (toMeters) ? (distance * 1000) : (distance / 1000);
+   }
+}
+function paceConversion(toMeters) {
+if (document.Calc.optPace[MILES].checked) {
+pace = (toMeters) ? (pace / 1609) : (pace * 1609); 
+}
+else 
+if (document.Calc.optPace[METERS].checked) {
+pace = (toMeters) ? (pace / 400) : (pace * 400);
+}
+else 
+if (document.Calc.optPace[KILOMETERS].checked) {
+pace = (toMeters) ? (pace / 1000) : (pace * 1000);
+   }
+}
+function decimalPlaces(val, places) {
+factor = 1;
+for (i = 0; i < places; i++) {
+factor *= 10;
+}
+val *= factor;
+val = Math.round(val);
+val /= factor;
+return val;
+}
+function checkCalc() {
+choice = document.Calc.CalcWhat.selectedIndex;
+if (choice == 0) {
+alert('Please select what you would like to calculate:  time, distance, or pace.');
+}
+if (choice == 1) {
+document.Calc.timeM.value='';
+document.Calc.timeS.value='';
+alert('To calculate your time, enter the distance traveled and your pace time per distance interval.');
+}
+if (choice == 2) {
+document.Calc.distance.value='';
+alert('To calculate your distance, enter the time elapsed and your pace time per distance interval.');
+}
+if (choice == 3) {
+document.Calc.paceM.value='';
+document.Calc.paceS.value='';
+alert('To calculate your pace, enter the time elapsed and the distance traveled.');
+   }
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /calculators/"><font color="#FF0000"><b>Calculators</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Running Calculator</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Allows runners to calculate their time, distance covered, or pace by entering the other two values.  Distance and pace can be converted between various measurements.  A great 3-in-1 script for runners!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name="Calc">
+<table border=1 cellpadding=10 cellspacing=0>
+<tr>
+<td>
+<center>
+<font size=+1><b>Calculate Your: &nbsp;</b></font>
+<select name=CalcWhat onChange="checkCalc();">
+<option value=0 selected>- Choose -
+<option value=1>Time
+<option value=2>Distance
+<option value=3>Pace
+</select>
+</center>
+<p>
+Time:  <input type=text name=timeM size=9> minutes, <input type=text name=timeS size=9> seconds
+<p>
+Distance:  <input type=text name=distance size=9><br>
+(Measure in: <input type=radio name="optDist" value="miles" checked> Miles 
+<input type=radio name="optDist" value="kilometers"> Kilometers 
+<input type=radio name="optDist" value="meters"> Meters)
+<p>
+Pace time:  <input type=text name=paceM size=9> minutes, <input type=text name=paceS size=9> seconds<br>
+(Pace distance: <input type=radio name="optPace" value="miles" checked>Miles 
+<input type=radio name="optPace" value="400meters">400m 
+<input type=radio name="optPace" value="kilometers">Kilometers) 
+</td>
+</tr>
+<tr>
+<td colspan=2 align=center>
+<input type=button value="Calculate" onClick="calcIT()">
+</td>
+</tr>
+</table>
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Calculators:  Running Calculator</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  4.47 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL RUNNING CALCULATOR:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Keith Jenci --&gt;
+&lt;!-- Web Site:  http://www.geocities.com/ResearchTriangle/Campus/3835 --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var TIME = 1;
+var DISTANCE = 2;
+var PACE = 3;
+var MILES = 0;
+var METERS = 1;
+var KILOMETERS = 2;
+var TRUE = 1;
+var FALSE = 0;
+
+function calcIT() {
+min=document.Calc.timeM.value;
+sec=document.Calc.timeS.value;
+time = (min * 1) + (sec / 60);
+distance = document.Calc.distance.value;
+minP = document.Calc.paceM.value;
+secP = document.Calc.paceS.value;
+pace = (minP * 1) + (secP / 60);
+result = document.Calc.CalcWhat.options[document.Calc.CalcWhat.selectedIndex].value;
+if (result == TIME) {
+distConversion(TRUE);
+paceConversion(TRUE);
+time = distance * pace;
+min = document.Calc.timeM.value = Math.floor(time);
+document.Calc.timeS.value = Math.round(60 * (time - min)); 
+}
+else
+if (result == DISTANCE) {
+paceConversion(TRUE);
+distance = time / pace;
+distConversion(FALSE);
+document.Calc.distance.value = decimalPlaces(distance, 2);
+}
+else 
+if (result == PACE) {
+distConversion(TRUE);
+pace = time / distance;
+paceConversion(FALSE);
+minP = Math.floor(pace);
+secP = Math.round(60 * (pace - minP));
+if (secP == 60) {
+minP++;
+secP = 0;
+}
+document.Calc.paceM.value = minP;
+document.Calc.paceS.value = secP;
+   }
+}
+function distConversion(toMeters) {
+if (document.Calc.optDist[MILES].checked) {
+distance = (toMeters) ? (distance * 1609) : (distance / 1609); 
+}
+else 
+if (document.Calc.optDist[METERS].checked) {}
+else 
+if (document.Calc.optDist[KILOMETERS].checked) {
+distance = (toMeters) ? (distance * 1000) : (distance / 1000);
+   }
+}
+function paceConversion(toMeters) {
+if (document.Calc.optPace[MILES].checked) {
+pace = (toMeters) ? (pace / 1609) : (pace * 1609); 
+}
+else 
+if (document.Calc.optPace[METERS].checked) {
+pace = (toMeters) ? (pace / 400) : (pace * 400);
+}
+else 
+if (document.Calc.optPace[KILOMETERS].checked) {
+pace = (toMeters) ? (pace / 1000) : (pace * 1000);
+   }
+}
+function decimalPlaces(val, places) {
+factor = 1;
+for (i = 0; i &lt; places; i++) {
+factor *= 10;
+}
+val *= factor;
+val = Math.round(val);
+val /= factor;
+return val;
+}
+function checkCalc() {
+choice = document.Calc.CalcWhat.selectedIndex;
+if (choice == 0) {
+alert('Please select what you would like to calculate:  time, distance, or pace.');
+}
+if (choice == 1) {
+document.Calc.timeM.value='';
+document.Calc.timeS.value='';
+alert('To calculate your time, enter the distance traveled and your pace time per distance interval.');
+}
+if (choice == 2) {
+document.Calc.distance.value='';
+alert('To calculate your distance, enter the time elapsed and your pace time per distance interval.');
+}
+if (choice == 3) {
+document.Calc.paceM.value='';
+document.Calc.paceS.value='';
+alert('To calculate your pace, enter the time elapsed and the distance traveled.');
+   }
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form name="Calc"&gt;
+&lt;table border=1 cellpadding=10 cellspacing=0&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;center&gt;
+&lt;font size=+1&gt;&lt;b&gt;Calculate Your: &nbsp;&lt;/b&gt;&lt;/font&gt;
+&lt;select name=CalcWhat onChange="checkCalc();"&gt;
+&lt;option value=0 selected&gt;- Choose -
+&lt;option value=1&gt;Time
+&lt;option value=2&gt;Distance
+&lt;option value=3&gt;Pace
+&lt;/select&gt;
+&lt;/center&gt;
+&lt;p&gt;
+Time:  &lt;input type=text name=timeM size=9&gt; minutes, &lt;input type=text name=timeS size=9&gt; seconds
+&lt;p&gt;
+Distance:  &lt;input type=text name=distance size=9&gt;&lt;br&gt;
+(Measure in: &lt;input type=radio name="optDist" value="miles" checked&gt; Miles 
+&lt;input type=radio name="optDist" value="kilometers"&gt; Kilometers 
+&lt;input type=radio name="optDist" value="meters"&gt; Meters)
+&lt;p&gt;
+Pace time:  &lt;input type=text name=paceM size=9&gt; minutes, &lt;input type=text name=paceS size=9&gt; seconds&lt;br&gt;
+(Pace distance: &lt;input type=radio name="optPace" value="miles" checked&gt;Miles 
+&lt;input type=radio name="optPace" value="400meters"&gt;400m 
+&lt;input type=radio name="optPace" value="kilometers"&gt;Kilometers) 
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td colspan=2 align=center&gt;
+&lt;input type=button value="Calculate" onClick="calcIT()"&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  4.47 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>
+
+
+

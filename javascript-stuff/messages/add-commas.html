@@ -1,0 +1,172 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Messages:  Add Commas</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Martin Webb">
+<META NAME="section" CONTENT="Messages">
+<META NAME="description" CONTENT="Modifies a number by adding commas after every third digit.  For example, 123456789 is converted to 123,456,789.  The script example shows this script as used on numbers of various sizes.  And, it demonstrates a clever use of the modulus operator.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Martin Webb -->
+<!-- Web Site:  http://www.irt.org -->
+
+
+
+
+<!-- Begin
+function Comma(number) {
+number = '' + number;
+if (number.length > 3) {
+var mod = number.length % 3;
+var output = (mod > 0 ? (number.substring(0,mod)) : '');
+for (i=0 ; i < Math.floor(number.length / 3); i++) {
+if ((mod == 0) && (i == 0))
+output += number.substring(mod+ 3 * i, mod + 3 * i + 3);
+else
+output+= ',' + number.substring(mod + 3 * i, mod + 3 * i + 3);
+}
+return (output);
+}
+else return number;
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /messages/"><font color="#FF0000"><b>Messages</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Add Commas</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Modifies a number by adding commas after every third digit.  For example, 123456789 is converted to 123,456,789.  The script example shows this script as used on numbers of various sizes.  And, it demonstrates a clever use of the modulus operator.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+document.write(Comma(1)+'<BR>');
+document.write(Comma(12)+'<BR>');
+document.write(Comma(123)+'<BR>');
+document.write(Comma(1234)+'<BR>');
+document.write(Comma(12345)+'<BR>');
+document.write(Comma(123456)+'<BR>');
+document.write(Comma(1234567)+'<BR>');
+document.write(Comma(12345678)+'<BR>');
+document.write(Comma(123456789)+'<BR>');
+document.write(Comma(1234567890)+'<BR>');
+//  End -->
+</script>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Messages:  Add Commas</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.49 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL ADD COMMAS:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Martin Webb --&gt;
+&lt;!-- Web Site:  http://www.irt.org --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function Comma(number) {
+number = '' + number;
+if (number.length &gt; 3) {
+var mod = number.length % 3;
+var output = (mod &gt; 0 ? (number.substring(0,mod)) : '');
+for (i=0 ; i &lt; Math.floor(number.length / 3); i++) {
+if ((mod == 0) && (i == 0))
+output += number.substring(mod+ 3 * i, mod + 3 * i + 3);
+else
+output+= ',' + number.substring(mod + 3 * i, mod + 3 * i + 3);
+}
+return (output);
+}
+else return number;
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Begin
+document.write(Comma(1)+'&lt;BR&gt;');
+document.write(Comma(12)+'&lt;BR&gt;');
+document.write(Comma(123)+'&lt;BR&gt;');
+document.write(Comma(1234)+'&lt;BR&gt;');
+document.write(Comma(12345)+'&lt;BR&gt;');
+document.write(Comma(123456)+'&lt;BR&gt;');
+document.write(Comma(1234567)+'&lt;BR&gt;');
+document.write(Comma(12345678)+'&lt;BR&gt;');
+document.write(Comma(123456789)+'&lt;BR&gt;');
+document.write(Comma(1234567890)+'&lt;BR&gt;');
+//  End --&gt;
+&lt;/script&gt;
+
+ 
+
+&lt;!-- Script Size:  1.49 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

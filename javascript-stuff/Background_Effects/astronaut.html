@@ -1,0 +1,268 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  BG Effects:  Astronaut</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Viswanathan Manohar (manohar_v@yahoo.com)">
+<META NAME="section" CONTENT="BG Effects">
+<META NAME="description" CONTENT="Watch as the astronaut floats around in space.  His random movements over the background of moving stars gives the perception of space travel.  Wow!">
+</HEAD>
+
+<BODY BGCOLOR=#000000 text=#ffffff vlink=#0000ff onLoad="space()">
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /bgeffects/"><font color="#FF0000"><b>BG Effects</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Astronaut</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Watch as the astronaut floats around in space.  His random movements over the background of moving stars gives the perception of space travel.  Wow!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Viswanathan Manohar (manohar_v@yahoo.com) -->
+<!-- Web Site:  http://www.geocities.com/manohar_v -->
+
+
+
+
+<!-- Begin
+astropic = "../img/astronaut/astronaut.jpg"; // location of YOUR astronaut image
+var xval = new Array(); // holds star coordinates
+var yval = new Array();
+no = 100;  // number of stars in the background
+speed = 200; // speed
+xp = 20 + 100 * Math.random();
+yp = 20 + 100 * Math.random();
+angle = 3.14 * Math.random(); // astronaut angle
+xinc = 3 * Math.sin(angle);
+yinc = 3;
+ie = (document.all)? 1 : 0;
+ns = (document.layers)? 1: 0;
+if (ie) {
+width = document.body.clientWidth;
+height = document.body.clientHeight;
+for (var i = 0; i <= no; i++) {
+document.write("<div id=\"div" + i+ "\" style=\"color:white;");
+document.write("position:absolute;left:100;\">.</div>");
+}
+document.write("<div id=\"diva\" style=\"position:absolute;\">");
+document.write("<img src=" + astropic + " border=\"0\" width=\"65\" height=\"95\"></div>");
+for (i = 0; i <= no; i++) {
+xval[i] = width * Math.random();
+yval[i] = height * Math.random();
+document.all["div" + i].style.left = xval[i];
+document.all["div" + i].style.top = yval[i];
+   }
+}
+if (ns) {
+width = self.innerWidth;
+height = self.innerHeight;
+for (var i = 0; i <= no; i++) {
+document.write("<layer id=\"div" + i+ "\" style=\"color:white;");
+document.write("position:absolute;left:100;\">.</layer>");
+}
+document.write("<layer id=\"diva\" style=\"position:absolute;\">");
+document.write("<img src=" + astropic + " border=\"0\" width=\"65\" height=\"95\"></layer>");
+for (i = 0; i <= no; i++) {
+xval[i] = width * Math.random();
+yval[i] = height * Math.random();
+document.layers["div" + i].left = xval[i];
+document.layers["div" + i].top = yval[i];
+   }
+}
+function star() {
+for (i = 0; i <= no; i = i+4) {
+xval[i] +=5;
+if ((i%20) == 0) xval[i] += 10;
+if(xval[i] >= width)  xval[i] = width * Math.random();
+if (ie) document.all["div" + i].style.left = xval[i];
+if (ns) document.layers["div" + i].left = xval[i];
+}
+return true;
+}
+function goangle() {
+angle = 3.14 * Math.random();
+xinc = 3 * Math.sin(angle);
+return true;
+}
+function space() {
+if (ie) {
+document.all["diva"].style.left = xp;
+document.all["diva"].style.top = yp;
+}
+if (ns) {
+document.layers["diva"].left = xp;
+document.layers["diva"].top = yp;
+}
+xp += xinc;
+yp +=yinc;
+star();
+if ((xp >= (width - 50)) || (xp <= 10))  { goangle();  xinc = (-1) * xinc; }
+if ((yp >= (height - 50)) || (yp <= 10)) {  goangle(); yinc = (-1) * yinc; }
+setTimeout('space()', speed);
+}
+//  End -->
+</script>
+<br><br>
+You must also save these images<br>
+to your server to use this script.<br>
+Right-click the images below and<br>
+select "Save Image As..."<br><br>
+<img src="../img/astronaut/astronaut.jpg" /img/astronaut/astronaut.jpg" width=65 height=95 border=1><br><br>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva" color="black"><b>JavaScript Source Code 3000:  BG Effects:  Astronaut</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  3.03 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL ASTRONAUT:
+
+  1.  Add the onLoad event handler into the BODY tag
+  2.  Copy the coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Insert the onLoad event handler into your BODY tag  --&gt;
+
+&lt;BODY bgcolor="black" onLoad="space()"&gt;
+
+&lt;!-- STEP TWO: Paste this code into the BODY of your HTML document  --&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Viswanathan Manohar (manohar_v@yahoo.com) --&gt;
+&lt;!-- Web Site:  http://www.geocities.com/manohar_v --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+astropic = "astronaut.jpg"; // location of YOUR astronaut image
+var xval = new Array(); // holds star coordinates
+var yval = new Array();
+no = 100;  // number of stars in the background
+speed = 200; // speed
+xp = 20 + 100 * Math.random();
+yp = 20 + 100 * Math.random();
+angle = 3.14 * Math.random(); // astronaut angle
+xinc = 3 * Math.sin(angle);
+yinc = 3;
+ie = (document.all)? 1 : 0;
+ns = (document.layers)? 1: 0;
+if (ie) {
+width = document.body.clientWidth;
+height = document.body.clientHeight;
+for (var i = 0; i &lt;= no; i++) {
+document.write("&lt;div id=\"div" + i+ "\" style=\"color:white;");
+document.write("position:absolute;left:100;\"&gt;.&lt;/div&gt;");
+}
+document.write("&lt;div id=\"diva\" style=\"position:absolute;\"&gt;");
+document.write("&lt;img src=" + astropic + " border=\"0\" width=\"65\" height=\"95\"&gt;&lt;/div&gt;");
+for (i = 0; i &lt;= no; i++) {
+xval[i] = width * Math.random();
+yval[i] = height * Math.random();
+document.all["div" + i].style.left = xval[i];
+document.all["div" + i].style.top = yval[i];
+   }
+}
+if (ns) {
+width = self.innerWidth;
+height = self.innerHeight;
+for (var i = 0; i &lt;= no; i++) {
+document.write("&lt;layer id=\"div" + i+ "\" style=\"color:white;");
+document.write("position:absolute;left:100;\"&gt;.&lt;/layer&gt;");
+}
+document.write("&lt;layer id=\"diva\" style=\"position:absolute;\"&gt;");
+document.write("&lt;img src=" + astropic + " border=\"0\" width=\"65\" height=\"95\"&gt;&lt;/layer&gt;");
+for (i = 0; i &lt;= no; i++) {
+xval[i] = width * Math.random();
+yval[i] = height * Math.random();
+document.layers["div" + i].left = xval[i];
+document.layers["div" + i].top = yval[i];
+   }
+}
+function star() {
+for (i = 0; i &lt;= no; i = i+4) {
+xval[i] +=5;
+if ((i%20) == 0) xval[i] += 10;
+if(xval[i] &gt;= width)  xval[i] = width * Math.random();
+if (ie) document.all["div" + i].style.left = xval[i];
+if (ns) document.layers["div" + i].left = xval[i];
+}
+return true;
+}
+function goangle() {
+angle = 3.14 * Math.random();
+xinc = 3 * Math.sin(angle);
+return true;
+}
+function space() {
+if (ie) {
+document.all["diva"].style.left = xp;
+document.all["diva"].style.top = yp;
+}
+if (ns) {
+document.layers["diva"].left = xp;
+document.layers["diva"].top = yp;
+}
+xp += xinc;
+yp +=yinc;
+star();
+if ((xp &gt;= (width - 50)) || (xp &lt;= 10))  { goangle();  xinc = (-1) * xinc; }
+if ((yp &gt;= (height - 50)) || (yp &lt;= 10)) {  goangle(); yinc = (-1) * yinc; }
+setTimeout('space()', speed);
+}
+//  End --&gt;
+&lt;/script&gt;
+
+ 
+
+&lt;!-- Script Size:  3.03 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva" color="black"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>
+
+
+

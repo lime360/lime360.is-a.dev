@@ -1,0 +1,262 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Messages:  Mouse Banner</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Peter Gehrig">
+<META NAME="section" CONTENT="Messages">
+<META NAME="description" CONTENT="Drags a text message, such as your site's name, around the screen behind the mouse cursor.  Useful as an attention-grabber on the main page of your site.  Don't overuse this script, though!  ;-)">
+
+<style>
+.spanstyle {
+COLOR: black; 
+FONT-FAMILY: Verdana; 
+FONT-SIZE: 8pt;
+FONT-WEIGHT: bold; 
+POSITION: absolute; 
+TOP: -50px; 
+VISIBILITY: visible
+}
+</style>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Peter Gehrig  -->
+<!-- Web Site:  http://www.24fun.ch -->
+
+
+
+
+<!-- Begin
+var x, y;
+var step = 10;
+var flag = 0;
+
+var message = "JavaScript is so cool !! ";
+message = message.split("");
+var xpos = new Array();
+for (i = 0; i <= message.length - 1; i++) {
+xpos[i] = -50;
+}
+var ypos = new Array();
+for (i = 0; i <= message.length - 1; i++) {
+ypos[i]= -50;
+}
+function handlerMM(e) {
+x = (document.layers) ? e.pageX : document.body.scrollLeft + event.clientX;
+y = (document.layers) ? e.pageY : document.body.scrollTop + event.clientY;
+flag = 1;
+}
+function makesnake() {
+if (flag == 1 && document.all) {
+for (i = message.length - 1; i >= 1; i--) {
+xpos[i] = xpos[i - 1] + step;
+ypos[i] = ypos[i - 1];
+}
+xpos[0] = x + step;
+ypos[0] = y;
+for (i = 0; i < message.length - 1; i++) {
+var thisspan = eval("span" + (i) + ".style");
+thisspan.posLeft = xpos[i];
+thisspan.posTop = ypos[i];
+   }
+}
+else if (flag==1 && document.layers) {
+for (i = message.length - 1; i >= 1; i--) {
+xpos[i] = xpos[i - 1] + step;
+ypos[i] = ypos[i - 1];
+}
+xpos[0] = x + step;
+ypos[0] = y;
+for (i = 0; i < message.length - 1; i++) {
+var thisspan = eval("document.span" + i);
+thisspan.left = xpos[i];
+thisspan.top = ypos[i];
+   }
+}
+var timer = setTimeout("makesnake()", 10);
+}
+// End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff style="OVERFLOW-X: hidden; OVERFLOW-Y: scroll; WIDTH: 100%" onLoad="makesnake();">
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /messages/"><font color="#FF0000"><b>Messages</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Mouse Banner</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Drags a text message, such as your site's name, around the screen behind the mouse cursor.  Useful as an attention-grabber on the main page of your site.  Don't overuse this script, though!  ;-)
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+for (i = 0; i <= message.length-1; i++) {
+document.write("<span id='span"+i+"' class='spanstyle'>");
+document.write(message[i]);
+document.write("</span>");
+}
+if (document.layers) {
+document.captureEvents(Event.MOUSEMOVE);
+}
+document.onmousemove = handlerMM;
+// End -->
+</script>
+
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Messages:  Mouse Banner</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.08 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL MOUSE BANNER:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY tag your HTML document
+  3.  Put the final code inside the BODY of your HTML page   --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;style&gt;.spanstyle {
+	COLOR: white; FONT-FAMILY: Verdana; FONT-SIZE: 8pt; FONT-WEIGHT: bold; POSITION: absolute; TOP: -50px; VISIBILITY: visible
+}
+&lt;/style&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Peter Gehrig  --&gt;
+&lt;!-- Web Site:  http://www.24fun.ch --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var x, y;
+var step = 10;
+var flag = 0;
+
+var message = "JavaScript is so cool !! ";
+message = message.split("");
+var xpos = new Array();
+for (i = 0; i &lt;= message.length - 1; i++) {
+xpos[i] = -50;
+}
+var ypos = new Array();
+for (i = 0; i &lt;= message.length - 1; i++) {
+ypos[i]= -50;
+}
+function handlerMM(e) {
+x = (document.layers) ? e.pageX : document.body.scrollLeft + event.clientX;
+y = (document.layers) ? e.pageY : document.body.scrollTop + event.clientY;
+flag = 1;
+}
+function makesnake() {
+if (flag == 1 && document.all) {
+for (i = message.length - 1; i &gt;= 1; i--) {
+xpos[i] = xpos[i - 1] + step;
+ypos[i] = ypos[i - 1];
+}
+xpos[0] = x + step;
+ypos[0] = y;
+for (i = 0; i &lt; message.length - 1; i++) {
+var thisspan = eval("span" + (i) + ".style");
+thisspan.posLeft = xpos[i];
+thisspan.posTop = ypos[i];
+   }
+}
+else if (flag==1 && document.layers) {
+for (i = message.length - 1; i &gt;= 1; i--) {
+xpos[i] = xpos[i - 1] + step;
+ypos[i] = ypos[i - 1];
+}
+xpos[0] = x + step;
+ypos[0] = y;
+for (i = 0; i &lt; message.length - 1; i++) {
+var thisspan = eval("document.span" + i);
+thisspan.left = xpos[i];
+thisspan.top = ypos[i];
+   }
+}
+var timer = setTimeout("makesnake()", 10);
+}
+// End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY tag od your HTML document  --&gt;
+
+&lt;body bgcolor="#000080" text="#000000" onload="makesnake()"
+style="OVERFLOW-X: hidden; OVERFLOW-Y: scroll; WIDTH: 100%"&gt;
+
+&lt;!-- STEP THREE: Put the final code inside the BODY of your HTML document  --&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Begin
+for (i = 0; i &lt;= message.length-1; i++) {
+document.write("&lt;span id='span"+i+"' class='spanstyle'&gt;");
+document.write(message[i]);
+document.write("&lt;/span&gt;");
+}
+if (document.layers) {
+document.captureEvents(Event.MOUSEMOVE);
+}
+document.onmousemove = handlerMM;
+// End --&gt;
+&lt;/script&gt;
+
+&lt;p&gt;&lt;center&gt;
+&lt;font face="arial, helvetica" SIZE="-2"&gt;Free JavaScripts provided&lt;br&gt;
+by &lt;a href="http://javascriptsource.com"&gt;JavaScript Source Code 3000&lt;/a&gt;&lt;/font&gt;
+&lt;/center&gt;&lt;p&gt;
+
+&lt;!-- Script Size:  2.08 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

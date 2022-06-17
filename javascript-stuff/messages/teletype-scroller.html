@@ -1,0 +1,255 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Messages:  Teletype Scroller</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="Now you can type text across the screen and then scroll it off the page while it fades.  Add as many messages as you need.  Awesome!">
+<META NAME="date" CONTENT="2000-12-01">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="John O'Brien">
+<META NAME="section" CONTENT="Messages">
+<STYLE>
+.telestyle {
+position:absolute;
+visibility:visible;
+font-size:8pt;
+font-family:Arial;
+font-weight:normal;
+color:#000066;
+top:300px;
+left: 60px;
+height: 32px;
+width: 500px;
+filter:alpha(opacity=100);
+}
+</STYLE>
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  John O'Brien (obrien@lis.net.au) -->
+<!-- Web Site:  http://www.lis.net.au/~obrien -->
+
+
+
+
+<!-- Begin
+var message = "Try this script today!"
+var character = 0;
+var to_print = "";
+var ypos = 300;
+var next = 0 ;
+var fade = 100 ;
+var next_message = new Array() ;
+next_message[0] = "JavaScript Source Code 3000"
+next_message[1] = "Is your site slow...uninteresting...static? JavaScript™ can bring your pages to life!"
+next_message[2] = "Add this script to your site!"
+next_message[3] = "Do your pages take an age to load?"
+next_message[4] = "Try this script today!"
+function doText(text) {
+if (document.all) {
+if (character <= text.length - 1) {
+to_print += text.charAt(character);
+teletext.innerHTML = to_print;
+character++;
+}
+else
+scrollIt();
+}
+setTimeout("doText(message)", 100);
+}
+function scrollIt() {
+if (ypos >= 260) {
+ypos -= 1;
+fade -= 4;
+if (ypos < 265) {
+teletext.innerHTML = "" ;
+   }
+}
+else {
+ypos = 300;
+character = 0;
+to_print = "";
+nextMessage();
+fade = 100;
+}
+teletext.style.top = ypos;
+teletext.filters.alpha.opacity = fade;
+}
+function nextMessage() {
+message = next_message[next]
+if (next == 4) {
+next = 0;
+}
+else
+next++;
+}
+//  End -->
+</script>
+
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff onLoad="doText(message)">
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /messages/"><font color="#FF0000"><b>Messages</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Teletype Scroller</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Now you can type text across the screen and then scroll it off the page while it fades.  Add as many messages as you need.  Awesome!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+</center>
+<br>
+<DIV ID=teletext CLASS="telestyle">
+</DIV>
+<center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Messages:  Teletype Scroller</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Command-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.27 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL TELETYPE SCROLLER:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the onLoad event handler into the BODY tag
+  3.  Put the last coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;STYLE&gt;
+.telestyle {
+position:absolute;
+visibility:visible;
+font-size:8pt;
+font-family:Arial;
+font-weight:normal;
+color:#000066;
+top:300px;
+left: 60px;
+height: 32px;
+width: 500px;
+filter:alpha(opacity=100);
+}
+&lt;/STYLE&gt;
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  John O'Brien (obrien@lis.net.au) --&gt;
+&lt;!-- Web Site:  http://www.lis.net.au/~obrien --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var message = "Try this script today!"
+var character = 0;
+var to_print = "";
+var ypos = 300;
+var next = 0 ;
+var fade = 100 ;
+var next_message = new Array() ;
+next_message[0] = "JavaScript Source Code 3000"
+next_message[1] = "Is your site slow...uninteresting...static? JavaScript™ can bring your pages to life!"
+next_message[2] = "Add this script to your site!"
+next_message[3] = "Do your pages take an age to load?"
+next_message[4] = "Try this script today!"
+function doText(text) {
+if (document.all) {
+if (character &lt;= text.length - 1) {
+to_print += text.charAt(character);
+teletext.innerHTML = to_print;
+character++;
+}
+else
+scrollIt();
+}
+setTimeout("doText(message)", 100);
+}
+function scrollIt() {
+if (ypos &gt;= 260) {
+ypos -= 1;
+fade -= 4;
+if (ypos &lt; 265) {
+teletext.innerHTML = "" ;
+   }
+}
+else {
+ypos = 300;
+character = 0;
+to_print = "";
+nextMessage();
+fade = 100;
+}
+teletext.style.top = ypos;
+teletext.filters.alpha.opacity = fade;
+}
+function nextMessage() {
+message = next_message[next]
+if (next == 4) {
+next = 0;
+}
+else
+next++;
+}
+//  End --&gt;
+&lt;/script&gt;
+
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Insert the onLoad event handler into your BODY tag  --&gt;
+
+&lt;BODY onLoad="doText(message)"&gt;
+
+&lt;!-- STEP THREE: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;DIV ID=teletext CLASS="telestyle"&gt;
+&lt;/DIV&gt;
+
+ 
+
+&lt;!-- Script Size:  2.27 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

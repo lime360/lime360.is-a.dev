@@ -1,0 +1,462 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Forms:  Validation (Date)</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Mike Welagen (welagenm@hotmail.com)">
+<META NAME="section" CONTENT="Forms">
+<META NAME="description" CONTENT="Dates are validated and formatted in your form.  Supports over a dozen different date formats, and formats the date properly in United States or European date formatting styles depending on how the script is configured.  A dateCheck function also is included if you wish to compare two dates.  Wow!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Mike Welagen (welagenm@hotmail.com) -->
+
+
+
+
+<!-- Begin
+function checkdate(objName) {
+var datefield = objName;
+if (chkdate(objName) == false) {
+datefield.select();
+alert("That date is invalid.  Please try again.");
+datefield.focus();
+return false;
+}
+else {
+return true;
+   }
+}
+function chkdate(objName) {
+var strDatestyle = "US"; //United States date style
+//var strDatestyle = "EU";  //European date style
+var strDate;
+var strDateArray;
+var strDay;
+var strMonth;
+var strYear;
+var intday;
+var intMonth;
+var intYear;
+var booFound = false;
+var datefield = objName;
+var strSeparatorArray = new Array("-"," ","/",".");
+var intElementNr;
+var err = 0;
+var strMonthArray = new Array(12);
+strMonthArray[0] = "Jan";
+strMonthArray[1] = "Feb";
+strMonthArray[2] = "Mar";
+strMonthArray[3] = "Apr";
+strMonthArray[4] = "May";
+strMonthArray[5] = "Jun";
+strMonthArray[6] = "Jul";
+strMonthArray[7] = "Aug";
+strMonthArray[8] = "Sep";
+strMonthArray[9] = "Oct";
+strMonthArray[10] = "Nov";
+strMonthArray[11] = "Dec";
+strDate = datefield.value;
+if (strDate.length < 1) {
+return true;
+}
+for (intElementNr = 0; intElementNr < strSeparatorArray.length; intElementNr++) {
+if (strDate.indexOf(strSeparatorArray[intElementNr]) != -1) {
+strDateArray = strDate.split(strSeparatorArray[intElementNr]);
+if (strDateArray.length != 3) {
+err = 1;
+return false;
+}
+else {
+strDay = strDateArray[0];
+strMonth = strDateArray[1];
+strYear = strDateArray[2];
+}
+booFound = true;
+   }
+}
+if (booFound == false) {
+if (strDate.length>5) {
+strDay = strDate.substr(0, 2);
+strMonth = strDate.substr(2, 2);
+strYear = strDate.substr(4);
+   }
+}
+if (strYear.length == 2) {
+strYear = '20' + strYear;
+}
+// US style
+if (strDatestyle == "US") {
+strTemp = strDay;
+strDay = strMonth;
+strMonth = strTemp;
+}
+intday = parseInt(strDay, 10);
+if (isNaN(intday)) {
+err = 2;
+return false;
+}
+intMonth = parseInt(strMonth, 10);
+if (isNaN(intMonth)) {
+for (i = 0;i<12;i++) {
+if (strMonth.toUpperCase() == strMonthArray[i].toUpperCase()) {
+intMonth = i+1;
+strMonth = strMonthArray[i];
+i = 12;
+   }
+}
+if (isNaN(intMonth)) {
+err = 3;
+return false;
+   }
+}
+intYear = parseInt(strYear, 10);
+if (isNaN(intYear)) {
+err = 4;
+return false;
+}
+if (intMonth>12 || intMonth<1) {
+err = 5;
+return false;
+}
+if ((intMonth == 1 || intMonth == 3 || intMonth == 5 || intMonth == 7 || intMonth == 8 || intMonth == 10 || intMonth == 12) && (intday > 31 || intday < 1)) {
+err = 6;
+return false;
+}
+if ((intMonth == 4 || intMonth == 6 || intMonth == 9 || intMonth == 11) && (intday > 30 || intday < 1)) {
+err = 7;
+return false;
+}
+if (intMonth == 2) {
+if (intday < 1) {
+err = 8;
+return false;
+}
+if (LeapYear(intYear) == true) {
+if (intday > 29) {
+err = 9;
+return false;
+}
+}
+else {
+if (intday > 28) {
+err = 10;
+return false;
+}
+}
+}
+if (strDatestyle == "US") {
+datefield.value = strMonthArray[intMonth-1] + " " + intday+" " + strYear;
+}
+else {
+datefield.value = intday + " " + strMonthArray[intMonth-1] + " " + strYear;
+}
+return true;
+}
+function LeapYear(intYear) {
+if (intYear % 100 == 0) {
+if (intYear % 400 == 0) { return true; }
+}
+else {
+if ((intYear % 4) == 0) { return true; }
+}
+return false;
+}
+function doDateCheck(from, to) {
+if (Date.parse(from.value) <= Date.parse(to.value)) {
+alert("The dates are valid.");
+}
+else {
+if (from.value == "" || to.value == "") 
+alert("Both dates must be entered.");
+else 
+alert("To date must occur after the from date.");
+   }
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /forms/" ><font color="#FF0000"><b>Forms</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Validation (Date)</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Dates are validated and formatted in your form.  Supports over a dozen different date formats, and formats the date properly in United States or European date formatting styles depending on how the script is configured.  A dateCheck function also is included if you wish to compare two dates.  Wow!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form>
+<pre>
+From date <input type=text name=from onBlur="checkdate(this)" size=11 maxlength=11>
+To date   <input type=text name=to   onBlur="checkdate(this)" size=11 maxlength=11>
+
+<input type=button name=formatbutton onClick="doDateCheck(this.form.from, this.form.to);" value="Check">
+</pre>
+</form>
+</center>
+<TABLE border=0 cellspacing=1 cellpadding=1>
+<TR><TD colspan=2 bgcolor=#000000>
+<TABLE cellspadding=3 cellspacing=0 border=0>
+<TR><TD height=25 bgcolor=#FFFFCC valign=middle align=middle>
+<FONT face="verdana, arial" size="-2">
+The following date formats are accepted:<p>
+mm-dd-yyyy, mm/dd/yyyy, mm.dd.yyyy, mm dd yyyy, <br>
+mmm dd yyyy, mmddyyyy, m-d-yyyy, m/d/yyyy, m.d.yyyy, <br>
+m d yyyy, mmm d yyyy, m-d-yy, m/d/yy, m.d.yy, m d yy, <br>
+mmm d yy (yy is 20yy)
+<p>
+(Accepted EU formats just switch month and day)
+</TD></TR></TABLE>
+</TD></TR></TABLE>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Forms:  Validation (Date)</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  4.34 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL VALIDATION (DATE):
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Mike Welagen (welagenm@hotmail.com) --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function checkdate(objName) {
+var datefield = objName;
+if (chkdate(objName) == false) {
+datefield.select();
+alert("That date is invalid.  Please try again.");
+datefield.focus();
+return false;
+}
+else {
+return true;
+   }
+}
+function chkdate(objName) {
+var strDatestyle = "US"; //United States date style
+//var strDatestyle = "EU";  //European date style
+var strDate;
+var strDateArray;
+var strDay;
+var strMonth;
+var strYear;
+var intday;
+var intMonth;
+var intYear;
+var booFound = false;
+var datefield = objName;
+var strSeparatorArray = new Array("-"," ","/",".");
+var intElementNr;
+var err = 0;
+var strMonthArray = new Array(12);
+strMonthArray[0] = "Jan";
+strMonthArray[1] = "Feb";
+strMonthArray[2] = "Mar";
+strMonthArray[3] = "Apr";
+strMonthArray[4] = "May";
+strMonthArray[5] = "Jun";
+strMonthArray[6] = "Jul";
+strMonthArray[7] = "Aug";
+strMonthArray[8] = "Sep";
+strMonthArray[9] = "Oct";
+strMonthArray[10] = "Nov";
+strMonthArray[11] = "Dec";
+strDate = datefield.value;
+if (strDate.length &lt; 1) {
+return true;
+}
+for (intElementNr = 0; intElementNr &lt; strSeparatorArray.length; intElementNr++) {
+if (strDate.indexOf(strSeparatorArray[intElementNr]) != -1) {
+strDateArray = strDate.split(strSeparatorArray[intElementNr]);
+if (strDateArray.length != 3) {
+err = 1;
+return false;
+}
+else {
+strDay = strDateArray[0];
+strMonth = strDateArray[1];
+strYear = strDateArray[2];
+}
+booFound = true;
+   }
+}
+if (booFound == false) {
+if (strDate.length&gt;5) {
+strDay = strDate.substr(0, 2);
+strMonth = strDate.substr(2, 2);
+strYear = strDate.substr(4);
+   }
+}
+if (strYear.length == 2) {
+strYear = '20' + strYear;
+}
+// US style
+if (strDatestyle == "US") {
+strTemp = strDay;
+strDay = strMonth;
+strMonth = strTemp;
+}
+intday = parseInt(strDay, 10);
+if (isNaN(intday)) {
+err = 2;
+return false;
+}
+intMonth = parseInt(strMonth, 10);
+if (isNaN(intMonth)) {
+for (i = 0;i&lt;12;i++) {
+if (strMonth.toUpperCase() == strMonthArray[i].toUpperCase()) {
+intMonth = i+1;
+strMonth = strMonthArray[i];
+i = 12;
+   }
+}
+if (isNaN(intMonth)) {
+err = 3;
+return false;
+   }
+}
+intYear = parseInt(strYear, 10);
+if (isNaN(intYear)) {
+err = 4;
+return false;
+}
+if (intMonth&gt;12 || intMonth&lt;1) {
+err = 5;
+return false;
+}
+if ((intMonth == 1 || intMonth == 3 || intMonth == 5 || intMonth == 7 || intMonth == 8 || intMonth == 10 || intMonth == 12) && (intday &gt; 31 || intday &lt; 1)) {
+err = 6;
+return false;
+}
+if ((intMonth == 4 || intMonth == 6 || intMonth == 9 || intMonth == 11) && (intday &gt; 30 || intday &lt; 1)) {
+err = 7;
+return false;
+}
+if (intMonth == 2) {
+if (intday &lt; 1) {
+err = 8;
+return false;
+}
+if (LeapYear(intYear) == true) {
+if (intday &gt; 29) {
+err = 9;
+return false;
+}
+}
+else {
+if (intday &gt; 28) {
+err = 10;
+return false;
+}
+}
+}
+if (strDatestyle == "US") {
+datefield.value = strMonthArray[intMonth-1] + " " + intday+" " + strYear;
+}
+else {
+datefield.value = intday + " " + strMonthArray[intMonth-1] + " " + strYear;
+}
+return true;
+}
+function LeapYear(intYear) {
+if (intYear % 100 == 0) {
+if (intYear % 400 == 0) { return true; }
+}
+else {
+if ((intYear % 4) == 0) { return true; }
+}
+return false;
+}
+function doDateCheck(from, to) {
+if (Date.parse(from.value) &lt;= Date.parse(to.value)) {
+alert("The dates are valid.");
+}
+else {
+if (from.value == "" || to.value == "") 
+alert("Both dates must be entered.");
+else 
+alert("To date must occur after the from date.");
+   }
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form&gt;
+&lt;pre&gt;
+From date &lt;input type=text name=from onBlur="checkdate(this)" size=11 maxlength=11&gt;
+To date   &lt;input type=text name=to   onBlur="checkdate(this)" size=11 maxlength=11&gt;
+
+&lt;input type=button name=formatbutton onClick="doDateCheck(this.form.from, this.form.to);" value="Check"&gt;
+&lt;/pre&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  4.34 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

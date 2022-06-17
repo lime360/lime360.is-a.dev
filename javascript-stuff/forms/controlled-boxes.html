@@ -1,0 +1,178 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Forms:  Controlled Boxes</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Scott Waichler">
+<META NAME="section" CONTENT="Forms">
+<META NAME="description" CONTENT="This script allows checkboxes to check and uncheck based on the selection in another checkbox.   If the ALL box is checked, all the other choices go unchecked.  If another choice is checked, then the ALL box goes unchecked.  Useful when constructing search forms, surveys, and more!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Scott Waichler -->
+
+
+
+
+<!-- Begin
+function checkChoice(field, i) {
+if (i == 0) { // "All" checkbox selected.
+if (field[0].checked == true) {
+for (i = 1; i < field.length; i++)
+field[i].checked = false;
+   }
+}
+else  {  // A checkbox other than "Any" selected.
+if (field[i].checked == true) {
+field[0].checked = false;
+      }
+   }
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /forms/" ><font color="#FF0000"><b>Forms</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Controlled Boxes</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+This script allows checkboxes to check and uncheck based on the selection in another checkbox.   If the ALL box is checked, all the other choices go unchecked.  If another choice is checked, then the ALL box goes unchecked.  Useful when constructing search forms, surveys, and more!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+Please select your favorite class(es):
+<form name=pickform>
+<table>
+<tr><td>
+<input type=checkbox name=classes value="*" onclick="checkChoice(document.pickform.classes, 0)" checked>All
+<br>
+<input type=checkbox name=classes value="science" onclick="checkChoice(document.pickform.classes, 1)">Science
+<br>
+<input type=checkbox name=classes value="math" onclick="checkChoice(document.pickform.classes, 2)">Math
+<br>
+<input type=checkbox name=classes value="english" onclick="checkChoice(document.pickform.classes, 3)">English
+<br>
+<input type=checkbox name=classes value="history" onclick="checkChoice(document.pickform.classes, 4)">Histroy
+<br>
+<input type=checkbox name=classes value="other" onclick="checkChoice(document.pickform.classes, 5)">Other
+</td></tr>
+</table>
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Forms:  Controlled Boxes</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.78 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL CONTROLLED BOXES:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Scott Waichler --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function checkChoice(field, i) {
+if (i == 0) { // "All" checkbox selected.
+if (field[0].checked == true) {
+for (i = 1; i &lt; field.length; i++)
+field[i].checked = false;
+   }
+}
+else  {  // A checkbox other than "Any" selected.
+if (field[i].checked == true) {
+field[0].checked = false;
+      }
+   }
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+Please select your favorite class(es):
+&lt;form name=pickform&gt;
+&lt;table&gt;
+&lt;tr&gt;&lt;td&gt;
+&lt;input type=checkbox name=classes value="*" onclick="checkChoice(document.pickform.classes, 0)" checked&gt;All
+&lt;br&gt;
+&lt;input type=checkbox name=classes value="science" onclick="checkChoice(document.pickform.classes, 1)"&gt;Science
+&lt;br&gt;
+&lt;input type=checkbox name=classes value="math" onclick="checkChoice(document.pickform.classes, 2)"&gt;Math
+&lt;br&gt;
+&lt;input type=checkbox name=classes value="english" onclick="checkChoice(document.pickform.classes, 3)"&gt;English
+&lt;br&gt;
+&lt;input type=checkbox name=classes value="history" onclick="checkChoice(document.pickform.classes, 4)"&gt;Histroy
+&lt;br&gt;
+&lt;input type=checkbox name=classes value="other" onclick="checkChoice(document.pickform.classes, 5)"&gt;Other
+&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  1.78 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

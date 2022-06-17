@@ -1,0 +1,159 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  User Details:  Safe Colors</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="The Radiance Group, Inc.  (info@radiancegroup.com)">
+<META NAME="section" CONTENT="User Details">
+<META NAME="description" CONTENT="If you are involved with graphics creation or website design, it's important to understand how colors are seen on different browsers and different platforms.  This script will show you all the "safe" colors, the ones that show up the same for all browsers and platforms.  So, when you design a site or create an image, be sure to use the "browser-safe" colors!  Don't you just love JavaScript?">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+function makeArray(q){
+for(i=1 ; i <= q ; i++){this[i]=0}}
+Colors = new makeArray(7);
+Colors[1] = "00";
+Colors[2] = "33";
+Colors[3] = "66";
+Colors[4] = "99";
+Colors[5] = "CC";
+Colors[6] = "FF";
+// End -->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /user-details/"><font color="#FF0000">User Details</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Safe Colors</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<TABLE BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><TD><font FACE=" helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+If you are involved with graphics creation or website design, it's important to understand how colors are seen on different browsers and different platforms.  This script will show you all the "safe" colors, the ones that show up the same for all browsers and platforms.  So, when you design a site or create an image, be sure to use the "browser-safe" colors!  Don't you just love JavaScript?<br><hr>
+</td></tr>
+</table>
+<!--  Demonstration -->
+<BODY><BR>
+<CENTER>
+<center>
+<table cellspacing = 0 cellpadding = 0>
+<script language="JavaScript">
+for(i=1 ; i <= 6 ; i++){
+for(j=1 ; j <= 6 ; j++){
+for(k=1 ; k <= 6 ; k++){
+var thiscolor = Colors[i] + Colors[j] + Colors[k];
+document.writeln("<tr><td height = 20 bgcolor = \"#" + thiscolor + "\" align = right><a href = ");
+document.writeln("\'\' onMouseOver = \"document.bgColor = \'" + thiscolor + "\'\">" + thiscolor + "</a></td></tr>");
+      }
+   }
+}
+</script>
+</table>
+</CENTER>
+<P>
+<BR>
+<P>
+<a name="source">
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  User Details:  Safe Colors</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as NotePad or SimpleText) and save (Control-s or Apple-s).  The script is yours!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.35 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL SAFE COLORS:
+
+   1.  Put the code into the HEAD of your HTML document
+   2.  Add the last coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;!-- Original:  The Radiance Group, Inc.  (info@radiancegroup.com) --&gt;
+&lt;!-- Web Site:  http://www.radiancegroup.com --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!--  Begin
+function makeArray(q){
+for(i=1 ; i &lt;= q ; i++){this[i]=0}}
+Colors = new makeArray(7);
+Colors[1] = "00";
+Colors[2] = "33";
+Colors[3] = "66";
+Colors[4] = "99";
+Colors[5] = "CC";
+Colors[6] = "FF";
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;CENTER&gt;
+&lt;center&gt;
+&lt;table cellspacing = 0 cellpadding = 0&gt;
+&lt;script language="JavaScript"&gt;
+for(i=1 ; i &lt;= 6 ; i++){
+for(j=1 ; j &lt;= 6 ; j++){
+for(k=1 ; k &lt;= 6 ; k++){
+var thiscolor = Colors[i] + Colors[j] + Colors[k];
+document.writeln("&lt;tr&gt;&lt;td height = 20 bgcolor = \"#" + thiscolor + "\" align = right&gt;&lt;a href = ");
+document.writeln("\'\' onMouseOver = \"document.bgColor = \'" + thiscolor + "\'\"&gt;" + thiscolor + "&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;");
+      }
+   }
+}
+&lt;/script&gt;
+&lt;/table&gt;
+&lt;/CENTER&gt;
+
+ 
+
+&lt;!-- Script Size:  1.35 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

@@ -1,0 +1,221 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Password Protection:  Character Encoder</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Mike McGrath (mike_mcgrath@lineone.net)">
+<META NAME="section" CONTENT="Password Protection">
+<META NAME="description" CONTENT="Encrypts a string by converting each character to it's ASCII key code.  Supports two-way encryption - from a string to the numeric code, or from the numeric code back to the string.  You can, for example, send the encrypted code to a friend and have them decode it with this script.  Lots more uses, use your imagination!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Mike McGrath (mike_mcgrath@lineone.net) -->
+<!-- Web Site:  http://website.lineone.net/~mike_mcgrath/ -->
+
+
+
+
+<!-- Begin
+var str_in;
+var str_out = ""; 
+var num_in;
+var num_out = "";
+var e = "Enter Text!";
+
+function str_to_num(form) {
+num_out = "";
+if(form.input.value == "") alert(e);
+else {
+str_in = escape(form.input.value);
+for(i = 0; i < str_in.length; i++) {
+num_out += str_in.charCodeAt(i) - 23;
+}
+form.output.value = num_out;
+form.input.value = "";
+   }
+}
+
+function num_to_str(form) {
+str_out = "";
+if(form.output.value == "") alert(e)
+else {
+num_out = form.output.value;  
+for(i = 0; i < num_out.length; i += 2) {
+num_in = parseInt(num_out.substr(i,[2])) + 23;
+num_in = unescape('%' + num_in.toString(16));
+str_out += num_in;
+}
+form.input.value = unescape(str_out);
+form.output.value = "";
+   }
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /passwords/"><font color="#FF0000"><b>Password Protection</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Character Encoder</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Encrypts a string by converting each character to it's ASCII key code.  Supports two-way encryption - from a string to the numeric code, or from the numeric code back to the string.  You can, for example, send the encrypted code to a friend and have them decode it with this script.  Lots more uses, use your imagination!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name=encryptform>
+<table>
+<tr>
+<td align=center>Original String</td>
+<td>&nbsp;</td>
+<td align=center>Encrypted Code</td>
+</tr>
+<tr>
+<td align=center><input name=input type=text size=40 value="JavaScript Source"></td>
+<td align=center>
+<input type=button value="<--" onClick="javascript:num_to_str(this.form)"><br>
+<input type=button value="-->" onClick="javascript:str_to_num(this.form)">
+</td>
+<td align=center><input name=output type=text size=40></td>
+</tr>
+</table>
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Password Protection:  Character Encoder</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.86 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL CHARACTER ENCODER:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Mike McGrath (mike_mcgrath@lineone.net) --&gt;
+&lt;!-- Web Site:  http://website.lineone.net/~mike_mcgrath/ --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var str_in;
+var str_out = ""; 
+var num_in;
+var num_out = "";
+var e = "Enter Text!";
+
+function str_to_num(form) {
+num_out = "";
+if(form.input.value == "") alert(e);
+else {
+str_in = escape(form.input.value);
+for(i = 0; i &lt; str_in.length; i++) {
+num_out += str_in.charCodeAt(i) - 23;
+}
+form.output.value = num_out;
+form.input.value = "";
+   }
+}
+
+function num_to_str(form) {
+str_out = "";
+if(form.output.value == "") alert(e)
+else {
+num_out = form.output.value;  
+for(i = 0; i &lt; num_out.length; i += 2) {
+num_in = parseInt(num_out.substr(i,[2])) + 23;
+num_in = unescape('%' + num_in.toString(16));
+str_out += num_in;
+}
+form.input.value = unescape(str_out);
+form.output.value = "";
+   }
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form name=encryptform&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td align=center&gt;Original String&lt;/td&gt;
+&lt;td&gt;&nbsp;&lt;/td&gt;
+&lt;td align=center&gt;Encrypted Code&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=center&gt;&lt;input name=input type=text size=40 value="JavaScript Source"&gt;&lt;/td&gt;
+&lt;td align=center&gt;
+&lt;input type=button value="&lt;--" onClick="javascript:num_to_str(this.form)"&gt;&lt;br&gt;
+&lt;input type=button value="--&gt;" onClick="javascript:str_to_num(this.form)"&gt;
+&lt;/td&gt;
+&lt;td align=center&gt;&lt;input name=output type=text size=40&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  1.86 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>
+
+
+

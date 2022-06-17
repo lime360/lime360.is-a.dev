@@ -1,0 +1,157 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Forms:  Extract Email Addresses</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Ronnie T. Moore, Editor">
+<META NAME="section" CONTENT="Forms">
+<META NAME="description" CONTENT="Visitors sometimes include their email address inside the message field when they fill out forms. To deal with this, this script parses through the string and uses a Regular Expression to find then return a comma-separated list of the valid email addresses it finds. Easy!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Ronnie T. Moore, Editor -->
+
+
+
+
+<!-- Begin
+function findEmailAddresses(StrObj) {
+var separateEmailsBy = ", ";
+var email = "<none>"; // if no match, use this
+var emailsArray = StrObj.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi);
+if (emailsArray) {
+email = "";
+for (var i = 0; i < emailsArray.length; i++) {
+if (i != 0) email += separateEmailsBy;
+email += emailsArray[i];
+      }
+   }
+return email;
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /forms/" ><font color="#FF0000"><b>Forms</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Extract Email Addresses</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Visitors sometimes include their email address inside the message field when they fill out forms. To deal with this, this script parses through the string and uses a Regular Expression to find then return a comma-separated list of the valid email addresses it finds. Easy!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<br>
+<font face="arial, helvetica" size="-1" color="red">
+(For this demo, enter some text in the box and then click out of the field.  If you included<br>
+one or more valid email addresses, they will be displayed in the Email field below the box.)</font>
+<p>
+<form>
+<textarea name=comments rows=10 cols=50 onBlur="this.form.email.value=findEmailAddresses(this.value);"></textarea>
+<br>
+Email:  <input type=text name=email>
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Forms:  Extract Email Addresses</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.19 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL EXTRACT EMAIL ADDRESSES:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Ronnie T. Moore, Editor --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function findEmailAddresses(StrObj) {
+var separateEmailsBy = ", ";
+var email = "&lt;none&gt;"; // if no match, use this
+var emailsArray = StrObj.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi);
+if (emailsArray) {
+email = "";
+for (var i = 0; i &lt; emailsArray.length; i++) {
+if (i != 0) email += separateEmailsBy;
+email += emailsArray[i];
+      }
+   }
+return email;
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form&gt;
+&lt;textarea name=comments rows=10 cols=50 onBlur="this.form.email.value=findEmailAddresses(this.value);"&gt;&lt;/textarea&gt;
+&lt;br&gt;
+Email:  &lt;input type=text name=email&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  1.19 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

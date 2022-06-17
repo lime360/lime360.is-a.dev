@@ -1,0 +1,404 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Calculators:  Interest</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Calculators">
+<META NAME="description" CONTENT="Use JavaScript to find out just how much that new house or car is going to cost you each month. Enter values into the fields below to find out how much each monthly payment would be with the given number of payments, interest rate, and loan amount.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function checkNumber(input, min, max, msg) {
+msg = msg + " field has invalid data: " + input.value;
+var str = input.value;
+for (var i = 0; i < str.length; i++) {
+var ch = str.substring(i, i + 1)
+if ((ch < "0" || "9" < ch) && ch != '.') {
+alert(msg);
+return false;
+      }
+   }
+var num = parseFloat(str)
+if (num < min || max < num) {
+alert(msg + " not in range [" + min + ".." + max + "]");
+return false;
+   }
+input.value = str;
+return true;
+}
+function computeField(input) {
+if (input.value != null && input.value.length != 0)
+input.value = "" + eval(input.value);
+computeForm(input.form);
+}
+function computeForm(form) {
+if ((form.payments.value == null || form.payments.value.length == 0) ||
+(form.interest.value == null || form.interest.value.length == 0) ||
+(form.principal.value == null || form.principal.value.length == 0)) {
+return;
+}
+if (!checkNumber(form.payments, 1, 480, "# of payments") ||
+!checkNumber(form.interest, .001, 99, "Interest") ||
+!checkNumber(form.principal, 100, 10000000, "Principal")) {
+form.payment.value = "Invalid";
+return;
+}
+var i = form.interest.value;
+if (i > 1.0) {
+i = i / 100.0;
+form.interest.value = i;
+}
+i /= 12;
+var pow = 1;
+for (var j = 0; j < form.payments.value; j++)
+pow = pow * (1 + i);
+money = "" + .01* Math.round(100*(form.principal.value * pow * i) / (pow - 1));
+dec = money.indexOf(".");
+dollars = money.substring(0,dec); 
+cents = money.substring(dec+1,dec+3);
+cents = (cents.length < 2) ? cents + "0" : cents;
+money = dollars + "." + cents;
+form.payment.value = money;
+}
+function clearForm(form) {
+form.payments.value = "";
+form.interest.value = "";
+form.principal.value = "";
+}
+// End -->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /calculators/"><font color="#FF0000">Calculators</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Interest</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Use JavaScript to find out just how much that new house or car is going to cost you each month. Enter values into the fields below to find out how much each monthly payment would be with the given number of payments, interest rate, and loan amount.
+<br>
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<CENTER>
+<FORM method=POST>
+<TABLE border>
+<TR>
+<TD>
+<DIV ALIGN=CENTER>  # of<br>Payments</DIV>
+</TD>
+<TD>
+<DIV ALIGN=CENTER>Interest<br>Rate</DIV>
+</TD>
+<TD>
+<DIV ALIGN=CENTER>Principal</DIV>
+</TD>
+<TD>
+</TD>
+<TD>
+<DIV ALIGN=CENTER> Monthly<br> Payment</DIV>
+</TD>
+</TR>
+<TR>
+<TD>
+<INPUT TYPE=TEXT NAME=payments  SIZE=5 onChange=computeField(this)> 
+</TD>
+<TD>
+<INPUT TYPE=TEXT NAME=interest  SIZE=6 onChange=computeField(this)> 
+</TD>
+<TD>
+<INPUT TYPE=TEXT NAME=principal SIZE=9 onChange=computeField(this)> 
+</TD>
+<TD> 
+</TD>
+<TD>
+<INPUT TYPE=TEXT NAME=payment   SIZE=9 onChange=computeField(this)> 
+</TD>
+<TD>
+<INPUT TYPE="button" VALUE="Compute"   onClick=computeForm(this.form)> 
+</TD>
+<TD>
+<INPUT TYPE="reset"  VALUE="Reset"     onClick=clearForm(this.form)> 
+</TD>
+</TR>
+</FORM>
+<FORM method=POST>
+<TR>
+<TD>
+<INPUT TYPE=TEXT NAME=payments  SIZE=5 onChange=computeField(this)> 
+</TD>
+<TD>
+<INPUT TYPE=TEXT NAME=interest  SIZE=6 onChange=computeField(this)> 
+</TD>
+<TD>
+<INPUT TYPE=TEXT NAME=principal SIZE=9 onChange=computeField(this)> 
+</TD>
+<TD> 
+</TD>
+<TD>
+<INPUT TYPE=TEXT NAME=payment   SIZE=9 onChange=computeField(this)> 
+</TD>
+<TD>
+<INPUT TYPE="button" VALUE="Compute"   onClick=computeForm(this.form)> 
+</TD>
+<TD>
+<INPUT TYPE="reset"  VALUE="Reset"     onClick=clearForm(this.form)> 
+</TD>
+</TR>
+</FORM>
+<FORM method=POST>
+<TR>
+<TD>
+<INPUT TYPE=TEXT NAME=payments  SIZE=5 onChange=computeField(this)> 
+</TD>
+<TD>
+<INPUT TYPE=TEXT NAME=interest  SIZE=6 onChange=computeField(this)> 
+</TD>
+<TD>
+<INPUT TYPE=TEXT NAME=principal SIZE=9 onChange=computeField(this)> 
+</TD>
+<TD>
+</TD>
+<TD>
+<INPUT TYPE=TEXT NAME=payment   SIZE=9 onChange=computeField(this)> 
+</TD>
+<TD>
+<INPUT TYPE="button" VALUE="Compute"   onClick=computeForm(this.form)> 
+</TD>
+<TD>
+<INPUT TYPE="reset"  VALUE="Reset"     onClick=clearForm(this.form)>
+</TD>
+</TR>
+</TABLE>
+</FORM>
+</CENTER>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Calculator:  Interest Calculator</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  3.93 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL INTEREST CALCULATOR:
+
+   1.  Paste the coding into the HEAD of your HTML document
+   2.  Copy the last code into the BODY of your HTML document  --&gt;
+
+&lt;!--  STEP ONE: Copy this code into your HTML document  --&gt;
+		  
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function checkNumber(input, min, max, msg) {
+msg = msg + " field has invalid data: " + input.value;
+var str = input.value;
+for (var i = 0; i &lt; str.length; i++) {
+var ch = str.substring(i, i + 1)
+if ((ch &lt; "0" || "9" &lt; ch) && ch != '.') {
+alert(msg);
+return false;
+      }
+   }
+var num = parseFloat(str)
+if (num &lt; min || max &lt; num) {
+alert(msg + " not in range [" + min + ".." + max + "]");
+return false;
+   }
+input.value = str;
+return true;
+}
+function computeField(input) {
+if (input.value != null && input.value.length != 0)
+input.value = "" + eval(input.value);
+computeForm(input.form);
+}
+function computeForm(form) {
+if ((form.payments.value == null || form.payments.value.length == 0) ||
+(form.interest.value == null || form.interest.value.length == 0) ||
+(form.principal.value == null || form.principal.value.length == 0)) {
+return;
+}
+if (!checkNumber(form.payments, 1, 480, "# of payments") ||
+!checkNumber(form.interest, .001, 99, "Interest") ||
+!checkNumber(form.principal, 100, 10000000, "Principal")) {
+form.payment.value = "Invalid";
+return;
+}
+var i = form.interest.value;
+if (i &gt; 1.0) {
+i = i / 100.0;
+form.interest.value = i;
+}
+i /= 12;
+var pow = 1;
+for (var j = 0; j &lt; form.payments.value; j++)
+pow = pow * (1 + i);
+money = "" + .01* Math.round(100*(form.principal.value * pow * i) / (pow - 1));
+dec = money.indexOf(".");
+dollars = money.substring(0,dec); 
+cents = money.substring(dec+1,dec+3);
+cents = (cents.length < 2) ? cents + "0" : cents;
+money = dollars + "." + cents;
+form.payment.value = money;
+}
+function clearForm(form) {
+form.payments.value = "";
+form.interest.value = "";
+form.principal.value = "";
+}
+// done hiding from old browsers --&gt;
+&lt;/SCRIPT&gt;
+
+&lt;!-- STEP TWO:  Put this last script into the BODY of your HTML document --&gt;
+
+&lt;BODY&gt;
+
+&lt;CENTER&gt;
+&lt;FORM method=POST&gt;
+&lt;TABLE border&gt;
+&lt;TR&gt;
+&lt;TD&gt;
+&lt;DIV ALIGN=CENTER&gt;  # of&lt;br&gt;Payments&lt;/DIV&gt;
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;DIV ALIGN=CENTER&gt;Interest&lt;br&gt;Rate&lt;/DIV&gt;
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;DIV ALIGN=CENTER&gt;Principal&lt;/DIV&gt;
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;DIV ALIGN=CENTER&gt; Monthly&lt;br&gt; Payment&lt;/DIV&gt;
+&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;TR&gt;
+&lt;TD&gt;
+&lt;INPUT TYPE=TEXT NAME=payments  SIZE=5 onChange=computeField(this)&gt; 
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;INPUT TYPE=TEXT NAME=interest  SIZE=6 onChange=computeField(this)&gt; 
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;INPUT TYPE=TEXT NAME=principal SIZE=9 onChange=computeField(this)&gt; 
+&lt;/TD&gt;
+&lt;TD&gt; 
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;INPUT TYPE=TEXT NAME=payment   SIZE=9 onChange=computeField(this)&gt; 
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;INPUT TYPE="button" VALUE="Compute"   onClick=computeForm(this.form)&gt; 
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;INPUT TYPE="reset"  VALUE="Reset"     onClick=clearForm(this.form)&gt; 
+&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;/FORM&gt;
+&lt;FORM method=POST&gt;
+&lt;TR&gt;
+&lt;TD&gt;
+&lt;INPUT TYPE=TEXT NAME=payments  SIZE=5 onChange=computeField(this)&gt; 
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;INPUT TYPE=TEXT NAME=interest  SIZE=6 onChange=computeField(this)&gt; 
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;INPUT TYPE=TEXT NAME=principal SIZE=9 onChange=computeField(this)&gt; 
+&lt;/TD&gt;
+&lt;TD&gt; 
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;INPUT TYPE=TEXT NAME=payment   SIZE=9 onChange=computeField(this)&gt; 
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;INPUT TYPE="button" VALUE="Compute"   onClick=computeForm(this.form)&gt; 
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;INPUT TYPE="reset"  VALUE="Reset"     onClick=clearForm(this.form)&gt; 
+&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;/FORM&gt;
+&lt;FORM method=POST&gt;
+&lt;TR&gt;
+&lt;TD&gt;
+&lt;INPUT TYPE=TEXT NAME=payments  SIZE=5 onChange=computeField(this)&gt; 
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;INPUT TYPE=TEXT NAME=interest  SIZE=6 onChange=computeField(this)&gt; 
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;INPUT TYPE=TEXT NAME=principal SIZE=9 onChange=computeField(this)&gt; 
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;INPUT TYPE=TEXT NAME=payment   SIZE=9 onChange=computeField(this)&gt; 
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;INPUT TYPE="button" VALUE="Compute"   onClick=computeForm(this.form)&gt; 
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;INPUT TYPE="reset"  VALUE="Reset"     onClick=clearForm(this.form)&gt;
+&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;/TABLE&gt;
+&lt;/FORM&gt;
+&lt;/CENTER&gt;
+
+ 
+
+&lt;!-- Script Size:  3.93 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

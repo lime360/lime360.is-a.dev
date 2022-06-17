@@ -1,0 +1,184 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Calculators:  Ad Calculator</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Calculators">
+<META NAME="description" CONTENT="Selling ad banners has just got easier!  Just enter two fields of the three fields of information, such as the total cost, CPM (cost per thousand impressions), and exposures (number of ads shown), and the calculator will solve the last field for you.">
+
+<SCRIPT LANGUAGE="JavaScript">
+
+
+
+
+<!-- Begin
+function adCalc(form) {
+var ok = 0;
+var cost = form.cost.value;
+var cpm = form.cpm.value;
+var exposures = form.exposures.value;
+
+var complete = "It looks like you entered all the information already!  With this calculator, you just enter two of the fields and it solves for the last one.";
+
+var incomplete = "Oops!  It doesn't appear you entered enough information.  Please enter at least two entries in order to solve for the other two.";
+
+if (cost != "" && cpm != "")       { form.exposures.value = ((cost / cpm) * 1000); ok++; } // solve for exposures
+if (cost != "" && exposures != "") { form.cpm.value = ((1000 / exposures) * cost); ok++; } // solve for cpm
+if (cpm != "" && exposures != "")  { form.cost.value = cpm / (1000 / exposures);   ok++; } // solve for cost
+
+if (!ok) alert(incomplete);  // they did not enter at least 2 fields
+if (cost != "" && cpm != "" && exposures != "") alert(complete); // they filled in all the fields!
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /calculators/"><font color="#FF0000"><b>Calculators</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Ad Calculator</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Selling ad banners has just got easier!  Just enter two fields of the three fields of information, such as the total cost, CPM (cost per thousand impressions), and exposures (number of ads shown), and the calculator will solve the last field for you.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form method=post>
+<table border="1" cellpadding=5>
+<tr>
+<td align=center>Cost:</td>
+<td align=center><input type=text name=cost size=8 value="" onFocus="select()"></td>
+</tr>
+<tr>
+<td align=center>CPM:</td>
+<td align=center><input type=text name=cpm size=8 value="" onFocus="select()"></td>
+</tr>
+<tr>
+<td align=center>Exposures:</td>
+<td align=center><input type=text name=exposures size=8 value="" onFocus="select()"></td>
+</tr>
+<tr>
+<td colspan=2 align=center><input type=button value="Solve" onClick="adCalc(this.form)">&nbsp;<input type=reset value=reset></td>
+</tr>
+</table> 
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Calculators:  Ad Calculator</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.09 KB" size=24>
+</DIV>
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL AD CALCULATOR:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function adCalc(form) {
+var ok = 0;
+var cost = form.cost.value;
+var cpm = form.cpm.value;
+var exposures = form.exposures.value;
+
+var complete = "It looks like you entered all the information already!  With this calculator, you just enter two of the fields and it solves for the last one.";
+
+var incomplete = "Oops!  It doesn't appear you entered enough information.  Please enter at least two entries in order to solve for the other two.";
+
+if (cost != "" && cpm != "")       { form.exposures.value = ((cost / cpm) * 1000); ok++; } // solve for exposures
+if (cost != "" && exposures != "") { form.cpm.value = ((1000 / exposures) * cost); ok++; } // solve for cpm
+if (cpm != "" && exposures != "")  { form.cost.value = cpm / (1000 / exposures);   ok++; } // solve for cost
+
+if (!ok) alert(incomplete);  // they did not enter at least 2 fields
+if (cost != "" && cpm != "" && exposures != "") alert(complete); // they filled in all the fields!
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form method=post&gt;
+&lt;table border="1" cellpadding=5&gt;
+&lt;tr&gt;
+&lt;td align=center&gt;Cost:&lt;/td&gt;
+&lt;td align=center&gt;&lt;input type=text name=cost size=8 value="" onFocus="select()"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=center&gt;CPM:&lt;/td&gt;
+&lt;td align=center&gt;&lt;input type=text name=cpm size=8 value="" onFocus="select()"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=center&gt;Exposures:&lt;/td&gt;
+&lt;td align=center&gt;&lt;input type=text name=exposures size=8 value="" onFocus="select()"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td colspan=2 align=center&gt;&lt;input type=button value="Solve" onClick="adCalc(this.form)"&gt;&nbsp;&lt;input type=reset value=reset&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt; 
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  2.09 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

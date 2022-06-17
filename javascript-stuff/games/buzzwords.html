@@ -1,0 +1,472 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Games:  Buzzwords</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Games">
+<META NAME="description" CONTENT="Visitors can create custom and unique 'buzz' phrases using JavaScript. They may click the Buzz button or, customize the buzz phrase with a personal buzz term.">
+
+<SCRIPT LANGUAGE="JAVASCRIPT">
+<!-- Begin
+function ClearForm(form){
+form.InSeed.value  ="";
+}
+function FillBs(form){
+var seed  = "";
+seed  = form.InSeed.value;
+var LeadIn = new makeArray(18);
+var Subject = new makeArray(12);
+var Verb = new makeArray(13);
+var ObjectPhrase = new makeArray(14);
+initArrays(LeadIn, Subject, Verb, ObjectPhrase, seed);
+l = Math.floor(17 * RandomNumber() + 1);
+s = Math.floor(11 * RandomNumber() + 1);
+v = Math.floor(12 * RandomNumber() + 1);
+o = Math.floor(13 * RandomNumber() + 1);
+BsValue=LeadIn[l]+" "+Subject[s]+" "+Verb[v]+" "+ObjectPhrase[o];
+alert(BsValue);
+}
+function makeArray(numElements) {
+this.length = numElements
+for (count = 1; count <= numElements; count++) 
+this[count] = 0;
+return (this);
+}
+function initArrays(LeadIn, Subject, Verb, ObjectPhrase, seed){
+LeadIn[0] = " ";
+LeadIn[1] = "In particular,";
+LeadIn[2] = "On the other hand,";
+LeadIn[3] = "However,";
+LeadIn[4] = "Similarly,";
+LeadIn[5] = "As a resultant implication,";
+LeadIn[6] = "In this regard,";
+LeadIn[7] = "Based on integral subsystem considerations,";
+LeadIn[8] = "For example,";
+LeadIn[9] = "Thus,";
+LeadIn[10] = "In respect to specific goals,";
+LeadIn[11] = "Interestingly enough,";
+LeadIn[12] = "Without going into the technical details,";
+LeadIn[13] = "Of course,";
+LeadIn[14] = "To approach true user-friendliness,";
+LeadIn[15] = "In retrospect,";
+LeadIn[16] = "Conversely,";
+LeadIn[17] = "From a top-level view,";
+Subject[0]=" ";
+Subject[1] = "a large portion of interface coordination communication";
+Subject[2] = "a constant flow of effective communication";
+Subject[3] = "the characterization of specific criteria";
+Subject[4] = "initiation of critical subsystem development";
+Subject[5] = "the fully integrated test program";
+Subject[6] = "the product configuration baseline";
+Subject[7] = "any associated supporting element";
+Subject[8] = "the incorporation of additional mission constraints";
+Subject[9] = "the independent functional principle";
+Subject[10] = "the interrelation of system and/or subsystem technologies";
+Subject[11] = "the product assurance architecture";
+Verb[0] = " ";
+Verb[1] = "must utilize and be functionally interwoven with";
+Verb[2] = "maximizes the probability of project success, yet minimizes cost and time required for";
+Verb[3] = "adds explicit performance limits to";
+Verb[4] = "necessitates that urgent consideration be applied to";
+Verb[5] = "requires considerable systems analysis and trade-off studies to arrive at";
+Verb[6] = "is further compounded when taking into account";
+Verb[7] = "presents extremely interesting challenges to";
+Verb[8] = "recognizes other systems' importance and the necessity for";
+Verb[9] = "effects a significant implementation of";
+Verb[10] = "adds overriding performance constraints to";
+Verb[11] = "mandates staff-meeting-level attention to";
+Verb[12] = "is functionally equivalent and parallel to";
+ObjectPhrase[0] = " ";
+ObjectPhrase[1] = "the "+seed+" sophisticated physical layer";
+ObjectPhrase[2] = "the "+seed+" anticipated fourth-generation equipment.";
+ObjectPhrase[3] = "the "+seed+" subsystem compatibility testing.";
+ObjectPhrase[4] = "the "+seed+" structural design, based on system engineering concepts.";
+ObjectPhrase[5] = "the "+seed+" preliminary qualification limit.";
+ObjectPhrase[6] = "the "+seed+" evolution of specifications over a given time period.";
+ObjectPhrase[7] = "the "+seed+" philosophy of commonality and standardization.";
+ObjectPhrase[8] = "the "+seed+" greater fight-worthiness concept.";
+ObjectPhrase[9] = "any "+seed+" discrete configuration mode.";
+ObjectPhrase[10] = "the "+seed+" management-by-contention principle.";
+ObjectPhrase[11] = "the "+seed+" total system rationale.";
+ObjectPhrase[12] = "possible "+seed+" bidirectional logical relationship approaches.";
+ObjectPhrase[13] = "the "+seed+" postulated use of dialog management technology.";
+}
+function RandomNumber() {
+var today = new Date();
+num= Math.abs(Math.sin(today.getTime()));
+return num;  
+}
+// End -->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /games/"><font color="#FF0000">Games</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Buzzwords</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Visitors can create custom and unique "buzz" phrases using JavaScript. They may click the Buzz button or, customize the buzz phrase with a personal buzz term.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form method=post>
+<table border=5 cellpadding=5>
+<tr>
+<td><center>Enter your very own buzzwords term and hit "Buzz!"</center></td>
+</tr>
+<tr>
+<td><input type=text name=InSeed size=40>     <input type="button" value="Buzz!" onClick="FillBs(this.form)"></td>
+</tr>
+</table>
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Games:  Question...</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.16 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL BUZZWORDS:
+
+   1.  Paste the coding into the HEAD of your HTML document
+   2.  Put the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Copy this coding into the HEAD of your HTML document  --&gt;
+		  
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function ClearForm(form){
+   form.InSeed.value  ="";
+}
+function FillBs(form){
+var seed  = "";
+seed  = form.InSeed.value;
+var LeadIn = new makeArray(18);
+var Subject = new makeArray(12);
+var Verb = new makeArray(13);
+var ObjectPhrase = new makeArray(14);
+initArrays(LeadIn, Subject, Verb, ObjectPhrase, seed);
+l = Math.floor(17 * RandomNumber() + 1);
+s = Math.floor(11 * RandomNumber() + 1);
+v = Math.floor(12 * RandomNumber() + 1);
+o = Math.floor(13 * RandomNumber() + 1);
+BsValue=LeadIn[l]+" "+Subject[s]+" "+Verb[v]+" "+ObjectPhrase[o];
+alert(BsValue);
+}
+function makeArray(numElements) {
+this.length = numElements
+for (count = 1; count &lt;= numElements; count++) 
+this[count] = 0;
+return (this);
+}
+function initArrays(LeadIn, Subject, Verb, ObjectPhrase, seed){
+LeadIn[0] = " ";
+LeadIn[1] = "In particular,";
+LeadIn[2] = "On the other hand,";
+LeadIn[3] = "However,";
+LeadIn[4] = "Similarly,";
+LeadIn[5] = "As a resultant implication,";
+LeadIn[6] = "In this regard,";
+LeadIn[7] = "Based on integral subsystem considerations,";
+LeadIn[8] = "For example,";
+LeadIn[9] = "Thus,";
+LeadIn[10] = "In respect to specific goals,";
+LeadIn[11] = "Interestingly enough,";
+LeadIn[12] = "Without going into the technical details,";
+LeadIn[13] = "Of course,";
+LeadIn[14] = "To approach true user-friendliness,";
+LeadIn[15] = "In retrospect,";
+LeadIn[16] = "Conversely,";
+LeadIn[17] = "From a top-level view,";
+Subject[0]=" ";
+Subject[1] = "a large portion of interface coordination communication";
+Subject[2] = "a constant flow of effective communication";
+Subject[3] = "the characterization of specific criteria";
+Subject[4] = "initiation of critical subsystem development";
+Subject[5] = "the fully integrated test program";
+Subject[6] = "the product configuration baseline";
+Subject[7] = "any associated supporting element";
+Subject[8] = "the incorporation of additional mission constraints";
+Subject[9] = "the independent functional principle";
+Subject[10] = "the interrelation of system and/or subsystem technologies";
+Subject[11] = "the product assurance architecture";
+Verb[0] = " ";
+Verb[1] = "must utilize and be functionally interwoven with";
+Verb[2] = "maximizes the probability of project success, yet minimizes cost and time required for";
+Verb[3] = "adds explicit performance limits to";
+Verb[4] = "necessitates that urgent consideration be applied to";
+Verb[5] = "requires considerable systems analysis and trade-off studies to arrive at";
+Verb[6] = "is further compounded when taking into account";
+Verb[7] = "presents extremely interesting challenges to";
+Verb[8] = "recognizes other systems' importance and the necessity for";
+Verb[9] = "effects a significant implementation of";
+Verb[10] = "adds overriding performance constraints to";
+Verb[11] = "mandates staff-meeting-level attention to";
+Verb[12] = "is functionally equivalent and parallel to";
+ObjectPhrase[0] = " ";
+ObjectPhrase[1] = "the "+seed+" sophisticated physical layer";
+ObjectPhrase[2] = "the "+seed+" anticipated fourth-generation equipment.";
+ObjectPhrase[3] = "the "+seed+" subsystem compatibility testing.";
+ObjectPhrase[4] = "the "+seed+" structural design, based on system engineering concepts.";
+ObjectPhrase[5] = "the "+seed+" preliminary qualification limit.";
+ObjectPhrase[6] = "the "+seed+" evolution of specifications over a given time period.";
+ObjectPhrase[7] = "the "+seed+" philosophy of commonality and standardization.";
+ObjectPhrase[8] = "the "+seed+" greater fight-worthiness concept.";
+ObjectPhrase[9] = "any "+seed+" discrete configuration mode.";
+ObjectPhrase[10] = "the "+seed+" management-by-contention principle.";
+ObjectPhrase[11] = "the "+seed+" total system rationale.";
+ObjectPhrase[12] = "possible "+seed+" bidirectional logical relationship approaches.";
+ObjectPhrase[13] = "the "+seed+" postulated use of dialog management technology.";
+}
+function RandomNumber() {
+var today = new Date();
+num= Math.abs(Math.sin(today.getTime()));
+return num;  
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+&lt;!-- STEP TWO: Copy this coding into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form method=post&gt;
+&lt;table border=5 cellpadding=5&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;center&gt;Enter your very own buzzwords term and hit "Buzz!"&lt;/center&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;input type=text name=InSeed size=40&gt;     &lt;input type="button" value="Buzz!" onClick="FillBs(this.form)"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  4.99 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+
+	
+
+<p>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+function getCookieVal (offset) {
+var endstr = document.cookie.indexOf(";", offset);
+if (endstr == -1)
+endstr = document.cookie.length;
+return unescape(document.cookie.substring(offset, endstr));
+}
+function GetCookie (name) {
+var arg = name + "=";
+var alen = arg.length;
+var clen = document.cookie.length;
+var i = 0;
+while (i < clen) {
+var j = i + alen;
+if (document.cookie.substring(i, j) == arg)
+return getCookieVal (j);
+i = document.cookie.indexOf(" ", i) + 1;
+if (i == 0)
+break;
+}
+return null;
+}
+function SetCookie (name, value) {
+var argv = SetCookie.arguments;
+var argc = SetCookie.arguments.length;
+var expires = (argc > 2) ? argv[2] : null;
+var path = "/"; //(argc > 3) ? argv[3] : null;
+var domain = (argc > 4) ? argv[4] : null;
+var secure = (argc > 5) ? argv[5] : false;
+document.cookie = name + "=" + escape (value) +
+((expires == null) ? "" : ("; expires=" +
+expires.toGMTString())) +
+((path == null) ? "" : ("; path=" + path)) +
+((domain == null) ? "" : ("; domain=" + domain)) +
+((secure == true) ? "; secure" : "");
+}
+
+var emailcookie = GetCookie('email_address');
+if (emailcookie == null) {
+emailcookie = 'your email here';
+}
+
+function chk(email, formname)
+{
+invalid = "";
+
+if (!email)
+invalid = "No email address found!  Try reloading the page then use the 'email a script' feature again.";
+
+else {
+
+if ( (email.indexOf("@") == -1) || (email.indexOf(".") == -1) ) 
+invalid += "\n\nInvalid email address.  Your email address is missing an '@' sign and a '.' in the domain name (like '.com').  Please check your address then submit again.";
+
+if (email.indexOf("youremailhere") > -1)
+invalid += "\n\nInvalid email address.  Make sure your email address included your username, the '@' sign, and the domain name (like '.com').";
+
+if (email.indexOf("\\") > -1) 
+invalid += "\n\nEmail address contains an invalid back-slash (\\) character.  Remove the character and submit again.";
+
+if (email.indexOf("/") > -1) 
+invalid += "\n\nEmail address contains an invalid forward-slash (/) character.  Remove the character and submit again.";
+
+if (email.indexOf("'") > -1) 
+invalid += "\n\nEmail address contains an invalid apostrophe (') character.  Remove the character and submit again.";
+
+if (email.indexOf("zaz.com.br") > -1) 
+invalid += "\n\nPlease do not use an email address that has an autoresponder set up for it.  Thanks.";
+
+if (email.indexOf("!") > -1) 
+invalid += "\n\nEmail address contains an invalid exclamation point (!) character.  Remove the character or correct the email address then submit again.";
+
+if ( (email.indexOf(",") > -1) || (email.indexOf(";") > -1) )
+invalid += "\n\nPlease only enter one email address in the box at a time.  Remove the extra addresses and submit again.";
+
+if (email.indexOf("?subject") > -1) 
+invalid += "\n\nPlease do not add '?subject=...' to your email address.  Scriptbot will send you the script with a pre-defined subject already.  Please remove the '?subject=...' from your email address and submit again.";
+}
+
+if (invalid == "")
+   {
+   var largeExpDate = new Date();
+   largeExpDate.setTime(largeExpDate.getTime() + (31 * 24 * 3600 * 1000));
+   SetCookie('email_address', email, largeExpDate);
+   if (formname == "scriptbot")
+      {
+      page = "http://javascript.internet.com/sent.html?" + email;
+      window.open(page, "AdWindow", "width=650,height=200");
+      }
+   return true;
+}
+else 
+   { 
+   alert("Oops, something is wrong...." + invalid);
+   return false;
+   }
+}
+
+function updateNewsletters() {
+with (document.forms["newslettersignup"]) {
+emailStr = email.value;
+var emailPat=/^(.+)@(.+)$/;
+var specialChars="\\(\\)<>@,;:\\\\\\\"\\.\\[\\]"; // remove   ( ) < > @ , ; : \ " . [ ]    */
+var validChars="\[^\\s" + specialChars + "\]";
+var quotedUser="(\"[^\"]*\")";
+var ipDomainPat=/^\[(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})\]$/;
+var atom=validChars + '+';
+var word="(" + atom + "|" + quotedUser + ")";
+var userPat=new RegExp("^" + word + "(\\." + word + ")*$");
+var domainPat=new RegExp("^" + atom + "(\\." + atom +")*$");
+var matchArray=emailStr.match(emailPat);
+if (matchArray==null) {
+alert("Email address seems incorrect (check @ and .'s)");
+return false;;
+}
+var user=matchArray[1];
+var domain=matchArray[2];
+if (user.match(userPat)==null) {
+alert("The username doesn't seem to be valid.");
+return false;
+}
+var IPArray=domain.match(ipDomainPat);
+if (IPArray!=null) {
+for (var i=1;i<=4;i++) {
+if (IPArray[i]>255) {
+alert("Destination IP address is invalid!");
+return false;
+      }
+   }
+}
+var domainArray=domain.match(domainPat);
+if (domainArray==null) {
+alert("The domain name doesn't seem to be valid.");
+return false;
+}
+var atomPat=new RegExp(atom,"g");
+var domArr=domain.match(atomPat);
+var len=domArr.length;
+if (domArr[domArr.length-1].length<2 || domArr[domArr.length-1].length>3) {
+alert("The address must end in a three-letter domain, or two letter country.");
+return false;
+}
+if (len<2) {
+var errStr="This address is missing a hostname!";
+alert(errStr);
+return false;
+}
+List_Name.value = newsletter.options[newsletter.selectedIndex].value
+		+ nltype.options[nltype.selectedIndex].value;
+
+   var largeExpDate = new Date();
+   largeExpDate.setTime(largeExpDate.getTime() + (31 * 24 * 3600 * 1000));
+   SetCookie('email_address', emailStr, largeExpDate);
+
+return true;
+   }
+}
+// End -->
+</script>
+
+<p>
+<center>
+
+<table cellpadding=0 cellspacing=0 border=0 width="620">
+<tr>
+<td align=left>
+

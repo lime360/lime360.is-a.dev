@@ -1,0 +1,223 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Calculators:  Calories Burned</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Calculators">
+<META NAME="description" CONTENT="JavaScript can help you figure how many calories you have burned.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+var myWeight;
+var myDistance;
+function HowMany(form) {
+var difference;
+difference = (myDistance * myWeight) * .653;
+form.Fdiff.value = difference;
+    
+if (difference < 100) {
+form.comment.value="You better start working!";
+}
+if (difference >  101 && difference < 200) {
+form.comment.value="Nice run, but you can do better.";
+}
+if (difference >  201 && difference < 300) {
+form.comment.value="Very good!  Push above 300 next time.";
+}
+if (difference >  301 && difference < 500) {
+form.comment.value="Great!  Your a runner.....keep it up!";
+}
+if (difference >  501 && difference < 700) {
+form.comment.value="Bill Rogers move over!";
+}
+if (difference > 701) {
+form.comment.value="Your my hero!  Have a jelly doughnut.";  
+}
+}
+function SetMyWeight(weight) {
+myWeight = weight.value;
+}
+function SetmyDistance(dis) {
+myDistance = dis.value;
+}
+function ClearForm(form){
+form.myWeight.value = "";
+form.myDistance.value = "";
+form.Fdiff.value = "";
+form.comment.value = "";
+}
+// End -->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<P>
+<center>
+
+	
+<P>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /calculators/"><font color="#FF0000">Calculators</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Calories Burned</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+JavaScript can help you figure how many calories you have burned. 
+<br>
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<BODY BGCOLOR="#FFFFFF">
+  <BODY>
+  <center>
+  <FORM METHOD="POST">
+  <TABLE border=3>
+  <TR>
+  <TR>
+  <TD><div align=center>Your<br>Weight</div></TD>
+  <TD><div align=center>Miles<br>run</div></TD>
+  <TD><div align=center>Calories<br>burned</div></TD>
+  <TD><INPUT TYPE=BUTTON ONCLICK="HowMany(this.form)" VALUE="Calculate"></TD>
+  </TR>
+  <tr>
+  <TD><div align=center><INPUT TYPE=text  NAME=myWeight SIZE="4"ONCHANGE="SetMyWeight(this)"></div></TD>
+  <TD><div align=center><INPUT TYPE=text  NAME=myDistance SIZE="4"ONCHANGE="SetmyDistance(this)"></div></TD>
+  <TD><div align=center><INPUT TYPE=text NAME="Fdiff" VALUE="" SIZE="6"></div></TD>
+  <TD><div align=center><INPUT TYPE=BUTTON VALUE="   Reset   " onClick="ClearForm(this.form)"></div></tr>
+  </table>
+  <table border=3>
+  <tr>
+  <TD><DIV ALIGN=CENTER>Comments</DIV></TD>
+  <TD><INPUT TYPE=text NAME="comment" size="37"></td>
+  </TR>
+  </TABLE>
+  </FORM>
+  </center
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Calculator:  Calories Burned</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.40 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL CALORIES BURNED:
+
+   1.  Paste the specified coding into the HEAD of your HTML document
+   2.  Put the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the HEAD your HTML document  --&gt;
+		  
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var myWeight;
+var myDistance;
+function HowMany(form) {
+var difference;
+difference = (myDistance * myWeight) * .653;
+form.Fdiff.value = difference;
+    
+if (difference &lt; 100) {
+form.comment.value="You better start working!";
+}
+if (difference &gt;  101 && difference &lt; 200) {
+form.comment.value="Nice run, but you can do better.";
+}
+if (difference &gt;  201 && difference &lt; 300) {
+form.comment.value="Very good!  Push above 300 next time.";
+}
+if (difference &gt;  301 && difference &lt; 500) {
+form.comment.value="Great!  Your a runner.....keep it up!";
+}
+if (difference &gt;  501 && difference &lt; 700) {
+form.comment.value="Bill Rogers move over!";
+}
+if (difference &gt; 701) {
+form.comment.value="Your my hero!  Have a jelly doughnut.";  
+}
+}
+function SetMyWeight(weight) {
+myWeight = weight.value;
+}
+function SetmyDistance(dis) {
+myDistance = dis.value;
+}
+function ClearForm(form){
+form.myWeight.value = "";
+form.myDistance.value = "";
+form.Fdiff.value = "";
+form.comment.value = "";
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;CENTER&gt;
+&lt;FORM METHOD="POST"&gt;
+&lt;TABLE border=3&gt;
+&lt;TR&gt;
+&lt;TR&gt;
+&lt;TD&gt;&lt;div align=center&gt;Your&lt;br&gt;Weight&lt;/div&gt;&lt;/TD&gt;
+&lt;TD&gt;&lt;div align=center&gt;Miles&lt;br&gt;run&lt;/div&gt;&lt;/TD&gt;
+&lt;TD&gt;&lt;div align=center&gt;Calories&lt;br&gt;burned&lt;/div&gt;&lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE=BUTTON ONCLICK="HowMany(this.form)" VALUE="Calculate"&gt;&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;tr&gt;
+&lt;TD&gt;&lt;div align=center&gt;&lt;INPUT TYPE=text  NAME=myWeight SIZE="4"ONCHANGE="SetMyWeight(this)"&gt;&lt;/div&gt;&lt;/TD&gt;
+&lt;TD&gt;&lt;div align=center&gt;&lt;INPUT TYPE=text  NAME=myDistance SIZE="4"ONCHANGE="SetmyDistance(this)"&gt;&lt;/div&gt;&lt;/TD&gt;
+&lt;TD&gt;&lt;div align=center&gt;&lt;INPUT TYPE=text NAME="Fdiff" VALUE="" SIZE="6"&gt;&lt;/div&gt;&lt;/TD&gt;
+&lt;TD&gt;&lt;div align=center&gt;&lt;INPUT TYPE=BUTTON VALUE="   Reset   " onClick="ClearForm(this.form)"&gt;&lt;/div&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;table border=3&gt;
+&lt;tr&gt;
+&lt;TD&gt;&lt;DIV ALIGN=CENTER&gt;Comments&lt;/DIV&gt;&lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE=text NAME="comment" size="37"&gt;&lt;/td&gt;
+&lt;/TR&gt;
+&lt;/TABLE&gt;
+&lt;/FORM&gt;
+&lt;/CENTER&gt;
+
+ 
+
+&lt;!-- Script Size:  2.40 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

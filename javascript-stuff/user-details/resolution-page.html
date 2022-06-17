@@ -1,0 +1,138 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  User Details:  Resolution Page</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="User Details">
+<META NAME="description" CONTENT="When users visit your page, JavaScript will determine their screen's resolution and redirect them to the page of your site that you wrote for that screen size!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+function redirectPage() {
+if ((screen.width == 640) && (screen.height == 480)) 
+size = "640 x 480";
+else if ((screen.width == 800) && (screen.height == 600))
+size = "800 x 600";
+else if ((screen.width == 1024) && (screen.height == 768))
+size = "1024 x 768";
+else size = "the default 640 x 480";
+alert("You would now have been redirected to a page for " + size + " resolution browsers....");
+}
+// End -->
+</script>
+
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /user-details/"><font color="#FF0000">User Details</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Resolution Page</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE=" helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+When users visit your page, JavaScript will determine their screen's resolution and redirect them to the page of your site that you wrote for that screen size!<br><hr>
+</td></tr>
+</table>
+<!--  Demonstration  -->
+<center>
+<form>
+<input type=button value="Enter!" onClick="redirectPage()">
+</form>
+</center>
+<P>
+<BR>
+<P>
+<a name="source">
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  User Details:  Resolution Page</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as NotePad or SimpleText) and save (Control-s or Apple-s).  The script is yours!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.29 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL RESOLUTION PAGE:
+
+   1.  Paste the coding into the HEAD of your HTML document
+   2.  Add the last code into the BODY of your HTML document
+   3.  Be sure to update the resolution pages to ones on your site  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function redirectPage() {
+var url640x480 = "http://www.yoursite.com/640x480";
+var url800x600 = "http://www.yoursite.com/800x600";
+var url1024x768 = "http://www.yoursite.com/1024x768";
+if ((screen.width == 640) && (screen.height == 480)) 
+window.location.href= url640x480;
+else if ((screen.width == 800) && (screen.height == 600))
+window.location.href= url800x600;
+else if ((screen.width == 1024) && (screen.height == 768))
+window.location.href= url1024x768;
+else window.location.href= url640x480;
+}
+// End --&gt;
+&lt;/script&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;center&gt;
+&lt;form&gt;
+&lt;input type=button value="Enter!" onClick="redirectPage()"&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+&lt;!-- STEP THREE: Don't forget to update the URLs in the code above!  --&gt;
+
+ 
+
+&lt;!-- Script Size:  1.29 KB  --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

@@ -1,0 +1,174 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Forms:  Limit Boxes</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Glenn Wang (brief@ix.netcom.com)">
+<META NAME="section" CONTENT="Forms">
+<META NAME="description" CONTENT="Limits the number of checkboxes that the user is able to check on your site.  Ideal for situations when more than one selection is allowed up to a certain number overall.  If they select too many, they are notified of the maximum allowed and their last entry becomes unchecked.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Glenn Wang (brief@ix.netcom.com) -->
+<!-- Web Site:  http://capsule.bayside.net/ -->
+
+<!-- Modified by Ronnie T. Moore (JavaScript Source Code 3000) -->
+
+
+
+
+<!-- Begin
+function countChoices(obj) {
+max = 2; // max. number allowed at a time
+
+box1 = obj.form.box1.checked;  // your checkboxes here
+box2 = obj.form.box2.checked;
+box3 = obj.form.box3.checked;  // add more if necessary
+
+count = (box1 ? 1 : 0) + (box2 ? 1 : 0) + (box3 ? 1 : 0);
+// If you have more checkboxes on your form
+// add more  (box_ ? 1 : 0)  's separated by '+'
+
+if (count > max) {
+alert("Oops!  You can only choose up to " + max + " choices! \nUncheck an option if you want to pick another.");
+obj.checked = false;
+   }
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /forms/" ><font color="#FF0000"><b>Forms</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Limit Boxes</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Limits the number of checkboxes that the user is able to check on your site.  Ideal for situations when more than one selection is allowed up to a certain number overall.  If they select too many, they are notified of the maximum allowed and their last entry becomes unchecked.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form>
+Please choose up to 2 sections:  (or check all three and see what happens!)
+<p>
+<input type=checkbox name=box1 onClick="countChoices(this)">Section 1
+<p>
+<input type=checkbox name=box2 onClick="countChoices(this)">Section 2
+<p>
+<input type=checkbox name=box3 onClick="countChoices(this)">Section 3
+<p>
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Forms:  Limit Boxes</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.55 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL LIMIT BOXES:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Glenn Wang (brief@ix.netcom.com) --&gt;
+&lt;!-- Web Site:  http://capsule.bayside.net/ --&gt;
+
+&lt;!-- Modified by Ronnie T. Moore (JavaScript Source Code 3000) --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function countChoices(obj) {
+max = 2; // max. number allowed at a time
+
+box1 = obj.form.box1.checked;  // your checkboxes here
+box2 = obj.form.box2.checked;
+box3 = obj.form.box3.checked;  // add more if necessary
+
+count = (box1 ? 1 : 0) + (box2 ? 1 : 0) + (box3 ? 1 : 0);
+// If you have more checkboxes on your form
+// add more  (box_ ? 1 : 0)  's separated by '+'
+
+if (count &gt; max) {
+alert("Oops!  You can only choose up to " + max + " choices! \nUncheck an option if you want to pick another.");
+obj.checked = false;
+   }
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form&gt;
+Please choose up to 2 sections:
+&lt;p&gt;
+&lt;input type=checkbox name=box1 onClick="countChoices(this)"&gt;Section 1
+&lt;p&gt;
+&lt;input type=checkbox name=box2 onClick="countChoices(this)"&gt;Section 2
+&lt;p&gt;
+&lt;input type=checkbox name=box3 onClick="countChoices(this)"&gt;Section 3
+&lt;p&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  1.55 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

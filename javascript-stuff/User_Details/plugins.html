@@ -1,0 +1,207 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  User Details:  User Plugins</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="User Details">
+<META NAME="description" CONTENT="Use this script to display a table with all the plugins installed on the visitor's computer.  Another neat script because it deals with the user's computer specifics directly.">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /user-details/"><font color="#FF0000">User Details</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">User Plugins</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Use this script to display a table with all the plugins installed on the visitor's computer.  Another neat script because it deals with the user's computer specifics directly.
+<br>
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<CENTER>
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+numPlugins = navigator.plugins.length;
+if (numPlugins > 0)
+document.writeln("<b><font size=+3>Installed plug-ins</font></b><br>");
+else
+document.writeln("<b><font size=+2>No plug-ins are installed.</font></b><br>");
+document.writeln("<hr>");
+for (i = 0; i < numPlugins; i++) {
+plugin = navigator.plugins[i];
+document.write("<center><font size=+1><b>");
+document.write(plugin.name);
+document.writeln("</b></font></center><br>");
+document.writeln("<dl>");
+document.writeln("<dd>File name:");
+document.write(plugin.filename);
+document.write("<dd><br>");
+document.write(plugin.description);
+document.writeln("</dl>");
+document.writeln("<p>");
+document.writeln("<table width=100% border=2 cellpadding=5>");
+document.writeln("<tr>");
+document.writeln("<th width=20%><font size=-1>Mime Type</font></th>");
+document.writeln("<th width=50%><font size=-1>Description</font></th>");
+document.writeln("<th width=20%><font size=-1>Suffixes</font></th>");
+document.writeln("<th><font size=-1>Enabled</th>");
+document.writeln("</tr>");
+numTypes = plugin.length;
+for (j = 0; j < numTypes; j++) {
+mimetype = plugin[j];
+if (mimetype) {
+enabled = "No";
+enabledPlugin = mimetype.enabledPlugin;
+if (enabledPlugin && (enabledPlugin.name == plugin.name))
+enabled = "Yes";
+document.writeln("<tr align=center>");
+document.writeln("<td>");
+document.write(mimetype.type);
+document.writeln("</td>");
+document.writeln("<td>");
+document.write(mimetype.description);
+document.writeln("</td>");
+document.writeln("<td>");
+document.write(mimetype.suffixes);
+document.writeln("</td>");
+document.writeln("<td>");
+document.writeln(enabled);
+document.writeln("</td>");
+document.writeln("</tr>");
+   }
+}
+document.write("</table>");
+document.write("<p><hr><p>");
+}
+// End -->
+</SCRIPT>
+</CENTER>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  User Details:  User Plugins</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.31 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- ONE STEP TO INSTALL USER PLUGINS:
+
+   1.  Put the coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;CENTER&gt;
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+numPlugins = navigator.plugins.length;
+if (numPlugins &gt; 0)
+document.writeln("&lt;b&gt;&lt;font size=+3&gt;Installed plug-ins&lt;/font&gt;&lt;/b&gt;&lt;br&gt;");
+else
+document.writeln("&lt;b&gt;&lt;font size=+2&gt;No plug-ins ");
+document.writeln("are installed.&lt;/font&gt;&lt;/b&gt;&lt;br&gt;");
+document.writeln("&lt;hr&gt;");
+for (i = 0; i &lt; numPlugins; i++) {
+plugin = navigator.plugins[i];
+document.write("&lt;center&gt;&lt;font size=+1&gt;&lt;b&gt;");
+document.write(plugin.name);
+document.writeln("&lt;/b&gt;&lt;/font&gt;&lt;/center&gt;&lt;br&gt;");
+document.writeln("&lt;dl&gt;");
+document.writeln("&lt;dd&gt;File name:");
+document.write(plugin.filename);
+document.write("&lt;dd&gt;&lt;br&gt;");
+document.write(plugin.description);
+document.writeln("&lt;/dl&gt;");
+document.writeln("&lt;p&gt;");
+document.writeln("&lt;table width=100% border=2 cellpadding=5&gt;");
+document.writeln("&lt;tr&gt;");
+document.writeln("&lt;th width=20%&gt;&lt;font size=-1&gt;Mime Type&lt;/font&gt;&lt;/th&gt;");
+document.writeln("&lt;th width=50%&gt;&lt;font size=-1&gt;Description&lt;/font&gt;&lt;/th&gt;");
+document.writeln("&lt;th width=20%&gt;&lt;font size=-1&gt;Suffixes&lt;/font&gt;&lt;/th&gt;");
+document.writeln("&lt;th&gt;&lt;font size=-1&gt;Enabled&lt;/th&gt;");
+document.writeln("&lt;/tr&gt;");
+numTypes = plugin.length;
+for (j = 0; j &lt; numTypes; j++) {
+mimetype = plugin[j];
+if (mimetype) {
+enabled = "No";
+enabledPlugin = mimetype.enabledPlugin;
+if (enabledPlugin && (enabledPlugin.name == plugin.name))
+enabled = "Yes";
+document.writeln("&lt;tr align=center&gt;");
+document.writeln("&lt;td&gt;");
+document.write(mimetype.type);
+document.writeln("&lt;/td&gt;");
+document.writeln("&lt;td&gt;");
+document.write(mimetype.description);
+document.writeln("&lt;/td&gt;");
+document.writeln("&lt;td&gt;");
+document.write(mimetype.suffixes);
+document.writeln("&lt;/td&gt;");
+document.writeln("&lt;td&gt;");
+document.writeln(enabled);
+document.writeln("&lt;/td&gt;");
+document.writeln("&lt;/tr&gt;");
+   }
+}
+document.write("&lt;/table&gt;");
+document.write("&lt;p&gt;&lt;hr&gt;&lt;p&gt;");
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+&lt;/CENTER&gt;
+
+ 
+
+&lt;!-- Script Size:  2.31 KB  --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

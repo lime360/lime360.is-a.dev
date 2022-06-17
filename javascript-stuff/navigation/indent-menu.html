@@ -1,0 +1,357 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Navigation:  Indent Menu</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="(IE 4 + and NN 6 +)  Fully interactive menu with description box.  Customize link color and behavior, link box motion indent, link box border colors, link box border styles, link box border width, individual link messages, and default link message.  Written without using layers.  Amazing!">
+<META NAME="date" CONTENT="2001-01-05">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="CodeLifter.com">
+<META NAME="section" CONTENT="Navigation">
+<!-- Original:  CodeLifter.com (support@codelifter.com) -->
+<!-- Web Site:  http://www.codelifter.com -->
+
+
+
+
+<style>
+<!--
+.BorderOn  { width:90px;
+             margin-left:10px;
+             border:1px solid #456789 }
+.BorderOff { width:90px;
+             margin-left:0px;
+             border:1px solid #444444 }
+A.mBlue:link      {color:#00CCFF; text-decoration:none;}
+A.mBlue:visited   {color:#00CCFF; text-decoration:none;}
+A.mBlue:active    {color:#00CCFF; text-decoration:none;}
+A.mBlue:hover     {color:#FF0000; text-decoration:underline;}        
+A.mGreen:link     {color:#00FF80; text-decoration:none;}
+A.mGreen:visited  {color:#00FF80; text-decoration:none;}
+A.mGreen:active   {color:#00FF80; text-decoration:none;}
+A.mGreen:hover    {color:#FF0000; text-decoration:underline;} 
+A.mYellow:link    {color:#FFFF00; text-decoration:none;}
+A.mYellow:visited {color:#FFFF00; text-decoration:none;}
+A.mYellow:active  {color:#FFFF00; text-decoration:none;}
+A.mYellow:hover   {color:#FF0000; text-decoration:underline;}          
+//-->             
+</style>
+<script language="JavaScript1.2">
+<!-- Begin
+offMessage = "Add this menu to your site!"
+function boxOn(which,message) {
+if (document.all||document.getElementById) {
+which.className = 'BorderOn';
+if (document.getElementById) {
+document.getElementById("Message").innerHTML = message
+}
+else {
+Message.innerHTML = message;
+      }
+   }
+}
+function boxOff(which) {
+if (document.all||document.getElementById) {
+which.className = 'BorderOff';
+if (document.getElementById) {
+document.getElementById("Message").innerHTML = offMessage
+}
+else {
+Message.innerHTML = offMessage;
+      }
+   }
+}
+//  End -->
+</script>
+
+</HEAD>
+
+<BODY BGCOLOR=#FFFFFF vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /navigation/"><font color="#FF0000"><b>Navigation</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Indent Menu</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+(IE 4 + and NN 6 +)  Fully interactive menu with description box.  Customize link color and behavior, link box motion indent, link box border colors, link box border styles, link box border width, individual link messages, and default link message.  Written without using layers.  Amazing!
+<hr>
+</td></tr>
+</table>
+</center>
+<!-- Demonstration -->
+<!-- Outer Container Table //-->
+<table cellpadding="0" cellspacing="0" width="100">
+<tr>
+<td align="center">
+<!-- Header Table // -->
+<table cellpadding="3" cellspacing="0" bgcolor="#000000" class="BorderOff">
+<tr>
+<td>
+<font color="#FEDCBA" size="2" face="Arial">Heading</font>
+</td>
+</tr>
+</table>
+<!-- End Header Table //-->
+<!-- Menu Items Tables
+   - To add more, just follow the pattern
+   - Note class= in each <a href> to attach link style colors
+//-->
+<!-- Menu Item One Table //-->
+<table cellpadding="3" cellspacing="0" class="BorderOff" onMouseover="boxOn(this,'Visit Yahoo!')" onMouseout="boxOff(this)">
+<tr>
+<td>
+<font color="#00FF80" size="2" face="Arial"><a class="mBlue" href="http://www.yahoo.com.com/" target="_blank">Item One</a></font>
+</td>
+</tr>
+</table>  
+<!-- Menu Item Two Table //-->
+<table cellpadding="3" cellspacing="0" class="BorderOff" onMouseover="boxOn(this,'Description 2')" onMouseout="boxOff(this)">
+<tr>
+<td>
+<font color="#00FF80" size="2" face="Arial"><a class="mBlue" href="http://www.your-link-here.com/" target="_blank">Item Two</a></font>
+</td>
+</tr>
+</table>
+<!-- Menu Item Three Table //-->
+<table cellpadding="3" cellspacing="0" class="BorderOff" onMouseover="boxOn(this,'Description 3')" onMouseout="boxOff(this)">  
+<tr>
+<td>
+<font color="#00FF80" size="2" face="Arial"><a class="mGreen" href="http://www.your-link-here.com/" target="_blank">Item Three</a></font>
+</td>
+</tr>
+</table>
+<!-- Menu Item Four Table //-->
+<table cellpadding="3" cellspacing="0" class="BorderOff" onMouseover="boxOn(this,'Description 4')" onMouseout="boxOff(this)">  
+<tr>
+<td>
+<font color="#00FF80" size="2" face="Arial"><a class="mYellow" href="http://www.your-link-here.com/" target="_blank">Item Four</a></font>
+</td>
+</tr>
+</table>
+<!-- End Menu Items Tables //-->
+<!-- Message Table //-->
+<!-- Set the width= of this table the same as the overall width in the <style> //-->
+<table cellpadding="1" cellspacing="0" bgcolor="#444444" width="90">
+<tr>
+<td>
+<!-- Set the width= of this table to the overall width
+     in the style table minus 2x the border width; set
+     the height= long (large) enough to accommodate your
+     longest message //-->
+<table cellpadding="3" cellspacing="0" bgcolor="#000000" width="88" height="100">
+<tr>
+<td align="left" valign="top">
+<font id="Message" color="#CBA987" size="2" face="Arial">Move your mouse over the menu items.</font>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<!-- End Message Table //-->
+</td>
+</tr>
+</table>
+<!-- End Outer Container Table //-->
+<!-- END OF MENU //-->
+<center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Navigation:  Indent Menu</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Command-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  5.35 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL INDENT MENU:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;!-- Original:  CodeLifter.com (support@codelifter.com) --&gt;
+&lt;!-- Web Site:  http://www.codelifter.com --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;style&gt;
+&lt;!-- Begin
+.BorderOn  { width:90px;
+             margin-left:10px;
+             border:1px solid #456789 }
+.BorderOff { width:90px;
+             margin-left:0px;
+             border:1px solid #444444 }
+A.mBlue:link      {color:#00CCFF; text-decoration:none;}
+A.mBlue:visited   {color:#00CCFF; text-decoration:none;}
+A.mBlue:active    {color:#00CCFF; text-decoration:none;}
+A.mBlue:hover     {color:#FF0000; text-decoration:underline;}        
+A.mGreen:link     {color:#00FF80; text-decoration:none;}
+A.mGreen:visited  {color:#00FF80; text-decoration:none;}
+A.mGreen:active   {color:#00FF80; text-decoration:none;}
+A.mGreen:hover    {color:#FF0000; text-decoration:underline;} 
+A.mYellow:link    {color:#FFFF00; text-decoration:none;}
+A.mYellow:visited {color:#FFFF00; text-decoration:none;}
+A.mYellow:active  {color:#FFFF00; text-decoration:none;}
+A.mYellow:hover   {color:#FF0000; text-decoration:underline;}          
+//--&gt;             
+&lt;/style&gt;
+&lt;script language="JavaScript1.2"&gt;
+&lt;!-- Begin
+offMessage = "Add this menu to your site!"
+function boxOn(which,message) {
+if (document.all||document.getElementById) {
+which.className = 'BorderOn';
+if (document.getElementById) {
+document.getElementById("Message").innerHTML = message
+}
+else {
+Message.innerHTML = message;
+      }
+   }
+}
+function boxOff(which) {
+if (document.all||document.getElementById) {
+which.className = 'BorderOff';
+if (document.getElementById) {
+document.getElementById("Message").innerHTML = offMessage
+}
+else {
+Message.innerHTML = offMessage;
+      }
+   }
+}
+//  End --&gt;
+&lt;/script&gt;
+
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;!-- Outer Container Table //--&gt;
+&lt;table cellpadding="0" cellspacing="0" width="100"&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;
+&lt;!-- Header Table // --&gt;
+&lt;table cellpadding="3" cellspacing="0" bgcolor="#000000" class="BorderOff"&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;font color="#FEDCBA" size="2" face="Arial"&gt;Heading&lt;/font&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;!-- End Header Table //--&gt;
+&lt;!-- Menu Items Tables
+   - To add more, just follow the pattern
+   - Note class= in each &lt;a href&gt; to attach link style colors
+//--&gt;
+&lt;!-- Menu Item One Table //--&gt;
+&lt;table cellpadding="3" cellspacing="0" class="BorderOff" onMouseover="boxOn(this,'Visit the JavaScript Source')" onMouseout="boxOff(this)"&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;font color="#00FF80" size="2" face="Arial"&gt;&lt;a class="mBlue" href="http://www.javascriptsource.com" target="_blank"&gt;Item One&lt;/a&gt;&lt;/font&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;  
+&lt;!-- Menu Item Two Table //--&gt;
+&lt;table cellpadding="3" cellspacing="0" class="BorderOff" onMouseover="boxOn(this,'Description 2')" onMouseout="boxOff(this)"&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;font color="#00FF80" size="2" face="Arial"&gt;&lt;a class="mBlue" href="http://www.your-link-here.com" target="_blank"&gt;Item Two&lt;/a&gt;&lt;/font&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;!-- Menu Item Three Table //--&gt;
+&lt;table cellpadding="3" cellspacing="0" class="BorderOff" onMouseover="boxOn(this,'Description 3')" onMouseout="boxOff(this)"&gt;  
+&lt;tr&gt;
+&lt;td&gt;
+&lt;font color="#00FF80" size="2" face="Arial"&gt;&lt;a class="mGreen" href="http://www.your-link-here.com" target="_blank"&gt;Item Three&lt;/a&gt;&lt;/font&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;!-- Menu Item Four Table //--&gt;
+&lt;table cellpadding="3" cellspacing="0" class="BorderOff" onMouseover="boxOn(this,'Description 4')" onMouseout="boxOff(this)"&gt;  
+&lt;tr&gt;
+&lt;td&gt;
+&lt;font color="#00FF80" size="2" face="Arial"&gt;&lt;a class="mYellow" href="http://www.your-link-here.com" target="_blank"&gt;Item Four&lt;/a&gt;&lt;/font&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;!-- End Menu Items Tables //--&gt;
+&lt;!-- Message Table //--&gt;
+&lt;!-- Set the width= of this table the same as the overall width in the &lt;style&gt; //--&gt;
+&lt;table cellpadding="1" cellspacing="0" bgcolor="#444444" width="90"&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;!-- Set the width= of this table to the overall width
+     in the style table minus 2x the border width; set
+     the height= long (large) enough to accommodate your
+     longest message //--&gt;
+&lt;table cellpadding="3" cellspacing="0" bgcolor="#000000" width="88" height="100"&gt;
+&lt;tr&gt;
+&lt;td align="left" valign="top"&gt;
+&lt;font id="Message" color="#CBA987" size="2" face="Arial"&gt;Move your mouse over the menu items.&lt;/font&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;!-- End Message Table //--&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;!-- End Outer Container Table //--&gt;
+&lt;!-- END OF MENU //--&gt;
+
+ 
+
+&lt;!-- Script Size:  5.35 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

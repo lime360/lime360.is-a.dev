@@ -1,0 +1,653 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Equivalents:  Japanese Pronunciation</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Momoko Sakura">
+<META NAME="section" CONTENT="Equivalents">
+<META NAME="description" CONTENT="Enter youe name and this script will display how it should be pronounced in Japanese.  Great for far-east travellers!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Momoko Sakura -->
+<!-- Modified By:  Ronnie T. Moore, Editor -->
+
+
+
+
+<!-- Begin
+function isvowel(v) {
+if ((v == "a") || (v == "e") || (v == "i") || (v == "o") || (v == "u")) {
+return true;
+}
+else {
+return false;
+   }
+}
+function toJapanese(inp) {
+name1 = inp;
+otp = "";
+cnt = 0;
+k = "";
+l = "";
+inp = inp.toLowerCase();
+while (cnt <= inp.length - 1) {
+k = inp.charAt(cnt);
+if ((cnt + 1) > (inp.length - 1)) {
+l = "u";
+}
+else {
+l = inp.charAt(cnt+1);
+}
+if ((k == " ") || (k == "-") || (k == "'")) {
+otp = otp + k;
+cnt += 1;
+}
+if ((l == "y") && (!isvowel(k))) {
+l = "i";
+}
+if (k == "x") {
+if (cnt == 0) {
+k = "z";
+}
+else {
+k = "k";
+   }
+}
+if (k == "g") {
+if ((l == "e") || (l == "i") || (l == "y")) {
+k = "j";
+}
+else { 
+if (isvowel(l)) {
+otp = otp + k + l;
+cnt += 2;
+}
+else {
+otp = otp + k + "u";
+cnt += 1;
+      }
+   }
+}
+if (k == "j") {
+if ((l == "a") || (l == "u") || (l == "o")) {
+otp = otp + k + l;
+cnt +=2;
+}
+if ((l == "e") || (l == "i")) {
+otp = otp + "ji";
+cnt += 2;
+   }
+}
+if (k == "y") {
+if ((l == "a") || (l == "u") || (l == "o")) {
+otp = otp + k + l;
+cnt += 2;
+}
+else {
+k = "i";
+   }
+}
+if (k == "m") {
+if (isvowel(l)) {
+otp = otp + k + l;
+cnt += 2;
+}
+else {
+if ((l == "b") || (l == "m") || (l == "p")) {
+otp = otp + "n";
+cnt += 1;
+}
+else {
+otp = otp + "mu";
+cnt += 1;
+      }
+   }
+}
+if (isvowel(k) || ((k == "n") && (!isvowel(l)))) {
+otp = otp + k;
+cnt = cnt + 1;
+}
+if (k == "q") {
+k = "k";
+}
+if (k == "v") {
+k = "b";
+} 
+if (k == "l") {
+k = "r";}
+if (k == "c") {
+if (l == "h") {
+otp = otp + "chi"; 
+cnt += 3;
+}
+else {
+if ((l == "e") || (l == "i") || (l == "y")) {
+k = "s";
+}
+else {
+k = "k";
+      }
+   }
+}
+if (k == "w") {
+if ((l == "a") || (l == "o")) {
+otp = otp + k + l;
+cnt += 2;
+}
+else {
+if ((l == "i") || (l=="e")) {
+otp = otp + "u" + l;
+cnt += 2;
+}
+else {
+k = "b";
+      }
+   }
+}
+if ((k == "b") || (k == "k") || (k == "r")) {
+if (isvowel(l)) {
+otp = otp + k + l;
+cnt += 2;
+}
+else {
+otp = otp + k + "u";
+cnt += 1;
+   }
+}
+if (k == "d") {
+if ((l == "i") || (l == "a") || (l == "e")) {
+otp = otp + "de";
+cnt += 2;
+}
+if ((l == "u") || (l == "o")) {
+otp = otp + "do";
+cnt += 2;
+}
+if (!isvowel(l)) {
+otp = otp + "de";
+cnt += 1;
+   }
+}
+if (k == "f") {
+otp = otp + "fu"; 
+cnt += 1;
+if (isvowel(l)) {
+cnt += 1;
+   }
+}
+if (k == "h") {
+if (l == "u") {
+otp = otp + "fu";
+cnt += 2;
+}
+else {
+if (isvowel(l)) {
+otp = otp + k + l;
+cnt += 2;
+}
+else {
+otp = otp + "fu";
+cnt += 1;
+      }
+   }
+}
+if (k == "z") {
+if (l == "i") {
+k = "j";
+} 
+else {
+if (isvowel(l)) {
+otp = otp + k + l;
+cnt += 2;
+}
+else {
+otp = otp + "zu";
+cnt += 1;
+      }
+   }
+}
+if (k == "n") {
+if (isvowel(l)) {
+otp = otp + k + l;
+cnt += 2;
+   }
+}
+if (k == "p") {
+if (l == "h") {
+otp = otp + "fu";
+cnt += 2;
+}
+if (isvowel(l)) {
+otp = otp + k + l;
+cnt += 2;
+}
+else {
+otp = otp + "pu";
+cnt += 1;
+   }
+}
+if (k == "s") {
+if ((l == "i") || (l == "h")) {
+otp = otp + "shi";
+cnt += 2;
+if (l == "h") {
+cnt += 1;
+   }
+}
+else {
+if (isvowel(l)) {
+otp = otp + k + l;
+cnt += 2;
+}
+else {
+otp = otp + "su";
+cnt += 1;
+      }
+   }
+}
+if (k == "t") { 
+if ((l == "a") || (l == "e") || (l == "o")) {
+otp = otp + k + l;
+cnt += 2;
+}
+if ((l == "u") || ((!isvowel(l)) && (!(l == "h")))) {
+otp = otp + "tsu";
+cnt += 1;
+if (l == "u") {
+cnt += 1;
+} 
+if ((l == "s") && (inp.charAt(cnt + 1) == "u")) {
+cnt += 2;
+   }
+}
+if (l == "i") {
+otp = otp + "chi";
+cnt += 2;
+}
+if (l == "h") {
+otp = otp + "fu";
+cnt += 3;
+      }
+   }
+}
+name2 = "" + otp.charAt(0).toUpperCase();
+for (j = 1; j <= otp.length - 1; j++) {
+name2 += otp.charAt(j);
+}
+alert(name1 + " is pronounced in Japanese as: \"" + name2 + "\"");
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /equivalents/"><font color="#FF0000">Equivalents</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Japanese Pronunciation</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Enter youe name and this script will display how it should be pronounced in Japanese.  Great for far-east travellers!
+<br>
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<BODY>
+
+<center>
+<form>
+Your Name:  <input type=text name="personname" size=15>
+<input type=button value="Show Japanese Name!" onClick="toJapanese(this.form.personname.value);">
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Equivalents:  Japanese Pronunciation</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  5.70 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL JAPANESE PRONUNCIATION:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Momoko Sakura --&gt;
+&lt;!-- Modified By:  Ronnie T. Moore, Editor --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function isvowel(v) {
+if ((v == "a") || (v == "e") || (v == "i") || (v == "o") || (v == "u")) {
+return true;
+}
+else {
+return false;
+   }
+}
+function toJapanese(inp) {
+name1 = inp;
+otp = "";
+cnt = 0;
+k = "";
+l = "";
+inp = inp.toLowerCase();
+while (cnt &lt;= inp.length - 1) {
+k = inp.charAt(cnt);
+if ((cnt + 1) &gt; (inp.length - 1)) {
+l = "u";
+}
+else {
+l = inp.charAt(cnt+1);
+}
+if ((k == " ") || (k == "-") || (k == "'")) {
+otp = otp + k;
+cnt += 1;
+}
+if ((l == "y") && (!isvowel(k))) {
+l = "i";
+}
+if (k == "x") {
+if (cnt == 0) {
+k = "z";
+}
+else {
+k = "k";
+   }
+}
+if (k == "g") {
+if ((l == "e") || (l == "i") || (l == "y")) {
+k = "j";
+}
+else { 
+if (isvowel(l)) {
+otp = otp + k + l;
+cnt += 2;
+}
+else {
+otp = otp + k + "u";
+cnt += 1;
+      }
+   }
+}
+if (k == "j") {
+if ((l == "a") || (l == "u") || (l == "o")) {
+otp = otp + k + l;
+cnt +=2;
+}
+if ((l == "e") || (l == "i")) {
+otp = otp + "ji";
+cnt += 2;
+   }
+}
+if (k == "y") {
+if ((l == "a") || (l == "u") || (l == "o")) {
+otp = otp + k + l;
+cnt += 2;
+}
+else {
+k = "i";
+   }
+}
+if (k == "m") {
+if (isvowel(l)) {
+otp = otp + k + l;
+cnt += 2;
+}
+else {
+if ((l == "b") || (l == "m") || (l == "p")) {
+otp = otp + "n";
+cnt += 1;
+}
+else {
+otp = otp + "mu";
+cnt += 1;
+      }
+   }
+}
+if (isvowel(k) || ((k == "n") && (!isvowel(l)))) {
+otp = otp + k;
+cnt = cnt + 1;
+}
+if (k == "q") {
+k = "k";
+}
+if (k == "v") {
+k = "b";
+} 
+if (k == "l") {
+k = "r";}
+if (k == "c") {
+if (l == "h") {
+otp = otp + "chi"; 
+cnt += 3;
+}
+else {
+if ((l == "e") || (l == "i") || (l == "y")) {
+k = "s";
+}
+else {
+k = "k";
+      }
+   }
+}
+if (k == "w") {
+if ((l == "a") || (l == "o")) {
+otp = otp + k + l;
+cnt += 2;
+}
+else {
+if ((l == "i") || (l=="e")) {
+otp = otp + "u" + l;
+cnt += 2;
+}
+else {
+k = "b";
+      }
+   }
+}
+if ((k == "b") || (k == "k") || (k == "r")) {
+if (isvowel(l)) {
+otp = otp + k + l;
+cnt += 2;
+}
+else {
+otp = otp + k + "u";
+cnt += 1;
+   }
+}
+if (k == "d") {
+if ((l == "i") || (l == "a") || (l == "e")) {
+otp = otp + "de";
+cnt += 2;
+}
+if ((l == "u") || (l == "o")) {
+otp = otp + "do";
+cnt += 2;
+}
+if (!isvowel(l)) {
+otp = otp + "de";
+cnt += 1;
+   }
+}
+if (k == "f") {
+otp = otp + "fu"; 
+cnt += 1;
+if (isvowel(l)) {
+cnt += 1;
+   }
+}
+if (k == "h") {
+if (l == "u") {
+otp = otp + "fu";
+cnt += 2;
+}
+else {
+if (isvowel(l)) {
+otp = otp + k + l;
+cnt += 2;
+}
+else {
+otp = otp + "fu";
+cnt += 1;
+      }
+   }
+}
+if (k == "z") {
+if (l == "i") {
+k = "j";
+} 
+else {
+if (isvowel(l)) {
+otp = otp + k + l;
+cnt += 2;
+}
+else {
+otp = otp + "zu";
+cnt += 1;
+      }
+   }
+}
+if (k == "n") {
+if (isvowel(l)) {
+otp = otp + k + l;
+cnt += 2;
+   }
+}
+if (k == "p") {
+if (l == "h") {
+otp = otp + "fu";
+cnt += 2;
+}
+if (isvowel(l)) {
+otp = otp + k + l;
+cnt += 2;
+}
+else {
+otp = otp + "pu";
+cnt += 1;
+   }
+}
+if (k == "s") {
+if ((l == "i") || (l == "h")) {
+otp = otp + "shi";
+cnt += 2;
+if (l == "h") {
+cnt += 1;
+   }
+}
+else {
+if (isvowel(l)) {
+otp = otp + k + l;
+cnt += 2;
+}
+else {
+otp = otp + "su";
+cnt += 1;
+      }
+   }
+}
+if (k == "t") { 
+if ((l == "a") || (l == "e") || (l == "o")) {
+otp = otp + k + l;
+cnt += 2;
+}
+if ((l == "u") || ((!isvowel(l)) && (!(l == "h")))) {
+otp = otp + "tsu";
+cnt += 1;
+if (l == "u") {
+cnt += 1;
+} 
+if ((l == "s") && (inp.charAt(cnt + 1) == "u")) {
+cnt += 2;
+   }
+}
+if (l == "i") {
+otp = otp + "chi";
+cnt += 2;
+}
+if (l == "h") {
+otp = otp + "fu";
+cnt += 3;
+      }
+   }
+}
+name2 = "" + otp.charAt(0).toUpperCase();
+for (j = 1; j &lt;= otp.length - 1; j++) {
+name2 += otp.charAt(j);
+}
+alert(name1 + " is pronounced in Japanese as: \"" + name2 + "\"");
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form&gt;
+Your Name:  &lt;input type=text name="personname" size=15&gt;
+&lt;input type=button value="Show Japanese Name!" onClick="toJapanese(this.form.personname.value);"&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+&lt;p&gt;&lt;center&gt;
+&lt;font face="arial, helvetica" SIZE="-2"&gt;Free JavaScripts provided&lt;br&gt;
+by &lt;a href="http://javascriptsource.com"&gt;JavaScript Source Code 3000&lt;/a&gt;&lt;/font&gt;
+&lt;/center&gt;&lt;p&gt;
+
+&lt;!-- Script Size:  4.48 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

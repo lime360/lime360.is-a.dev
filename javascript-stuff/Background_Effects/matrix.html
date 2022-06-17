@@ -1,0 +1,207 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  BG Effects:  Matrix</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="(Internet Explorer Only) Simulate the Matrix by choosing one of the links.  The window closes after the whole string is printed.  Incredible!">
+<META NAME="date" CONTENT="2000-11-01">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Matt Lewis">
+<META NAME="section" CONTENT="BG Effects">
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Matt Lewis (matt999_999@yahoo.com) -->
+
+
+
+
+<!-- Begin
+var matrix_window;
+function MatrixWrite(string, bold, italic, speed) {
+var height = window.screen.height;
+var width = window.screen.width;
+var win_dimensions = "height = " + eval(height + 10) + ", width = " + eval(width + 30);
+matrix_window = window.open("blank.htm", "matrix_window", win_dimensions);
+matrix_window.document.open("text/html", "replace");
+var i;
+var timer = 0;
+if(matrix_window.moveTo)
+matrix_window.moveTo(-10, -30);
+if(matrix_window.resizeBy)
+matrix_window.resizeBy(0, 50);
+matrix_window.document.write("<body bgcolor=000000 text=00ff00 onBlur='self.focus()'>");
+matrix_window.document.write("<font face=system>");
+if(bold == true) matrix_window.document.write("<b>");
+if(italic == true) matrix_window.document.write("<i>");
+for(i = 0; i <= string.length; i++) {
+timer += (Math.random() * speed);
+setTimeout("matrix_window.document.write('" + string.charAt(i) + "');", timer);
+}
+timer += 2000;
+setTimeout("matrix_window.close()", timer);
+}
+var messages = new Array("The Matrix has you...", "Follow the white rabbit", "Wake up, Neo");
+function GetRndIndex() {
+return (parseInt(Math.random() * messages.length));
+}
+function WriteRndMsg(bold, italic, speed) {
+MatrixWrite(messages[GetRndIndex()], bold, italic, speed);
+}
+//  End -->
+</script>
+
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /bgeffects/"><font color="#FF0000"><b>BG Effects</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Matrix</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+(Internet Explorer Only) Simulate the Matrix by choosing one of the links.  The window closes after the whole string is printed.  Incredible!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<table>
+<tr>
+<td>
+<a href="javascript:WriteRndMsg(false, false, 750)">Normal text</a>
+<br>
+<a href="javascript:WriteRndMsg(true, false, 750)"><b>Bold text</b></a>
+<br>
+<a href="javascript:WriteRndMsg(false, true, 750)"><i>Italic text</i></a><br>
+<a href="javascript:WriteRndMsg(true, true, 750)"><b><i>Bold and italic text</i></b></a>
+<br>
+<a href="javascript:MatrixWrite('Knock knock, Neo', false, false, 750)">Normal string constant</a>
+</td>
+</tr>
+</table>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  BG Effects:  Matrix</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.61 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL MATRIX:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Matt Lewis (matt999_999@yahoo.com) --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var matrix_window;
+function MatrixWrite(string, bold, italic, speed) {
+var height = window.screen.height;
+var width = window.screen.width;
+var win_dimensions = "height = " + eval(height + 10) + ", width = " + eval(width + 30);
+matrix_window = window.open("blank.htm", "matrix_window", win_dimensions);
+matrix_window.document.open("text/html", "replace");
+var i;
+var timer = 0;
+if(matrix_window.moveTo)
+matrix_window.moveTo(-10, -30);
+if(matrix_window.resizeBy)
+matrix_window.resizeBy(0, 50);
+matrix_window.document.write("&lt;body bgcolor=000000 text=00ff00 onBlur='self.focus()'&gt;");
+matrix_window.document.write("&lt;font face=system&gt;");
+if(bold == true) matrix_window.document.write("&lt;b&gt;");
+if(italic == true) matrix_window.document.write("&lt;i&gt;");
+for(i = 0; i &lt;= string.length; i++) {
+timer += (Math.random() * speed);
+setTimeout("matrix_window.document.write('" + string.charAt(i) + "');", timer);
+}
+timer += 2000;
+setTimeout("matrix_window.close()", timer);
+}
+var messages = new Array("The Matrix has you...", "Follow the white rabbit", "Wake up, Neo");
+function GetRndIndex() {
+return (parseInt(Math.random() * messages.length));
+}
+function WriteRndMsg(bold, italic, speed) {
+MatrixWrite(messages[GetRndIndex()], bold, italic, speed);
+}
+//  End --&gt;
+&lt;/script&gt;
+
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;a href="javascript:WriteRndMsg(false, false, 750)"&gt;Normal text&lt;/a&gt;
+&lt;br&gt;
+&lt;a href="javascript:WriteRndMsg(true, false, 750)"&gt;&lt;b&gt;Bold text&lt;/b&gt;&lt;/a&gt;
+&lt;br&gt;
+&lt;a href="javascript:WriteRndMsg(false, true, 750)"&gt;&lt;i&gt;Italic text&lt;/i&gt;&lt;/a&gt;&lt;br&gt;
+&lt;a href="javascript:WriteRndMsg(true, true, 750)"&gt;&lt;b&gt;&lt;i&gt;Bold and italic text&lt;/i&gt;&lt;/b&gt;&lt;/a&gt;
+&lt;br&gt;
+&lt;a href="javascript:MatrixWrite('Knock knock, Neo', false, false, 750)"&gt;Normal string constant&lt;/a&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  2.61 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

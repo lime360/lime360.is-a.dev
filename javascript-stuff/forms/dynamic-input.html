@@ -1,0 +1,236 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Forms:  Dynamic Input</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Peter Hermus">
+<META NAME="section" CONTENT="Forms">
+<META NAME="description" CONTENT="(Internet Explorer Only)  Offer a form with as many input boxes that the user selects.  After entering the number of boxes, the form is dynamically updated while the rest of the form remains untouched.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Peter Hermus -->
+<!-- Web Site:  http://come.to/speedpete -->
+
+
+
+
+<!-- Begin
+function createForm(number) {
+data = "";    
+inter = "'";
+if (number < 16 && number > -1) {
+for (i=1; i <= number; i++) {
+if (i < 10) spaces="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+else spaces="&nbsp;&nbsp;&nbsp;&nbsp;";
+data = data + "URL " + i + " :" + spaces
++ "<input type='text' size=10 name=" + inter
++ "url" + i + inter + "'><br>";
+}
+if (document.layers) {
+document.layers.cust.document.write(data);
+document.layers.cust.document.close();
+}
+else {
+if (document.all) {
+cust.innerHTML = data;
+      }
+   }
+}
+else {
+window.alert("Please select up to 15 entries.");
+   }
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /forms/" ><font color="#FF0000"><b>Forms</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Dynamic Input</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+(Internet Explorer Only)  Offer a form with as many input boxes that the user selects.  After entering the number of boxes, the form is dynamically updated while the rest of the form remains untouched.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name=counter>
+Number of URLs to enter:
+<input type=text name=number size=5>
+<input type=button value="Update" onClick="createForm(counter.number.value);">
+</form>
+
+<br>
+
+<form name="webform" onSubmit="return false;">
+<table border=0>
+<tr valign=top>
+<td>Name:</td>
+<td><input type=text size=20 name=name onChange="msg(this.form)"></td>
+</tr>
+
+<tr><td colspan=2>
+
+<!-- Placeholder for dynamic form contents -->
+<span id=cust style="position:relative;"></span>
+
+</td>
+</tr>
+
+<tr valign=top>
+<td>Comments:</td>
+<td><textarea name=comments cols=45 rows=5 wrap=virtual OnChange="msg(this.form)">
+</textarea></td>
+</tr>
+<tr>
+<td></td>
+<td><input type=button value="Send" onClick="alert('This is just a demo, so the form will not submit.');"></td>
+</tr>
+</table>
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Forms:  Dynamic Input</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.95 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL DYNAMIC INPUT:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Peter Hermus --&gt;
+&lt;!-- Web Site:  http://come.to/speedpete --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function createForm(number) {
+data = "";    
+inter = "'";
+if (number &lt; 16 && number &gt; -1) {
+for (i=1; i &lt;= number; i++) {
+if (i &lt; 10) spaces="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+else spaces="&nbsp;&nbsp;&nbsp;&nbsp;";
+data = data + "URL " + i + " :" + spaces
++ "&lt;input type='text' size=10 name=" + inter
++ "url" + i + inter + "'&gt;&lt;br&gt;";
+}
+if (document.layers) {
+document.layers.cust.document.write(data);
+document.layers.cust.document.close();
+}
+else {
+if (document.all) {
+cust.innerHTML = data;
+      }
+   }
+}
+else {
+window.alert("Please select up to 15 entries.");
+   }
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form name=counter&gt;
+Number of URLs to enter:
+&lt;input type=text name=number size=5&gt;
+&lt;input type=button value="Update" onClick="createForm(counter.number.value);"&gt;
+&lt;/form&gt;
+
+&lt;br&gt;
+
+&lt;form name="webform"&gt;
+&lt;table border=0&gt;
+&lt;tr valign=top&gt;
+&lt;td&gt;Name:&lt;/td&gt;
+&lt;td&gt;&lt;input type=text size=20 name=name onChange="msg(this.form)"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;&lt;td colspan=2&gt;
+
+&lt;!-- Placeholder for dynamic form contents --&gt;
+&lt;span id=cust style="position:relative;"&gt;&lt;/span&gt;
+
+&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr valign=top&gt;
+&lt;td&gt;Comments:&lt;/td&gt;
+&lt;td&gt;&lt;textarea name=comments cols=45 rows=5 wrap=virtual OnChange="msg(this.form)"&gt;
+&lt;/textarea&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=submit value="Send"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  1.95 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

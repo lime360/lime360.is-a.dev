@@ -1,0 +1,258 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Cookies:  Cookie Redirect</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Ronnie T. Moore">
+<META NAME="section" CONTENT="Cookies">
+<META NAME="description" CONTENT="Redirects the visitor to different pages based on the value of a stored cookie.  If no cookie is found, the available items are displayed for the user to pick from, which sets a cookie for their next visit.  Our demonstration uses a 'favorite animal' cookie, but this could easily be modified to fit your needs.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Ronnie T. Moore -->
+<!-- Web Site:  JavaScript Source Code 3000 -->
+
+
+
+
+<!-- Begin
+var expDays = 30;
+var exp = new Date(); 
+exp.setTime(exp.getTime() + (expDays*24*60*60*1000));
+
+function getCookieVal (offset) {  
+var endstr = document.cookie.indexOf (";", offset);  
+if (endstr == -1)    
+endstr = document.cookie.length;  
+return unescape(document.cookie.substring(offset, endstr));
+}
+function GetCookie (name) {  
+var arg = name + "=";  
+var alen = arg.length;  
+var clen = document.cookie.length;  
+var i = 0;  
+while (i < clen) {    
+var j = i + alen;    
+if (document.cookie.substring(i, j) == arg)      
+return getCookieVal (j);    
+i = document.cookie.indexOf(" ", i) + 1;    
+if (i == 0) break;   
+}  
+return null;
+}
+function SetCookie (name, value) {  
+var argv = SetCookie.arguments;  
+var argc = SetCookie.arguments.length;  
+var expires = (argc > 2) ? argv[2] : null;  
+var path = (argc > 3) ? argv[3] : null;  
+var domain = (argc > 4) ? argv[4] : null;  
+var secure = (argc > 5) ? argv[5] : false;  
+document.cookie = name + "=" + escape (value) + 
+((expires == null) ? "" : ("; expires=" + expires.toGMTString())) + 
+((path == null) ? "" : ("; path=" + path)) +  
+((domain == null) ? "" : ("; domain=" + domain)) +    
+((secure == true) ? "; secure" : "");
+}
+function DeleteCookie (name) {  
+var exp = new Date();  
+exp.setTime (exp.getTime() - 1);  
+var cval = GetCookie (name);  
+document.cookie = name + "=" + cval + "; expires=" + exp.toGMTString();
+}
+
+var favorite = GetCookie('animal');
+
+if (favorite != null) {
+switch (favorite) {
+case 'cat' : 	url = 'cat.html'; // change these!
+	     	break;
+case 'dog' : 	url = 'dog.html'; 
+	     	break;
+case 'gerbil' : url = 'gerbil.html';
+		break;
+case 'gopher' : url = 'gopher.html';
+		break;
+}
+// window.location.href = url;
+alert('You would have been taken to the ' + favorite + ' page (' + url + '), but this is just a demo!');
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /cookies/"><font color="#FF0000"><b>Cookies</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Cookie Redirect</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Redirects the visitor to different pages based on the value of a stored cookie.  If no cookie is found, the available items are displayed for the user to pick from, which sets a cookie for their next visit.  Our demonstration uses a 'favorite animal' cookie, but this could easily be modified to fit your needs.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form>
+<table><tr><td>
+Please choose your Favorite Pet:<br>
+<input type=checkbox name="cat" onClick="SetCookie('animal', this.name, exp);">Cat<br>
+<input type=checkbox name="dog" onClick="SetCookie('animal', this.name, exp);">Dog<br>
+<input type=checkbox name="gerbil" onClick="SetCookie('animal', this.name, exp);">Gerbil<br>
+<input type=checkbox name="gopher" onClick="SetCookie('animal', this.name, exp);">Gopher<br>
+</td></tr>
+</table>
+</form>
+<font color="red">(Choose an animal then <a href="cookie-redirect.html" /cookies/cookie-redirect.html">reload</a> the page to see how the redirect works.)</font>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Cookies:  Cookie Redirect</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.84 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL COOKIE REDIRECT:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Ronnie T. Moore --&gt;
+&lt;!-- Web Site:  JavaScript Source Code 3000 --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var expDays = 30;
+var exp = new Date(); 
+exp.setTime(exp.getTime() + (expDays*24*60*60*1000));
+
+function getCookieVal (offset) {  
+var endstr = document.cookie.indexOf (";", offset);  
+if (endstr == -1)    
+endstr = document.cookie.length;  
+return unescape(document.cookie.substring(offset, endstr));
+}
+function GetCookie (name) {  
+var arg = name + "=";  
+var alen = arg.length;  
+var clen = document.cookie.length;  
+var i = 0;  
+while (i &lt; clen) {    
+var j = i + alen;    
+if (document.cookie.substring(i, j) == arg)      
+return getCookieVal (j);    
+i = document.cookie.indexOf(" ", i) + 1;    
+if (i == 0) break;   
+}  
+return null;
+}
+function SetCookie (name, value) {  
+var argv = SetCookie.arguments;  
+var argc = SetCookie.arguments.length;  
+var expires = (argc &gt; 2) ? argv[2] : null;  
+var path = (argc &gt; 3) ? argv[3] : null;  
+var domain = (argc &gt; 4) ? argv[4] : null;  
+var secure = (argc &gt; 5) ? argv[5] : false;  
+document.cookie = name + "=" + escape (value) + 
+((expires == null) ? "" : ("; expires=" + expires.toGMTString())) + 
+((path == null) ? "" : ("; path=" + path)) +  
+((domain == null) ? "" : ("; domain=" + domain)) +    
+((secure == true) ? "; secure" : "");
+}
+function DeleteCookie (name) {  
+var exp = new Date();  
+exp.setTime (exp.getTime() - 1);  
+var cval = GetCookie (name);  
+document.cookie = name + "=" + cval + "; expires=" + exp.toGMTString();
+}
+
+var favorite = GetCookie('animal');
+
+if (favorite != null) {
+switch (favorite) {
+case 'cat' : 	url = 'cat.html'; // change these!
+	     	break;
+case 'dog' : 	url = 'dog.html'; 
+	     	break;
+case 'gerbil' : url = 'gerbil.html';
+		break;
+case 'gopher' : url = 'gopher.html';
+		break;
+}
+window.location.href = url;
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form&gt;
+&lt;table&gt;&lt;tr&gt;&lt;td&gt;
+Please choose your Favorite Pet:&lt;br&gt;
+&lt;input type=checkbox name="cat" onClick="SetCookie('animal', this.name, exp);"&gt;Cat&lt;br&gt;
+&lt;input type=checkbox name="dog" onClick="SetCookie('animal', this.name, exp);"&gt;Dog&lt;br&gt;
+&lt;input type=checkbox name="gerbil" onClick="SetCookie('animal', this.name, exp);"&gt;Gerbil&lt;br&gt;
+&lt;input type=checkbox name="gopher" onClick="SetCookie('animal', this.name, exp);"&gt;Gopher&lt;br&gt;
+&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  2.84 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

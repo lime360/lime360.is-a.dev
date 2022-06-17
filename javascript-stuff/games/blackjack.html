@@ -1,0 +1,511 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Games:  Blackjack</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Mike McGrath (mike_mcgrath@lineone.net)">
+<META NAME="section" CONTENT="Games">
+<META NAME="description" CONTENT="Play even the classic game of Blackjack in JavaScript!  (You might also know it as "21")  The object of the game is to get the closest to 21.  If you get higher than the dealer without going over, you win!  Good luck, and don't gamble.  ;-)">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Mike McGrath (mike_mcgrath@lineone.net) -->
+<!-- Web Site:  http://home.clara.net/mikem  -->
+
+<!-- Begin
+var gameOver; var cardCount;
+function Shuffle(max){
+var num=Math.random()*max;
+return Math.round(num)+1;
+}
+function getSuit(){
+suit = Shuffle(4);
+if(suit == 1) return "Spades";
+if(suit == 2) return "Clubs";
+if(suit == 3) return "Diamonds";
+else return "Hearts";
+}
+function cardName(card){
+if(card == 1) return "Ace";
+if(card == 11) return "Jack";
+if(card == 12) return "Queen";
+if(card == 13) return "King";
+return "" + card;
+}
+function cardValue(card,strWho){
+if(card == 1) {
+	if(strWho =="You" && document.display.you.value >10){
+	document.display.say2.value=document.display.say2.value+" Low"; return 1;}
+	else return 11; }
+ if(card > 10) return 10; 
+return card;
+}
+function PickACard(strWho){
+card = Shuffle(12);
+suit = getSuit();
+if(strWho =="You")
+document.display.say2.value=(cardName(card) + " of " + suit);
+else
+document.display.say1.value=(cardName(card) + " of " + suit);
+return cardValue(card,strWho);
+}
+function NewHand(form){
+if(gameOver !=0)
+{form.say1.value=("Hand in Play!"); form.say2.value=(""); return;}
+else
+{form.dealer.value = 0; form.you.value = 0; cardCount=0;
+form.dealer.value = eval(form.dealer.value) + PickACard("Dealer");
+form.you.value = eval(form.you.value) + PickACard("You");
+gameOver= -1; cardCount+=1;}
+}
+function Dealer(form){
+if (gameOver ==0)
+{form.say1.value=("Deal the Cards!"); form.say2.value=(""); return;}
+else
+if(form.you.value<10)
+{form.say1.value=("Not Below Ten!"); form.say2.value=("Take a Hit!"); return;}
+else
+if (cardCount <2)
+{form.say1.value=("Minimum 2 Cards!"); form.say2.value=("Hit Again!"); return;}
+else
+while(form.dealer.value < 17)
+{form.dealer.value = eval(form.dealer.value) + PickACard("Dealer");}
+}
+function User(form){
+if (gameOver ==0)
+{form.say1.value=("Deal the Cards!"); form.say2.value=(""); return;}
+else
+{cardCount+=1; form.say1.value=("You Get...");
+form.you.value = eval(form.you.value) + PickACard("You");}
+if(form.you.value > 21)
+{form.say1.value=("You Busted!");
+gameOver=0; form.numgames.value=eval(form.numgames.value)-1;}
+}
+function LookAtHands(form){
+if (gameOver ==0 || form.you.value<10 || cardCount <2){return;}
+else
+if(form.dealer.value > 21)
+{form.say1.value=("House Busts!"); form.say2.value=("You Win! $$$$$$");
+gameOver=0; form.numgames.value=eval(form.numgames.value)+1;}
+ else
+if(form.you.value > form.dealer.value)
+{form.say1.value=("You Win!"); form.say2.value=("$$$$$$$$$$$$$$$");
+gameOver=0; form.numgames.value=eval(form.numgames.value)+1;}
+ else
+ if(form.dealer.value == form.you.value)
+{form.say1.value=("Game Tied!"); form.say2.value=("Try Again!");
+gameOver=0; form.numgames.value=eval(form.numgames.value)-1;}
+ else
+{form.say1.value=("House Wins!"); form.say2.value=("Tough Luck!");
+gameOver=0; form.numgames.value=eval(form.numgames.value)-1;}
+}
+function setBj(){
+gameOver=0; cardCount=0; 
+document.display.dealer.value=""; 
+document.display.you.value="";
+document.display.numgames.value="0";
+document.display.say1.value="    Hit 'Deal'";
+document.display.say2.value="    To Start!";
+}
+// End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff OnLoad="setBj()">
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /games/"><font color="#FF0000">Games</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Blackjack</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Play even the classic game of Blackjack in JavaScript!  (You might also know it as "21")  The object of the game is to get the closest to 21.  If you get higher than the dealer without going over, you win!  Good luck, and don't gamble.  ;-)
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name="display">
+<table bgcolor="#c0c0c0" border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td><center>Score:</center></td>
+<td><center>Dealer</center></td>
+<td><center><input type=text name="dealer" size="2"></center></td>
+<td><center>Card(s):  <input type=text name="say1" size="18" value=""></center></td>
+</tr>
+<tr>
+<td><center><input type=text name="numgames" size="3" value="0"></center></td>
+<td><center>Player</center></td>
+<td><center><input type=text name="you" size="2"></center></td>
+<td><center>Card(s):  <input type=text name="say2" size="18" value=""></center></td>
+</tr>
+<tr>
+<td><center><input type=button value="Deal" onClick="NewHand(this.form)"></center></td>
+<td colspan=3><center>
+<input type=button value="Stand" onClick="Dealer(this.form);LookAtHands(this.form);">
+<input type=button value=" Hit " onClick="User(this.form)"></center></td></tr>
+</table>
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Games:  Blackjack:</b>
+<p>Simply click inside the window below, use your cursor to highlight the 
+script, and copy (type Control-c or Apple-c) the script into a new file in 
+your text editor (such as Note Pad or Simple Text) and save (Control-s or 
+Apple-s).  The script is yours!!!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  4.57 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL BLACKJACK:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the onLoad event handler into the BODY tag
+  3.  Put the last coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Mike McGrath (mike_mcgrath@lineone.net) --&gt;
+&lt;!-- Web Site:  http://home.clara.net/mikem  --&gt;
+
+&lt;!-- Begin
+var gameOver; var cardCount;
+function Shuffle(max){
+var num=Math.random()*max;
+return Math.round(num)+1;
+}
+function getSuit(){
+suit = Shuffle(4);
+if(suit == 1) return "Spades";
+if(suit == 2) return "Clubs";
+if(suit == 3) return "Diamonds";
+else return "Hearts";
+}
+function cardName(card){
+if(card == 1) return "Ace";
+if(card == 11) return "Jack";
+if(card == 12) return "Queen";
+if(card == 13) return "King";
+return "" + card;
+}
+function cardValue(card,strWho){
+if(card == 1) {
+	if(strWho =="You" && document.display.you.value &gt;10){
+	document.display.say2.value=document.display.say2.value+" Low"; return 1;}
+	else return 11; }
+ if(card &gt; 10) return 10; 
+return card;
+}
+function PickACard(strWho){
+card = Shuffle(12);
+suit = getSuit();
+if(strWho =="You")
+document.display.say2.value=(cardName(card) + " of " + suit);
+else
+document.display.say1.value=(cardName(card) + " of " + suit);
+return cardValue(card,strWho);
+}
+function NewHand(form){
+if(gameOver !=0)
+{form.say1.value=("Hand in Play!"); form.say2.value=(""); return;}
+else
+{form.dealer.value = 0; form.you.value = 0; cardCount=0;
+form.dealer.value = eval(form.dealer.value) + PickACard("Dealer");
+form.you.value = eval(form.you.value) + PickACard("You");
+gameOver= -1; cardCount+=1;}
+}
+function Dealer(form){
+if (gameOver ==0)
+{form.say1.value=("Deal the Cards!"); form.say2.value=(""); return;}
+else
+if(form.you.value&lt;10)
+{form.say1.value=("Not Below Ten!"); form.say2.value=("Take a Hit!"); return;}
+else
+if (cardCount &lt;2)
+{form.say1.value=("Minimum 2 Cards!"); form.say2.value=("Hit Again!"); return;}
+else
+while(form.dealer.value &lt; 17)
+{form.dealer.value = eval(form.dealer.value) + PickACard("Dealer");}
+}
+function User(form){
+if (gameOver ==0)
+{form.say1.value=("Deal the Cards!"); form.say2.value=(""); return;}
+else
+{cardCount+=1; form.say1.value=("You Get...");
+form.you.value = eval(form.you.value) + PickACard("You");}
+if(form.you.value &gt; 21)
+{form.say1.value=("You Busted!");
+gameOver=0; form.numgames.value=eval(form.numgames.value)-1;}
+}
+function LookAtHands(form){
+if (gameOver ==0 || form.you.value&lt;10 || cardCount &lt;2){return;}
+else
+if(form.dealer.value &gt; 21)
+{form.say1.value=("House Busts!"); form.say2.value=("You Win! $$$$$$");
+gameOver=0; form.numgames.value=eval(form.numgames.value)+1;}
+ else
+if(form.you.value &gt; form.dealer.value)
+{form.say1.value=("You Win!"); form.say2.value=("$$$$$$$$$$$$$$$");
+gameOver=0; form.numgames.value=eval(form.numgames.value)+1;}
+ else
+ if(form.dealer.value == form.you.value)
+{form.say1.value=("Game Tied!"); form.say2.value=("Try Again!");
+gameOver=0; form.numgames.value=eval(form.numgames.value)-1;}
+ else
+{form.say1.value=("House Wins!"); form.say2.value=("Tough Luck!");
+gameOver=0; form.numgames.value=eval(form.numgames.value)-1;}
+}
+function setBj(){
+gameOver=0; cardCount=0; 
+document.display.dealer.value=""; 
+document.display.you.value="";
+document.display.numgames.value="0";
+document.display.say1.value="    Hit 'Deal'";
+document.display.say2.value="    To Start!";
+}
+// End --&gt;
+&lt;/script&gt;
+
+&lt;!-- STEP TWO: Insert the onLoad event handler into your BODY tag  --&gt;
+
+&lt;BODY OnLoad="setBj()"&gt;
+
+&lt;!-- STEP THREE: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;center&gt;
+&lt;form name="display"&gt;
+&lt;table bgcolor="#c0c0c0" border="1" cellspacing="0" cellpadding="3"&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;center&gt;Score:&lt;/center&gt;&lt;/td&gt;
+&lt;td&gt;&lt;center&gt;Dealer&lt;/center&gt;&lt;/td&gt;
+&lt;td&gt;&lt;center&gt;&lt;input type=text name="dealer" size="2"&gt;&lt;/center&gt;&lt;/td&gt;
+&lt;td&gt;&lt;center&gt;Card(s):  &lt;input type=text name="say1" size="18" value=""&gt;&lt;/center&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;center&gt;&lt;input type=text name="numgames" size="3" value="0"&gt;&lt;/center&gt;&lt;/td&gt;
+&lt;td&gt;&lt;center&gt;Player&lt;/center&gt;&lt;/td&gt;
+&lt;td&gt;&lt;center&gt;&lt;input type=text name="you" size="2"&gt;&lt;/center&gt;&lt;/td&gt;
+&lt;td&gt;&lt;center&gt;Card(s):  &lt;input type=text name="say2" size="18" value=""&gt;&lt;/center&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;center&gt;&lt;input type=button value="Deal" onClick="NewHand(this.form)"&gt;&lt;/center&gt;&lt;/td&gt;
+&lt;td colspan=3&gt;&lt;center&gt;
+&lt;input type=button value="Stand" onClick="Dealer(this.form);LookAtHands(this.form);"&gt;
+&lt;input type=button value=" Hit " onClick="User(this.form)"&gt;&lt;/center&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  4.57 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+
+	
+
+<p>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+function getCookieVal (offset) {
+var endstr = document.cookie.indexOf(";", offset);
+if (endstr == -1)
+endstr = document.cookie.length;
+return unescape(document.cookie.substring(offset, endstr));
+}
+function GetCookie (name) {
+var arg = name + "=";
+var alen = arg.length;
+var clen = document.cookie.length;
+var i = 0;
+while (i < clen) {
+var j = i + alen;
+if (document.cookie.substring(i, j) == arg)
+return getCookieVal (j);
+i = document.cookie.indexOf(" ", i) + 1;
+if (i == 0)
+break;
+}
+return null;
+}
+function SetCookie (name, value) {
+var argv = SetCookie.arguments;
+var argc = SetCookie.arguments.length;
+var expires = (argc > 2) ? argv[2] : null;
+var path = "/"; //(argc > 3) ? argv[3] : null;
+var domain = (argc > 4) ? argv[4] : null;
+var secure = (argc > 5) ? argv[5] : false;
+document.cookie = name + "=" + escape (value) +
+((expires == null) ? "" : ("; expires=" +
+expires.toGMTString())) +
+((path == null) ? "" : ("; path=" + path)) +
+((domain == null) ? "" : ("; domain=" + domain)) +
+((secure == true) ? "; secure" : "");
+}
+
+var emailcookie = GetCookie('email_address');
+if (emailcookie == null) {
+emailcookie = 'your email here';
+}
+
+function chk(email, formname)
+{
+invalid = "";
+
+if (!email)
+invalid = "No email address found!  Try reloading the page then use the 'email a script' feature again.";
+
+else {
+
+if ( (email.indexOf("@") == -1) || (email.indexOf(".") == -1) ) 
+invalid += "\n\nInvalid email address.  Your email address is missing an '@' sign and a '.' in the domain name (like '.com').  Please check your address then submit again.";
+
+if (email.indexOf("youremailhere") > -1)
+invalid += "\n\nInvalid email address.  Make sure your email address included your username, the '@' sign, and the domain name (like '.com').";
+
+if (email.indexOf("\\") > -1) 
+invalid += "\n\nEmail address contains an invalid back-slash (\\) character.  Remove the character and submit again.";
+
+if (email.indexOf("/") > -1) 
+invalid += "\n\nEmail address contains an invalid forward-slash (/) character.  Remove the character and submit again.";
+
+if (email.indexOf("'") > -1) 
+invalid += "\n\nEmail address contains an invalid apostrophe (') character.  Remove the character and submit again.";
+
+if (email.indexOf("zaz.com.br") > -1) 
+invalid += "\n\nPlease do not use an email address that has an autoresponder set up for it.  Thanks.";
+
+if (email.indexOf("!") > -1) 
+invalid += "\n\nEmail address contains an invalid exclamation point (!) character.  Remove the character or correct the email address then submit again.";
+
+if ( (email.indexOf(",") > -1) || (email.indexOf(";") > -1) )
+invalid += "\n\nPlease only enter one email address in the box at a time.  Remove the extra addresses and submit again.";
+
+if (email.indexOf("?subject") > -1) 
+invalid += "\n\nPlease do not add '?subject=...' to your email address.  Scriptbot will send you the script with a pre-defined subject already.  Please remove the '?subject=...' from your email address and submit again.";
+}
+
+if (invalid == "")
+   {
+   var largeExpDate = new Date();
+   largeExpDate.setTime(largeExpDate.getTime() + (31 * 24 * 3600 * 1000));
+   SetCookie('email_address', email, largeExpDate);
+   if (formname == "scriptbot")
+      {
+      page = "http://javascript.internet.com/sent.html?" + email;
+      window.open(page, "AdWindow", "width=650,height=200");
+      }
+   return true;
+}
+else 
+   { 
+   alert("Oops, something is wrong...." + invalid);
+   return false;
+   }
+}
+
+function updateNewsletters() {
+with (document.forms["newslettersignup"]) {
+emailStr = email.value;
+var emailPat=/^(.+)@(.+)$/;
+var specialChars="\\(\\)<>@,;:\\\\\\\"\\.\\[\\]"; // remove   ( ) < > @ , ; : \ " . [ ]    */
+var validChars="\[^\\s" + specialChars + "\]";
+var quotedUser="(\"[^\"]*\")";
+var ipDomainPat=/^\[(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})\]$/;
+var atom=validChars + '+';
+var word="(" + atom + "|" + quotedUser + ")";
+var userPat=new RegExp("^" + word + "(\\." + word + ")*$");
+var domainPat=new RegExp("^" + atom + "(\\." + atom +")*$");
+var matchArray=emailStr.match(emailPat);
+if (matchArray==null) {
+alert("Email address seems incorrect (check @ and .'s)");
+return false;;
+}
+var user=matchArray[1];
+var domain=matchArray[2];
+if (user.match(userPat)==null) {
+alert("The username doesn't seem to be valid.");
+return false;
+}
+var IPArray=domain.match(ipDomainPat);
+if (IPArray!=null) {
+for (var i=1;i<=4;i++) {
+if (IPArray[i]>255) {
+alert("Destination IP address is invalid!");
+return false;
+      }
+   }
+}
+var domainArray=domain.match(domainPat);
+if (domainArray==null) {
+alert("The domain name doesn't seem to be valid.");
+return false;
+}
+var atomPat=new RegExp(atom,"g");
+var domArr=domain.match(atomPat);
+var len=domArr.length;
+if (domArr[domArr.length-1].length<2 || domArr[domArr.length-1].length>3) {
+alert("The address must end in a three-letter domain, or two letter country.");
+return false;
+}
+if (len<2) {
+var errStr="This address is missing a hostname!";
+alert(errStr);
+return false;
+}
+List_Name.value = newsletter.options[newsletter.selectedIndex].value
+		+ nltype.options[nltype.selectedIndex].value;
+
+   var largeExpDate = new Date();
+   largeExpDate.setTime(largeExpDate.getTime() + (31 * 24 * 3600 * 1000));
+   SetCookie('email_address', emailStr, largeExpDate);
+
+return true;
+   }
+}
+// End -->
+</script>
+
+<p>
+<center>
+
+<table cellpadding=0 cellspacing=0 border=0 width="620">
+<tr>
+<td align=left>
+

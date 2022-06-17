@@ -1,0 +1,358 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Forms:  Mail - Pick Subject</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Forms">
+<META NAME="description" CONTENT="Use JavaScript to help organize your visitor e-mail.  Visitors pick from several predetermined subjects the most appropriate subject for their e-mail.  Visitor are also prompted to reenter information for incomplete or invalid entries.  A cookie also records the visitor's name for future correspondence.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+function getCookie(name){
+var cname = name + "=";               
+var dc = document.cookie;             
+if (dc.length > 0) {              
+begin = dc.indexOf(cname);       
+if (begin != -1) {           
+begin += cname.length;       
+end = dc.indexOf(";", begin);
+if (end == -1) end = dc.length;
+return unescape(dc.substring(begin, end));
+   } 
+}
+var blank = "";
+return blank;
+}
+function setCookie(name, value, expires) {
+document.cookie = name + "=" + escape(value) + 
+((expires != null) ? "; expires=" + expires.toGMTString() : "")
++ "; path=/";
+}
+function setName() {
+var expdate = new Date ();
+expdate.setTime (expdate.getTime() + (24 * 60 * 60 * 1000 * 365));
+var prompt=i = document.Mail.name.value;
+setCookie("name", i, expdate);
+}
+function getName() {
+if(getCookie("name") != null) {
+document.Mail.Name.value = getCookie("emailname");
+   }
+}
+function getInfo() {
+var now= new Date();
+document.Mail.Info.value = "Browser: " + navigator.userAgent;
+document.Mail.Info.value += "Date:" + now;
+}
+function checkMultiple() {
+if (getCookie("emailsent") == 'true') return true;
+else return false;
+}
+function process() {
+setCookie("emailsent", "true");
+with (document.Mail) {
+if (Subject.selectedIndex == 1) action = "mailto:antispammer@earthling.net?subject=TJS - Comment";
+else if (Subject.selectedIndex == 2) action = "mailto:antispammer@earthling.net?subject=TJS - Question";
+else if (Subject.selectedIndex == 3) action = "mailto:antispammer@earthling.net?subject=TJS - Suggestion";
+else if (Subject.selectedIndex == 4) action = "mailto:antispammer@earthling.net?subject=TJS - Broken Link";
+else action = "mailto:antispammer@earthling.net?subject=TJS - Other";
+   }
+}
+function formCheck() {
+var passed = false;
+with (document.Mail) {
+if (Subject.selectedIndex == 0) { 
+alert("Please pick a subject.");
+Subject.focus();
+}
+else if (Name.value == "") {
+alert("Please inlcude your name.");
+Name.focus();
+}
+else if (checkMultiple()) {
+if (confirm("You just sent an e-mail from this form, are you sure you want to send another?")) {
+process();
+passed = true;
+   }
+}
+else {
+process();
+passed = true;
+   }
+}
+return passed;
+}
+// End -->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /forms/" ><font color="#FF0000">Forms</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Mail - Pick Subject</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE=" helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Use JavaScript to help organize your visitor e-mail.  Visitors pick from several predetermined subjects the most appropriate subject for their e-mail.  Visitor are also prompted to reenter information for incomplete or invalid entries.  A cookie also records the visitor's name for future correspondence.<br><hr>
+</td></tr>
+</table>
+<!--  Demonstration -->
+<BODY>
+<CENTER>
+<FONT FACE = "Times"  SIZE = 3>
+Any thing you would like to tell us?  Any comments, suggestions, or questions? 
+<BR>
+<DD>
+If you are using Internet Explorer or would rather mail directly, then click <A HREF = "mailto:antispammer@earthling.net?subject=TJS - Mail">here</A>.
+</DD>
+<BR>
+<FORM NAME = "Mail" ACTION = "http:///antispammer@earthling.net"  METHOD = "POST" ENCTYPE = "text/plain" onSubmit="return formCheck();">
+<INPUT TYPE = "hidden" SIZE = 0 NAME = "Info">
+<TABLE BORDER = 0 CELLPADDING = 10 CELLSPACING = 0>
+<TR><TD>
+Name:  
+<INPUT TYPE = "text" NAME = "Name" onChange = "setName()">
+</TD><TD ALIGN = RIGHT >
+Subject:  <SELECT NAME = "Subject">
+<OPTION SELECT>Please Select A Subject</OPTION>
+<OPTION>1. Comment</OPTION>
+<OPTION>2. Question</OPTION>
+<OPTION>3. Suggestion</OPTION>
+<OPTION>4. Broken Link</OPTION>
+<OPTION>5. None of the above</OPTION>
+</SELECT>
+</TD></TR>
+
+<TR>
+<TD COLSPAN = 2>
+Comments, questions, suggestions, broken links, anything!! :
+<BR><BR>
+<TEXTAREA NAME = "Comments, Suggestions" COLS = 75 ROWS = 6>
+</TEXTAREA>
+</TD>
+</TR>
+</TABLE>
+
+<CENTER>
+<TABLE>
+<TR>
+<TD align=center>
+<INPUT TYPE = "submit" VALUE = "Send">
+</TD>
+</TR>
+</TABLE>
+</FORM>
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+getInfo();
+getName();
+// End -->
+</SCRIPT>
+</FONT>
+<P>
+<BR>
+<P>
+<a name="source">
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Forms:  Mail - Pick Subject</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as NotePad or SimpleText) and save (Control-s or Apple-s).  The script is yours!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  4.15 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL MAIL - PICK SUBJECT:
+
+   1.  Paste the coding into the HEAD of your HTML document
+   2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function getCookie(name){
+var cname = name + "=";               
+var dc = document.cookie;             
+if (dc.length &gt; 0) {              
+begin = dc.indexOf(cname);       
+if (begin != -1) {           
+begin += cname.length;       
+end = dc.indexOf(";", begin);
+if (end == -1) end = dc.length;
+return unescape(dc.substring(begin, end));
+   } 
+}
+var blank = "";
+return blank;
+}
+function setCookie(name, value, expires) {
+document.cookie = name + "=" + escape(value) + 
+((expires != null) ? "; expires=" + expires.toGMTString() : "")
++ "; path=/";
+}
+function setName() {
+var expdate = new Date ();
+expdate.setTime (expdate.getTime() + (24 * 60 * 60 * 1000 * 365));
+var prompt=i = document.Mail.name.value;
+setCookie("name", i, expdate);
+}
+function getName() {
+if(getCookie("name") != null) {
+document.Mail.Name.value = getCookie("emailname");
+   }
+}
+function getInfo() {
+var now= new Date();
+document.Mail.Info.value = "Browser: " + navigator.userAgent;
+document.Mail.Info.value += "Date:" + now;
+}
+function checkMultiple() {
+if (getCookie("emailsent") == 'true') return true;
+else return false;
+}
+function process() {
+setCookie("emailsent", "true");
+with (document.Mail) {
+if (Subject.selectedIndex == 1) action = "mailto:antispammer@earthling.net?subject=TJS - Comment";
+else if (Subject.selectedIndex == 2) action = "mailto:antispammer@earthling.net?subject=TJS - Question";
+else if (Subject.selectedIndex == 3) action = "mailto:antispammer@earthling.net?subject=TJS - Suggestion";
+else if (Subject.selectedIndex == 4) action = "mailto:antispammer@earthling.net?subject=TJS - Broken Link";
+else action = "mailto:antispammer@earthling.net?subject=TJS - Other";
+   }
+}
+function formCheck() {
+var passed = false;
+with (document.Mail) {
+if (Subject.selectedIndex == 0) { 
+alert("Please pick a subject.");
+Subject.focus();
+}
+else if (Name.value == "") {
+alert("Please inlcude your name.");
+Name.focus();
+}
+else if (checkMultiple()) {
+if (confirm("You just sent an e-mail from this form, are you sure you want to send another?")) {
+process();
+passed = true;
+   }
+}
+else {
+process();
+passed = true;
+   }
+}
+return passed;
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+&lt;!-- STEP TWO: Put this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;CENTER&gt;
+&lt;FONT FACE = "Times"  SIZE = 3&gt;
+Any thing you would like to tell us?  Any comments, suggestions, or questions? 
+&lt;BR&gt;
+&lt;DD&gt;
+If you are using Internet Explorer or would rather mail directly, then click &lt;A HREF = "mailto:antispammer@earthling.net?subject=TJS - Mail"&gt;here&lt;/A&gt;.
+&lt;/DD&gt;
+&lt;BR&gt;
+&lt;FORM NAME = "Mail" ACTION = "mailto:antispammer@earthling.net?subject=TJS - Form" METHOD = "POST" ENCTYPE = "text/plain" onSubmit="return formCheck();"&gt;
+&lt;INPUT TYPE = "hidden" SIZE = 0 NAME = "Info"&gt;
+&lt;TABLE BORDER = 0 CELLPADDING = 10 CELLSPACING = 0&gt;
+&lt;TR&gt;&lt;TD&gt;
+Name:  
+&lt;INPUT TYPE = "text" NAME = "Name" onChange = "setName()"&gt;
+&lt;/TD&gt;&lt;TD ALIGN = RIGHT &gt;
+Subject:  
+&lt;SELECT NAME = "Subject"&gt;
+&lt;OPTION SELECT&gt;Please Select A Subject&lt;/OPTION&gt;
+&lt;OPTION&gt;1. Comment&lt;/OPTION&gt;
+&lt;OPTION&gt;2. Question&lt;/OPTION&gt;
+&lt;OPTION&gt;3. Suggestion&lt;/OPTION&gt;
+&lt;OPTION&gt;4. Broken Link&lt;/OPTION&gt;
+&lt;OPTION&gt;5. None of the above&lt;/OPTION&gt;
+&lt;/SELECT&gt;
+&lt;/TD&gt;&lt;/TR&gt;
+
+&lt;TR&gt;
+&lt;TD COLSPAN = 2&gt;
+Comments, questions, suggestions, broken links, anything!! :
+&lt;BR&gt;&lt;BR&gt;
+&lt;TEXTAREA NAME = "Comments, Suggestions" COLS = 75 ROWS = 6&gt;
+&lt;/TEXTAREA&gt;
+&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;/TABLE&gt;
+
+&lt;CENTER&gt;
+&lt;TABLE&gt;
+&lt;TR&gt;
+&lt;TD align=center&gt;
+&lt;INPUT TYPE = "submit" VALUE = "Send"&gt;
+&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;/TABLE&gt;
+&lt;/FORM&gt;
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Begin
+getInfo();
+getName();
+// End --&gt;
+&lt;/SCRIPT&gt;
+&lt;/FONT&gt;
+&lt;/CENTER&gt;
+
+ 
+
+&lt;!-- Script Size:  4.15 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

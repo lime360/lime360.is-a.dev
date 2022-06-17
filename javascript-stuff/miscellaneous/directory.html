@@ -1,0 +1,309 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Misc.:  Directory</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Miscellaneous">
+<META NAME="description" CONTENT="If you were thinking about creating a searchable directory, this script can help.  Just cut and paste the script, edit the appropriate directory information, and you have your own Javascript directory!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+function initArray() {
+this.length = initArray.arguments.length;
+for (var i = 0; i < this.length; i++) {
+this[i] = initArray.arguments[i];
+   }
+}
+var rcrd = new initArray("4b","5b","8b","8b");
+/* Simply "load" this array with your names appropriate to the letters. (A=0,
+Z=25)  If you have no names beginning with "I", for example, simply do not
+define that record (rcrd[8]) just as we have done here.  The "backslash r" is
+used to initiate a new line in the display on screen. */
+rcrd[0] = "Gracie Allen, Bookkeeping, Tel. 234-5678 ext 13"
++ "\rHarold Ammons, Engineering, Tel. 777-0987 ext 23"
++ "\rJames Atkin, Research and Development, Tel. 777-0933 ext 17";
+rcrd[1] = "George Burns, Public Relations, Tel. 232-5178 ext 91"
++ "\rAnne Byzantine, Political Liasson, Tel. 456-0987 ext 33";
+rcrd[2] = "Harrison Czar, Administration, Tel. 232-5178 ext 12";
+rcrd[3] = "Dillard Dally, Corporate Efficiency, Tel. 232-5178 ext 88 "
++ "email: dillydally@corp.com"
++ "\rSandy Dodge, Secretarial, Tel. 456-6543 ext 44";
+rcrd[4] = "Heloise Eloise, Human Relations, Tel. 232-2909 ext 59"
++ "\rJerry Ezzard, Political Liasson, Tel. 456-9800 ext 41";
+rcrd[5] = "George Fatchance, Corporate Lending, Tel. 546-7712 ext 19"
++ "\rBjorn Fjord, Foreign Relations, Tel. 456-6651 ext 28";
+rcrd[6] = "Oprah Gagnon, Media Relations, Tel. 232-5178 ext 12";
+rcrd[7] = "Sally Hopkins, Administration, Tel. 339-7081 ext 3";
+rcrd[9] = "Bo Jackson, Public Relations, Tel. 232-5178 ext 12"
++ "\rAnne Johnson, Political Liasson, Tel. 456-0987 ext 33";
+rcrd[10] = "Gary Kapperson, Public Relations, Tel. 232-5178 ext 12"
++ "\rAdam Kotch, Political Liasson, Tel. 456-5543 ext 31";
+rcrd[11] = "Bunny Lane, Operations, Tel. 232-3812 ext 16"
++ "\rFranz Lizt, Entertainment Operations, Tel. 456-0987 ext 90";
+rcrd[12] = "Drake Mallard, Administration, Tel. 712-6622 ext 4"
++ "\rAllison Majors, Operations, Tel. 456-6908 ext 24";
+rcrd[13] = "George Nabors, Marketing, Tel. 232-4009 ext 11"
++ "\rTabitha Noonan, Accounts Receivable, Tel. 332-6755 ext 57";
+rcrd[15] = "Mary Payton, Accounts Receivable, Tel. 217-2233 ext 58"
++ "\rJohn Pyne, Marketing, Tel. 456-5002 ext 2";
+rcrd[17] = "Claude Raines, Corporate History, Tel. 533-2203 ext 14"
++ "\rBabs Reese, Marketing, Tel. 456-0987 ext 33";
+rcrd[18] = "Terri Samuelson, Public Relations, Tel. 232-4090 ext 62"
++ "\rSally Smith, Marketing, Tel. 456-3321 ext 65";
+rcrd[19] = "John Thomas, Administration, Tel. 598-7202 ext 66"
++ "\rThomas Tuttle, Political Liasson, Tel. 456-5231 ext 15";
+rcrd[21] = "Sarah Vaughn, Administration, Tel. 232-7211 ext 68"
++ "\rVictor Victor, Engineering, Tel. 456-7450 ext 23";
+rcrd[22] = "George Watkins, Research and Development, Tel. 882-2834 ext 63"
++ "\rAnne Wylie, Mailroom, Tel. 855-2200 ext 42";
+rcrd[24] = "Patti Yarrow, Administration, Tel. 232-5178 ext 12";
+function dataBase(isnform) {
+for (var i = 0; i < 26; i++) {
+if (isnform.alpha[i].checked) {
+recnum = isnform.alpha[i].value;
+   }
+}
+if (rcrd[recnum] != null) {
+document.isnform.display.value = rcrd[recnum];
+}
+else document.isnform.display.value = "Sorry, no listings for that letter.";
+}
+// End -->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /miscellaneous/"><font color="#FF0000">Miscellaneous</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Directory</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<TABLE BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><TD><font FACE=" helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+If you were thinking about creating a searchable directory, this script can help.  Just cut and paste the script, edit the appropriate directory information, and you have your own Javascript directory!<br><hr>
+</td></tr>
+</table>
+<!--  Demonstration -->
+<BODY>
+<CENTER>
+<FORM NAME="isnform">
+<TABLE BORDER=0 WIDTH=486>
+<TR><TD><B>Company Directory</B></TD>
+<TD>
+<INPUT TYPE="radio" NAME="alpha" VALUE="0" CHECKED>A</TD>
+<TD><INPUT TYPE="radio" NAME="alpha" VALUE="1">B</TD>
+<TD><INPUT TYPE="radio" NAME="alpha" VALUE="2">C</TD>
+<TD><INPUT TYPE="radio" NAME="alpha" VALUE="3">D</TD>
+<TD><INPUT TYPE="radio" NAME="alpha" VALUE="4">E</TD></TR>
+<TR><TD></TD><TD><INPUT TYPE="radio" NAME="alpha" VALUE="5">F</TD>
+<TD><INPUT TYPE="radio" NAME="alpha" VALUE="6">G</TD>
+<TD><INPUT TYPE="radio" NAME="alpha" VALUE="7">H</TD>
+<TD><INPUT TYPE="radio" NAME="alpha" VALUE="8">I</TD>
+<TD><INPUT TYPE="radio" NAME="alpha" VALUE="9">J</TD></TR>
+<TR><TD><FONT SIZE=1><B>Instructions: </B> Simply "click the letter of the
+first</FONT></TD><TD><INPUT TYPE="radio" NAME="alpha" VALUE="10">K</TD>
+<TD><INPUT TYPE="radio" NAME="alpha" VALUE="11">L</TD>
+<TD><INPUT TYPE="radio" NAME="alpha" VALUE="12">M</TD>
+<TD><INPUT TYPE="radio" NAME="alpha" VALUE="13">N</TD>
+<TD><INPUT TYPE="radio" NAME="alpha" VALUE="14">O</TD></TR>
+<TR><TD><FONT SIZE=1>initial of the last name of the person
+desired.</FONT></TD><TD><INPUT TYPE="radio" NAME="alpha" VALUE="15">P</TD>
+<TD><INPUT TYPE="radio" NAME="alpha" VALUE="16">Q</TD>
+<TD><INPUT TYPE="radio" NAME="alpha" VALUE="17">R</TD>
+<TD><INPUT TYPE="radio" NAME="alpha" VALUE="18">S</TD>
+<TD><INPUT TYPE="radio" NAME="alpha" VALUE="19">T</TD></TR>
+<TR><TD><FONT SIZE=1>Then "click" the Find button.</FONT></TD><TD><INPUT TYPE="radio" NAME="alpha" VALUE="20">U</TD>
+<TD><INPUT TYPE="radio" NAME="alpha" VALUE="21">V</TD>
+<TD><INPUT TYPE="radio" NAME="alpha" VALUE="22">W</TD>
+<TD><INPUT TYPE="radio" NAME="alpha" VALUE="23">X</TD>
+<TD><INPUT TYPE="radio" NAME="alpha" VALUE="24">Y</TD></TR>
+<TR><TD ALIGN=CENTER><INPUT TYPE="button" NAME="but" VALUE=" Find " onClick="dataBase(this.form)"></TD><TD></TD><TD></TD><TD><INPUT
+TYPE="radio" NAME="alpha" VALUE="25">Z</TD>
+</TR></TABLE>
+<TABLE BORDER=0 WIDTH=486>
+<TR><TD ALIGN=CENTER>Telephone Directory Results<BR>
+<TEXTAREA NAME="display" ROWS=4 COLS=55 WRAP=yes>
+</TEXTAREA></TD></TR>
+</TABLE>
+</FORM>
+<P>
+<BR>
+<P>
+<a name="source">
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Misc.:  Directory</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as NotePad or SimpleText) and save (Control-s or Apple-s).  The script is yours!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  5.74 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL DIRECTORY:
+
+   1.  Paste the coding into the HEAD of your HTML document
+   2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function initArray() {
+this.length = initArray.arguments.length;
+for (var i = 0; i &lt; this.length; i++) {
+this[i] = initArray.arguments[i];
+   }
+}
+var rcrd = new initArray("4b","5b","8b","8b");
+/* Simply "load" this array with your names appropriate to the letters. (A=0,
+Z=25)  If you have no names beginning with "I", for example, simply do not
+define that record (rcrd[8]) just as we have done here.  The "backslash r" is
+used to initiate a new line in the display on screen. */
+rcrd[0] = "Gracie Allen, Bookkeeping, Tel. 234-5678 ext 13"
++ "\rHarold Ammons, Engineering, Tel. 777-0987 ext 23"
++ "\rJames Atkin, Research and Development, Tel. 777-0933 ext 17";
+rcrd[1] = "George Burns, Public Relations, Tel. 232-5178 ext 91"
++ "\rAnne Byzantine, Political Liasson, Tel. 456-0987 ext 33";
+rcrd[2] = "Harrison Czar, Administration, Tel. 232-5178 ext 12";
+rcrd[3] = "Dillard Dally, Corporate Efficiency, Tel. 232-5178 ext 88 "
++ "email: dillydally@corp.com"
++ "\rSandy Dodge, Secretarial, Tel. 456-6543 ext 44";
+rcrd[4] = "Heloise Eloise, Human Relations, Tel. 232-2909 ext 59"
++ "\rJerry Ezzard, Political Liasson, Tel. 456-9800 ext 41";
+rcrd[5] = "George Fatchance, Corporate Lending, Tel. 546-7712 ext 19"
++ "\rBjorn Fjord, Foreign Relations, Tel. 456-6651 ext 28";
+rcrd[6] = "Oprah Gagnon, Media Relations, Tel. 232-5178 ext 12";
+rcrd[7] = "Sally Hopkins, Administration, Tel. 339-7081 ext 3";
+rcrd[9] = "Bo Jackson, Public Relations, Tel. 232-5178 ext 12"
++ "\rAnne Johnson, Political Liasson, Tel. 456-0987 ext 33";
+rcrd[10] = "Gary Kapperson, Public Relations, Tel. 232-5178 ext 12"
++ "\rAdam Kotch, Political Liasson, Tel. 456-5543 ext 31";
+rcrd[11] = "Bunny Lane, Operations, Tel. 232-3812 ext 16"
++ "\rFranz Lizt, Entertainment Operations, Tel. 456-0987 ext 90";
+rcrd[12] = "Drake Mallard, Administration, Tel. 712-6622 ext 4"
++ "\rAllison Majors, Operations, Tel. 456-6908 ext 24";
+rcrd[13] = "George Nabors, Marketing, Tel. 232-4009 ext 11"
++ "\rTabitha Noonan, Accounts Receivable, Tel. 332-6755 ext 57";
+rcrd[15] = "Mary Payton, Accounts Receivable, Tel. 217-2233 ext 58"
++ "\rJohn Pyne, Marketing, Tel. 456-5002 ext 2";
+rcrd[17] = "Claude Raines, Corporate History, Tel. 533-2203 ext 14"
++ "\rBabs Reese, Marketing, Tel. 456-0987 ext 33";
+rcrd[18] = "Terri Samuelson, Public Relations, Tel. 232-4090 ext 62"
++ "\rSally Smith, Marketing, Tel. 456-3321 ext 65";
+rcrd[19] = "John Thomas, Administration, Tel. 598-7202 ext 66"
++ "\rThomas Tuttle, Political Liasson, Tel. 456-5231 ext 15";
+rcrd[21] = "Sarah Vaughn, Administration, Tel. 232-7211 ext 68"
++ "\rVictor Victor, Engineering, Tel. 456-7450 ext 23";
+rcrd[22] = "George Watkins, Research and Development, Tel. 882-2834 ext 63"
++ "\rAnne Wylie, Mailroom, Tel. 855-2200 ext 42";
+rcrd[24] = "Patti Yarrow, Administration, Tel. 232-5178 ext 12";
+function dataBase(isnform) {
+for (var i = 0; i &lt; 26; i++) {
+if (isnform.alpha[i].checked) {
+recnum = isnform.alpha[i].value;
+   }
+}
+if (rcrd[recnum] != null) {
+document.isnform.display.value = rcrd[recnum];
+}
+else document.isnform.display.value = "Sorry, no listings for that letter.";
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+&lt;!-- STEP TWO: Put this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;CENTER&gt;
+&lt;FORM NAME="isnform"&gt;
+&lt;TABLE BORDER=0 WIDTH=486&gt;
+&lt;TR&gt;&lt;TD&gt;&lt;B&gt;Company Directory&lt;/B&gt;&lt;/TD&gt;
+&lt;TD&gt;
+&lt;INPUT TYPE="radio" NAME="alpha" VALUE="0" CHECKED&gt;A&lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE="radio" NAME="alpha" VALUE="1"&gt;B&lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE="radio" NAME="alpha" VALUE="2"&gt;C&lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE="radio" NAME="alpha" VALUE="3"&gt;D&lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE="radio" NAME="alpha" VALUE="4"&gt;E&lt;/TD&gt;&lt;/TR&gt;
+&lt;TR&gt;&lt;TD&gt;&lt;/TD&gt;&lt;TD&gt;&lt;INPUT TYPE="radio" NAME="alpha" VALUE="5"&gt;F&lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE="radio" NAME="alpha" VALUE="6"&gt;G&lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE="radio" NAME="alpha" VALUE="7"&gt;H&lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE="radio" NAME="alpha" VALUE="8"&gt;I&lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE="radio" NAME="alpha" VALUE="9"&gt;J&lt;/TD&gt;&lt;/TR&gt;
+&lt;TR&gt;&lt;TD&gt;&lt;FONT SIZE=1&gt;&lt;B&gt;Instructions: &lt;/B&gt; Simply "click the letter of the
+first&lt;/FONT&gt;&lt;/TD&gt;&lt;TD&gt;&lt;INPUT TYPE="radio" NAME="alpha" VALUE="10"&gt;K&lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE="radio" NAME="alpha" VALUE="11"&gt;L&lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE="radio" NAME="alpha" VALUE="12"&gt;M&lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE="radio" NAME="alpha" VALUE="13"&gt;N&lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE="radio" NAME="alpha" VALUE="14"&gt;O&lt;/TD&gt;&lt;/TR&gt;
+&lt;TR&gt;&lt;TD&gt;&lt;FONT SIZE=1&gt;initial of the last name of the person
+desired.&lt;/FONT&gt;&lt;/TD&gt;&lt;TD&gt;&lt;INPUT TYPE="radio" NAME="alpha" VALUE="15"&gt;P&lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE="radio" NAME="alpha" VALUE="16"&gt;Q&lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE="radio" NAME="alpha" VALUE="17"&gt;R&lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE="radio" NAME="alpha" VALUE="18"&gt;S&lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE="radio" NAME="alpha" VALUE="19"&gt;T&lt;/TD&gt;&lt;/TR&gt;
+&lt;TR&gt;&lt;TD&gt;&lt;FONT SIZE=1&gt;Then "click" the Find button.&lt;/FONT&gt;&lt;/TD&gt;&lt;TD&gt;&lt;INPUT TYPE="radio" NAME="alpha" VALUE="20"&gt;U&lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE="radio" NAME="alpha" VALUE="21"&gt;V&lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE="radio" NAME="alpha" VALUE="22"&gt;W&lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE="radio" NAME="alpha" VALUE="23"&gt;X&lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE="radio" NAME="alpha" VALUE="24"&gt;Y&lt;/TD&gt;&lt;/TR&gt;
+&lt;TR&gt;&lt;TD ALIGN=CENTER&gt;&lt;INPUT TYPE="button" NAME="but" VALUE=" Find " onClick="dataBase(this.form)"&gt;&lt;/TD&gt;&lt;TD&gt;&lt;/TD&gt;&lt;TD&gt;&lt;/TD&gt;&lt;TD&gt;&lt;INPUT
+TYPE="radio" NAME="alpha" VALUE="25"&gt;Z&lt;/TD&gt;
+&lt;/TR&gt;&lt;/TABLE&gt;
+&lt;TABLE BORDER=0 WIDTH=486&gt;
+&lt;TR&gt;&lt;TD ALIGN=CENTER&gt;Telephone Directory Results&lt;BR&gt;
+&lt;TEXTAREA NAME="display" ROWS=4 COLS=55 WRAP=yes&gt;
+&lt;/TEXTAREA&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;/TABLE&gt;
+&lt;/FORM&gt;
+&lt;/CENTER&gt;
+
+ 
+
+&lt;!-- Script Size:  5.74 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

@@ -1,0 +1,151 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Scrolls:  Shrinking Scroller</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Aram Yegenian (yegeniana@hotmail.com)">
+<META NAME="section" CONTENT="Scrolls">
+<META NAME="description" CONTENT="Your message is initially expanded with extra spaces but then slowly compressed to fit the message in the status bar.  Neat!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Aram Yegenian (yegeniana@hotmail.com) -->
+<!-- Web Site:  http://aramyegenian.cjb.net -->
+
+
+
+
+<!-- Begin
+timeID = 5;
+stcnt = 11;
+msg = "<< Check out this Shrinking Scroller! >>";
+wmsg = new Array(33);
+wmsg[0] = msg;
+blnk = "                                                               ";
+for (i = 1; i < 32; i++) {
+b = blnk.substring(0, i);
+wmsg[i] = "";
+for (j = 0; j < msg.length; j++) wmsg[i] = wmsg[i] + msg.charAt(j) + b;
+}
+function wiper() {
+if (stcnt > -1) str = wmsg[stcnt]; 
+else str = wmsg[0];
+if (stcnt-- < -40) stcnt = 31;
+status = str;
+clearTimeout(timeID);
+timeID = setTimeout("wiper()", 150);
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff OnLoad="wiper()">
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /scrolls/"><font color="#FF0000"><b>Scrolls</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Shrinking Scroller</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Your message is initially expanded with extra spaces but then slowly compressed to fit the message in the status bar.  Neat!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Scrolls:  Shrinking Scroller</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.19 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL SHRINKING SCROLLER:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the onLoad event handler into the BODY tag  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Aram Yegenian (yegeniana@hotmail.com) --&gt;
+&lt;!-- Web Site:  http://aramyegenian.cjb.net --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+timeID = 5;
+stcnt = 11;
+msg = "&lt;&lt; Check out this Shrinking Scroller! &gt;&gt;";
+wmsg = new Array(33);
+wmsg[0] = msg;
+blnk = "                                                               ";
+for (i = 1; i &lt; 32; i++) {
+b = blnk.substring(0, i);
+wmsg[i] = "";
+for (j = 0; j &lt; msg.length; j++) wmsg[i] = wmsg[i] + msg.charAt(j) + b;
+}
+function wiper() {
+if (stcnt &gt; -1) str = wmsg[stcnt]; 
+else str = wmsg[0];
+if (stcnt-- &lt; -40) stcnt = 31;
+status = str;
+clearTimeout(timeID);
+timeID = setTimeout("wiper()", 150);
+}
+//  End --&gt;
+&lt;/script&gt;
+
+&lt;!-- STEP TWO: Insert the onLoad event handler into your BODY tag  --&gt;
+
+&lt;BODY OnLoad="wiper()"&gt;
+
+ 
+
+&lt;!-- Script Size:  1.19 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

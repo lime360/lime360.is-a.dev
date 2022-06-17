@@ -1,0 +1,216 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Messages:  Modify Array</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Messages">
+<META NAME="description" CONTENT="Demonstrates how to modify an array by adding elements to or remove elements from the array.  Our example also includes validation to ensure that only valid elements are removed or that 'reasonable' element indexes are added.  Clever!">
+
+<SCRIPT LANGUAGE="JavaScript">
+
+
+
+
+<!-- Begin
+var letterArray = new Array("A","B","C","D","E");
+
+function addElement(array) {
+size = array.length;
+addindex = parseInt(prompt("Please enter the element index where you would like to add an item.",""));
+validNo = (addindex != "NaN");
+inRange = ( (addindex >= 0) && (addindex <= array.length+1) );
+if (validNo && inRange) {
+addvalue = prompt("Please enter the value to be added as element index " + addindex + ".","");
+for (var i=array.length+1; i>addindex; i--) array[i] = array[i-1];
+array[addindex] = addvalue;
+array.length = array.length-1;
+showArray(array);
+}
+else alert("You only add element indexes between 0 and " + (size) + ".");
+}
+
+function deleteElement(array) {
+size = array.length;
+delindex = parseInt(prompt("Please enter the element index of the item to remove.",""));
+validNo = (delindex != "NaN");
+inRange = ( (delindex >= 0) && (delindex <= array.length) );
+
+if (validNo && inRange) {
+for (var i=0; i<=size; i++)
+array[i] = ((i == delindex) ? "delete" : array[i]);
+for (var j=delindex; j<size-1; j++)
+if (j != size) array[j] = array[j+1];
+array.length = size-1;
+alert("Element index " + delindex + " has been removed.  The other elements have moved to fill the spot.");
+showArray(array);
+}
+else alert("You only delete from element index 0 to " + (size-1) + ".");
+}
+
+function showArray(array) {
+arraytext = "";
+for (var i=0; i<array.length; i++) {
+arraytext += "Element Index " + i + ":  " + array[i] + "\n";
+}
+document.form.text.value = arraytext;
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /messages/"><font color="#FF0000"><b>Messages</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Modify Array</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Demonstrates how to modify an array by adding elements to or remove elements from the array.  Our example also includes validation to ensure that only valid elements are removed or that 'reasonable' element indexes are added.  Clever!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name=form>
+
+<input type=button value="Show Array" onClick="javascript:showArray(letterArray)"><br>
+<input type=button value="Add Element" onClick="javascript:addElement(letterArray)">  
+<input type=button value="Delete Element" onClick="javascript:deleteElement(letterArray)"><br>
+
+<br>
+<textarea name="text" rows=20 cols=60></textarea>
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Messages:  Modify Array</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.41 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL MODIFY ARRAY:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var letterArray = new Array("A","B","C","D","E");
+
+function addElement(array) {
+size = array.length;
+addindex = parseInt(prompt("Please enter the element index where you would like to add an item.",""));
+validNo = (addindex != "NaN");
+inRange = ( (addindex &gt;= 0) && (addindex &lt;= array.length+1) );
+if (validNo && inRange) {
+addvalue = prompt("Please enter the value to be added as element index " + addindex + ".","");
+for (var i=array.length+1; i&gt;addindex; i--) array[i] = array[i-1];
+array[addindex] = addvalue;
+array.length = array.length-1;
+showArray(array);
+}
+else alert("You only add element indexes between 0 and " + (size) + ".");
+}
+
+function deleteElement(array) {
+size = array.length;
+delindex = parseInt(prompt("Please enter the element index of the item to remove.",""));
+validNo = (delindex != "NaN");
+inRange = ( (delindex &gt;= 0) && (delindex &lt;= array.length) );
+
+if (validNo && inRange) {
+for (var i=0; i&lt;=size; i++)
+array[i] = ((i == delindex) ? "delete" : array[i]);
+for (var j=delindex; j&lt;size-1; j++)
+if (j != size) array[j] = array[j+1];
+array.length = size-1;
+alert("Element index " + delindex + " has been removed.  The other elements have moved to fill the spot.");
+showArray(array);
+}
+else alert("You only delete from element index 0 to " + (size-1) + ".");
+}
+
+function showArray(array) {
+arraytext = "";
+for (var i=0; i&lt;array.length; i++) {
+arraytext += "Element Index " + i + ":  " + array[i] + "\n";
+}
+document.form.text.value = arraytext;
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form name=form&gt;
+
+&lt;input type=button value="Show Array" onClick="javascript:showArray(letterArray)"&gt;&lt;br&gt;
+&lt;input type=button value="Add Element" onClick="javascript:addElement(letterArray)"&gt;  
+&lt;input type=button value="Delete Element" onClick="javascript:deleteElement(letterArray)"&gt;&lt;br&gt;
+
+&lt;br&gt;
+&lt;textarea name="text" rows=20 cols=60&gt;&lt;/textarea&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  2.41 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

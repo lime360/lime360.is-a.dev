@@ -1,0 +1,135 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Forms:  Auto Year</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="This pulldown menu will automatically adjust the range of years depending on the current year.  As an added bonus, the range is easily modified.  Awesome!">
+<META NAME="date" CONTENT="2001-01-25">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Don Demrow">
+<META NAME="section" CONTENT="Forms">
+
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /forms/" ><font color="#FF0000"><b>Forms</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Auto Year</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+This pulldown menu will automatically adjust the range of years depending on the current year.  As an added bonus, the range is easily modified.  Awesome!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Don Demrow (d1102@home.com) -->
+<!-- Web Site:  http://resume.w3site.com -->
+
+
+
+
+<!-- Begin
+var time = new Date();
+var year = time.getYear();
+if (year < 1900) {
+year = year + 1900;
+}
+var date = year - 101; /*change the '101' to the number of years in the past you want to show */
+var future = year + 100; /*change the '100' to the number of years in the future you want to show */ 
+document.writeln ("<FORM><SELECT><OPTION value=\"\">Year");
+do {
+date++;
+document.write ("<OPTION value=\"" +date+"\">" +date+ "");
+}
+while (date < future)
+document.write ("</SELECT></FORM>");
+//  End -->
+</script>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Forms:  Auto Year</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Command-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.09 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- ONE STEP TO INSTALL AUTO YEAR:
+
+  1.  Copy the coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Don Demrow (d1102@home.com) --&gt;
+&lt;!-- Web Site:  http://resume.w3site.com --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var time = new Date();
+var year = time.getYear();
+if (year &lt; 1900) {
+year = year + 1900;
+}
+var date = year - 101; /*change the '101' to the number of years in the past you want to show */
+var future = year + 100; /*change the '100' to the number of years in the future you want to show */ 
+document.writeln ("&lt;FORM&gt;&lt;SELECT&gt;&lt;OPTION value=\"\"&gt;Year");
+do {
+date++;
+document.write ("&lt;OPTION value=\"" +date+"\"&gt;" +date+ "");
+}
+while (date &lt; future)
+document.write ("&lt;/SELECT&gt;&lt;/FORM&gt;");
+//  End --&gt;
+&lt;/script&gt;
+
+ 
+
+&lt;!-- Script Size:  1.09 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

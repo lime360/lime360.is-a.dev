@@ -1,0 +1,105 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Games:  Mad Cows</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT="no-cache">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+last_cow = "none - nobody's spoken yet";
+output = "nothing yet too "
+function makearray (x) {
+this.length = x
+for (var i=1; i<= x; i += 1){
+this[i] = 0;
+   }
+}
+cowa = new makearray (7);
+cowb = new makearray (12);
+cowc = new makearray (8);
+alastsaid = 0;
+blastsaid = 0;
+clastsaid = 0;
+var pageloaded = false;
+function speak(id,thecow,arrayel){
+if (pageloaded == false) {
+return;
+}
+if (last_cow == id) {
+return;
+}
+arrayel += 1;
+if (arrayel > thecow.length) {
+arrayel = 1;
+}
+output = thecow[arrayel];
+last_cow = id;
+if (id == "aaaa") {
+alastsaid = arrayel;
+}
+if (id == "bbbb") {
+blastsaid = arrayel;
+}
+if (id == "cccc") {
+clastsaid = arrayel;
+}
+window.parent.frames[1].document.open();
+window.parent.frames[1].document.write('<HTML><HEAD></HEAD><BODY BGCOLOR="#000000" TEXT="#AAAACC"><CENTER><H3>"');
+window.parent.frames[1].document.write(output);
+window.parent.frames[1].document.write('"</H3>To get this script, go <a href="mad-cows-source.html" target="_blank">here</a>.</CENTER></BODY><HTML>');
+window.parent.frames[1].document.close();
+return;
+}
+function hereweare() {
+pageloaded = true;
+window.parent.frames[1].document.open();
+window.parent.frames[1].document.write('<HTML><HEAD></HEAD><BODY BGCOLOR="#000000" TEXT="#AAAACC"><H3><CENTER>');
+window.parent.frames[1].document.write('"We\'re all here !  <BR> Place your mouse over us for <BR> incredibly intelligent dialog."');
+window.parent.frames[1].document.write('</CENTER></H3></BODY><HTML>');
+window.parent.frames[1].document.close();
+return;
+}
+cowa[1] = "What do you make of this mad cow's thing ?";
+cowa[2] = "It will all blow over... then they will eat us again. <BR> People have already started to forget about it."
+cowa[3] = "Remember the salmonella scare 6 years ago and people stopped <BR>eating eggs, even though they had eaten them all their lives ?<BR> Look how long that lasted.";
+cowa[4] = "It's all about economics and politics ....<BR> and us poor cows are the victims.";
+cowa[5] = "Anyway, what evidence do they have ?<P>Who is to say if we are crazy ?  <P>Is there a special cow psychiatrist ?";
+cowa[6] = "Oh dear - it's time for me to go have my nipples squeezed by some machine.";
+cowa[7] = "The things we do - we give them milk day in day out<BR>... and then they slaughter us.";
+cowb[1] = "It's all  a load of bull if you ask me.";
+cowb[2] = "By the way, my name is Gertrude -<BR> all cows seem to be called this for some reason.";
+cowb[3] = "I think my neighbour's had a bit too much weed.<P>  Oi, try the grass.";
+cowb[4] = "I'm starving : I could eat a horse.  <BR>Never mind, I'll settle for a beefburger.";
+cowb[5] = "OK, whose cowpat did I just step in ? <BR>I thought we all agreed to do it in the chicken shed.";
+cowb[6] = "Cows know best when it comes to predicting the weather : <P>for example, you can expect increasing darkness tonight with <BR>it brightening up towards the morning.";
+cowb[7] = "Hey, it could be worse : you could be this old and still a virgin.";
+cowb[8] = "... and I thought I disappointed my father ? ";
+cowb[9] = "Roger me relentlessly with a red hot ramrod ....<BR> is that what they call alliteration ?";
+cowb[10] = "Windows 95 was worse than being artificially inseminated ...<BR> and we should know.";
+cowb[11] = "Hey, don't miss Bill and Marc's excellent chat show -<BR> though we think they are less intelligent<BR> than us.  The world seems to agree.";
+cowb[12] = "Bet this webpage really enriched your life, didn't it ? <P> Dont forget to Mail Ronnie and let him know you liked this !";
+cowc[1] = "Oink oink oink, oink, oink, oink ";
+cowc[2] = "No tengo dinero pero ....<BR> Vamos a la playa, oh, oh, oh, oh,!";
+cowc[3] = "Hey ... who are YOU calling mad buddy ?<BR>  Look in a mirror first.";
+cowc[4] = "Eh man, pass  it round, you know what I'm saying ?";
+cowc[5] = "Oops upside my head , I said ooops upside my head. ";
+cowc[6] = "Da Da Da ....<P><FONT SIZE = 2> Prize winning lyrics from Germany.</FONT>";
+cowc[7] = "You are not what you think. But what you think, you are.";
+cowc[8] = "Another marvellous use of Bandwidth. Long live JavaScript Source Code 3000 !";
+// End -->
+</SCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff onLoad ="hereweare()">
+
+<A NAME=top>
+<CENTER>
+<A HREF="#top" onMouseOver="speak('aaaa',cowa, alastsaid); return true">
+<IMG SRC="../img/mad-cows/1.gif" /img/mad-cows/1.gif" BORDER="0" HEIGHT="150" WIDTH="84"></A>
+<A HREF="#top" onMouseOver="speak('bbbb',cowb, blastsaid); return true">
+<IMG SRC="../img/mad-cows/2.gif" /img/mad-cows/2.gif" BORDER="0" HEIGHT="150" WIDTH="84"></A>
+<A HREF="#top" onMouseOver="speak('cccc',cowc, clastsaid); return true">
+<IMG SRC="../img/mad-cows/1.gif" /img/mad-cows/1.gif" BORDER="0" HEIGHT="150" WIDTH="74"></A>
+</CENTER>
+</BODY>
+</HTML>

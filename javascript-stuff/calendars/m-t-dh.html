@@ -1,0 +1,288 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Calendars:  Monthly:  Time Entered - Day Highlighted</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Calendars">
+<META NAME="description" CONTENT="This JavaScript calendar shows users a calendar that also tells you when you entered the page.  Also, the current day is highlighted.">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /calendars/"><font color="#FF0000">Calendars</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Monthly:  Time Entered - Day Highlighted</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+This JavaScript calendar shows users a calendar that also tells you when you entered the page.  Also, the current day is highlighted.
+<br>
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<SCRIPT LANGUAGE="JavaScript">
+<!--  Begin
+function greeting() {
+var today = new Date();
+var hrs = today.getHours();
+document.writeln("<CENTER>");
+if ((hrs >=6) && (hrs <=18))
+{}
+else
+document.write("");
+document.writeln("<BR>");
+document.write("<H1>Good ");   
+if (hrs < 6)
+document.write("(Early) Morning");
+else if (hrs < 12)
+document.write("Morning");
+else if (hrs <= 18)
+document.write("Afternoon");
+else
+document.write("Evening");
+document.writeln("!</H1>");
+document.write("You entered this page at ");
+dayStr = today.toLocaleString();
+document.write(dayStr);
+document.writeln("</CENTER>");
+}
+function montharr(m0, m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11)
+{
+this[0] = m0;
+this[1] = m1;
+this[2] = m2;
+this[3] = m3;
+this[4] = m4;
+this[5] = m5;
+this[6] = m6;
+this[7] = m7;
+this[8] = m8;
+this[9] = m9;
+this[10] = m10;
+this[11] = m11;
+}
+function calendar()
+{
+var monthNames = "JanFebMarAprMayJunJulAugSepOctNovDec";
+var today = new Date();
+var thisDay;
+var monthDays = new montharr(31, 28, 31, 30, 31, 30, 31, 31, 30,31, 30, 31);
+year = today.getYear();
+if (year < 2000)    // Y2K Fix, Isaac Powell
+year = year + 1900; // http://onyx.idbsu.edu/~ipowell
+thisDay = today.getDate();
+if (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0))
+monthDays[1] = 29;
+nDays = monthDays[today.getMonth()];
+firstDay = today;
+firstDay.setDate(1); 
+testMe = firstDay.getDate();
+if (testMe == 2)
+firstDay.setDate(0);    
+startDay = firstDay.getDay();
+document.writeln("<CENTER>");
+document.write("<TABLE BORDER>");
+document.write("<TR><TH COLSPAN=7>");
+document.write(monthNames.substring(today.getMonth() * 3,
+(today.getMonth() + 1) * 3));
+document.write(". ");
+document.write(year);
+document.write("<TR><TH>Sun<TH>Mon<TH>Tue<TH>Wed<TH>Thu<TH>Fri<TH>Sat");
+document.write("<TR>");
+column = 0;
+for (i=0; i<startDay; i++) {
+document.write("<TD width=30>");
+column++;
+}
+for (i=1; i<=nDays; i++) {
+document.write("<TD width=30>");
+if (i == thisDay)
+document.write("<FONT COLOR=\"#FF0000\">")
+document.write(i);
+if (i == thisDay)
+document.write("</FONT>")
+column++;
+if (column == 7) {
+document.write("<TR>"); 
+column = 0;
+}
+}
+document.write("</TABLE>");
+document.writeln("</CENTER>");
+}
+greeting();
+document.write("</br>");
+calendar();
+document.write("");
+// End -->
+</SCRIPT>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Calendars:  Monthly:  Day Highlighted</b>
+<p>Simply click inside the window below, use your cursor to hilight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.72 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- ONE STEP TO INSTALL MONTHLY:  CURRENT TIME - DAY HIGHLIGHTED:
+
+   1.  Put the designated code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function greeting() {
+var today = new Date();
+var hrs = today.getHours();
+document.writeln("&lt;CENTER&gt;");
+if ((hrs &gt;=6) && (hrs &lt;=18))
+{
+document.writeln("&lt;IMG SRC=\"blank");
+document.write(Math.floor(hrs / 10));
+document.write(Math.floor(hrs % 10));
+document.write("00.gif\"&gt;");
+}
+else
+document.write("");
+document.writeln("&lt;BR&gt;");
+document.write("&lt;H1&gt;Good ");   
+if (hrs &lt; 6)
+document.write("(Early) Morning");
+else if (hrs &lt; 12)
+document.write("Morning");
+else if (hrs &lt;= 18)
+document.write("Afternoon");
+else
+document.write("Evening");
+document.writeln("!&lt;/H1&gt;");
+document.write("You entered this page at ");
+dayStr = today.toLocaleString();
+document.write(dayStr);
+document.writeln("&lt;/CENTER&gt;");
+}
+function montharr(m0, m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11)
+{
+this[0] = m0;
+this[1] = m1;
+this[2] = m2;
+this[3] = m3;
+this[4] = m4;
+this[5] = m5;
+this[6] = m6;
+this[7] = m7;
+this[8] = m8;
+this[9] = m9;
+this[10] = m10;
+this[11] = m11;
+}
+function calendar()
+{
+var monthNames = "JanFebMarAprMayJunJulAugSepOctNovDec";
+var today = new Date();
+var thisDay;
+var monthDays = new montharr(31, 28, 31, 30, 31, 30, 31, 31, 30,31, 30, 31);
+year = today.getYear();
+if (year < 2000)    // Y2K Fix, Isaac Powell
+year = year + 1900; // http://onyx.idbsu.edu/~ipowell
+thisDay = today.getDate();
+if (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0))
+monthDays[1] = 29;
+nDays = monthDays[today.getMonth()];
+firstDay = today;
+firstDay.setDate(1); 
+testMe = firstDay.getDate();
+if (testMe == 2)
+firstDay.setDate(0);    
+startDay = firstDay.getDay();
+document.writeln("&lt;CENTER&gt;");
+document.write("&lt;TABLE BORDER&gt;");
+document.write("&lt;TR&gt;&lt;TH COLSPAN=7&gt;");
+document.write(monthNames.substring(today.getMonth() * 3,
+(today.getMonth() + 1) * 3));
+document.write(". ");
+document.write(year);
+document.write("&lt;TR&gt;&lt;TH&gt;Sun&lt;TH&gt;Mon&lt;TH&gt;Tue&lt;TH&gt;Wed&lt;TH&gt;Thu&lt;TH&gt;Fri&lt;TH&gt;Sat");
+document.write("&lt;TR&gt;");
+column = 0;
+for (i=0; i&lt;startDay; i++) {
+document.write("&lt;TD width=30&gt;");
+column++;
+}
+for (i=1; i&lt;=nDays; i++) {
+document.write("&lt;TD width=30&gt;");
+if (i == thisDay)
+document.write("&lt;FONT COLOR=\"#FF0000\"&gt;")
+document.write(i);
+if (i == thisDay)
+document.write("&lt;/FONT&gt;")
+column++;
+if (column == 7) {
+document.write("&lt;TR&gt;"); 
+column = 0;
+}
+}
+document.write("&lt;/TABLE&gt;");
+document.writeln("&lt;/CENTER&gt;");
+}
+greeting();
+document.write("&lt;/br&gt;");
+calendar();
+document.write("");
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+ 
+
+&lt;!-- Script Size:  2.72 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

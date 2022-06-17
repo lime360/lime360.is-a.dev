@@ -1,0 +1,59 @@
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Mike McGrath (mike_mcgrath@lineone.net) -->
+<!-- Web Site:  http://website.lineone.net/~mike_mcgrath/ -->
+
+<!-- This script and many more are available free online at -->
+<!-- The JavaScript Source!! http://javascript.internet.com -->
+
+<!-- Begin
+var msg = "This page requires version 4 or later of\n Netscape Navigator or Internet Explorer"
+var dyn = (document.layers || document.all) ? true : alert(msg);
+var nav = (document.layers) ? true : false;
+var iex = (document.all) ? true : false;
+var lft = 10 // (window.screen.width/2);
+var pos = 10;   // initial top position
+var stp = 10;    // step increment size
+var spd = 150;   // speed of increment
+var upr = -390;  // upper limiter
+var lwr = 100;   // lower limiter
+var tim;         // timer variable
+function scroll_up() {
+if(pos > upr) pos -= stp;
+do_scroll(pos);  
+tim = setTimeout("scroll_up()", spd);
+}
+
+function scroll_dn() {
+if(pos < lwr) pos += stp;
+do_scroll(pos);
+tim = setTimeout("scroll_dn()", spd);
+}
+
+function do_scroll(pos) {
+if(iex) document.all.divTxt.style.top = pos;
+if(nav) document.divTxt.top = pos;
+}
+
+function no_scroll() {
+clearTimeout(tim);
+}
+
+var divTop_content="";
+
+if(iex) document.write('<DIV ID="divTop" STYLE="position:absolute; top:0; left:'+lft+'; width:300; height:10; background-color:white; z-index:3">'+divTop_content+'</DIV>');
+if(nav) document.write('<LAYER ID="divTop" position="absolute" top="0" left="'+lft+'" width="300" height="10" bgcolor="white" z-index="3">'+divTop_content+'</LAYER>');
+
+var divBtm_content =('<HR><TABLE BORDER="0" WIDTH="100%"><TR><TD ALIGN="left"><A HREF="javascript://" ONMOUSEOVER="scroll_up()" ONMOUSEOUT="no_scroll()">SCROLL DOWN</A></TD><TD ALIGN="right"><A HREF="javascript://" ONMOUSEOVER="scroll_dn()" ONMOUSEOUT="no_scroll()">SCROLL UP</A></TD></TR></TABLE>');
+
+if(iex) document.write('<DIV ID="divBtm" STYLE="position:absolute; top:350; left:'+lft+'; width:300; height:800; background-color:white; z-index:2">'+divBtm_content+'</DIV>');
+if(nav) document.write('<LAYER ID="divBtm" position="absolute" top="350" left="'+lft+'" width="300" height="800" bgcolor="white" z-index="2">'+divBtm_content+'</LAYER>');
+
+var divTxt_content = ('<b>These are ACTUAL letters to "Dear Abby"</b><hr><P><br>Dear Abby, I have a man I never could trust.  He cheats so much on me I\'m not even sure this baby I\'m carrying is his.<P><br>Dear Abby, I am a twenty-three year old liberated woman who has been on the pill for two years.  It\'s getting expensive and I think my boyfriend should share half the cost, but I don\'t know him well enough to discuss money with him.<P>Dear Abby, I suspected that my husband had been fooling around, and when I confronted him with the evidence he denied everything and said it would never happen again.<P>Dear Abby, Our son writes that he is taking Judo.  Why would a boy who was raised in a good Christian home turn against his own?<P>Dear Abby, I joined the Navy to see the world.  I\'ve seen it.  Now how do I get out?<P>Dear Abby, I was married to Bill for three months and I didn\'t know he drank until one night he came home sober.<P>Dear Abby, My forty-year-old son has been paying a psychiatrist $50 an hour every week for two-and-a-half years.  He must be crazy.<P>Dear Abby, I have always wanted to have my family history traced, but I can\'t afford to spend a lot of money to do it.  Any suggestions?  Signed, Sam Dear Sam, Yes.  Run for public office.<P>');  
+
+if(iex) document.write('<DIV ID="divTxt" STYLE="position:absolute; top:100; left:'+lft+'; width:300; font-family:verdana; font-size:10pt; background-color:white; z-index:1">'+divTxt_content+'</DIV>');
+if(nav) document.write('<LAYER ID="divTxt" position="absolute" top="100" left="'+lft+'" width="300" font-family="verdana" font-size="10pt" bgcolor="white" z-index="1">'+divTxt_content+'</LAYER>');
+//  End -->
+</script>

@@ -1,0 +1,136 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  User Details:  Browser & Version Redirect</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="User Details">
+<META NAME="description" CONTENT="If you maintain separate pages for Netscape and Internet Explorer browsers and want to additionally divide each browser's page into version pages, this script is for you.  The script will create a link (or can be changed to automatically redirect) to browser[version number].html.  (For example, a visitor with Netscape 4.5 would be see a link to netscape4.html)">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /user-details/"><font color="#FF0000"><b>User Details</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Browser & Version Redirect</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+If you maintain separate pages for Netscape and Internet Explorer browsers and want to additionally divide each browser's page into version pages, this script is for you.  The script will create a link (or can be changed to automatically redirect) to browser[version number].html.  (For example, a visitor with Netscape 4.5 would see a link to netscape4.html)
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<SCRIPT LANGUAGE="JavaScript">
+
+
+
+
+<!-- Begin
+
+var name = navigator.appName;
+var vers = navigator.appVersion;
+vers = vers.substring(0,1); // or 0,4  could return 4.5 instead of just 4
+
+if (name == "Microsoft Internet Explorer") 
+url="msie";
+else 
+url="netscape";
+url += vers + ".html";
+document.write('<center><font face="arial,helvetica" size="-1">');
+document.write('[ Here there would be a link for ' + url + ' ]');
+document.write('</font></center>');
+
+// You may make the redirection automatic by using this 
+// window.location=url;   
+// instead of the three document.write lines above 
+
+// End -->
+</script>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  User Details:  Browser & Version Redirect</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.27 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- ONE STEP TO INSTALL BROWSER & VERSION REDIRECT:
+
+  1.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+
+var name = navigator.appName;
+var vers = navigator.appVersion;
+vers = vers.substring(0,1); // or 0,4  could return 4.5 instead of just 4
+
+if (name == "Microsoft Internet Explorer") 
+url="msie";
+else 
+url="netscape";
+url += vers + ".html";
+document.write('&lt;center&gt;');
+document.write('&lt;A HREF="' + url + '"&gt;Enter&lt;/A&gt;');
+document.write('&lt;/center&gt;');
+
+// You may make the redirection automatic by using this 
+// window.location=url;   
+// instead of the three document.write lines above 
+
+// End --&gt;
+&lt;/script&gt;
+
+&lt;!-- Script Size:  1.08 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

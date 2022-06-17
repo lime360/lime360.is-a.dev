@@ -1,0 +1,404 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Equivalents:  Write Out Number</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="jc491403@altavista.com">
+<META NAME="section" CONTENT="Equivalents">
+<META NAME="description" CONTENT="This script takes a number and converts it to its English equivalent.  If you enter 45678 in the number box and click the appropriate button, Forty Five Thousand Six Hundred Seventy Eight appears in the lower box.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  jc491403@altavista.com -->
+
+
+
+
+<!-- Begin
+var n = "";
+function validate(input) {
+if (input.length == 0) {
+alert ('Please Enter A Number.');
+document.myform.textver.value = "";
+return true;
+}
+else convert(input);
+}
+function d1(x) { // single digit terms
+switch(x) {
+case '0': n= ""; break;
+case '1': n= " One "; break;
+case '2': n= " Two "; break;
+case '3': n= " Three "; break;
+case '4': n= " Four "; break;
+case '5': n= " Five "; break;
+case '6': n= " Six "; break;
+case '7': n= " Seven "; break;
+case '8': n= " Eight "; break;
+case '9': n= " Nine "; break;
+default: n = "Not a Number";
+}
+return n;
+}
+function d2(x) { // 10x digit terms
+switch(x) {
+case '0': n= ""; break;
+case '1': n= ""; break;
+case '2': n= " Twenty "; break;
+case '3': n= " Thirty "; break;
+case '4': n= " Forty "; break;
+case '5': n= " Fifty "; break;
+case '6': n= " Sixty "; break;
+case '7': n= " Seventy "; break;
+case '8': n= " Eighty "; break;
+case '9': n= " Ninety "; break;
+default: n = "Not a Number";
+}
+return n;
+}
+function d3(x) { // teen digit terms
+switch(x) {
+case '0': n= " Ten "; break;
+case '1': n= " Eleven "; break;
+case '2': n= " Twelve "; break;
+case '3': n= " Thirteen "; break;
+case '4': n= " Fourteen "; break;
+case '5': n= " Fifteen "; break;
+case '6': n= " Sixteen "; break;
+case '7': n= " Seventeen "; break;
+case '8': n= " Eighteen "; break;
+case '9': n= " Nineteen "; break;
+default: n=  "Not a Number";
+}
+return n;
+}
+function convert(input) {
+var inputlength = input.length;
+var x = 0;
+var teen1 = "";
+var teen2 = "";
+var teen3 = "";
+var numName = "";
+var invalidNum = "";
+var a1 = ""; // for insertion of million, thousand, hundred 
+var a2 = "";
+var a3 = "";
+var a4 = "";
+var a5 = "";
+digit = new Array(inputlength); // stores output
+for (i = 0; i < inputlength; i++)  {
+// puts digits into array
+digit[inputlength - i] = input.charAt(i)};
+store = new Array(9); // store output
+for (i = 0; i < inputlength; i++) {
+x= inputlength - i;
+switch (x) { // assign text to each digit
+case x=9: d1(digit[x]); store[x] = n; break;
+case x=8: if (digit[x] == "1") {teen3 = "yes"}
+          else {teen3 = ""}; d2(digit[x]); store[x] = n; break;
+case x=7: if (teen3 == "yes") {teen3 = ""; d3(digit[x])}
+          else {d1(digit[x])}; store[x] = n; break;
+case x=6: d1(digit[x]); store[x] = n; break;
+case x=5: if (digit[x] == "1") {teen2 = "yes"}
+          else {teen2 = ""}; d2(digit[x]); store[x] = n; break;
+case x=4: if (teen2 == "yes") {teen2 = ""; d3(digit[x])}    
+          else {d1(digit[x])}; store[x] = n; break;
+case x=3: d1(digit[x]); store[x] = n; break;
+case x=2: if (digit[x] == "1") {teen1 = "yes"}
+          else {teen1 = ""}; d2(digit[x]); store[x] = n; break;
+case x=1: if (teen1 == "yes") {teen1 = "";d3(digit[x])}     
+          else {d1(digit[x])}; store[x] = n; break;
+}
+if (store[x] == "Not a Number"){invalidNum = "yes"};
+switch (inputlength){
+case 1:   store[2] = ""; 
+case 2:   store[3] = ""; 
+case 3:   store[4] = ""; 
+case 4:   store[5] = "";
+case 5:   store[6] = "";
+case 6:   store[7] = "";
+case 7:   store[8] = "";
+case 8:   store[9] = "";
+}
+if (store[9] != "") { a1 =" Hundred, "} else {a1 = ""};
+if ((store[9] != "")||(store[8] != "")||(store[7] != ""))
+{ a2 =" Million, "} else {a2 = ""};
+if (store[6] != "") { a3 =" Hundred "} else {a3 = ""};
+if ((store[6] != "")||(store[5] != "")||(store[4] != ""))
+{ a4 =" Thousand, "} else {a4 = ""};
+if (store[3] != "") { a5 =" Hundred "} else {a5 = ""};
+}
+// add up text, cancel if invalid input found
+if (invalidNum == "yes"){numName = "Invalid Input"}
+else {
+numName =  store[9] + a1 + store[8] + store[7] 
++ a2 + store[6] + a3 + store[5] + store[4] 
++ a4 + store[3] + a5 + store[2] + store[1];
+}
+store[1] = ""; store[2] = ""; store[3] = ""; 
+store[4] = ""; store[5] = ""; store[6] = "";
+store[7] = ""; store[8] = ""; store[9] = "";
+if (numName == ""){numName = "Zero"};
+document.myform.textver.value = numName;
+return true;
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /equivalents/"><font color="#FF0000"><b>Equivalents</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Write Out Number</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+This script takes a number and converts it to its English equivalent.  If you enter 45678 in the number box and click the appropriate button, Forty Five Thousand Six Hundred Seventy Eight appears in the lower box.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+Enter a number between 0 and 999,999,999 (No commas please.)
+
+<form name="myform">
+<table border=0>
+<tr>
+<td>Number:</td>
+<td><input name="numver" size=9 maxlength=9> <input onclick="return validate(document.myform.numver.value)" type="button" value="Write Out Number"></td>
+</tr>
+<tr>
+<td>Text:</td>
+<td><input name="textver" size=50 maxlength=50></td>
+</tr>
+<tr>
+<td align=middle colspan=2></td>
+</tr>
+</table>
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Equivalents:  Write Out Number</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  4.95 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL WRITE OUT NUMBER:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  jc491403@altavista.com --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var n = "";
+function validate(input) {
+if (input.length == 0) {
+alert ('Please Enter A Number.');
+document.myform.textver.value = "";
+return true;
+}
+else convert(input);
+}
+function d1(x) { // single digit terms
+switch(x) {
+case '0': n= ""; break;
+case '1': n= " One "; break;
+case '2': n= " Two "; break;
+case '3': n= " Three "; break;
+case '4': n= " Four "; break;
+case '5': n= " Five "; break;
+case '6': n= " Six "; break;
+case '7': n= " Seven "; break;
+case '8': n= " Eight "; break;
+case '9': n= " Nine "; break;
+default: n = "Not a Number";
+}
+return n;
+}
+function d2(x) { // 10x digit terms
+switch(x) {
+case '0': n= ""; break;
+case '1': n= ""; break;
+case '2': n= " Twenty "; break;
+case '3': n= " Thirty "; break;
+case '4': n= " Forty "; break;
+case '5': n= " Fifty "; break;
+case '6': n= " Sixty "; break;
+case '7': n= " Seventy "; break;
+case '8': n= " Eighty "; break;
+case '9': n= " Ninety "; break;
+default: n = "Not a Number";
+}
+return n;
+}
+function d3(x) { // teen digit terms
+switch(x) {
+case '0': n= " Ten "; break;
+case '1': n= " Eleven "; break;
+case '2': n= " Twelve "; break;
+case '3': n= " Thirteen "; break;
+case '4': n= " Fourteen "; break;
+case '5': n= " Fifteen "; break;
+case '6': n= " Sixteen "; break;
+case '7': n= " Seventeen "; break;
+case '8': n= " Eighteen "; break;
+case '9': n= " Nineteen "; break;
+default: n=  "Not a Number";
+}
+return n;
+}
+function convert(input) {
+var inputlength = input.length;
+var x = 0;
+var teen1 = "";
+var teen2 = "";
+var teen3 = "";
+var numName = "";
+var invalidNum = "";
+var a1 = ""; // for insertion of million, thousand, hundred 
+var a2 = "";
+var a3 = "";
+var a4 = "";
+var a5 = "";
+digit = new Array(inputlength); // stores output
+for (i = 0; i &lt; inputlength; i++)  {
+// puts digits into array
+digit[inputlength - i] = input.charAt(i)};
+store = new Array(9); // store output
+for (i = 0; i &lt; inputlength; i++) {
+x= inputlength - i;
+switch (x) { // assign text to each digit
+case x=9: d1(digit[x]); store[x] = n; break;
+case x=8: if (digit[x] == "1") {teen3 = "yes"}
+          else {teen3 = ""}; d2(digit[x]); store[x] = n; break;
+case x=7: if (teen3 == "yes") {teen3 = ""; d3(digit[x])}
+          else {d1(digit[x])}; store[x] = n; break;
+case x=6: d1(digit[x]); store[x] = n; break;
+case x=5: if (digit[x] == "1") {teen2 = "yes"}
+          else {teen2 = ""}; d2(digit[x]); store[x] = n; break;
+case x=4: if (teen2 == "yes") {teen2 = ""; d3(digit[x])}    
+          else {d1(digit[x])}; store[x] = n; break;
+case x=3: d1(digit[x]); store[x] = n; break;
+case x=2: if (digit[x] == "1") {teen1 = "yes"}
+          else {teen1 = ""}; d2(digit[x]); store[x] = n; break;
+case x=1: if (teen1 == "yes") {teen1 = "";d3(digit[x])}     
+          else {d1(digit[x])}; store[x] = n; break;
+}
+if (store[x] == "Not a Number"){invalidNum = "yes"};
+switch (inputlength){
+case 1:   store[2] = ""; 
+case 2:   store[3] = ""; 
+case 3:   store[4] = ""; 
+case 4:   store[5] = "";
+case 5:   store[6] = "";
+case 6:   store[7] = "";
+case 7:   store[8] = "";
+case 8:   store[9] = "";
+}
+if (store[9] != "") { a1 =" Hundred, "} else {a1 = ""};
+if ((store[9] != "")||(store[8] != "")||(store[7] != ""))
+{ a2 =" Million, "} else {a2 = ""};
+if (store[6] != "") { a3 =" Hundred "} else {a3 = ""};
+if ((store[6] != "")||(store[5] != "")||(store[4] != ""))
+{ a4 =" Thousand, "} else {a4 = ""};
+if (store[3] != "") { a5 =" Hundred "} else {a5 = ""};
+}
+// add up text, cancel if invalid input found
+if (invalidNum == "yes"){numName = "Invalid Input"}
+else {
+numName =  store[9] + a1 + store[8] + store[7] 
++ a2 + store[6] + a3 + store[5] + store[4] 
++ a4 + store[3] + a5 + store[2] + store[1];
+}
+store[1] = ""; store[2] = ""; store[3] = ""; 
+store[4] = ""; store[5] = ""; store[6] = "";
+store[7] = ""; store[8] = ""; store[9] = "";
+if (numName == ""){numName = "Zero"};
+document.myform.textver.value = numName;
+return true;
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+Enter a number between 0 and 999,999,999 (No commas please.)
+
+&lt;form name="myform"&gt;
+&lt;table border=0&gt;
+&lt;tr&gt;
+&lt;td&gt;Number:&lt;/td&gt;
+&lt;td&gt;&lt;input name="numver" size=9 maxlength=9&gt; &lt;input onclick="return validate(document.myform.numver.value)" type="button" value="Write Out Number"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Text:&lt;/td&gt;
+&lt;td&gt;&lt;input name="textver" size=50 maxlength=50&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=middle colspan=2&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  4.95 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

@@ -1,0 +1,215 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Calculators:  Quadratic Equation</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Songzi Du (xdu1@iupui.edu)">
+<META NAME="section" CONTENT="Calculators">
+<META NAME="description" CONTENT="Why didn't I have one of these during high school math?  Just enter the coefficients for the quadratic 'Ax^2 + Bx + C = 0' equation and JavaScript will output the solutions (if they are not imaginary!).  Neat!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+function quad(form) {
+a=eval(form.a.value);
+b=eval(form.b.value);
+c=eval(form.c.value);
+x1=-b/2/a+Math.pow(Math.pow(b,2)-4*a*c,0.5)/2/a;
+x2=-b/2/a-Math.pow(Math.pow(b,2)-4*a*c,0.5)/2/a;
+form.x1.value = x1;
+form.x2.value = x2;
+if (form.x1.value == "NaN") form.x1.value="Imag.!";
+if (form.x2.value == "NaN") form.x2.value="Imag.!";
+}
+// End -->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /calculators/"><font color="#FF0000">Calculators</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Quadratic Equation</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Why didn't I have one of these during high school math?  Just enter the coefficients for the 'Ax^2 + Bx + C = 0' equation and JavaScript will output the solutions (if they are not imaginary!).  Neat!
+<br>
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<BODY>
+<center>
+<form name=form>
+<table border=1 cellpadding=2>
+<tr>
+<td colspan=2 align=center><b>Quadratic Equation:<br>Ax<sup>2</sup> + Bx + C = 0</b></td>
+</tr>
+<tr>
+<td>
+<center><table border=1 width=100% cellpadding=2>
+<tr>
+<td align=center><b>A = </b></td>
+<td align=center><input type=text size=6 name="a"></td>
+</tr>
+<tr>
+<td align=center><b>B = </b></td>
+<td align=center><input type=text size=6 name="b"></td>
+</tr>
+<tr>
+<td align=center><b>C = </b></td>
+<td align=center><input type=text size=6 name="c"></td>
+</tr>
+</table>
+</td>
+<td>
+<center><table border=1 width=100% cellpadding=2>
+<tr>
+<td colspan=2 align=center><input type=button value="Solve" onClick="quad(this.form)"></td>
+</tr>
+<tr>
+<td align=center><b>X1 = </b></td>
+<td align=center><input type=text size=6 name="x1"></td>
+</tr>
+<tr>
+<td align=center><b>X2 = </b></td>
+<td align=center><input type=text size=6 name="x2"></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Calculator:  Quadratic Equation</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.10 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL QUADRATIC EQUATION:
+
+   1.  Paste the first coding into the HEAD of your HTML document 
+   2.  Put the last script into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the HEAD of your HTML document  --&gt;
+		  
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Songzi Du (xdu1@iupui.edu) --&gt;
+&lt;!-- Web site:  http://members.tripod.com/~Songzidu/mainpageindex.html --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function quad(form) {
+a=eval(form.a.value);
+b=eval(form.b.value);
+c=eval(form.c.value);
+x1=-b/2/a+Math.pow(Math.pow(b,2)-4*a*c,0.5)/2/a;
+x2=-b/2/a-Math.pow(Math.pow(b,2)-4*a*c,0.5)/2/a;
+form.x1.value = x1;
+form.x2.value = x2;
+if (form.x1.value == "NaN") form.x1.value="Imag.!";
+if (form.x2.value == "NaN") form.x2.value="Imag.!";
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+&lt;/head&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form name=form&gt;
+&lt;table border=1 cellpadding=2&gt;
+&lt;tr&gt;
+&lt;td colspan=2 align=center&gt;&lt;b&gt;Quadratic Equation:&lt;br&gt;Ax&lt;sup&gt;2&lt;/sup&gt; + Bx + C = 0&lt;/b&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;center&gt;&lt;table border=1 width=100% cellpadding=2&gt;
+&lt;tr&gt;
+&lt;td align=center&gt;&lt;b&gt;A = &lt;/b&gt;&lt;/td&gt;
+&lt;td align=center&gt;&lt;input type=text size=6 name="a"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=center&gt;&lt;b&gt;B = &lt;/b&gt;&lt;/td&gt;
+&lt;td align=center&gt;&lt;input type=text size=6 name="b"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=center&gt;&lt;b&gt;C = &lt;/b&gt;&lt;/td&gt;
+&lt;td align=center&gt;&lt;input type=text size=6 name="c"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;center&gt;&lt;table border=1 width=100% cellpadding=2&gt;
+&lt;tr&gt;
+&lt;td colspan=2 align=center&gt;
+&lt;input type=button value="Solve" onClick="quad(this.form)"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=center&gt;&lt;b&gt;X1 = &lt;/b&gt;&lt;/td&gt;
+&lt;td align=center&gt;&lt;input type=text size=6 name="x1"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=center&gt;&lt;b&gt;X2 = &lt;/b&gt;&lt;/td&gt;
+&lt;td align=center&gt;&lt;input type=text size=6 name="x2"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+ 
+
+&lt;!-- Script Size:  2.01 KB  --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

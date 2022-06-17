@@ -1,0 +1,194 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Calculators:  Straight Distance</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Jay Kimmel (jaykimmel@bigplanet.com)">
+<META NAME="section" CONTENT="Calculators">
+<META NAME="description" CONTENT="Enter a coordinate pair for each the starting and ending points according to the Cartesian coodinate system.  The script will calculate the straight line distance between the two points.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Jay Kimmel (jaykimmel@bigplanet.com) -->
+<!-- Web Site:  http://www.jkimmel.com -->
+
+
+
+
+<!-- Begin
+function distance(form) {
+var x1 = eval(form.x1.value);
+var y1 = eval(form.y1.value);
+var x2 = eval(form.x2.value);
+var y2 = eval(form.y2.value);
+var xdiff = x2 - x1;
+var ydiff = y2 - y1;
+form.answer.value = Math.pow((xdiff * xdiff + ydiff * ydiff), 0.5);
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /calculators/"><font color="#FF0000"><b>Calculators</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Straight Distance</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Enter a coordinate pair for each the starting and ending points according to the Cartesian coodinate system.  The script will calculate the straight line distance between the two points.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form>
+<table border=3 cellspacing=2 cellpadding=5>
+<tr>
+<td colspan=4 align=center>Distance Calculator: From point A to point B</td>
+</tr>
+<tr>
+<td colspan=2 align=center>Point A</td>
+<td colspan=2 align=center>Point B</td>
+</tr>
+<tr>
+<td align=center>(x<sub>A</sub>,</td>
+<td align=center>y<sub>A</sub>)</td>
+<td align=center>(x<sub>B</sub>,</td>
+<td align=center>y<sub>B</sub>)</td>
+</tr>
+<tr>
+<td align=center><input type=text name=x1 size=5></td>
+<td align=center><input type=text name=y1 size=5></td>
+<td align=center><input type=text name=x2 size=5></td>
+<td align=center><input type=text name=y2 size=5></td>
+</tr>
+<tr>
+<td colspan=4 align=center><input type=button value="Solve Distance" onClick="distance(this.form)"></td>
+</tr>
+<tr>
+<td colspan=4 align=center><input type=text name=answer size=20></td>
+</tr>
+</table>
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Calculators:  Straight Distance</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.80 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL STRAIGHT DISTANCE:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Jay Kimmel (jaykimmel@bigplanet.com) --&gt;
+&lt;!-- Web Site:  http://www.jkimmel.com --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function distance(form) {
+var x1 = eval(form.x1.value);
+var y1 = eval(form.y1.value);
+var x2 = eval(form.x2.value);
+var y2 = eval(form.y2.value);
+var xdiff = x2 - x1;
+var ydiff = y2 - y1;
+form.answer.value = Math.pow((xdiff * xdiff + ydiff * ydiff), 0.5);
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form&gt;
+&lt;table border=3 cellspacing=2 cellpadding=5&gt;
+&lt;tr&gt;
+&lt;td colspan=4 align=center&gt;Distance Calculator: From point A to point B&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td colspan=2 align=center&gt;Point A&lt;/td&gt;
+&lt;td colspan=2 align=center&gt;Point B&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=center&gt;(x&lt;sub&gt;A&lt;/sub&gt;,&lt;/td&gt;
+&lt;td align=center&gt;y&lt;sub&gt;A&lt;/sub&gt;)&lt;/td&gt;
+&lt;td align=center&gt;(x&lt;sub&gt;B&lt;/sub&gt;,&lt;/td&gt;
+&lt;td align=center&gt;y&lt;sub&gt;B&lt;/sub&gt;)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=center&gt;&lt;input type=text name=x1 size=5&gt;&lt;/td&gt;
+&lt;td align=center&gt;&lt;input type=text name=y1 size=5&gt;&lt;/td&gt;
+&lt;td align=center&gt;&lt;input type=text name=x2 size=5&gt;&lt;/td&gt;
+&lt;td align=center&gt;&lt;input type=text name=y2 size=5&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td colspan=4 align=center&gt;&lt;input type=button value="Solve Distance" onClick="distance(this.form)"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td colspan=4 align=center&gt;&lt;input type=text name=answer size=20&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  1.80 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

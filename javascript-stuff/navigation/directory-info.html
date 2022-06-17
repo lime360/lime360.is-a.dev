@@ -1,0 +1,118 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Navigation:  Directory Info</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Kevin Lynn Brown ">
+<META NAME="section" CONTENT="Navigation">
+<META NAME="description" CONTENT="Do you archive your website's contents into separate directories?  If so, you'll love this script!  It will print out a neat linked directory information for any page on your site!  Very neat! ">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /navigation/"><font color="#FF0000">Navigation</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Directory Info</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE=" helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Do you archive your website's contents into separate directories?  If so, you'll love this script!  It will print out a neat linked directory information for any page on your site!  Very neat! <br><hr>
+</td></tr>
+</table>
+<!--  Demonstration -->
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+var path = "";
+var href = document.location.href;
+var s = href.split("/"); 
+for (var i=2;i<(s.length-1);i++) {
+path+="<A HREF=\""+href.substring(0,href.indexOf(s[i])+s[i].length)+"/\">"+s[i]+"</A>/";
+}
+i=s.length-1;
+path+="<A HREF=\""+href.substring(0,href.indexOf(s[i])+s[i].length)+"\">"+s[i]+"</A>";
+var url = window.location.protocol + "//" + path;
+document.writeln(url);
+// End -->
+</script>
+<P>
+<BR>
+<P>
+<a name="source">
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Navigation:  Directory Info</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as NotePad or SimpleText) and save (Control-s or Apple-s).  The script is yours!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  0.88 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- ONE STEP TO INSTALL DIRECTORY INFO:
+
+   1.  Add the first code to the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Add the first code to the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Kevin Lynn Brown  --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var path = "";
+var href = document.location.href;
+var s = href.split("/"); 
+for (var i=2;i&lt;(s.length-1);i++) {
+path+="&lt;A HREF=\""+href.substring(0,href.indexOf(s[i])+s[i].length)+"/\"&gt;"+s[i]+"&lt;/A&gt; / ";
+}
+i=s.length-1;
+path+="&lt;A HREF=\""+href.substring(0,href.indexOf(s[i])+s[i].length)+"\"&gt;"+s[i]+"&lt;/A&gt;";
+var url = window.location.protocol + "//" + path;
+document.writeln(url);
+// End --&gt;
+&lt;/script&gt;
+
+ 
+
+&lt;!-- Script Size:  0.88 KB  --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

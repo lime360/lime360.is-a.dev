@@ -1,0 +1,418 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Calculators:  Landscape Grapher</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Mark Washburn (mawcowboyusa@netscape.net)">
+<META NAME="section" CONTENT="Calculators">
+<META NAME="description" CONTENT="JavaScript 3D terrain grapher which creates virtual landscapes using three-dimensional fractal geometry, random numbers, and a simple mathematical formula.  "s" indicates under sea-level.  Just hit reload to get a new landscape.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Mark Washburn (mawcowboyusa@netscape.net) -->
+<!-- Web Site:  http://sites.netscape.net/mawcowboyusa/ -->
+
+
+
+
+<!-- Begin
+var WIDTH = 1;
+var XA = 0;
+var XB = 17;
+var YA = 0;
+var YB = 17;
+var Z1 = 0;
+var Z2 = 0;
+var Z3 = 0;
+var Z4 = 0;
+var XADD = 10; // move x axis left on screen
+var YADD = -8; // lower y axis view 
+var LEVEL_UNDEFINED = 99999;
+var LEVEL_WATER = -1;
+
+picType = new Array();
+pic = new Array();
+
+var steep;
+var sealevel;
+var buf = "";
+var buf2 = "";
+var pic0;
+
+function ZColor ( z0) {
+var t1;
+if ( z0 == LEVEL_WATER ) {
+return '<TT><FONT COLOR="#000099">' + "S" + "</FONT></TT>";
+}
+if ( z0 == LEVEL_UNDEFINED ) {
+return '<TT><FONT COLOR="#000099">' + "S" + "</FONT></TT>";
+}
+
+t1 = z0 % 10;
+if ( t1 == 0 ) {
+return '<TT><FONT COLOR="#330000">' + "0" + "</FONT></TT>";
+}
+if ( t1 == 1 ) {
+return '<TT><FONT COLOR="#663300">' + "1" + "</FONT></TT>";
+}
+if ( t1 == 2 ) {
+return '<TT><FONT COLOR="#CC6600">' + "2" + "</FONT></TT>";
+}
+if ( t1 == 3 ) {
+return '<TT><FONT COLOR="#FF9900">' + "3" + "</FONT></TT>";
+}
+if ( t1 == 4 ) {
+return '<TT><FONT COLOR="#FFCC00">' + "4" + "</FONT></TT>";
+}
+if ( t1 == 5 ) {
+return '<TT><FONT COLOR="#FFCC99">' + "5" + "</FONT></TT>";
+}
+if ( t1 == 6 ) {
+return '<TT><FONT COLOR="#FFFF00">' + "6" + "</FONT></TT>";
+}
+if ( t1 == 7 ) {
+return '<TT><FONT COLOR="#33FF33">' + "7" + "</FONT></TT>";
+}
+if ( t1 == 8 ) {
+return '<TT><FONT COLOR="#009900">' + "8" + "</FONT></TT>";
+}
+if ( t1 == 9 ) {
+return '<TT><FONT COLOR="#003300">' + "9" + "</FONT></TT>";
+   }
+}
+
+function frac( x0, y0, x2, y2, z0, z1, z2, z3 ) {
+var newz, xmid, ymid, z01, z12, z23, z30;
+//  50% chance rise or descend 
+if ( Math.random() < 0.5 ) {
+newz = Math.round( (z0+z1+z2+z3) / 4) + Math.round( Math.random() * (y2-y0) * steep );
+}
+else {
+newz = Math.round( (z0+z1+z2+z3) / 4) - Math.round( Math.random() * (y2-y0) * steep );
+}
+
+xmid = ( x0 + x2) >> 1;
+ymid = ( y0 + y2) >> 1;
+z12 =  ( z1 + z2) >> 1;
+z30 =  ( z3 + z0) >> 1;
+z01 =  ( z0 + z1) >> 1;
+z23 =  ( z2 + z3) >> 1;
+
+if ( (( x2 - x0 ) > WIDTH ) && (( y2 - y0 ) > WIDTH )) {
+frac( x0, y0, xmid, ymid, z0, z01, newz, z30); 
+frac( xmid, y0, x2, ymid, z01, z1, z12, newz); 
+frac( x0, ymid, xmid, y2, z30, newz, z23, z3);
+frac( xmid, ymid, x2, y2, newz, z12, z2, z23); 
+} 
+else {
+if ( newz <= sealevel ) { 
+// above sea level
+picType[ymid*YB+xmid] = "l";
+pic[ymid*YB+xmid] = newz;
+} 
+else {
+//  below "sea level"
+picType[ymid*YB+xmid] = "s";
+pic[ymid*YB+xmid] = LEVEL_WATER;
+      }
+   }
+}
+
+
+function landscape() {
+  
+for (var i = 0; i < XB; i++) {
+for (var j = 0; j < YB; j++) {
+picType[j*YB+i] = "u";
+   }
+}
+for (var i = 0; i < XB; i++) {
+for (var j = 0; j < YB; j++) {
+pic[j*YB+i] = LEVEL_UNDEFINED;
+   }
+}
+  
+steep = ( Math.random() / 2.5 ) + 0.5;
+sealevel = Math.round( 17 * Math.random() ) - 8;
+  
+Z1 = Math.round( 15 * Math.random() ) - 7;
+Z2 = Math.round( 15 * Math.random() ) - 7;
+Z3 = Math.round( 15 * Math.random() ) - 7;
+Z4 = Math.round( 15 * Math.random() ) - 7;
+
+frac( XA, YA, XB, YB, Z1, Z2, Z3, Z4);
+
+for (var i = 0; i < XB; i++) {
+for (var j = 0; j < YB; j++) {
+pic0 = LEVEL_UNDEFINED;
+if ( picType[j*YB+i] == "l" )  {
+pic0 = Math.abs(pic[j*YB+i] - sealevel);
+}
+if ( picType[j*YB+i] == "s" )  {
+pic0 = LEVEL_WATER;
+}
+buf2 = buf2 + ZColor( pic0 ) + " "; 
+}
+buf2 = buf2 + "<BR>";
+}
+return buf2;
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /calculators/"><font color="#FF0000"><b>Calculators</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Landscape Grapher</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+JavaScript 3D terrain grapher which creates virtual landscapes using three-dimensional fractal geometry, random numbers, and a simple mathematical formula.  "s" indicates under sea-level.  Just hit reload to get a new landscape.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<table bgcolor=black><tr><td>
+
+<script language="JavaScript">
+<!--
+document.write ( landscape() );
+// -->
+</script>
+
+</td></tr></table>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Calculators:  Landscape Grapher</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  4.07 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL LANDSCAPE GRAPHER:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Mark Washburn (mawcowboyusa@netscape.net) --&gt;
+&lt;!-- Web Site:  http://sites.netscape.net/mawcowboyusa/ --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var WIDTH = 1;
+var XA = 0;
+var XB = 17;
+var YA = 0;
+var YB = 17;
+var Z1 = 0;
+var Z2 = 0;
+var Z3 = 0;
+var Z4 = 0;
+var XADD = 10; // move x axis left on screen
+var YADD = -8; // lower y axis view 
+var LEVEL_UNDEFINED = 99999;
+var LEVEL_WATER = -1;
+
+picType = new Array();
+pic = new Array();
+
+var steep;
+var sealevel;
+var buf = "";
+var buf2 = "";
+var pic0;
+
+function ZColor ( z0) {
+var t1;
+if ( z0 == LEVEL_WATER ) {
+return '&lt;TT&gt;&lt;FONT COLOR="#000099"&gt;' + "S" + "&lt;/FONT&gt;&lt;/TT&gt;";
+}
+if ( z0 == LEVEL_UNDEFINED ) {
+return '&lt;TT&gt;&lt;FONT COLOR="#000099"&gt;' + "S" + "&lt;/FONT&gt;&lt;/TT&gt;";
+}
+
+t1 = z0 % 10;
+if ( t1 == 0 ) {
+return '&lt;TT&gt;&lt;FONT COLOR="#330000"&gt;' + "0" + "&lt;/FONT&gt;&lt;/TT&gt;";
+}
+if ( t1 == 1 ) {
+return '&lt;TT&gt;&lt;FONT COLOR="#663300"&gt;' + "1" + "&lt;/FONT&gt;&lt;/TT&gt;";
+}
+if ( t1 == 2 ) {
+return '&lt;TT&gt;&lt;FONT COLOR="#CC6600"&gt;' + "2" + "&lt;/FONT&gt;&lt;/TT&gt;";
+}
+if ( t1 == 3 ) {
+return '&lt;TT&gt;&lt;FONT COLOR="#FF9900"&gt;' + "3" + "&lt;/FONT&gt;&lt;/TT&gt;";
+}
+if ( t1 == 4 ) {
+return '&lt;TT&gt;&lt;FONT COLOR="#FFCC00"&gt;' + "4" + "&lt;/FONT&gt;&lt;/TT&gt;";
+}
+if ( t1 == 5 ) {
+return '&lt;TT&gt;&lt;FONT COLOR="#FFCC99"&gt;' + "5" + "&lt;/FONT&gt;&lt;/TT&gt;";
+}
+if ( t1 == 6 ) {
+return '&lt;TT&gt;&lt;FONT COLOR="#FFFF00"&gt;' + "6" + "&lt;/FONT&gt;&lt;/TT&gt;";
+}
+if ( t1 == 7 ) {
+return '&lt;TT&gt;&lt;FONT COLOR="#33FF33"&gt;' + "7" + "&lt;/FONT&gt;&lt;/TT&gt;";
+}
+if ( t1 == 8 ) {
+return '&lt;TT&gt;&lt;FONT COLOR="#009900"&gt;' + "8" + "&lt;/FONT&gt;&lt;/TT&gt;";
+}
+if ( t1 == 9 ) {
+return '&lt;TT&gt;&lt;FONT COLOR="#003300"&gt;' + "9" + "&lt;/FONT&gt;&lt;/TT&gt;";
+   }
+}
+
+function frac( x0, y0, x2, y2, z0, z1, z2, z3 ) {
+var newz, xmid, ymid, z01, z12, z23, z30;
+//  50% chance rise or descend 
+if ( Math.random() &lt; 0.5 ) {
+newz = Math.round( (z0+z1+z2+z3) / 4) + Math.round( Math.random() * (y2-y0) * steep );
+}
+else {
+newz = Math.round( (z0+z1+z2+z3) / 4) - Math.round( Math.random() * (y2-y0) * steep );
+}
+
+xmid = ( x0 + x2) &gt;&gt; 1;
+ymid = ( y0 + y2) &gt;&gt; 1;
+z12 =  ( z1 + z2) &gt;&gt; 1;
+z30 =  ( z3 + z0) &gt;&gt; 1;
+z01 =  ( z0 + z1) &gt;&gt; 1;
+z23 =  ( z2 + z3) &gt;&gt; 1;
+
+if ( (( x2 - x0 ) &gt; WIDTH ) && (( y2 - y0 ) &gt; WIDTH )) {
+frac( x0, y0, xmid, ymid, z0, z01, newz, z30); 
+frac( xmid, y0, x2, ymid, z01, z1, z12, newz); 
+frac( x0, ymid, xmid, y2, z30, newz, z23, z3);
+frac( xmid, ymid, x2, y2, newz, z12, z2, z23); 
+} 
+else {
+if ( newz &lt;= sealevel ) { 
+// above sea level
+picType[ymid*YB+xmid] = "l";
+pic[ymid*YB+xmid] = newz;
+} 
+else {
+//  below "sea level"
+picType[ymid*YB+xmid] = "s";
+pic[ymid*YB+xmid] = LEVEL_WATER;
+      }
+   }
+}
+
+
+function landscape() {
+  
+for (var i = 0; i &lt; XB; i++) {
+for (var j = 0; j &lt; YB; j++) {
+picType[j*YB+i] = "u";
+   }
+}
+for (var i = 0; i &lt; XB; i++) {
+for (var j = 0; j &lt; YB; j++) {
+pic[j*YB+i] = LEVEL_UNDEFINED;
+   }
+}
+  
+steep = ( Math.random() / 2.5 ) + 0.5;
+sealevel = Math.round( 17 * Math.random() ) - 8;
+  
+Z1 = Math.round( 15 * Math.random() ) - 7;
+Z2 = Math.round( 15 * Math.random() ) - 7;
+Z3 = Math.round( 15 * Math.random() ) - 7;
+Z4 = Math.round( 15 * Math.random() ) - 7;
+
+frac( XA, YA, XB, YB, Z1, Z2, Z3, Z4);
+
+for (var i = 0; i &lt; XB; i++) {
+for (var j = 0; j &lt; YB; j++) {
+pic0 = LEVEL_UNDEFINED;
+if ( picType[j*YB+i] == "l" )  {
+pic0 = Math.abs(pic[j*YB+i] - sealevel);
+}
+if ( picType[j*YB+i] == "s" )  {
+pic0 = LEVEL_WATER;
+}
+buf2 = buf2 + ZColor( pic0 ) + " "; 
+}
+buf2 = buf2 + "&lt;BR&gt;";
+}
+return buf2;
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;table bgcolor=black&gt;&lt;tr&gt;&lt;td&gt;
+
+&lt;script language="JavaScript"&gt;
+&lt;!--
+document.write ( landscape() );
+// --&gt;
+&lt;/script&gt;
+
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  4.07 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

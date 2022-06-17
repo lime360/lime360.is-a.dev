@@ -1,0 +1,171 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Miscellaneous:  Random Click Image</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Nicholas Lupien (smylex@aol.com)">
+<META NAME="section" CONTENT="Miscellaneous">
+<META NAME="description" CONTENT="Displays a random image when the page is loaded and each time the image is clicked.  Simple!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Nicholas Lupien (smylex@aol.com) -->
+
+
+
+
+<!-- Begin
+var rand1 = 0;
+var useRand = 0;
+
+images = new Array;
+images[1] = new Image();
+images[1].src = "../img/random-click-image/image1.gif";
+images[2] = new Image();
+images[2].src = "../img/random-click-image/image2.gif";
+images[3] = new Image();
+images[3].src = "../img/random-click-image/image3.gif";
+images[4] = new Image();
+images[4].src = "../img/random-click-image/image4.gif";
+images[5] = new Image();
+images[5].src = "../img/random-click-image/image5.gif";
+
+function swapPic() {
+var imgnum = images.length - 1;
+do {
+var randnum = Math.random();
+rand1 = Math.round((imgnum - 1) * randnum) + 1;
+} while (rand1 == useRand);
+useRand = rand1;
+document.randimg.src = images[useRand].src;
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff OnLoad="swapPic()">
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /miscellaneous/"><font color="#FF0000"><b>Miscellaneous</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Random Click Image</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Displays a random image when the page is loaded and each time the image is clicked.  Simple!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<a onClick="swapPic();"><img name="randimg" src="../img/random-click-image/image1.gif" /img/random-click-image/image1.gif"></a><br>
+<font face="Verdana" size="-2">click image to change</font>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Miscellaneous:  Random Click Image</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.49 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL RANDOM CLICK IMAGE:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the onLoad event handler into the BODY tag
+  3.  Put the last coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Nicholas Lupien (smylex@aol.com) --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var rand1 = 0;
+var useRand = 0;
+
+images = new Array;
+images[1] = new Image();
+images[1].src = "image1.gif";
+images[2] = new Image();
+images[2].src = "image2.gif";
+images[3] = new Image();
+images[3].src = "image3.gif";
+images[4] = new Image();
+images[4].src = "image4.gif";
+images[5] = new Image();
+images[5].src = "image5.gif";
+
+function swapPic() {
+var imgnum = images.length - 1;
+do {
+var randnum = Math.random();
+rand1 = Math.round((imgnum - 1) * randnum) + 1;
+} while (rand1 == useRand);
+useRand = rand1;
+document.randimg.src = images[useRand].src;
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Insert the onLoad event handler into your BODY tag  --&gt;
+
+&lt;BODY OnLoad="swapPic()"&gt;
+
+&lt;!-- STEP THREE: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;center&gt;
+&lt;a onClick="swapPic();"&gt;&lt;img name="randimg" src="image1.gif"&gt;&lt;/a&gt;&lt;br&gt;
+&lt;font face="Verdana" size="-2"&gt;click image to change&lt;/font&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  1.49 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

@@ -1,0 +1,119 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Page Details:  Frame Print</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="Control which frame is printed simply by using this short script.  Easy!">
+<META NAME="date" CONTENT="2000-12-04">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Li  Weidong">
+<META NAME="section" CONTENT="Page Details">
+
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /page-details/"><font color="#FF0000"><b>Page Details</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Frame Print</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Control which frame is printed simply by using this short script.  Easy!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<a href="frame-print-demo.html" /page-details/frame-print-demo.html">Click Here for Demonstration</a>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Page Details:  Frame Print</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Command-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  0.86 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL FRAME PRINT:
+
+  1.  Set up your frames (example below)
+  2.  Copy the coding into the HEAD of your HTML document for one frame
+  3.  Add the last code into the BODY of your HTML document for the same frame  --&gt;
+
+&lt;!-- STEP ONE: Set up your frames --&gt;
+
+&lt;frameset cols="100,*"&gt;
+&lt;frame src="frame-left.htm" name="frame1"&gt;
+&lt;frame src="frame-right.htm" name="frame2"&gt;
+&lt;/frameset&gt;
+
+&lt;!-- STEP TWO: Paste this code into the HEAD of your HTML document for the first frame  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Li  Weidong --&gt;
+&lt;!-- Web Site:  http://www.saiweng.net --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function myprint() {
+window.parent.frame2.focus();
+window.print();
+}
+//  End --&gt;
+&lt;/script&gt;
+
+&lt;/HEAD&gt;
+
+&lt;!-- STEP THREE: Copy this code into the BODY of your HTML document of the same frame  --&gt;
+
+&lt;BODY&gt;
+
+&lt;input type=button value="Print Right Frame" onClick="myprint()"&gt;
+
+ 
+
+&lt;!-- Script Size:  0.86 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

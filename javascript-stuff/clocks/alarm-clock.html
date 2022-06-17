@@ -1,0 +1,304 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Clocks:  Alarm Clock</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="Set an alarm that will play any sound from your computer.  You can even select a snooze time after it sounds.  Awesome!">
+<META NAME="date" CONTENT="2000-12-07">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="John Caranta">
+<META NAME="section" CONTENT="Clocks">
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  John Caranta (caranta@netzero.net) -->
+
+
+
+
+<!-- Begin
+var alarmTime;
+var curTime;
+var check = new Date();
+var hourNum;
+var minNum;
+function GetTime() {
+var dt = new Date();
+document.clock.local.value = IfZero(dt.getHours()) + ":" + IfZero(dt.getMinutes());
+setTimeout("GetTime()", 1000);
+curTime = (IfZero(dt.getHours()) + ":" + IfZero(dt.getMinutes()));
+}
+function IfZero(num) {
+return ((num <= 9) ? ("0" + num) : num);
+}
+function alarmSet() {
+hourNum = document.clock.hourOpt[document.clock.hourOpt.selectedIndex].value;
+minNum = document.clock.minOpt[document.clock.minOpt.selectedIndex].value;
+alarmTime = hourNum + ":" + minNum;
+}
+function alarmOn() {
+if (alarmTime == curTime) {
+document.all.sound.src = document.clock.alarmSound.value;
+}
+else {
+setTimeout("alarmOn()", 1000)
+   }
+}
+function alarmOff() {
+document.all.sound.src = "";
+alarmTime="";
+}
+function snooze() {
+document.all.sound.src = "";
+var snoozeL = parseInt(document.clock.snoozeOpt[document.clock.snoozeOpt.selectedIndex].value);
+var snooze = new Date();
+alarmTime = IfZero(snooze.getHours()) + ":" + IfZero(snooze.getMinutes() + snoozeL);
+alarmOn();
+}
+//  End -->
+</script>
+<bgSound src="" id="sound">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff onLoad="GetTime()">
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /clocks/"><font color="#FF0000"><b>Clocks</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Alarm Clock</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+(IE Only) Set an alarm that will play any sound from your computer.  You can even select a snooze time after it sounds.  Awesome!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<table width=80% border=0>
+<tr>
+<td align=middle>
+<form name="clock">
+<input size="8" name="local">
+<input type=radio name=alarmOnOff onClick="alarmOn()">On
+<input type=radio name=alarmOnOff onClick="alarmOff()" checked>Off
+<td align=middle>
+Set Alarm:
+<br>
+<select name=hourOpt onChange="alarmSet()" size=1>
+<option value="00">00<option value="01">01<option value="02">02<option value="03">03
+<option value="04">04<option value="05">05<option value="06">06<option value="07">07
+<option value="08">08<option value="09">09<option value="10">10<option value="11">11
+<option selected value="12">12
+<option value="13">13<option value="14">14<option value="15">15<option value="16">16
+<option value="17">17<option value="18">18<option value="19">19<option value="20">20
+<option value="21">21<option value="22">22<option value="23">23
+</option>
+</select> 
+<select name=minOpt onChange="alarmSet()" size=1>
+<option selected value="00">00<option value="01">01<option value="02">02<option value="03">03 
+<option value="04">04<option value="05">05<option value="06">06<option value="07">07
+<option value="08">08<option value="09">09<option value="10">10<option value="11">11
+<option value="12">12<option value="13">13<option value="14">14<option value="15">15
+<option value="16">16<option value="17">17<option value="18">18<option value="19">19
+<option value="20">20<option value="21">21<option value="22">22<option value="23">23
+<option value="24">24<option value="25">25<option value="26">26<option value="27">27
+<option value="28">28<option value="29">29<option value="30">30<option value="31">31
+<option value="32">32<option value="33">33<option value="34">34<option value="35">35
+<option value="36">36<option value="37">37<option value="38">38<option value="39">39
+<option value="40">40<option value="41">41<option value="42">42<option value="43">43
+<option value="44">44<option value="45">45<option value="46">46<option value="47">47
+<option value="48">48<option value="49">49<option value="50">50<option value="51">51
+<option value="52">52<option value="53">53<option value="54">54<option value="55">55
+<option value="56">56<option value="57">57<option value="58">58<option value="59">59
+</option>
+</select>
+<tr>
+<td align=middle>
+Select Alarm Sound:
+<br>
+<input type=file size=4 name=alarmSound>
+<td align=middle>
+Snooze For:
+<br>
+<select NAME=snoozeOpt size=1 onChange="snooze()">
+<option value="1">1<option value="2">2<option value="3">3<option value="4">4
+<option value="5">5<option value="6">6<option value="7">7<option value="8">8
+<option value="9" selected>9
+</option>
+</select>
+</form>
+</td>
+</tr>
+</table>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Clocks:  Alarm Clock</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Command-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  5.28 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL ALARM CLOCK:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the onLoad event handler into the BODY tag
+  3.  Put the last coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  John Caranta (caranta@netzero.net) --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var alarmTime;
+var curTime;
+var check = new Date();
+var hourNum;
+var minNum;
+function GetTime() {
+var dt = new Date();
+document.clock.local.value = IfZero(dt.getHours()) + ":" + IfZero(dt.getMinutes());
+setTimeout("GetTime()", 1000);
+curTime = (IfZero(dt.getHours()) + ":" + IfZero(dt.getMinutes()));
+}
+function IfZero(num) {
+return ((num &lt;= 9) ? ("0" + num) : num);
+}
+function alarmSet() {
+hourNum = document.clock.hourOpt[document.clock.hourOpt.selectedIndex].value;
+minNum = document.clock.minOpt[document.clock.minOpt.selectedIndex].value;
+alarmTime = hourNum + ":" + minNum;
+}
+function alarmOn() {
+if (alarmTime == curTime) {
+document.all.sound.src = document.clock.alarmSound.value;
+}
+else {
+setTimeout("alarmOn()", 1000)
+   }
+}
+function alarmOff() {
+document.all.sound.src = "";
+alarmTime="";
+}
+function snooze() {
+document.all.sound.src = "";
+var snoozeL = parseInt(document.clock.snoozeOpt[document.clock.snoozeOpt.selectedIndex].value);
+var snooze = new Date();
+alarmTime = IfZero(snooze.getHours()) + ":" + IfZero(snooze.getMinutes() + snoozeL);
+alarmOn();
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;bgSound src="" id="sound"&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Insert the onLoad event handler into your BODY tag  --&gt;
+
+&lt;BODY onLoad="GetTime()"&gt;
+
+&lt;!-- STEP THREE: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;table width=100% border=1&gt;
+&lt;tr&gt;
+&lt;td align=middle&gt;
+&lt;form name="clock"&gt;
+&lt;input size="8" name="local"&gt;
+&lt;input type=radio name=alarmOnOff onClick="alarmOn()"&gt;On
+&lt;input type=radio name=alarmOnOff onClick="alarmOff()" checked&gt;Off
+&lt;td align=middle&gt;
+Set Alarm:
+&lt;br&gt;
+&lt;select name=hourOpt onChange="alarmSet()" size=1&gt;
+&lt;option value="00"&gt;00&lt;option value="01"&gt;01&lt;option value="02"&gt;02&lt;option value="03"&gt;03
+&lt;option value="04"&gt;04&lt;option value="05"&gt;05&lt;option value="06"&gt;06&lt;option value="07"&gt;07
+&lt;option value="08"&gt;08&lt;option value="09"&gt;09&lt;option value="10"&gt;10&lt;option value="11"&gt;11
+&lt;option selected value="12"&gt;12
+&lt;option value="13"&gt;13&lt;option value="14"&gt;14&lt;option value="15"&gt;15&lt;option value="16"&gt;16
+&lt;option value="17"&gt;17&lt;option value="18"&gt;18&lt;option value="19"&gt;19&lt;option value="20"&gt;20
+&lt;option value="21"&gt;21&lt;option value="22"&gt;22&lt;option value="23"&gt;23
+&lt;/option&gt;
+&lt;/select&gt; 
+&lt;select name=minOpt onChange="alarmSet()" size=1&gt;
+&lt;option selected value="00"&gt;00&lt;option value="01"&gt;01&lt;option value="02"&gt;02&lt;option value="03"&gt;03 
+&lt;option value="04"&gt;04&lt;option value="05"&gt;05&lt;option value="06"&gt;06&lt;option value="07"&gt;07
+&lt;option value="08"&gt;08&lt;option value="09"&gt;09&lt;option value="10"&gt;10&lt;option value="11"&gt;11
+&lt;option value="12"&gt;12&lt;option value="13"&gt;13&lt;option value="14"&gt;14&lt;option value="15"&gt;15
+&lt;option value="16"&gt;16&lt;option value="17"&gt;17&lt;option value="18"&gt;18&lt;option value="19"&gt;19
+&lt;option value="20"&gt;20&lt;option value="21"&gt;21&lt;option value="22"&gt;22&lt;option value="23"&gt;23
+&lt;option value="24"&gt;24&lt;option value="25"&gt;25&lt;option value="26"&gt;26&lt;option value="27"&gt;27
+&lt;option value="28"&gt;28&lt;option value="29"&gt;29&lt;option value="30"&gt;30&lt;option value="31"&gt;31
+&lt;option value="32"&gt;32&lt;option value="33"&gt;33&lt;option value="34"&gt;34&lt;option value="35"&gt;35
+&lt;option value="36"&gt;36&lt;option value="37"&gt;37&lt;option value="38"&gt;38&lt;option value="39"&gt;39
+&lt;option value="40"&gt;40&lt;option value="41"&gt;41&lt;option value="42"&gt;42&lt;option value="43"&gt;43
+&lt;option value="44"&gt;44&lt;option value="45"&gt;45&lt;option value="46"&gt;46&lt;option value="47"&gt;47
+&lt;option value="48"&gt;48&lt;option value="49"&gt;49&lt;option value="50"&gt;50&lt;option value="51"&gt;51
+&lt;option value="52"&gt;52&lt;option value="53"&gt;53&lt;option value="54"&gt;54&lt;option value="55"&gt;55
+&lt;option value="56"&gt;56&lt;option value="57"&gt;57&lt;option value="58"&gt;58&lt;option value="59"&gt;59
+&lt;/option&gt;
+&lt;/select&gt;
+&lt;tr&gt;
+&lt;td align=middle&gt;
+Select Alarm Sound:
+&lt;br&gt;
+&lt;input type=file size=4 name=alarmSound&gt;
+&lt;td align=middle&gt;
+Snooze For:
+&lt;br&gt;
+&lt;select NAME=snoozeOpt size=1 onChange="snooze()"&gt;
+&lt;option value="1"&gt;1&lt;option value="2"&gt;2&lt;option value="3"&gt;3&lt;option value="4"&gt;4
+&lt;option value="5"&gt;5&lt;option value="6"&gt;6&lt;option value="7"&gt;7&lt;option value="8"&gt;8
+&lt;option value="9" selected&gt;9
+&lt;/option&gt;
+&lt;/select&gt;
+&lt;/form&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+
+ 
+
+&lt;!-- Script Size:  5.28 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

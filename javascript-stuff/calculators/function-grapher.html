@@ -1,0 +1,314 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Calculators:  Function Grapher</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Stephane Gamondes (gamondes@hotmail.com)">
+<META NAME="section" CONTENT="Calculators">
+<META NAME="description" CONTENT="Graphs any function you enter on the scale of your choice, assuming you use the correct JavaScript syntax.  For example, to use Cos x, use Math.cos(x).  Or, for x^2, use Math.pow(x, 2), etc.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Stephane Gamondes (gamondes@hotmail.com) -->
+<!-- Web Site:  http://www.multimania.com/gamondes -->
+
+
+
+
+<!-- Begin
+function drawGraph(frm) {
+gURL = "function-grapher-example.html?graph=" + escape(frm.graph.value) + "&minX=" + frm.minX.value + "&maxX=" + frm.maxX.value;
+open(gURL, 'graphWdw', 'width=250,height=250');
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /calculators/"><font color="#FF0000"><b>Calculators</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Function Grapher</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Graphs any function you enter on the scale of your choice, assuming you use the correct JavaScript syntax.  For example, to use Cos x, use Math.cos(x).  Or, for x^2, use Math.pow(x, 2), etc.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form>
+<table border=0 bgcolor="#E6E6E6" cellpadding=3 cellspacing=0>
+<tr>
+<td colspan=2>
+<font face="Arial" size="2">Function (JavaScript syntax)<br>
+<input type=text name=graph size=20 maxlength=40 value="Math.cos(x)">
+<p>
+<td rowspan=2 valign=middle align=center>&nbsp;
+<input type=button value="Plot" name=Plot onClick="drawGraph(this.form)"> &nbsp; 
+</td>
+</tr>
+<tr>
+<td nowrap>
+<font face="Arial" size="2">X min<br>
+<input type=text name=minX size=4 maxlength=3 value="-10">
+</font>
+</td>
+<td nowrap>
+<font face="Arial" size="2">X max<br>
+<input type=text name=maxX size=3 maxlength=3 value="10">
+</font>
+</td>
+</tr>
+</table>
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Calculators:  Function Grapher (Function Page)</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  4.67 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL FUNCTION GRAPHER:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document
+  3.  Paste the final coding into a new file, drawGraph.html  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Stephane Gamondes (gamondes@hotmail.com) --&gt;
+&lt;!-- Web Site:  http://www.multimania.com/gamondes --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function drawGraph(frm) {
+gURL = "drawGraph.html?graph=" + escape(frm.graph.value) + "&minX=" + frm.minX.value + "&maxX=" + frm.maxX.value;
+open(gURL, 'graphWdw', 'width=250,height=250');
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form&gt;
+&lt;table border=0 bgcolor="#E6E6E6" cellpadding=3 cellspacing=0&gt;
+&lt;tr&gt;
+&lt;td colspan=2&gt;
+&lt;font face="Arial" size="2"&gt;Function (JavaScript syntax)&lt;br&gt;
+&lt;input type=text name=graph size=20 maxlength=40 value="Math.cos(x)"&gt;
+&lt;p&gt;
+&lt;td rowspan=2 valign=middle align=center&gt;&nbsp;
+&lt;input type=button value="Plot" name=Plot onClick="drawGraph(this.form)"&gt; &nbsp; 
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td nowrap&gt;
+&lt;font face="Arial" size="2"&gt;X min&lt;br&gt;
+&lt;input type=text name=minX size=4 maxlength=3 value="-10"&gt;
+&lt;/font&gt;
+&lt;/td&gt;
+&lt;td nowrap&gt;
+&lt;font face="Arial" size="2"&gt;X max&lt;br&gt;
+&lt;input type=text name=maxX size=3 maxlength=3 value="10"&gt;
+&lt;/font&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+&lt;!-- Script Size:  4.67 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Calculators:  Function Grapher (Draw Graph Page)</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></form></td></tr>
+
+<tr><td>&nbsp;</td></tr>
+
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy2">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  4.67 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL FUNCTION GRAPHER:
+
+  1.  Paste this HTML code into a new file, name it drawGraph.html
+  2.  Save the necessary images to your web site directory  --&gt;
+
+&lt;!-- STEP ONE: Paste this file into a new page, call it drawGraph.html  --&gt;
+
+&lt;html&gt;
+&lt;head&gt;
+&lt;/head&gt;
+&lt;style&gt;
+.point
+{
+position: absolute;
+}
+&lt;/style&gt;
+
+&lt;script&gt;
+function getParams()
+{
+var idx = document.URL.indexOf('?');
+var params = new Array();
+if (idx != -1)
+{
+var pairs = document.URL.substring(idx+1, document.URL.length).split('&');
+for (var i=0; i&lt;pairs.length; i++)
+{
+nameVal = pairs[i].split('=');
+params[nameVal[0]] = nameVal[1];
+}
+}
+return params;
+}
+
+dotCode = '&lt;div class="point" id="pdot_id"&gt;&lt;img src="graph.gif" width="1" height="pic_height" alt="pic_alt"&gt;&lt;/div&gt;\n';
+xCode = '&lt;div class="point" id="xAxis"&gt;&lt;table border="0" width="x_width" cellspacing="0" cellpadding="0"&gt;&lt;tr&gt;&lt;td width="100%" bgcolor="#000000"&gt;&lt;img src="espace.gif" width="1" height="1"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;\n';
+yCode = '&lt;div class="point" id="yAxis"&gt;&lt;table border="0" height="y_height" cellspacing="0" cellpadding="0"&gt;&lt;tr&gt;&lt;td width="100%" bgcolor="#000000"&gt;&lt;img src="espace.gif" width="1" height="1"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;\n';
+backCode = '&lt;div class="point" id="background"&gt;&lt;table border="0" height="back_height" width="back_width" cellspacing="0" cellpadding="0"&gt;&lt;tr&gt;&lt;td width="100%" bgcolor="#EEEEEE"&gt;&nbsp;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;\n';
+
+if (navigator.appName == 'Netscape')
+{
+leftCode = 'document.obj_id.left = ';
+topCode = 'document.obj_id.top = ';
+}
+else
+{
+leftCode = 'document.all.obj_id.style.left = ';
+topCode = 'document.all.obj_id.style.top = ';
+}
+
+params = getParams();
+fct = unescape(params["graph"]);
+xMin = parseFloat(params["minX"]); xMax = parseFloat(params["maxX"]);
+nbXs =200; nbYs = 200;
+maxYpos = 225; minXpos = 25;
+x = xMin;
+yZero = Math.abs(eval(fct));
+yMax = yZero;
+yMin = yZero;
+datas = new Array();
+
+deltaX = (xMax - xMin) / nbXs;
+
+i = 0;
+while (x &lt;= xMax)
+{
+y = eval(fct);
+datas[i] = x + ':' + y;
+yMax = Math.max(y, yMax);
+yMin = Math.min(y, yMin);
+yZero = Math.min(yZero, Math.abs(y))
+x+= deltaX; i++;
+}
+
+deltaY = nbYs / (yMax - yMin);
+
+yPos = new Array();
+for (i=0; i&lt;datas.length; i++)
+{
+yPos[i] = maxYpos - (((datas[i].split(':'))[1] - yMin) * deltaY);
+}
+
+document.write(backCode.replace(/back_width/, nbXs).replace(/back_height/, nbYs));
+eval(leftCode.replace(/obj_id/, 'background') + minXpos);
+eval(topCode.replace(/obj_id/, 'background') + (maxYpos - nbYs));
+
+if ((xMin * xMax) &lt; 0)
+{
+document.write(yCode.replace(/y_height/, nbXs));
+eval(leftCode.replace(/obj_id/, 'yAxis') + (minXpos - (xMin * (nbXs/(xMax - xMin)))));
+eval(topCode.replace(/obj_id/, 'yAxis') + (maxYpos - nbYs));
+}
+
+if ((yMin * yMax) &lt;= 0)
+{
+document.write(xCode.replace(/x_width/, nbYs));
+eval(leftCode.replace(/obj_id/, 'xAxis') + minXpos);
+eval(topCode.replace(/obj_id/, 'xAxis') + (maxYpos - ((yZero - yMin) * deltaY)));
+}
+
+for (i=1; i&lt;(datas.length-1); i++)
+{
+picHeight = Math.abs((yPos[i-1] - yPos[i]) + (yPos[i] - yPos[i+1])) / 2;
+YDPos = yPos[i] - (Math.round(picHeight) / 2);
+document.write(dotCode.replace(/dot_id/, i).replace(/pic_height/, Math.ceil(picHeight)).replace(/pic_alt/, datas[i]));
+eval(leftCode.replace(/obj_id/, 'p' + i) + (minXpos + i));
+eval(topCode.replace(/obj_id/, 'p' + i) + YDPos);
+}
+
+&lt;/script&gt;
+&lt;body bgcolor="#FFFFFF"&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+<!-- STEP FOUR: Point your web browser to:
+
+../img/function-grapher/function-grapher.zip
+
+This file contains the two necessary images for your function grapher JavaScript to work.
+
+Upload these files to your web site directory.  -->
+
+&lt;!-- Script Size:  4.67 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

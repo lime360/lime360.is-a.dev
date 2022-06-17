@@ -1,0 +1,193 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Calculators:  Compound Interest</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="Use JavaScript to calculate compund interest.  Warns about doubtful data.">
+<META NAME="date" CONTENT="2001-02-12">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Paul Hartmann">
+<META NAME="section" CONTENT="Calculators">
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Paul Hartmann (guycroft@clara.co.uk) -->
+<!-- Web Site:  http://www.guycroft.clara.net -->
+
+
+
+
+<!-- Begin
+var princ;
+var ratepc;
+var years;
+var rate;
+var power;
+function calcAmt(frm) {
+princ = eval(frm.pr.value);
+ratepc = eval(frm.rt.value);
+years = eval(frm.yr.value);
+rate = ratepc / 100;
+power = Math.pow((1 + rate), years);
+frm.amt.value = Math.round(princ * power * 100) / 100;
+frm.inter.value = Math.round((frm.amt.value - princ) * 100) / 100;
+}
+function checkInput(frm) {
+if (rate == 0 || rate > .3) {
+window.alert ("Are you sure that the interest rate is " + ratepc +"%?");
+frm.rt.focus();
+}
+if (years == 0 || years > 30) {
+window.alert ("Are you sure that the term is " + years + " years?");
+frm.yr.focus();
+   }
+}
+//  End -->
+</script>
+
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /calculators/"><font color="#FF0000"><b>Calculators</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Compound Interest</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Use JavaScript to calculate compund interest.  Warns about doubtful data.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form method=get name=frm>
+Principal <input type=text name=pr size=10 maxlength=10 onChange=calcAmt(this.form)>
+Rate <input type=text name=rt size=6 maxlength=6 onChange=calcAmt(this.form)>
+Years <input type=text name=yr size=5 maxlength=5 onChange=calcAmt(this.form)>
+<br>
+<br>
+<input type=button name=calc value="Calculate" size=10 onClick=checkInput(this.form); calcAmt(this.form);>
+<input type=reset value="Clear">
+<br>
+<br>
+Amount <input type=text name=amt size=10>
+Interest <input type=text name=inter size=10>
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Calculators:  Compound Interest</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Command-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.02 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL COMPOUND INTEREST:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Paul Hartmann (guycroft@clara.co.uk) --&gt;
+&lt;!-- Web Site:  http://www.guycroft.clara.net --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var princ;
+var ratepc;
+var years;
+var rate;
+var power;
+function calcAmt(frm) {
+princ = eval(frm.pr.value);
+ratepc = eval(frm.rt.value);
+years = eval(frm.yr.value);
+rate = ratepc / 100;
+power = Math.pow((1 + rate), years);
+frm.amt.value = Math.round(princ * power * 100) / 100;
+frm.inter.value = Math.round((frm.amt.value - princ) * 100) / 100;
+}
+function checkInput(frm) {
+if (rate == 0 || rate &gt; .3) {
+window.alert ("Are you sure that the interest rate is " + ratepc +"%?");
+frm.rt.focus();
+}
+if (years == 0 || years &gt; 30) {
+window.alert ("Are you sure that the term is " + years + " years?");
+frm.yr.focus();
+   }
+}
+//  End --&gt;
+&lt;/script&gt;
+
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form method=get name=frm&gt;
+Principal &lt;input type=text name=pr size=10 maxlength=10 onChange=calcAmt(this.form)&gt;
+Rate &lt;input type=text name=rt size=6 maxlength=6 onChange=calcAmt(this.form)&gt;
+Years &lt;input type=text name=yr size=5 maxlength=5 onChange=calcAmt(this.form)&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;input type=button name=calc value="Calculate" size=10 onClick=checkInput(this.form); calcAmt(this.form);&gt;
+&lt;input type=reset value="Clear"&gt;
+&lt;br&gt;
+&lt;br&gt;
+Amount &lt;input type=text name=amt size=10&gt;
+Interest &lt;input type=text name=inter size=10&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  2.02 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

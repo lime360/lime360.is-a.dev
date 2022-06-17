@@ -1,0 +1,887 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Forms:  Credit Card Validation</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Simon Tneoh (tneohcb@pc.jaring.my)">
+<META NAME="section" CONTENT="Forms">
+<META NAME="description" CONTENT="Validates a credit card number the user enters based on the rules of that card such as the value of first digit, the number of digits, as well as several other computations.  Useful for online order form validation.  Note:  Although this form does not capture your credit card information, if you do not feel comfortable entering your credit card number to test this script, please DO NOT !">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Simon Tneoh (tneohcb@pc.jaring.my) -->
+
+
+
+
+<!-- Begin
+var Cards = new makeArray(8);
+Cards[0] = new CardType("MasterCard", "51,52,53,54,55", "16");
+var MasterCard = Cards[0];
+Cards[1] = new CardType("VisaCard", "4", "13,16");
+var VisaCard = Cards[1];
+Cards[2] = new CardType("AmExCard", "34,37", "15");
+var AmExCard = Cards[2];
+Cards[3] = new CardType("DinersClubCard", "30,36,38", "14");
+var DinersClubCard = Cards[3];
+Cards[4] = new CardType("DiscoverCard", "6011", "16");
+var DiscoverCard = Cards[4];
+Cards[5] = new CardType("enRouteCard", "2014,2149", "15");
+var enRouteCard = Cards[5];
+Cards[6] = new CardType("JCBCard", "3088,3096,3112,3158,3337,3528", "16");
+var JCBCard = Cards[6];
+var LuhnCheckSum = Cards[7] = new CardType();
+
+/*************************************************************************\
+CheckCardNumber(form)
+function called when users click the "check" button.
+\*************************************************************************/
+function CheckCardNumber(form) {
+var tmpyear;
+if (form.CardNumber.value.length == 0) {
+alert("Please enter a Card Number.");
+form.CardNumber.focus();
+return;
+}
+if (form.ExpYear.value.length == 0) {
+alert("Please enter the Expiration Year.");
+form.ExpYear.focus();
+return;
+}
+if (form.ExpYear.value > 96)
+tmpyear = "19" + form.ExpYear.value;
+else if (form.ExpYear.value < 21)
+tmpyear = "20" + form.ExpYear.value;
+else {
+alert("The Expiration Year is not valid.");
+return;
+}
+tmpmonth = form.ExpMon.options[form.ExpMon.selectedIndex].value;
+// The following line doesn't work in IE3, you need to change it
+// to something like "(new CardType())...".
+// if (!CardType().isExpiryDate(tmpyear, tmpmonth)) {
+if (!(new CardType()).isExpiryDate(tmpyear, tmpmonth)) {
+alert("This card has already expired.");
+return;
+}
+card = form.CardType.options[form.CardType.selectedIndex].value;
+var retval = eval(card + ".checkCardNumber(\"" + form.CardNumber.value +
+"\", " + tmpyear + ", " + tmpmonth + ");");
+cardname = "";
+if (retval)
+
+
+
+// comment this out if used on an order form
+alert("This card number appears to be valid.");
+
+
+else {
+// The cardnumber has the valid luhn checksum, but we want to know which
+// cardtype it belongs to.
+for (var n = 0; n < Cards.size; n++) {
+if (Cards[n].checkCardNumber(form.CardNumber.value, tmpyear, tmpmonth)) {
+cardname = Cards[n].getCardType();
+break;
+   }
+}
+if (cardname.length > 0) {
+alert("This looks like a " + cardname + " number, not a " + card + " number.");
+}
+else {
+alert("This card number is not valid.");
+      }
+   }
+}
+/*************************************************************************\
+Object CardType([String cardtype, String rules, String len, int year, 
+                                        int month])
+cardtype    : type of card, eg: MasterCard, Visa, etc.
+rules       : rules of the cardnumber, eg: "4", "6011", "34,37".
+len         : valid length of cardnumber, eg: "16,19", "13,16".
+year        : year of expiry date.
+month       : month of expiry date.
+eg:
+var VisaCard = new CardType("Visa", "4", "16");
+var AmExCard = new CardType("AmEx", "34,37", "15");
+\*************************************************************************/
+function CardType() {
+var n;
+var argv = CardType.arguments;
+var argc = CardType.arguments.length;
+
+this.objname = "object CardType";
+
+var tmpcardtype = (argc > 0) ? argv[0] : "CardObject";
+var tmprules = (argc > 1) ? argv[1] : "0,1,2,3,4,5,6,7,8,9";
+var tmplen = (argc > 2) ? argv[2] : "13,14,15,16,19";
+
+this.setCardNumber = setCardNumber;  // set CardNumber method.
+this.setCardType = setCardType;  // setCardType method.
+this.setLen = setLen;  // setLen method.
+this.setRules = setRules;  // setRules method.
+this.setExpiryDate = setExpiryDate;  // setExpiryDate method.
+
+this.setCardType(tmpcardtype);
+this.setLen(tmplen);
+this.setRules(tmprules);
+if (argc > 4)
+this.setExpiryDate(argv[3], argv[4]);
+
+this.checkCardNumber = checkCardNumber;  // checkCardNumber method.
+this.getExpiryDate = getExpiryDate;  // getExpiryDate method.
+this.getCardType = getCardType;  // getCardType method.
+this.isCardNumber = isCardNumber;  // isCardNumber method.
+this.isExpiryDate = isExpiryDate;  // isExpiryDate method.
+this.luhnCheck = luhnCheck;// luhnCheck method.
+return this;
+}
+
+/*************************************************************************\
+boolean checkCardNumber([String cardnumber, int year, int month])
+return true if cardnumber pass the luhncheck and the expiry date is
+valid, else return false.
+\*************************************************************************/
+function checkCardNumber() {
+var argv = checkCardNumber.arguments;
+var argc = checkCardNumber.arguments.length;
+var cardnumber = (argc > 0) ? argv[0] : this.cardnumber;
+var year = (argc > 1) ? argv[1] : this.year;
+var month = (argc > 2) ? argv[2] : this.month;
+
+this.setCardNumber(cardnumber);
+this.setExpiryDate(year, month);
+
+if (!this.isCardNumber())
+return false;
+if (!this.isExpiryDate())
+return false;
+
+return true;
+}
+/*************************************************************************\
+String getCardType()
+return the cardtype.
+\*************************************************************************/
+function getCardType() {
+return this.cardtype;
+}
+/*************************************************************************\
+String getExpiryDate()
+return the expiry date.
+\*************************************************************************/
+function getExpiryDate() {
+return this.month + "/" + this.year;
+}
+/*************************************************************************\
+boolean isCardNumber([String cardnumber])
+return true if cardnumber pass the luhncheck and the rules, else return
+false.
+\*************************************************************************/
+function isCardNumber() {
+var argv = isCardNumber.arguments;
+var argc = isCardNumber.arguments.length;
+var cardnumber = (argc > 0) ? argv[0] : this.cardnumber;
+if (!this.luhnCheck())
+return false;
+
+for (var n = 0; n < this.len.size; n++)
+if (cardnumber.toString().length == this.len[n]) {
+for (var m = 0; m < this.rules.size; m++) {
+var headdigit = cardnumber.substring(0, this.rules[m].toString().length);
+if (headdigit == this.rules[m])
+return true;
+}
+return false;
+}
+return false;
+}
+
+/*************************************************************************\
+boolean isExpiryDate([int year, int month])
+return true if the date is a valid expiry date,
+else return false.
+\*************************************************************************/
+function isExpiryDate() {
+var argv = isExpiryDate.arguments;
+var argc = isExpiryDate.arguments.length;
+
+year = argc > 0 ? argv[0] : this.year;
+month = argc > 1 ? argv[1] : this.month;
+
+if (!isNum(year+""))
+return false;
+if (!isNum(month+""))
+return false;
+today = new Date();
+expiry = new Date(year, month);
+if (today.getTime() > expiry.getTime())
+return false;
+else
+return true;
+}
+
+/*************************************************************************\
+boolean isNum(String argvalue)
+return true if argvalue contains only numeric characters,
+else return false.
+\*************************************************************************/
+function isNum(argvalue) {
+argvalue = argvalue.toString();
+
+if (argvalue.length == 0)
+return false;
+
+for (var n = 0; n < argvalue.length; n++)
+if (argvalue.substring(n, n+1) < "0" || argvalue.substring(n, n+1) > "9")
+return false;
+
+return true;
+}
+
+/*************************************************************************\
+boolean luhnCheck([String CardNumber])
+return true if CardNumber pass the luhn check else return false.
+Reference: http://www.ling.nwu.edu/~sburke/pub/luhn_lib.pl
+\*************************************************************************/
+function luhnCheck() {
+var argv = luhnCheck.arguments;
+var argc = luhnCheck.arguments.length;
+
+var CardNumber = argc > 0 ? argv[0] : this.cardnumber;
+
+if (! isNum(CardNumber)) {
+return false;
+  }
+
+var no_digit = CardNumber.length;
+var oddoeven = no_digit & 1;
+var sum = 0;
+
+for (var count = 0; count < no_digit; count++) {
+var digit = parseInt(CardNumber.charAt(count));
+if (!((count & 1) ^ oddoeven)) {
+digit *= 2;
+if (digit > 9)
+digit -= 9;
+}
+sum += digit;
+}
+if (sum % 10 == 0)
+return true;
+else
+return false;
+}
+
+/*************************************************************************\
+ArrayObject makeArray(int size)
+return the array object in the size specified.
+\*************************************************************************/
+function makeArray(size) {
+this.size = size;
+return this;
+}
+
+/*************************************************************************\
+CardType setCardNumber(cardnumber)
+return the CardType object.
+\*************************************************************************/
+function setCardNumber(cardnumber) {
+this.cardnumber = cardnumber;
+return this;
+}
+
+/*************************************************************************\
+CardType setCardType(cardtype)
+return the CardType object.
+\*************************************************************************/
+function setCardType(cardtype) {
+this.cardtype = cardtype;
+return this;
+}
+
+/*************************************************************************\
+CardType setExpiryDate(year, month)
+return the CardType object.
+\*************************************************************************/
+function setExpiryDate(year, month) {
+this.year = year;
+this.month = month;
+return this;
+}
+
+/*************************************************************************\
+CardType setLen(len)
+return the CardType object.
+\*************************************************************************/
+function setLen(len) {
+// Create the len array.
+if (len.length == 0 || len == null)
+len = "13,14,15,16,19";
+
+var tmplen = len;
+n = 1;
+while (tmplen.indexOf(",") != -1) {
+tmplen = tmplen.substring(tmplen.indexOf(",") + 1, tmplen.length);
+n++;
+}
+this.len = new makeArray(n);
+n = 0;
+while (len.indexOf(",") != -1) {
+var tmpstr = len.substring(0, len.indexOf(","));
+this.len[n] = tmpstr;
+len = len.substring(len.indexOf(",") + 1, len.length);
+n++;
+}
+this.len[n] = len;
+return this;
+}
+
+/*************************************************************************\
+CardType setRules()
+return the CardType object.
+\*************************************************************************/
+function setRules(rules) {
+// Create the rules array.
+if (rules.length == 0 || rules == null)
+rules = "0,1,2,3,4,5,6,7,8,9";
+  
+var tmprules = rules;
+n = 1;
+while (tmprules.indexOf(",") != -1) {
+tmprules = tmprules.substring(tmprules.indexOf(",") + 1, tmprules.length);
+n++;
+}
+this.rules = new makeArray(n);
+n = 0;
+while (rules.indexOf(",") != -1) {
+var tmpstr = rules.substring(0, rules.indexOf(","));
+this.rules[n] = tmpstr;
+rules = rules.substring(rules.indexOf(",") + 1, rules.length);
+n++;
+}
+this.rules[n] = rules;
+return this;
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /forms/" ><font color="#FF0000"><b>Forms</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Credit Card Validation</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Validates a credit card number the user enters based on the rules of that card such as the value of first digit, the number of digits, as well as several other computations.  Useful for online order form validation.  Note:  Although this form does not capture your credit card information, if you do not feel comfortable entering your credit card number to test this script, please DO NOT !
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+
+<TABLE border=0 cellspacing=1 cellpadding=1>
+<TR><TD colspan=2 bgcolor=#000000>
+<TABLE width=500 cellspadding=3 cellspacing=0 border=0>
+<TR><TD width=500 height=2 bgcolor=#FFFFCC valign=middle align=middle>
+<FONT face="verdana, arial" size="-2">
+Note:  JavaScript Source Code 3000 is not responsible for the use, misuse, or abuse of this Credit Card Validation JavaScript program.  No sensitive information is collected by the JavaScript demonstration on this page.  <p>However, if you do not feel comfortable entering your personal credit<br>card information to test this script, we ask that you DO NOT ENTER IT !
+</TD></TR></TABLE>
+</TD></TR></TABLE>
+<br><br>
+<form name="ThisForm">
+Card Number: <input name="CardNumber" size="16" maxlength="19"><br>
+Card Type:
+<select name="CardType">
+<option value="MasterCard">MasterCard
+<option value="VisaCard">Visa
+<option value="AmExCard">American Express
+<option value="DinersClubCard">Diners Club
+<option value="DiscoverCard">Discover
+<option value="enRouteCard">enRoute
+<option value="JCBCard">JCB
+</select>
+<br>
+Expiration Date: Month
+<select name="ExpMon">
+<option value="1" selected>1
+<option value="2">2
+<option value="3">3
+<option value="4">4
+<option value="5">5
+<option value="6">6
+<option value="7">7
+<option value="8">8
+<option value="9">9
+<option value="10">10
+<option value="11">11
+<option value="12">12
+</select>
+Year <input name="ExpYear" size="2" maxlength="2">(Range: 1997~2020)<br>
+<input type="button" value="Check" OnClick="CheckCardNumber(this.form)"><br>
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Forms:  Credit Card Validation</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  12.38 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL CREDIT CARD VALIDATION:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Simon Tneoh (tneohcb@pc.jaring.my) --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var Cards = new makeArray(8);
+Cards[0] = new CardType("MasterCard", "51,52,53,54,55", "16");
+var MasterCard = Cards[0];
+Cards[1] = new CardType("VisaCard", "4", "13,16");
+var VisaCard = Cards[1];
+Cards[2] = new CardType("AmExCard", "34,37", "15");
+var AmExCard = Cards[2];
+Cards[3] = new CardType("DinersClubCard", "30,36,38", "14");
+var DinersClubCard = Cards[3];
+Cards[4] = new CardType("DiscoverCard", "6011", "16");
+var DiscoverCard = Cards[4];
+Cards[5] = new CardType("enRouteCard", "2014,2149", "15");
+var enRouteCard = Cards[5];
+Cards[6] = new CardType("JCBCard", "3088,3096,3112,3158,3337,3528", "16");
+var JCBCard = Cards[6];
+var LuhnCheckSum = Cards[7] = new CardType();
+
+/*************************************************************************\
+CheckCardNumber(form)
+function called when users click the "check" button.
+\*************************************************************************/
+function CheckCardNumber(form) {
+var tmpyear;
+if (form.CardNumber.value.length == 0) {
+alert("Please enter a Card Number.");
+form.CardNumber.focus();
+return;
+}
+if (form.ExpYear.value.length == 0) {
+alert("Please enter the Expiration Year.");
+form.ExpYear.focus();
+return;
+}
+if (form.ExpYear.value &gt; 96)
+tmpyear = "19" + form.ExpYear.value;
+else if (form.ExpYear.value &lt; 21)
+tmpyear = "20" + form.ExpYear.value;
+else {
+alert("The Expiration Year is not valid.");
+return;
+}
+tmpmonth = form.ExpMon.options[form.ExpMon.selectedIndex].value;
+// The following line doesn't work in IE3, you need to change it
+// to something like "(new CardType())...".
+// if (!CardType().isExpiryDate(tmpyear, tmpmonth)) {
+if (!(new CardType()).isExpiryDate(tmpyear, tmpmonth)) {
+alert("This card has already expired.");
+return;
+}
+card = form.CardType.options[form.CardType.selectedIndex].value;
+var retval = eval(card + ".checkCardNumber(\"" + form.CardNumber.value +
+"\", " + tmpyear + ", " + tmpmonth + ");");
+cardname = "";
+if (retval)
+
+
+
+// comment this out if used on an order form
+alert("This card number appears to be valid.");
+
+
+else {
+// The cardnumber has the valid luhn checksum, but we want to know which
+// cardtype it belongs to.
+for (var n = 0; n &lt; Cards.size; n++) {
+if (Cards[n].checkCardNumber(form.CardNumber.value, tmpyear, tmpmonth)) {
+cardname = Cards[n].getCardType();
+break;
+   }
+}
+if (cardname.length &gt; 0) {
+alert("This looks like a " + cardname + " number, not a " + card + " number.");
+}
+else {
+alert("This card number is not valid.");
+      }
+   }
+}
+/*************************************************************************\
+Object CardType([String cardtype, String rules, String len, int year, 
+                                        int month])
+cardtype    : type of card, eg: MasterCard, Visa, etc.
+rules       : rules of the cardnumber, eg: "4", "6011", "34,37".
+len         : valid length of cardnumber, eg: "16,19", "13,16".
+year        : year of expiry date.
+month       : month of expiry date.
+eg:
+var VisaCard = new CardType("Visa", "4", "16");
+var AmExCard = new CardType("AmEx", "34,37", "15");
+\*************************************************************************/
+function CardType() {
+var n;
+var argv = CardType.arguments;
+var argc = CardType.arguments.length;
+
+this.objname = "object CardType";
+
+var tmpcardtype = (argc &gt; 0) ? argv[0] : "CardObject";
+var tmprules = (argc &gt; 1) ? argv[1] : "0,1,2,3,4,5,6,7,8,9";
+var tmplen = (argc &gt; 2) ? argv[2] : "13,14,15,16,19";
+
+this.setCardNumber = setCardNumber;  // set CardNumber method.
+this.setCardType = setCardType;  // setCardType method.
+this.setLen = setLen;  // setLen method.
+this.setRules = setRules;  // setRules method.
+this.setExpiryDate = setExpiryDate;  // setExpiryDate method.
+
+this.setCardType(tmpcardtype);
+this.setLen(tmplen);
+this.setRules(tmprules);
+if (argc &gt; 4)
+this.setExpiryDate(argv[3], argv[4]);
+
+this.checkCardNumber = checkCardNumber;  // checkCardNumber method.
+this.getExpiryDate = getExpiryDate;  // getExpiryDate method.
+this.getCardType = getCardType;  // getCardType method.
+this.isCardNumber = isCardNumber;  // isCardNumber method.
+this.isExpiryDate = isExpiryDate;  // isExpiryDate method.
+this.luhnCheck = luhnCheck;// luhnCheck method.
+return this;
+}
+
+/*************************************************************************\
+boolean checkCardNumber([String cardnumber, int year, int month])
+return true if cardnumber pass the luhncheck and the expiry date is
+valid, else return false.
+\*************************************************************************/
+function checkCardNumber() {
+var argv = checkCardNumber.arguments;
+var argc = checkCardNumber.arguments.length;
+var cardnumber = (argc &gt; 0) ? argv[0] : this.cardnumber;
+var year = (argc &gt; 1) ? argv[1] : this.year;
+var month = (argc &gt; 2) ? argv[2] : this.month;
+
+this.setCardNumber(cardnumber);
+this.setExpiryDate(year, month);
+
+if (!this.isCardNumber())
+return false;
+if (!this.isExpiryDate())
+return false;
+
+return true;
+}
+/*************************************************************************\
+String getCardType()
+return the cardtype.
+\*************************************************************************/
+function getCardType() {
+return this.cardtype;
+}
+/*************************************************************************\
+String getExpiryDate()
+return the expiry date.
+\*************************************************************************/
+function getExpiryDate() {
+return this.month + "/" + this.year;
+}
+/*************************************************************************\
+boolean isCardNumber([String cardnumber])
+return true if cardnumber pass the luhncheck and the rules, else return
+false.
+\*************************************************************************/
+function isCardNumber() {
+var argv = isCardNumber.arguments;
+var argc = isCardNumber.arguments.length;
+var cardnumber = (argc &gt; 0) ? argv[0] : this.cardnumber;
+if (!this.luhnCheck())
+return false;
+
+for (var n = 0; n &lt; this.len.size; n++)
+if (cardnumber.toString().length == this.len[n]) {
+for (var m = 0; m &lt; this.rules.size; m++) {
+var headdigit = cardnumber.substring(0, this.rules[m].toString().length);
+if (headdigit == this.rules[m])
+return true;
+}
+return false;
+}
+return false;
+}
+
+/*************************************************************************\
+boolean isExpiryDate([int year, int month])
+return true if the date is a valid expiry date,
+else return false.
+\*************************************************************************/
+function isExpiryDate() {
+var argv = isExpiryDate.arguments;
+var argc = isExpiryDate.arguments.length;
+
+year = argc &gt; 0 ? argv[0] : this.year;
+month = argc &gt; 1 ? argv[1] : this.month;
+
+if (!isNum(year+""))
+return false;
+if (!isNum(month+""))
+return false;
+today = new Date();
+expiry = new Date(year, month);
+if (today.getTime() &gt; expiry.getTime())
+return false;
+else
+return true;
+}
+
+/*************************************************************************\
+boolean isNum(String argvalue)
+return true if argvalue contains only numeric characters,
+else return false.
+\*************************************************************************/
+function isNum(argvalue) {
+argvalue = argvalue.toString();
+
+if (argvalue.length == 0)
+return false;
+
+for (var n = 0; n &lt; argvalue.length; n++)
+if (argvalue.substring(n, n+1) &lt; "0" || argvalue.substring(n, n+1) &gt; "9")
+return false;
+
+return true;
+}
+
+/*************************************************************************\
+boolean luhnCheck([String CardNumber])
+return true if CardNumber pass the luhn check else return false.
+Reference: http://www.ling.nwu.edu/~sburke/pub/luhn_lib.pl
+\*************************************************************************/
+function luhnCheck() {
+var argv = luhnCheck.arguments;
+var argc = luhnCheck.arguments.length;
+
+var CardNumber = argc &gt; 0 ? argv[0] : this.cardnumber;
+
+if (! isNum(CardNumber)) {
+return false;
+  }
+
+var no_digit = CardNumber.length;
+var oddoeven = no_digit & 1;
+var sum = 0;
+
+for (var count = 0; count &lt; no_digit; count++) {
+var digit = parseInt(CardNumber.charAt(count));
+if (!((count & 1) ^ oddoeven)) {
+digit *= 2;
+if (digit &gt; 9)
+digit -= 9;
+}
+sum += digit;
+}
+if (sum % 10 == 0)
+return true;
+else
+return false;
+}
+
+/*************************************************************************\
+ArrayObject makeArray(int size)
+return the array object in the size specified.
+\*************************************************************************/
+function makeArray(size) {
+this.size = size;
+return this;
+}
+
+/*************************************************************************\
+CardType setCardNumber(cardnumber)
+return the CardType object.
+\*************************************************************************/
+function setCardNumber(cardnumber) {
+this.cardnumber = cardnumber;
+return this;
+}
+
+/*************************************************************************\
+CardType setCardType(cardtype)
+return the CardType object.
+\*************************************************************************/
+function setCardType(cardtype) {
+this.cardtype = cardtype;
+return this;
+}
+
+/*************************************************************************\
+CardType setExpiryDate(year, month)
+return the CardType object.
+\*************************************************************************/
+function setExpiryDate(year, month) {
+this.year = year;
+this.month = month;
+return this;
+}
+
+/*************************************************************************\
+CardType setLen(len)
+return the CardType object.
+\*************************************************************************/
+function setLen(len) {
+// Create the len array.
+if (len.length == 0 || len == null)
+len = "13,14,15,16,19";
+
+var tmplen = len;
+n = 1;
+while (tmplen.indexOf(",") != -1) {
+tmplen = tmplen.substring(tmplen.indexOf(",") + 1, tmplen.length);
+n++;
+}
+this.len = new makeArray(n);
+n = 0;
+while (len.indexOf(",") != -1) {
+var tmpstr = len.substring(0, len.indexOf(","));
+this.len[n] = tmpstr;
+len = len.substring(len.indexOf(",") + 1, len.length);
+n++;
+}
+this.len[n] = len;
+return this;
+}
+
+/*************************************************************************\
+CardType setRules()
+return the CardType object.
+\*************************************************************************/
+function setRules(rules) {
+// Create the rules array.
+if (rules.length == 0 || rules == null)
+rules = "0,1,2,3,4,5,6,7,8,9";
+  
+var tmprules = rules;
+n = 1;
+while (tmprules.indexOf(",") != -1) {
+tmprules = tmprules.substring(tmprules.indexOf(",") + 1, tmprules.length);
+n++;
+}
+this.rules = new makeArray(n);
+n = 0;
+while (rules.indexOf(",") != -1) {
+var tmpstr = rules.substring(0, rules.indexOf(","));
+this.rules[n] = tmpstr;
+rules = rules.substring(rules.indexOf(",") + 1, rules.length);
+n++;
+}
+this.rules[n] = rules;
+return this;
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form name="ThisForm"&gt;
+Card Number: &lt;input name="CardNumber" size="16" maxlength="19"&gt;&lt;br&gt;
+Card Type:
+&lt;select name="CardType"&gt;
+&lt;option value="MasterCard"&gt;MasterCard
+&lt;option value="VisaCard"&gt;Visa
+&lt;option value="AmExCard"&gt;American Express
+&lt;option value="DinersClubCard"&gt;Diners Club
+&lt;option value="DiscoverCard"&gt;Discover
+&lt;option value="enRouteCard"&gt;enRoute
+&lt;option value="JCBCard"&gt;JCB
+&lt;/select&gt;
+&lt;br&gt;
+Expiration Date: Month
+&lt;select name="ExpMon"&gt;
+&lt;option value="1" selected&gt;1
+&lt;option value="2"&gt;2
+&lt;option value="3"&gt;3
+&lt;option value="4"&gt;4
+&lt;option value="5"&gt;5
+&lt;option value="6"&gt;6
+&lt;option value="7"&gt;7
+&lt;option value="8"&gt;8
+&lt;option value="9"&gt;9
+&lt;option value="10"&gt;10
+&lt;option value="11"&gt;11
+&lt;option value="12"&gt;12
+&lt;/select&gt;
+Year &lt;input name="ExpYear" size="2" maxlength="2"&gt;(Range: 1997~2020)&lt;br&gt;
+&lt;input type="button" value="Check" OnClick="CheckCardNumber(this.form)"&gt;&lt;br&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  12.38 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>
+
+
+

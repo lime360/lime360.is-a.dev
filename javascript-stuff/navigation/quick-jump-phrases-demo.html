@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0070)http://javascript.internet.com/navigation/quick-jump-phrases-demo.html -->
+<HTML><HEAD><TITLE>The JavaScript Source: Navigation: Quick Jump Phrases (Demo)</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<SCRIPT language=JavaScript>
+<!-- Original:  Jay Bienvenu (jay@bienvenu.net) -->
+
+<!-- This script and many more are available free online at -->
+<!-- The JavaScript Source!! http://javascript.internet.com -->
+
+<!-- Begin
+fontFace = "<FONT SIZE=2 FACE='Arial'>";
+keyBuffer = "";
+var key = new Array();  // Define jump-key pages here
+var name = new Array();  // Define jump-key pages here
+key['a'] = "http://www.acadiananow.com";        name['a'] = "Acadiana Now/<I>Daily Advertiser</I>";
+key['br'] = "http://www.broadcast.com";		name['br'] = "Broadcast.com";
+key['bt'] = "http://www.backtrax.com/hear";	name['bt'] = "BackTrax USA";
+key['c'] = "http://www.cnet.com";		name['c'] = "CNet";
+key['d'] = "http://www.dictionary.com";		name['d'] = "Dictionary.com";
+key['gr'] = "http://www.dailygrammar.com";	name['gr'] = "Daily Grammar";
+key['go'] = "http://www.go.com";		name['go'] = "Go Network";
+key['in'] = "http://info.louisiana.edu/dept";	name['in'] = "Information Networks";
+key['jd'] = "http://www.webreference.com/js/";	name['jd'] = "Doc JavaScript";
+key['jg'] = "http://developer.netscape.com/docs/manuals/communicator/jsguide4/index.htm";	
+						name['jg'] = "Netscape JavaScript Guide";
+key['jr'] = "http://developer.netscape.com/docs/manuals/communicator/jsref/index.htm";	
+						name['jr'] = "Netscape JavaScript Reference";
+key['js'] = "http://javascript.internet.com";	name['js'] = "JavaScript Source";
+
+key['k'] = "http://www.keirsey.com";		name['k'] = "Keirsey Character Sorter";
+key['ly'] = "http://www.lycos.com";		name['ly'] = "Lycos";
+key['l4'] = "http://www.discjockey.com/audio/lost45.asx";   name['l4'] = "Lost 45s";
+key['ms'] = "http://www.microsoft.com";		name['ms'] = "Microsoft";
+key['p'] = "http://www.perl.com";		name['p'] = "Perl.com";
+key['q'] = "http://www.quixtar.com";		name['q'] = "Quixtar";
+key['rc'] = "http://www.compaq.com/rcfoc/";	name['rc'] = "Rapidly Changing Face of Computing";
+key['rr'] = "http://www.reelradio.com";		name['rr'] = "ReelRadio";
+key['st'] = "http://style.webreview.com";	name['st'] = "Style Sheets Guide";
+key['tb'] = "http://www.tidbits.com";		name['tb'] = "TidBits";
+key['ul'] = "http://www.louisiana.edu";		name['ul'] = "UL";
+key['ur'] = "http://www.netsquirrel.com/combatkit/"; name['ur'] = "Urban Legend Combat Kit";
+key['v'] = "http://webreference.com";		name['v'] = "WebReference";
+key['w'] = "http://www.weather.com";		name['w'] = "The Weather Channel";
+key['y/'] = "http://www.yahoo.com";		name['y/'] = "Yahoo hp";
+key['yl'] = "http://dir.yahoo.com/Regional/U_S__States/Louisiana/Cities/Lafayette/"; 
+						name['yl'] = "Yahoo Local (Lafayette)";
+key['ym'] = "http://mail.yahoo.com";		name['ym'] = "Yahoo Mail";
+key['yn'] = "http://news.yahoo.com";		name['yn'] = "Yahoo News";
+key['yv'] = "http://movies.yahoo.com";		name['yv'] = "Yahoo Movies";
+key['z'] = "http://info.louisiana.edu/dept/netmon.html";	name['z'] = "Network Monitor";
+
+
+function getKeySite(keyStroke) {
+isNetscape=(document.layers);
+eventChooser = (isNetscape) ? keyStroke.which : event.keyCode;
+which = String.fromCharCode(eventChooser).toLowerCase();
+keyBuffer += which;
+window.status = "keyBuffer='" + keyBuffer + "'";
+for (var i in key) if (keyBuffer == i) {
+window.location = key[i];
+keyBuffer = ""; // clear buffer
+}
+var matches = 0;
+var kbLength = keyBuffer.length;
+for (var i in key) if (keyBuffer == i.substr(0,kbLength)) matches++;
+if (matches == 0)  {
+window.status = "No match on '" + keyBuffer + "'.";
+keyBuffer = "";// clear buffer
+   }
+}
+document.onkeypress = getKeySite; 
+//  End -->
+</SCRIPT>
+
+<META content="MSHTML 5.50.4611.1300" name=GENERATOR></HEAD>
+<BODY vLink=#0000ff bgColor=#ffffff>
+<CENTER>
+<TABLE align=right bgColor=#eeeeee>
+  <TBODY>
+  <TR>
+    <TD colSpan=3><FONT face=Arial><B>Jump Keys</B> - Enter any key sequence 
+      to jump to the page.</FONT></TD></TR>
+  <TR vAlign=top>
+    <TD>
+      <TABLE>
+        <SCRIPT language=JavaScript>
+<!-- Display list of Jump Keys
+balanceFactor = 15; /* (name.length - name.length%3)/3 + 1; */
+/*
+document.write ("<TR><TD>" + key.length + "</TD></TR>");
+document.write ("<TR><TD>" + balanceFactor + "</TD></TR>");
+*/
+balanceCounter = 0;
+for (var i in key) {
+dispstring  = "<TR><TD>" + fontFace + i.toUpperCase() + "</TD><TD>";
+dispstring += fontFace + "<A HREF=" + key[i] + ">" + name[i] + "</A></TD></TR>";
+document.write (dispstring);
+balanceCounter++;
+if (balanceCounter == balanceFactor) {
+document.write ("</TABLE></TD><TD><TABLE>");
+balanceCounter = 0;
+   }
+}
+// End -->
+</SCRIPT>
+
+        <TBODY></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER></BODY></HTML>

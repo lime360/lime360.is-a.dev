@@ -1,0 +1,156 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Navigation:  Link Description</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="(Internet Explorer Only) Displays a description in another cell of a table when the mouse moves over a link.  Although Netscape users will not see the extra HTML description, the link still works fine for them, no errors!  Nice!">
+<META NAME="date" CONTENT="2000-10-18">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Danny Mc Neill">
+<META NAME="section" CONTENT="Navigation">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Danny Mc Neill (danny@mc-neill.co.uk) -->
+<!-- Web Site:  http://www.mc-neill.co.uk -->
+
+
+
+
+<!-- Begin
+var description = new Array();
+description[0] = "Text shown when visitors mouse over the first link.";
+description[1] = "You can even embed <b>HTML</b> into the link description.";
+description[2] = "<i>Text shown when visitors mouse over the third link.</i>";
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /navigation/"><font color="#FF0000"><b>Navigation</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Link Description</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+(Internet Explorer Only) Displays a description in another cell of a table when the mouse moves over a link.  Although Netscape users will not see the extra HTML description, the link still works fine for them, no errors!  Nice!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<table border="0">
+<tr>
+<td valign=top width="160">
+<ul>
+<li><a onMouseOver="Words.innerHTML = description[0];" href="link1.htm">First Link</a>
+<li><a onMouseOver="Words.innerHTML = description[1];" href="link2.htm">Second Link</a>
+<li><a onMouseOver="Words.innerHTML = description[2];" href="link3.htm">Third Link</a>
+</ul>
+</td>
+<td width="600">
+<!-- Cell with the descriptions --> 
+<a id="Words">This will be the info that visiters will see first it is changed when they mouseover the links. It returns when the page is reloaded.</a> 
+</td>
+</tr>
+</table>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Navigation:  Link Description</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.51 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL LINK DESCRIPTION:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Danny Mc Neill (danny@mc-neill.co.uk) --&gt;
+&lt;!-- Web Site:  http://www.mc-neill.co.uk --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var description = new Array();
+description[0] = "Text shown when visitors mouse over the first link.";
+description[1] = "You can even embed &lt;b&gt;HTML&lt;/b&gt; into the link description.";
+description[2] = "&lt;i&gt;Text shown when visitors mouse over the third link.&lt;/i&gt;";
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;table border="0"&gt;
+&lt;tr&gt;
+&lt;td valign=top width="160"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a onMouseOver="Words.innerHTML = description[0];" href="link1.htm"&gt;First Link&lt;/a&gt;
+&lt;li&gt;&lt;a onMouseOver="Words.innerHTML = description[1];" href="link2.htm"&gt;Second Link&lt;/a&gt;
+&lt;li&gt;&lt;a onMouseOver="Words.innerHTML = description[2];" href="link3.htm"&gt;Third Link&lt;/a&gt;
+&lt;/ul&gt;
+&lt;/td&gt;
+&lt;td width="600"&gt;
+&lt;!-- Cell with the descriptions --&gt; 
+&lt;a id="Words"&gt;This will be the info that visiters will see first it is changed when they mouseover the links. It returns when the page is reloaded.&lt;/a&gt; 
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  1.51 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

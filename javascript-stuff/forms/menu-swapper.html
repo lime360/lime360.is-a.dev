@@ -1,0 +1,265 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Forms:  Menu Swapper</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Forms">
+<META NAME="description" CONTENT="A clever way to move selected items from one list box to another using "<<" and ">>" direction buttons. It works like database field selection, supports selecting multiple items, and even can sort the moved item into the new list!">
+
+<SCRIPT LANGUAGE="JavaScript">
+
+
+
+
+<!-- Begin
+sortitems = 1;  // Automatically sort items within lists? (1 or 0)
+
+function move(fbox,tbox) {
+for(var i=0; i<fbox.options.length; i++) {
+if(fbox.options[i].selected && fbox.options[i].value != "") {
+var no = new Option();
+no.value = fbox.options[i].value;
+no.text = fbox.options[i].text;
+tbox.options[tbox.options.length] = no;
+fbox.options[i].value = "";
+fbox.options[i].text = "";
+   }
+}
+BumpUp(fbox);
+if (sortitems) SortD(tbox);
+}
+function BumpUp(box)  {
+for(var i=0; i<box.options.length; i++) {
+if(box.options[i].value == "")  {
+for(var j=i; j<box.options.length-1; j++)  {
+box.options[j].value = box.options[j+1].value;
+box.options[j].text = box.options[j+1].text;
+}
+var ln = i;
+break;
+   }
+}
+if(ln < box.options.length)  {
+box.options.length -= 1;
+BumpUp(box);
+   }
+}
+
+function SortD(box)  {
+var temp_opts = new Array();
+var temp = new Object();
+for(var i=0; i<box.options.length; i++)  {
+temp_opts[i] = box.options[i];
+}
+for(var x=0; x<temp_opts.length-1; x++)  {
+for(var y=(x+1); y<temp_opts.length; y++)  {
+if(temp_opts[x].text > temp_opts[y].text)  {
+temp = temp_opts[x].text;
+temp_opts[x].text = temp_opts[y].text;
+temp_opts[y].text = temp;
+temp = temp_opts[x].value;
+temp_opts[x].value = temp_opts[y].value;
+temp_opts[y].value = temp;
+      }
+   }
+}
+for(var i=0; i<box.options.length; i++)  {
+box.options[i].value = temp_opts[i].value;
+box.options[i].text = temp_opts[i].text;
+   }
+}
+// End -->
+</script></HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">Home</A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b>
+<A HREF="index.htm" /forms/" ><font color="#FF0000">Forms</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Menu Swapper</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+A clever way to move selected items from one list box to another using "<<" and ">>" direction buttons. It works like database field selection, supports selecting multiple items, and even can sort the moved item into the new list!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center><center>
+<form ACTION="" METHOD="POST">
+<table border="0">
+<tr>
+<td><select multiple size="5" name="list1">
+<option value="11"> item 1.1 </option>
+<option value="12"> item 1.2 </option>
+<option value="13"> item 1.3 </option>
+</select></td>
+<td>
+<input type="button" value="   &gt;&gt;   " onclick="move(this.form.list1,this.form.list2)" name="B1"><br>
+<input type="button" value="   &lt;&lt;   " onclick="move(this.form.list2,this.form.list1)" name="B2">
+</td>
+<td><select multiple size="5" name="list2">
+<option value="21"> item 2.1 </option>
+<option value="22"> item 2.2 </option>
+<option value="23"> item 2.3 </option>
+</select></td>
+</tr>
+</table>
+</form>
+
+<font face="arial,helvetica" size="-1">[ Use SHIFT or CTRL to select multiple items ]</font>
+
+</center>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Forms:  Menu Swapper</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.52 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL MENU SWAPPER:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+sortitems = 1;  // Automatically sort items within lists? (1 or 0)
+
+function move(fbox,tbox) {
+for(var i=0; i&lt;fbox.options.length; i++) {
+if(fbox.options[i].selected && fbox.options[i].value != "") {
+var no = new Option();
+no.value = fbox.options[i].value;
+no.text = fbox.options[i].text;
+tbox.options[tbox.options.length] = no;
+fbox.options[i].value = "";
+fbox.options[i].text = "";
+   }
+}
+BumpUp(fbox);
+if (sortitems) SortD(tbox);
+}
+function BumpUp(box)  {
+for(var i=0; i&lt;box.options.length; i++) {
+if(box.options[i].value == "")  {
+for(var j=i; j&lt;box.options.length-1; j++)  {
+box.options[j].value = box.options[j+1].value;
+box.options[j].text = box.options[j+1].text;
+}
+var ln = i;
+break;
+   }
+}
+if(ln &lt; box.options.length)  {
+box.options.length -= 1;
+BumpUp(box);
+   }
+}
+
+function SortD(box)  {
+var temp_opts = new Array();
+var temp = new Object();
+for(var i=0; i&lt;box.options.length; i++)  {
+temp_opts[i] = box.options[i];
+}
+for(var x=0; x&lt;temp_opts.length-1; x++)  {
+for(var y=(x+1); y&lt;temp_opts.length; y++)  {
+if(temp_opts[x].text &gt; temp_opts[y].text)  {
+temp = temp_opts[x].text;
+temp_opts[x].text = temp_opts[y].text;
+temp_opts[y].text = temp;
+temp = temp_opts[x].value;
+temp_opts[x].value = temp_opts[y].value;
+temp_opts[y].value = temp;
+      }
+   }
+}
+for(var i=0; i&lt;box.options.length; i++)  {
+box.options[i].value = temp_opts[i].value;
+box.options[i].text = temp_opts[i].text;
+   }
+}
+// End --&gt;
+&lt;/script&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;center&gt;
+&lt;form ACTION="" METHOD="POST"&gt;
+&lt;table border="0"&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;select multiple size="5" name="list1"&gt;
+&lt;option value="11"&gt; item 1.1 &lt;/option&gt;
+&lt;option value="12"&gt; item 1.2 &lt;/option&gt;
+&lt;option value="13"&gt; item 1.3 &lt;/option&gt;
+&lt;/select&gt;&lt;/td&gt;
+&lt;td&gt;
+&lt;input type="button" value="   &gt;&gt;   " onclick="move(this.form.list1,this.form.list2)" name="B1"&gt;&lt;br&gt;
+&lt;input type="button" value="   &lt;&lt;   " onclick="move(this.form.list2,this.form.list1)" name="B2"&gt;
+&lt;/td&gt;
+&lt;td&gt;&lt;select multiple size="5" name="list2"&gt;
+&lt;option value="21"&gt; item 2.1 &lt;/option&gt;
+&lt;option value="22"&gt; item 2.2 &lt;/option&gt;
+&lt;option value="23"&gt; item 2.3 &lt;/option&gt;
+&lt;/select&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  2.52 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

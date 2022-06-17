@@ -1,0 +1,298 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Calculators:  Money Counter</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Calculators">
+<META NAME="description" CONTENT="Enter the number of bills and coins and this script will calculate the total amount of money you have.  All blank entries are ignored.  Input field validation is also included -- try entering a non-digit into a field.  Also, this script is a good demonstration of a JavaScript return function in use.  Neat!">
+
+<SCRIPT LANGUAGE="JavaScript">
+
+
+
+
+<!-- Begin
+function s(num, val) {
+amount = num * 1; // amount is the num or NaN
+sum = (!num ? 0 : num) * val;  // the sum for that bill or coin
+
+if (isNaN(amount)) { // if the entire is not a number
+
+alert(
+"' " + num + " ' is not a valid entry and that field will "
++ "not be included in the total money calculation."
+);
+
+return 0;
+}
+else
+return sum; // if it is OK, send sum back
+}
+
+function money(form) {
+hun = s(form.hun.value, 100); // Each amount is the returned value
+fif = s(form.fif.value, 50);  // for the amount in the s() function
+twe = s(form.twe.value, 20);
+ten = s(form.ten.value, 10);
+fiv = s(form.fiv.value, 5);
+one = s(form.one.value, 1);
+hlf = s(form.hlf.value, .5);
+qtr = s(form.qtr.value, .25);
+dme = s(form.dme.value, .1);
+nck = s(form.nck.value, .05);
+pny = s(form.pny.value, .01);
+
+// add up all the amounts
+var ttl = hun + fif + twe + ten + fiv
++ one + hlf + qtr + dme + nck + pny;
+
+// rounds total to two decimal places
+
+ttl = "" + ((Math.round(ttl * 100)) / 100);
+
+dec1 = ttl.substring(ttl.length-3, ttl.length-2);
+dec2 = ttl.substring(ttl.length-2, ttl.length-1);
+
+if (dec1 != '.') { // adds trailing zeroes if necessary
+if (dec2 == '.') ttl += "0";
+else ttl += ".00";
+}
+form.total.value = "$ " + ttl; // display total amount
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /calculators/"><font color="#FF0000"><b>Calculators</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Money Counter</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Enter the number of bills and coins and this script will calculate the total amount of money you have.  All blank entries are ignored.  Input field validation is also included -- try entering a non-digit into a field.  Also, this script is a good demonstration of a JavaScript return function in use.  Neat!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name=coinform>
+<table border=1>
+<tr>
+<td align=center>$ 100</td>
+<td align=center>$ 50</td>
+<td align=center>$ 20</td>
+<td align=center>$ 10</td>
+<td align=center>$ 5</td>
+<td align=center>$ 1</td>
+</tr>
+<tr>
+<td align=center><input type=text name=hun size=3></td>
+<td align=center><input type=text name=fif size=3></td>
+<td align=center><input type=text name=twe size=3></td>
+<td align=center><input type=text name=ten size=3></td>
+<td align=center><input type=text name=fiv size=3></td>
+<td align=center><input type=text name=one size=3></td>
+</tr>
+<tr>
+<td colspan=6>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td align=center>50 ¢</td>
+<td align=center>25 ¢</td>
+<td align=center>10 ¢</td>
+<td align=center>5 ¢</td>
+<td align=center>1 ¢</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td align=center><input type=text name=hlf size=3></td>
+<td align=center><input type=text name=qtr size=3></td>
+<td align=center><input type=text name=dme size=3></td>
+<td align=center><input type=text name=nck size=3></td>
+<td align=center><input type=text name=pny size=3></td>
+</tr>
+<tr>
+<td colspan=5 align=center>
+<input type=button name=calc value="Calculate" onClick="javascript:money(this.form)">&nbsp;
+<input type=text name=total size=10>
+</td>
+</tr>
+</table>
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Calculators:  Money Counter</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  3.12 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL MONEY COUNTER:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function s(num, val) {
+amount = num * 1; // amount is the num or NaN
+sum = (!num ? 0 : num) * val;  // the sum for that bill or coin
+
+if (isNaN(amount)) { // if the entire is not a number
+
+alert(
+"' " + num + " ' is not a valid entry and that field will "
++ "not be included in the total money calculation."
+);
+
+return 0;
+}
+else
+return sum; // if it is OK, send sum back
+}
+
+function money(form) {
+hun = s(form.hun.value, 100); // Each amount is the returned value
+fif = s(form.fif.value, 50);  // for the amount in the s() function
+twe = s(form.twe.value, 20);
+ten = s(form.ten.value, 10);
+fiv = s(form.fiv.value, 5);
+one = s(form.one.value, 1);
+hlf = s(form.hlf.value, .5);
+qtr = s(form.qtr.value, .25);
+dme = s(form.dme.value, .1);
+nck = s(form.nck.value, .05);
+pny = s(form.pny.value, .01);
+
+// add up all the amounts
+var ttl = hun + fif + twe + ten + fiv
++ one + hlf + qtr + dme + nck + pny;
+
+// rounds total to two decimal places
+
+ttl = "" + ((Math.round(ttl * 100)) / 100);
+
+dec1 = ttl.substring(ttl.length-3, ttl.length-2);
+dec2 = ttl.substring(ttl.length-2, ttl.length-1);
+
+if (dec1 != '.') { // adds trailing zeroes if necessary
+if (dec2 == '.') ttl += "0";
+else ttl += ".00";
+}
+form.total.value = "$ " + ttl; // display total amount
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form name=coinform&gt;
+&lt;table border=1&gt;
+&lt;tr&gt;
+&lt;td align=center&gt;$ 100&lt;/td&gt;
+&lt;td align=center&gt;$ 50&lt;/td&gt;
+&lt;td align=center&gt;$ 20&lt;/td&gt;
+&lt;td align=center&gt;$ 10&lt;/td&gt;
+&lt;td align=center&gt;$ 5&lt;/td&gt;
+&lt;td align=center&gt;$ 1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=center&gt;&lt;input type=text name=hun size=3&gt;&lt;/td&gt;
+&lt;td align=center&gt;&lt;input type=text name=fif size=3&gt;&lt;/td&gt;
+&lt;td align=center&gt;&lt;input type=text name=twe size=3&gt;&lt;/td&gt;
+&lt;td align=center&gt;&lt;input type=text name=ten size=3&gt;&lt;/td&gt;
+&lt;td align=center&gt;&lt;input type=text name=fiv size=3&gt;&lt;/td&gt;
+&lt;td align=center&gt;&lt;input type=text name=one size=3&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td colspan=6&gt;&nbsp;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&nbsp;&lt;/td&gt;
+&lt;td align=center&gt;50 ¢&lt;/td&gt;
+&lt;td align=center&gt;25 ¢&lt;/td&gt;
+&lt;td align=center&gt;10 ¢&lt;/td&gt;
+&lt;td align=center&gt;5 ¢&lt;/td&gt;
+&lt;td align=center&gt;1 ¢&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&nbsp;&lt;/td&gt;
+&lt;td align=center&gt;&lt;input type=text name=hlf size=3&gt;&lt;/td&gt;
+&lt;td align=center&gt;&lt;input type=text name=qtr size=3&gt;&lt;/td&gt;
+&lt;td align=center&gt;&lt;input type=text name=dme size=3&gt;&lt;/td&gt;
+&lt;td align=center&gt;&lt;input type=text name=nck size=3&gt;&lt;/td&gt;
+&lt;td align=center&gt;&lt;input type=text name=pny size=3&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td colspan=5 align=center&gt;
+&lt;input type=button name=calc value="Calculate" onClick="javascript:money(this.form)"&gt;&nbsp;
+&lt;input type=text name=total size=10&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  3.12 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

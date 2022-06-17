@@ -1,0 +1,404 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Misc.:  HTML Builder</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Miscellaneous">
+<META NAME="description" CONTENT="Occassionally, a web page provider does not offer an HTML editor with the web site accounts they provide.  If that's the case with you or if you just don't like the editor you have, you might give this JavaScript HTML Builder a whirl.  It's very cool.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+function View(form) {
+msg=open("","DisplayWindow","status=1,scrollbars=1");
+msg.document.write(form.Text2.value);
+}
+function Generate(form) {
+var txt="<html><HEAD><TITLE>"+form.Name.value+"</TITLE></HEAD>\r\n";
+txt+=
+"<CENTER><h1><font color=red>"+form.Name.value+"</font></h1></CENTER><hr>\r\n";
+txt+="<body><font size=4>\r\n";
+if(form.Text1.value)    
+txt+=form.Text1.value+"\r\n";    if(form.Fav1URL.value||form.Fav2URL.value||form.Fav3URL.value||form.Fav4URL.value||form.Fav5URL.value||form.Fav6URL.value) {
+txt+="<hr><font>Some of my favorite links:<BR><ul>\r\n<LI><a href=http://javascriptsource.com>JavaScript Source Code 3000</a><BR>\r\n";
+if(form.Fav1URL.value)          
+txt+="<LI><a href="+form.Fav1URL.value+">"+form.Fav1Title.value+"</a><BR>\r\n";
+if(form.Fav2URL.value)          
+txt+="<LI><a href="+form.Fav2URL.value+">"+form.Fav2Title.value+"</a><BR>\r\n"; 
+if(form.Fav3URL.value)          
+txt+="<LI><a href="+form.Fav3URL.value+">"+form.Fav3Title.value+"</a><BR>\r\n"; 
+if(form.Fav4URL.value)          
+txt+="<LI><a href="+form.Fav4URL.value+">"+form.Fav4Title.value+"</a><BR>\r\n"; 
+if(form.Fav5URL.value)          
+txt+="<LI><a href="+form.Fav5URL.value+">"+form.Fav5Title.value+"</a><BR>\r\n"; 
+if(form.Fav6URL.value)          
+txt+="<LI><a href="+form.Fav6URL.value+">"+form.Fav6Title.value+"</a><BR>\r\n"; 
+txt+="</ul></font>";    
+}
+if(form.EMail.value){   
+txt+="<hr>Questions? Comments? E-Mail me:\r\n"; 
+txt+="<address><a href=mailto:"+form.EMail.value+">"+form.EMail.value+"</address>\r\n"; 
+}
+txt+="</font></body></html>";
+form.Text2.value=txt;
+}
+function AddText(form, Action){
+var AddTxt="";
+var txt="";
+if(Action==1){  
+txt=prompt("Text for the level 1 header.","Text");      
+if(txt!=null)           
+AddTxt="<h1>"+txt+"</h1>\r\n";  
+}
+if(Action==2){  
+txt=prompt("Text for the level 2 header.","Text");      
+if(txt!=null)           
+AddTxt="<h2>"+txt+"</h2>\r\n";  
+}
+if(Action==3){  
+txt=prompt("Text for the level 3 header.","Text");      
+if(txt!=null)           
+AddTxt="<h3>"+txt+"</h3>\r\n";  
+}
+if(Action==4) {  
+txt=prompt("Text to be made BOLD.","Text");     
+if(txt!=null)           
+AddTxt="<b>"+txt+"</b>";        
+}
+if(Action==5) {  
+txt=prompt("Text to be italicized","Text");     
+if(txt!=null)           
+AddTxt="<i>"+txt+"</i>";        
+}
+if(Action==6) AddTxt="\r\n<p>";
+if(Action==7) AddTxt="<BR>\r\n";
+if(Action==8) AddTxt="<hr>\r\n";
+if(Action==9) {  
+txt=prompt("URL for the link.","http://");      
+if(txt!=null){          
+AddTxt="<a href="+txt+">";              
+txt=prompt("Text to be show for the link","Text");              
+AddTxt+=txt+"</a>\r\n";         
+   }
+}
+if(Action==10) { 
+txt=prompt("URL for graphic","URL");    
+if(txt!=null)           
+AddTxt="<img src="+txt+">\r\n"; 
+}
+form.Text1.value+=AddTxt;
+}
+function ResetPage(form) {
+if(confirm("Reset the page?")) { 
+form.Text1.value="";    
+form.Text2.value="";    
+form.Name.value="";     
+form.EMail.value="";    
+form.Fav1URL.value="";  
+form.Fav1Title.value="";        
+form.Fav2URL.value="";  
+form.Fav2Title.value="";        
+form.Fav3URL.value="";  
+form.Fav3Title.value="";        
+form.Fav4URL.value="";  
+form.Fav4Title.value="";        
+form.Fav5URL.value="";  
+form.Fav5Title.value="";        
+form.Fav6URL.value="";  
+form.Fav6Title.value="";        
+   }
+}
+// End -->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /miscellaneous/"><font color="#FF0000">Miscellaneous</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">HTML Builder</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<TABLE BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><TD><font FACE=" helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Occassionally, a web page provider does not offer an HTML editor with the web site accounts they provide.  If that's the case with you or if you just don't like the editor you have, you might give this JavaScript HTML Builder a whirl.  It's very cool.<BR><hr>
+</td></tr>
+</TABLE>
+<!--  Demonstration -->
+<BODY>
+<p>Instructions:<ol>
+<LI>Fill out the table with stuff you want to appear on your page.
+<LI>Click on Generate Source.
+<LI>Make adjustments if you want in the text area.
+<LI>Click on View to check out your page.
+<LI>If you want to save the source as a file you will have to cut and paste to a text editor.</ol>
+<hr>
+<CENTER>
+<FORM ACTION="">
+<table border=2>
+<TR><TD>Page Title:<TD>
+<input type="text" name="Name" size=30>
+<TR><TD>Your E-Mail Address(*):<TD>
+<input type="text" name="EMail" size=30><TR><TD colspan=2>Your favorite sites:(*)
+<TR><TD>URL:<TD>Title:
+<TR><TD><input type="text" name="Fav1URL" size=30>
+<TD><input type="text" name="Fav1Title" size=30>
+<TR><TD><input type="text" name="Fav2URL" size=30>
+<TD><input type="text" name="Fav2Title" size=30>
+<TR><TD><input type="text" name="Fav3URL" size=30>
+<TD><input type="text" name="Fav3Title" size=30>
+<TR><TD><input type="text" name="Fav4URL" size=30>
+<TD><input type="text" name="Fav4Title" size=30>
+<TR><TD><input type="text" name="Fav5URL" size=30>
+<TD><input type="text" name="Fav5Title" size=30>
+<TR><TD><input type="text" name="Fav6URL" size=30>
+<TD><input type="text" name="Fav6Title" size=30>
+<TR><TD colspan=2>Body(*):
+<TR align=center><TD colspan=2>
+<input type="Button" value="Header1" onClick="AddText(this.form,1);">
+<input type="Button" value="Header2" onClick="AddText(this.form,2);">
+<input type="Button" value="Header3" onClick="AddText(this.form,3);">
+<input type="button" value="Bold" onClick="AddText(this.form,4);">
+<input type="button" value="Italic" onClick="AddText(this.form,5);">
+<BR><input type="button" value="Paragraph" onClick="AddText(this.form,6);">
+<input type="button" value="Break" onClick="AddText(this.form,7);">
+<input type="button" value="Line" onClick="AddText(this.form,8);">
+<input type="button" value="Link" onClick="AddText(this.form,9);">
+<input type="button" value="Graphic" onClick="AddText(this.form,10);">
+<BR>
+<textarea name="Text1" Rows=8 Cols=60></textarea>
+<TR align=center><TD colspan=2><input type="button" value="Generate Source" onClick="Generate(this.form);"><caption>(*=optional field)</caption>
+</TABLE>
+<hr>
+<input type="button" value="Reset" onClick="ResetPage(this.form);">
+<input type="button" value="About" onClick="alert('This JavaScript Copyright (C) Tim Helvey')">
+<input type="button" value="View" onClick="View(this.form);"><BR>
+<textarea name="Text2" rows=8 Cols=70></textarea></center>
+</FORM>
+<P>
+<BR>
+<P>
+<a name="source">
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<TR><TD BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Misc.:  HTML Builder</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as NotePad or SimpleText) and save (Control-s or Apple-s).  The script is yours!<br><br></font></td></tr>
+<TR><TD BGCOLOR=yellow ALIGN=CENTER>
+<FORM NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  6.31 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL HTML BUILDER:
+
+   1.  Paste the coding into the HEAD of your HTML document
+   2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function View(form) {
+msg=open("","DisplayWindow","status=1,scrollbars=1");
+msg.document.write(form.Text2.value);
+}
+function Generate(form) {
+var txt="&lt;html&gt;&lt;HEAD&gt;&lt;TITLE&gt;"+form.Name.value+"&lt;/TITLE&gt;&lt;/HEAD&gt;\r\n";
+txt+=
+"&lt;CENTER&gt;&lt;h1&gt;&lt;font color=red&gt;"+form.Name.value+"&lt;/font&gt;&lt;/h1&gt;&lt;/CENTER&gt;&lt;hr&gt;\r\n";
+txt+="&lt;body&gt;&lt;font size=4&gt;\r\n";
+if(form.Text1.value)    
+txt+=form.Text1.value+"\r\n";    if(form.Fav1URL.value||form.Fav2URL.value||form.Fav3URL.value||form.Fav4URL.value||form.Fav5URL.value||form.Fav6URL.value) {
+txt+="&lt;hr&gt;&lt;font&gt;Some of my favorite links:&lt;BR&gt;&lt;ul&gt;\r\n&lt;LI&gt;&lt;a href=http://javascriptsource.com&gt;JavaScript Source Code 3000&lt;/a&gt;&lt;BR&gt;\r\n";
+if(form.Fav1URL.value)          
+txt+="&lt;LI&gt;&lt;a href="+form.Fav1URL.value+"&gt;"+form.Fav1Title.value+"&lt;/a&gt;&lt;BR&gt;\r\n";
+if(form.Fav2URL.value)          
+txt+="&lt;LI&gt;&lt;a href="+form.Fav2URL.value+"&gt;"+form.Fav2Title.value+"&lt;/a&gt;&lt;BR&gt;\r\n"; 
+if(form.Fav3URL.value)          
+txt+="&lt;LI&gt;&lt;a href="+form.Fav3URL.value+"&gt;"+form.Fav3Title.value+"&lt;/a&gt;&lt;BR&gt;\r\n"; 
+if(form.Fav4URL.value)          
+txt+="&lt;LI&gt;&lt;a href="+form.Fav4URL.value+"&gt;"+form.Fav4Title.value+"&lt;/a&gt;&lt;BR&gt;\r\n"; 
+if(form.Fav5URL.value)          
+txt+="&lt;LI&gt;&lt;a href="+form.Fav5URL.value+"&gt;"+form.Fav5Title.value+"&lt;/a&gt;&lt;BR&gt;\r\n"; 
+if(form.Fav6URL.value)          
+txt+="&lt;LI&gt;&lt;a href="+form.Fav6URL.value+"&gt;"+form.Fav6Title.value+"&lt;/a&gt;&lt;BR&gt;\r\n"; 
+txt+="&lt;/ul&gt;&lt;/font&gt;";    
+}
+if(form.EMail.value){   
+txt+="&lt;hr&gt;Questions? Comments? E-Mail me:\r\n"; 
+txt+="&lt;address&gt;&lt;a href=mailto:"+form.EMail.value+"&gt;"+form.EMail.value+"&lt;/address&gt;\r\n"; 
+}
+txt+="&lt;/font&gt;&lt;/body&gt;&lt;/html&gt;";
+form.Text2.value=txt;
+}
+function AddText(form, Action){
+var AddTxt="";
+var txt="";
+if(Action==1){  
+txt=prompt("Text for the level 1 header.","Text");      
+if(txt!=null)           
+AddTxt="&lt;h1&gt;"+txt+"&lt;/h1&gt;\r\n";  
+}
+if(Action==2){  
+txt=prompt("Text for the level 2 header.","Text");      
+if(txt!=null)           
+AddTxt="&lt;h2&gt;"+txt+"&lt;/h2&gt;\r\n";  
+}
+if(Action==3){  
+txt=prompt("Text for the level 3 header.","Text");      
+if(txt!=null)           
+AddTxt="&lt;h3&gt;"+txt+"&lt;/h3&gt;\r\n";  
+}
+if(Action==4) {  
+txt=prompt("Text to be made BOLD.","Text");     
+if(txt!=null)           
+AddTxt="&lt;b&gt;"+txt+"&lt;/b&gt;";        
+}
+if(Action==5) {  
+txt=prompt("Text to be italicized","Text");     
+if(txt!=null)           
+AddTxt="&lt;i&gt;"+txt+"&lt;/i&gt;";        
+}
+if(Action==6) AddTxt="\r\n&lt;p&gt;";
+if(Action==7) AddTxt="&lt;BR&gt;\r\n";
+if(Action==8) AddTxt="&lt;hr&gt;\r\n";
+if(Action==9) {  
+txt=prompt("URL for the link.","http://");      
+if(txt!=null){          
+AddTxt="&lt;a href="+txt+"&gt;";              
+txt=prompt("Text to be show for the link","Text");              
+AddTxt+=txt+"&lt;/a&gt;\r\n";         
+   }
+}
+if(Action==10) { 
+txt=prompt("URL for graphic","URL");    
+if(txt!=null)           
+AddTxt="&lt;img src="+txt+"&gt;\r\n"; 
+}
+form.Text1.value+=AddTxt;
+}
+function ResetPage(form) {
+if(confirm("Reset the page?")) { 
+form.Text1.value="";    
+form.Text2.value="";    
+form.Name.value="";     
+form.EMail.value="";    
+form.Fav1URL.value="";  
+form.Fav1Title.value="";        
+form.Fav2URL.value="";  
+form.Fav2Title.value="";        
+form.Fav3URL.value="";  
+form.Fav3Title.value="";        
+form.Fav4URL.value="";  
+form.Fav4Title.value="";        
+form.Fav5URL.value="";  
+form.Fav5Title.value="";        
+form.Fav6URL.value="";  
+form.Fav6Title.value="";        
+   }
+}
+
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+&lt;!-- STEP TWO: Put this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;CENTER&gt;
+&lt;P&gt;Instructions:&lt;OL&gt;
+&lt;LI&gt;Fill out the table with stuff you want to appear on your page.
+&lt;LI&gt;Click on Generate Source.
+&lt;LI&gt;Make adjustments if you want in the text area.
+&lt;LI&gt;Click on View to check out your page.
+&lt;LI&gt;If you want to save the source as a file you will have to cut and paste to a text editor.&lt;/OL&gt;
+&lt;HR&gt;
+&lt;FORM ACTION=""&gt;
+&lt;TABLE border=2&gt;
+&lt;TR&gt;&lt;TD&gt;Page Title:&lt;TD&gt;
+&lt;input type="text" name="Name" size=30&gt;
+&lt;TR&gt;&lt;TD&gt;Your E-Mail Address(*):&lt;TD&gt;
+&lt;input type="text" name="EMail" size=30&gt;&lt;TR&gt;&lt;TD colspan=2&gt;Your favorite sites:(*)
+&lt;TR&gt;&lt;TD&gt;URL:&lt;TD&gt;Title:
+&lt;TR&gt;&lt;TD&gt;&lt;input type="text" name="Fav1URL" size=30&gt;
+&lt;TD&gt;&lt;input type="text" name="Fav1Title" size=30&gt;
+&lt;TR&gt;&lt;TD&gt;&lt;input type="text" name="Fav2URL" size=30&gt;
+&lt;TD&gt;&lt;input type="text" name="Fav2Title" size=30&gt;
+&lt;TR&gt;&lt;TD&gt;&lt;input type="text" name="Fav3URL" size=30&gt;
+&lt;TD&gt;&lt;input type="text" name="Fav3Title" size=30&gt;
+&lt;TR&gt;&lt;TD&gt;&lt;input type="text" name="Fav4URL" size=30&gt;
+&lt;TD&gt;&lt;input type="text" name="Fav4Title" size=30&gt;
+&lt;TR&gt;&lt;TD&gt;&lt;input type="text" name="Fav5URL" size=30&gt;
+&lt;TD&gt;&lt;input type="text" name="Fav5Title" size=30&gt;
+&lt;TR&gt;&lt;TD&gt;&lt;input type="text" name="Fav6URL" size=30&gt;
+&lt;TD&gt;&lt;input type="text" name="Fav6Title" size=30&gt;
+&lt;TR&gt;&lt;TD colspan=2&gt;Body(*):
+&lt;TR align=center&gt;&lt;TD colspan=2&gt;
+&lt;input type="Button" value="Header1" onClick="AddText(this.form,1);"&gt;
+&lt;input type="Button" value="Header2" onClick="AddText(this.form,2);"&gt;
+&lt;input type="Button" value="Header3" onClick="AddText(this.form,3);"&gt;
+&lt;input type="button" value="Bold" onClick="AddText(this.form,4);"&gt;
+&lt;input type="button" value="Italic" onClick="AddText(this.form,5);"&gt;
+&lt;BR&gt;&lt;input type="button" value="Paragraph" onClick="AddText(this.form,6);"&gt;
+&lt;input type="button" value="Break" onClick="AddText(this.form,7);"&gt;
+&lt;input type="button" value="Line" onClick="AddText(this.form,8);"&gt;
+&lt;input type="button" value="Link" onClick="AddText(this.form,9);"&gt;
+&lt;input type="button" value="Graphic" onClick="AddText(this.form,10);"&gt;
+&lt;BR&gt;
+&lt;textarea name="Text1" Rows=8 Cols=60&gt;&lt;/textarea&gt;
+&lt;TR align=center&gt;&lt;TD colspan=2&gt;&lt;input type="button" value="Generate Source" onClick="Generate(this.form);"&gt;&lt;caption&gt;(*=optional field)&lt;/caption&gt;
+&lt;/TABLE&gt;
+&lt;HR&gt;
+&lt;input type="button" value="Reset" onClick="ResetPage(this.form);"&gt;
+&lt;input type="button" value="About" onClick="alert('This JavaScript Copyright (C) Tim Helvey')"&gt;
+&lt;input type="button" value="View" onClick="View(this.form);"&gt;&lt;BR&gt;
+&lt;textarea name="Text2" rows=8 Cols=70&gt;&lt;/textarea&gt;
+&lt;/FORM&gt;
+&lt;/CENTER&gt;
+
+ 
+
+&lt;!-- Script Size:  6.31 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

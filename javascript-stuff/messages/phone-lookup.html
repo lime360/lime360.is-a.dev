@@ -1,0 +1,153 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Messages:  Phone Lookup</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Messages">
+<META NAME="description" CONTENT="Allows the user to enter their area code and phone number and have the modem dialup phone number for their area displayed.  If their area code matches an area code as defined in the script, the appropriate dialup number is displayed.  For all other area codes, an error message is displayed.  Only supports one dialup number per area code, though.">
+
+<SCRIPT LANGUAGE="JavaScript">
+
+
+
+
+<!-- Begin
+function showNumber(areacode) {
+var num = "no # avail.";
+var numArray = new Array();
+numArray[0] = "972-865-0073";  // add more entries here
+numArray[1] = "214-469-4010";
+for (var i = 0; i < numArray.length; i++) {
+var acode = numArray[i].substring(0, 3);
+if (acode == areacode)
+var num = "" + numArray[i].substring(0, 18);
+}
+return num;
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /messages/"><font color="#FF0000"><b>Messages</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Phone Lookup</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Allows the user to enter their area code and phone number and have the modem dialup phone number for their area displayed.  If their area code matches an area code as defined in the script, the appropriate dialup number is displayed.  For all other area codes, an error message is displayed.  Only supports one dialup number per area code, though.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<font face="arial, helvetica" size="-1">[ We set up our example for phone numbers in the 972 or 214 area codes.  ]
+<form>
+<table border=1>
+<tr><td>Phone #:</td><td align=center>(<input type=text name=areacode size=3 maxlength=3 value="972">) <input type=text name=block size=3 maxlength=3>-<input type=text name=extension size=4 maxlength=4></td></tr>
+<tr><td colspan=2 align=center><input type=button value="Show Dialup Number" onClick="this.form.number.value = showNumber(this.form.areacode.value)"></td></tr>
+<tr><td>Dialup #:</td><td align=center><input type=text name=number size=12 maxlength=12></td></tr>
+</table>
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Messages:  Phone Lookup</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.55 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL PHONE LOOKUP:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function showNumber(areacode) {
+var num = "no # avail.";
+var numArray = new Array();
+numArray[0] = "972-865-0073";  // add more entries here
+numArray[1] = "214-469-4010";
+for (var i = 0; i &lt; numArray.length; i++) {
+var acode = numArray[i].substring(0, 3);
+if (acode == areacode)
+var num = "" + numArray[i].substring(0, 18);
+}
+return num;
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form&gt;
+&lt;table border=1&gt;
+&lt;tr&gt;&lt;td&gt;Phone #:&lt;/td&gt;&lt;td align=center&gt;(&lt;input type=text name=areacode size=3 maxlength=3&gt;) &lt;input type=text name=block size=3 maxlength=3&gt;-&lt;input type=text name=extension size=4 maxlength=4&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td colspan=2 align=center&gt;&lt;input type=button value="Show Dialup Number" onClick="this.form.number.value = showNumber(this.form.areacode.value)"&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Dialup #:&lt;/td&gt;&lt;td align=center&gt;&lt;input type=text name=number size=12 maxlength=12&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  1.55 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

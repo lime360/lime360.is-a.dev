@@ -1,0 +1,192 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Forms:  Customized Window</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Reaz Hoque">
+<META NAME="section" CONTENT="Forms">
+<META NAME="description" CONTENT="Use JavaScript to allow visitors to open a customized window.  I've used this script in the past to find the exact window size I want a JavaScript function to open.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--  Reaz Hoque     
+function customize(form) {    
+var address = document.form1.url.value;   
+var op_tool  = (document.form1.tool.checked== true)  ? 1 : 0;    
+var op_loc_box  = (document.form1.loc_box.checked == true)  ? 1 : 0;    
+var op_dir  = (document.form1.dir.checked == true)  ? 1 : 0;    
+var op_stat  = (document.form1.stat.checked == true)  ? 1 : 0;    
+var op_menu  = (document.form1.menu.checked == true)  ? 1 : 0;    
+var op_scroll  = (document.form1.scroll.checked == true)  ? 1 : 0;    
+var op_resize  = (document.form1.resize.checked == true)  ? 1 : 0;    
+var op_wid  = document.form1.wid.value;   
+var op_heigh = document.form1.heigh.value;                 
+var option = "toolbar="+ op_tool +",location="+ op_loc_box +",directories=" 
++ op_dir +",status="+ op_stat +",menubar="+ op_menu +",scrollbars="  
++ op_scroll +",resizable="  + op_resize +",width=" + op_wid +",height="+ op_heigh;
+var win3 = window.open("", "what_I_want", option);  
+var win4 = window.open(address, "what_I_want");
+}
+function clear(form) { 
+document.form1.wid.value=""; 
+document.form1.heigh.value="";
+}
+// End -->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /forms/" ><font color="#FF0000">Forms</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Customized Window</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Use JavaScript to allow visitors to open a customized window.  I've used this script in the past to find the exact window size I want a JavaScript function to open.
+<br>
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<BODY>
+<CENTER>
+<h4>Please choose from the following selections to customize your window</h4>
+<br>
+<TABLE cellpadding=5 border><TR><TD><PRE> 
+<FORM name=form1  ACTION="javascript:" METHOD="POST">
+<INPUT TYPE="text" NAME="url" value="http://www.geocities.com" >: URL
+<INPUT TYPE="checkbox" NAME="tool">: Toolbar
+<INPUT TYPE="checkbox" NAME="loc_box">: Location
+<INPUT TYPE="checkbox" NAME="dir">: Directories
+<INPUT TYPE="checkbox" NAME="stat">: Status
+<INPUT TYPE="checkbox" NAME="menu">: Menubar
+<INPUT TYPE="checkbox" NAME="scroll">: Scrollbars
+<INPUT TYPE="checkbox" NAME="resize">: Resizable
+<INPUT TYPE="text"   NAME="wid" value= >: Width
+<INPUT TYPE="text"  NAME="heigh" value=>: Height
+<BR><CENTER>
+<INPUT TYPE="button" VALUE="=ENTER=" OnClick="customize(this.form)">
+<INPUT TYPE="reset" VALUE="=RESET=" onClick="clear(this.form)">
+</PRE></TD></TR></TABLE>
+</FORM>
+</CENTER>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Forms:  Customized Window</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.54 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL CUSTOMIZED WINDOW:
+
+   1.  Paste the coding into the HEAD of your HTML document
+   2.  Put the last code into the BODY of your HTML document  --&gt;
+
+&lt;!--  STEP ONE: Copy this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Reaz Hoque
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function customize(form) {    
+var address = document.form1.url.value;   
+var op_tool  = (document.form1.tool.checked== true)  ? 1 : 0;    
+var op_loc_box  = (document.form1.loc_box.checked == true)  ? 1 : 0;    
+var op_dir  = (document.form1.dir.checked == true)  ? 1 : 0;    
+var op_stat  = (document.form1.stat.checked == true)  ? 1 : 0;    
+var op_menu  = (document.form1.menu.checked == true)  ? 1 : 0;    
+var op_scroll  = (document.form1.scroll.checked == true)  ? 1 : 0;    
+var op_resize  = (document.form1.resize.checked == true)  ? 1 : 0;    
+var op_wid  = document.form1.wid.value;   
+var op_heigh = document.form1.heigh.value;                 
+var option = "toolbar="+ op_tool +",location="+ op_loc_box +",directories=" 
++ op_dir +",status="+ op_stat +",menubar="+ op_menu +",scrollbars="  
++ op_scroll +",resizable="  + op_resize +",width=" + op_wid +",height="+ op_heigh;
+var win3 = window.open("", "what_I_want", option);  
+var win4 = window.open(address, "what_I_want");
+}
+function clear(form) { 
+document.form1.wid.value=""; 
+document.form1.heigh.value="";
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+&lt;!--  STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;CENTER&gt;
+&lt;h4&gt;Please choose from the following selections to customize your window&lt;/h4&gt;
+&lt;br&gt;
+&lt;TABLE cellpadding=5 border&gt;&lt;TR&gt;&lt;TD&gt;&lt;PRE&gt; 
+&lt;FORM name=form1  ACTION="javascript:" METHOD="POST"&gt;
+&lt;INPUT TYPE="text" NAME="url" value="http://www.geocities.com" &gt;: URL
+&lt;INPUT TYPE="checkbox" NAME="tool"&gt;: Toolbar
+&lt;INPUT TYPE="checkbox" NAME="loc_box"&gt;: Location
+&lt;INPUT TYPE="checkbox" NAME="dir"&gt;: Directories
+&lt;INPUT TYPE="checkbox" NAME="stat"&gt;: Status
+&lt;INPUT TYPE="checkbox" NAME="menu"&gt;: Menubar
+&lt;INPUT TYPE="checkbox" NAME="scroll"&gt;: Scrollbars
+&lt;INPUT TYPE="checkbox" NAME="resize"&gt;: Resizable
+&lt;INPUT TYPE="text"   NAME="wid" value= &gt;: Width
+&lt;INPUT TYPE="text"  NAME="heigh" value=&gt;: Height
+&lt;BR&gt;&lt;CENTER&gt;
+&lt;INPUT TYPE="button" VALUE="=ENTER=" OnClick="customize(this.form)"&gt;
+&lt;INPUT TYPE="reset" VALUE="=RESET=" onClick="clear(this.form)"&gt;
+&lt;/PRE&gt;&lt;/TD&gt;&lt;/TR&gt;&lt;/TABLE&gt;
+&lt;/FORM&gt;
+&lt;/CENTER&gt;
+
+ 
+
+&lt;!-- Script Size:  2.54 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

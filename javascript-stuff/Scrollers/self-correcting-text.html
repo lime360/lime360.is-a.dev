@@ -1,0 +1,326 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Scrolls:  Self Correcting Text</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="(Internet Explorer Only)  Simulates a typewriter that can correct its own mistakes.  Create your own messages and display them with this unique script.  Fun!">
+<META NAME="date" CONTENT="2000-11-07">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="">
+<META NAME="section" CONTENT="Scrolls">
+
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /scrolls/"><font color="#FF0000"><b>Scrolls</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Self-Correcting Text</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+(Internet Explorer Only)  Simulates a typewriter that can correct its own mistakes.  Create your own messages and display them with this unique script.  Fun!
+<hr>
+</td></tr>
+</table>
+</center>
+<!-- Demonstration -->
+<p id='anima' style="position:absolute;font-size:20;background-color:white;">
+</font>
+</p>
+<br>
+<br>
+<center>
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  dzzie@yahoo.com -->
+
+
+
+
+<!-- Begin
+text = "Add.this.script.to.your.site!..It.can.actullay/4ally.correct.its.own.typos!..:-)"
+word = text.split('.')
+i = -1;           //letter count
+j = 0;            //which word in array is to be spelled
+start = 0;      //variable to hold cycles of the blink
+scount = 0;  //variable to hold cycles of the mispell
+function checkIt() {
+with(document.all.anima) {
+if(innerText.charAt(innerText.length-1) == "_") {
+innerText = innerText.substring(0, innerText.length - 1);
+return true;
+}
+else {
+innerText = innerText + "_";
+return false;
+      }
+   }
+}
+function blinkfor(count, timing) {
+with(document.all.anima) {
+if(start < count) {
+if(checkIt()) {
+start++;
+}
+mistake = 'blinkfor('+count+','+timing+')';
+setTimeout('eval(mistake)', timing);
+}
+else {
+start = 0;
+i++;
+call_It();
+      }
+   }
+}
+function mispell(offset,correction) {
+with(document.all.anima) {
+if(scount < offset) {
+if(!checkIt()) {
+innerText = innerText.substring(0, innerText.length-2) + "_";
+scount++;
+}
+mistake = 'mispell(' + offset + ', "' + correction + '")';
+setTimeout("eval(mistake)", 150);
+}
+else {
+if(correction == '' && scount == offset ) {
+i = i - offset;
+scount++;
+}
+if(offset > 0) {
+if(checkIt()) {
+innerText += correction.charAt(correction.length - offset) + "_";
+offset--;
+}
+mistake = 'mispell(' + offset + ',"' + correction + '")';
+setTimeout("eval(mistake)", 150);
+}
+else {
+scount = 0;
+j++;
+innerText = innerText.substring(0, innerText.length - 1);
+call_It();
+         }
+      }
+   }
+}
+function spellit(string) {
+with(document.all.anima) {
+if(i <= string.length) {
+if(string.charAt(i) == '/') {
+NumErrs = string.charAt(i + 1);
+NewLets = string.substring(i + 2, i + NumErrs);
+mispell(NumErrs,NewLets);
+}
+else if(i <= string.length - 1) {
+i++;
+innerText = string.substring(0,i) + "_";
+mistake = 'spellit("' + string + '")';
+setTimeout("eval(mistake)", 150);
+}
+else {
+innerText = string.substring(0, i);
+j++;
+call_It();
+         }
+      }
+   }
+}
+function call_It() {
+with(document.all) {
+if(i == -1){
+blinkfor(4, 150);
+}
+else if(j <= word.length - 1) {
+spellit(anima.innerText + " " + word[j]);
+} 
+else {
+blinkfor(100,230);
+      }
+   }
+}
+if(document.all) {
+call_It();
+}
+//  End -->
+</script>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Scrolls:  Self Correcting Text</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.90 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- ONE STEP TO INSTALL SELF CORRECTING TEXT:
+
+  1.  Copy the coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;p id='anima' style="position:absolute;font-size:20;background-color:white;"&gt;
+&lt;/font&gt;
+&lt;/p&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  dzzie@yahoo.com --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+text = "Add.this.script.to.your.site!..It.can.actullay/4ally.correct.its.own.typos!..:-)"
+word = text.split('.')
+i = -1;           //letter count
+j = 0;            //which word in array is to be spelled
+start = 0;      //variable to hold cycles of the blink
+scount = 0;  //variable to hold cycles of the mispell
+function checkIt() {
+with(document.all.anima) {
+if(innerText.charAt(innerText.length-1) == "_") {
+innerText = innerText.substring(0, innerText.length - 1);
+return true;
+}
+else {
+innerText = innerText + "_";
+return false;
+      }
+   }
+}
+function blinkfor(count, timing) {
+with(document.all.anima) {
+if(start &lt; count) {
+if(checkIt()) {
+start++;
+}
+mistake = 'blinkfor('+count+','+timing+')';
+setTimeout('eval(mistake)', timing);
+}
+else {
+start = 0;
+i++;
+call_It();
+      }
+   }
+}
+function mispell(offset,correction) {
+with(document.all.anima) {
+if(scount &lt; offset) {
+if(!checkIt()) {
+innerText = innerText.substring(0, innerText.length-2) + "_";
+scount++;
+}
+mistake = 'mispell(' + offset + ', "' + correction + '")';
+setTimeout("eval(mistake)", 150);
+}
+else {
+if(correction == '' && scount == offset ) {
+i = i - offset;
+scount++;
+}
+if(offset &gt; 0) {
+if(checkIt()) {
+innerText += correction.charAt(correction.length - offset) + "_";
+offset--;
+}
+mistake = 'mispell(' + offset + ',"' + correction + '")';
+setTimeout("eval(mistake)", 150);
+}
+else {
+scount = 0;
+j++;
+innerText = innerText.substring(0, innerText.length - 1);
+call_It();
+         }
+      }
+   }
+}
+function spellit(string) {
+with(document.all.anima) {
+if(i &lt;= string.length) {
+if(string.charAt(i) == '/') {
+NumErrs = string.charAt(i + 1);
+NewLets = string.substring(i + 2, i + NumErrs);
+mispell(NumErrs,NewLets);
+}
+else if(i &lt;= string.length - 1) {
+i++;
+innerText = string.substring(0,i) + "_";
+mistake = 'spellit("' + string + '")';
+setTimeout("eval(mistake)", 150);
+}
+else {
+innerText = string.substring(0, i);
+j++;
+call_It();
+         }
+      }
+   }
+}
+function call_It() {
+with(document.all) {
+if(i == -1){
+blinkfor(4, 150);
+}
+else if(j &lt;= word.length - 1) {
+spellit(anima.innerText + " " + word[j]);
+} 
+else {
+blinkfor(100,230);
+      }
+   }
+}
+if(document.all) {
+call_It();
+}
+//  End --&gt;
+&lt;/script&gt;
+
+ 
+
+&lt;!-- Script Size:  2.90 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

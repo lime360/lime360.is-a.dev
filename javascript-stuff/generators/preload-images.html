@@ -1,0 +1,293 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Code Generators:  Preload Images & Rollover Generator</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Code Generators">
+<META NAME="description" CONTENT="Would you rather not copy our example code and have to modify it by hand to suit your needs?  Then give this preload & rollover script maker a try!  Just fill out the information, and it will generate your code for you - no more modifications are necessary!  And, we can even mail the generated code to you!  Wow...  :-)">
+
+<SCRIPT LANGUAGE = "JavaScript">
+<!-- Begin
+var email = GetCookie('email_address');
+if (email == null) {
+email = 'your email here';
+}
+function getCookieVal (offset) {
+var endstr = document.cookie.indexOf (";", offset);
+if (endstr == -1)
+endstr = document.cookie.length;
+return unescape(document.cookie.substring(offset, endstr));
+}
+function GetCookie (name) {
+var arg = name + "=";
+var alen = arg.length;
+var clen = document.cookie.length;
+var i = 0;
+while (i < clen) {
+var j = i + alen;
+if (document.cookie.substring(i, j) == arg)
+return getCookieVal (j);
+i = document.cookie.indexOf(" ", i) + 1;
+if (i == 0)
+break;}
+return null;}
+function SetCookie (name, value) {
+var argv = SetCookie.arguments;
+var argc = SetCookie.arguments.length;
+var expires = (argc > 2) ? argv[2] : null;
+var path = (argc > 3) ? argv[3] : null;
+var domain = ".internet.com";
+// (argc > 4) ? argv[4] : null;
+var secure = (argc > 5) ? argv[5] : false;
+document.cookie = name + "=" + escape (value) +
+((expires == null) ? "" : ("; expires=" +
+expires.toGMTString())) +
+((path == null) ? "" : ("; path=" + path)) +
+((domain == null) ? "" : ("; domain=" + domain)) +
+((secure == true) ? "; secure" : "");}
+
+function checkCodeMail() {
+invalid = ""
+email = document.mail.user.value;
+code = document.mail.source.value;
+if (code == "") {
+invalid += "Before you can send your code to yourself you need to ";
+invalid += "follow the instructions above to output the code.  When "
+invalid += "the code has been generated, click \"Done\" to email it!\r\n\r\n";}
+if (email.indexOf("@")<1 || email == "your email here" || email == "") {
+invalid += "Invalid email address!  Be sure that in your email address ";
+invalid += "you included your Username, the '@' Sign, and the Domain Name.";}
+if (invalid == "") {
+doAd();
+return true;
+}
+else {
+alert(invalid);
+return false;}}
+function doAd() {
+pathname = location.pathname;
+myDomain = pathname.substring(0,pathname.lastIndexOf('/')) +'/';
+var largeExpDate = new Date ();
+largeExpDate.setTime(largeExpDate.getTime() + (24 * 3600 * 1000));
+SetCookie('email_address',email,largeExpDate,myDomain);
+page = "http://javascript.internet.com/sent.html?" + email;
+window.open(page, "AdWindow", "width=515,height=150");
+return true;}
+function uncode() {
+smut="&lt;";
+replacewords="< ";
+txt=document.mail.source2.value;
+tstx="";
+space=replacewords.indexOf(" ");
+wrd=replacewords.substring(0,space);
+wrdl=wrd.length
+replacewords=replacewords.substring(space+1,replacewords.length);
+while (txt.indexOf(wrd)>-1){
+space=txt.indexOf(wrd);
+txt=txt.substring(0,space)+smut+txt.substring((space+wrdl),txt.length);}
+smut="&gt;";
+replacewords="> ";
+space=replacewords.indexOf(" ");
+wrd=replacewords.substring(0,space);
+wrdl=wrd.length
+replacewords=replacewords.substring(space+1,replacewords.length);
+while (txt.indexOf(wrd)>-1){
+space=txt.indexOf(wrd);
+txt=txt.substring(0,space)+smut+txt.substring((space+wrdl),txt.length);}
+document.mail.source2.value=txt;}
+// End -->
+</script>
+
+
+<!--  Now it's time for the *REAL* code generator to begin....  -->
+
+
+<SCRIPT LANGUAGE="JavaScript">
+
+
+
+
+<!--  Begin
+function generate(form){
+
+var txt = '<!-- TWO STEPS TO INSTALL PRELOAD IMAGES:\r\n\r\n'
++ '   1.  Paste the first into the HEAD of your HTML document\r\n'
++ '   2.  Add the last code into the BODY of your HTML document  -->\r\n\r\n'
++ '<!-- STEP ONE: Copy this code into the HEAD of your HTML document  -->\r\n\r\n'
++ '<HEAD>\r\n\r\n<SCRIPT LANGUAGE="JavaScript">\r\n\r\n'
++ '\r\n'
++ '\r\n\r\n'
++ '<!-- Begin\r\n\r\n';
+
+for (var i=1;i<6;i++) {
+var use = eval(eval("document.form.imageMOI" + i + ".value") != "");
+if (use) {
+txt += 'image' + i + ' = new Image();\r\nimage' + i + '.src = "';
+txt += eval('document.form.imageMOI' + i + '.value') + '";\r\n\r\n';
+   }
+}
+
+txt += '/\/ End -->\r\n<\/script>\r\n';
+txt += '<\/HEAD>\r\n\r\n';
+txt += '<!-- STEP TWO: Insert this code into the BODY of your HTML document  -->\r\n\r\n';
+txt += '<BODY>\r\n\r\n';
+
+for (var i=1;i<6;i++) {
+var use = eval(eval("document.form.image" + i + ".value") != "");
+if (use) {
+txt += '<a hr' + 'ef=' + '\"' + eval('document.form.URL' + i + '.value') + '\" '; 
+txt += 'onmouseover=\"image'+i+'.src=';
+txt += '\''+ eval('document.form.imageMOI'+i+'.value') +'\';\"\r\n'; 
+txt += 'onmouseout=\"image'+i+'.src=';
+txt += '\''+eval('document.form.image'+i+'.value')+'\';\">\r\n'; 
+txt += '<i' + 'mg name=\"image'+i+'\" ';
+txt += 'src=\"'+eval('document.form.image'+i+'.value')+'\" ';
+txt += 'border=0></a>\r\n\r\n';
+   }
+}
+txt += '<\/BODY>\r\n\r\n';
+document.mail.source.value=txt;
+document.mail.source2.value=txt;
+
+uncode();
+}
+// End -->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<P>
+<center>
+
+	
+<P>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /generators/"><font color="#FF0000">Generators</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Preload Images & Rollover Generator</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Would you rather not copy our example code and have to modify it by hand to suit your needs?  Then give this preload & rollover script maker a try!  Just fill out the information, and it will generate your code for you - no more modifications are necessary!  And, we can even mail the generated code to you!  Wow...  :-) 
+<br>
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name="form" action="">
+<table bgcolor="dedfdf" border="2" cellpadding="4" width=300>
+<tr>
+<td colspan=2><font size="2" face="arial">
+Enter the image URL for the intial image (#1, #2, etc.), then the image URL for the Mouse Over Image (MOI), and finally, the URL (URL1, URL2, etc.) you wish to use as a link, then click the button below to output your preloaded mouseover code!</td>
+</tr>
+<tr>
+<td width=50 align="center"><font size="3" face="arial"><b># 1</font></td>
+<td width=250 align="center"><input type="text" name="image1" size=40></td>
+</tr>
+<tr>
+<td width=50 align="center"><font size="3" face="arial"><b>MOI1</font></td>
+<td width=250 align="center"><input type="text" name="imageMOI1" size=40></td>
+</tr>
+<tr>
+<td width=50 align="center"><font size="3" face="arial"><b>URL1</font></td>
+<td width=250 align="center"><input type="text" name="URL1" size=40></td>
+</tr>
+<tr>
+<td width=50 align="center"><font size="3" face="arial"><b># 2</font></td>
+<td width=250 align="center"><input type="text" name="image2" size=40></td>
+</tr>
+<tr>
+<td width=50 align="center"><font size="3" face="arial"><b>MOI2</font></td>
+<td width=250 align="center"><input type="text" name="imageMOI2" size=40></td>
+</tr>
+<tr>
+<td width=50 align="center"><font size="3" face="arial"><b>URL2</font></td>
+<td width=250 align="center"><input type="text" name="URL2" size=40></td>
+</tr>
+<tr>
+<td width=50 align="center"><font size="3" face="arial"><b># 3</font></td>
+<td width=250 align="center"><input type="text" name="image3" size=40></td>
+</tr>
+<tr>
+<td width=50 align="center"><font size="3" face="arial"><b>MOI3</font></td>
+<td width=250 align="center"><input type="text" name="imageMOI3" size=40></td>
+</tr>
+<tr>
+<td width=50 align="center"><font size="3" face="arial"><b>URL3</font></td>
+<td width=250 align="center"><input type="text" name="URL3" size=40></td>
+</tr>
+<tr>
+<td width=50 align="center"><font size="3" face="arial"><b># 4</font></td>
+<td width=250 align="center"><input type="text" name="image4" size=40></td>
+</tr>
+<tr>
+<td width=50 align="center"><font size="3" face="arial"><b>MOI4</font></td>
+<td width=250 align="center"><input type="text" name="imageMOI4" size=40></td>
+</tr>
+<tr>
+<td width=50 align="center"><font size="3" face="arial"><b>URL4</font></td>
+<td width=250 align="center"><input type="text" name="URL4" size=40></td>
+</tr>
+<tr>
+<td width=50 align="center"><font size="3" face="arial"><b># 5</font></td>
+<td width=250 align="center"><input type="text" name="image5" size=40></td>
+</tr>
+<tr>
+<td width=50 align="center"><font size="3" face="arial"><b>MOI5</font></td>
+<td width=250 align="center"><input type="text" name="imageMOI5" size=40></td>
+</tr>
+<tr>
+<td width=50 align="center"><font size="3" face="arial"><b>URL5</font></td>
+<td width=250 align="center"><input type="text" name="URL5" size=40></td>
+</tr>
+<tr>
+<td colspan=2 align="center"><br>
+<input type="button" name=done value="Done!  Make My Script!" onclick="generate(this.form);">
+<br><br></td></tr>
+</table>
+</form>
+</center>
+
+
+<p>
+<center>
+<form name="mail" action="http://javascript.internet.com/cgi-bin/code-mail.cgi" method="POST" onSubmit="return checkCodeMail()">
+<input type=hidden name=scriptname value="Preload Images & Rollover Generator">
+<table bgcolor="dedfdf" border="2" cellpadding="4" width=400>
+<tr><td align=center><textarea name="source" rows=12 cols=80></textarea><br>
+<input type="hidden" name="source2"><br>
+<font size="2" face="arial">"Cut and Paste" the code above, or....</font><br><br>
+<table cellpadding=20 cellspacing=0 border=1>
+<tr bgcolor=#ebebeb><td align=center><tt>We'll send your generated code to you!<p></tt>
+<SCRIPT>
+<!-- Begin
+document.write('<input type=text size=25 name=user value="'+email+'" onfocus=\"select()\">');
+// End -->
+</SCRIPT>
+<NOSCRIPT>
+<input type=text size=25 name=email value="your email here">
+</NOSCRIPT>
+<input type=submit value="Send it!"><p><font size="-2">(just click "Send it!" once!)</font>
+</td>
+</tr>
+</table></td><p></tr>
+</table>
+</form>
+</center>
+</FONT>
+</CENTER>
+
+</CENTER>

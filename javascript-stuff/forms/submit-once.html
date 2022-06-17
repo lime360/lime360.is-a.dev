@@ -1,0 +1,211 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Forms:  Submit Once</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Forms">
+<META NAME="description" CONTENT="Do you ever receive multiple copies of a single form submission?  Do your visitors click the submit button over and over, hoping it will hurry up the process?  Well, JavaScript can solve your problems!  The script will prevent the visitor from submitting the form after the first submission.  Basic field validation also included!  Great!">
+
+<SCRIPT LANGUAGE="JavaScript">
+
+
+
+
+<!-- Begin
+var submitcount=0;
+
+function reset() {
+document.emailform.name.value="";
+document.emailform.email.value="";
+document.emailform.comments.value="";
+}
+
+function checkFields() {                       // basic field validation; Just
+if ( (document.emailform.name.value=="")  ||   // checks if any fields are blank.
+     (document.emailform.email.value=="") ||   // Additional validation scripts are at
+     (document.emailform.comments.value=="") ) // htttp://forms.javascriptsource.com
+   {
+   alert("Please enter your name, email, and comments then re-submit this form.");
+   return false;
+   }
+
+else 
+   {
+   if (submitcount == 0)
+      {
+      submitcount++;
+      return true;
+      }
+   else 
+      {
+      alert("This form has already been submitted.  Thanks!");
+      return false;
+      }
+   }
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff OnLoad="reset()">
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /forms/" ><font color="#FF0000"><b>Forms</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Submit Once</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Do you ever receive multiple copies of a single form submission?  Do your visitors click the submit button over and over, hoping it will hurry up the process?  Well, JavaScript can solve your problems!  The script will prevent the visitor from submitting the form after the first submission.  Basic field validation also included!  Great!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<form method=post action="http://cgi.freedback.com/mail.pl" name="emailform" onSubmit="return checkFields()">
+
+<input type=hidden name=to value="you@your-web-site-address-here.com">
+<input type=hidden name=subject value="Feedback Form">
+
+<pre>
+Your Name:   <input type=text name="name">
+Your Email:  <input type=text name="email">
+
+Comments?
+
+<textarea name="comments" wrap="virtual" rows="7" cols="45"></Textarea>
+
+<input type=submit value="Submit Form!">
+
+[ Click the submit button twice to see the script in action ]
+</pre>
+</form>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Forms:  Submit Once</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.05 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL SUBMIT ONCE:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the onLoad event handler into the BODY tag
+  3.  Put the last coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var submitcount=0;
+
+function reset() {
+document.emailform.name.value="";
+document.emailform.email.value="";
+document.emailform.comments.value="";
+}
+
+function checkFields() {                       // field validation -
+if ( (document.emailform.name.value=="")  ||   // checks if fields are blank.
+     (document.emailform.email.value=="") ||   // More validation scripts at
+     (document.emailform.comments.value=="") ) // forms.javascriptsource.com
+   {
+   alert("Please enter your name, email, and comments then re-submit this form.");
+   return false;
+   }
+
+else 
+   {
+   if (submitcount == 0)
+      {
+      submitcount++;
+      return true;
+      }
+   else 
+      {
+      alert("This form has already been submitted.  Thanks!");
+      return false;
+      }
+   }
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Insert the onLoad event handler into your BODY tag  --&gt;
+
+&lt;BODY OnLoad="reset()"&gt;
+
+&lt;!-- STEP THREE: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;form method=post action="http://cgi.freedback.com/mail.pl" name="emailform" onSubmit="return checkFields()"&gt;
+
+&lt;input type=hidden name=to value="you@your-website-address-here.com"&gt;
+&lt;input type=hidden name=subject value="Feedback Form"&gt;
+
+&lt;pre&gt;
+Your Name:   &lt;input type=text name="name"&gt;
+Your Email:  &lt;input type=text name="email"&gt;
+
+Comments?
+
+&lt;textarea name="comments" wrap="virtual" rows="7" cols="45"&gt;&lt;/Textarea&gt;
+
+&lt;input type=submit value="Submit Form!"&gt;
+
+[ Click the submit button twice to see the script in action ]
+&lt;/pre&gt;
+&lt;/form&gt;
+
+ 
+
+&lt;!-- Script Size:  2.05 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

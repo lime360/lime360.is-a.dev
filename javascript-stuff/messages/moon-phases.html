@@ -1,0 +1,185 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Messages:  Moon Phases</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="James Thiele (mailto:jet@eskimo.com)">
+<META NAME="section" CONTENT="Messages">
+<META NAME="description" CONTENT="Displays the moon's current phase and estimates the time of the next full moon, using a calculation of the moon's rotation and the date.">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /messages/"><font color="#FF0000"><b>Messages</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Moon Phases</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Displays the moon's current phase and estimates the time of the next full moon, using a calculation of the moon's rotation and the date.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  James Thiele (mailto:jet@eskimo.com) -->
+
+
+
+
+<!-- Begin
+var black = "../img/moon-phases/black.gif";
+var white = "../img/moon-phases/white.gif";
+
+var height=1;
+var size = 50;
+var i;
+var currentDate  = new Date();
+var x = currentDate;
+currentDate.setTime(currentDate.getTime() + (currentDate.getTimezoneOffset()*60000));
+var blueMoonDate = new Date(96, 1, 3, 16, 15, 0);
+var lunarPeriod  = 29*(24*3600*1000) + 12*(3600*1000) + 44.05*(60*1000);
+var moonPhaseTime = (currentDate.getTime() - blueMoonDate.getTime()) % lunarPeriod;
+var percentRaw = (moonPhaseTime / lunarPeriod);
+var percent    = Math.round(100*percentRaw) / 100;
+var percentBy2 = Math.round(200*percentRaw);
+var left  = (percentRaw >= 0.5) ? black : white;
+var right = (percentRaw >= 0.5) ? white : black;
+var time = Math.round((lunarPeriod-moonPhaseTime)/(24*3600*1000));
+
+document.write("<center>");
+
+if (percentBy2 > 100) {
+percentBy2 = percentBy2 - 100;
+}
+for (i = -(size-1); i < size; ++i) {
+var wid=2*parseFloat(Math.sqrt((size*size)-(i*i)));
+if (percentBy2 != 100)
+document.write ("<img src="+left +" height=1 width="+(wid*((100-percentBy2)/100))+">");
+if (percentBy2 != 0)
+document.write("<img src="+right+" height=1 width="+(wid*((percentBy2)/100))+">");
+document.write("<br>");
+}
+document.write("<BR><FONT SIZE=4>Next full moon is in about ",time," day");
+if (time > 1) document.write("s");
+document.write("</font>");
+//  End -->
+</script>
+<br><br>
+You must also save these images<br>
+to your server to use this script.<br>
+Right-click the images below and<br>
+select "Save Image As..."<br><br>
+<img src="../img/moon-phases/black.gif" /img/moon-phases/black.gif" width=20 height=20 border=1><br><br>
+<img src="../img/moon-phases/white.gif" /img/moon-phases/white.gif" width=20 height=20 border=1><br><br>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Messages:  Moon Phases</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.83 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- ONE STEP TO INSTALL MOON PHASES:
+
+  1.  Copy the coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  James Thiele (mailto:jet@eskimo.com) --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+
+// Save the two necessary images from our example page at:
+// http://messages.javascriptsource.com/moon-phases.html
+
+var black = "http://www.your-web-site-address-here.com/images/moon-pics/black.gif";
+var white = "http://www.your-web-site-address-here.com/images/moon-pics/white.gif";
+
+var height=1;
+var size = 50;
+var i;
+var currentDate  = new Date();
+var x = currentDate;
+currentDate.setTime(currentDate.getTime() + (currentDate.getTimezoneOffset()*60000));
+var blueMoonDate = new Date(96, 1, 3, 16, 15, 0);
+var lunarPeriod  = 29*(24*3600*1000) + 12*(3600*1000) + 44.05*(60*1000);
+var moonPhaseTime = (currentDate.getTime() - blueMoonDate.getTime()) % lunarPeriod;
+var percentRaw = (moonPhaseTime / lunarPeriod);
+var percent    = Math.round(100*percentRaw) / 100;
+var percentBy2 = Math.round(200*percentRaw);
+var left  = (percentRaw &gt;= 0.5) ? black : white;
+var right = (percentRaw &gt;= 0.5) ? white : black;
+var time = Math.round((lunarPeriod-moonPhaseTime)/(24*3600*1000));
+
+document.write("&lt;center&gt;");
+
+if (percentBy2 &gt; 100) {
+percentBy2 = percentBy2 - 100;
+}
+for (i = -(size-1); i &lt; size; ++i) {
+var wid=2*parseFloat(Math.sqrt((size*size)-(i*i)));
+if (percentBy2 != 100)
+document.write ("&lt;img src="+left +" height=1 width="+(wid*((100-percentBy2)/100))+"&gt;");
+if (percentBy2 != 0)
+document.write("&lt;img src="+right+" height=1 width="+(wid*((percentBy2)/100))+"&gt;");
+document.write("&lt;br&gt;");
+}
+document.write("&lt;BR&gt;&lt;FONT SIZE=4&gt;Next full moon is in about ",time," day");
+if (time &gt; 1) document.write("s");
+document.write("</font>");
+//  End --&gt;
+&lt;/script&gt;
+
+ 
+
+&lt;!-- Script Size:  1.83 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

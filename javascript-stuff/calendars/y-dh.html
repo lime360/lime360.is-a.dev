@@ -1,0 +1,288 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Calendars:  Yearly:  Day Highlighted</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Calendars">
+<META NAME="description" CONTENT="Check out this script!  See the whole year!  Today is even hilighted!  A very neat effect - some great JavaScripting!">
+
+<script language="javascript">
+<!--
+function day_title(day_name) {
+document.write("<TD ALIGN=center WIDTH=35>"+day_name+"</TD>")
+}
+function hilite_today(day,mm) {
+if ((this_day == day) && (this_month == mm))
+document.write("<FONT COLOR=\"#FF0000\">")
+}
+function makeArray(n) {
+this.length=n;
+for (var i = 1; i <= n; i++)
+this[i] = 0
+return this
+}
+function fill_table(m_name,m_length,mm) {
+day=1
+document.write("<center><TABLE BORDER=3 CELLSPACING=3 CELLPADDING=%3><TR>")
+document.write("<TD COLSPAN=7 ALIGN=center><B>"+m_name+"   "+this_year+"</B><TR>")
+day_title("Sun")
+day_title("Mon")
+day_title("Tue")
+day_title("Wed")
+day_title("Thu")
+day_title("Fri")
+day_title("Sat")
+document.write("</TR><TR>")
+for (var i=1;i<start_day;i++) {
+document.write("<TD>")
+}
+for (var i=start_day;i<8;i++) {
+document.write("<TD ALIGN=center>")
+hilite_today(day,mm)
+document.write(day+"</TD><FONT COLOR='#000000'>")
+day++;
+}
+document.write("<TR>")
+while (day <= m_length) {
+for (var i=1;i<=7 && day<=m_length;i++) {
+document.write("<TD ALIGN=center>")
+hilite_today(day,mm)
+document.write(day+"</TD><FONT COLOR='#000000'>")
+day++
+}
+document.write("</TR><TR>")
+}
+document.write("</TR></TABLE></center><BR>")
+start_day = i
+}
+// End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /calendars/"><font color="#FF0000">Calendars</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Yearly:  Day Highlighted</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Check out this script!  See the whole year!  Today is even hilighted!  A very neat effect - some great JavaScripting!
+<br>
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<BODY>
+<SCRIPT LANGUAGE="JavaScript">
+month=new makeArray(12)
+month[1]="January"
+month[2]="February"
+month[3]="March"
+month[4]="April"
+month[5]="May"
+month[6]="June"
+month[7]="July"
+month[8]="August"
+month[9]="September"
+month[10]="October"
+month[11]="November"
+month[12]="December"
+month_length = new makeArray(12)
+month_length[1]=31
+month_length[2]=28
+month_length[3]=31
+month_length[4]=30
+month_length[5]=31
+month_length[6]=30
+month_length[7]=31
+month_length[8]=31
+month_length[9]=30
+month_length[10]=31
+month_length[11]=30
+month_length[12]=31
+today = new Date()
+this_day = today.getDate()
+this_month = today.getMonth()+1
+this_year = today.getYear();
+if (this_year < 2000)    // Y2K Fix, Isaac Powell
+this_year = this_year + 1900; // http://onyx.idbsu.edu/~ipowell
+month_length[2] = (((this_year % 4 == 0) && (this_year % 100 != 0)) || (this_year % 400 == 0)) ? 29 : 28;
+begin_date = new Date("January 1, 19"+this_year)
+start_day = begin_date.getDay()+1
+if (start_day == 1){ 
+	start_day = 8
+}
+for (var m = 1;m<=12;m++){
+fill_table(month[m],month_length[m],m)
+}
+</SCRIPT>
+</BODY>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Calendars:  Yearly:  Day Highlighted</b>
+<p>Simply click inside the window below, use your cursor to hilight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.63 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL YEARLY:  DAY HIGHLIGHTED:
+
+   1.  Paste the specified coding into the HEAD of your HTML document 
+   2.  Put the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!- Begin
+function day_title(day_name) {
+document.write("&lt;TD ALIGN=center WIDTH=35&gt;"+day_name+"&lt;/TD&gt;")
+}
+function hilite_today(day,mm) {
+if ((this_day == day) && (this_month == mm))
+document.write("&lt;FONT COLOR=\"#FF0000\"&gt;")
+}
+function makeArray(n) {
+this.length=n;
+for (var i = 1; i &lt;= n; i++)
+this[i] = 0
+return this
+}
+function fill_table(m_name,m_length,mm) {
+day=1
+document.write("&lt;center&gt;&lt;TABLE BORDER=3 CELLSPACING=3 CELLPADDING=%3&gt;&lt;TR&gt;")
+document.write("&lt;TD COLSPAN=7 ALIGN=center&gt;&lt;B&gt;"+m_name+"   "+this_year+"&lt;/B&gt;&lt;TR&gt;")
+day_title("Sun")
+day_title("Mon")
+day_title("Tue")
+day_title("Wed")
+day_title("Thu")
+day_title("Fri")
+day_title("Sat")
+document.write("&lt;/TR&gt;&lt;TR&gt;")
+for (var i=1;i&lt;start_day;i++) {
+document.write("&lt;TD&gt;")
+}
+for (var i=start_day;i&lt;8;i++) {
+document.write("&lt;TD ALIGN=center&gt;")
+hilite_today(day,mm)
+document.write(day+"&lt;/TD&gt;&lt;FONT COLOR='#000000'&gt;")
+day++
+}
+document.write("&lt;TR&gt;")
+while (day &lt;= m_length) {
+for (var i=1;i&lt;=7 && day&lt;=m_length;i++) {
+document.write("&lt;TD ALIGN=center&gt;")
+hilite_today(day,mm)
+document.write(day+"&lt;/TD&gt;&lt;FONT COLOR='#000000'&gt;")
+day++
+}
+document.write("&lt;/TR&gt;&lt;TR&gt;")
+}
+document.write("&lt;/TR&gt;&lt;/TABLE&gt;&lt;/center&gt;&lt;BR&gt;")
+start_day = i
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+month=new makeArray(12)
+month[1]="January"
+month[2]="February"
+month[3]="March"
+month[4]="April"
+month[5]="May"
+month[6]="June"
+month[7]="July"
+month[8]="August"
+month[9]="September"
+month[10]="October"
+month[11]="November"
+month[12]="December"
+month_length = new makeArray(12)
+month_length[1]=31
+month_length[2]=28
+month_length[3]=31
+month_length[4]=30
+month_length[5]=31
+month_length[6]=30
+month_length[7]=31
+month_length[8]=31
+month_length[9]=30
+month_length[10]=31
+month_length[11]=30
+month_length[12]=31
+today = new Date()
+this_day = today.getDate()
+this_month = today.getMonth()+1
+this_year = today.getYear();
+if (this_year < 2000)    // Y2K Fix, Isaac Powell
+this_year = this_year + 1900; // http://onyx.idbsu.edu/~ipowell
+begin_date = new Date("January 1, 19"+this_year)
+start_day = begin_date.getDay()+1
+if (start_day == 1){ 
+start_day = 8
+}
+for (var m = 1;m&lt;=12;m++){
+fill_table(month[m],month_length[m],m)
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+ 
+
+&lt;!-- Script Size:  2.63 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

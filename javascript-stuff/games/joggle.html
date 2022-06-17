@@ -1,0 +1,348 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Games:  Joggle</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Serban Oprescu (serban@pixelsharp.com)">
+<META NAME="section" CONTENT="Games">
+<META NAME="description" CONTENT="An online version of Boggle, where the objective is to find words in a 5x5 letter grid.  Joggle takes advantage of ASP and SQL (rather than JavaScript) to score words using a 100,000 word dictionary.  Great fun!">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /games/"><font color="#FF0000"><b>Games</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Joggle</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+An online version of Boggle, where the objective is to find words in a 5x5 letter grid.  Joggle takes advantage of ASP and SQL (rather than JavaScript) to score words using a 100,000 word dictionary.  Great fun!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name=myform>
+Click to <input type=button value="Open Joggle Demo!" onClick="window.open('joggle-demo.html');">
+<p>
+<font face="arial, helvetica" size="-2">[ Simply close the demo window to return to this page. ]</font>
+</form>
+</center>
+<br><br>
+You will also need all of the<br>
+joggle images (in the ZIP file)<br>
+ in order to use this game.<br>
+Right click the link below<br>
+and select "Save Target As..."<br><br>
+<a href="../img/joggle/joggle.zip" /img/joggle/joggle.zip" border=1>joggle.zip</a><br><br>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Games:  Joggle</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  9.73 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- FOUR STEPS TO INSTALL JOGGLE:
+
+  1.  Add the first code into a new page, save it as joggle-empty.html
+  2.  Save the next code section into a new page, save it as joggle-main.html
+  3.  Put the last code section into a new page, save it as joggle.html
+  4.  Be sure to upload all the joggle images to your web site  &gt;
+
+&lt;!-- STEP ONE: Paste this first code into a new document; --&gt;
+&lt;!-- Save this HTML document as:  joggle.html  --&gt;
+
+&lt;html&gt;
+&lt;frameset cols="*,200" border="2" framespacing="0" frameborder="yes"&gt;
+&lt;frame src="joggle-main.html" marginwidth="8" marginheight="8" name="gameframe"&gt;
+&lt;frame src="joggle-empty.html" marginwidth="8" marginheight="8" name="wordframe" noresize&gt;
+&lt;/frameset&gt;
+&lt;/html&gt;
+
+&lt;!-- STEP TWO: Insert the next code into another new document; --&gt;
+&lt;!-- Then save this HTML document as:  joggle-empty.html --&gt;
+
+&lt;html&gt;
+&lt;body&gt;
+&lt;center&gt;&lt;b&gt;Word List&lt;/b&gt;&lt;/center&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+&lt;!-- STEP THREE: Copy this next section into another new document; --&gt;
+&lt;!-- Save this HTML document as:  joggle-main.html --&gt;
+
+&lt;html&gt;
+&lt;body onLoad="document.joggle.user.value = 'New Game';GameStatus = 1;" text="#000000" bgcolor="#ffffff"&gt;
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Serban Oprescu (serban@pixelsharp.com) --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var Words = "";
+var CurrentWord = "";
+var GameStatus = 0;
+var GameTime = 0;
+var LastTile = -10;
+var LastTileX = -10;
+var LastTileY = -10;
+var TilesOn = "";
+var TileMap = "";
+var LookUp = "abcdefghijklmnopqrstuvwxyz";
+var Cubes = "qbzjkxhhlrdotelpcittotemaeaeeetouotonhdthossnseusctiepyifpsrovwrgrlhnrodriyprheandnneeeemaaaafsrafaisrdordlnmnneagititieaumeegyifasrccwnstuotownetilic";
+function clearword(DoMap) {
+CurrentWord = "";
+LastTile = -10;
+LastTileX = -10;
+LastTileY = -10;
+if (DoMap) {
+for (i=0; i&lt;TilesOn.length; i++) {
+WhichTile = LookUp.indexOf(TilesOn.charAt(i));
+if (WhichTile == -1) {
+WhichTile = i;
+WhichLetter = "0";
+}
+else {
+WhichLetter = TileMap.charAt(WhichTile);
+}
+document.images[WhichTile].src = WhichLetter + "0.gif";
+   }
+}
+TilesOn = "";
+}
+function endgame() {
+GameStatus = 1;
+clearword(1);
+document.joggle.user.value = "New Game";
+parent.wordframe.document.write("&lt;FORM ACTION=http://www.pixelsharp.com/projects/joggle/score.asp METHOD=POST&gt;&lt;INPUT TYPE=Hidden NAME=words VALUE=" + Words + "&gt;&lt;INPUT TYPE=Submit VALUE=Score&gt;&lt;/FORM&gt;&lt;BR&gt;");
+}
+function buttonpress() {
+var ActingStatus = GameStatus;
+if (ActingStatus == 1) {
+Words = ":";
+clearword();
+TileMap = "";
+GameTime = 75;
+TempCubes = Cubes;
+Position = 0;
+while (TileMap.length != 25) {
+Position = Math.floor(Math.random() * (TempCubes.length - 1));
+TileMap = TileMap + TempCubes.charAt(Position);
+Position = Math.floor(Position / 6);
+TempCubes = TempCubes.substring(0, Position * 6) + TempCubes.substring(6 + Position * 6, TempCubes.length);
+}
+for (i=0; i&lt;25; i++) {
+document.images[i].src = TileMap.charAt(i) + "0.gif";
+}
+parent.wordframe.document.location = "joggle-empty.html";
+GameTime = 181;
+setTimeout("countdown()", 1);
+
+GameStatus = 2;
+}
+if ((ActingStatus == 2) || (ActingStatus == 3)) {
+GameStatus = 4;
+GameTime = GameTime * -1;
+TilesOn = "0000000000000000000000000";
+clearword(1);
+document.joggle.user.value = "Paused";
+}
+if (ActingStatus == 4) {
+for (i=0; i&lt;25; i++) {
+document.images[i].src = TileMap.charAt(i) + "0.gif"
+}
+GameStatus = 2;
+setTimeout("countdown()", 1);
+   }
+}
+function countdown() {
+if (GameTime &gt; -1) {
+GameTime = GameTime - 1;
+Division = ":";
+if (GameTime % 60 &lt; 10) {Division = ":0"}
+document.joggle.user.value = Math.floor(GameTime / 60) + Division + GameTime % 60;
+if (GameTime != 0) {
+setTimeout("countdown()", 1000);
+}
+else {
+endgame();
+   }
+}
+else { GameTime = GameTime * -1; }
+}
+function slide(TileX, TileY) {
+WhichTile = TileX * 5 + TileY;
+WhichLetter = TileMap.charAt(WhichTile);
+if (GameStatus == 3) {
+if ((Math.abs(TileX - LastTileX) &lt; 2) && (Math.abs(TileY - LastTileY) &lt; 2)) {
+if (TilesOn.indexOf(LookUp.charAt(WhichTile)) == -1) {
+CurrentWord = CurrentWord + WhichLetter;
+if (WhichLetter == 'q') { CurrentWord = CurrentWord + "u"; }
+document.images[WhichTile].src = WhichLetter + "1.gif";
+LastTile = WhichTile;
+LastTileX = TileX;
+LastTileY = TileY;
+TilesOn = TilesOn + LookUp.charAt(WhichTile);
+         }
+      }
+   }
+}
+function click(TileX, TileY) {
+var NewStatus = GameStatus;
+WhichTile = TileX * 5 + TileY;
+WhichLetter = TileMap.charAt(WhichTile);
+if (GameStatus == 2) {
+CurrentWord = WhichLetter;
+if (WhichLetter == 'q') { CurrentWord = CurrentWord + "u"; }
+document.images[WhichTile].src = WhichLetter + "1.gif";
+LastTile = WhichTile;
+LastTileX = TileX;
+LastTileY = TileY;
+TilesOn = LookUp.charAt(WhichTile);
+NewStatus = 3;
+}
+if (GameStatus == 3) {
+if (CurrentWord.length &gt; 3) {
+if (Words.indexOf(":" + CurrentWord + ":") == -1) {
+if (Words == ":") { parent.wordframe.document.write("&lt;CENTER&gt;&lt;B&gt;Word List&lt;/B&gt;&lt;/CENTER&gt;&lt;BR&gt;"); }
+parent.wordframe.document.write(CurrentWord + "&lt;BR&gt;");
+Words = Words + CurrentWord + ":";
+   }
+}
+clearword(1);
+NewStatus = 2;
+}
+GameStatus = NewStatus;
+}
+function abandon() {
+if (GameStatus == 4) {
+endgame();
+   }
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+&lt;CENTER&gt;
+&lt;H1&gt;&lt;A HREF="Javascript:abandon()"&gt;Joggle&lt;/A&gt;&lt;/H1&gt;
+&lt;FORM NAME=joggle&gt;
+&lt;TABLE BORDER=0 CELLPADDING=8 CELLSPACING=0 BGCOLOR="#C8CEC4"&gt;
+&lt;TR&gt;&lt;TD&gt;&lt;A HREF="Javascript:click(0,0)" onmouseover="slide(0,0)"&gt;&lt;IMG SRC=00.gif BORDER=0&gt;&lt;/A&gt;&lt;/TD&gt;&lt;TD&gt;&lt;A HREF="Javascript:click(0,1)" onmouseover="slide(0,1)"&gt;&lt;IMG SRC=00.gif BORDER=0&gt;&lt;/A&gt;&lt;/TD&gt;&lt;TD&gt;&lt;A HREF="Javascript:click(0,2)" onmouseover="slide(0,2)"&gt;&lt;IMG SRC=00.gif BORDER=0&gt;&lt;/A&gt;&lt;/TD&gt;&lt;TD&gt;&lt;A HREF="Javascript:click(0,3)" onmouseover="slide(0,3)"&gt;&lt;IMG SRC=00.gif BORDER=0&gt;&lt;/A&gt;&lt;/TD&gt;&lt;TD&gt;&lt;A HREF="Javascript:click(0,4)" onmouseover="slide(0,4)"&gt;&lt;IMG SRC=00.gif BORDER=0&gt;&lt;/A&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;TR&gt;&lt;TD&gt;&lt;A HREF="Javascript:click(1,0)" onmouseover="slide(1,0)"&gt;&lt;IMG SRC=00.gif BORDER=0&gt;&lt;/A&gt;&lt;/TD&gt;&lt;TD&gt;&lt;A HREF="Javascript:click(1,1)" onmouseover="slide(1,1)"&gt;&lt;IMG SRC=00.gif BORDER=0&gt;&lt;/A&gt;&lt;/TD&gt;&lt;TD&gt;&lt;A HREF="Javascript:click(1,2)" onmouseover="slide(1,2)"&gt;&lt;IMG SRC=00.gif BORDER=0&gt;&lt;/A&gt;&lt;/TD&gt;&lt;TD&gt;&lt;A HREF="Javascript:click(1,3)" onmouseover="slide(1,3)"&gt;&lt;IMG SRC=00.gif BORDER=0&gt;&lt;/A&gt;&lt;/TD&gt;&lt;TD&gt;&lt;A HREF="Javascript:click(1,4)" onmouseover="slide(1,4)"&gt;&lt;IMG SRC=00.gif BORDER=0&gt;&lt;/A&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;TR&gt;&lt;TD&gt;&lt;A HREF="Javascript:click(2,0)" onmouseover="slide(2,0)"&gt;&lt;IMG SRC=00.gif BORDER=0&gt;&lt;/A&gt;&lt;/TD&gt;&lt;TD&gt;&lt;A HREF="Javascript:click(2,1)" onmouseover="slide(2,1)"&gt;&lt;IMG SRC=00.gif BORDER=0&gt;&lt;/A&gt;&lt;/TD&gt;&lt;TD&gt;&lt;A HREF="Javascript:click(2,2)" onmouseover="slide(2,2)"&gt;&lt;IMG SRC=00.gif BORDER=0&gt;&lt;/A&gt;&lt;/TD&gt;&lt;TD&gt;&lt;A HREF="Javascript:click(2,3)" onmouseover="slide(2,3)"&gt;&lt;IMG SRC=00.gif BORDER=0&gt;&lt;/A&gt;&lt;/TD&gt;&lt;TD&gt;&lt;A HREF="Javascript:click(2,4)" onmouseover="slide(2,4)"&gt;&lt;IMG SRC=00.gif BORDER=0&gt;&lt;/A&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;TR&gt;&lt;TD&gt;&lt;A HREF="Javascript:click(3,0)" onmouseover="slide(3,0)"&gt;&lt;IMG SRC=00.gif BORDER=0&gt;&lt;/A&gt;&lt;/TD&gt;&lt;TD&gt;&lt;A HREF="Javascript:click(3,1)" onmouseover="slide(3,1)"&gt;&lt;IMG SRC=00.gif BORDER=0&gt;&lt;/A&gt;&lt;/TD&gt;&lt;TD&gt;&lt;A HREF="Javascript:click(3,2)" onmouseover="slide(3,2)"&gt;&lt;IMG SRC=00.gif BORDER=0&gt;&lt;/A&gt;&lt;/TD&gt;&lt;TD&gt;&lt;A HREF="Javascript:click(3,3)" onmouseover="slide(3,3)"&gt;&lt;IMG SRC=00.gif BORDER=0&gt;&lt;/A&gt;&lt;/TD&gt;&lt;TD&gt;&lt;A HREF="Javascript:click(3,4)" onmouseover="slide(3,4)"&gt;&lt;IMG SRC=00.gif BORDER=0&gt;&lt;/A&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;TR&gt;&lt;TD&gt;&lt;A HREF="Javascript:click(4,0)" onmouseover="slide(4,0)"&gt;&lt;IMG SRC=00.gif BORDER=0&gt;&lt;/A&gt;&lt;/TD&gt;&lt;TD&gt;&lt;A HREF="Javascript:click(4,1)" onmouseover="slide(4,1)"&gt;&lt;IMG SRC=00.gif BORDER=0&gt;&lt;/A&gt;&lt;/TD&gt;&lt;TD&gt;&lt;A HREF="Javascript:click(4,2)" onmouseover="slide(4,2)"&gt;&lt;IMG SRC=00.gif BORDER=0&gt;&lt;/A&gt;&lt;/TD&gt;&lt;TD&gt;&lt;A HREF="Javascript:click(4,3)" onmouseover="slide(4,3)"&gt;&lt;IMG SRC=00.gif BORDER=0&gt;&lt;/A&gt;&lt;/TD&gt;&lt;TD&gt;&lt;A HREF="Javascript:click(4,4)" onmouseover="slide(4,4)"&gt;&lt;IMG SRC=00.gif BORDER=0&gt;&lt;/A&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;/TABLE&gt;
+&lt;br&gt;&lt;input type=button name="user" value=" Loading... " onclick="buttonpress()"&gt;&lt;br&gt;
+&lt;img src=a0.gif width=1 height=1&gt;
+&lt;img src=b0.gif width=1 height=1&gt;
+&lt;img src=c0.gif width=1 height=1&gt;
+&lt;img src=d0.gif width=1 height=1&gt;
+&lt;img src=e0.gif width=1 height=1&gt;
+&lt;img src=f0.gif width=1 height=1&gt;
+&lt;img src=g0.gif width=1 height=1&gt;
+&lt;img src=h0.gif width=1 height=1&gt;
+&lt;img src=i0.gif width=1 height=1&gt;
+&lt;img src=j0.gif width=1 height=1&gt;
+&lt;img src=k0.gif width=1 height=1&gt;
+&lt;img src=l0.gif width=1 height=1&gt;
+&lt;img src=m0.gif width=1 height=1&gt;
+&lt;img src=n0.gif width=1 height=1&gt;
+&lt;img src=o0.gif width=1 height=1&gt;
+&lt;img src=p0.gif width=1 height=1&gt;
+&lt;img src=q0.gif width=1 height=1&gt;
+&lt;img src=r0.gif width=1 height=1&gt;
+&lt;img src=s0.gif width=1 height=1&gt;
+&lt;img src=t0.gif width=1 height=1&gt;
+&lt;img src=u0.gif width=1 height=1&gt;
+&lt;img src=v0.gif width=1 height=1&gt;
+&lt;img src=w0.gif width=1 height=1&gt;
+&lt;img src=x0.gif width=1 height=1&gt;
+&lt;img src=y0.gif width=1 height=1&gt;
+&lt;img src=z0.gif width=1 height=1&gt;
+&lt;img src=a1.gif width=1 height=1&gt;
+&lt;img src=b1.gif width=1 height=1&gt;
+&lt;img src=c1.gif width=1 height=1&gt;
+&lt;img src=d1.gif width=1 height=1&gt;
+&lt;img src=e1.gif width=1 height=1&gt;
+&lt;img src=f1.gif width=1 height=1&gt;
+&lt;img src=g1.gif width=1 height=1&gt;
+&lt;img src=h1.gif width=1 height=1&gt;
+&lt;img src=i1.gif width=1 height=1&gt;
+&lt;img src=j1.gif width=1 height=1&gt;
+&lt;img src=k1.gif width=1 height=1&gt;
+&lt;img src=l1.gif width=1 height=1&gt;
+&lt;img src=m1.gif width=1 height=1&gt;
+&lt;img src=n1.gif width=1 height=1&gt;
+&lt;img src=o1.gif width=1 height=1&gt;
+&lt;img src=p1.gif width=1 height=1&gt;
+&lt;img src=q1.gif width=1 height=1&gt;
+&lt;img src=r1.gif width=1 height=1&gt;
+&lt;img src=s1.gif width=1 height=1&gt;
+&lt;img src=t1.gif width=1 height=1&gt;
+&lt;img src=u1.gif width=1 height=1&gt;
+&lt;img src=v1.gif width=1 height=1&gt;
+&lt;img src=w1.gif width=1 height=1&gt;
+&lt;img src=x1.gif width=1 height=1&gt;
+&lt;img src=y1.gif width=1 height=1&gt;
+&lt;img src=z1.gif width=1 height=1&gt;
+&lt;/center&gt;
+&lt;small&gt;&lt;ul&gt;
+&lt;li&gt;To enter a word, click the first letter of the word, then move the mouse over the next letters in turn, and finally click the last letter of the word.
+&lt;li&gt;To pause the game, click the button displaying the time. Click it again to unpause. Pausing the game reduces the remaining time by 1 second.
+&lt;li&gt;To abandon the current game, first pause the game, then click on "Joggle."
+&lt;li&gt;To score the game, after the game has ended or been abandoned, click the "Score" button in the frame on the right.
+&lt;/body&gt;
+&lt;/html&gt;
+
+&lt;!-- STEP FOUR: Unzip and upload all the joggle images --&gt;
+&lt;!-- to the same web site directory that the joggle HTML --&gt;
+&lt;!-- files will be in.  You can download the image ZIP: --&gt;
+&lt;!-- ../img/joggle/joggle.zip --&gt;
+
+ 
+
+&lt;!-- Script Size:  9.73 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

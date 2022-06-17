@@ -1,0 +1,158 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Page Details:  Highlighted Text</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Ronnie T. Moore">
+<META NAME="section" CONTENT="Page Details">
+<META NAME="description" CONTENT="Captures any text that has been highlighted with the cursor.  In Internet Explorer, it even grabs text highlighted within a text box or textarea.  Sweet!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Ronnie T. Moore -->
+<!-- Web Site:  JavaScript Source Code 3000 -->
+
+
+
+
+<!-- Begin
+var text = "";
+function getActiveText(e) { 
+
+// Sets text MSIE or Netscape active 
+// text based on browser, puts text in form
+text = (document.all) ? document.selection.createRange().text : document.getSelection();
+
+document.theform.text.value = text;
+return true;
+}
+
+document.onmouseup = getActiveText;
+if (!document.all) document.captureEvents(Event.MOUSEUP);
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /page-details/"><font color="#FF0000"><b>Page Details</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Highlighted Text</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Captures any text that has been highlighted with the cursor.  In Internet Explorer, it even grabs text highlighted within a text box or textarea.  Sweet!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name=theform>
+Highlight any text on the page and JavaScript will 'capture'<br>
+it in the textbox below.  Internet Explorer also allows for <br>
+the capture of text highlighted within a textbox or textarea:  <br>
+Here's two to try out:<br><br>
+
+<input type=text name=demo value="highlight me!"> or <textarea>or highlight me!</textarea>
+<br>
+<br>
+Selected text:  <input type=text name=text value="">
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Page Details:  Highlighted Text</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.12 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL HIGHLIGHTED TEXT:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Ronnie T. Moore --&gt;
+&lt;!-- Web Site:  JavaScript Source Code 3000 --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var text = "";
+function getActiveText(e) { 
+
+// Sets text MSIE or Netscape active 
+// text based on browser, puts text in form
+text = (document.all) ? document.selection.createRange().text : document.getSelection();
+
+document.theform.text.value = text;
+return true;
+}
+
+document.onmouseup = getActiveText;
+if (!document.all) document.captureEvents(Event.MOUSEUP);
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form name=theform&gt;
+Selected text:  &lt;input type=text name=text value=""&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  1.12 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

@@ -1,0 +1,321 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Calculators:  Random Distribution</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="Generate normally distributed random numbers by entering a mean value and standard deviation.  Uses the normal law of error to determine an events given probability.  Neat!">
+<META NAME="date" CONTENT="2000-12-15">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Phil Pavlik">
+<META NAME="section" CONTENT="Calculators">
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Phil Pavlik (ppavlik@nmu.edu) -->
+<!-- Contributor URL:  http://chemistry.nmu.edu/ppavlik  -->
+
+
+
+
+<!-- Begin
+function calculate() {
+var mean, sdev, N, sign, sum, str;
+var y = Array(), x = Array(), freq = Array();
+mean = document.statForm.m.value * 1;
+sdev = document.statForm.s.value * 1;
+N = document.statForm.n.value * 1;
+sdevsq = sdev * sdev;
+for(var i = 0; i <= N; i++) {
+yr = 1;
+yxr = 0;
+while(yr > yxr) {
+xr = 500 * sdev * Math.random();
+yr = 100 * Math.random();
+yxr = 100 * Math.exp(-(xr) * (xr) / (2 * sdevsq));
+}
+s = 1;
+if(Math.random() < .5)
+s = -1;
+x[i] = mean + s * xr;
+}
+str = "";
+for(var i = 1; i <= N; i++) {
+str = str + x[i] + "\n";
+}
+sum = 0;
+for(var i = 1; i <= N; i++) {
+sum = sum + x[i];
+}
+mean = sum / N;
+sum = 0;
+for(var i = 1; i <= N; i++) {
+sum = sum + (x[i] - mean) * (x[i] - mean)
+}
+sdev = Math.sqrt((sum) / (N - 1));
+document.statForm.vals.value = str;	
+document.statForm.mm.value = mean;
+document.statForm.ss.value = sdev;
+}
+//  End -->
+</script>
+
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /calculators/"><font color="#FF0000"><b>Calculators</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Random Distribution</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Generate normally distributed random numbers by entering a mean value and standard deviation.  Uses the normal law of error to determine an events given probability.  Neat!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name=statForm>
+<table cellpadding=0 bgcolor=black>
+<tr>
+<td>
+<table border=0 cellpadding=5 bgcolor=ffffcc>
+<tr>
+<td colspan=2>
+<center>
+<font face=arial size=2>
+<b>GENERATION OF A RANDOM SET OF NORMALLY DISTRIBUTED VALUES</b>
+</font>
+</center>
+</td>
+</tr>
+<tr>
+<td colspan=2>
+<center>
+<b>Normal Law Universe Parameters
+</center>
+</td>
+</tr>
+<tr>
+<td>
+<b>Mean value = <input type=text  name="m" size=15></b>
+</td>
+<td>
+<b>Std. Deviation = <input type=text name="s" size=15></b>
+</td>
+</tr>
+<tr>
+<td colspan=2>
+<center>
+<b>Number of points to generate = <input type=text name="n" size=10></b>
+<input type=button value="Generate Sample" onClick="calculate()">
+</center>
+</td>
+</tr>
+<tr>
+<td>
+<center>
+<b>Calculated Random Sample values</b>
+<br>
+<textarea name=vals rows=5 cols=20></textarea> 
+</center>
+</td>
+<td valign=top>
+<center>
+<b>Calculated Sample Properties</b>
+<br>
+<br>
+<b>Mean value&nbsp;&nbsp; = <input type=text name="mm" size=20>
+<br>
+Std. Deviation = <input type=text name="ss" size=20>
+</b>
+</center>
+<br>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Calculators:  Random Distribution</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Command-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  3.13 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL RANDOM DISTRIBUTION:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Phil Pavlik (ppavlik@nmu.edu) --&gt;
+&lt;!-- Contributor URL:  http://chemistry.nmu.edu/ppavlik  --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function calculate() {
+var mean, sdev, N, sign, sum, str;
+var y = Array(), x = Array(), freq = Array();
+mean = document.statForm.m.value * 1;
+sdev = document.statForm.s.value * 1;
+N = document.statForm.n.value * 1;
+sdevsq = sdev * sdev;
+for(var i = 0; i &lt;= N; i++) {
+yr = 1;
+yxr = 0;
+while(yr &gt; yxr) {
+xr = 500 * sdev * Math.random();
+yr = 100 * Math.random();
+yxr = 100 * Math.exp(-(xr) * (xr) / (2 * sdevsq));
+}
+s = 1;
+if(Math.random() &lt; .5)
+s = -1;
+x[i] = mean + s * xr;
+}
+str = "";
+for(var i = 1; i &lt;= N; i++) {
+str = str + x[i] + "\n";
+}
+sum = 0;
+for(var i = 1; i &lt;= N; i++) {
+sum = sum + x[i];
+}
+mean = sum / N;
+sum = 0;
+for(var i = 1; i &lt;= N; i++) {
+sum = sum + (x[i] - mean) * (x[i] - mean)
+}
+sdev = Math.sqrt((sum) / (N - 1));
+document.statForm.vals.value = str;	
+document.statForm.mm.value = mean;
+document.statForm.ss.value = sdev;
+}
+//  End --&gt;
+&lt;/script&gt;
+
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form name=statForm&gt;
+&lt;table cellpadding=0 bgcolor=black&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;table border=0 cellpadding=5 bgcolor=ffffcc&gt;
+&lt;tr&gt;
+&lt;td colspan=2&gt;
+&lt;center&gt;
+&lt;font face=arial size=2&gt;
+&lt;b&gt;GENERATION OF A RANDOM SET OF NORMALLY DISTRIBUTED VALUES&lt;/b&gt;
+&lt;/font&gt;
+&lt;/center&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td colspan=2&gt;
+&lt;center&gt;
+&lt;b&gt;Normal Law Universe Parameters
+&lt;/center&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;b&gt;Mean value = &lt;input type=text  name="m" size=15&gt;&lt;/b&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;b&gt;Std. Deviation = &lt;input type=text name="s" size=15&gt;&lt;/b&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td colspan=2&gt;
+&lt;center&gt;
+&lt;b&gt;Number of points to generate = &lt;input type=text name="n" size=10&gt;&lt;/b&gt;
+&lt;input type=button value="Generate Sample" onClick="calculate()"&gt;
+&lt;/center&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;center&gt;
+&lt;b&gt;Calculated Random Sample values&lt;/b&gt;
+&lt;br&gt;
+&lt;textarea name=vals rows=5 cols=20&gt;&lt;/textarea&gt; 
+&lt;/center&gt;
+&lt;/td&gt;
+&lt;td valign=top&gt;
+&lt;center&gt;
+&lt;b&gt;Calculated Sample Properties&lt;/b&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;b&gt;Mean value&nbsp;&nbsp; = &lt;input type=text name="mm" size=20&gt;
+&lt;br&gt;
+Std. Deviation = &lt;input type=text name="ss" size=20&gt;
+&lt;/b&gt;
+&lt;/center&gt;
+&lt;br&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  3.13 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

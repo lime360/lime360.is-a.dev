@@ -1,0 +1,347 @@
+<xbasehref="../img/concentration/">
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Games:  Concentration</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Brian Gosselin (bgaudiodr@aol.com)">
+<META NAME="section" CONTENT="Games">
+<META NAME="description" CONTENT="My version of the classic memory game concentration.  Uncover all the blocks by successfully matching the image pairs.  Click the Timer button below to start a new game whenever you want.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Brian Gosselin (bgaudiodr@aol.com) -->
+<!-- Web Site:  http://www.bgaudiodr.iwarp.com -->
+
+
+
+
+<!-- Begin
+var pics = new Array();
+for (i = 0; i <= 18; i++) {
+pics[i] = new Image();
+pics[i].src = 'image' + i + '.gif';
+}
+var map=new Array(1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14, 15, 15, 16, 16, 17, 17, 18, 18);
+var user = new Array();
+var temparray = new Array();
+var clickarray = new Array(0, 0);
+var ticker, sec, min, ctr, id, oktoclick, finished;
+function init() {
+clearTimeout(id);
+for (i = 0; i <= 35 ;i++) {
+user[i] = 0;
+}
+ticker = 0;
+min = 0;
+sec = 0;
+ctr = 0;
+oktoclick = true;
+finished = 0;
+document.f.b.value = "";
+scramble();
+runclk();
+for (i = 0; i <= 35; i++) {
+document.f[('img'+i)].src = "image0.gif";
+   }
+}
+function runclk() {
+min = Math.floor(ticker/60);
+sec = (ticker-(min*60))+'';
+if(sec.length == 1) {sec = "0"+sec};
+ticker++;
+document.f.b.value = min+":"+sec;
+id = setTimeout('runclk()', 1000);
+}
+function scramble() {
+for (z = 0; z < 5; z++) {
+for (x = 0; x <= 35; x++) {
+temparray[0] = Math.floor(Math.random()*36);
+temparray[1] = map[temparray[0]];
+temparray[2] = map[x];
+map[x] = temparray[1];
+map[temparray[0]] = temparray[2];
+      }
+   }
+}
+function showimage(but) {
+if (oktoclick) {
+oktoclick = false; 
+document.f[('img'+but)].src = 'image'+map[but]+'.gif';
+if (ctr == 0) {
+ctr++;
+clickarray[0] = but;
+oktoclick = true;
+} else {
+clickarray[1] = but;
+ctr = 0;
+setTimeout('returntoold()', 600);
+      }
+   }
+}
+function returntoold() {
+if ((clickarray[0] == clickarray[1]) && (!user[clickarray[0]])) {
+document.f[('img'+clickarray[0])].src = "image0.gif";
+oktoclick = true;
+} else {
+if (map[clickarray[0]] != map[clickarray[1]]) {
+if (user[clickarray[0]] == 0) {
+document.f[('img'+clickarray[0])].src = "image0.gif";
+}
+if (user[clickarray[1]] == 0) {
+document.f[('img'+clickarray[1])].src = "image0.gif";
+   }
+}
+if (map[clickarray[0]] == map[clickarray[1]]) {
+if (user[clickarray[0]] == 0&&user[clickarray[1]] == 0) { finished++; }
+user[clickarray[0]] = 1;
+user[clickarray[1]] = 1;
+}
+if (finished >= 18) {
+alert('You did it in '+document.f.b.value+' !');
+init();
+} else {
+oktoclick = true;
+      }
+   }
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff OnLoad="init()">
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<font color="#FF0000"><b>Games</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Concentration</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+My version of the classic memory game concentration.  Uncover all the blocks by successfully matching the image pairs.  Click the Timer button below to start a new game whenever you want.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<h2>Concentration</h2>
+<form name="f"> 
+<table cellpadding="0" cellspacing="0" border="0">
+<script language="javascript">
+<!-- Begin
+for (r = 0; r <= 5; r++) {
+document.write('<tr>');
+for (c = 0; c <= 5; c++) {
+document.write('<td align="center">');
+document.write('<a href="javascript:showimage('+((6*r)+c)+')" onClick="document.f.b.focus()">');
+document.write('<img src="image0.gif" name="img'+((6*r)+c)+'" border="0">');
+document.write('</a></td>');
+}
+document.write('</tr>');
+}
+// End -->
+</script>
+</table>
+<br><br>
+<input type="button" value="         " name="b" onClick="init()">
+</form>
+</center>
+<br><br>
+The images needed for this game are<br>
+in this ZIP file.  Just remember to<br>
+upload all the images to the same<br>
+directory on your server as the game.<br>
+<br>
+ZIP file:  <a href="../img/concentration/concentration.zip" /img/concentration/concentration.zip">concentration.zip</a>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Games:  Concentration</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  3.63 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL CONCENTRATION:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the onLoad event handler into the BODY tag
+  3.  Put the last coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Brian Gosselin (bgaudiodr@aol.com) --&gt;
+&lt;!-- Web Site:  http://www.bgaudiodr.iwarp.com --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var pics = new Array();
+for (i = 0; i &lt;= 18; i++) {
+pics[i] = new Image();
+pics[i].src = 'image' + i + '.gif';
+}
+var map=new Array(1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14, 15, 15, 16, 16, 17, 17, 18, 18);
+var user = new Array();
+var temparray = new Array();
+var clickarray = new Array(0, 0);
+var ticker, sec, min, ctr, id, oktoclick, finished;
+function init() {
+clearTimeout(id);
+for (i = 0; i &lt;= 35 ;i++) {
+user[i] = 0;
+}
+ticker = 0;
+min = 0;
+sec = 0;
+ctr = 0;
+oktoclick = true;
+finished = 0;
+document.f.b.value = "";
+scramble();
+runclk();
+for (i = 0; i &lt;= 35; i++) {
+document.f[('img'+i)].src = "image0.gif";
+   }
+}
+function runclk() {
+min = Math.floor(ticker/60);
+sec = (ticker-(min*60))+'';
+if(sec.length == 1) {sec = "0"+sec};
+ticker++;
+document.f.b.value = min+":"+sec;
+id = setTimeout('runclk()', 1000);
+}
+function scramble() {
+for (z = 0; z &lt; 5; z++) {
+for (x = 0; x &lt;= 35; x++) {
+temparray[0] = Math.floor(Math.random()*36);
+temparray[1] = map[temparray[0]];
+temparray[2] = map[x];
+map[x] = temparray[1];
+map[temparray[0]] = temparray[2];
+      }
+   }
+}
+function showimage(but) {
+if (oktoclick) {
+oktoclick = false; 
+document.f[('img'+but)].src = 'image'+map[but]+'.gif';
+if (ctr == 0) {
+ctr++;
+clickarray[0] = but;
+oktoclick = true;
+} else {
+clickarray[1] = but;
+ctr = 0;
+setTimeout('returntoold()', 600);
+      }
+   }
+}
+function returntoold() {
+if ((clickarray[0] == clickarray[1]) && (!user[clickarray[0]])) {
+document.f[('img'+clickarray[0])].src = "image0.gif";
+oktoclick = true;
+} else {
+if (map[clickarray[0]] != map[clickarray[1]]) {
+if (user[clickarray[0]] == 0) {
+document.f[('img'+clickarray[0])].src = "image0.gif";
+}
+if (user[clickarray[1]] == 0) {
+document.f[('img'+clickarray[1])].src = "image0.gif";
+   }
+}
+if (map[clickarray[0]] == map[clickarray[1]]) {
+if (user[clickarray[0]] == 0&&user[clickarray[1]] == 0) { finished++; }
+user[clickarray[0]] = 1;
+user[clickarray[1]] = 1;
+}
+if (finished &gt;= 18) {
+alert('You did it in '+document.f.b.value+' !');
+init();
+} else {
+oktoclick = true;
+      }
+   }
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Insert the onLoad event handler into your BODY tag  --&gt;
+
+&lt;BODY OnLoad="init()"&gt;
+
+&lt;!-- STEP THREE: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;center&gt;
+&lt;h2&gt;Concentration&lt;/h2&gt;
+&lt;form name="f"&gt; 
+&lt;table cellpadding="0" cellspacing="0" border="0"&gt;
+&lt;script language="javascript"&gt;
+&lt;!-- Begin
+for (r = 0; r &lt;= 5; r++) {
+document.write('&lt;tr&gt;');
+for (c = 0; c &lt;= 5; c++) {
+document.write('&lt;td align="center"&gt;');
+document.write('&lt;a href="javascript:showimage('+((6*r)+c)+')" onClick="document.f.b.focus()"&gt;');
+document.write('&lt;img src="image0.gif" name="img'+((6*r)+c)+'" border="0"&gt;');
+document.write('&lt;/a&gt;&lt;/td&gt;');
+}
+document.write('&lt;/tr&gt;');
+}
+// End --&gt;
+&lt;/script&gt;
+&lt;/table&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;input type="button" value="         " name="b" onClick="init()"&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  3.63 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

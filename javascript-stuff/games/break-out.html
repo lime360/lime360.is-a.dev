@@ -1,0 +1,435 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Games:  Break Out</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Nick Young (ywing9787@aol.com)">
+<META NAME="section" CONTENT="Games">
+<META NAME="description" CONTENT="This is a JavaScript version of Break Out.  Keep the ball bouncing and try to clear the entire field of blocks.  Cool!">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /games/"><font color="#FF0000"><b>Games</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Break Out</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+This is a JavaScript version of Break Out.  Keep the ball bouncing and try to clear the entire field of blocks.  Cool!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name="break-out">
+<input type=button value="Play Break Out" onClick="window.open('break-out-demo.html','Breakout','top=100,left=100,width=575,height=400');">
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Games:  Break Out</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  12.64 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- FIVE STEPS TO INSTALL BREAK OUT:
+
+  1.  Put the first code in the break out opener page
+  2.  Create a new document, save it as break-out.html
+  3.  Copy the coding into the HEAD of break-out.html
+  4.  Add the next section into the BODY tag of break-out.html
+  5.  Put the last coding into the BODY of break-out.html  --&gt;
+
+&lt;!-- STEP ONE: Put the first code into the break out opener page  --&gt;
+
+&lt;center&gt;
+&lt;form name="open-break-out"&gt;
+&lt;input type=button value="Play Break Out" onClick="window.open('break-out.html','break-out','top=100,left=100,width=575,height=400');"&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+&lt;!-- STEP TWO: Create a new document, save it as break-out.html  --&gt;
+
+&lt;!-- STEP THREE: Paste this code into the HEAD of break-out.html  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Nick Young (ywing9787@aol.com) --&gt;
+&lt;!-- Web Site:  http://www.angelfire.com/biz6/ywing9787 --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var timerID = null;
+var INT = 10;
+var loadFLG = 0;
+var gameFLG = 0;
+var missFLG = 0;
+var tim = 0;
+var blcol = new Array(5); // block color
+var blsta = new Array(40); // block status
+var blNO = new Array(40); // block No
+var blclr = 0; // clear block
+var ballX = 0; // ball data
+var ballY = 0;
+var ballN = 5;
+var ballDX = 0;
+var ballDY = 0;
+var tmpRL = 193;
+var X = 0;
+blcol[0] = "#FFFF00";
+blcol[1] = "#FFCF00";
+blcol[2] = "#FF7F00";
+blcol[3] = "#FF3F00";
+blcol[4] = "#FF0000";
+blcol[5] = "#000000";
+
+function mainF() {
+clearTimeout(timerID);
+tim = tim + 1;
+with (Math){ tmptim = floor(tim / 10)};
+document.forms[0].TM.value = tmptim;
+ballX = ballX + ballDX;
+ballY = ballY + ballDY;
+outCHK();
+blkCHK();
+ball.style.posTop = ballY;
+ball.style.posLeft = ballX;
+racket.style.posLeft = tmpRL;
+if (gameFLG == 01){
+timerID = setTimeout("mainF()", INT);
+   }
+}
+function initG() {
+if (blclr &gt;= 40) {
+blclr = 0;
+tim = 0;
+ballN = 3;
+with (Math) {
+tmptim = floor(tim / 10);
+}
+document.forms[0].TM.value = tmptim;
+clrmes.style.posTop = -1000;
+clrmes.style.posLeft = -1000;
+ovrmes.style.posTop = -1000;
+ovrmes.style.posLeft = -1000;
+for (ib = 0; ib &lt; 5; ib++){ for (ia = 0; ia &lt; 8; ia++) {
+chc(ib * 8 + ia +1, ib);
+blsta[ib * 8 + ia] = ib;
+      }
+   }
+}
+document.forms[0].BL.value = ballN;
+starter.style.posTop = -1000;
+starter.style.posLeft = -1000;
+gameFLG = 1;
+loadFLG = 1;
+ballX = 209;
+ballY = 270;
+ballDX =- 8;
+ballDY =- 8;
+tmpRL = 193;
+missFLG = 0;
+timerID = setTimeout("mainF()", INT);
+}
+function SUP() {
+UP.outerHTML = "&lt;DIV ID='DN' STYLE='position:absolute'&gt;&lt;A HREF='javascript:SDN()'&gt;SPEED DOWN&lt;/A&gt;&lt;/DIV&gt;";
+DN.style.posTop = 170;
+DN.style.posLeft = 432;
+INT = 10;
+}
+function SDN() {
+DN.outerHTML = "&lt;DIV ID='UP' STYLE='position:absolute'&gt;&lt;A HREF='javascript:SUP()'&gt;SPEED UP&lt;/A&gt;&lt;/DIV&gt;";
+UP.style.posTop = 170;
+UP.style.posLeft = 432;
+INT = 100;
+}
+function MouseMv() {
+if (loadFLG == 1) {
+tmpRL = X - 20;
+if (tmpRL &lt; 16) { tmpRL = 16; }
+if (tmpRL &gt; 370) { tmpRL = 370; }
+   }
+}
+function outCHK() {
+if (ballX &lt; 16){ ballX = 32 - ballX; ballDX = -ballDX; }
+if (ballX &gt; 401){ ballX = 802 - ballX; ballDX = -ballDX; }
+if (ballY &lt; 16){ ballY = 32 - ballY; ballDY = -ballDY; }
+if (ballY &gt;= 272) {
+if (missFLG == 0) {
+tmpX = (ballDX / ballDY) * (272 - ballY) + ballX;
+if (tmpX &gt;= tmpRL - 12) {
+if (tmpX &lt;= tmpRL + 42) {
+ballY = 272; ballDY = -ballDY;
+ballX = tmpX;
+ballRD = tmpX - tmpRL;
+with (Math){ ballDX = 8 * abs(ballDX) / ballDX; }
+if (ballRD &lt; -4){ ballDX = -15; }
+if (ballRD &gt; 36){ ballDX = 15; }
+if (ballRD &gt;= 14){ if (ballRD &lt;= 16) { ballDX = -2; } }
+if (ballRD &gt;= 17){ if (ballRD &lt;= 20) { ballDX = 2; } }
+if (ballRD &gt;= 0){ if (ballRD &lt;= 4) { ballDX = -4; } }
+if (ballRD &gt;= 28){ if (ballRD &lt;= 32) { ballDX = 4; } }
+if (ballRD &gt;= -4){ if (ballRD &lt;= -1) { ballDX = -11; } }
+if (ballRD &gt;= 33){ if (ballRD &lt;= 36) { ballDX = 11; } }
+   }
+}
+if (ballDY &gt; 0){ missFLG = 1; }
+} else {
+if (ballY &gt; 290){ missFLG = 0; ballN = ballN - 1; gameEnd(); }
+      }
+   }
+}
+function blkCHK() {
+tmpY = ballY + 4;
+tmpX = ballX + 4;
+if (tmpY &gt;= 48) { 
+if (tmpY &lt;= 147) {
+if (tmpX &gt;= 29) {
+if (tmpX &lt;= 396) {
+with (Math) {
+ia = floor((tmpX - 29) / 46);
+ib = floor((tmpY - 48) / 20);
+ic = ib * 8 + ia;
+}
+if (blsta[ic] &lt;= 4) {
+tmpbc = blsta[ic] + 1;
+blsta[ic] = tmpbc;
+chc(ic + 1, tmpbc);
+if (tmpbc == 5){ blclr = blclr + 1; }
+if (blclr &gt;= 40){ gameEnd(); }
+if (ballDX &gt; 0) {
+iy=(ballDY / ballDX) * (29 + 46 * ia - tmpX) + tmpY;
+if (iy &gt; 48 + 20 * ib + 18) {
+tmpY1 = 48 + 20 * ib + 18;
+tmpX1 = (ballDX / ballDY) * (48 + 20 * ib + 18 - tmpY) + tmpX;
+ballX = tmpX1 - 4;
+ballY = tmpY1 - 4;
+ballDY = -ballDY;
+} else {
+if (iy &lt; 44 + 20 * ib) {
+tmpY1 = 48 + 20 * ib;
+tmpX1 = (ballDX / ballDY) * (48 + 20 * ib - tmpY) + tmpX;
+ballX = tmpX1 - 4;
+ballY = tmpY1 - 4;
+ballDY = -ballDY;
+} else {
+tmpX1 = 29 + 46 * ia;
+tmpY1 = (ballDY / ballDX) * (29 + 46 * ia - tmpX) + tmpY;
+ballX = tmpX1 - 4;
+ballY = tmpY1 - 4;
+ballDX = -ballDX;
+      }
+   }
+} else {
+iy = (ballDY / ballDX) * (29+46 * ia + 44 - tmpX) + tmpY;
+if (iy &gt; 48 + 20 * ib + 18) {
+tmpY1 = 48 + 20 * ib + 18;
+tmpX1 = (ballDX / ballDY) * (48 + 20 * ib + 18 - tmpY) + tmpX;
+ballX = tmpX1 - 4;
+ballY = tmpY1 - 4;
+ballDY = -ballDY;
+} else {
+if (iy &lt; 44 + 20 * ib) {
+tmpY1 = 48 + 20 * ib;
+tmpX1 = (ballDX / ballDY) * (48 + 20 * ib - tmpY) + tmpX;
+ballX = tmpX1 - 4;
+ballY = tmpY1 - 4;
+ballDY = -ballDY;
+} else {
+tmpX1 = 29+46 * ia + 44;
+tmpY1 = (ballDY / ballDX) * (29 + 46 * ia + 44 - tmpX) + tmpY;
+ballX = tmpX1 - 4;
+ballY = tmpY1 - 4;
+ballDX = -ballDX;
+      }
+   }
+}
+      }
+   }
+}
+      }
+   }
+}
+function gameEnd() {
+document.forms[0].BL.value = ballN;
+gameFLG = 0;
+loadFLG = 0;
+starter.style.posTop  =  200;
+starter.style.posLeft  =  180;
+if (blclr &gt;= 40) {
+clrmes.style.posTop = 150;
+clrmes.style.posLeft = 160;
+}
+if (ballN &lt;= 0) {
+ovrmes.style.posTop = 150;
+ovrmes.style.posLeft = 160;
+blclr = 40;
+   }
+}
+function onLD() {
+bgIE.style.posTop = 16;
+bgIE.style.posLeft = 16;
+ball.style.posTop = 270;
+ball.style.posLeft = 209;
+racket.style.posTop = 280;
+racket.style.posLeft = 193;
+info.style.posTop = 16;
+info.style.posLeft = 432;
+starter.style.posTop = -1000;
+starter.style.posLeft = -1000;
+clrmes.style.posTop = -1000;
+clrmes.style.posLeft = -1000;
+ovrmes.style.posTop = -1000;
+ovrmes.style.posLeft = -1000;
+DN.style.posTop = 170;
+DN.style.posLeft = 432;
+for (ib = 0; ib &lt; 5; ib++) {
+for (ia = 0; ia &lt; 8; ia++) {
+blsta[ib * 8 + ia] = ib;
+   }
+}
+starter.style.posTop = 200;
+starter.style.posLeft = 180;
+}
+function chc(bno,bcl) {
+tmpbno = "b" + (bno-1);
+eval(tmpbno).bgColor = blcol[bcl];
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP FOUR: Insert the event handlers into the BODY tag of break-out.html  --&gt;
+
+&lt;body onLoad="onLD();" onMouseMove='X=event.x;MouseMv();'&gt;
+
+&lt;!-- STEP FIVE: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;span id=info style='position:absolute'&gt;
+&lt;pre&gt;
+&lt;font style="font-size:24px" color="#000044"&gt;&lt;i&gt;&lt;b&gt;BREAK OUT&lt;/b&gt;&lt;/i&gt;&lt;/font&gt;
+&lt;form&gt;
+Ball: &lt;input type=text name=BL size=5 value=5&gt;
+Time: &lt;input type=text name=TM size=5 value=0&gt;
+&lt;/form&gt;
+&lt;/pre&gt;
+&lt;/span&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!--  block image write
+with (document) {
+write("&lt;table id='bgIE' width='394' height='300' bgcolor='#000000' style='position:absolute'&gt;&lt;td&gt;&lt;/td&gt;&lt;/table&gt;");
+
+write("&lt;table id='b0' width='42' height='16' bgcolor='#FFFF00' style='position:absolute; top:48; left:29'&gt;&lt;td&gt;&lt;/td&gt;&lt;/table&gt;");
+write("&lt;table id='b1' width='42' height='16' bgcolor='#FFFF00' style='position:absolute; top:48; left:75'&gt;&lt;td&gt;&lt;/td&gt;&lt;/table&gt;");
+write("&lt;table id='b2' width='42' height='16' bgcolor='#FFFF00' style='position:absolute; top:48; left:121'&gt;&lt;td&gt;&lt;/td&gt;&lt;/table&gt;");
+write("&lt;table id='b3' width='42' height='16' bgcolor='#FFFF00' style='position:absolute; top:48; left:167'&gt;&lt;td&gt;&lt;/td&gt;&lt;/table&gt;");
+write("&lt;table id='b4' width='42' height='16' bgcolor='#FFFF00' style='position:absolute; top:48; left:213'&gt;&lt;td&gt;&lt;/td&gt;&lt;/table&gt;");
+write("&lt;table id='b5' width='42' height='16' bgcolor='#FFFF00' style='position:absolute; top:48; left:259'&gt;&lt;td&gt;&lt;/td&gt;&lt;/table&gt;");
+write("&lt;table id='b6' width='42' height='16' bgcolor='#FFFF00' style='position:absolute; top:48; left:305'&gt;&lt;td&gt;&lt;/td&gt;&lt;/table&gt;");
+write("&lt;table id='b7' width='42' height='16' bgcolor='#FFFF00' style='position:absolute; top:48; left:351'&gt;&lt;td&gt;&lt;/td&gt;&lt;/table&gt;");
+
+write("&lt;table id='b8' width='42' height='16' bgcolor='#FFCF00' style='position:absolute; top:68; left:29'&gt;&lt;td&gt;&lt;/td&gt;&lt;/table&gt;");
+write("&lt;table id='b9' width='42' height='16' bgcolor='#FFCF00' style='position:absolute; top:68; left:75'&gt;&lt;td&gt;&lt;/td&gt;&lt;/table&gt;");
+write("&lt;table id='b10' width='42' height='16' bgcolor='#FFCF00' style='position:absolute; top:68; left:121'&gt;&lt;td&gt;&lt;/td&gt;&lt;/table&gt;");
+write("&lt;table id='b11' width='42' height='16' bgcolor='#FFCF00' style='position:absolute; top:68; left:167'&gt;&lt;td&gt;&lt;/td&gt;&lt;/table&gt;");
+write("&lt;table id='b12' width='42' height='16' bgcolor='#FFCF00' style='position:absolute; top:68; left:213'&gt;&lt;td&gt;&lt;/td&gt;&lt;/table&gt;");
+write("&lt;table id='b13' width='42' height='16' bgcolor='#FFCF00' style='position:absolute; top:68; left:259'&gt;&lt;td&gt;&lt;/td&gt;&lt;/table&gt;");
+write("&lt;table id='b14' width='42' height='16' bgcolor='#FFCF00' style='position:absolute; top:68; left:305'&gt;&lt;td&gt;&lt;/td&gt;&lt;/table&gt;");
+write("&lt;table id='b15' width='42' height='16' bgcolor='#FFCF00' style='position:absolute; top:68; left:351'&gt;&lt;td&gt;&lt;/td&gt;&lt;/table&gt;");
+
+write("&lt;table id='b16' width='42' height='16' bgcolor='#FF7F00' style='position:absolute; top:88; left:29'&gt;&lt;td&gt;&lt;/td&gt;&lt;/table&gt;");
+write("&lt;table id='b17' width='42' height='16' bgcolor='#FF7F00' style='position:absolute; top:88; left:75'&gt;&lt;td&gt;&lt;/td&gt;&lt;/table&gt;");
+write("&lt;table id='b18' width='42' height='16' bgcolor='#FF7F00' style='position:absolute; top:88; left:121'&gt;&lt;td&gt;&lt;/td&gt;&lt;/table&gt;");
+write("&lt;table id='b19' width='42' height='16' bgcolor='#FF7F00' style='position:absolute; top:88; left:167'&gt;&lt;td&gt;&lt;/td&gt;&lt;/table&gt;");
+write("&lt;table id='b20' width='42' height='16' bgcolor='#FF7F00' style='position:absolute; top:88; left:213'&gt;&lt;td&gt;&lt;/td&gt;&lt;/table&gt;");
+write("&lt;table id='b21' width='42' height='16' bgcolor='#FF7F00' style='position:absolute; top:88; left:259'&gt;&lt;td&gt;&lt;/td&gt;&lt;/table&gt;");
+write("&lt;table id='b22' width='42' height='16' bgcolor='#FF7F00' style='position:absolute; top:88; left:305'&gt;&lt;td&gt;&lt;/td&gt;&lt;/table&gt;");
+write("&lt;table id='b23' width='42' height='16' bgcolor='#FF7F00' style='position:absolute; top:88; left:351'&gt;&lt;td&gt;&lt;/td&gt;&lt;/table&gt;");
+
+write("&lt;table id='b24' width='42' height='16' bgcolor='#FF3F00' style='position:absolute; top:108; left:29'&gt;&lt;td&gt;&lt;/td&gt;&lt;/table&gt;");
+write("&lt;table id='b25' width='42' height='16' bgcolor='#FF3F00' style='position:absolute; top:108; left:75'&gt;&lt;td&gt;&lt;/td&gt;&lt;/table&gt;");
+write("&lt;table id='b26' width='42' height='16' bgcolor='#FF3F00' style='position:absolute; top:108; left:121'&gt;&lt;td&gt;&lt;/td&gt;&lt;/table&gt;");
+write("&lt;table id='b27' width='42' height='16' bgcolor='#FF3F00' style='position:absolute; top:108; left:167'&gt;&lt;td&gt;&lt;/td&gt;&lt;/table&gt;");
+write("&lt;table id='b28' width='42' height='16' bgcolor='#FF3F00' style='position:absolute; top:108; left:213'&gt;&lt;td&gt;&lt;/td&gt;&lt;/table&gt;");
+write("&lt;table id='b29' width='42' height='16' bgcolor='#FF3F00' style='position:absolute; top:108; left:259'&gt;&lt;td&gt;&lt;/td&gt;&lt;/table&gt;");
+write("&lt;table id='b30' width='42' height='16' bgcolor='#FF3F00' style='position:absolute; top:108; left:305'&gt;&lt;td&gt;&lt;/td&gt;&lt;/table&gt;");
+write("&lt;table id='b31' width='42' height='16' bgcolor='#FF3F00' style='position:absolute; top:108; left:351'&gt;&lt;td&gt;&lt;/td&gt;&lt;/table&gt;");
+
+write("&lt;table id='b32' width='42' height='16' bgcolor='#FF0000' style='position:absolute; top:128; left:29'&gt;&lt;td&gt;&lt;/td&gt;&lt;/table&gt;");
+write("&lt;table id='b33' width='42' height='16' bgcolor='#FF0000' style='position:absolute; top:128; left:75'&gt;&lt;td&gt;&lt;/td&gt;&lt;/table&gt;");
+write("&lt;table id='b34' width='42' height='16' bgcolor='#FF0000' style='position:absolute; top:128; left:121'&gt;&lt;td&gt;&lt;/td&gt;&lt;/table&gt;");
+write("&lt;table id='b35' width='42' height='16' bgcolor='#FF0000' style='position:absolute; top:128; left:167'&gt;&lt;td&gt;&lt;/td&gt;&lt;/table&gt;");
+write("&lt;table id='b36' width='42' height='16' bgcolor='#FF0000' style='position:absolute; top:128; left:213'&gt;&lt;td&gt;&lt;/td&gt;&lt;/table&gt;");
+write("&lt;table id='b37' width='42' height='16' bgcolor='#FF0000' style='position:absolute; top:128; left:259'&gt;&lt;td&gt;&lt;/td&gt;&lt;/table&gt;");
+write("&lt;table id='b38' width='42' height='16' bgcolor='#FF0000' style='position:absolute; top:128; left:305'&gt;&lt;td&gt;&lt;/td&gt;&lt;/table&gt;");
+write("&lt;table id='b39' width='42' height='16' bgcolor='#FF0000' style='position:absolute; top:128; left:351'&gt;&lt;td&gt;&lt;/td&gt;&lt;/table&gt;");
+
+write("&lt;div id='ball' style='position:absolute'&gt;");
+write("&lt;table width='4' height='8' bgcolor='#B0B0B0' style='position:absolute; left:0; top:0'&gt;&lt;td&gt;&lt;/td&gt;&lt;/table&gt;");
+write("&lt;table width='8' height='4' bgcolor='#B0B0B0' style='position:absolute; left:-1; top:2'&gt;&lt;td&gt;&lt;/td&gt;&lt;/table&gt;");
+write("&lt;table width='4' height='4' bgcolor='#FFFFFF' style='position:absolute; left:0; top:1'&gt;&lt;td&gt;&lt;/td&gt;&lt;/table&gt;");
+write("&lt;/div&gt;");
+write("&lt;table id='racket' width='40' height='4' bgcolor='#B0B0FF' style='position:absolute'&gt;&lt;td&gt;&lt;/td&gt;&lt;/table&gt;");
+write("&lt;div id='starter' style='position:absolute'&gt;&lt;form&gt;&lt;input type='button' value='START' ONCLICK='initG();blur()'&gt;&lt;/form&gt;&lt;/div&gt;");
+write("&lt;div id='clrmes'  style='position:absolute'&gt;&lt;font style='font-size:24px' color='#44CC44'&gt;ALL CLEAR!&lt;/font&gt;&lt;/div&gt;");
+write("&lt;div id='ovrmes' style='position:absolute'&gt;&lt;font style='font-size:24px' color='#CC4444'&gt;GAME OVER!&lt;/font&gt;&lt;/div&gt;");
+write("&lt;div id='DN' style='position:absolute'&gt;&lt;a href='javascript:SDN()'&gt;SPEED DOWN&lt;/a&gt;&lt;/div&gt;");
+}
+// End --&gt;
+&lt;/script&gt;
+
+&lt;p&gt;&lt;center&gt;
+&lt;font face="arial, helvetica" SIZE="-2"&gt;Free JavaScripts provided&lt;br&gt;
+by &lt;a href="http://javascriptsource.com"&gt;JavaScript Source Code 3000&lt;/a&gt;&lt;/font&gt;
+&lt;/center&gt;&lt;p&gt;
+
+&lt;!-- Script Size:  12.64 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

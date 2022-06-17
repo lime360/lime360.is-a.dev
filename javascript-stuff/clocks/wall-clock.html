@@ -1,0 +1,243 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Clocks:  Wall Clock</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Randy Bennett (rbennett@thezone.net)">
+<META NAME="section" CONTENT="Clocks">
+<META NAME="description" CONTENT="A digital JavaScript clock on your site is impressive, but having a wall clock on your site is incredible!  The second, minute, and hour hands even move according to the current time.  Best of all, you do not need any picture images to make it work!">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /clocks/"><font color="#FF0000"><b>Clocks</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Wall Clock</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+A digital JavaScript clock on your site is impressive, but having a wall clock on your site is incredible!  The second, minute, and hour hands even move according to the current time.  Best of all, you do not need any picture images to make it work!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name=digitalclock>
+<input type=button value="Open the Wall Clock" onClick="window.open('wall-clock-example.htm', 'wallclock', 'width=200, height=200');">
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Clocks:  Wall Clock</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  5.93 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL WALL CLOCK:
+
+  1.  Copy the coding into the BODY of your main page --&gt;
+  2.  Paste the last section into a new file, save it as wall-clock.html  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the BODY of your main HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form name=digitalclock&gt;
+&lt;input type=button value="Open the Wall Clock" onClick="window.open('wall-clock.html', 'wallclock', 'width=200, height=200');"&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+&lt;!-- STEP TWO: Put this section into a new file, save it as wall-clock.html --&gt;
+
+&lt;HTML&gt;
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Randy Bennett (rbennett@thezone.net) --&gt;
+&lt;!-- Web Site:  http://home.thezone.net/~rbennett/utility/sitemap.htm --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+pX = 100;
+pY = 100;
+obs = new Array(13);
+function ob() {
+for (i = 0; i &lt; 13; i++) {
+if (document.all) obs[i] = new Array (eval('ob'+i).style,-100,-100);
+else obs[i] = new Array (eval('document.ob'+i),-100,-100);
+   }
+}
+function cl(a, b, c) {
+if (document.all) {
+if (a != 0) b += -1;
+eval('c'+a+'.style.pixelTop='+(pY+(c)));
+eval('c'+a+'.style.pixelLeft='+(pX+(b)));
+}
+else {
+if (a != 0) b += 10;
+eval('document.c'+a+'.top='+(pY+(c)));
+eval('document.c'+a+'.left='+(pX+(b)));
+   }
+}
+function runClock() {
+for (i = 0; i &lt; 13; i++) {
+obs[i][0].left=obs[i][1]+pX;
+obs[i][0].top=obs[i][2]+pY;
+   }
+}
+var lastsec;
+function timer() {
+time = new Date ();
+sec = time.getSeconds();
+if (sec != lastsec) {
+lastsec = sec;
+sec = Math.PI * sec / 30;
+min = Math.PI * time.getMinutes() / 30;
+hr = Math.PI * time.getHours() / 6 + Math.PI * parseInt(time.getMinutes()) / 360;
+for (i = 1; i &lt; 6; i++) {
+obs[i][1] = Math.sin(sec) * (44 - (i-1) * 11) - 16;
+if (document.layers)obs[i][1] += 10;
+obs[i][2] = -Math.cos(sec) * (44 - (i-1) * 11) - 27;
+}
+for (i = 6;i &lt; 10; i++) {
+obs[i][1] = Math.sin(min) * (40 - (i-6) * 10) - 16;
+if (document.layers)obs[i][1] += 10;
+obs[i][2] = -Math.cos(min) * (40 - (i-6) * 10) - 27;
+}
+for (i = 10; i &lt; 13; i++) {
+obs[i][1] = Math.sin(hr) * (37 - (i-10) * 11) - 16;
+if (document.layers)obs[i][1] += 10;
+obs[i][2] = -Math.cos(hr) * (37 - (i-10) * 11) - 27;
+      }
+   }
+}
+function setNum() {
+cl (0, -67, -65);
+cl (1, 10, -51);
+cl (2, 28, -33);
+cl (3, 35, -8);
+cl (4, 28, 17);
+cl (5, 10, 35);
+cl (6, -15, 42);
+cl (7, -40, 35);
+cl (8, -58, 17);
+cl (9, -65, -8);
+cl (10, -58, -33);
+cl (11, -40, -51);
+cl (12, -16, -56);
+}
+function startClock() {
+ob();
+setNum();
+setInterval('timer()', 100);
+setInterval('runClock()', 100);
+}
+// End --&gt;
+&lt;/script&gt;
+&lt;style&gt;
+..num {color:white;width:30px;text-align:center; }
+&lt;/style&gt;
+&lt;/HEAD&gt;
+
+&lt;body onLoad="javascript:startClock();"&gt;
+
+&lt;div id="c0" style="position:absolute;left:36;top:36; z-index:2;"&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td bgcolor=000000 width=120 height=120&gt;&nbsp;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div id="c1" class="num" style="position:absolute;left:20;top:-20; z-index:5;font-size:11px;"&gt;&lt;b&gt;1&lt;/b&gt;&lt;/div&gt;
+&lt;div id="c2" class="num" style="position:absolute;left:20;top:-20; z-index:5;font-size:11px;"&gt;&lt;b&gt;2&lt;/b&gt;&lt;/div&gt;
+&lt;div id="c3" class="num" style="position:absolute;left:20;top:-20; z-index:5;font-size:11px;"&gt;&lt;b&gt;3&lt;/b&gt;&lt;/div&gt;
+&lt;div id="c4" class="num" style="position:absolute;left:20;top:-20; z-index:5;font-size:11px;"&gt;&lt;b&gt;4&lt;/b&gt;&lt;/div&gt;
+&lt;div id="c5" class="num" style="position:absolute;left:20;top:-20; z-index:5;font-size:11px;"&gt;&lt;b&gt;5&lt;/b&gt;&lt;/div&gt;
+&lt;div id="c6" class="num" style="position:absolute;left:20;top:-20; z-index:5;font-size:11px;"&gt;&lt;b&gt;6&lt;/b&gt;&lt;/div&gt;
+&lt;div id="c7" class="num" style="position:absolute;left:20;top:-20; z-index:5;font-size:11px;"&gt;&lt;b&gt;7&lt;/b&gt;&lt;/div&gt;
+&lt;div id="c8" class="num" style="position:absolute;left:20;top:-20; z-index:5;font-size:11px;"&gt;&lt;b&gt;8&lt;/b&gt;&lt;/div&gt;
+&lt;div id="c9" class="num" style="position:absolute;left:20;top:-20; z-index:5;font-size:11px;"&gt;&lt;b&gt;9&lt;/b&gt;&lt;/div&gt;
+&lt;div id="c10" class="num" style="position:absolute;left:20;top:-20; z-index:5;font-size:11px;"&gt;&lt;b&gt;10&lt;/b&gt;&lt;/div&gt;
+&lt;div id="c11" class="num" style="position:absolute;left:20;top:-20; z-index:5;font-size:11px;"&gt;&lt;b&gt;11&lt;/b&gt;&lt;/div&gt;
+&lt;div id="c12" class="num" style="position:absolute;left:20;top:-20; z-index:5;font-size:11px;"&gt;&lt;b&gt;12&lt;/b&gt;&lt;/div&gt;
+
+&lt;div id="ob0" class="num" style="position:absolute;left:-20;top:-20;z-index:1"&gt;
+&nbsp;&lt;/div&gt;
+&lt;div id="ob1" class="num" style="position:absolute;left:-20;top:-20;z-index:8"&gt;
+&lt;font size="+3" color="#0000ff"&gt;&lt;b&gt;.&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;
+&lt;div id="ob2" class="num" style="position:absolute;left:-20;top:-20;z-index:8"&gt;
+&lt;font size="+3" color="#0000ff"&gt;&lt;b&gt;.&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;
+&lt;div id="ob3" class="num" style="position:absolute;left:-20;top:-20;z-index:8"&gt;
+&lt;font size="+3" color="#0000ff"&gt;&lt;b&gt;.&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;
+&lt;div id="ob4" class="num" style="position:absolute;left:-20;top:-20;z-index:8"&gt;
+&lt;font size="+3" color="#0000ff"&gt;&lt;b&gt;.&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;
+&lt;div id="ob5" class="num" style="position:absolute;left:-20;top:-20;z-index:8"&gt;
+&lt;font size="+3" color="#0000ff"&gt;&lt;b&gt;.&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;
+&lt;div id="ob6" class="num" style="position:absolute;left:-20;top:-20;z-index:7"&gt;
+&lt;font size="+3" color="#00ffff"&gt;&lt;b&gt;.&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;
+&lt;div id="ob7" class="num" style="position:absolute;left:-20;top:-20;z-index:7"&gt;
+&lt;font size="+3" color="#00ffff"&gt;&lt;b&gt;.&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;
+&lt;div id="ob8" class="num" style="position:absolute;left:-20;top:-20;z-index:7"&gt;
+&lt;font size="+3" color="#00ffff"&gt;&lt;b&gt;.&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;
+&lt;div id="ob9" class="num" style="position:absolute;left:-20;top:-20;z-index:7"&gt;
+&lt;font size="+3" color="#00ffff"&gt;&lt;b&gt;.&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;
+&lt;div id="ob10" class="num" style="position:absolute;left:-20;top:-20;z-index:6"&gt;
+&lt;font size="+3" color="#ffff00"&gt;&lt;b&gt;.&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;
+&lt;div id="ob11" class="num" style="position:absolute;left:-20;top:-20;z-index:6"&gt;
+&lt;font size="+3" color="#ffff00"&gt;&lt;b&gt;.&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;
+&lt;div id="ob12" class="num" style="position:absolute;left:-20;top:-20;z-index:6"&gt;
+&lt;font size="+3" color="#ffff00"&gt;&lt;b&gt;.&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+ 
+
+&lt;!-- Script Size:  5.93 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

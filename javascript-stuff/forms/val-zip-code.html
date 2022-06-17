@@ -1,0 +1,169 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Forms:  Zip Code Validation</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Brian Swalwell">
+<META NAME="section" CONTENT="Forms">
+<META NAME="description" CONTENT="Ensure that your visitors enter a properly formatted 5 digit, or 5 digit+4 zip code.  The visitor is alerted if any information is invalid and asked to try again.  Cool!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Brian Swalwell -->
+
+
+
+
+<!-- Begin
+function validateZIP(field) {
+var valid = "0123456789-";
+var hyphencount = 0;
+
+if (field.length!=5 && field.length!=10) {
+alert("Please enter your 5 digit or 5 digit+4 zip code.");
+return false;
+}
+for (var i=0; i < field.length; i++) {
+temp = "" + field.substring(i, i+1);
+if (temp == "-") hyphencount++;
+if (valid.indexOf(temp) == "-1") {
+alert("Invalid characters in your zip code.  Please try again.");
+return false;
+}
+if ((hyphencount > 1) || ((field.length==10) && ""+field.charAt(5)!="-")) {
+alert("The hyphen character should be used with a properly formatted 5 digit+four zip code, like '12345-6789'.   Please try again.");
+return false;
+   }
+}
+alert("Looks ok!");
+return false;
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /forms/" ><font color="#FF0000"><b>Forms</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Zip Code Validation</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Ensure that your visitors enter a properly formatted 5 digit, or 5 digit+4 zip code.  The visitor is alerted if any information is invalid and asked to try again.  Cool!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name=zip onSubmit="return validateZIP(this.zip.value)">
+Zip: <input type=text size=30 name=zip>
+<input type=submit value="Submit">
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Forms:  Zip Code Validation</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.39 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL ZIP CODE VALIDATION:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Brian Swalwell --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function validateZIP(field) {
+var valid = "0123456789-";
+var hyphencount = 0;
+
+if (field.length!=5 && field.length!=10) {
+alert("Please enter your 5 digit or 5 digit+4 zip code.");
+return false;
+}
+for (var i=0; i &lt; field.length; i++) {
+temp = "" + field.substring(i, i+1);
+if (temp == "-") hyphencount++;
+if (valid.indexOf(temp) == "-1") {
+alert("Invalid characters in your zip code.  Please try again.");
+return false;
+}
+if ((hyphencount &gt; 1) || ((field.length==10) && ""+field.charAt(5)!="-")) {
+alert("The hyphen character should be used with a properly formatted 5 digit+four zip code, like '12345-6789'.   Please try again.");
+return false;
+   }
+}
+return true;
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form name=zip onSubmit="return validateZIP(this.zip.value)"&gt;
+Zip: &lt;input type=text size=30 name=zip&gt;
+&lt;input type=submit value="Submit"&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  1.39 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

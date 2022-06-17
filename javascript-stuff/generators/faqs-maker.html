@@ -1,0 +1,364 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Code Generators:  FAQs Maker</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Ronnie T. Moore, Managing Editor ">
+<META NAME="section" CONTENT="Code Generators">
+<META NAME="description" CONTENT="Cut down on the number of repetitive questions you receive with your own FAQs page.  Just enter the questions you receive frequently and their respective answers, click the generate button, and this script will output a complete FAQs page for you.  And, we can even mail the generated code to you!  Just upload it as is.  Easy!  :-)">
+
+<SCRIPT LANGUAGE = "JavaScript">
+<!-- Begin
+var email = GetCookie('email_address');
+if (email == null) {
+email = 'your email here';
+}
+function getCookieVal (offset) {
+var endstr = document.cookie.indexOf (";", offset);
+if (endstr == -1)
+endstr = document.cookie.length;
+return unescape(document.cookie.substring(offset, endstr));
+}
+function GetCookie (name) {
+var arg = name + "=";
+var alen = arg.length;
+var clen = document.cookie.length;
+var i = 0;
+while (i < clen) {
+var j = i + alen;
+if (document.cookie.substring(i, j) == arg)
+return getCookieVal (j);
+i = document.cookie.indexOf(" ", i) + 1;
+if (i == 0)
+break;}
+return null;}
+function SetCookie (name, value) {var argv = SetCookie.arguments;
+var argc = SetCookie.arguments.length;
+var expires = (argc > 2) ? argv[2] : null;
+var path = (argc > 3) ? argv[3] : null;
+var domain = ".internet.com";
+// (argc > 4) ? argv[4] : null;
+var secure = (argc > 5) ? argv[5] : false;
+document.cookie = name + "=" + escape (value) +
+((expires == null) ? "" : ("; expires=" +
+expires.toGMTString())) +
+((path == null) ? "" : ("; path=" + path)) +
+((domain == null) ? "" : ("; domain=" + domain)) +
+((secure == true) ? "; secure" : "");}
+
+function checkCodeMail() {
+invalid = ""
+email = document.mail.user.value;
+code = document.mail.source.value;
+if (code == "") {
+invalid += "Before you can send your code to yourself you need to ";
+invalid += "follow the instructions above to output the code.  When "
+invalid += "the code has been generated, click \"Done\" to email it!\r\n\r\n";}
+if (email.indexOf("@")<1 || email == "your email here" || email == "") {
+invalid += "Invalid email address!  Be sure that in your email address ";
+invalid += "you included your Username, the '@' Sign, and the Domain Name.";}
+if (invalid == "") {
+doAd();
+return true;
+}
+else {
+alert(invalid);
+return false;}}
+function doAd() {
+pathname = location.pathname;
+myDomain = pathname.substring(0,pathname.lastIndexOf('/')) +'/';
+var largeExpDate = new Date ();
+largeExpDate.setTime(largeExpDate.getTime() + (24 * 3600 * 1000));
+SetCookie('email_address',email,largeExpDate,myDomain);
+page = "http://javascript.internet.com/sent.html?" + email;
+window.open(page, "AdWindow", "width=515,height=150");
+return true;}
+function uncode() {
+smut="&lt;";
+replacewords="< ";
+txt=document.mail.source2.value;
+tstx="";
+space=replacewords.indexOf(" ");
+wrd=replacewords.substring(0,space);
+wrdl=wrd.length
+replacewords=replacewords.substring(space+1,replacewords.length);
+while (txt.indexOf(wrd)>-1){
+space=txt.indexOf(wrd);
+txt=txt.substring(0,space)+smut+txt.substring((space+wrdl),txt.length);}
+smut="&gt;";
+replacewords="> ";
+space=replacewords.indexOf(" ");
+wrd=replacewords.substring(0,space);
+wrdl=wrd.length
+replacewords=replacewords.substring(space+1,replacewords.length);
+while (txt.indexOf(wrd)>-1){
+space=txt.indexOf(wrd);
+txt=txt.substring(0,space)+smut+txt.substring((space+wrdl),txt.length);}
+document.mail.source2.value=txt;}
+// End -->
+</script>
+
+
+<!--  Now it's time for the *REAL* code generator to begin....  -->
+
+
+<SCRIPT LANGUAGE="JavaScript">
+
+
+
+
+<!--  Begin
+function generate(form) {
+var txt = '<' + '!-- TWO STEPS TO INSTALL FAQS PAGE:\r\n\r\n'
++ '   1.  Paste the code into the HEAD of your HTML document\r\n';
+txt = txt + '   2.  Put the final code into the BODY of your HTML document  --' + '>\r\n\r\n'
++ '<' + '!-- STEP ONE: Copy this code into the BODY of your HTML document  --' + '>\r\n\r\n'
++ '<HE' + 'AD>\r\n\r\n'
++ '<SCR' + 'IPT LANG' + 'UAGE="JavaS' + 'cript">\r\n'
++ '<!-- Original:  Ronnie T. Moore, Managing Editor  -->\r\n'
++ '<!-- Web Site:  http://javascript.internet.com  -->\r\n\r\n'
++ '\r\n'
++ '\r\n\r\n'
++ '<!' + '-- Begin\r\n'
++ 'func' + 'tion show' + 'FAQ(form) ' + '{\r\n'
++ 'form.' + 'answer.value = form.' + 'question.options[form.question.'
++ 'selectedIndex].value;\r\n' + '}' + '\r\n/' + '/ End --' + '>\r\n'
++ '</SCR' + 'IPT>\r\n' + '</HE' + 'AD>\r\n\r\n'
++ '<!-- STEP TWO: Add this code into the BODY of your HTML document  -->\r\n\r\n'
++ '<BO' + 'DY>\r\n\r\n<center>\r\n<fo' + 'rm name=faqform>\r\n'
++ '<table border=1 cellspacing=0 cellpadding=5>\r\n';
+
+
+if (document.faqgen.faqtitle.value != "") {
+txt = txt + '<tr bgcolor="#000099">\t\n<td align=center><font face="verdana,arial" size="-1" '
++ 'color="#ffffff">\r\n<b>' + document.faqgen.faqtitle.value + '</b></font></td>\r\n</tr>\r\n';
+}
+
+txt = txt + '<tr bgcolor="#ffffcc"><td><font face="verdana,arial" size="-1"><br>\r\nBrowse the Frequently '
++ 'Asked Questions below and click for the answer.\r\n<p>\r\n<ul>' 
++ '<select size=10 name=question onChange="java' + 'script:showFAQ(this.form);">\r\n';
+
+for (var i = 1; i <= 10; i++) {
+q = eval('document.faqgen.q' + i + '.value');
+a = eval('document.faqgen.a' + i + '.value');
+if (q!="" && a!="") {
+txt = txt + '<option value="' + a + '">&nbsp;&nbsp;&nbsp;-->&nbsp;&nbsp;' + q + '\r\n';
+}
+else {
+break;
+}
+}
+
+txt = txt + '</select>\r\n'
++ '</ul>\r\n'
++ '<p>\r\n'
++ 'And Their Answers:\r\n'
++ '<p>\r\n'
++ '<ul>\r\n'
++ '<textarea name="answer" rows=15 cols=50 wrap=virtual></textarea>\r\n'
++ '</ul>\r\n'
++ '</font>\r\n'
++ '</td>\r\n'
++ '</tr>\r\n'
++ '</table>\r\n'
++ '</form>\r\n'
++ '</center>';
+
+document.mail.source.value=txt;
+document.mail.source2.value=txt;
+
+uncode();
+}
+
+function View(text) {
+msg=window.open("","DisplayWindow");
+msg.document.write(text);
+msg.document.write("</body></html>");
+}
+// End -->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<P>
+<center>
+
+	
+<P>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /generators/"><font color="#FF0000">Generators</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">FAQs Maker</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Cut down on the number of repetitive questions you receive with your own FAQs page.  Just enter the questions you receive frequently and their respective answers, click the generate button, and this script will output a complete FAQs page for you.  And, we can even mail the generated code to you!  Just upload it as is.  Easy!  :-)
+<br>
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+&nbsp;
+<font face="arial, helvetica" size="-2"><a href="javascript:if(confirm('http://faq.javascriptsource.com/  \n\nYou must be connected to the internet to view this file.  \n\nDo you want to open it from the server?'))window.location='http://faq.javascriptsource.com/'" tppabs="http://faq.javascriptsource.com/">See our FAQs Page</a>  <--- [ See a modified example of this FAQs script in use! ]</font>
+<form name=faqgen>
+<table border=1>
+<tr>
+<td colspan=2><h2>FAQs Maker</h2></td>
+</tr>
+<tr>
+<td colspan=2 align=center>
+FAQs Page Title:  <input type=text name=faqtitle size=25 value="">
+<font face="arial, helvetica" size="-2">(blank for none)</font>
+</td>
+</tr>
+<tr align=center>
+<td colspan=2 align=center>
+<b>Question & Answer Entries:</b></td>
+</tr>
+
+<tr align=center>
+<td width="50%" valign=middle>
+<strong>Question 1</strong><br>
+<textarea name=q1 rows=2 cols=30></textarea></td>
+<td width="50%" valign=middle>
+<strong>Answer 1</strong><br>
+<textarea name=a1 rows=2 cols=30></textarea></td>
+</tr>
+
+<tr align=center>
+<td width="50%" valign=middle>
+<strong>Question 2</strong><br>
+<textarea name=q2 rows=2 cols=30></textarea></td>
+<td width="50%" valign=middle>
+<strong>Answer 2</strong><br>
+<textarea name=a2 rows=2 cols=30></textarea></td>
+</tr>
+
+<tr align=center>
+<td width="50%" valign=middle>
+<strong>Question 3</strong><br>
+<textarea name=q3 rows=2 cols=30></textarea></td>
+<td width="50%" valign=middle>
+<strong>Answer 3</strong><br>
+<textarea name=a3 rows=2 cols=30></textarea></td>
+</tr>
+
+<tr align=center>
+<td width="50%" valign=middle>
+<strong>Question 4</strong><br>
+<textarea name=q4 rows=2 cols=30></textarea></td>
+<td width="50%" valign=middle>
+<strong>Answer 4</strong><br>
+<textarea name=a4 rows=2 cols=30></textarea></td>
+</tr>
+
+<tr align=center>
+<td width="50%" valign=middle>
+<strong>Question 5</strong><br>
+<textarea name=q5 rows=2 cols=30></textarea></td>
+<td width="50%" valign=middle>
+<strong>Answer 5</strong><br>
+<textarea name=a5 rows=2 cols=30></textarea></td>
+</tr>
+
+<tr align=center>
+<td width="50%" valign=middle>
+<strong>Question 6</strong><br>
+<textarea name=q6 rows=2 cols=30></textarea></td>
+<td width="50%" valign=middle>
+<strong>Answer 6</strong><br>
+<textarea name=a6 rows=2 cols=30></textarea></td>
+</tr>
+
+<tr align=center>
+<td width="50%" valign=middle>
+<strong>Question 7</strong><br>
+<textarea name=q7 rows=2 cols=30></textarea></td>
+<td width="50%" valign=middle>
+<strong>Answer 7</strong><br>
+<textarea name=a7 rows=2 cols=30></textarea></td>
+</tr>
+
+<tr align=center>
+<td width="50%" valign=middle>
+<strong>Question 8</strong><br>
+<textarea name=q8 rows=2 cols=30></textarea></td>
+<td width="50%" valign=middle>
+<strong>Answer 8</strong><br>
+<textarea name=a8 rows=2 cols=30></textarea></td>
+</tr>
+
+<tr align=center>
+<td width="50%" valign=middle>
+<strong>Question 9</strong><br>
+<textarea name=q9 rows=2 cols=30></textarea></td>
+<td width="50%" valign=middle>
+<strong>Answer 9</strong><br>
+<textarea name=a9 rows=2 cols=30></textarea></td>
+</tr>
+
+<tr align=center>
+<td width="50%" valign=middle>
+<strong>Question 10</strong><br>
+<textarea name=q10 rows=2 cols=30></textarea></td>
+<td width="50%" valign=middle>
+<strong>Answer 10</strong><br>
+<textarea name=a10 rows=2 cols=30></textarea></td>
+</tr>
+
+<tr>
+<td colspan=2 align=center height=33>
+<input type=button value="Generate" onClick="generate(this.form)">
+<input type=reset value="Reset">
+</td>
+</tr>
+</table>
+<br><br>
+Source Code:
+</form>
+</center>
+
+<p>
+<center>
+<form name="mail" action="http://javascript.internet.com/cgi-bin/code-mail.cgi" method="POST" onSubmit="return checkCodeMail()">
+<input type=hidden name=scriptname value="FAQs Maker">
+<table bgcolor="dedfdf" border="2" cellpadding="4" width=400>
+<tr><td align=center>
+<input type="button" class="button" value="Show me the Drop-Down Menu!" name="DOC" onClick="View(this.form.source.value);">
+<p>
+<textarea name="source" rows=12 cols=80></textarea><br>
+<input type="hidden" name="source2"><br>
+<font size="2" face="arial">"Cut and Paste" the code above, or....</font><br><br>
+<table cellpadding=20 cellspacing=0 border=1>
+<tr bgcolor=#ebebeb><td align=center><tt>We'll send your generated code to you!<p></tt>
+<SCRIPT>
+<!-- Begin
+document.write('<input type=text size=25 name=user value="'+email+'" onfocus=\"select()\">');
+// End -->
+</SCRIPT>
+<NOSCRIPT>
+<input type=text size=25 name=email value="your email here">
+</NOSCRIPT>
+<input type=submit value="Send it!"><p><font size="-2">(just click "Send it!" once!)</font>
+</td>
+</tr>
+</table></td><p></tr>
+</table>
+</form>
+</center>
+</FONT>
+</CENTER>
+
+</CENTER>

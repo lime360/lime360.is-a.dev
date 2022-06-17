@@ -1,0 +1,204 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Calculators:  Wind Chill Calculator</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="James P. Dildine (jpd@wlsmail.com)">
+<META NAME="section" CONTENT="Calculators">
+<META NAME="description" CONTENT="Wind Chill is a mysterious and often misunderstood phenomenon.  This script describes what the wind chill factor really is and offers a form to calculate the wind chill factor when given the air temperature and wind speed.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  James P. Dildine (jpd@wlsmail.com) -->
+<!-- Web Site:  http://www.mste.uiuc.edu/dildine -->
+
+
+
+
+<!-- Begin
+function windChill(form) {
+wind=eval(form.wind.value);
+temp=eval(form.temp.value);
+chill=(0.0817*(3.71*(Math.pow(wind, 0.5))+
+5.81-0.25*wind)*(temp-91.4)+91.4);
+form.windchill.value = chill;
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /calculators/"><font color="#FF0000"><b>Calculators</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Wind Chill Calculator</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Wind Chill is a mysterious and often misunderstood phenomenon.  This script describes what the wind chill factor really is and offers a form to calculate the wind chill factor when given the air temperature and wind speed.
+<hr>
+</td></tr>
+</table>
+<p>
+<table border=0 cellspacing=1 cellpadding=1>
+<tr><td bgcolor=#000099>
+<table width=375 cellspadding=3 cellspacing=0 border=0>
+<tr><td colspan=3 bgcolor=#000099>
+<font face="verdana, arial" size="-1" color="white">Wind Chill:</font>
+</td></tr><tr><td bgcolor=#ffffcc>&nbsp;&nbsp;</td>
+<td width=100% height=25 bgcolor=#ffffcc valign=middle>
+<font face="verdana, arial" size="-2">
+A measure of the cooling effect of wind.  Wind increases the rate at which a body loses heat, so the air on a windy day feels cooler than the temperature indicated by a thermometer.  This heat loss can be calculated for various combinations of wind speed and air temperature and then converted to a wind chill equivalent temperature (or wind chill factor).
+</font>
+</td>
+<td bgcolor=#ffffcc>&nbsp;&nbsp;</td>
+</tr></table>
+</td></tr></table>
+<p>
+<!-- Demonstration -->
+<form action="" method=post name=windform>
+<center>
+<table border=1 cellpadding=3 cellspacing=0 width="250">
+<tr>
+<td align=center>
+Wind Speed (MPH) =
+</td>
+<td align=center>
+<input type=text name=wind value="" size=6>
+</td>
+</tr>
+<tr>
+<td align=center>
+Air Temperature (ºF) =
+</td>
+<td align=center>
+<input type=text name=temp value="" size=6>
+</td>
+</tr>
+<tr>
+<td colspan=2 align=center>
+<br>
+<input type=button value="Calculate Wind Chill" onclick="windChill(this.form)">
+<p>
+<input name=windchill type=text value="" size=10> º F
+</td>
+<tr>
+</table>
+</center>
+</form>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Calculators:  Wind Chill Calculator</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.46 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL WIND CHILL CALCULATOR:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  James P. Dildine (jpd@wlsmail.com) --&gt;
+&lt;!-- Web Site:  http://www.mste.uiuc.edu/dildine --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function windChill(form) {
+wind=eval(form.wind.value);
+temp=eval(form.temp.value);
+chill=(0.0817*(3.71*(Math.pow(wind, 0.5))+
+5.81-0.25*wind)*(temp-91.4)+91.4);
+form.windchill.value = chill;
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;form action="" method=post name=windform&gt;
+&lt;center&gt;
+&lt;table border=1 cellpadding=3 cellspacing=0 width="250"&gt;
+&lt;tr&gt;
+&lt;td align=center&gt;
+Wind Speed (MPH) =
+&lt;/td&gt;
+&lt;td align=center&gt;
+&lt;input type=text name=wind value="" size=6&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=center&gt;
+Air Temperature (ºF) =
+&lt;/td&gt;
+&lt;td align=center&gt;
+&lt;input type=text name=temp value="" size=6&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td colspan=2 align=center&gt;
+&lt;br&gt;
+&lt;input type=button value="Calculate Wind Chill" onclick="windChill(this.form)"&gt;
+&lt;p&gt;
+&lt;input name=windchill type=text value="" size=10&gt; º F
+&lt;/td&gt;
+&lt;tr&gt;
+&lt;/table&gt;
+&lt;/center&gt;
+&lt;/form&gt;
+
+ 
+
+&lt;!-- Script Size:  1.46 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

@@ -1,0 +1,152 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Page Details:  Top Window</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Page Details">
+<META NAME="description" CONTENT="Use this JavaScript to keep a window 'on top' of the rest of your other windows.  Not sure what I mean?  Try it out and see!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+function topWindow(){
+popup = window.open("top-window.html","","height=175,width=300,scrollbars=no");
+}
+// End -->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center><center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /page-details/"><font color="#FF0000">Page Details</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Top Window</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE=" helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Use this JavaScript to keep a window 'on top' of the rest of your other windows.  Not sure what I mean?  Try it out and see!<br><hr>
+</td></tr>
+</table>
+<!--  Demonstration  -->
+<CENTER>
+<FORM>
+<INPUT TYPE="BUTTON" VALUE="Pop-Up" onClick="topWindow()">
+</FORM>
+</CENTER>
+<P>
+<BR>
+<P>
+<a name="source">
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Page Details:  Top Window ("Opener" Page)</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as NotePad or SimpleText) and save (Control-s or Apple-s).  The script is yours!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  0.92 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- FOUR STEPS TO INSTALL TOP WINDOW (opener.html):
+
+   1.  Paste the coding into the HEAD of your "opener" HTML document
+   2.  Copy the second coding into the BODY of your "opener" page
+   3.  Create your pop-up page and save it as popup-page.html
+   4.  Put the onBlur handler in the BODY of popup-page.html  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the HEAD of your "opener" page  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function topWindow(){
+popup = window.open("popup-page.html","","height=175,width=300,scrollbars=no");
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+&lt;!-- STEP TWO: Add this code the the BODY of your "opener" page  --&gt;
+
+&lt;BODY&gt;
+
+&lt;CENTER&gt;
+&lt;FORM&gt;
+&lt;INPUT TYPE="BUTTON" VALUE="Pop-Up" onClick="topWindow()"&gt;
+&lt;/FORM&gt;
+&lt;/CENTER&gt;
+
+ 
+
+&lt;!-- Script Size:  0.92 KB  --&gt;
+</textarea>
+</td></tr></form>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Page Details:  Top Window (Pop-up Page)</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as NotePad or SimpleText) and save (Control-s or Apple-s).  The script is yours!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy2">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  0.56 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- FOUR STEPS TO INSTALL TOP WINDOW (popup-page.html): 
+
+   1.  Paste the coding into the HEAD of your "opener" HTML document
+   2.  Copy the second coding into the BODY of your "opener" page
+   3.  Create pop-up page and save as popup-page.html
+   4.  Put the onBlur handler in the BODY of popup-page.html  --&gt;
+
+&lt;!-- STEP THREE: Create pop-up page - save as popup-page.html  --&gt;
+
+&lt;!-- STEP FOUR: Add onBlur handler to BODY of popup-page.html  --&gt;
+
+&lt;BODY onBlur="self.focus()"&gt;
+
+ 
+
+&lt;!-- Script Size:  0.56 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

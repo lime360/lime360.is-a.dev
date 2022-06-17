@@ -1,0 +1,297 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Page Details:  Mouse Bubbles</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="Bubbles float up from mouse giving the effect that the mouse is under water.  The bubbles even expand in Internet Explorer.">
+<META NAME="date" CONTENT="2001-02-13">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Kurt Grigg">
+<META NAME="section" CONTENT="Page Details">
+
+</HEAD>
+
+<BODY BGCOLOR=#000000 vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial" COLOR="#FFFFFF">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /page-details/"><font color="#FF0000"><b>Page Details</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Mouse Bubbles</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva" COLOR="#FFFFFF">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Bubbles float up from mouse giving the effect that the mouse is under water.  The bubbles even expand in Internet Explorer.
+<hr width=60%>
+<center>
+The following image is needed for this script.
+<br><br>
+<img src="../img/mouse-bubbles/bubblack.gif" /img/mouse-bubbles/bubblack.gif">
+</center>
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<!-- If you want the bubbles to appear behind everything else put the rest of your page content into a simple div/layer, example below --> 
+
+<!-- EXAMPLE -------------------------------------
+<html>
+<head etc...
+<body bgcolor etc...
+
+<the script...
+...end script>
+
+<div style="position:relative">
+rest of page content, text and graphics etc.
+</div>
+
+</body>
+</html>
+------------------------------------------------->
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Kurt Grigg (kurt.grigg@virgin.net) -->
+<!-- Web Site:  http://website.lineone.net/~kurt.grigg/javascript -->
+
+
+
+
+<!-- Begin
+Image0 = new Image();
+Image0.src = "../img/mouse-bubbles/bubblack.gif";
+Amount = 20; 
+Ymouse = -50;
+Xmouse = -50;
+Ypos = new Array();
+Xpos = new Array();
+Speed = new Array();
+rate = new Array();
+grow = new Array();
+Step = new Array();
+Cstep = new Array();
+nsSize = new Array();
+ns = (document.layers)?1:0;
+(document.layers)?window.captureEvents(Event.MOUSEMOVE):0;
+function Mouse(evnt) {
+Ymouse=(document.layers)?evnt.pageY-20:event.y-20;
+Xmouse=(document.layers)?evnt.pageX:event.x;
+}
+(document.layers)?window.onMouseMove=Mouse:document.onmousemove=Mouse;
+for (i = 0; i < Amount; i++) {
+Ypos[i] = Ymouse;
+Xpos[i] = Xmouse;
+Speed[i] = Math.random()*4+1;
+Cstep[i] = 0;
+Step[i] = Math.random()*0.1+0.05;
+grow[i] = 8;
+nsSize[i] = Math.random()*15+5;
+rate[i] = Math.random()*0.5+0.1;
+}
+if (ns) {
+for (i = 0; i < Amount; i++) {
+document.write("<LAYER NAME='sn"+i+"' LEFT=0 TOP=0><img src="+Image0.src+" name='N' width="+nsSize[i]+" height="+nsSize[i]+"></LAYER>");
+   }
+}
+else {
+document.write('<div style="position:absolute;top:0px;left:0px"><div style="position:relative">');
+for (i = 0; i < Amount; i++) {
+document.write('<img id="si" src="'+Image0.src+'" style="position:absolute;top:0px;left:0px;filter:alpha(opacity=90)">');
+}
+document.write('</div></div>');
+}
+function MouseBubbles() {
+var hscrll = (document.layers)?window.pageYOffset:document.body.scrollTop;
+var wscrll = (document.layers)?window.pageXOffset:document.body.scrollLeft;
+for (i = 0; i < Amount; i++){
+sy = Speed[i] * Math.sin(270 * Math.PI / 180);
+sx = Speed[i] * Math.cos(Cstep[i] * 4);
+Ypos[i] += sy;
+Xpos[i] += sx; 
+if (Ypos[i] < -40) {
+Ypos[i] = Ymouse;
+Xpos[i] = Xmouse;
+Speed[i] = Math.random() * 6 + 4;
+grow[i] = 8;
+nsSize[i] = Math.random() * 15 + 5;
+}
+if (ns) {
+document.layers['sn'+i].left = Xpos[i] + wscrll;
+document.layers['sn'+i].top = Ypos[i] + hscrll;
+}
+else {
+si[i].style.pixelLeft = Xpos[i] + wscrll;
+si[i].style.pixelTop = Ypos[i] + hscrll;
+si[i].style.width = grow[i];
+si[i].style.height = grow[i]; 
+}
+grow[i] += rate[i]; 
+Cstep[i] += Step[i];
+if (grow[i] > 24) grow[i] = 25;
+}
+setTimeout('MouseBubbles()', 10);
+}
+MouseBubbles();
+//  End -->
+</script>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Page Details:  Mouse Bubbles</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Command-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  3.26 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- ONE STEP TO INSTALL MOUSE BUBBLES:
+
+  1.  Copy the coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY BGCOLOR="#000000"&gt;
+
+&lt;!-- If you want the bubbles to appear behind everything else put the rest of your page content into a simple div/layer, example below --&gt; 
+
+&lt;!-- EXAMPLE -------------------------------------
+&lt;html&gt;
+&lt;head etc...
+&lt;body bgcolor etc...
+
+&lt;the script...
+...end script&gt;
+
+&lt;div style="position:relative"&gt;
+rest of page content, text and graphics etc.
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+-------------------------------------------------&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Kurt Grigg (kurt.grigg@virgin.net) --&gt;
+&lt;!-- Web Site:  http://website.lineone.net/~kurt.grigg/javascript --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+Image0 = new Image();
+Image0.src = "BubBlack.gif";
+Amount = 20; 
+Ymouse = -50;
+Xmouse = -50;
+Ypos = new Array();
+Xpos = new Array();
+Speed = new Array();
+rate = new Array();
+grow = new Array();
+Step = new Array();
+Cstep = new Array();
+nsSize = new Array();
+ns = (document.layers)?1:0;
+(document.layers)?window.captureEvents(Event.MOUSEMOVE):0;
+function Mouse(evnt) {
+Ymouse=(document.layers)?evnt.pageY-20:event.y-20;
+Xmouse=(document.layers)?evnt.pageX:event.x;
+}
+(document.layers)?window.onMouseMove=Mouse:document.onmousemove=Mouse;
+for (i = 0; i &lt; Amount; i++) {
+Ypos[i] = Ymouse;
+Xpos[i] = Xmouse;
+Speed[i] = Math.random()*4+1;
+Cstep[i] = 0;
+Step[i] = Math.random()*0.1+0.05;
+grow[i] = 8;
+nsSize[i] = Math.random()*15+5;
+rate[i] = Math.random()*0.5+0.1;
+}
+if (ns) {
+for (i = 0; i &lt; Amount; i++) {
+document.write("&lt;LAYER NAME='sn"+i+"' LEFT=0 TOP=0&gt;&lt;img src="+Image0.src+" name='N' width="+nsSize[i]+" height="+nsSize[i]+"&gt;&lt;/LAYER&gt;");
+   }
+}
+else {
+document.write('&lt;div style="position:absolute;top:0px;left:0px"&gt;&lt;div style="position:relative"&gt;');
+for (i = 0; i &lt; Amount; i++) {
+document.write('&lt;img id="si" src="'+Image0.src+'" style="position:absolute;top:0px;left:0px;filter:alpha(opacity=90)"&gt;');
+}
+document.write('&lt;/div&gt;&lt;/div&gt;');
+}
+function MouseBubbles() {
+var hscrll = (document.layers)?window.pageYOffset:document.body.scrollTop;
+var wscrll = (document.layers)?window.pageXOffset:document.body.scrollLeft;
+for (i = 0; i &lt; Amount; i++){
+sy = Speed[i] * Math.sin(270 * Math.PI / 180);
+sx = Speed[i] * Math.cos(Cstep[i] * 4);
+Ypos[i] += sy;
+Xpos[i] += sx; 
+if (Ypos[i] &lt; -40) {
+Ypos[i] = Ymouse;
+Xpos[i] = Xmouse;
+Speed[i] = Math.random() * 6 + 4;
+grow[i] = 8;
+nsSize[i] = Math.random() * 15 + 5;
+}
+if (ns) {
+document.layers['sn'+i].left = Xpos[i] + wscrll;
+document.layers['sn'+i].top = Ypos[i] + hscrll;
+}
+else {
+si[i].style.pixelLeft = Xpos[i] + wscrll;
+si[i].style.pixelTop = Ypos[i] + hscrll;
+si[i].style.width = grow[i];
+si[i].style.height = grow[i]; 
+}
+grow[i] += rate[i]; 
+Cstep[i] += Step[i];
+if (grow[i] &gt; 24) grow[i] = 25;
+}
+setTimeout('MouseBubbles()', 10);
+}
+MouseBubbles();
+//  End --&gt;
+&lt;/script&gt;
+
+ 
+
+&lt;!-- Script Size:  3.26 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

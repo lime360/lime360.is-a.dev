@@ -1,0 +1,236 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Misc.:  Days ahead</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Miscellaneous">
+<META NAME="description" CONTENT="This script will print out a date a certain number of days ahead of the current date.  Just enter how many days ahead you want to display, and it will print out that date!  Useful on order forms (tell a visitor after they order that you must receive their order by a date 3 weeks from today, etc.  And, it's Y2K complaint!">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /miscellaneous/"><font color="#FF0000">Miscellaneous</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Days Ahead</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE=" helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+This script will print out a date a certain number of days ahead of the current date.  Just enter how many days ahead you want to display, and it will print out that date!  Useful on order forms (tell a visitor after they order that you must receive their order by a date 3 weeks from today, etc.  And, it's Y2K complaint!<br><hr>
+</td></tr>
+</table>
+<!--  Demonstration -->
+<BODY>
+<CENTER>
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+var AddDays = 3;
+TDate = new Date();
+TDay = new Array('Sunday', 'Monday', 'Tuesday', 
+'Wednesday', 'Thursday', 'Friday', 'Saturday');
+TMonth = new Array('January', 'February', 'March', 
+'April', 'May','June', 'July', 'August', 'September', 
+'October', 'November', 'December');
+MonthDays = new Array('31', '28', '31', '30', 
+'31', '30', '31', '31', '30', '31', '30', '31');
+function isLeapYear (Year) {
+if (((Year % 4)==0) && ((Year % 100)!=0) || ((Year % 400)==0)) {
+return true;
+} 
+else {
+return false;
+   }
+}
+CurYear = TDate.getYear();
+if (CurYear < 2000)       // Y2K Fix, Isaac Powell
+CurYear = CurYear + 1900; // http://onyx.idbsu.edu/~ipowell
+CurMonth = TDate.getMonth();
+CurDayOw = TDate.getDay();
+CurDay = TDate.getDate();
+month = TMonth[CurMonth];
+if (month == 'February')  {
+if (((CurYear % 4)==0) && ((CurYear % 100)!=0) || ((CurYear %
+400)==0)) {
+MonthDays[1] = 29;
+}
+else {
+MonthDays[1] = 28;
+   }
+}
+days = MonthDays[CurMonth];
+CurDay += AddDays;
+if (CurDay > days) {
+if (CurMonth == 11) {
+CurMonth = 0;
+month = TMonth[CurMonth];
+CurYear = CurYear + 1
+}
+else {
+month = TMonth[CurMonth+1];
+}
+CurDay = CurDay - days;
+}
+CurDayOw += AddDays;
+function adjustDay (cday) {
+if (cday > 6) {
+cday -= 6;
+CurDayOw = TDay[cday-1];
+adjustDay(cday-1);
+}
+else {
+CurDayOw = TDay[cday];
+return true;
+
+   }
+}
+adjustDay(CurDayOw);
+TheDate  = CurDayOw + ', ';
+TheDate += month + ' ';
+TheDate += CurDay + ', ';
+if (CurYear<100) CurYear="19" + CurYear;
+TheDate += CurYear;
+document.write("<center>");
+document.write(AddDays + " days from now is ... " + TheDate);
+document.write("</center>");
+// End -->
+</script>
+<P>
+<BR>
+<P>
+<a name="source">
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Misc.:  Days Ahead</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as NotePad or SimpleText) and save (Control-s or Apple-s).  The script is yours!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.01 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL DAYS AHEAD:
+
+   1.  Add the code into the BODY of your HTML document  
+   2.  Finally, enter the number of days to look ahead  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var AddDays = 3;  //  How many days ahead of the current date
+TDate = new Date();
+TDay = new Array('Sunday', 'Monday', 'Tuesday', 
+'Wednesday', 'Thursday', 'Friday', 'Saturday');
+TMonth = new Array('January', 'February', 'March', 
+'April', 'May','June', 'July', 'August', 'September', 
+'October', 'November', 'December');
+MonthDays = new Array('31', '28', '31', '30', 
+'31', '30', '31', '31', '30', '31', '30', '31');
+function isLeapYear (Year) {
+if (((Year % 4)==0) && ((Year % 100)!=0) || ((Year % 400)==0)) {
+return true;
+} 
+else {
+return false;
+   }
+}
+CurYear = TDate.getYear();
+if (CurYear < 2000)       // Y2K Fix, Isaac Powell
+CurYear = CurYear + 1900; // http://onyx.idbsu.edu/~ipowell
+CurMonth = TDate.getMonth();
+CurDayOw = TDate.getDay();
+CurDay = TDate.getDate();
+month = TMonth[CurMonth];
+if (month == 'February')  {
+if (((CurYear % 4)==0) && ((CurYear % 100)!=0) || ((CurYear %
+400)==0)) {
+MonthDays[1] = 29;
+}
+else {
+MonthDays[1] = 28;
+   }
+}
+days = MonthDays[CurMonth];
+CurDay += AddDays;
+if (CurDay &gt; days) {
+if (CurMonth == 11) {
+CurMonth = 0;
+month = TMonth[CurMonth];
+CurYear = CurYear + 1
+}
+else {
+month = TMonth[CurMonth+1];
+}
+CurDay = CurDay - days;
+}
+CurDayOw += AddDays;
+function adjustDay (cday) {
+if (cday &gt; 6) {
+cday -= 6;
+CurDayOw = TDay[cday-1];
+adjustDay(cday-1);
+}
+else {
+CurDayOw = TDay[cday];
+return true;
+
+   }
+}
+adjustDay(CurDayOw);
+TheDate  = CurDayOw + ', ';
+TheDate += month + ' ';
+TheDate += CurDay + ', ';
+if (CurYear&lt;100) CurYear="19" + CurYear;
+TheDate += CurYear;
+document.write("&lt;center&gt;");
+document.write(AddDays + " days from now is ... " + TheDate);
+document.write("&lt;/center&gt;");
+// End --&gt;
+&lt;/script&gt;
+
+ 
+
+&lt;!-- Script Size:  2.01 KB  --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

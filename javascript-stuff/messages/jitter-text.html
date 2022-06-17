@@ -1,0 +1,174 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Messages:  Jitter Text</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Michael Tartaglia (stonedstan@hotmail.com)">
+<META NAME="section" CONTENT="Messages">
+<META NAME="description" CONTENT="(Version 4.0+ Browsers)  The blink tag was good at getting your visitors attention, but how quickly it got annoying....  The newest attention-getter is Jitter Text!  Just enter the text you want to use, and in version 4.0+ browser it will 'jiggle' around the screen, like jello!  And it is not annoying!  Check it out!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Michael Tartaglia (stonedstan@hotmail.com) -->
+<!-- Web Site:  http://travel.to/html-hell
+
+<!-- Begin
+dw=0;   //change in width;
+dh=0;   //change in height;
+function jitter() {
+w = (Math.round(Math.random()*10)%5)-2; dw+=w;
+h = (Math.round(Math.random()*10)%5)-2; dh+=h;
+if (dh>10) {h=(0-11);dh=0;}
+else if (dh<(0-10)) {h=11;dh=0;}
+if (dw>10) {w=(0-11);dw=0;}
+else if (dw<(0-10)) {w=11;dw=0;}
+vers = parseInt(navigator.appVersion);
+if (vers>=4) {
+if (navigator.appName=="Netscape") {
+document.jitterText.left+=w;
+document.jitterText.top+=h;
+}
+else if (navigator.appName=="Microsoft Internet Explorer") {
+document.all.jitterText.style.pixelLeft+=w;
+document.all.jitterText.style.pixelTop+=h;
+}
+setTimeout("jitter()",100);
+}
+else {} // browser can't view effect
+}
+// End -->
+</SCRIPT>
+<STYLE TYPE="text/css">
+#jitterText {
+position: absolute; left: 0; top: 310; font-size:24pt; 
+background:white; color:red; }
+</STYLE>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff OnLoad="jitter()">
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /messages/"><font color="#FF0000"><b>Messages</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Jitter Text</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+(Version 4.0+ Browsers)  The blink tag was good at getting your visitors attention, but how quickly it got annoying....  The newest attention-getter is Jitter Text!  Just enter the text you want to use, and in version 4.0+ browser it will 'jiggle' around the screen, like jello!  And it is not annoying!  Check it out!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<DIV ID="jitterText">
+<center>&nbsp;This text jiggles more than gelatin !!&nbsp;</center>
+</DIV>
+<br><br><br><br>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Messages:  Jitter Text</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.58 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL JITTER TEXT:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the onLoad event handler into the BODY tag
+  3.  Put the last coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Michael Tartaglia (stonedstan@hotmail.com) --&gt;
+&lt;!-- Web Site:  http://travel.to/html-hell
+
+&lt;!-- Begin
+dw=0;   //change in width;
+dh=0;   //change in height;
+function jitter() {
+w = (Math.round(Math.random()*10)%5)-2; dw+=w;
+h = (Math.round(Math.random()*10)%5)-2; dh+=h;
+if (dh&gt;10) {h=(0-11);dh=0;}
+else if (dh&lt;(0-10)) {h=11;dh=0;}
+if (dw&gt;10) {w=(0-11);dw=0;}
+else if (dw&lt;(0-10)) {w=11;dw=0;}
+vers = parseInt(navigator.appVersion);
+if (vers&gt;=4) {
+if (navigator.appName=="Netscape") {
+document.jitterText.left+=w;
+document.jitterText.top+=h;
+}
+else if (navigator.appName=="Microsoft Internet Explorer") {
+document.all.jitterText.style.pixelLeft+=w;
+document.all.jitterText.style.pixelTop+=h;
+}
+setTimeout("jitter()",100);
+}
+else {} // browser can't view effect
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+&lt;STYLE TYPE="text/css"&gt;
+#jitterText {
+position: absolute; left: 0; top: 300; font-size:24pt; 
+background:white; color:red; }
+&lt;/STYLE&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Insert the onLoad event handler into your BODY tag  --&gt;
+
+<BODY OnLoad="jitter()">
+
+&lt;!-- STEP THREE: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;DIV ID="jitterText"&gt;
+&lt;center&gt;&nbsp;This text jiggles more than gelatin !!&nbsp;&lt;/center&gt;
+&lt;/DIV&gt;
+
+ 
+
+&lt;!-- Script Size:  1.58 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

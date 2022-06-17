@@ -1,0 +1,168 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Navigation:  Web Slideshow</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Randy Bennett (rbennett@thezone.net)">
+<META NAME="section" CONTENT="Navigation">
+<META NAME="description" CONTENT="Create your own hands-free web page slide show with ease.  This script cycles any number of pages that you set up on a time delay basis.  Absolutely a gem for any interested in providing a hands-free web site demonstration.  The slideshow can repeat indefinitely, or finish at a 'the end' page.  The left frame also allows for a quick jump to any particular page that you want.">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /navigation/"><font color="#FF0000"><b>Navigation</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Web Slideshow</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Create your own hands-free web page slide show with ease.  This script cycles any number of pages that you set up on a time delay basis.  Absolutely a gem for any interested in providing a hands-free web site demonstration.  The slideshow can repeat indefinitely, or finish at a 'the end' page.  The left frame also allows for a quick jump to any particular page that you want.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<a href="web-slideshow-demo.html" /navigation/web-slideshow-demo.html" target="_new"><B>Open the (Repeating) Web Slideshow Demo</B></A><p>
+(Opens in a new window.  Close window to return to this page)<br><P></center>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Navigation:  Web Slideshow</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.26 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- FIVE STEPS TO INSTALL WEB SLIDESHOW:
+
+  1.  Open a new page, save it as:  slideshow-left.html
+  2.  Copy the coding into the HEAD of slideshow-left.html
+  3.  Add the onLoad code into the BODY of slideshow-left.html
+  4.  Put the BODY coding into the BODY of slideshow-left.html
+  5.  Save the FRAMESET code as slideshow.html  --&gt;
+
+&lt;!-- STEP ONE: Create a new page, save as:  slideshow-left.html page  --&gt;
+
+&lt;!-- STEP TWO: Save this page as slideshow-left.html page  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Randy Bennett (rbennett@thezone.net) --&gt;
+&lt;!-- Web Site:  http://home.thezone.net/~rbennett/sitemap.htm --&gt;
+&lt;!-- Modified by:  Ronnie T. Moore, Editor --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var repeatshow = 1; // 1 = yes, 0 = no
+var timedelay = 15000; // time in milliseconds, 15000 = `15 secs
+// be sure to allow enough time for each page to load !!!
+
+var page = new Array(
+"web-slideshow-demo1.html",
+"web-slideshow-demo2.html",
+"web-slideshow-demo3.html",
+); // note no comma after last page!
+
+// your "the end" page.  Necessary if repeatshow = 0; 
+var endpage = "the-end.html"; 
+
+var slidenum = 0;
+var slidecount = page.length;
+var timerID = 0;
+var win2;
+function showSlideShow() {
+slidenum++;
+if (slidenum &lt; slidecount+1) {
+parent.main.location.href = page[slidenum-1];
+}
+if (slidenum == slidecount+1) { // if finished
+if (repeatshow) {
+slidenum = 0;
+timerID = setTimeout('showSlideShow()', timedelay)
+}
+else parent.main.location.href = endpage;
+}
+else timerID = setTimeout('showSlideShow()', timedelay);
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP THREE: Insert the onLoad code in slideshow-left.html  --&gt;
+
+&lt;BODY onLoad="timerID=setTimeout('showSlideShow()',timedelay)"&gt;
+
+&lt;!-- STEP FOUR: Copy this code into the BODY of slideshow-left.html  --&gt;
+
+&lt;center&gt;
+&lt;a href="web-slideshow-demo.html" target="main" onClick="clearTimeout(timerID)"&gt;&lt;B&gt;MAIN MENU&lt;/B&gt;&lt;/A&gt;&lt;br&gt;
+&lt;br&gt;
+&lt;a href="web-slideshow-demo1.html" target="main" onClick="clearTimeout(timerID)"&gt;Page One&lt;/a&gt;&lt;br&gt;
+&lt;a href="web-slideshow-demo2.html" target="main" onClick="clearTimeout(timerID)"&gt;Page Two&lt;/a&gt;&lt;br&gt;
+&lt;a href="web-slideshow-demo4.html" target="main" onClick="clearTimeout(timerID)"&gt;Page Three&lt;/a&gt;&lt;br&gt;&lt;br&gt;
+&lt;a href="javascript:showSlideShow();" onClick="clearTimeout(timerID)"&gt;Cycle Pages&lt;/a&gt;&lt;br&gt;
+&lt;/center&gt;
+
+&lt;p&gt;&lt;center&gt;
+&lt;font face="arial, helvetica" SIZE="-2"&gt;Free JavaScripts provided&lt;br&gt;
+by &lt;a href="http://javascriptsource.com"&gt;JavaScript Source Code 3000&lt;/a&gt;&lt;/font&gt;
+&lt;/center&gt;&lt;p&gt;
+
+&lt;!-- STEP FIVE: Save this final FRAMESET code into a new page --&gt;
+&lt;!-- Save that page as:  slideshow-left.html page  --&gt;
+
+&lt;html&gt;
+&lt;frameset cols="150,*" border=5&gt;
+&lt;frame src="slideshow-left.html" name="side" sideborder=1 Scrolling="yes"  marginwidth="5" marginheight="5" noresize&gt;
+&lt;frame src="main.html" name="main" sideborder=1 Scrolling="yes"  marginwidth="5" marginheight="5" noresize&gt;
+&lt;/frameset&gt;
+&lt;/frameset&gt;
+&lt;/html&gt;
+
+&lt;!-- Script Size:  2.26 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>
+
+

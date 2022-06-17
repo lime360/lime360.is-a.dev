@@ -1,0 +1,30 @@
+<HTML>
+<HEAD>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+function leapto(form) {
+var myindex=form.dest.selectedIndex
+parent.right.location.href=(form.dest.options[myindex].value);
+}
+// End -->
+</SCRIPT>
+
+</HEAD>
+
+<BODY>
+
+<CENTER>
+<FORM NAME="myform">
+<SELECT NAME="dest" SIZE=1 onChange="leapto(this.form)">
+<OPTION SELECTED VALUE="http://www.yahoo.com">Yahoo
+<OPTION VALUE="http://www.excite.com">Excite
+<OPTION VALUE="http://www.altavista.com">Altavista
+<OPTION VALUE="http://www.hotbot.com">Hotbot
+
+</SELECT>
+</FORM>
+</CENTER>
+
+</BODY>
+</HTML>

@@ -1,0 +1,318 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  BG Effects:  Color Table</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="BG Effects">
+<META NAME="description" CONTENT="Here, JavaScript helps you manipulate the background of the document.  Either choose the color you want by its name, or create a unique color by using the '+' and '-' with the Red-Green-Blue buttons.  A really neat effect.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+function changeBackground(hexNumber) {
+document.bgColor=hexNumber
+}
+prefix="#"
+rnum1=0
+bnum1=0
+gnum1=0
+rnum2=0
+bnum2=0
+gnum2=0
+hexNumber2="#000000";
+rcount=0;
+bcount=0;
+gcount=0;
+function num2hex(num) {
+if (num==15) return "f";
+else if (num==14) return "e";
+else if (num==13) return "d";
+else if (num==12) return "c";
+else if (num==11) return "b";
+else if (num==10) return "a";
+else if (num==9) return "9";
+else if (num==8) return "8";
+else if (num==7) return "7";
+else if (num==6) return "6";
+else if (num==5) return "5";
+else if (num==4) return "4";
+else if (num==3) return "3";
+else if (num==2) return "2";
+else if (num==1) return "1";
+else return "0";
+}
+function changeBackground2(number) {
+if(number == 1) {
+rnum1=rcount%16;
+if (rcount <15) {
+rcount=rcount+1;
+  }
+}
+if(number == 2) {
+gnum1=gcount%16;
+if (gcount <15) {
+gcount=gcount+1;
+  }
+}
+if(number == 3) {
+bnum1=bcount%16;
+if (bcount <15) {
+bcount=bcount+1;
+  }
+}
+if(number == 4) {
+rnum1=rcount%16;
+if (rcount > 0) {
+rcount=rcount-1;
+  }
+}
+if(number == 5) {
+gnum1=gcount%16;
+if (gcount > 0) {
+gcount=gcount-1;
+  }
+}
+if(number == 6) {
+bnum1=bcount%16;
+if (bcount > 0) {
+bcount=bcount-1;
+  }
+ }
+hexNumber2 = prefix+num2hex(rnum1)+num2hex(rnum2)+num2hex(gnum1)+num2hex(gnum2)+num2hex(bnum1)+num2hex(bnum2);
+  document.bgColor=hexNumber2
+}
+// End -->
+</script>
+
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /bgeffects/"><font color="#FF0000">Background Effects</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Color Table</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Here, JavaScript helps you manipulate the background of the document.  Either choose the color you want by its name, or create a unique color by using the "+" and "-" with the Red-Green-Blue buttons.  A really neat effect.
+<br>
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<FORM METHOD="POST" NAME="background">
+</TABLE>
+<TABLE WIDTH=350 BORDER="3" CELLPADDING="3">
+<TR>
+<TD Align=center><INPUT TYPE="button" VALUE="Red" ONCLICK="changeBackground('#FF0000')"></TD>
+<TD Align=center><INPUT TYPE="button" VALUE="Green" ONCLICK="changeBackground('#00FF00')"></TD>
+<TD Align=center><INPUT TYPE="button" VALUE="Blue" ONCLICK="changeBackground('#0000FF')"></TD>
+<TD Align=center><INPUT TYPE="button" VALUE="White" ONCLICK="changeBackground('#FFFFFF')"></TD>
+<TD Align=center><INPUT TYPE="button" VALUE="Black" ONCLICK="changeBackground('#000000')"></TD>
+<TD Align=center><INPUT TYPE="button" VALUE="Grey" ONCLICK="changeBackground('#C0C0C0')"></TD>
+</TR>
+</TABLE>
+<TABLE WIDTH=350 BORDER="3" CELLPADDING="3">
+<TR><TD><center>Variable Background Color Changer</center></TD>
+</TR>
+</TABLE>
+<TABLE WIDTH=350 BORDER="3" CELLPADDING="3">
+<TR>
+<TD Align=center><INPUT TYPE="button" VALUE="+ Red" ONCLICK="changeBackground2(1)"><P>
+<INPUT TYPE="button" VALUE="- Red" ONCLICK="changeBackground2(4)"></TD>
+
+<TD Align=center><INPUT TYPE="button" VALUE="+ Green" ONCLICK="changeBackground2(2)"><P>
+<INPUT TYPE="button" VALUE="- Green" ONCLICK="changeBackground2(5)"></TD>
+<TD Align=center><INPUT TYPE="button" VALUE="+ Blue" ONCLICK="changeBackground2(3)"><P>
+<INPUT TYPE="button" VALUE="- Blue" ONCLICK="changeBackground2(6)"></TD>
+</TR>
+</TABLE>
+<TABLE WIDTH=350 BORDER="3" CELLPADDING="3">
+<TR>
+<TD><center>Keep pressing buttons to change color<BR>
+(The color will start as black)</center></TD>
+</TR>
+</TABLE>
+</FORM>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  BG Effects:  Changer</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  3.44 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL COLOR TABLE:
+
+   1.  Paste the designated script into the HEAD of your HTML document
+   2.  Add the code into the BODY of your HTML document  --&gt;
+		  
+&lt;!-- STEP ONE:  Paste this script into the HEAD of your HTML document --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function changeBackground(hexNumber) {
+document.bgColor=hexNumber
+}
+prefix="#"
+rnum1=0
+bnum1=0
+gnum1=0
+rnum2=0
+bnum2=0
+gnum2=0
+hexNumber2="#000000";
+rcount=0;
+bcount=0;
+gcount=0;
+function num2hex(num) {
+if (num==15) return "f";
+else if (num==14) return "e";
+else if (num==13) return "d";
+else if (num==12) return "c";
+else if (num==11) return "b";
+else if (num==10) return "a";
+else if (num==9) return "9";
+else if (num==8) return "8";
+else if (num==7) return "7";
+else if (num==6) return "6";
+else if (num==5) return "5";
+else if (num==4) return "4";
+else if (num==3) return "3";
+else if (num==2) return "2";
+else if (num==1) return "1";
+else return "0";
+}
+function changeBackground2(number) {
+if(number == 1) {
+rnum1=rcount%16;
+if (rcount &lt;15) {
+rcount=rcount+1;
+  }
+}
+if(number == 2) {
+gnum1=gcount%16;
+if (gcount &lt;15) {
+gcount=gcount+1;
+  }
+}
+if(number == 3) {
+bnum1=bcount%16;
+if (bcount &lt;15) {
+bcount=bcount+1;
+  }
+}
+if(number == 4) {
+rnum1=rcount%16;
+if (rcount &gt; 0) {
+rcount=rcount-1;
+  }
+}
+if(number == 5) {
+gnum1=gcount%16;
+if (gcount &gt; 0) {
+gcount=gcount-1;
+  }
+}
+if(number == 6) {
+bnum1=bcount%16;
+if (bcount &gt; 0) {
+bcount=bcount-1;
+  }
+ }
+hexNumber2 = prefix+num2hex(rnum1)+num2hex(rnum2)+num2hex(gnum1)+num2hex(gnum2)+num2hex(bnum1)+num2hex(bnum2);
+  document.bgColor=hexNumber2
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+&lt;!-- STEP TWO:  Add this code to the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;CENTER&gt;
+&lt;FORM METHOD="POST" NAME="background"&gt;
+&lt;TABLE WIDTH=350 BORDER="3" CELLPADDING="3"&gt;
+&lt;TR&gt;
+&lt;TD Align=center&gt;&lt;INPUT TYPE="button" VALUE="Red" ONCLICK="changeBackground('#FF0000')"&gt;&lt;/TD&gt;
+&lt;TD Align=center&gt;&lt;INPUT TYPE="button" VALUE="Green" ONCLICK="changeBackground('#00FF00')"&gt;&lt;/TD&gt;
+&lt;TD Align=center&gt;&lt;INPUT TYPE="button" VALUE="Blue" ONCLICK="changeBackground('#0000FF')"&gt;&lt;/TD&gt;
+&lt;TD Align=center&gt;&lt;INPUT TYPE="button" VALUE="White" ONCLICK="changeBackground('#FFFFFF')"&gt;&lt;/TD&gt;
+&lt;TD Align=center&gt;&lt;INPUT TYPE="button" VALUE="Black" ONCLICK="changeBackground('#000000')"&gt;&lt;/TD&gt;
+&lt;TD Align=center&gt;&lt;INPUT TYPE="button" VALUE="Grey" ONCLICK="changeBackground('#C0C0C0')"&gt;&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;/TABLE&gt;
+&lt;TABLE WIDTH=350 BORDER="3" CELLPADDING="3"&gt;
+&lt;TR&gt;&lt;TD&gt;&lt;center&gt;Variable Background Color Changer&lt;/center&gt;&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;/TABLE&gt;
+&lt;TABLE WIDTH=350 BORDER="3" CELLPADDING="3"&gt;
+&lt;TR&gt;
+&lt;TD Align=center&gt;&lt;INPUT TYPE="button" VALUE="+ Red" ONCLICK="changeBackground2(1)"&gt;&lt;P&gt;
+&lt;INPUT TYPE="button" VALUE="- Red" ONCLICK="changeBackground2(4)"&gt;&lt;/TD&gt;
+&lt;TD Align=center&gt;&lt;INPUT TYPE="button" VALUE="+ Green" ONCLICK="changeBackground2(2)"&gt;&lt;P&gt;
+&lt;INPUT TYPE="button" VALUE="- Green" ONCLICK="changeBackground2(5)"&gt;&lt;/TD&gt;
+&lt;TD Align=center&gt;&lt;INPUT TYPE="button" VALUE="+ Blue" ONCLICK="changeBackground2(3)"&gt;&lt;P&gt;
+&lt;INPUT TYPE="button" VALUE="- Blue" ONCLICK="changeBackground2(6)"&gt;&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;/TABLE&gt;
+&lt;TABLE WIDTH=350 BORDER="3" CELLPADDING="3"&gt;
+&lt;TR&gt;
+&lt;TD&gt;&lt;center&gt;Keep pressing buttons to change color&lt;BR&gt;
+(The color will start as black)&lt;/center&gt;&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;/TABLE&gt;
+&lt;/FORM&gt;
+&lt;/CENTER&gt;
+ 
+
+&lt;!-- Script Size:  3.44 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

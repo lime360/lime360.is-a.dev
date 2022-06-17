@@ -1,0 +1,139 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Page Details:  Image Sized Window</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Alan Chu">
+<META NAME="section" CONTENT="Page Details">
+<META NAME="description" CONTENT="Sizes a new popup window to the exact dimensions of the image in that window.  Sweet!">
+<META NAME="date" CONTENT="2000-10-05">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Alan Chu">
+<META NAME="section" CONTENT="Page Details">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /page-details/"><font color="#FF0000"><b>Page Details</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Image Sized Window</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Sizes a new popup window to the exact dimensions of the image in that window.  Sweet!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<a href="image-sized-window-demo.html" /page-details/image-sized-window-demo.html" target="_blank">Open Image Window</a>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Page Details:  Image Sized Window</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.59 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- FOUR STEPS TO INSTALL IMAGE SIZED WINDOW:
+
+  1.  Insert the HEAD section into a new file, save as image-window.html
+  2.  Add the onLoad event handler into the BODY tag of image-window.html
+  3.  Put the last coding into the BODY section of image-window.html
+  4.  Place the window opening code into your regular HTML page  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of image-window.html  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Alan Chu --&gt;
+&lt;!-- Web Site:  http://homepage.hkpeoples.net --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var isNav4, isIE4;
+if (parseInt(navigator.appVersion.charAt(0)) &gt;= 4) {
+isNav4 = (navigator.appName == "Netscape") ? 1 : 0;
+isIE4 = (navigator.appName.indexOf("Microsoft") != -1) ? 1 : 0;
+}
+function fitWindowSize() {
+if (isNav4) {
+window.innerWidth = document.layers[0].document.images[0].width;
+window.innerHeight = document.layers[0].document.images[0].height;
+}
+if (isIE4) {
+window.resizeTo(500, 500);
+width = 500 - (document.body.clientWidth -  document.images[0].width);
+height = 500 - (document.body.clientHeight -  document.images[0].height);
+window.resizeTo(width, height);
+   }
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Insert the onLoad event handler to image-window.html   --&gt;
+
+&lt;BODY onLoad="fitWindowSize()"&gt;
+
+&lt;!-- STEP THREE: Copy this code into the BODY of image-window.html  --&gt;
+
+&lt;div style="position:absolute; left:0px; top:0px"&gt;
+&lt;img src="image.gif" alt="JSS Logo" width="267" height="103"&gt;
+&lt;/div&gt;
+
+&lt;!-- STEP FOUR: Paste this code into your window opening page --&gt;
+
+&lt;a href="image-window.html" target="_blank"&gt;Open Image Window&lt;/a&gt;
+
+&lt;p&gt;&lt;center&gt;
+&lt;font face="arial, helvetica" SIZE="-2"&gt;Free JavaScripts provided&lt;br&gt;
+by &lt;a href="http://javascriptsource.com"&gt;JavaScript Source Code 3000&lt;/a&gt;&lt;/font&gt;
+&lt;/center&gt;&lt;p&gt;
+
+&lt;!-- Script Size:  1.59 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

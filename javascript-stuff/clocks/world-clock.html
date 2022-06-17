@@ -1,0 +1,336 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Clocks:  World Clock</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Emanuel Gavrilv (eltal@sprint.ca)">
+<META NAME="section" CONTENT="Clocks">
+<META NAME="description" CONTENT="By using your computer's clock, you can calculate the time in other time zones all over the world!  Useful if you communicate across different time zones for business or leisure.  A great script!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Emanuel Gavrilv (eltal@sprint.ca) -->
+<!-- Web Site:  http://www.angelfire.com/on/eltal -->
+
+
+
+
+<!-- Begin
+function GetTime() { 
+var dt = new Date();
+var def = dt.getTimezoneOffset()/60;
+var gmt = (dt.getHours() + def);
+document.clock.local.value = (IfZero(dt.getHours()) + ":" + IfZero(dt.getMinutes()) + ":" + IfZero(dt.getSeconds()));
+var ending = ":" + IfZero(dt.getMinutes()) + ":" +  IfZero(dt.getSeconds());
+var rome =check24(((gmt + 1) > 24) ? ((gmt + 1) - 24) : (gmt + 1));
+document.clock.rome.value = (IfZero(rome) + ending);
+var isr =check24(((gmt + 2) > 24) ? ((gmt + 2) - 24) : (gmt + 2));
+document.clock.Israel.value = (IfZero(isr) + ending);
+var msw =check24(((gmt + 3) > 24) ? ((gmt + 3) - 24) : (gmt + 3));
+document.clock.msw.value = (IfZero(msw) + ending);
+var baku =check24(((gmt + 4) > 24) ? ((gmt + 4) - 24) : (gmt + 4));
+document.clock.baku.value = (IfZero(baku) + ending);
+var del =check24(((gmt + 5) > 24) ? ((gmt + 5) - 24) : (gmt + 5));
+document.clock.del.value = (IfZero(del) + ending);
+var dh =check24(((gmt + 6) > 24) ? ((gmt + 6) - 24) : (gmt + 6));
+document.clock.dh.value = (IfZero(dh) + ending);
+var kok =check24(((gmt +7 ) > 24) ? ((gmt +7 ) - 24) : (gmt + 7));
+document.clock.kok.value = (IfZero(kok) + ending);
+var ho =check24(((gmt + 8) > 24) ? ((gmt + 8) - 24) : (gmt + 8));
+document.clock.ho.value = (IfZero(ho) + ending);
+var tky =check24(((gmt + 9) > 24) ? ((gmt + 9) - 24) : (gmt + 9));
+document.clock.tky.value = (IfZero(tky) + ending);
+var sdn =check24(((gmt + 10) > 24) ? ((gmt + 10) - 24) : (gmt + 10));
+document.clock.sdn.value = (IfZero(sdn) + ending);
+var mag =check24(((gmt + 11) > 24) ? ((gmt + 11) - 24) : (gmt + 11));
+document.clock.mag.value = (IfZero(mag) + ending);
+var wll =check24(((gmt + 12) > 24) ? ((gmt + 12) - 24) : (gmt + 12));
+document.clock.wll.value = (IfZero(wll) + ending);
+
+var _GMT =check24(((gmt) > 24) ? ((gmt) - 24) : (gmt));
+
+document.clock._GMT.value = (IfZero(_GMT) + ":" + IfZero(dt.getMinutes()) + ":" + IfZero(dt.getSeconds()));
+var eniw =check24(((gmt + (24-12)) > 24) ? ((gmt + (24-12)) - 24) : (gmt + (24-12)));
+document.clock.eniw.value = (IfZero(eniw) + ending);
+var sam =check24(((gmt + (24-11)) > 24) ? ((gmt + (24-11)) - 24) : (gmt + (24-11)));
+document.clock.sam.value = (IfZero(sam) + ending);
+var haw =check24(((gmt + (24-10)) > 24) ? ((gmt + (24-10)) - 24) : (gmt + (24-10)));
+document.clock.Hawaii.value = (IfZero(haw) + ending);
+var ala =check24(((gmt + (24-9)) > 24) ? ((gmt + (24-9)) - 24) : (gmt + (24-9)));
+document.clock.alaska.value = (IfZero(ala) + ending);
+var pacif =check24(((gmt + (24-8)) >= 24) ? ((gmt + (24-8)) - 24) : (gmt + (24-8)));
+document.clock.pacif.value = (IfZero(pacif) + ending);
+var mount =check24(((gmt + (24-7)) > 24) ? ((gmt + (24-7)) - 24) : (gmt + (24-7)));
+document.clock.mount.value = (IfZero(mount) + ending);
+var center =check24(((gmt + (24-6)) > 24) ? ((gmt + (24-6)) - 24) : (gmt + (24-6)));
+document.clock.center.value = (IfZero(center) + ending);
+var east =check24(((gmt + (24-5)) > 24) ? ((gmt + (24-5)) - 24) : (gmt + (24-5)));
+document.clock.east.value = (IfZero(east) + ending);
+var atl =check24(((gmt + (24-4)) > 24) ? ((gmt + (24-4)) - 24) : (gmt + (24-4)));
+document.clock.atl.value = (IfZero(atl) + ending);
+var bra =check24(((gmt + (24-3)) > 24) ? ((gmt + (24-3)) - 24) : (gmt + (24-3)));
+bra = (bra >= 24) ? bra - 24 : bra;
+document.clock.bra.value = (IfZero(bra) + ending);
+var mid =check24(((gmt + (24-2)) > 24) ? ((gmt + (24-2)) - 24) : (gmt + (24-2)));
+mid = (mid >= 24) ? mid - 24 : mid;
+document.clock.mid.value = (IfZero(mid) + ending);
+var azo =check24(((gmt + (24-1)) > 24) ? ((gmt + (24-1)) - 24) : (gmt + (24-1)));
+azo = (azo >= 24) ? azo - 24 : azo;
+document.clock.azo.value = (IfZero(azo) + ending);
+setTimeout("GetTime()", 1000);
+}
+function IfZero(num) {
+return ((num <= 9) ? ("0" + num) : num);
+}
+function check24(hour) {
+return (hour >= 24) ? hour - 24 : hour;
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff onLoad="javascript:GetTime();">
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /clocks/"><font color="#FF0000"><b>Clocks</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>World Clock</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+By using your computer's clock, you can calculate the time in other time zones all over the world!  Useful if you communicate across different time zones for business or leisure.  A great script!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name="clock">
+<strong>Local Time <input type="text" size="8" name="local"></strong>
+<p>
+Eniwetok (GMT-12)  <input type="text" size="8" name="eniw"><br>
+Samoa (GMT-11)  <input type="text" size="8" name="sam"><br>
+Hawaii (GMT-10)  <input type="text" size="8" name="Hawaii">
+<p>
+Alaska (GMT-9)  <input type="text" size="8" name="alaska"><br>
+Pacific Time (GMT-8)  <input type="text" size="8" name="pacif"><br>
+Mountain Time (GMT-7)  <input type="text" size="8" name="mount">
+<p>
+Central Time (GMT-6)  <input type="text" size="8" name="center"><br>
+Eastern Time (GMT-5)  <input type="text" size="8" name="east"><br>
+Atlantic Time (GMT-4)  <input type="text" size="8" name="atl">
+<p>
+Brazilia (GMT-3)  <input type="text" size="8" name="bra"><br>
+Mid-Atlantic (GMT-2)  <input type="text" size="8" name="mid"><br>
+Azores (GMT-1)  <input type="text" size="8" name="azo">
+<p>
+<strong>Greenwich Mean Time (GMT)  <input type="text" size="8" name="_GMT"></strong>
+<p>
+Rome (GMT +1)  <input type="text" size="8" name="rome"><br>
+Israel (GMT +2)  <input type="text" size="8" name="Israel"><br>
+Moscow (GMT +3)  <input type="text" size="8" name="msw">
+<p>
+Baku (GMT +4)  <input type="text" size="8" name="baku"><br>
+New Delhi (GMT +5)  <input type="text" size="8" name="del"><br>
+Dhakar (GMT +6)  <input type="text" size="8" name="dh">
+<p>
+Bangkok (GMT +7)  <input type="text" size="8" name="kok"><br>
+Hong Kong (GMT +8)  <input type="text" size="8" name="ho"><br>
+Tokyo (GMT +9)  <input type="text" size="8" name="tky">
+<p>
+Sydney (GMT +10)  <input type="text" size="8" name="sdn"><br>
+Magadan (GMT +11)  <input type="text" size="8" name="mag"><br>
+Wellington (GMT +12)  <input type="text" size="8" name="wll">
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Clocks:  World Clock</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  5.96 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL WORLD CLOCK:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the onLoad event handler into the BODY tag
+  3.  Put the last coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Emanuel Gavrilv (eltal@sprint.ca) --&gt;
+&lt;!-- Web Site:  http://www.angelfire.com/on/eltal --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function GetTime() { 
+var dt = new Date();
+var def = dt.getTimezoneOffset()/60;
+var gmt = (dt.getHours() + def);
+document.clock.local.value = (IfZero(dt.getHours()) + ":" + IfZero(dt.getMinutes()) + ":" + IfZero(dt.getSeconds()));
+var ending = ":" + IfZero(dt.getMinutes()) + ":" +  IfZero(dt.getSeconds());
+var rome =check24(((gmt + 1) &gt; 24) ? ((gmt + 1) - 24) : (gmt + 1));
+document.clock.rome.value = (IfZero(rome) + ending);
+var isr =check24(((gmt + 2) &gt; 24) ? ((gmt + 2) - 24) : (gmt + 2));
+document.clock.Israel.value = (IfZero(isr) + ending);
+var msw =check24(((gmt + 3) &gt; 24) ? ((gmt + 3) - 24) : (gmt + 3));
+document.clock.msw.value = (IfZero(msw) + ending);
+var baku =check24(((gmt + 4) &gt; 24) ? ((gmt + 4) - 24) : (gmt + 4));
+document.clock.baku.value = (IfZero(baku) + ending);
+var del =check24(((gmt + 5) &gt; 24) ? ((gmt + 5) - 24) : (gmt + 5));
+document.clock.del.value = (IfZero(del) + ending);
+var dh =check24(((gmt + 6) &gt; 24) ? ((gmt + 6) - 24) : (gmt + 6));
+document.clock.dh.value = (IfZero(dh) + ending);
+var kok =check24(((gmt +7 ) &gt; 24) ? ((gmt +7 ) - 24) : (gmt + 7));
+document.clock.kok.value = (IfZero(kok) + ending);
+var ho =check24(((gmt + 8) &gt; 24) ? ((gmt + 8) - 24) : (gmt + 8));
+document.clock.ho.value = (IfZero(ho) + ending);
+var tky =check24(((gmt + 9) &gt; 24) ? ((gmt + 9) - 24) : (gmt + 9));
+document.clock.tky.value = (IfZero(tky) + ending);
+var sdn =check24(((gmt + 10) &gt; 24) ? ((gmt + 10) - 24) : (gmt + 10));
+document.clock.sdn.value = (IfZero(sdn) + ending);
+var mag =check24(((gmt + 11) &gt; 24) ? ((gmt + 11) - 24) : (gmt + 11));
+document.clock.mag.value = (IfZero(mag) + ending);
+var wll =check24(((gmt + 12) &gt; 24) ? ((gmt + 12) - 24) : (gmt + 12));
+document.clock.wll.value = (IfZero(wll) + ending);
+
+var _GMT =check24(((gmt) &gt; 24) ? ((gmt) - 24) : (gmt));
+
+document.clock._GMT.value = (IfZero(_GMT) + ":" + IfZero(dt.getMinutes()) + ":" + IfZero(dt.getSeconds()));
+var eniw =check24(((gmt + (24-12)) &gt; 24) ? ((gmt + (24-12)) - 24) : (gmt + (24-12)));
+document.clock.eniw.value = (IfZero(eniw) + ending);
+var sam =check24(((gmt + (24-11)) &gt; 24) ? ((gmt + (24-11)) - 24) : (gmt + (24-11)));
+document.clock.sam.value = (IfZero(sam) + ending);
+var haw =check24(((gmt + (24-10)) &gt; 24) ? ((gmt + (24-10)) - 24) : (gmt + (24-10)));
+document.clock.Hawaii.value = (IfZero(haw) + ending);
+var ala =check24(((gmt + (24-9)) &gt; 24) ? ((gmt + (24-9)) - 24) : (gmt + (24-9)));
+document.clock.alaska.value = (IfZero(ala) + ending);
+var pacif =check24(((gmt + (24-8)) &gt;= 24) ? ((gmt + (24-8)) - 24) : (gmt + (24-8)));
+document.clock.pacif.value = (IfZero(pacif) + ending);
+var mount =check24(((gmt + (24-7)) &gt; 24) ? ((gmt + (24-7)) - 24) : (gmt + (24-7)));
+document.clock.mount.value = (IfZero(mount) + ending);
+var center =check24(((gmt + (24-6)) &gt; 24) ? ((gmt + (24-6)) - 24) : (gmt + (24-6)));
+document.clock.center.value = (IfZero(center) + ending);
+var east =check24(((gmt + (24-5)) &gt; 24) ? ((gmt + (24-5)) - 24) : (gmt + (24-5)));
+document.clock.east.value = (IfZero(east) + ending);
+var atl =check24(((gmt + (24-4)) &gt; 24) ? ((gmt + (24-4)) - 24) : (gmt + (24-4)));
+document.clock.atl.value = (IfZero(atl) + ending);
+var bra =check24(((gmt + (24-3)) &gt; 24) ? ((gmt + (24-3)) - 24) : (gmt + (24-3)));
+bra = (bra &gt;= 24) ? bra - 24 : bra;
+document.clock.bra.value = (IfZero(bra) + ending);
+var mid =check24(((gmt + (24-2)) &gt; 24) ? ((gmt + (24-2)) - 24) : (gmt + (24-2)));
+mid = (mid &gt;= 24) ? mid - 24 : mid;
+document.clock.mid.value = (IfZero(mid) + ending);
+var azo =check24(((gmt + (24-1)) &gt; 24) ? ((gmt + (24-1)) - 24) : (gmt + (24-1)));
+azo = (azo &gt;= 24) ? azo - 24 : azo;
+document.clock.azo.value = (IfZero(azo) + ending);
+setTimeout("GetTime()", 1000);
+}
+function IfZero(num) {
+return ((num &lt;= 9) ? ("0" + num) : num);
+}
+function check24(hour) {
+return (hour &gt;= 24) ? hour - 24 : hour;
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Insert the onLoad event handler into your BODY tag  --&gt;
+
+&lt;BODY onLoad="javascript:GetTime();"&gt;
+
+&lt;!-- STEP THREE: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;center&gt;
+&lt;form name="clock"&gt;
+&lt;strong&gt;Local Time &lt;input type="text" size="8" name="local"&gt;&lt;/strong&gt;
+&lt;p&gt;
+Eniwetok (GMT-12)  &lt;input type="text" size="8" name="eniw"&gt;&lt;br&gt;
+Samoa (GMT-11)  &lt;input type="text" size="8" name="sam"&gt;&lt;br&gt;
+Hawaii (GMT-10)  &lt;input type="text" size="8" name="Hawaii"&gt;
+&lt;p&gt;
+Alaska (GMT-9)  &lt;input type="text" size="8" name="alaska"&gt;&lt;br&gt;
+Pacific Time (GMT-8)  &lt;input type="text" size="8" name="pacif"&gt;&lt;br&gt;
+Mountain Time (GMT-7)  &lt;input type="text" size="8" name="mount"&gt;
+&lt;p&gt;
+Central Time (GMT-6)  &lt;input type="text" size="8" name="center"&gt;&lt;br&gt;
+Eastern Time (GMT-5)  &lt;input type="text" size="8" name="east"&gt;&lt;br&gt;
+Atlantic Time (GMT-4)  &lt;input type="text" size="8" name="atl"&gt;
+&lt;p&gt;
+Brazilia (GMT-3)  &lt;input type="text" size="8" name="bra"&gt;&lt;br&gt;
+Mid-Atlantic (GMT-2)  &lt;input type="text" size="8" name="mid"&gt;&lt;br&gt;
+Azores (GMT-1)  &lt;input type="text" size="8" name="azo"&gt;
+&lt;p&gt;
+&lt;strong&gt;Greenwich Mean Time (GMT)  &lt;input type="text" size="8" name="_GMT"&gt;&lt;/strong&gt;
+&lt;p&gt;
+Rome (GMT +1)  &lt;input type="text" size="8" name="rome"&gt;&lt;br&gt;
+Israel (GMT +2)  &lt;input type="text" size="8" name="Israel"&gt;&lt;br&gt;
+Moscow (GMT +3)  &lt;input type="text" size="8" name="msw"&gt;
+&lt;p&gt;
+Baku (GMT +4)  &lt;input type="text" size="8" name="baku"&gt;&lt;br&gt;
+New Delhi (GMT +5)  &lt;input type="text" size="8" name="del"&gt;&lt;br&gt;
+Dhakar (GMT +6)  &lt;input type="text" size="8" name="dh"&gt;
+&lt;p&gt;
+Bangkok (GMT +7)  &lt;input type="text" size="8" name="kok"&gt;&lt;br&gt;
+Hong Kong (GMT +8)  &lt;input type="text" size="8" name="ho"&gt;&lt;br&gt;
+Tokyo (GMT +9)  &lt;input type="text" size="8" name="tky"&gt;
+&lt;p&gt;
+Sydney (GMT +10)  &lt;input type="text" size="8" name="sdn"&gt;&lt;br&gt;
+Magadan (GMT +11)  &lt;input type="text" size="8" name="mag"&gt;&lt;br&gt;
+Wellington (GMT +12)  &lt;input type="text" size="8" name="wll"&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+&lt;p&gt;&lt;center&gt;
+&lt;font face="arial, helvetica" SIZE="-2"&gt;Free JavaScripts provided&lt;br&gt;
+by &lt;a href="http://javascriptsource.com"&gt;JavaScript Source Code 3000&lt;/a&gt;&lt;/font&gt;
+&lt;/center&gt;&lt;p&gt;
+
+&lt;!-- Script Size:  5.96 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

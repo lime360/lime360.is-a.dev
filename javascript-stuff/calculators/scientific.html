@@ -1,0 +1,293 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Calculators:  Scientific</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Calculators">
+<META NAME="description" CONTENT="This is a very cool JavaScript calculator that does many advanced functions - cosine, sine, tangent, square root, exponents, etc.  Very Cool!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--  Hide
+function addChar(input, character) {
+if(input.value == null || input.value == "0")
+input.value = character
+else
+input.value += character
+}
+function cos(form) {
+form.display.value = Math.cos(form.display.value);}
+function sin(form) {
+form.display.value = Math.sin(form.display.value);}
+function tan(form) {
+form.display.value = Math.tan(form.display.value);}
+function sqrt(form) {
+form.display.value = Math.sqrt(form.display.value);}
+function ln(form) {
+form.display.value = Math.log(form.display.value);}
+function exp(form) {
+form.display.value = Math.exp(form.display.value);}
+function sqrt(form) {
+form.display.value = Math.sqrt(form.display.value);}
+function deleteChar(input) {
+input.value = input.value.substring(0, input.value.length - 1)}
+function changeSign(input) {
+if(input.value.substring(0, 1) == "-")
+input.value = input.value.substring(1, input.value.length)
+else
+input.value = "-" + input.value}
+function compute(form) {
+form.display.value = eval(form.display.value)}
+function square(form) {
+form.display.value = eval(form.display.value) *
+eval(form.display.value)}
+function checkNum(str) {
+for (var i = 0; i < str.length; i++) {
+var ch = str.substring(i, i+1)
+if (ch < "0" || ch > "9") {
+if (ch != "/" && ch != "*" && ch != "+" && ch != "-" && ch != "."
+&& ch != "(" && ch!= ")") {
+alert("invalid entry!")
+return false
+      }
+   }
+}
+return true
+}
+// End -->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /calculators/"><font color="#FF0000">Calculators</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Scientific</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+This is a very cool JavaScript calculator that does many advanced functions - cosine, sine, tangent, square root, exponents, etc.  Very Cool!
+<br>
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center><form>
+<input name="display" value="0" size=25></td>
+<br>
+<input type="button" value="   exp  " onClick="if (checkNum(this.form.display.value))
+{ exp(this.form) }">
+<input type="button" value="    7    " onClick="addChar(this.form.display, '7')">
+<input type="button" value="    8    " onClick="addChar(this.form.display, '8')">
+<input type="button" value="    9    " onClick="addChar(this.form.display, '9')">
+<input type="button" value="    /    " onClick="addChar(this.form.display, '/')">
+<br>
+<input type="button" value="    ln    " onClick="if (checkNum(this.form.display.value))
+{ ln(this.form) }">
+<input type="button" value="    4    " onClick="addChar(this.form.display, '4')">
+<input type="button" value="    5    " onClick="addChar(this.form.display, '5')">
+<input type="button" value="    6    " onClick="addChar(this.form.display, '6')">
+<input type="button" value="    *    " onClick="addChar(this.form.display, '*')">
+<br>
+<input type="button" value="   sqrt  " onClick="if (checkNum(this.form.display.value))
+{ sqrt(this.form) }">
+<input type="button" value="    1    " onClick="addChar(this.form.display, '1')">
+<input type="button" value="    2    " onClick="addChar(this.form.display, '2')">
+<input type="button" value="    3    " onClick="addChar(this.form.display, '3')">
+<input type="button" value="    -    " onClick="addChar(this.form.display, '-')">
+<br>
+<input type="button" value="    sq   " onClick="if (checkNum(this.form.display.value))
+{ square(this.form) }">
+<input type="button" value="   0     " onClick="addChar(this.form.display, '0')"> 
+<input type="button" value="    .    " onClick="addChar(this.form.display, '.')"> 
+<input type="button" value="   +/-   " onClick="changeSign(this.form.display)">
+<input type="button" value="    +    " onClick="addChar(this.form.display, '+')">
+<br>
+<input type="button" value="    (    " onClick="addChar(this.form.display, '(')"> 
+<input type="button" value="   cos   " onClick="if (checkNum(this.form.display.value))
+{ cos(this.form) }">
+<input type="button" value="   sin   " onClick="if (checkNum(this.form.display.value))
+{ sin(this.form) }">
+<input type="button" value="   tan   " onClick="if (checkNum(this.form.display.value))
+{ tan(this.form) }">
+<input type="button" value="    )    " onClick="addChar(this.form.display, ')')"> 
+<br>
+<input type="button" value="  Clear  " onClick="this.form.display.value = 0 ">
+<input type="button" value=" Back Space  " onClick="deleteChar(this.form.display)">
+<input type="button" value="   Enter    " name="enter" onClick="if (checkNum(this.form.display.value)) 
+{ compute(this.form) }">
+</FORM>
+</CENTER>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Calculator:  Scientific Calculator</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  4.63 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL YOUR SCIENTIFIC CALCULATOR:
+
+   1.  Paste the designated coding into the HEAD of your HTML document 
+   2.  Put the last script into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the HEAD of your HTML document  --&gt;
+		  
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function addChar(input, character) {
+if(input.value == null || input.value == "0")
+input.value = character
+else
+input.value += character
+}
+function cos(form) {
+form.display.value = Math.cos(form.display.value);}
+function sin(form) {
+form.display.value = Math.sin(form.display.value);}
+function tan(form) {
+form.display.value = Math.tan(form.display.value);}
+function sqrt(form) {
+form.display.value = Math.sqrt(form.display.value);}
+function ln(form) {
+form.display.value = Math.log(form.display.value);}
+function exp(form) {
+form.display.value = Math.exp(form.display.value);}
+function sqrt(form) {
+form.display.value = Math.sqrt(form.display.value);}
+function deleteChar(input) {
+input.value = input.value.substring(0, input.value.length - 1)
+}
+function changeSign(input) {
+if(input.value.substring(0, 1) == "-")
+input.value = input.value.substring(1, input.value.length)
+else
+input.value = "-" + input.value
+}
+function compute(form)  {
+form.display.value = eval(form.display.value)}
+function square(form)  {
+form.display.value = eval(form.display.value) *
+eval(form.display.value)}
+function checkNum(str)  {
+for (var i = 0; i &lt; str.length; i++) {
+var ch = str.substring(i, i+1)
+if (ch &lt; "0" || ch &gt; "9") {
+if (ch != "/" && ch != "*" && ch != "+" && ch !=
+"-" && ch != "."
+&& ch != "(" && ch!= ")") {
+alert("invalid entry!")
+return false
+         }
+      }
+   }
+return true
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;CENTER&gt;
+&lt;FORM&gt;
+&lt;input name="display" value="0" size=25&gt;&lt;/td&gt;
+&lt;br&gt;
+&lt;input type="button" value="   exp  " onClick="if (checkNum(this.form.display.value)) { 
+exp(this.form) }"&gt;
+&lt;input type="button" value="    7    " onClick="addChar(this.form.display, '7')"&gt;
+&lt;input type="button" value="    8    " onClick="addChar(this.form.display, '8')"&gt;
+&lt;input type="button" value="    9    " onClick="addChar(this.form.display, '9')"&gt;
+&lt;input type="button" value="    /    " onClick="addChar(this.form.display, '/')"&gt;
+&lt;br&gt;
+&lt;input type="button" value="   ln    " onClick="if (checkNum(this.form.display.value)) { 
+ln(this.form) }"&gt;
+&lt;input type="button" value="    4    " onClick="addChar(this.form.display, '4')"&gt;
+&lt;input type="button" value="    5    " onClick="addChar(this.form.display, '5')"&gt;
+&lt;input type="button" value="    6    " onClick="addChar(this.form.display, '6')"&gt;
+&lt;input type="button" value="    *    " onClick="addChar(this.form.display, '*')"&gt;
+&lt;br&gt;
+&lt;input type="button" value="   sqrt  " onClick="if (checkNum(this.form.display.value)) {
+sqrt(this.form) }"&gt;
+&lt;input type="button" value="    1    " onClick="addChar(this.form.display, '1')"&gt;
+&lt;input type="button" value="    2    " onClick="addChar(this.form.display, '2')"&gt;
+&lt;input type="button" value="    3    "  onClick="addChar(this.form.display, '3')"&gt;
+&lt;input type="button" value="    -    "  onClick="addChar(this.form.display, '-')"&gt;
+&lt;br&gt;
+&lt;input type="button" value="   sq    " onClick="if (checkNum(this.form.display.value)) { 
+square(this.form) }"&gt;
+&lt;input type="button" value="    0    " onClick="addChar(this.form.display, '0')"&gt; 
+&lt;input type="button" value="    .    " onClick="addChar(this.form.display, '.')"&gt; 
+&lt;input type="button" value="   +/-   " onClick="changeSign(this.form.display)"&gt;
+&lt;input type="button" value="    +    " onClick="addChar(this.form.display, '+')"&gt;
+&lt;br&gt;
+&lt;input type="button" value="    (    " onClick="addChar(this.form.display, '(')"&gt; 
+&lt;input type="button" value="   cos   " onClick="if (checkNum(this.form.display.value)) { 
+cos(this.form) }"&gt;
+&lt;input type="button" value="   sin   " onClick="if (checkNum(this.form.display.value)) {
+sin(this.form) }"&gt;
+&lt;input type="button" value="   tan   " onClick="if (checkNum(this.form.display.value)) { 
+tan(this.form) }"&gt;
+&lt;input type="button" value="    )    " onClick="addChar(this.form.display, ')')"&gt; 
+&lt;br&gt;
+&lt;input type="button" value="   Clear       "  onClick="this.form.display.value = 0 "&gt;
+&lt;input type="button" value="   Back Space  " onClick="deleteChar(this.form.display)"&gt;
+&lt;input type="button" value="   Enter       " name="enter"
+onClick="if (checkNum(this.form.display.value)) { 
+compute(this.form) }"&gt;
+&lt;/FORM&gt;
+&lt;/CENTER&gt;
+
+ 
+
+&lt;!-- Script Size:  4.63 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

@@ -1,0 +1,570 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Messages:  Zen Phrases</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="bsimmons@seanet.com">
+<META NAME="section" CONTENT="Messages">
+<META NAME="description" CONTENT="Take advice from the all powerful force of Zen.  Zen will give you three phrases each time you click the button - the first phrase changes every hour, the second phrase changes every minute, and the last phrase changes every second.  Try it out!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+var currentdate = 0
+var thekoan = ""
+var fframe = 0
+var insight = 0
+var directive = 0
+var beginning = "Koan is: "
+var separator = "\n\n"
+function zen(){
+alert(koan())}
+function koan(){
+currentdate = new Date ()
+fframe = currentdate.getHours()
+insight = currentdate.getMinutes()
+directive = currentdate.getSeconds()
+thekoan = separator + getframe() +separator + getinsight() + separator + getdirective()
+return (thekoan)}
+function getframe(){
+if (fframe == 0)
+return "Winter feels no itching;"
+else if (fframe == 1)
+return "Find the plum;"
+else if (fframe == 2)
+return "The fog does not pay taxes;"
+else if (fframe == 3)
+return "Other birds do not like the loudest bird;"
+else if (fframe == 4)
+return "Many moose have travelled your path before you;"
+else if (fframe == 5)
+return "Autumn has no sense of humor;"
+else if (fframe == 6)
+return "Even the clearest glass distorts;"
+else if (fframe == 7)
+return "The well has no sympathy for the peasant;"
+else if (fframe == 8)
+return "No sandal squeaks without purpose;"
+else if (fframe == 9)
+return "A thorn pricks you;"
+else if (fframe == 10)
+return "Who is to say the panda would not be vengeful;"
+else if (fframe == 11)
+return "Tramp through the darkness;"
+else if (fframe == 12)
+return "Work when you can work;"
+else if (fframe == 13)
+return "The artisan keeps his hovel tidy;"
+else if (fframe == 14)
+return "The sparrow sings of deception;"
+else if (fframe == 15)
+return "Tramp through the darkness;"
+else if (fframe == 16)
+return "Who is to say the panda would not be vengeful;"
+else if (fframe == 17)
+return "A thorn pricks you;"
+else if (fframe == 18)
+return "No sandal squeaks without purpose;"
+else if (fframe == 19)
+return "The well has no sympathy for the peasant;"
+else if (fframe == 20)
+return "Even the clearest glass distorts;"
+else if (fframe == 21)
+return "Autumn has no sense of humor;"
+else if (fframe == 22)
+return "Tramp through the darkness;"
+else if (fframe == 23)
+return "The artisan keeps his hovel tidy;"
+}
+function getinsight(){
+if (insight > 44)
+insight = insight - 45
+else if (insight > 29)
+insight = insight - 30
+else if (insight > 14)
+insight = insight - 15
+if (insight == 0)
+return "It tells us the void is empty."
+else if (insight == 1)
+return "Only such a thing can change the universe." 
+else if (insight == 2)
+return "Understand this, and be rewarded with clarity." 
+else if (insight == 3)
+return "What are the chances?" 
+else if (insight == 4)
+return "In this, the true spirit hides." 
+else if (insight == 5)
+return "Effort can be applied here." 
+else if (insight == 6)
+return "Its center does not rotate." 
+else if (insight == 7)
+return "The journey may be longer coming back." 
+else if (insight == 8)
+return "This is why we find the truth so piercing."
+else if (insight == 9)
+return "Are we so alike?!?"
+else if (insight == 10)
+return "Yet even a bean has a purpose."
+else if (insight == 11)
+return "The answer often requires a few extra minutes."
+else if (insight == 12)
+return "Some strike with a stick that which they cannot lift."
+else if (insight == 13)
+return "The pure own only themselves and maybe some toiletries."
+else if (insight == 14)
+return "It will speak to you if you let it."
+}
+function getdirective(){
+if (directive > 44)
+directive = directive - 45
+else if (directive > 29)
+directive = directive - 30
+else if (directive > 14)
+directive = directive - 15
+if (directive == 0)
+return "Be like a damp stone."
+else if (directive == 1)
+return "If you fall from the tree, leave your anger on the branch."
+else if (directive == 2)
+return "Choose to bend or to stretch, but choose only one."
+else if (directive == 3)
+return "Fill in every circle completely with a number 2 pencil."
+else if (directive == 4)
+return "Spit only where there is a need for spit."
+else if (directive == 5)
+return "Always lift with your knees."
+else if (directive == 6)
+return "If you need a road, make a road."
+else if (directive == 7)
+return "Choose only once between bamboo and wicker."
+else if (directive == 8)
+return "Do not carve your initials in anything you would not eat."
+else if (directive == 9)
+return "Respect even the space between your toes."
+else if (directive == 10)
+return "Step aside when the universe says, 'Hot stuff coming through!'"
+else if (directive == 11)
+return "Trust your sense of judging melon."
+else if (directive == 12)
+return "It is worse to be covered in molasses."
+else if (directive == 13)
+return "If you are a goose among ducks, run fast."
+else if (directive == 14)
+return "Confront the great conductor and ask him, 'What's your function?'"          
+}
+// End -->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /messages/"><font color="#FF0000">Messages</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Zen Phrases</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE=" helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Take advice from the all powerful force of Zen.  Zen will give you three phrases each time you click the button - the first phrase changes every hour, the second phrase changes every minute, and the last phrase changes every second.  Try it out!<br><hr>
+</td></tr>
+</table>
+<!--  Demonstration -->
+<BODY>
+<CENTER>
+ 
+<FORM>
+<INPUT TYPE="button" VALUE="Zen Button" NAME="ZenButton" onClick="zen()">
+</FORM>
+<P>
+<BR>
+<P>
+<a name="source">
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Messages:  Zen Phrases</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as NotePad or SimpleText) and save (Control-s or Apple-s).  The script is yours!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  5.32 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL ZEN PHRASES:
+
+   1.  Paste the coding into the HEAD of your HTML document
+   2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Put this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;CENTER&gt;
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;!-- Original:  bsimmons@seanet.com --&gt;
+&lt;!-- Web Site:  http://www.wrldpwr.com --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var currentdate = 0
+var thekoan = ""
+var fframe = 0
+var insight = 0
+var directive = 0
+var beginning = "Koan is: "
+var separator = "\n\n"
+function zen(){
+alert(koan())}
+function koan(){
+currentdate = new Date ()
+fframe = currentdate.getHours()
+insight = currentdate.getMinutes()
+directive = currentdate.getSeconds()
+thekoan = separator + getframe() +separator + getinsight() + separator + getdirective()
+return (thekoan)}
+function getframe(){
+if (fframe == 0)
+return "Winter feels no itching;"
+else if (fframe == 1)
+return "Find the plum;"
+else if (fframe == 2)
+return "The fog does not pay taxes;"
+else if (fframe == 3)
+return "Other birds do not like the loudest bird;"
+else if (fframe == 4)
+return "Many moose have travelled your path before you;"
+else if (fframe == 5)
+return "Autumn has no sense of humor;"
+else if (fframe == 6)
+return "Even the clearest glass distorts;"
+else if (fframe == 7)
+return "The well has no sympathy for the peasant;"
+else if (fframe == 8)
+return "No sandal squeaks without purpose;"
+else if (fframe == 9)
+return "A thorn pricks you;"
+else if (fframe == 10)
+return "Who is to say the panda would not be vengeful;"
+else if (fframe == 11)
+return "Tramp through the darkness;"
+else if (fframe == 12)
+return "Work when you can work;"
+else if (fframe == 13)
+return "The artisan keeps his hovel tidy;"
+else if (fframe == 14)
+return "The sparrow sings of deception;"
+else if (fframe == 15)
+return "Tramp through the darkness;"
+else if (fframe == 16)
+return "Who is to say the panda would not be vengeful;"
+else if (fframe == 17)
+return "A thorn pricks you;"
+else if (fframe == 18)
+return "No sandal squeaks without purpose;"
+else if (fframe == 19)
+return "The well has no sympathy for the peasant;"
+else if (fframe == 20)
+return "Even the clearest glass distorts;"
+else if (fframe == 21)
+return "Autumn has no sense of humor;"
+else if (fframe == 22)
+return "Tramp through the darkness;"
+else if (fframe == 23)
+return "The artisan keeps his hovel tidy;"
+}
+function getinsight(){
+if (insight &gt; 44)
+insight = insight - 45
+else if (insight &gt; 29)
+insight = insight - 30
+else if (insight &gt; 14)
+insight = insight - 15
+if (insight == 0)
+return "It tells us the void is empty."
+else if (insight == 1)
+return "Only such a thing can change the universe." 
+else if (insight == 2)
+return "Understand this, and be rewarded with clarity." 
+else if (insight == 3)
+return "What are the chances?" 
+else if (insight == 4)
+return "In this, the true spirit hides." 
+else if (insight == 5)
+return "Effort can be applied here." 
+else if (insight == 6)
+return "Its center does not rotate." 
+else if (insight == 7)
+return "The journey may be longer coming back." 
+else if (insight == 8)
+return "This is why we find the truth so piercing."
+else if (insight == 9)
+return "Are we so alike?!?"
+else if (insight == 10)
+return "Yet even a bean has a purpose."
+else if (insight == 11)
+return "The answer often requires a few extra minutes."
+else if (insight == 12)
+return "Some strike with a stick that which they cannot lift."
+else if (insight == 13)
+return "The pure own only themselves and maybe some toiletries."
+else if (insight == 14)
+return "It will speak to you if you let it."
+}
+function getdirective(){
+if (directive &gt; 44)
+directive = directive - 45
+else if (directive &gt; 29)
+directive = directive - 30
+else if (directive &gt; 14)
+directive = directive - 15
+if (directive == 0)
+return "Be like a damp stone."
+else if (directive == 1)
+return "If you fall from the tree, leave your anger on the branch."
+else if (directive == 2)
+return "Choose to bend or to stretch, but choose only one."
+else if (directive == 3)
+return "Fill in every circle completely with a number 2 pencil."
+else if (directive == 4)
+return "Spit only where there is a need for spit."
+else if (directive == 5)
+return "Always lift with your knees."
+else if (directive == 6)
+return "If you need a road, make a road."
+else if (directive == 7)
+return "Choose only once between bamboo and wicker."
+else if (directive == 8)
+return "Do not carve your initials in anything you would not eat."
+else if (directive == 9)
+return "Respect even the space between your toes."
+else if (directive == 10)
+return "Step aside when the universe says, 'Hot stuff coming through!'"
+else if (directive == 11)
+return "Trust your sense of judging melon."
+else if (directive == 12)
+return "It is worse to be covered in molasses."
+else if (directive == 13)
+return "If you are a goose among ducks, run fast."
+else if (directive == 14)
+return "Confront the great conductor and ask him, 'What's your function?'"          
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+&lt;!-- STEP TWO: Put this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;FORM&gt;
+&lt;INPUT TYPE="button" VALUE="Zen Button" NAME="ZenButton" onClick="zen()"&gt;
+&lt;/FORM&gt;
+
+ 
+
+&lt;!-- Script Size:  5.32 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+
+
+	
+
+<p>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+function getCookieVal (offset) {
+var endstr = document.cookie.indexOf(";", offset);
+if (endstr == -1)
+endstr = document.cookie.length;
+return unescape(document.cookie.substring(offset, endstr));
+}
+function GetCookie (name) {
+var arg = name + "=";
+var alen = arg.length;
+var clen = document.cookie.length;
+var i = 0;
+while (i < clen) {
+var j = i + alen;
+if (document.cookie.substring(i, j) == arg)
+return getCookieVal (j);
+i = document.cookie.indexOf(" ", i) + 1;
+if (i == 0)
+break;
+}
+return null;
+}
+function SetCookie (name, value) {
+var argv = SetCookie.arguments;
+var argc = SetCookie.arguments.length;
+var expires = (argc > 2) ? argv[2] : null;
+var path = "/"; //(argc > 3) ? argv[3] : null;
+var domain = (argc > 4) ? argv[4] : null;
+var secure = (argc > 5) ? argv[5] : false;
+document.cookie = name + "=" + escape (value) +
+((expires == null) ? "" : ("; expires=" +
+expires.toGMTString())) +
+((path == null) ? "" : ("; path=" + path)) +
+((domain == null) ? "" : ("; domain=" + domain)) +
+((secure == true) ? "; secure" : "");
+}
+
+var emailcookie = GetCookie('email_address');
+if (emailcookie == null) {
+emailcookie = 'your email here';
+}
+
+function chk(email, formname)
+{
+invalid = "";
+
+if (!email)
+invalid = "No email address found!  Try reloading the page then use the 'email a script' feature again.";
+
+else {
+
+if ( (email.indexOf("@") == -1) || (email.indexOf(".") == -1) ) 
+invalid += "\n\nInvalid email address.  Your email address is missing an '@' sign and a '.' in the domain name (like '.com').  Please check your address then submit again.";
+
+if (email.indexOf("youremailhere") > -1)
+invalid += "\n\nInvalid email address.  Make sure your email address included your username, the '@' sign, and the domain name (like '.com').";
+
+if (email.indexOf("\\") > -1) 
+invalid += "\n\nEmail address contains an invalid back-slash (\\) character.  Remove the character and submit again.";
+
+if (email.indexOf("/") > -1) 
+invalid += "\n\nEmail address contains an invalid forward-slash (/) character.  Remove the character and submit again.";
+
+if (email.indexOf("'") > -1) 
+invalid += "\n\nEmail address contains an invalid apostrophe (') character.  Remove the character and submit again.";
+
+if (email.indexOf("zaz.com.br") > -1) 
+invalid += "\n\nPlease do not use an email address that has an autoresponder set up for it.  Thanks.";
+
+if (email.indexOf("!") > -1) 
+invalid += "\n\nEmail address contains an invalid exclamation point (!) character.  Remove the character or correct the email address then submit again.";
+
+if ( (email.indexOf(",") > -1) || (email.indexOf(";") > -1) )
+invalid += "\n\nPlease only enter one email address in the box at a time.  Remove the extra addresses and submit again.";
+
+if (email.indexOf("?subject") > -1) 
+invalid += "\n\nPlease do not add '?subject=...' to your email address.  Scriptbot will send you the script with a pre-defined subject already.  Please remove the '?subject=...' from your email address and submit again.";
+}
+
+if (invalid == "")
+   {
+   var largeExpDate = new Date();
+   largeExpDate.setTime(largeExpDate.getTime() + (31 * 24 * 3600 * 1000));
+   SetCookie('email_address', email, largeExpDate);
+   if (formname == "scriptbot")
+      {
+      page = "http://javascript.internet.com/sent.html?" + email;
+      window.open(page, "AdWindow", "width=650,height=200");
+      }
+   return true;
+}
+else 
+   { 
+   alert("Oops, something is wrong...." + invalid);
+   return false;
+   }
+}
+
+function updateNewsletters() {
+with (document.forms["newslettersignup"]) {
+emailStr = email.value;
+var emailPat=/^(.+)@(.+)$/;
+var specialChars="\\(\\)<>@,;:\\\\\\\"\\.\\[\\]"; // remove   ( ) < > @ , ; : \ " . [ ]    */
+var validChars="\[^\\s" + specialChars + "\]";
+var quotedUser="(\"[^\"]*\")";
+var ipDomainPat=/^\[(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})\]$/;
+var atom=validChars + '+';
+var word="(" + atom + "|" + quotedUser + ")";
+var userPat=new RegExp("^" + word + "(\\." + word + ")*$");
+var domainPat=new RegExp("^" + atom + "(\\." + atom +")*$");
+var matchArray=emailStr.match(emailPat);
+if (matchArray==null) {
+alert("Email address seems incorrect (check @ and .'s)");
+return false;;
+}
+var user=matchArray[1];
+var domain=matchArray[2];
+if (user.match(userPat)==null) {
+alert("The username doesn't seem to be valid.");
+return false;
+}
+var IPArray=domain.match(ipDomainPat);
+if (IPArray!=null) {
+for (var i=1;i<=4;i++) {
+if (IPArray[i]>255) {
+alert("Destination IP address is invalid!");
+return false;
+      }
+   }
+}
+var domainArray=domain.match(domainPat);
+if (domainArray==null) {
+alert("The domain name doesn't seem to be valid.");
+return false;
+}
+var atomPat=new RegExp(atom,"g");
+var domArr=domain.match(atomPat);
+var len=domArr.length;
+if (domArr[domArr.length-1].length<2 || domArr[domArr.length-1].length>3) {
+alert("The address must end in a three-letter domain, or two letter country.");
+return false;
+}
+if (len<2) {
+var errStr="This address is missing a hostname!";
+alert(errStr);
+return false;
+}
+List_Name.value = newsletter.options[newsletter.selectedIndex].value
+		+ nltype.options[nltype.selectedIndex].value;
+
+   var largeExpDate = new Date();
+   largeExpDate.setTime(largeExpDate.getTime() + (31 * 24 * 3600 * 1000));
+   SetCookie('email_address', emailStr, largeExpDate);
+
+return true;
+   }
+}
+// End -->
+</script>
+
+<p>
+<center>
+
+<table cellpadding=0 cellspacing=0 border=0 width="620">
+<tr>
+<td align=left>
+

@@ -1,0 +1,160 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  BG Effects:  Cell BG Changer</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="(Internet Explorer Only) Changes the background color of a table's TD cell and the mouse cursor to a hand when you hover over the cell.  And, clicking acts like a normal link.">
+<META NAME="date" CONTENT="2000-10-02">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Chris Chopping">
+<META NAME="section" CONTENT="BG Effects">
+
+<!-- Original:  Chris Chopping (scripts@site4sure.com) -->
+<!-- Web Site:  http://www.site4sure.com -->
+
+<style>
+.tditem {
+font-size: 12px;
+font-family: Verdana, Arial, Helvetica, sans-serif;
+text-decoration: none;
+color: gray;
+}
+</style>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /bgeffects/"><font color="#FF0000"><b>BG Effects</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Cell BG Changer</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+(Internet Explorer Only) Changes the background color of a table's TD cell and the mouse cursor to a hand when you hover over the cell.  And, clicking acts like a normal link.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td onmouseover="bgColor='blue'" onClick="window.location='page1.html'" style="cursor:hand" onmouseout="bgColor='#FFFFFF'" bgcolor="#FFFFFF" width="100" align="center" valign="center"><b><font color="#D5D5D5">
+<a href="javascript:if(confirm('http://javascript.internet.com/bgeffects/page1.html  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://javascript.internet.com/bgeffects/page1.html'" /bgeffects/page1.html" class="tditem">
+Item 1</a></font></b></td>
+
+<td width="1" align="center">|</td>
+
+<td onmouseover="bgColor='blue'" onClick="window.location='page2.html'" style="cursor:hand" onmouseout="bgColor='#FFFFFF'" bgcolor="#FFFFFF" width="100" align="center" valign="center"><b><font color="#D5D5D5">
+<a href="javascript:if(confirm('http://javascript.internet.com/bgeffects/page2.html  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://javascript.internet.com/bgeffects/page2.html'" /bgeffects/page2.html" class="tditem">
+Item 2</a></font></b></td>
+
+<td width="1" align="center">|</td>
+
+<td onmouseover="bgColor='blue'" onClick="window.location='page3.html'" style="cursor:hand" onmouseout="bgColor='#FFFFFF'" bgcolor="#FFFFFF" width="100" align="center" valign="center"><b><font color="#D5D5D5">
+<a href="javascript:if(confirm('http://javascript.internet.com/bgeffects/page3.html  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://javascript.internet.com/bgeffects/page3.html'" /bgeffects/page3.html" class="tditem">
+Item 3</a></font></b></td>
+
+</tr>
+</table>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  BG Effects:  Cell BG Changer</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.60 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL CELL BG CHANGER:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;!-- Original:  Chris Chopping (scripts@site4sure.com) --&gt;
+&lt;!-- Web Site:  http://www.site4sure.com --&gt;
+
+&lt;style&gt;
+.tditem {
+font-size: 12px;
+font-family: Verdana, Arial, Helvetica, sans-serif;
+text-decoration: none;
+color: gray;
+}
+&lt;/style&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;table border=0 cellpadding=0 cellspacing=0&gt;
+&lt;tr&gt;
+&lt;td onmouseover="bgColor='blue'" onClick="window.location='page1.html'" style="cursor:hand" onmouseout="bgColor='#FFFFFF'" bgcolor="#FFFFFF" width="100" align="center" valign="center"&gt;&lt;b&gt;&lt;font color="#D5D5D5"&gt;
+&lt;a href="page1.html" class="tditem"&gt;
+Item 1&lt;/a&gt;&lt;/font&gt;&lt;/b&gt;&lt;/td&gt;
+
+&lt;td width="1" align="center"&gt;|&lt;/td&gt;
+
+&lt;td onmouseover="bgColor='blue'" onClick="window.location='page2.html'" style="cursor:hand" onmouseout="bgColor='#FFFFFF'" bgcolor="#FFFFFF" width="100" align="center" valign="center"&gt;&lt;b&gt;&lt;font color="#D5D5D5"&gt;
+&lt;a href="page2.html" class="tditem"&gt;
+Item 2&lt;/a&gt;&lt;/font&gt;&lt;/b&gt;&lt;/td&gt;
+
+&lt;td width="1" align="center"&gt;|&lt;/td&gt;
+
+&lt;td onmouseover="bgColor='blue'" onClick="window.location='page3.html'" style="cursor:hand" onmouseout="bgColor='#FFFFFF'" bgcolor="#FFFFFF" width="100" align="center" valign="center"&gt;&lt;b&gt;&lt;font color="#D5D5D5"&gt;
+&lt;a href="page3.html" class="tditem"&gt;
+Item 3&lt;/a&gt;&lt;/font&gt;&lt;/b&gt;&lt;/td&gt;
+
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  1.60 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

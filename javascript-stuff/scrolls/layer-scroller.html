@@ -1,0 +1,188 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Scrolls:  Layer Scroller</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Eddie Traversa (psych3@primus.com.au)">
+<META NAME="section" CONTENT="Scrolls">
+<META NAME="description" CONTENT="Provides controls to scroll the layer at varying speeds.  Can be used with your own graphics and layout to creatively present your content.">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /scrolls/"><font color="#FF0000"><b>Scrolls</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Layer Scroller</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Provides controls to scroll the layer at varying speeds.  Can be used with your own graphics and layout to creatively present your content.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name="scrollwindow">
+<input type=button value="Open Scroll Window" onClick="window.open('layer-scroller.html','scrollwindow','top=100,left=100,width=575,height=400');">
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Scrolls:  Layer Scroller</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  7.99 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL LAYER SCROLLER:
+
+  1.  Insert the first code in a new file, save as popup.html
+  2.  Add the opening code to the BODY of your main HTML document  --&gt;
+
+&lt;!-- STEP ONE: Insert the first code in a new file, save as popup.html  --&gt;
+
+&lt;HTML&gt;
+&lt;HEAD&gt;
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Eddie Traversa (psych3@primus.com.au) --&gt;
+&lt;!-- Web Site:  http://nirvana.media3.net --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function verScroll(dir, spd, loop) {
+loop = true;
+direction = "up";
+speed = 10;
+scrolltimer = null;
+if (document.layers) {
+var page = eval(document.contentLayer);
+}
+else {
+if (document.getElementById) {
+var page= eval("document.getElementById('contentLayer').style");
+}
+else {
+if (document.all) {
+var page = eval(document.all.contentLayer.style);
+      }
+   }
+}
+direction = dir;
+speed = parseInt(spd);
+var y_pos = parseInt(page.top);
+if (loop == true) {
+if (direction == "dn") {
+page.top = (y_pos - (speed));
+} else {
+if (direction == "up" && y_pos &lt; 10) {
+page.top = (y_pos + (speed));
+} else {
+if (direction == "top") {
+page.top = 10;
+      }
+   }
+}
+scrolltimer = setTimeout("verScroll(direction,speed)", 1);
+   }
+}
+function stopScroll() {
+loop = false;
+clearTimeout(scrolltimer);
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id="contentLayer" style="position:absolute; width:300px; z-index:1; left: 39px; top: 51px"&gt; 
+
+
+insert your text here !!
+
+
+
+&lt;/div&gt;
+&lt;div id="scrollmenu" style="position:absolute;width:200px;height:30px;z-index:1; left:400px; top: 40px"&gt;
+&lt;table border=1&gt;&lt;tr&gt;&lt;td&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td align=left&gt;Up&lt;/td&gt;
+&lt;td&gt;&nbsp;&lt;/td&gt;
+&lt;td align=right&gt;Down&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td colspan=3&gt;
+&lt;a href="#" onMouseOver="verScroll('up','25','true')" onMouseOut="stopScroll()"&gt;&lt;&lt;&lt;&lt;/a&gt; 
+&lt;a href="#" onMouseOver="verScroll('up','5','true')" onMouseOut="stopScroll()"&gt;&lt;&lt;&lt;/a&gt; 
+&lt;a href="#" onMouseOver="verScroll('up','1','true')" onMouseOut="stopScroll()"&gt;&lt;&lt;/a&gt; |
+&lt;a href="#" onMouseOver="verScroll('dn','1','true')" onMouseOut="stopScroll()"&gt;&gt;&lt;/a&gt; 
+&lt;a href="#" onMouseOver="verScroll('dn','5','true')" onMouseOut="stopScroll()"&gt;&gt;&gt;&lt;/a&gt; 
+&lt;a href="#" onMouseOver="verScroll('dn','25','true')" onMouseOut="stopScroll()"&gt;&gt;&gt;&gt;&lt;/a&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+&lt;!-- STEP TWO: Add the opening code to the BODY of your main HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form name="scrollwindow"&gt;
+&lt;input type=button value="Open Scroll Window" onClick="window.open('popup.html','scrollwindow','top=100,left=100,width=575,height=400');"&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+&lt;p&gt;&lt;center&gt;
+&lt;font face="arial, helvetica" SIZE="-2"&gt;Free JavaScripts provided&lt;br&gt;
+by &lt;a href="http://javascriptsource.com"&gt;JavaScript Source Code 3000&lt;/a&gt;&lt;/font&gt;
+&lt;/center&gt;&lt;p&gt;
+
+&lt;!-- Script Size:  7.99 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

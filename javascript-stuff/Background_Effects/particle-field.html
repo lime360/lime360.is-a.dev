@@ -1,0 +1,442 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  BG Effects:  Particle Field</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="Illustrates movement of stars (or snow) depending on the direction of the mouse.  Awesome!">
+<META NAME="date" CONTENT="2000-12-14">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Joe Lard">
+<META NAME="section" CONTENT="BG Effects">
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Joe Lard (darg36@home.com) -->
+<!-- Web Site:  http://members.home.net/darg36 -->
+
+
+
+
+<!-- Begin
+ie4 = document.all?1:0;
+ns4 = document.layers?1:0;
+ns5 = (document.getElementById && !document.all)?1:0;
+time0ID = 0;
+time1ID = 0;
+time2ID = 0;
+wind = 0;
+w1 = w2 = -10;
+v1 = v2 = -10;
+x1 = x2 = -10;
+y1 = y2 = -10;
+xan = yan = -.25;
+// emulate snow or stars? (true | false)
+snow = false;  // sinewave controlled
+star = true; // mouse controlled path
+function wave(){ // for snow
+xan = Math.sin(wind/57.3);
+wind+=Math.random()*5;
+if (wind>360) wind = 0;
+// yan = .25 // for water
+}
+// for stars
+function mm(e) {
+if (ns5) {
+xan = ((e.clientX)-csw)/csw;
+yan = ((e.clientY)-csh)/csh;
+}
+else {
+xan = (((ns4)?e.pageX:event.x)-csw)/csw;
+yan = (((ns4)?e.pageY:event.y)-csh)/csh;
+   }
+}
+function init() {
+if (ns4) {
+z0 = document.zen.document.z0;
+z1 = document.zen.document.z1;
+}
+if (ns5) if (document.getElementsByTagName("*")) {
+document.all = document.getElementsByTagName("*")
+}
+if (star) {
+if (ns4 || ns5) {
+window.captureEvents(Event.MOUSEMOVE);
+window.onmousemove = mm;
+}
+document.onmousemove = mm;
+}
+fs=(ns4)? "":"; font-size:25px";
+ret=""; tem=(ns4)? "<font size=5>":"";
+for (t=1;t<sh/28;t++) {
+for (u=1;u<sw/6;u++)
+tem += (Math.random()>.99)? ((Math.random()>.9)? "<font size="+((Math.random()*50)+12)+"px>.</font size>":"."):"&nbsp;"; tem += "<BR>";
+}
+tem += (ns4)? "</font size>":"";
+ret += "<div style='position:absolute; left:0px; top:0px; width:"+sw+"px; height:"+sh+"px; color:white"+fs+"; font-family:Times'>"+tem+"</DIV>";
+ret += "<div style='position:absolute; left:"+(sw)+"px; top:0px; width:"+sw+"px; height:"+sh+"px; color:white"+fs+"; font-family:Times'>"+tem+"</DIV>";
+ret += "<div style='position:absolute; left:0px; top:"+(sh)+"px; width:"+sw+"px; height:"+sh+"px; color:white"+fs+"; font-family:Times'>"+tem+"</DIV>";
+ret += "<div style='position:absolute; left:"+(sw)+"px; top:"+(sh)+"px; width:"+sw+"px; height:"+sh+"px; color:white"+fs+"; font-family:Times'>"+tem+"</DIV>";
+if (ns4) {
+z0.document.write(ret);
+z0.document.close();
+}
+if (ie4) z0.innerHTML = ret;
+if (ns5) document.all.z0.innerHTML = ret;
+ret=""; tem=(ns4)? "<font size=5>":"";
+for (t = 1; t < sh / 28; t++) {
+for (u = 1; u < sw / 6; u++)
+tem += (Math.random()>.99)? ((Math.random()>.9)? "<font size="+((Math.random()*50)+12)+"px>.</font size>":"."):"&nbsp;";
+tem+="<BR>";
+}
+tem += (ns4)? "</font size>":"";
+ret += "<div style='position:absolute; left:0px; top:0px; width:"+sw+"px; height:"+sh+"px; color:white"+fs+"; font-family:Times'>"+tem+"</DIV>";
+ret += "<div style='position:absolute; left:"+(sw)+"px; top:0px; width:"+sw+"px; height:"+sh+"px; color:white"+fs+"; font-family:Times'>"+tem+"</DIV>";
+ret += "<div style='position:absolute; left:0px; top:"+(sh)+"px; width:"+sw+"px; height:"+sh+"px; color:white"+fs+"; font-family:Times'>"+tem+"</DIV>";
+ret += "<div style='position:absolute; left:"+(sw)+"px; top:"+(sh)+"px; width:"+sw+"px; height:"+sh+"px; color:white"+fs+"; font-family:Times'>"+tem+"</DIV>";
+if (ns4) {
+z1.document.write(ret);
+z1.document.close();
+}
+if (ie4) z1.innerHTML = ret;
+if (ns5) {
+document.all.z1.innerHTML = ret;
+z0 = document.all.z0;
+z1 = document.all.z1;
+}
+time1ID = setInterval('z1m()',33);
+time0ID = setInterval('z0m()',55);
+if (snow) time2ID=setInterval('wave()',77);
+}
+function halt() {
+if (time1ID) clearInterval(time1ID);
+if (time0ID) clearInterval(time0ID);
+if (time2ID) clearInterval(time2ID);
+}
+function z0m() {
+x1 -= 4 * xan;
+x2 -= 4 * yan;
+a = Math.round(x1);
+b = Math.round(x2);
+if (w1 != a) {
+w1 = a;
+if (w1 > 0) x1 = w1 = -sw;
+if (w1 < -sw) x1 = w1 = 0;
+if (!ns4) z0.style.left = w1 + "px";
+}
+if (w2 != b) {
+w2 = b;
+if (w2 > 0) x2 = w2 = -sh;
+if (w2 < -sh) x2 = w2 = 0;
+if (!ns4) z0.style.top = w2 + "px";
+}
+if (ns4) z0.moveTo(w1,w2);
+}
+function z1m() {
+y1 -= xan;
+y2 -= yan;
+a1 = Math.round(y1);
+b1 = Math.round(y2);
+if (v1 != a1) {
+v1 = a1;
+if (v1 > 0) y1 = v1 = -sw;
+if (v1 < -sw) y1 = v1 = 0;
+if (!ns4) z1.style.left = v1 + "px";
+}
+if (v2 != b1) {
+v2 = b1;
+if (v2 > 0) y2 = v2 = -sh;
+if (v2 < -sh) y2 = v2 = 0;
+if (!ns4) z1.style.top = v2 + "px";
+}
+if (ns4) z1.moveTo(v1,v2);
+}
+//  End -->
+</script>
+
+</HEAD>
+
+<BODY BGCOLOR=#000000 vlink=#0000ff onLoad="init()" onunload="halt()">
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /bgeffects/"><font color="#FF0000"><b>BG Effects</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Particle Field</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva" color="#ffffff">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+(IE Only) Illustrates movement of stars (or snow) depending on the direction of the mouse.  Awesome!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<SCRIPT LANGUAGE="JavaScript">
+
+
+
+
+<!-- Begin
+var sw = (ie4)? document.body.offsetWidth:window.innerWidth;
+var sh = (ie4)? document.body.offsetHeight:window.innerHeight;
+sw=800; sh=200;  //field width and height
+var csw = Math.round(sw/2);
+var csh = Math.round(sh/2);
+ret="<STYLE TYPE='text/css'><!--\n";
+ret+="#zen {position:absolute; left:0; top:0; width:"+sw+"; height:"+sh+
+"; font-size:3000px; font-family:Times; clip:rect(0,"+(sw)+","+(sh)+
+",0); overflow:hidden; z-Index:0}";
+ret+="#z0 {position:absolute; left:-10; top:-10; width:"+(sw*2)+
+"; height:"+(sh*2)+"; clip:rect(0,"+(sw*2)+","+(sh*2)+",0)}";
+ret+="#z1 {position:absolute; left:-10; top:-10; width:"+(sw*2)+
+"; height:"+(sh*2)+"; clip:rect(0,"+(sw*2)+","+(sh*2)+",0)}";
+ret+="#ar {position:absolute; left:10; top:10; width:100; height:100;"+
+" z-Index:1000; color:red}";
+ret+="//-->\n</STYLE>";
+if (ns4) ret+="<DIV id=zen>_"; else ret+="<DIV id=zen>";
+ret+="<DIV id=z1></DIV>";
+ret+="<DIV id=z0></DIV>";
+ret+="</DIV>";
+document.write(ret);
+//  End -->
+</script>
+<DIV id=ar><a href="javascript:halt()">Click here to Stop</A></DIV>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  BG Effects:  Particle Field</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Command-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  6.50 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL PARTICLE FIELD:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the onLoad event handler into the BODY tag
+  3.  Put the last coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Joe Lard (darg36@home.com) --&gt;
+&lt;!-- Web Site:  http://members.home.net/darg36 --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+ie4 = document.all?1:0;
+ns4 = document.layers?1:0;
+ns5 = (document.getElementById && !document.all)?1:0;
+time0ID = 0;
+time1ID = 0;
+time2ID = 0;
+wind = 0;
+w1 = w2 = -10;
+v1 = v2 = -10;
+x1 = x2 = -10;
+y1 = y2 = -10;
+xan = yan = -.25;
+// emulate snow or stars? (true | false)
+snow = false;  // sinewave controlled
+star = true; // mouse controlled path
+function wave(){ // for snow
+xan = Math.sin(wind/57.3);
+wind+=Math.random()*5;
+if (wind&gt;360) wind = 0;
+// yan = .25 // for water
+}
+// for stars
+function mm(e) {
+if (ns5) {
+xan = ((e.clientX)-csw)/csw;
+yan = ((e.clientY)-csh)/csh;
+}
+else {
+xan = (((ns4)?e.pageX:event.x)-csw)/csw;
+yan = (((ns4)?e.pageY:event.y)-csh)/csh;
+   }
+}
+function init() {
+if (ns4) {
+z0 = document.zen.document.z0;
+z1 = document.zen.document.z1;
+}
+if (ns5) if (document.getElementsByTagName("*")) {
+document.all = document.getElementsByTagName("*")
+}
+if (star) {
+if (ns4 || ns5) {
+window.captureEvents(Event.MOUSEMOVE);
+window.onmousemove = mm;
+}
+document.onmousemove = mm;
+}
+fs=(ns4)? "":"; font-size:25px";
+ret=""; tem=(ns4)? "&lt;font size=5&gt;":"";
+for (t=1;t&lt;sh/28;t++) {
+for (u=1;u&lt;sw/6;u++)
+tem += (Math.random()&gt;.99)? ((Math.random()&gt;.9)? "&lt;font size="+((Math.random()*50)+12)+"px&gt;.&lt;/font size&gt;":"."):"&nbsp;"; tem += "&lt;BR&gt;";
+}
+tem += (ns4)? "&lt;/font size&gt;":"";
+ret += "&lt;div style='position:absolute; left:0px; top:0px; width:"+sw+"px; height:"+sh+"px; color:white"+fs+"; font-family:Times'&gt;"+tem+"&lt;/DIV&gt;";
+ret += "&lt;div style='position:absolute; left:"+(sw)+"px; top:0px; width:"+sw+"px; height:"+sh+"px; color:white"+fs+"; font-family:Times'&gt;"+tem+"&lt;/DIV&gt;";
+ret += "&lt;div style='position:absolute; left:0px; top:"+(sh)+"px; width:"+sw+"px; height:"+sh+"px; color:white"+fs+"; font-family:Times'&gt;"+tem+"&lt;/DIV&gt;";
+ret += "&lt;div style='position:absolute; left:"+(sw)+"px; top:"+(sh)+"px; width:"+sw+"px; height:"+sh+"px; color:white"+fs+"; font-family:Times'&gt;"+tem+"&lt;/DIV&gt;";
+if (ns4) {
+z0.document.write(ret);
+z0.document.close();
+}
+if (ie4) z0.innerHTML = ret;
+if (ns5) document.all.z0.innerHTML = ret;
+ret=""; tem=(ns4)? "&lt;font size=5&gt;":"";
+for (t = 1; t &lt; sh / 28; t++) {
+for (u = 1; u &lt; sw / 6; u++)
+tem += (Math.random()&gt;.99)? ((Math.random()&gt;.9)? "&lt;font size="+((Math.random()*50)+12)+"px&gt;.&lt;/font size&gt;":"."):"&nbsp;";
+tem+="&lt;BR&gt;";
+}
+tem += (ns4)? "&lt;/font size&gt;":"";
+ret += "&lt;div style='position:absolute; left:0px; top:0px; width:"+sw+"px; height:"+sh+"px; color:white"+fs+"; font-family:Times'&gt;"+tem+"&lt;/DIV&gt;";
+ret += "&lt;div style='position:absolute; left:"+(sw)+"px; top:0px; width:"+sw+"px; height:"+sh+"px; color:white"+fs+"; font-family:Times'&gt;"+tem+"&lt;/DIV&gt;";
+ret += "&lt;div style='position:absolute; left:0px; top:"+(sh)+"px; width:"+sw+"px; height:"+sh+"px; color:white"+fs+"; font-family:Times'&gt;"+tem+"&lt;/DIV&gt;";
+ret += "&lt;div style='position:absolute; left:"+(sw)+"px; top:"+(sh)+"px; width:"+sw+"px; height:"+sh+"px; color:white"+fs+"; font-family:Times'&gt;"+tem+"&lt;/DIV&gt;";
+if (ns4) {
+z1.document.write(ret);
+z1.document.close();
+}
+if (ie4) z1.innerHTML = ret;
+if (ns5) {
+document.all.z1.innerHTML = ret;
+z0 = document.all.z0;
+z1 = document.all.z1;
+}
+time1ID = setInterval('z1m()',33);
+time0ID = setInterval('z0m()',55);
+if (snow) time2ID=setInterval('wave()',77);
+}
+function halt() {
+if (time1ID) clearInterval(time1ID);
+if (time0ID) clearInterval(time0ID);
+if (time2ID) clearInterval(time2ID);
+}
+function z0m() {
+x1 -= 4 * xan;
+x2 -= 4 * yan;
+a = Math.round(x1);
+b = Math.round(x2);
+if (w1 != a) {
+w1 = a;
+if (w1 &gt; 0) x1 = w1 = -sw;
+if (w1 &lt; -sw) x1 = w1 = 0;
+if (!ns4) z0.style.left = w1 + "px";
+}
+if (w2 != b) {
+w2 = b;
+if (w2 &gt; 0) x2 = w2 = -sh;
+if (w2 &lt; -sh) x2 = w2 = 0;
+if (!ns4) z0.style.top = w2 + "px";
+}
+if (ns4) z0.moveTo(w1,w2);
+}
+function z1m() {
+y1 -= xan;
+y2 -= yan;
+a1 = Math.round(y1);
+b1 = Math.round(y2);
+if (v1 != a1) {
+v1 = a1;
+if (v1 &gt; 0) y1 = v1 = -sw;
+if (v1 &lt; -sw) y1 = v1 = 0;
+if (!ns4) z1.style.left = v1 + "px";
+}
+if (v2 != b1) {
+v2 = b1;
+if (v2 &gt; 0) y2 = v2 = -sh;
+if (v2 &lt; -sh) y2 = v2 = 0;
+if (!ns4) z1.style.top = v2 + "px";
+}
+if (ns4) z1.moveTo(v1,v2);
+}
+//  End --&gt;
+&lt;/script&gt;
+
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Insert the onLoad event handler into your BODY tag  --&gt;
+
+&lt;BODY onLoad="init()" onunload="halt()"&gt;
+
+&lt;!-- STEP THREE: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var sw = (ie4)? document.body.offsetWidth:window.innerWidth;
+var sh = (ie4)? document.body.offsetHeight:window.innerHeight;
+//sw=200; sh=200;  field width and height
+var csw = Math.round(sw/2);
+var csh = Math.round(sh/2);
+ret="&lt;STYLE TYPE='text/css'&gt;&lt;!--\n";
+ret+="#zen {position:absolute; left:0; top:0; width:"+sw+"; height:"+sh+
+"; font-size:3000px; font-family:Times; clip:rect(0,"+(sw)+","+(sh)+
+",0); overflow:hidden; z-Index:0}";
+ret+="#z0 {position:absolute; left:-10; top:-10; width:"+(sw*2)+
+"; height:"+(sh*2)+"; clip:rect(0,"+(sw*2)+","+(sh*2)+",0)}";
+ret+="#z1 {position:absolute; left:-10; top:-10; width:"+(sw*2)+
+"; height:"+(sh*2)+"; clip:rect(0,"+(sw*2)+","+(sh*2)+",0)}";
+ret+="#ar {position:absolute; left:10; top:10; width:100; height:100;"+
+" z-Index:1000; color:red}";
+ret+="//--&gt;\n&lt;/STYLE&gt;";
+if (ns4) ret+="&lt;DIV id=zen&gt;_"; else ret+="&lt;DIV id=zen&gt;";
+ret+="&lt;DIV id=z1&gt;&lt;/DIV&gt;";
+ret+="&lt;DIV id=z0&gt;&lt;/DIV&gt;";
+ret+="&lt;/DIV&gt;";
+document.write(ret);
+//  End --&gt;
+&lt;/script&gt;
+&lt;DIV id=ar&gt;&lt;a href="javascript:halt()"&gt;&nbsp;&lt;/A&gt;&lt;/DIV&gt;
+
+ 
+
+&lt;!-- Script Size:  6.50 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

@@ -1,0 +1,233 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Calculators:  Paycheck Calculator</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Dan Scott (dscott@wirepower.com)">
+<META NAME="section" CONTENT="Calculators">
+<META NAME="description" CONTENT="Entering your pay rate and the number of hours you worked and optionally any overtime hours and pay rate, your own tax rate, and other deductions.  Find out where your money comes from and where it's going.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Dan Scott (dscott@wirepower.com) -->
+<!-- Web Site:  http://www.wirepower.com -->
+
+
+
+
+<!-- Begin
+function compute() {
+with (document.paycheck) {
+otrate.value = rate.value * otpercent.value;
+if (hours.value > 40) ot.value = hours.value - 40;
+if (hours.value > 40) hours.value = 40;
+gross.value = (rate.value * hours.value) + otrate.value * ot.value;
+tax.value = gross.value * taxrate.value;
+total.value = gross.value - tax.value - other.value;
+   }
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /calculators/"><font color="#FF0000"><b>Calculators</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Paycheck Calculator</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Entering your pay rate and the number of hours you worked and optionally any overtime hours and pay rate, your own tax rate, and other deductions.  Find out where your money comes from and where it's going.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name=paycheck>
+<table border=1>
+<tr>
+<td bgcolor="#c0c0c0" align=right><b>Pay Rate:</b></td>
+<td><input type=text name=rate size=5></td>
+<td bgcolor="#c0c0c0" align=right>Hours:</b></td>
+<td><input type=text name=hours size=5></td>
+</tr>
+<tr>
+<td align=right>OT Rate:</td>
+<td><input type=text name=otpercent size=5 value=1.5></td>
+<td align=right>OT Hours:</td>
+<td><input type=text name=ot size=5 value=0></td>
+</tr>
+<tr>
+<td align=right>OT Hourly:</td>
+<td><input type=text name=otrate size=5></td>
+<td align=right>Gross Pay:</td> 
+<td><input type=text name=gross size=5></td>
+</tr>
+<tr>
+<td colspan=2>&nbsp; &nbsp;</td>
+<td align=right><p>Tax Rate</td>
+<td><input type=text name=taxrate value=.12 size=5></td>
+</tr>
+<tr>
+<td colspan=2>&nbsp; &nbsp;</td>
+<td align=right>Total Taxes:</td>
+<td><input type=text name=tax size=5></td>
+</tr>
+<tr>
+<td colspan=2>&nbsp; &nbsp;</td>
+<td align=right><p>Other Deductions:</td>
+<td><input type=text name=other value=0 size=5></td>
+</tr>
+<tr>
+<td colspan=2>&nbsp; &nbsp;</td>
+<td align=right bgcolor="#ffff80"><b>Your Paycheck:</b></td>
+<td><input type=text name=total size=5></td>
+</tr>
+<tr>
+<td colspan=4 align=center><input type=button value="Calculate" onClick="compute()">
+</td>
+</tr>
+</table>
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Calculators:  Paycheck Calculator</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.32 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL PAYCHECK CALCULATOR:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Dan Scott (dscott@wirepower.com) --&gt;
+&lt;!-- Web Site:  http://www.wirepower.com --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function compute() {
+with (document.paycheck) {
+otrate.value = rate.value * otpercent.value;
+if (hours.value &gt; 40) ot.value = hours.value - 40;
+if (hours.value &gt; 40) hours.value = 40;
+gross.value = (rate.value * hours.value) + otrate.value * ot.value;
+tax.value = gross.value * taxrate.value;
+total.value = gross.value - tax.value - other.value;
+   }
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form name=paycheck&gt;
+&lt;table border=1&gt;
+&lt;tr&gt;
+&lt;td bgcolor="#c0c0c0" align=right&gt;&lt;b&gt;Pay Rate:&lt;/b&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name=rate size=5&gt;&lt;/td&gt;
+&lt;td bgcolor="#c0c0c0" align=right&gt;Hours:&lt;/b&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name=hours size=5&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=right&gt;OT Rate:&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name=otpercent size=5 value=1.5&gt;&lt;/td&gt;
+&lt;td align=right&gt;OT Hours:&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name=ot size=5 value=0&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=right&gt;OT Hourly:&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name=otrate size=5&gt;&lt;/td&gt;
+&lt;td align=right&gt;Gross Pay:&lt;/td&gt; 
+&lt;td&gt;&lt;input type=text name=gross size=5&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td colspan=2&gt;&nbsp; &nbsp;&lt;/td&gt;
+&lt;td align=right&gt;&lt;p&gt;Tax Rate&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name=taxrate value=.12 size=5&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td colspan=2&gt;&nbsp; &nbsp;&lt;/td&gt;
+&lt;td align=right&gt;Total Taxes:&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name=tax size=5&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td colspan=2&gt;&nbsp; &nbsp;&lt;/td&gt;
+&lt;td align=right&gt;&lt;p&gt;Other Deductions:&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name=other value=0 size=5&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td colspan=2&gt;&nbsp; &nbsp;&lt;/td&gt;
+&lt;td align=right bgcolor="#ffff80"&gt;&lt;b&gt;Your Paycheck:&lt;/b&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name=total size=5&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td colspan=4 align=center&gt;&lt;input type=button value="Calculate" onClick="compute()"&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  2.32 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>
+
+
+

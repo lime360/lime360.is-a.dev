@@ -1,0 +1,202 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Games:  Guess-A-Number</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Games">
+<META NAME="description" CONTENT="Play the JavaScript version of Guess-A-Number.  First, select a number range and then try to guess the number the computer has chosen.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+var my_no,count;
+function load() {
+window.defaultStatus="JavaScript Guess-a-Number Game";
+document.game.help.value="Please set range of numbers and press the Start button.";
+document.game.from.focus(); }
+function rnd(scale) {
+var dd=new Date();
+return((Math.round(Math.abs(Math.sin(dd.getTime()))*8.71*scale)%scale)); }
+function range() {
+var to=1+1*document.game.to.value;
+count=0;
+my_no=rnd(to);
+while(my_no<document.game.from.value) {
+my_no=rnd(to); }
+document.game.help.value="Please guess a number, enter it, and press Guess."; }
+function guess() {
+var no=document.game.number.value;
+count++;
+if(no<my_no) document.game.help.value="My number is greater than "+no+".";
+else if(no>my_no) document.game.help.value="My number is less than "+no+".";
+else alert("It takes you "+count+" attempts to guess this number"); }
+// End -->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff onLoad="load()">
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /games/"><font color="#FF0000">Games</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Guess-A-Number</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Play the JavaScript version of Guess-A-Number.  First, select a number range and then try to guess the number the computer has chosen.
+<br>
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<BODY>
+<CENTER>
+<FORM name=game>
+<TABLE border=3>
+<TR>
+<TD align=center colspan=2>Range of numbers</TD>
+<TD align=center rowspan=2><input type=button value=" Start " onclick="range()"></TD>
+</TR>
+<TR>
+<TD align=center>From:<br><input type=text name=from size=10></TD>
+<TD align=center>To:<br><input type=text name=to size=10></TD>
+</TD>
+<TR>
+<TD></TD>
+</TR>
+<TR>
+<TD align=center colspan=3><input type=text name=help size=70></TD>
+</TR>
+<TR>
+<TD></TD>
+</TR>
+<tr><td align=right colspan=3><input type=text name=number size=10><input type=button value=" Guess " onclick="guess()"></TD>
+</TR>
+</TABLE>
+</FORM>
+</CENTER>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Games:  Guess-A-Number</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.16 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL GUESS-A-NUMBER:
+
+   1.  Paste the coding into the HEAD of your HTML document
+   2.  Add the onLoad and unonLoad event handlers to the BODY tag
+   3.  Put the last coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var my_no,count;
+function load() {
+window.defaultStatus="JavaScript Guess-a-Number Game";
+document.game.help.value="Please set range of numbers and press the Start button.";
+document.game.from.focus(); }
+function rnd(scale) {
+var dd=new Date();
+return((Math.round(Math.abs(Math.sin(dd.getTime()))*8.71*scale)%scale)); }
+function range() {
+var to=1+1*document.game.to.value;
+count=0;
+my_no=rnd(to);
+while(my_no&lt;document.game.from.value) {
+my_no=rnd(to); }
+document.game.help.value="Please guess a number, enter it, and press Guess."; }
+function guess() {
+var no=document.game.number.value;
+count++;
+if(no&lt;my_no) document.game.help.value="My number is greater than "+no+".";
+else if(no&gt;my_no) document.game.help.value="My number is less than "+no+".";
+else alert("It takes you "+count+" attempts to guess this number"); }
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+&lt;!-- STEP TWO: Add the onLoad and unonLoad event handlers to the BODY tag  --&gt; 
+
+&lt;BODY onLoad="load()"&gt;
+
+&lt;!-- STEP THREE: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;CENTER&gt;
+&lt;FORM name=game&gt;
+&lt;TABLE border=3&gt;
+&lt;TR&gt;
+&lt;TD align=center colspan=2&gt;Range of numbers&lt;/TD&gt;
+&lt;TD align=center rowspan=2&gt;&lt;input type=button value=" Start " onclick="range()"&gt;&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;TR&gt;
+&lt;TD align=center&gt;From:&lt;br&gt;&lt;input type=text name=from size=10&gt;&lt;/TD&gt;
+&lt;TD align=center&gt;To:&lt;br&gt;&lt;input type=text name=to size=10&gt;&lt;/TD&gt;
+&lt;/TD&gt;
+&lt;TR&gt;
+&lt;TD&gt;&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;TR&gt;
+&lt;TD align=center colspan=3&gt;&lt;input type=text name=help size=70&gt;&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;TR&gt;
+&lt;TD&gt;&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;tr&gt;&lt;td align=right colspan=3&gt;&lt;input type=text name=number size=10&gt;&lt;input type=button value=" Guess " onclick="guess()"&gt;&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;/TABLE&gt;
+&lt;/FORM&gt;
+&lt;/CENTER&gt;
+
+ 
+
+&lt;!-- Script Size:  2.16 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

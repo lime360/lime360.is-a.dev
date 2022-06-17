@@ -1,0 +1,206 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Navigation:  Links List</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Kulesh S. (linklist@meshage.net)">
+<META NAME="section" CONTENT="Navigation">
+<META NAME="description" CONTENT="Allow your users to quickly see a list of all the links on your web page in a well organized and numbered list.  Each listing includes the link URL and the link's text. Works on both IE and Netscape.  Clever!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Kulesh S. (linklist@meshage.net) -->
+<!-- Web Site:  http://meshage.net/scribble -->
+
+
+
+
+<!-- Begin
+function LinkList() {
+var myheader = "<head><title>Links In "+document.title+"</title></head>";
+myheader = myheader + "<body>";
+var myfont = "<font style=\"font: 8pt Verdana, Arial, Helvetica, Sans-serif; line-height:18pt;\" face=\"verdana, tahoma, geneva\" size=\"-1\" >";
+var mytext = "<center><b>Links in " + document.title + "</b><ol></center>";
+var myendfont = "</font>";
+var myendheader = "</body>";
+
+windowprops = "menubars=no,location=no,toolbars=no,scrollbars=yes,"+"width=350,height=400,top=50,left=50";
+self.name = "main";
+
+if(document.all) {
+for (i=0; i<document.links.length; i++) {
+if(document.links[i].innerText)
+if(document.links[i].innerText != " ")
+mytext += "<li><a target='_new' href="+document.links[i]+">"+document.links[i].innerText+"</a><br>";
+else
+mytext += "<li><a target='_new' href="+document.links[i]+">"+document.links[i]+"</a><br>" ;
+   }
+}
+else {
+for (i=0; i<document.links.length; i++) {
+if(document.links[i].text) {
+if(((document.links[i].text).indexOf("javascript:")) == -1) {
+mytext += "<li><a target='_new' href="+document.links[i]+">"+document.links[i].text+"</a><br>" ;
+   }
+}
+else { }
+   }
+}
+mytext = mytext + "</ol><center><a href='javascript:window.close()'>close</a></center><BR>";
+
+linkswin = window.open("","",windowprops);
+with (linkswin.document) {
+open();
+write(myheader + myfont + mytext + myendfont + myendheader);
+close();
+   }
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /navigation/"><font color="#FF0000"><b>Navigation</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Links List</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Allow your users to quickly see a list of all the links on your web page in a well organized and numbered list.  Each listing includes the link URL and the link's text. Works on both IE and Netscape.  Clever!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<a href="javascript:LinkList();">List all links on this page</a>
+<br>
+or
+<br>
+<form>
+<input type=button onClick="LinkList();" value="List all links on this page">
+</form>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Navigation:  Links List</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.23 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL LINKS LIST:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Kulesh S. (linklist@meshage.net) --&gt;
+&lt;!-- Web Site:  http://meshage.net/scribble --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function LinkList() {
+var myheader = "&lt;head&gt;&lt;title&gt;Links In "+document.title+"&lt;/title&gt;&lt;/head&gt;";
+myheader = myheader + "&lt;body&gt;";
+var myfont = "&lt;font style=\"font: 8pt Verdana, Arial, Helvetica, Sans-serif; line-height:18pt;\" face=\"verdana, tahoma, geneva\" size=\"-1\" &gt;";
+var mytext = "&lt;center&gt;&lt;b&gt;Links in " + document.title + "&lt;/b&gt;&lt;ol&gt;&lt;/center&gt;";
+var myendfont = "&lt;/font&gt;";
+var myendheader = "&lt;/body&gt;";
+
+windowprops = "menubars=no,location=no,toolbars=no,scrollbars=yes,"+"width=350,height=400,top=50,left=50";
+self.name = "main";
+
+if(document.all) {
+for (i=0; i&lt;document.links.length; i++) {
+if(document.links[i].innerText)
+if(document.links[i].innerText != " ")
+mytext += "&lt;li&gt;&lt;a target='_new' href="+document.links[i]+"&gt;"+document.links[i].innerText+"&lt;/a&gt;&lt;br&gt;";
+else
+mytext += "&lt;li&gt;&lt;a target='_new' href="+document.links[i]+"&gt;"+document.links[i]+"&lt;/a&gt;&lt;br&gt;" ;
+   }
+}
+else {
+for (i=0; i&lt;document.links.length; i++) {
+if(document.links[i].text) {
+if(((document.links[i].text).indexOf("javascript:")) == -1) {
+mytext += "&lt;li&gt;&lt;a target='_new' href="+document.links[i]+"&gt;"+document.links[i].text+"&lt;/a&gt;&lt;br&gt;" ;
+   }
+}
+else { }
+   }
+}
+mytext = mytext + "&lt;/ol&gt;&lt;center&gt;&lt;a href='javascript:window.close()'&gt;close&lt;/a&gt;&lt;/center&gt;&lt;BR&gt;";
+
+linkswin = window.open("","",windowprops);
+with (linkswin.document) {
+open();
+write(myheader + myfont + mytext + myendfont + myendheader);
+close();
+   }
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;a href="javascript:LinkList();"&gt;List all links on this page&lt;/a&gt;
+&lt;br&gt;
+or
+&lt;br&gt;
+&lt;form&gt;
+&lt;input type=button onClick="LinkList();" value="List all links on this page"&gt;
+&lt;/form&gt;
+
+ 
+
+&lt;!-- Script Size:  2.23 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

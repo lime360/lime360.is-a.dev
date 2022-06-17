@@ -1,0 +1,255 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Page Details:  Smart Popup</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="Create popup windows that will center on your screen or popup near your link without popping off the edge of the screen. Also shows how to create a clickable popup or a popup that displays when you hover over the link with your mouse.  Cool!">
+<META NAME="date" CONTENT="2001-02-20">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Nannette Thacker">
+<META NAME="section" CONTENT="Page Details">
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Nannette Thacker (nannette@shiningstar.net) -->
+<!-- Web Site:  http://www.shiningstar.net -->
+
+
+
+
+<!-- Begin
+var version4 = (navigator.appVersion.charAt(0) == "4"); 
+var popupHandle;
+function closePopup() {
+if(popupHandle != null && !popupHandle.closed) popupHandle.close();
+}
+function displayPopup(position,url,name,height,width,evnt) {
+// position=1 POPUP: makes screen display up and/or left, down and/or right 
+// depending on where cursor falls and size of window to open
+// position=2 CENTER: makes screen fall in center
+var properties = "toolbar = 0, location = 0, height = " + height;
+properties = properties + ", width=" + width;
+var leftprop, topprop, screenX, screenY, cursorX, cursorY, padAmt;
+if(navigator.appName == "Microsoft Internet Explorer") {
+screenY = document.body.offsetHeight;
+screenX = window.screen.availWidth;
+}
+else {
+screenY = window.outerHeight
+screenX = window.outerWidth
+}
+if(position == 1)	{ // if POPUP not CENTER
+cursorX = evnt.screenX;
+cursorY = evnt.screenY;
+padAmtX = 10;
+padAmtY = 10;
+if((cursorY + height + padAmtY) > screenY) {
+// make sizes a negative number to move left/up
+padAmtY = (-30) + (height * -1);
+// if up or to left, make 30 as padding amount
+}
+if((cursorX + width + padAmtX) > screenX)	{
+padAmtX = (-30) + (width * -1);	
+// if up or to left, make 30 as padding amount
+}
+if(navigator.appName == "Microsoft Internet Explorer") {
+leftprop = cursorX + padAmtX;
+topprop = cursorY + padAmtY;
+}
+else {
+leftprop = (cursorX - pageXOffset + padAmtX);
+topprop = (cursorY - pageYOffset + padAmtY);
+   }
+}
+else{
+leftvar = (screenX - width) / 2;
+rightvar = (screenY - height) / 2;
+if(navigator.appName == "Microsoft Internet Explorer") {
+leftprop = leftvar;
+topprop = rightvar;
+}
+else {
+leftprop = (leftvar - pageXOffset);
+topprop = (rightvar - pageYOffset);
+   }
+}
+if(evnt != null) {
+properties = properties + ", left = " + leftprop;
+properties = properties + ", top = " + topprop;
+}
+closePopup();
+popupHandle = open(url,name,properties);
+}
+//  End -->
+</script>
+
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /page-details/"><font color="#FF0000"><b>Page Details</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Smart Popup</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Create popup windows that will center on your screen or popup near your link without popping off the edge of the screen. Also shows how to create a clickable popup or a popup that displays when you hover over the link with your mouse.  Cool!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<form name="formtest">
+Test Width: <input maxlength=3 size=3 type=text value="220" name="testwidth">
+Test Height: <input maxlength=3 size=3 type=text value="120" name="testheight">
+<br><a href="javascript:void(0)" onmouseover="window.status='Click for more information'; return true" onClick="displayPopup(1,'smartpopuptext.txt','popup3',document.formtest.testheight.value,document.formtest.testwidth.value,(version4 ? event : null));">Test POPCLICK</a>
+<br><a href="javascript:void(0)" onmouseover="window.status='Click for more information'; return true" onClick="displayPopup(2,'smartpopuptext.txt','popup3',document.formtest.testheight.value,document.formtest.testwidth.value,(version4 ? event : null));">Test POPCLICKCENTER</a>
+<br><a href="javascript:void(0)" onMouseOver="displayPopup(1,'smartpopuptext.txt','popup1',document.formtest.testheight.value,document.formtest.testwidth.value,(version4 ? event : null))" onMouseOut="closePopup()">Test POPUP</a>
+<br><a href="javascript:void(0)" onMouseOver="displayPopup(2,'smartpopuptext.txt','popup2',document.formtest.testheight.value,document.formtest.testwidth.value,(version4 ? event : null))" onMouseOut="closePopup()">Test POPUPCENTER</a>
+</form>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Page Details:  Smart Popup</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Command-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  3.93 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL SMART POPUP:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Nannette Thacker (nannette@shiningstar.net) --&gt;
+&lt;!-- Web Site:  http://www.shiningstar.net --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var version4 = (navigator.appVersion.charAt(0) == "4"); 
+var popupHandle;
+function closePopup() {
+if(popupHandle != null && !popupHandle.closed) popupHandle.close();
+}
+function displayPopup(position,url,name,height,width,evnt) {
+// position=1 POPUP: makes screen display up and/or left, down and/or right 
+// depending on where cursor falls and size of window to open
+// position=2 CENTER: makes screen fall in center
+var properties = "toolbar = 0, location = 0, height = " + height;
+properties = properties + ", width=" + width;
+var leftprop, topprop, screenX, screenY, cursorX, cursorY, padAmt;
+if(navigator.appName == "Microsoft Internet Explorer") {
+screenY = document.body.offsetHeight;
+screenX = window.screen.availWidth;
+}
+else {
+screenY = window.outerHeight
+screenX = window.outerWidth
+}
+if(position == 1)	{ // if POPUP not CENTER
+cursorX = evnt.screenX;
+cursorY = evnt.screenY;
+padAmtX = 10;
+padAmtY = 10;
+if((cursorY + height + padAmtY) &gt; screenY) {
+// make sizes a negative number to move left/up
+padAmtY = (-30) + (height * -1);
+// if up or to left, make 30 as padding amount
+}
+if((cursorX + width + padAmtX) &gt; screenX)	{
+padAmtX = (-30) + (width * -1);	
+// if up or to left, make 30 as padding amount
+}
+if(navigator.appName == "Microsoft Internet Explorer") {
+leftprop = cursorX + padAmtX;
+topprop = cursorY + padAmtY;
+}
+else {
+leftprop = (cursorX - pageXOffset + padAmtX);
+topprop = (cursorY - pageYOffset + padAmtY);
+   }
+}
+else{
+leftvar = (screenX - width) / 2;
+rightvar = (screenY - height) / 2;
+if(navigator.appName == "Microsoft Internet Explorer") {
+leftprop = leftvar;
+topprop = rightvar;
+}
+else {
+leftprop = (leftvar - pageXOffset);
+topprop = (rightvar - pageYOffset);
+   }
+}
+if(evnt != null) {
+properties = properties + ", left = " + leftprop;
+properties = properties + ", top = " + topprop;
+}
+closePopup();
+popupHandle = open(url,name,properties);
+}
+//  End --&gt;
+&lt;/script&gt;
+
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;form name="formtest"&gt;
+Test Width: &lt;input maxlength=3 size=3 type=text value="220" name="testwidth"&gt;
+Test Height: &lt;input maxlength=3 size=3 type=text value="120" name="testheight"&gt;
+&lt;br&gt;&lt;a href="javascript:void(0)" onmouseover="window.status='Click for more information'; return true" onClick="displayPopup(1,'smartpopuptext.txt','popup3',document.formtest.testheight.value,document.formtest.testwidth.value,(version4 ? event : null));"&gt;Test POPCLICK&lt;/a&gt;
+&lt;br&gt;&lt;a href="javascript:void(0)" onmouseover="window.status='Click for more information'; return true" onClick="displayPopup(2,'smartpopuptext.txt','popup3',document.formtest.testheight.value,document.formtest.testwidth.value,(version4 ? event : null));"&gt;Test POPCLICKCENTER&lt;/a&gt;
+&lt;br&gt;&lt;a href="javascript:void(0)" onMouseOver="displayPopup(1,'smartpopuptext.txt','popup1',document.formtest.testheight.value,document.formtest.testwidth.value,(version4 ? event : null))" onMouseOut="closePopup()"&gt;Test POPUP&lt;/a&gt;
+&lt;br&gt;&lt;a href="javascript:void(0)" onMouseOver="displayPopup(2,'smartpopuptext.txt','popup2',document.formtest.testheight.value,document.formtest.testwidth.value,(version4 ? event : null))" onMouseOut="closePopup()"&gt;Test POPUPCENTER&lt;/a&gt;
+&lt;/form&gt;
+
+ 
+
+&lt;!-- Script Size:  3.93 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

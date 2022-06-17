@@ -1,0 +1,200 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Password Protection:  ASCII Encryption</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="David Salsinha (david.salsinha@popsi.pt)">
+<META NAME="section" CONTENT="Password Protection">
+<META NAME="description" CONTENT="(Internet Explorer Only)  A very simple encryption method that uses random values for each character.  Interestingly, you can encrypt the same string as many times as you want and the result will always be different.  Best used with short strings.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  David Salsinha (david.salsinha@popsi.pt) -->
+
+
+
+
+<!-- Begin
+function Encrypt(theText) {
+output = new String;
+Temp = new Array();
+Temp2 = new Array();
+TextSize = theText.length;
+for (i = 0; i < TextSize; i++) {
+rnd = Math.round(Math.random() * 122) + 68;
+Temp[i] = theText.charCodeAt(i) + rnd;
+Temp2[i] = rnd;
+}
+for (i = 0; i < TextSize; i++) {
+output += String.fromCharCode(Temp[i], Temp2[i]);
+}
+return output;
+}
+function unEncrypt(theText) {
+output = new String;
+Temp = new Array();
+Temp2 = new Array();
+TextSize = theText.length;
+for (i = 0; i < TextSize; i++) {
+Temp[i] = theText.charCodeAt(i);
+Temp2[i] = theText.charCodeAt(i + 1);
+}
+for (i = 0; i < TextSize; i = i+2) {
+output += String.fromCharCode(Temp[i] - Temp2[i]);
+}
+return output;
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /passwords/"><font color="#FF0000"><b>Password Protection</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>ASCII Encryption</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+(Internet Explorer Only)  A very simple encryption method that uses random values for each character.  Interestingly, you can encrypt the same string as many times as you want and the result will always be different.  Best used with short strings.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name=encform onsubmit="return false;">
+<textarea name=box1 rows=5 cols=50>The quick brown fox jumps over the lazy dog</textarea>
+<p>
+<b>(Click"Encrypt" several and you always get different results!)</b>
+<p>
+<input type=button value="Encrypt Box1 to Box2" onClick="this.form.box2.value=Encrypt(this.form.box1.value);">
+<p>
+<textarea name=box2 rows=5 cols=50></textarea>
+<p>
+<b>(And, all the scripts still "Decrypt" back to the same original message.  Wow!)</b>
+<p>
+<input type=button value="Decrypt Box2 to Box3" onClick="this.form.box3.value=unEncrypt(this.form.box2.value);">
+<p>
+<textarea name=box3 rows=5 cols=50></textarea>
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Password Protection:  ASCII Encryption</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.83 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL ASCII ENCRYPTION:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  David Salsinha (david.salsinha@popsi.pt) --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function Encrypt(theText) {
+output = new String;
+Temp = new Array();
+Temp2 = new Array();
+TextSize = theText.length;
+for (i = 0; i &lt; TextSize; i++) {
+rnd = Math.round(Math.random() * 122) + 68;
+Temp[i] = theText.charCodeAt(i) + rnd;
+Temp2[i] = rnd;
+}
+for (i = 0; i &lt; TextSize; i++) {
+output += String.fromCharCode(Temp[i], Temp2[i]);
+}
+return output;
+}
+function unEncrypt(theText) {
+output = new String;
+Temp = new Array();
+Temp2 = new Array();
+TextSize = theText.length;
+for (i = 0; i &lt; TextSize; i++) {
+Temp[i] = theText.charCodeAt(i);
+Temp2[i] = theText.charCodeAt(i + 1);
+}
+for (i = 0; i &lt; TextSize; i = i+2) {
+output += String.fromCharCode(Temp[i] - Temp2[i]);
+}
+return output;
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form name=encform onsubmit="return false;"&gt;
+&lt;textarea name=box1 rows=5 cols=50&gt;The quick brown fox jumps over the lazy dog&lt;/textarea&gt;
+&lt;p&gt;
+&lt;input type=button value="Encrypt Box1 to Box2" onClick="this.form.box2.value=Encrypt(this.form.box1.value);"&gt;
+&lt;p&gt;
+&lt;textarea name=box2 rows=5 cols=50&gt;&lt;/textarea&gt;
+&lt;p&gt;
+&lt;input type=button value="Decrypt Box2 to Box3" onClick="this.form.box3.value=unEncrypt(this.form.box2.value);"&gt;
+&lt;p&gt;
+&lt;textarea name=box3 rows=5 cols=50&gt;&lt;/textarea&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  1.83 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

@@ -1,0 +1,196 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  BG Effects:  Color Adjuster</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Dion (yobo42@hotmail.com)">
+<META NAME="section" CONTENT="BG Effects">
+<META NAME="description" CONTENT="Allows for the fine tuning of the window's background color via red, green, and blue color buttons.  Click a button to change the color value manually, or use the '>' and '<' to change the amount of that color in the background.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Dion (yobo42@hotmail.com) -->
+<!-- Web Site:  http://www.iinet.net.au/~biab/ -->
+
+
+
+
+<!-- Begin
+function color(frm, clr, val) {
+v = eval("0x" + frm[clr].value) + val;
+if (v < 0 || v > 255) v -= val;
+v = v.toString(16).toUpperCase();
+while (v.length < 2) v = "0" + v;
+frm[clr].value = v; nc = "";
+for(i = 1; i < 8; i += 3) nc += frm.elements[i].value;
+document.bgColor = nc;
+}
+function setval(item) {
+v = prompt("New value for " + item.name + " (00 - FF)", item.value);
+if (v) {
+v = eval("0x" + v);
+if ((v & 255) == v) {
+item.value=v.toString(16).toUpperCase();
+while (item.value.length < 2) item.value = "0" + item.value;
+color(document.f, item.name, 0);
+      }
+   }
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /bgeffects/"><font color="#FF0000"><b>BG Effects</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Color Adjuster</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Allows for the fine tuning of the window's background color via red, green, and blue color buttons.  Click a button to change the color value manually, or use the '>' and '<' the amount of that color in the background"..htm" /bgeffects/."
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name=f>
+<table border=1>
+<tr>
+<td colspan=3 align=center bgcolor="#ff0000">RED</td>
+<td colspan=3 align=center bgcolor="#00ff00">GREEN</td>
+<td colspan=3 align=center bgcolor="#000ff">BLUE</td>
+</tr>
+<tr>
+<td><input type=button name=rm value="&lt;" onclick = "color(this.form, 'Red' , -1);"></td>
+<td><input type=button name=Red value="AF" onclick = "setval(this);"></td>
+<td><input type=button name=rp value="&gt;" onclick = "color(this.form, 'Red', 1);"></td>
+<td><input type=button name=gm value="&lt;" onclick = "color(this.form, 'Green', -1);"></td>
+<td><input type=button name=Green value="BF" onclick = "setval(this);"></td>
+<td><input type=button name=gp value="&gt;" onclick = "color(this.form, 'Green', 1);"></td>
+<td><input type=button name=bm value="&lt;" onclick = "color(this.form, 'Blue', -1);"></td>
+<td><input type=button name=Blue value="CF" onclick = "setval(this);"></td>
+<td><input type=button name=bp value="&gt;" onclick = "color(this.form, 'Blue', 1);"></td>
+</tr>
+</table>
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  BG Effects:  Color Adjuster</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.28 KB" size=24>
+</DIV>
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL COLOR ADJUSTER:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Dion (yobo42@hotmail.com) --&gt;
+&lt;!-- Web Site:  http://www.iinet.net.au/~biab/ --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function color(frm, clr, val) {
+v = eval("0x" + frm[clr].value) + val;
+if (v &lt; 0 || v &gt; 255) v -= val;
+v = v.toString(16).toUpperCase();
+while (v.length &lt; 2) v = "0" + v;
+frm[clr].value = v; nc = "";
+for(i = 1; i &lt; 8; i += 3) nc += frm.elements[i].value;
+document.bgColor = nc;
+}
+function setval(item) {
+v = prompt("New value for " + item.name + " (00 - FF)", item.value);
+if (v) {
+v = eval("0x" + v);
+if ((v & 255) == v) {
+item.value=v.toString(16).toUpperCase();
+while (item.value.length &lt; 2) item.value = "0" + item.value;
+color(document.f, item.name, 0);
+      }
+   }
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form name=f&gt;
+&lt;table border=1&gt;
+&lt;tr&gt;
+&lt;td colspan=3 align=center bgcolor="#ff0000"&gt;RED&lt;/td&gt;
+&lt;td colspan=3 align=center bgcolor="#00ff00"&gt;GREEN&lt;/td&gt;
+&lt;td colspan=3 align=center bgcolor="#000ff"&gt;BLUE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;input type=button name=rm value="&lt;" onclick = "color(this.form, 'Red' , -1);"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=button name=Red value="AF" onclick = "setval(this);"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=button name=rp value="&gt;" onclick = "color(this.form, 'Red', 1);"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=button name=gm value="&lt;" onclick = "color(this.form, 'Green', -1);"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=button name=Green value="BF" onclick = "setval(this);"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=button name=gp value="&gt;" onclick = "color(this.form, 'Green', 1);"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=button name=bm value="&lt;" onclick = "color(this.form, 'Blue', -1);"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=button name=Blue value="CF" onclick = "setval(this);"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=button name=bp value="&gt;" onclick = "color(this.form, 'Blue', 1);"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  2.28 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

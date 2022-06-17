@@ -1,0 +1,315 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Miscellaneous:  Tournament</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Miscellaneous">
+<META NAME="description" CONTENT="Enter up to 8 players in a tournament and this script will help track the tournament results.  Just enter each players name, then indicate if they won that level of tournament, click the checkbox or the button with their name.  If they won, they advance to the next level.  Cool!">
+
+<SCRIPT LANGUAGE="JavaScript">
+
+
+
+
+<!-- Begin
+function scoreWinner(personA, personB, next1, next2, next3, personAwin, personBwin) {
+with (personAwin.form)
+{
+if (!personAwin.checked && !personBwin.checked)
+{
+next1.value = "";
+next2.value = "";
+next3.value = "";
+}
+else {
+next1.value = (personAwin.checked ? personA.value : "                 ");
+personBwin.checked = false;
+next2.value = "";
+next3.value = "";
+      }
+   }
+}
+
+function advance(winner, loser, place) {
+place.value = winner.value;
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /miscellaneous/"><font color="#FF0000"><b>Miscellaneous</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Tournament</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Enter up to 8 players in a tournament and this script will help track the tournament results.  Just enter each players name, then indicate if they won that level of tournament, click the checkbox or the button with their name.  If they won, they advance to the next level.  Cool!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name=tournament>
+<p>Enter the player names then click the checkbox
+for the winner of each round.<br>
+After the initial round, simply click the name of the winner at that level.
+<p>
+<table width=500 border=1 cellspacing=1 cellpadding=1>
+  <tr>
+    <td align="center">
+    Players</td>
+    <td colspan=2 align=center>
+    Round 1 Results</td>
+    <td colspan=2 align=center>
+    Round 2 Results</td>     
+    <td colspan=2 align=center>
+    Round 3 Results</td>     
+  </tr>
+  <tr>
+    <td align=center>
+    <input type=text name=player1 size=10><input type=checkbox name=player1win onClick="scoreWinner(this.form.player1, this.form.player2, this.form.round1winner1, this.form.round2winner1, this.form.round3winner, this, this.form.player2win);">
+    </td> 
+    <td rowspan=2 colspan=2 align=center>
+    <input type=button name=round1winner1 value="                 " onClick="advance(this, this.form.round1winner2, this.form.round2winner1);">
+    </td>
+    <td rowspan=4 colspan=2 align=center>
+    <input type=button name=round2winner1 value="                 " onClick="advance(this, this.form.round2winner2, this.form.round3winner);">
+    </td>
+    <td rowspan=8 colspan=2 align=center>
+    <input type=button name=round3winner value="                 ">
+    </td>
+  </tr>
+  <tr>
+    <td align=center>
+    <input type=text name=player2 size=10><input type=checkbox name=player2win onClick="scoreWinner(this.form.player2, this.form.player1, this.form.round1winner1, this.form.round2winner1, this.form.round3winner, this, this.form.player1win);">
+    </td> 
+  </tr>
+  <tr>
+    <td align=center>
+    <input type=text name=player3 size=10><input type=checkbox name=player3win onClick="scoreWinner(this.form.player3, this.form.player4, this.form.round1winner2, this.form.round2winner1, this.form.round3winner, this, this.form.player4win);">
+    </td>
+    <td rowspan=2 colspan=2 align=center>
+    <input type=button name=round1winner2 value="                 " onClick="advance(this, this.form.round1winner1, this.form.round2winner1);">
+    </td>
+  </tr>
+  <tr>
+    <td align=center>
+    <input type=text name=player4 size=10><input type=checkbox name=player4win onClick="scoreWinner(this.form.player4, this.form.player3, this.form.round1winner2, this.form.round2winner1, this.form.round3winner, this, this.form.player3win);">
+    </td>
+  </tr>
+  <tr>
+    <td align=center>
+    <input type=text name=player5 size=10><input type=checkbox name=player5win onClick="scoreWinner(this.form.player5, this.form.player6, this.form.round1winner3, this.form.round2winner2, this.form.round3winner, this, this.form.player6win);">
+    </td> 
+    <td rowspan=2 colspan=2 align=center>
+    <input type=button name=round1winner3 value="                 " onClick="advance(this, this.form.round1winner4, this.form.round2winner2);">
+    </td>
+    <td rowspan=4 colspan=2 align=center>
+    <input type=button name=round2winner2 value="                 " onClick="advance(this, this.form.round2winner1, this.form.round3winner);">
+    </td>
+  </tr>
+  <tr>
+    <td align=center>
+    <input type=text name=player6 size=10><input type=checkbox name=player6win onClick="scoreWinner(this.form.player6, this.form.player5, this.form.round1winner3, this.form.round2winner2, this.form.round3winner, this, this.form.player5win);">
+    </td> 
+  </tr>
+  <tr>
+    <td align=center>
+    <input type=text name=player7 size=10><input type=checkbox name=player7win onClick="scoreWinner(this.form.player7, this.form.player8, this.form.round1winner4, this.form.round2winner2, this.form.round3winner, this, this.form.player8win);">
+    </td> 
+    <td rowspan=2 colspan=2 align=center>
+    <input type=button name=round1winner4 value="                 " onClick="advance(this, this.form.round1winner3, this.form.round2winner2);">
+    </td>   
+  </tr>
+  <tr>
+    <td align=center>
+    <input type=text name=player8 size=10><input type=checkbox name=player8win onClick="scoreWinner(this.form.player8, this.form.player7, this.form.round1winner4, this.form.round2winner2, this.form.round3winner, this, this.form.player7win);">
+    </td> 
+  </tr>
+</table>
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Miscellaneous:  Tournament</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  5.14 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL TOURNAMENT:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function scoreWinner(personA, personB, next1, next2, next3, personAwin, personBwin) {
+with (personAwin.form)
+{
+if (!personAwin.checked && !personBwin.checked)
+{
+next1.value = "";
+next2.value = "";
+next3.value = "";
+}
+else {
+next1.value = (personAwin.checked ? personA.value : "                 ");
+personBwin.checked = false;
+next2.value = "";
+next3.value = "";
+      }
+   }
+}
+
+function advance(winner, loser, place) {
+place.value = winner.value;
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form name=tournament&gt;
+&lt;p&gt;Enter the player names then click the checkbox
+for the winner of each round.&lt;br&gt;
+After the initial round, simply click the name of the winner at that level.
+&lt;p&gt;
+&lt;table width=500 border=1 cellspacing=1 cellpadding=1&gt;
+  &lt;tr&gt;
+    &lt;td align="center"&gt;
+    Players&lt;/td&gt;
+    &lt;td colspan=2 align=center&gt;
+    Round 1 Results&lt;/td&gt;
+    &lt;td colspan=2 align=center&gt;
+    Round 2 Results&lt;/td&gt;     
+    &lt;td colspan=2 align=center&gt;
+    Round 3 Results&lt;/td&gt;     
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td align=center&gt;
+    &lt;input type=text name=player1 size=10&gt;&lt;input type=checkbox name=player1win onClick="scoreWinner(this.form.player1, this.form.player2, this.form.round1winner1, this.form.round2winner1, this.form.round3winner, this, this.form.player2win);"&gt;
+    &lt;/td&gt; 
+    &lt;td rowspan=2 colspan=2 align=center&gt;
+    &lt;input type=button name=round1winner1 value="                 " onClick="advance(this, this.form.round1winner2, this.form.round2winner1);"&gt;
+    &lt;/td&gt;
+    &lt;td rowspan=4 colspan=2 align=center&gt;
+    &lt;input type=button name=round2winner1 value="                 " onClick="advance(this, this.form.round2winner2, this.form.round3winner);"&gt;
+    &lt;/td&gt;
+    &lt;td rowspan=8 colspan=2 align=center&gt;
+    &lt;input type=button name=round3winner value="                 "&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td align=center&gt;
+    &lt;input type=text name=player2 size=10&gt;&lt;input type=checkbox name=player2win onClick="scoreWinner(this.form.player2, this.form.player1, this.form.round1winner1, this.form.round2winner1, this.form.round3winner, this, this.form.player1win);"&gt;
+    &lt;/td&gt; 
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td align=center&gt;
+    &lt;input type=text name=player3 size=10&gt;&lt;input type=checkbox name=player3win onClick="scoreWinner(this.form.player3, this.form.player4, this.form.round1winner2, this.form.round2winner1, this.form.round3winner, this, this.form.player4win);"&gt;
+    &lt;/td&gt;
+    &lt;td rowspan=2 colspan=2 align=center&gt;
+    &lt;input type=button name=round1winner2 value="                 " onClick="advance(this, this.form.round1winner1, this.form.round2winner1);"&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td align=center&gt;
+    &lt;input type=text name=player4 size=10&gt;&lt;input type=checkbox name=player4win onClick="scoreWinner(this.form.player4, this.form.player3, this.form.round1winner2, this.form.round2winner1, this.form.round3winner, this, this.form.player3win);"&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td align=center&gt;
+    &lt;input type=text name=player5 size=10&gt;&lt;input type=checkbox name=player5win onClick="scoreWinner(this.form.player5, this.form.player6, this.form.round1winner3, this.form.round2winner2, this.form.round3winner, this, this.form.player6win);"&gt;
+    &lt;/td&gt; 
+    &lt;td rowspan=2 colspan=2 align=center&gt;
+    &lt;input type=button name=round1winner3 value="                 " onClick="advance(this, this.form.round1winner4, this.form.round2winner2);"&gt;
+    &lt;/td&gt;
+    &lt;td rowspan=4 colspan=2 align=center&gt;
+    &lt;input type=button name=round2winner2 value="                 " onClick="advance(this, this.form.round2winner1, this.form.round3winner);"&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td align=center&gt;
+    &lt;input type=text name=player6 size=10&gt;&lt;input type=checkbox name=player6win onClick="scoreWinner(this.form.player6, this.form.player5, this.form.round1winner3, this.form.round2winner2, this.form.round3winner, this, this.form.player5win);"&gt;
+    &lt;/td&gt; 
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td align=center&gt;
+    &lt;input type=text name=player7 size=10&gt;&lt;input type=checkbox name=player7win onClick="scoreWinner(this.form.player7, this.form.player8, this.form.round1winner4, this.form.round2winner2, this.form.round3winner, this, this.form.player8win);"&gt;
+    &lt;/td&gt; 
+    &lt;td rowspan=2 colspan=2 align=center&gt;
+    &lt;input type=button name=round1winner4 value="                 " onClick="advance(this, this.form.round1winner3, this.form.round2winner2);"&gt;
+    &lt;/td&gt;   
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td align=center&gt;
+    &lt;input type=text name=player8 size=10&gt;&lt;input type=checkbox name=player8win onClick="scoreWinner(this.form.player8, this.form.player7, this.form.round1winner4, this.form.round2winner2, this.form.round3winner, this, this.form.player7win);"&gt;
+    &lt;/td&gt; 
+  &lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  5.14 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>
+

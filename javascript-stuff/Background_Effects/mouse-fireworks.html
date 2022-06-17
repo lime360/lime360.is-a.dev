@@ -1,0 +1,323 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  BG Effects:  Mouse Fireworks</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Matt Gabbert (mgabbert@usrtoday.com)">
+<META NAME="section" CONTENT="BG Effects">
+<META NAME="description" CONTENT="(JavaScript 1.2)  With each click of the mouse a flurry of fireworks explodes from that spot on the page.  You may also use your own images if you want.  Great!">
+
+<SCRIPT LANGUAGE="JavaScript1.2">
+<!-- Original:  Matt Gabbert (mgabbert@usrtoday.com) -->
+<!-- Web Site:  http://www.nolag.com -->
+
+
+
+
+<!-- Begin
+var ver  = navigator.appVersion;
+var dom  = document.getElementById ? 1 : 0;
+var ie5  = (ver.indexOf("MSIE 5") > -1 && dom) ? 1 : 0;
+var n  = (document.layers);
+var ie = (document.all);
+
+var sparksAflyin = 0;
+var totalSparks = 0;
+var sparksOn = 1;
+function initMouseEvents() {
+document.onmousedown = mouseDown;
+if (n) document.captureEvents(Event.MOUSEDOWN | Event.MOUSEMOVE);
+}
+function mouseDown(e) {
+if (sparksOn) {
+var mousex = (n) ? e.pageX : event.x+document.body.scrollLeft;
+var mousey = (n) ? e.pageY : event.y+document.body.scrollTop;
+if (!sparksAflyin) {
+for (var k = 0; k <= 9; k++)
+   eval('SHOW("sDiv'+k+'")');
+sparksAflyin = 1;
+totalSparks = 0;
+for(i = 0;i <= 9; i++)
+eval('moveTo('+i+',0,'+mousex+','+mousey+')');
+      }
+   }
+}
+function moveTo(i,j, mousex, mousey){
+if (j < eval('anim_'+i+'_x.length') ){
+var tempx = eval('anim_'+i+'_x[j]+mousex');
+var tempy = eval('anim_'+i+'_y[j]+mousey');
+if (ie) {
+if(tempy+30 > (document.body.offsetHeight+document.body.scrollTop))
+tempy = document.body.offsetHeight+document.body.scrollTop-30;
+if(tempx+30 > (document.body.offsetWidth+document.body.scrollLeft))
+tempx = document.body.offsetWidth+document.body.scrollLeft-30;
+eval('document.all.sDiv'+i+'.style.left = tempx;');
+eval('document.all.sDiv'+i+'.style.top  = tempy;');
+}
+if (n) {
+eval('document.layers.sDiv'+i+'.left = tempx;');
+eval('document.layers.sDiv'+i+'.top  = tempy;');
+}
+j++;
+//  timeout: 50 = fireworks speed, larger number = slower speed
+    setTimeout("moveTo("+i+","+j+","+mousex+","+mousey+")",50)
+}
+else {
+eval('HIDE("sDiv'+i+'")');
+totalSparks++;
+}
+if (totalSparks == 10) {
+sparksAflyin = 0;
+totalSparks  = 0;
+   }
+}
+function SHOW(divName){
+if (document.all)
+eval('document.all.'+divName+'.style.visibility = "visible";');
+else if (document.layers)
+eval('document.layers["'+divName+'"].visibility = "visible";');
+}
+function HIDE(divName){
+if (document.all)
+eval('document.all.'+divName+'.style.visibility = "hidden";');
+else if (document.layers)
+eval('document.layers["'+divName+'"].visibility = "hide";');
+}
+anim_0_x=new Array(20,20,10,0,0,0,0,0,0,0,0,0);
+anim_0_y=new Array(-20,-40,-60,-80,-60,-40,-20,0,20,40,60,80);
+anim_1_x=new Array(20,20,17,36,60,78,90,92,93,98,108,120,133,152,181);
+anim_1_y=new Array(-20,-20,-33,-38,-38,-27,-2,25,51,84,113,141,162,212,253);
+anim_2_x=new Array(20,20,2,3,4,5,6,7,8,9,10,12,13,15,18);
+anim_2_y=new Array(-20,-20,-33,-38,-38,-27,-2,25,51,84,113,141,162,212,253);
+anim_3_x=new Array(-20,-20,-2,-1,7,10,18,35,60,102,94,94,93,97,108,111,117,127);
+anim_3_y=new Array(-20,-25,-64,-89,-104,-150,-173,-197,-213,-199,-151,-101,-66,-17,27,87,140,189);
+anim_4_x=new Array(-20,-20,-10,-39,-30,-69,-64,-138,-154,-200,-181,-209,-191,-207,-203,-213,-202,-221,-211);
+anim_4_y=new Array(-20,-20,-28,-51,-79,-100,-135,-154,-193,-183,-149,-134,-89,-60,8,51,107,157,201);
+anim_5_x=new Array(-20,-29,-51,-72,-105,-133,-164,-189,-209,-229,-247,-270,-279,-282,-283,-283,-285,-286,-288);
+anim_5_y=new Array(-20,-55,-86,-116,-154,-183,-205,-217,-217,-198,-169,-120,-44,-8,40,87,144,190,248);
+anim_6_x=new Array(-20,-20,-7,14,44,79,143,186,217,226,234,244,250,259,265,274);
+anim_6_y=new Array(-20,-21,-72,-113,-139,-166,-188,-181,-126,-68,-3,54,134,187,215,257);
+anim_7_x=new Array(20,20,-3,-9,-13,-27,-33,-44,-54,-66,-77,-95,-107,-136,-150,-160,-164,-168,-171,-172,-172,-176,-175);
+anim_7_y=new Array(-20,-26,-43,-63,-89,-116,-145,-169,-201,-222,-240,-253,-254,-245,-220,-195,-160,-124,-81,-53,-26,19,68);
+anim_8_x=new Array(-20,20,-35,39,0,45,-1,24,-15,14,-20,35,-18,38,-11,16,49,64,81,93,100,103,109);
+anim_8_y=new Array(-20,-20,-32,-42,-62,-76,-89,-107,-132,-147,-173,-180,-192,-209,-236,-193,-119,-73,-24,51,95,130,188);
+anim_9_x=new Array(-20,-51,-89,-110,-165,-191,-228,-240,-259,-271,-277,-281,-287);
+anim_9_y=new Array(-20,-20,-35,-37,-34,-16,10,47,105,150,189,227,273);
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff OnLoad="initMouseEvents()">
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /bgeffects/"><font color="#FF0000"><b>BG Effects</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Mouse Fireworks</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+(JavaScript 1.2)  With each click of the mouse a flurry of fireworks explodes from that spot on the page.  You may also use your own images if you want.  Great!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<!-- To use your own images, just put the necessary image -->
+<!-- tags (<img src="..." /bgeffects/...">)  inside each DIV tag in this code -->
+
+<div id="sparks">
+<div id="sDiv0" style="position:absolute; visibility: hidden;"><font face="arial black" color="red">.</font></div>
+<div id="sDiv1" style="position:absolute; visibility: hidden;"><font face="arial black" color="yellow">.</font></div>
+<div id="sDiv2" style="position:absolute; visibility: hidden;"><font face="arial black" color="blue">.</font></div>
+<div id="sDiv3" style="position:absolute; visibility: hidden;"><font face="arial black" color="red">.</font></div>
+<div id="sDiv4" style="position:absolute; visibility: hidden;"><font face="arial black" color="orange">.</font></div>
+<div id="sDiv5" style="position:absolute; visibility: hidden;"><font face="arial black" color="white">.</font></div>
+<div id="sDiv6" style="position:absolute; visibility: hidden;"><font face="arial black" color="green">.</font></div>
+<div id="sDiv7" style="position:absolute; visibility: hidden;"><font face="arial black" color="skyblue">.</font></div>
+<div id="sDiv8" style="position:absolute; visibility: hidden;"><font face="arial black" color="yellow">.</font></div>
+<div id="sDiv9" style="position:absolute; visibility: hidden;"><font face="arial black" color="white">.</font></div>
+</div>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  BG Effects:  Mouse Fireworks</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  5.96 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL MOUSE FIREWORKS:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the onLoad event handler into the BODY tag
+  3.  Put the last coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript1.2"&gt;
+&lt;!-- Original:  Matt Gabbert (mgabbert@usrtoday.com) --&gt;
+&lt;!-- Web Site:  http://www.nolag.com --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var ver  = navigator.appVersion;
+var dom  = document.getElementById ? 1 : 0;
+var ie5  = (ver.indexOf("MSIE 5") &gt; -1 && dom) ? 1 : 0;
+var n  = (document.layers);
+var ie = (document.all);
+
+var sparksAflyin = 0;
+var totalSparks = 0;
+var sparksOn = 1;
+function initMouseEvents() {
+document.onmousedown = mouseDown;
+if (n) document.captureEvents(Event.MOUSEDOWN | Event.MOUSEMOVE);
+}
+function mouseDown(e) {
+if (sparksOn) {
+var mousex = (n) ? e.pageX : event.x+document.body.scrollLeft;
+var mousey = (n) ? e.pageY : event.y+document.body.scrollTop;
+if (!sparksAflyin) {
+for (var k = 0; k &lt;= 9; k++)
+   eval('SHOW("sDiv'+k+'")');
+sparksAflyin = 1;
+totalSparks = 0;
+for(i = 0;i &lt;= 9; i++)
+eval('moveTo('+i+',0,'+mousex+','+mousey+')');
+      }
+   }
+}
+function moveTo(i,j, mousex, mousey){
+if (j &lt; eval('anim_'+i+'_x.length') ){
+var tempx = eval('anim_'+i+'_x[j]+mousex');
+var tempy = eval('anim_'+i+'_y[j]+mousey');
+if (ie) {
+if(tempy+30 &gt; (document.body.offsetHeight+document.body.scrollTop))
+tempy = document.body.offsetHeight+document.body.scrollTop-30;
+if(tempx+30 &gt; (document.body.offsetWidth+document.body.scrollLeft))
+tempx = document.body.offsetWidth+document.body.scrollLeft-30;
+eval('document.all.sDiv'+i+'.style.left = tempx;');
+eval('document.all.sDiv'+i+'.style.top  = tempy;');
+}
+if (n) {
+eval('document.layers.sDiv'+i+'.left = tempx;');
+eval('document.layers.sDiv'+i+'.top  = tempy;');
+}
+j++;
+//  timeout: 50 = fireworks speed, larger number = slower speed
+    setTimeout("moveTo("+i+","+j+","+mousex+","+mousey+")",50)
+}
+else {
+eval('HIDE("sDiv'+i+'")');
+totalSparks++;
+}
+if (totalSparks == 10) {
+sparksAflyin = 0;
+totalSparks  = 0;
+   }
+}
+function SHOW(divName){
+if (document.all)
+eval('document.all.'+divName+'.style.visibility = "visible";');
+else if (document.layers)
+eval('document.layers["'+divName+'"].visibility = "visible";');
+}
+function HIDE(divName){
+if (document.all)
+eval('document.all.'+divName+'.style.visibility = "hidden";');
+else if (document.layers)
+eval('document.layers["'+divName+'"].visibility = "hide";');
+}
+anim_0_x=new Array(20,20,10,0,0,0,0,0,0,0,0,0);
+anim_0_y=new Array(-20,-40,-60,-80,-60,-40,-20,0,20,40,60,80);
+anim_1_x=new Array(20,20,17,36,60,78,90,92,93,98,108,120,133,152,181);
+anim_1_y=new Array(-20,-20,-33,-38,-38,-27,-2,25,51,84,113,141,162,212,253);
+anim_2_x=new Array(20,20,2,3,4,5,6,7,8,9,10,12,13,15,18);
+anim_2_y=new Array(-20,-20,-33,-38,-38,-27,-2,25,51,84,113,141,162,212,253);
+anim_3_x=new Array(-20,-20,-2,-1,7,10,18,35,60,102,94,94,93,97,108,111,117,127);
+anim_3_y=new Array(-20,-25,-64,-89,-104,-150,-173,-197,-213,-199,-151,-101,-66,-17,27,87,140,189);
+anim_4_x=new Array(-20,-20,-10,-39,-30,-69,-64,-138,-154,-200,-181,-209,-191,-207,-203,-213,-202,-221,-211);
+anim_4_y=new Array(-20,-20,-28,-51,-79,-100,-135,-154,-193,-183,-149,-134,-89,-60,8,51,107,157,201);
+anim_5_x=new Array(-20,-29,-51,-72,-105,-133,-164,-189,-209,-229,-247,-270,-279,-282,-283,-283,-285,-286,-288);
+anim_5_y=new Array(-20,-55,-86,-116,-154,-183,-205,-217,-217,-198,-169,-120,-44,-8,40,87,144,190,248);
+anim_6_x=new Array(-20,-20,-7,14,44,79,143,186,217,226,234,244,250,259,265,274);
+anim_6_y=new Array(-20,-21,-72,-113,-139,-166,-188,-181,-126,-68,-3,54,134,187,215,257);
+anim_7_x=new Array(20,20,-3,-9,-13,-27,-33,-44,-54,-66,-77,-95,-107,-136,-150,-160,-164,-168,-171,-172,-172,-176,-175);
+anim_7_y=new Array(-20,-26,-43,-63,-89,-116,-145,-169,-201,-222,-240,-253,-254,-245,-220,-195,-160,-124,-81,-53,-26,19,68);
+anim_8_x=new Array(-20,20,-35,39,0,45,-1,24,-15,14,-20,35,-18,38,-11,16,49,64,81,93,100,103,109);
+anim_8_y=new Array(-20,-20,-32,-42,-62,-76,-89,-107,-132,-147,-173,-180,-192,-209,-236,-193,-119,-73,-24,51,95,130,188);
+anim_9_x=new Array(-20,-51,-89,-110,-165,-191,-228,-240,-259,-271,-277,-281,-287);
+anim_9_y=new Array(-20,-20,-35,-37,-34,-16,10,47,105,150,189,227,273);
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Insert the onLoad event handler into your BODY tag  --&gt;
+
+&lt;BODY OnLoad="initMouseEvents()"&gt;
+
+&lt;!-- STEP THREE: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;!-- To use your own images, just put the necessary image --&gt;
+&lt;!-- tags (&lt;img src="..."&gt;)  inside each DIV tag in this code --&gt;
+
+&lt;div id="sparks"&gt;
+&lt;div id="sDiv0" style="position:absolute; visibility: hidden;"&gt;&lt;font face="arial black" color="red"&gt;.&lt;/font&gt;&lt;/div&gt;
+&lt;div id="sDiv1" style="position:absolute; visibility: hidden;"&gt;&lt;font face="arial black" color="yellow"&gt;.&lt;/font&gt;&lt;/div&gt;
+&lt;div id="sDiv2" style="position:absolute; visibility: hidden;"&gt;&lt;font face="arial black" color="blue"&gt;.&lt;/font&gt;&lt;/div&gt;
+&lt;div id="sDiv3" style="position:absolute; visibility: hidden;"&gt;&lt;font face="arial black" color="red"&gt;.&lt;/font&gt;&lt;/div&gt;
+&lt;div id="sDiv4" style="position:absolute; visibility: hidden;"&gt;&lt;font face="arial black" color="orange"&gt;.&lt;/font&gt;&lt;/div&gt;
+&lt;div id="sDiv5" style="position:absolute; visibility: hidden;"&gt;&lt;font face="arial black" color="white"&gt;.&lt;/font&gt;&lt;/div&gt;
+&lt;div id="sDiv6" style="position:absolute; visibility: hidden;"&gt;&lt;font face="arial black" color="green"&gt;.&lt;/font&gt;&lt;/div&gt;
+&lt;div id="sDiv7" style="position:absolute; visibility: hidden;"&gt;&lt;font face="arial black" color="skyblue"&gt;.&lt;/font&gt;&lt;/div&gt;
+&lt;div id="sDiv8" style="position:absolute; visibility: hidden;"&gt;&lt;font face="arial black" color="yellow"&gt;.&lt;/font&gt;&lt;/div&gt;
+&lt;div id="sDiv9" style="position:absolute; visibility: hidden;"&gt;&lt;font face="arial black" color="white"&gt;.&lt;/font&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+ 
+
+&lt;!-- Script Size:  5.96 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

@@ -1,0 +1,184 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Page Details:  Page Up For</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Page Details">
+<META NAME="description" CONTENT="JavaScript can even display how long your web page has been online.  Just enter the date, the script does the calculations, and prints out the time.  It has a very nice readout and looks very professional!">
+
+<SCRIPT LANGUAGE="JavaScript">
+
+
+
+
+<!-- Begin
+function HowLongSince(startmonth, startdate, startyear) {
+sdate=startdate;
+smonth=startmonth-1;
+syear=startyear;
+var DaysInMonth = new Array(31,28,31,30,31,30,31,31,30,31,30,31);
+today = new Date()
+var thisyear = today.getFullYear();
+var thismonth = today.getMonth();
+var thisdate = today.getDate();
+mstart = new Date(syear,(smonth==12?1:smonth+1),1);
+days1 = (mstart - new Date(syear,smonth,sdate))/(24*60*60*1000)-1;
+mend = new Date(thisyear,thismonth,1);
+days2 = (new Date(thisyear,thismonth,thisdate) - mend)/(24*60*60*1000)+1;
+dayst = days1 + days2;
+if (dayst >= DaysInMonth[smonth])  {
+AddOneMonth = 1; 
+dayst -= DaysInMonth[smonth]; 
+}
+else AddOneMonth = 0;
+ydiff1 = thisyear-mstart.getFullYear();
+mdiff1 = thismonth-mstart.getMonth()+AddOneMonth;
+if (mdiff1 >11) { mdiff1=0; ydiff1++; }
+if (mdiff1 < 0) { mdiff1 = mdiff1 + 12; ydiff1--; }
+temp = (ydiff1==0?"":(ydiff1==1?ydiff1+" year and ":ydiff1 + " years, "));
+temp += (mdiff1==0?"0 months, and ":(mdiff1==1?mdiff1+" month, and ":mdiff1+" months, and "));
+temp += (dayst==0?"no days":(dayst==1 ? " 1 day." : dayst + " days." ));
+return temp;
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /page-details/"><font color="#FF0000"><b>Page Details</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Page Up For</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+JavaScript can even display how long your web page has been online.  Just enter the date, the script does the calculations, and prints out the time.  It has a very nice readout and looks very professional!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+document.write("JavaScript Source Code 3000 has been up for ");
+document.write("<font color=red>");
+document.write(HowLongSince(06,15,97)); 
+// this is the date your site was created.  day,month,year
+document.write("</font>");
+// End -->
+</script>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Page Details:  Page Up For</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.96 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL PAGE UP FOR:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function HowLongSince(startmonth, startdate, startyear) {
+sdate=startdate;
+smonth=startmonth-1;
+syear=startyear;
+var DaysInMonth = new Array(31,28,31,30,31,30,31,31,30,31,30,31);
+today = new Date()
+var thisyear = today.getFullYear();
+var thismonth = today.getMonth();
+var thisdate = today.getDate();
+mstart = new Date(syear,(smonth==12?1:smonth+1),1);
+days1 = (mstart - new Date(syear,smonth,sdate))/(24*60*60*1000)-1;
+mend = new Date(thisyear,thismonth,1);
+days2 = (new Date(thisyear,thismonth,thisdate) - mend)/(24*60*60*1000)+1;
+dayst = days1 + days2;
+if (dayst &gt;= DaysInMonth[smonth])  {
+AddOneMonth = 1; 
+dayst -= DaysInMonth[smonth]; 
+}
+else AddOneMonth = 0;
+ydiff1 = thisyear-mstart.getFullYear();
+mdiff1 = thismonth-mstart.getMonth()+AddOneMonth;
+if (mdiff1 &gt;11) { mdiff1=0; ydiff1++; }
+if (mdiff1 &lt; 0) { mdiff1 = mdiff1 + 12; ydiff1--; }
+temp = (ydiff1==0?"":(ydiff1==1?ydiff1+" year and ":ydiff1 + " years, "));
+temp += (mdiff1==0?"0 months, and ":(mdiff1==1?mdiff1+" month, and ":mdiff1+" months, and "));
+temp += (dayst==0?"no days":(dayst==1 ? " 1 day." : dayst + " days." ));
+return temp;
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Begin
+document.write("JavaScript Source Code 3000 has been up for ");
+document.write("&lt;font color=red&gt;");
+document.write(HowLongSince(06,15,97)); 
+// this is the date your site was created.  day,month,year
+document.write("&lt;/font&gt;");
+// End --&gt;
+&lt;/script&gt;
+
+ 
+
+&lt;!-- Script Size:  1.96 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

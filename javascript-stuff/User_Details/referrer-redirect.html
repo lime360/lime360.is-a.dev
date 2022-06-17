@@ -1,0 +1,133 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  User Details:  Referrer Redirect</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Ronnie T. Moore, Editor">
+<META NAME="section" CONTENT="User Details">
+<META NAME="description" CONTENT="Redirects the user based on the referring web address.  Now its a breeze send people to different sections of your site based on where they came from.  Clever!">
+<META NAME="date" CONTENT="2000-09-19">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Ronnie T. Moore, Editor">
+<META NAME="section" CONTENT="User Details">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Ronnie T. Moore, Editor -->
+<!-- Web Site:  http://javascriptsource.com -->
+
+
+
+
+<!-- Begin
+var refarray = new Array();
+refarray['referrer-redirect-demo1.html'] = "?from=demo1";
+refarray['referrer-redirect-demo2.html'] = "?from=demo2";
+refarray['referrer-redirect-demo3.html'] = "?from=demo3";
+refarray['referrer-redirect-demo4.html'] = "?from=demo4";
+for (var i in refarray) {
+if (document.referrer.indexOf(i) != -1) alert("Because you came from:\r\n" + i + "\r\nyou would have been taken to:\r\n" + refarray[i] + "\r\n.... But this is just a demo!");
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /user-details/"><font color="#FF0000"><b>User Details</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Referrer Redirect</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Redirects the user based on the referring web address.  Now its a breeze send people to different sections of your site based on where they came from.  Clever!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+To see this script in action, browse to these demo pages and click the link to return to this site.
+<br><br>
+<li><a href="referrer-redirect-demo1.html">referrer-redirect-demo1.html</a>
+<li><a href="referrer-redirect-demo2.html">referrer-redirect-demo2.html</a>
+<li><a href="referrer-redirect-demo3.html">referrer-redirect-demo3.html</a>
+<li><a href="referrer-redirect-demo4.html">referrer-redirect-demo4.html</a>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  User Details:  Referrer Redirect</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  0.84 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- ONE STEP TO INSTALL REFERRER REDIRECT:
+
+  1.  Copy the coding into the HEAD of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Ronnie T. Moore, Editor --&gt;
+&lt;!-- Web Site:  http://javascriptsource.com --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var refarray = new Array();
+refarray['excite.com'] = "page.html?from=excite";
+refarray['yahoo.com'] = "page.html?from=yahoo";
+refarray['lycos.com'] = "page.html?from=lycos";
+refarray['infoseek.com'] = "page.html?from=infoseek";
+for (var i in refarray) {
+if (document.referrer.indexOf(i) != -1) window.location.replace(refarray[i]);
+}
+//  End --&gt;
+&lt;/script&gt;
+
+ 
+
+&lt;!-- Script Size:  0.84 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

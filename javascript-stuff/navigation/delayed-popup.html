@@ -1,0 +1,147 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Navigation:  Delayed Popup</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Ronnie T. Moore, Editor">
+<META NAME="section" CONTENT="Navigation">
+<META NAME="description" CONTENT="Automatically opens a new popup window a given number of seconds after the page finishes loading.  The script can optionally be configured to close the window after a few seconds.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Ronnie T. Moore, Editor -->
+<!-- Web Site:  JavaScript Source Code 3000 -->
+
+
+
+
+<!-- Begin
+closetime = 0; // Close window after __ number of seconds?
+// 0 = do not close, anything else = number of seconds
+
+function Start(URL, WIDTH, HEIGHT) {
+windowprops = "left=50,top=50,width=" + WIDTH + ",height=" + HEIGHT;
+preview = window.open(URL, "preview", windowprops);
+if (closetime) setTimeout("preview.close();", closetime*1000);
+}
+
+function doPopup() {
+url = "http://www.yahoo.com";
+width = 267;  // width of window in pixels
+height = 103; // height of window in pixels
+delay = 2;    // time in seconds before popup opens
+timer = setTimeout("Start(url, width, height)", delay*1000);
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff OnLoad="doPopup();">
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.html" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /navigation/"><font color="#FF0000"><b>Navigation</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Delayed Popup</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Automatically opens a new popup window a given number of seconds after the page finishes loading.  The script can optionally be configured to close the window after a few seconds.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<font face="arial, helvetica">
+Note:  We configured our demo to open the popup window 2 seconds<br>
+after this page finishes loading and to not close the window automatically.</font>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Navigation:  Delayed Popup</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.27 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL DELAYED POPUP:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the onLoad event handler into the BODY tag  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Ronnie T. Moore, Editor --&gt;
+&lt;!-- Web Site:  JavaScript Source Code 3000 --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+closetime = 0; // Close window after __ number of seconds?
+// 0 = do not close, anything else = number of seconds
+
+function Start(URL, WIDTH, HEIGHT) {
+windowprops = "left=50,top=50,width=" + WIDTH + ",height=" + HEIGHT;
+preview = window.open(URL, "preview", windowprops);
+if (closetime) setTimeout("preview.close();", closetime*1000);
+}
+
+function doPopup() {
+url = "http://javascript.internet.com/navigation/delayed-popup-window.html";
+width = 267;  // width of window in pixels
+height = 103; // height of window in pixels
+delay = 2;    // time in seconds before popup opens
+timer = setTimeout("Start(url, width, height)", delay*1000);
+}
+//  End --&gt;
+&lt;/script&gt;
+
+&lt;!-- STEP TWO: Insert the onLoad event handler into your BODY tag  --&gt;
+
+&lt;BODY OnLoad="doPopup();"&gt;
+
+ 
+
+&lt;!-- Script Size:  1.27 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

@@ -1,0 +1,267 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Clocks:  Count Up & Down</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Clocks">
+<META NAME="description" CONTENT="Here, you can use stopwatch functions to count up and down - separately or together at once.  Try it out!  A neat JavaScript example.">
+
+<SCRIPT LANGUAGE="JavaScript">
+
+<!--
+var up,down;var min1,sec1;var cmin1,csec1,cmin2,csec2;
+function Minutes(data) {
+for(var i=0;i<data.length;i++) 
+if(data.substring(i,i+1)==":") 
+break;  
+return(data.substring(0,i)); 
+}
+function Seconds(data) {        
+for(var i=0;i<data.length;i++) 
+if(data.substring(i,i+1)==":") 
+break;  
+return(data.substring(i+1,data.length)); 
+}
+function Display(min,sec) {     
+var disp;       
+if(min<=9) disp=" 0";   
+else disp=" ";  
+disp+=min+":";  
+if(sec<=9) disp+="0"+sec;       
+else disp+=sec; 
+return(disp); 
+}
+function Up() { 
+cmin1=0;        
+csec1=0;        
+min1=0+Minutes(document.sw.beg1.value); 
+sec1=0+Seconds(document.sw.beg1.value); 
+UpRepeat(); 
+}
+function UpRepeat() {   
+csec1++;        
+if(csec1==60) {
+csec1=0; cmin1++; 
+}
+document.sw.disp1.value=Display(cmin1,csec1);   
+if((cmin1==min1)&&(csec1==sec1)) 
+alert("Stopwatch Stopped");     
+else up=setTimeout("UpRepeat()",1000); 
+}
+function Down() {       
+cmin2=1*Minutes(document.sw.beg2.value);        
+csec2=0+Seconds(document.sw.beg2.value);        
+DownRepeat(); 
+}
+function DownRepeat() { 
+csec2--;        
+if(csec2==-1) { 
+csec2=59; cmin2--; 
+}       
+document.sw.disp2.value=Display(cmin2,csec2);   
+if((cmin2==0)&&(csec2==0)) 
+alert("Countdown Stopped");     
+else down=setTimeout("DownRepeat()",1000); 
+}
+// End -->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /clocks/"><font color="#FF0000">Clocks</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Count Up & Down</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Here, you can use stopwatch functions to count up and down - separately or together at once.  Try it out!  A neat JavaScript example.
+<br>
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<CENTER>
+<FORM name="sw">
+<TABLE border="0" width="100%">
+<tr align="center">
+<td><table border="3" width="100%"><tr>
+<th colspan="2">Stopwatch</th></tr>
+<tr align="center">
+<td>Stop at<br>
+<input type="text" name="beg1" size="7" value="0:10"></td>
+<td><input type="button" value="Start" onclick="Up()"></td>
+</tr>
+<tr align="center"><td colspan="2">
+<input type="text" name="disp1" size="7"></td></tr></table></td>
+<td>
+<input type="button" value="Start Both" onclick="Up();Down()">
+</td>
+<td>
+<table border="3" width="100%">
+<tr align="center">
+<td>Start at<br><input type="text" name="beg2" size="7" value="0:10"></td>                   <td><input type="button" value="Start" onclick="Down()"></td>
+</tr>
+<tr align="center"><td colspan="2">
+<input type="text" name="disp2" size="7"></td></tr></table></td></tr>
+</TABLE>
+</FORM>
+</CENTER>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Clocks:  Count Up & Down</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.72 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL COUNT UP & DOWN:
+
+   1.  Paste the specified coding into the HEAD of your HTML document
+   2.  Put the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the HEAD of your HTML document  --&gt;
+		  
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var up,down;var min1,sec1;var cmin1,csec1,cmin2,csec2;
+function Minutes(data) {
+for(var i=0;i&lt;data.length;i++) 
+if(data.substring(i,i+1)==":") 
+break;  
+return(data.substring(0,i)); 
+}
+function Seconds(data) {        
+for(var i=0;i&lt;data.length;i++) 
+if(data.substring(i,i+1)==":") 
+break;  
+return(data.substring(i+1,data.length)); 
+}
+function Display(min,sec) {     
+var disp;       
+if(min&lt;=9) disp=" 0";   
+else disp=" ";  
+disp+=min+":";  
+if(sec&lt;=9) disp+="0"+sec;       
+else disp+=sec; 
+return(disp); 
+}
+function Up() { 
+cmin1=0;        
+csec1=0;        
+min1=0+Minutes(document.sw.beg1.value); 
+sec1=0+Seconds(document.sw.beg1.value); 
+UpRepeat(); 
+}
+function UpRepeat() {   
+csec1++;        
+if(csec1==60) {
+csec1=0; cmin1++; 
+}
+document.sw.disp1.value=Display(cmin1,csec1);   
+if((cmin1==min1)&&(csec1==sec1)) 
+alert("Stopwatch Stopped");     
+else up=setTimeout("UpRepeat()",1000); 
+}
+function Down() {       
+cmin2=1*Minutes(document.sw.beg2.value);        
+csec2=0+Seconds(document.sw.beg2.value);        
+DownRepeat(); 
+}
+function DownRepeat() { 
+csec2--;        
+if(csec2==-1) { 
+csec2=59; cmin2--; 
+}       
+document.sw.disp2.value=Display(cmin2,csec2);   
+if((cmin2==0)&&(csec2==0)) 
+alert("Countdown Stopped");     
+else down=setTimeout("DownRepeat()",1000); 
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;CENTER&gt;
+&lt;FORM name="sw"&gt;
+&lt;TABLE border="0" width="100%"&gt;
+&lt;tr align="center"&gt;
+&lt;td&gt;&lt;table border="3" width="100%"&gt;&lt;tr&gt;
+&lt;th colspan="2"&gt;Stopwatch&lt;/th&gt;&lt;/tr&gt;
+&lt;tr align="center"&gt;
+&lt;td&gt;Stop at&lt;br&gt;
+&lt;input type="text" name="beg1" size="7" value="0:10"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type="button" value="Start" onclick="Up()"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr align="center"&gt;&lt;td colspan="2"&gt;
+&lt;input type="text" name="disp1" size="7"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;
+&lt;td&gt;
+&lt;input type="button" value="Start Both" onclick="Up();Down()"&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;table border="3" width="100%"&gt;
+&lt;tr align="center"&gt;
+&lt;td&gt;Start at&lt;br&gt;&lt;input type="text" name="beg2" size="7" value="0:10"&gt;&lt;/td&gt;                   &lt;td&gt;&lt;input type="button" value="Start" onclick="Down()"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr align="center"&gt;&lt;td colspan="2"&gt;
+&lt;input type="text" name="disp2" size="7"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/TABLE&gt;
+&lt;/FORM&gt;
+&lt;/CENTER&gt;
+
+ 
+
+&lt;!-- Script Size:  2.72 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

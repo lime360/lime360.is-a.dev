@@ -1,0 +1,64 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000!!</TITLE>
+<!-- TWO STEPS TO INSTALL SLIDESHOW:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  -->
+
+<!-- STEP ONE: Paste this code into the HEAD of your HTML document  -->
+
+<SCRIPT LANGUAGE="JavaScript">
+
+
+
+
+<!-- Begin
+var background = "black";
+var text = "white";
+var URL = "slideshow-source.html";
+var speed = 4000;
+var msgcount = 5;
+
+var i = 1;
+var blank = " ";
+ 
+function StringArray (n) {
+this.length = n;
+for (var x = 1; x <= n; x++) {
+this[x] = ' ';
+   }
+}
+ 
+message = new StringArray(msgcount);
+message[1] = "Check out this JavaScript Slideshow!!";
+message[2] = "Yet another cool effect that...";
+message[3] = "you can easily add to your web pages.";
+message[4] = "Why don't you put it on your site?";
+message[5] = "Don't forget, there are still<br>lots more scripts to check out!";
+ 
+function Slide() { 
+slidepage = '<body bgcolor='+background+'>'
++ '<center><table border=0 '
++ 'height=100%><tr><td><center><b><font '
++ 'color='+text+' size=6>'+message[i]+'</font></b>'
++ '</center></td></tr></table></center></body>';
+ 
+if (i == message.length + 1) parent.location = URL;
+ 
+if (i < message.length + 1) { 
+frames['slideshow'].location = "javascript:parent.slidepage";
+i++;
+setTimeout("Slide()",speed);
+   }
+}
+// End -->
+</script>
+
+<!-- STEP TWO: Copy this code into the BODY of your HTML document  -->
+
+<frameset border="0" rows="100%,*" onload="Slide()">
+<frame name="slideshow" src="javascript:parent.blank">
+</frameset>
+
+<!-- Script Size:  1.68 KB -->

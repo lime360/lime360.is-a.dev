@@ -1,0 +1,172 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  User Details:  Language</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="User Details">
+<META NAME="description" CONTENT="(Version 4.0+ browsers)  Redirects a user to the page based on their language.  For example, English language user browsers, which report the language as 'en' in most cases, can be redirected to an English page, while Spanish language user browser, which report the language as 'es' in most cases, can be sent to a separate Spanish page.  This method works well for redirecting users in all the languages that you set up.  Instructions on adding more languages are included in the source code.">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /user-details/"><font color="#FF0000"><b>User Details</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Language</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+(Version 4.0+ browsers)  Redirects a user to the page based on their language.  For example, English language user browsers, which report the language as 'en' in most cases, can be redirected to an English page, while Spanish language user browser, which report the language as 'es' in most cases, can be sent to a separate Spanish page.  This method works well for redirecting users in all the languages that you set up.  Instructions on adding more languages are included in the source code.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<SCRIPT LANGUAGE="JavaScript1.2">
+<!-- Begin
+if (navigator.appName == 'Netscape')
+var language = navigator.language;
+else
+var language = navigator.browserLanguage;
+
+/*-------------------------------------------------------------
+Netscape instructions:  
+In Netscape, find the language you want to redirect by going to
+
+Edit Menu --> Preferences...
+
+Then click the '+' box next to 'Navigator' and click 'Languages'
+Click 'Add' then find the languages you want and add them below.
+
+---------------------------------------------------------------
+
+Microsoft Internet Explorer instructions:  
+In MSIE, find the language you want to redirect by going to
+
+Tools Menu --> Internet Options...
+
+Then click the 'Languages' button near the bottom of the page.
+Click 'Add' then find the languages you want and add them below.
+
+-------------------------------------------------------------*/
+
+if (language.indexOf('en') > -1) alert('You would have been taken to the English page.');
+else if (language.indexOf('nl') > -1) alert('You would have been taken to the dutch page.');
+else if (language.indexOf('fr') > -1) alert('You would have been taken to the french page.');
+else if (language.indexOf('de') > -1) alert('You would have been taken to the german page.');
+else if (language.indexOf('ja') > -1) alert('You would have been taken to the japanese page.');
+else if (language.indexOf('it') > -1) alert('You would have been taken to the italian page.');
+else if (language.indexOf('pt') > -1) alert('You would have been taken to the portuguese page.');
+else if (language.indexOf('es') > -1) alert('You would have been taken to the Spanish page.');
+else if (language.indexOf('sv') > -1) alert('You would have been taken to the swedish page.');
+else if (language.indexOf('zh') > -1) alert('You would have been taken to the chinese page.');
+else 
+alert('You would have been taken to the default English page.  Your language was not set up.');
+document.write("<br><br>Your language was reported as:  " + language);
+// End -->
+</script>
+
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  User Details:  Language</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.95 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- ONE STEP TO INSTALL LANGUAGE:
+
+  1.  Copy the coding into the HEAD of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript1.2"&gt;
+&lt;!-- Begin
+if (navigator.appName == 'Netscape')
+var language = navigator.language;
+else
+var language = navigator.browserLanguage;
+
+/*-------------------------------------------------------------
+Netscape instructions:  
+In Netscape, find the language you want to redirect by going to
+
+Edit Menu --&gt; Preferences...
+
+Then click the '+' box next to 'Navigator' and click 'Languages'
+Click 'Add' then find the languages you want and add them below.
+
+---------------------------------------------------------------
+
+Microsoft Internet Explorer instructions:  
+In MSIE, find the language you want to redirect by going to
+
+Tools Menu --&gt; Internet Options...
+
+Then click the 'Languages' button near the bottom of the page.
+Click 'Add' then find the languages you want and add them below.
+
+-------------------------------------------------------------*/
+
+if (language.indexOf('en') &gt; -1) document.location.href = 'English.html';
+else if (language.indexOf('nl') &gt; -1) document.location.href = 'dutch.html';
+else if (language.indexOf('fr') &gt; -1) document.location.href = 'french.html';
+else if (language.indexOf('de') &gt; -1) document.location.href = 'german.html';
+else if (language.indexOf('ja') &gt; -1) document.location.href = 'japanese.html';
+else if (language.indexOf('it') &gt; -1) document.location.href = 'italian.html';
+else if (language.indexOf('pt') &gt; -1) document.location.href = 'portuguese.html';
+else if (language.indexOf('es') &gt; -1) document.location.href = 'Spanish.html';
+else if (language.indexOf('sv') &gt; -1) document.location.href = 'swedish.html';
+else if (language.indexOf('zh') &gt; -1) document.location.href = 'chinese.html';
+else 
+document.location.href = 'English.html';
+// End --&gt;
+&lt;/script&gt;
+
+ 
+
+&lt;!-- Script Size:  1.95 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

@@ -1,0 +1,246 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0061)http://javascript.internet.com/games/rocket-blaster-demo.html -->
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<STYLE type=text/css>.basic {
+	VISIBILITY: visible; POSITION: absolute; TOP: -3000px
+}
+</STYLE>
+
+<SCRIPT language=JavaScript>
+<!-- Original:  Brian Gosselin (bgaudiodr@aol.com) -->
+<!-- Web Site:  http://www.bgaudiodr.iwarp.com -->
+
+<!-- This script and many more are available free online at -->
+<!-- The JavaScript Source!! http://javascript.internet.com -->
+
+<!-- Begin
+var yoffset = 20; // pixels from top
+
+var isNS = (document.layers);
+var _all =  (isNS) ? 'outer.document.' : 'all.' ;
+var _style =  (isNS) ? '' : '.style' ;
+var _visible =  (isNS) ? 'show' : 'visible' ;
+var py = 0, px = 0, xoffset, loaded = false, obj = new Object();
+var target, field, rocket1, rocket2, rocket3, rocket4, rocket5, rocket6, bullet, explosion;
+var oktoshoot = false, bulletlevel, speed = 10, missed = 0, fired = 0, hit = 0, accuracy = 0;
+function init() {
+target = eval('document.'+_all+'target'+_style);
+field = eval('document.'+_all+'field'+_style);
+rocket1 = eval('document.'+_all+'rocket1'+_style);
+rocket2 = eval('document.'+_all+'rocket2'+_style);
+rocket3 = eval('document.'+_all+'rocket3'+_style);
+rocket4 = eval('document.'+_all+'rocket4'+_style);
+rocket5 = eval('document.'+_all+'rocket5'+_style);
+rocket6 = eval('document.'+_all+'rocket6'+_style);
+bullet = eval('document.'+_all+'bullet'+_style);
+explosion = eval('document.'+_all+'explosion'+_style);
+resize();
+if (isNS) {
+target.moveTo(300,0);
+}
+else {
+target.pixelLeft = 300;
+target.pixelTop = 0;
+}
+target.visibility = _visible;
+field.visibility = _visible;
+alert('INSTRUCTIONS:\n\n- Try to hit the rockets before they reach the other side.\n- Fire the "gun" a little ahead of time to compensate for distances.\n- Simply target the rockets with the mouse and then click to fire the gun.\n- Press the spacebar to pause the game.\n- Pausing the game also shows your full stats.\n- Look in the status bar to see how many rockets you missed.\n\nPress "Ok" to start....');
+loaded = true;
+oktoshoot = true;
+dispmisses();
+animate();
+}
+function dispmisses() {
+status = "Rockets missed: "+missed;
+setTimeout('dispmisses()', 500);
+}
+function showstat() {
+accuracy = (Math.round(hit/fired*100));
+if (isNaN(accuracy)) {accuracy = 0};
+alert('Game Paused.....\n\nPress OK to continue..\n\nShots fired: '+fired+'\nRockets destroyed: '+hit+'\nShots missed: '+(fired-hit)+'\nRockets missed: '+missed+'\nShot accuracy: '+accuracy+'%');
+}
+function testandmoveX(rocketN) {
+if (isNS) {
+rocketN.clip.left = -rocketN.left-speed;
+rocketN.clip.right = 500-rocketN.left;
+if (rocketN.left+speed>500) {
+rocketN.left = -60;
+if (rocketN.top != -3000) { missed++; }
+}
+else {
+rocketN.left+=speed;
+}
+if (rocketN.left == -60)rocketN.top = Math.floor(Math.random()*12)*20+30;
+}
+else {
+rocketN.clip = "rect(0px, "+(500-speed-rocketN.pixelLeft)+"px, 15px, "+(-rocketN.pixelLeft-speed)+"px)"; 
+if (rocketN.pixelLeft+speed > 500) {
+if (rocketN.pixelTop != -3000) {missed++}
+rocketN.pixelLeft = -60;
+}else {
+rocketN.pixelLeft+=speed;
+}
+if (rocketN.pixelLeft == -60)rocketN.pixelTop = Math.floor(Math.random()*12)*20+30;
+   }
+}
+function animate() {
+for (i = 1; i <= 6; i++) {
+testandmoveX(eval('rocket'+i));
+}
+setTimeout('animate()',100);
+}
+function shootrocket(x,y) {
+fired++;
+bulletlevel = 4;
+bullettime(x,y);
+}
+
+function bullettime(x,y) {
+if (bulletlevel > 0) {
+if (isNS) {
+bullet.clip.width = bulletlevel*4;
+bullet.clip.height = bulletlevel*4;
+bullet.moveTo(x-(bulletlevel*2),y-(bulletlevel*2));
+if (bulletlevel == 1) {
+for (r = 1;r <= 6;r++) {
+tr = eval('rocket'+r);
+if ( (bullet.top >= tr.top+2) && (bullet.top <= tr.top+9) && (bullet.left <= tr.left+57) && (bullet.left >= tr.left) ) {
+explosion.moveTo(tr.left,tr.top);
+tr.top = -3000;
+hit++;
+setTimeout('explosion.top = -3000', 400);
+         }
+      }
+   }
+}
+else {
+bullet.width = bulletlevel*4;
+bullet.height = bulletlevel*4;
+bullet.pixelTop = y-(bulletlevel*2);
+bullet.pixelLeft = x-(bulletlevel*2)
+if (bulletlevel == 1) {
+for (r = 1; r <= 6; r++) {
+tr = eval('rocket'+r);
+if ( (bullet.pixelTop >= tr.pixelTop+2) && (bullet.pixelTop <= tr.pixelTop+9) && (bullet.pixelLeft <= tr.pixelLeft+57) && (bullet.pixelLeft >= tr.pixelLeft) ) {
+explosion.pixelLeft = tr.pixelLeft;
+explosion.pixelTop = tr.pixelTop;
+tr.pixelTop = -3000;
+hit++;
+setTimeout('explosion.pixelTop = -3000', 400);
+         }
+      }
+   }
+}
+bulletlevel--;
+setTimeout('bullettime('+x+','+y+')',200);
+}
+else {
+(isNS) ? bullet.top = -3000 : bullet.pixelLeft = -3000;
+oktoshoot = true;
+   }
+}
+function resize() {
+if (isNS) {
+xoffset = (window.innerWidth-300)/2;
+document.outer.moveTo((window.innerWidth-500)/2 , yoffset);
+}
+else {
+xoffset = (document.body.clientWidth-300)/2
+document.all.outer.style.pixelTop = yoffset;
+document.all.outer.style.pixelLeft = (document.body.clientWidth-500)/2;
+   }
+}
+function movetarget(evnt) {
+if (loaded) {
+if (isNS) {
+py = evnt.pageY-yoffset-59;
+px = evnt.pageX-xoffset+59;
+}
+else {
+py = event.clientY-yoffset-59;
+px = event.clientX-xoffset+59;
+}
+if ((py >= 0) && (py <= 241)) { (isNS) ? target.top = py : target.pixelTop = py; };
+if ((px >= 0) && (px <= 441)) { (isNS) ? target.left = px : target.pixelLeft = px };
+return false;
+   }
+}
+
+function fire(mouse) {
+if (oktoshoot) {
+oktoshoot = false;
+(isNS) ? shootrocket(target.left+30,target.top+30) : shootrocket(target.pixelLeft+30,target.pixelTop+30) ; 
+return false;
+}
+else {
+   }
+}
+function reloadNS() {
+setTimeout('reloadNS_1()', 500);
+}
+function reloadNS_1() {
+window.location.reload();
+}
+(isNS) ? window.onresize = reloadNS : window.onresize = resize;
+
+function getkeypress(keypress) {
+keyp = (isNS) ? keypress.which : window.event.keyCode;
+if (keyp == 32)showstat();
+return false;
+}
+if (isNS) window.captureEvents(Event.KEYPRESS);
+if (isNS) document.captureEvents(Event.KEYPRESS);
+window.onkeypress = getkeypress;
+document.onkeypress = getkeypress;
+
+if (isNS) document.captureEvents(Event.MOUSEMOVE);
+document.onmousemove = movetarget;
+
+if (isNS) document.captureEvents(Event.MOUSEDOWN);
+if (isNS) window.captureEvents(Event.MOUSEDOWN);
+document.onmousedown = fire;
+window.onmousedown = fire;
+
+window.onload = init;
+// End -->
+</SCRIPT>
+
+<META content="MSHTML 5.50.4611.1300" name=GENERATOR></HEAD>
+<BODY bgColor=#009090>
+<SCRIPT language=JavaScript>
+
+var basic = 'visibility="visible" width="60" top="-3000" height="15"';
+var txt = '';
+if (isNS) {
+txt += '<layer name="outer" visibility="visible" width="500">';
+txt += '<layer name="target" visibility="hidden" z-index="12"><img src="../img/rocket-blaster/target.gif"></layer>';
+txt += '<layer name="field"  visibility="hidden" bgcolor="black" z-index="1" width="500" height="300"></layer>';
+txt += '<layer name="explosion" '+basic+'z-index="11"><img src="../img/rocket-blaster/explosion.gif"></layer>';
+txt += '<layer name="rocket1" '+basic+'left="-460" z-index="4"><img src="../img/rocket-blaster/rocket.gif"></layer>';
+txt += '<layer name="rocket2" '+basic+'left="-380" z-index="5"><img src="../img/rocket-blaster/rocket.gif"></layer>';
+txt += '<layer name="rocket3" '+basic+'left="-300" z-index="6"><img src="../img/rocket-blaster/rocket.gif"></layer>';
+txt += '<layer name="rocket4" '+basic+'left="-220" z-index="7"><img src="../img/rocket-blaster/rocket.gif"></layer>';
+txt += '<layer name="rocket5" '+basic+'left="-140" z-index="8"><img src="../img/rocket-blaster/rocket.gif"></layer>';
+txt += '<layer name="rocket6" '+basic+'left="-60" z-index="9"><img src="../img/rocket-blaster/rocket.gif"></layer>';
+txt += '<layer name="bullet" visibility="visible" width="10" top="-3000" height="10" bgcolor="white" z-index="10"></layer>';
+txt += '</layer>';
+}
+else {
+txt += '<div id="outer" style="position:absolute; width:600px; height:300px">';
+txt += '<div id="field" style="position:absolute; top:0px; left:0px; visibility:hidden; width:500px; height:300px; z-index:2; background-color:black;"></div>';
+txt += '<div id="target" style="position:absolute; visibility:hidden; z-index:12"><img src="../img/rocket-blaster/target.gif"></div>';
+txt += '<div id="explosion" style="z-index:11;" class="basic"><img src="../img/rocket-blaster/explosion.gif"></div>';
+txt += '<div id="rocket1" style="left:-460px; z-index:4" class="basic"><img src="../img/rocket-blaster/rocket.gif"></div>';
+txt += '<div id="rocket2" style="left:-380px; z-index:5" class="basic"><img src="../img/rocket-blaster/rocket.gif"></div>';
+txt += '<div id="rocket3" style="left:-300px; z-index:6" class="basic"><img src="../img/rocket-blaster/rocket.gif"></div>';
+txt += '<div id="rocket4" style="left:-220px; z-index:7" class="basic"><img src="../img/rocket-blaster/rocket.gif"></div>';
+txt += '<div id="rocket5" style="left:-140px; z-index:8" class="basic"><img src="../img/rocket-blaster/rocket.gif"></div>';
+txt += '<div id="rocket6" style="left:-60px; z-index:9" class="basic"><img src="../img/rocket-blaster/rocket.gif"></div>';
+txt += '<div id="bullet" style="z-index:10; background-color:white; width:10px; height:10px; font-size:1px;" class="basic"></div>';
+txt += '</div>';
+}
+document.write(txt);
+// End -->
+</SCRIPT>
+</BODY></HTML>

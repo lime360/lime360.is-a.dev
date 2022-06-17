@@ -1,0 +1,213 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Scrolls:  Select Menu</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Dion (dion42@hotmail.com)">
+<META NAME="section" CONTENT="Scrolls">
+<META NAME="description" CONTENT="A select menu that scrolls that rotates the items to give the appearance that they are scrolling.  Useful if you would like a scroller inside a table cell or to be compatible with older browsers.  Clever!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Dion (dion42@hotmail.com) -->
+<!-- Web Site:  http://www.iinet.net.au/~biab/ -->
+
+
+
+
+<!-- Begin
+function selectScroller(n) {
+optlist = document.scrollform.scroller;
+optlist[optlist.length] = new Option(optlist[0].text, "", false, false);
+optlist[0] = null;
+optlist.selectedIndex = -1;
+n = (n + 1) % optlist.length;
+// change the speed below: 1000 = 1 second.
+setTimeout("selectScroller("+n+")",2000);
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff OnLoad="selectScroller(0);">
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /scrolls/"><font color="#FF0000"><b>Scrolls</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Select Menu</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+A select menu that scrolls that rotates the items to give the appearance that they are scrolling.  Useful if you would like a scroller inside a table cell or to be compatible with older browsers.  Clever!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name="scrollform">
+<select name="scroller" size=8>
+<option>
+<option>
+<option>
+<option>
+<option>
+<option>
+<option>
+<option>
+<option>This select option list will
+<option>scroll text by copying
+<option>the top line to the bottom
+<option>line before deleting the
+<option>top line. This moves the
+<option>options up one line and
+<option>gives the impression of
+<option>scrolling.
+<option>
+<option>You can leave as many
+<option>blank lines as you feel
+<option>necessary to give the
+<option>look of begining and
+<option>ending.
+<option>
+<option>This script was written
+<option>in response to those
+<option>who wanted a news
+<option>scroller to work within
+<option>a table's cell and for
+<option>those who want old
+<option>browsers to also see
+<option>a scoller on the page.
+<option>
+<option>yobo42@hotmail.com
+</select>
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Scrolls:  Select Menu</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.00 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL SELECT MENU:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the onLoad event handler into the BODY tag
+  3.  Put the last coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Dion (dion42@hotmail.com) --&gt;
+&lt;!-- Web Site:  http://www.iinet.net.au/~biab/ --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function selectScroller(n) {
+optlist = document.scrollform.scroller;
+optlist[optlist.length] = new Option(optlist[0].text, "", false, false);
+optlist[0] = null;
+optlist.selectedIndex = -1;
+n = (n + 1) % optlist.length;
+// change the speed below: 1000 = 1 second.
+setTimeout("selectScroller("+n+")",2000);
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Insert the onLoad event handler into your BODY tag  --&gt;
+
+&lt;BODY OnLoad="selectScroller(0);"&gt;
+
+&lt;!-- STEP THREE: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;center&gt;
+&lt;form name="scrollform"&gt;
+&lt;select name="scroller" size=8&gt;
+&lt;option&gt;
+&lt;option&gt;
+&lt;option&gt;
+&lt;option&gt;
+&lt;option&gt;
+&lt;option&gt;
+&lt;option&gt;
+&lt;option&gt;
+&lt;option&gt;This select option list will
+&lt;option&gt;scroll text by copying
+&lt;option&gt;the top line to the bottom
+&lt;option&gt;line before deleting the
+&lt;option&gt;top line. This moves the
+&lt;option&gt;options up one line and
+&lt;option&gt;gives the impression of
+&lt;option&gt;scrolling.
+&lt;option&gt;
+&lt;option&gt;You can leave as many
+&lt;option&gt;blank lines as you feel
+&lt;option&gt;necessary to give the
+&lt;option&gt;look of begining and
+&lt;option&gt;ending.
+&lt;option&gt;
+&lt;option&gt;This script was written
+&lt;option&gt;in response to those
+&lt;option&gt;who wanted a news
+&lt;option&gt;scroller to work within
+&lt;option&gt;a table's cell and for
+&lt;option&gt;those who want old
+&lt;option&gt;browsers to also see
+&lt;option&gt;a scoller on the page.
+&lt;option&gt;
+&lt;option&gt;yobo42@hotmail.com
+&lt;/select&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  2.00 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

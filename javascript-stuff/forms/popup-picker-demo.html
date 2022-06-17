@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0059)http://javascript.internet.com/forms/popup-picker-demo.html -->
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<SCRIPT language=JavaScript>
+function sendValue(s){
+var selvalue = s.options[s.selectedIndex].value;
+window.opener.document.popupform.choice.value = selvalue;
+window.close();
+}
+</SCRIPT>
+
+<META content="MSHTML 5.50.4611.1300" name=GENERATOR></HEAD>
+<BODY>
+<CENTER>
+<FORM name=selectform><SELECT size=8 name=selectmenu> <OPTION 
+  value="Item A">Item A<OPTION value="Item B">Item B<OPTION value="Item C">Item 
+  C<OPTION value="Item D">Item D<OPTION value="Item E">Item E<OPTION 
+  value="Item F">Item F<OPTION value="Item G">Item G<OPTION value="Item H">Item 
+  H<OPTION value="Item I">Item I<OPTION value="Item J">Item J<OPTION 
+  value="Item K">Item K<OPTION value="Item L">Item L<OPTION value="Item M">Item 
+  M<OPTION value="Item N">Item N<OPTION value="Item O">Item O<OPTION 
+  value="Item P">Item P<OPTION value="Item Q">Item Q<OPTION value="Item R">Item 
+  R<OPTION value="Item S">Item S<OPTION value="Item T">Item T<OPTION 
+  value="Item U">Item U<OPTION value="Item V">Item V<OPTION value="Item W">Item 
+  W<OPTION value="Item X">Item X<OPTION value="Item Y">Item Y<OPTION 
+  value="Item Z">Item Z</OPTION></SELECT> 
+<P><INPUT onclick=sendValue(this.form.selectmenu); type=button value="Item Select Item"> 
+</FORM></CENTER></P></BODY></HTML>

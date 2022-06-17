@@ -1,0 +1,252 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Calculators:  Room Size</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Motivational Marketing Associates
+
+&lt;!-- This script and many more are available free online at">
+<META NAME="section" CONTENT="Calculators">
+<META NAME="description" CONTENT="Use JavaScript to find the approximate room size you'll need depending on your room setup and arrangement.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- 
+function ClearInput(form) {
+form.attendance.value="";
+form.banquet60.value="";
+form.banquet72.value="";
+form.theater.value="";
+form.school18.value="";
+form.school30.value="";
+form.reception.value="";
+form.trade8.value="";
+form.trade10.value="";
+return true;
+}
+function help(helponwhat) {
+if (helponwhat == "attendance")
+alert("Enter the number of people who will be attending your event.")
+}
+ function SizeCalc(form) {
+var banquet60 = 0;
+var banquet72 = 0;
+var theater = 0;
+var school18 = 0;
+var school30 = 0;
+var reception = 0;
+var trade8 = 0;
+var trade10 = 0;
+if (form.attendance.value==null||form.attendance.value.length==0){
+alert("Please enter the number of people attending.");
+return false;
+}
+else
+attendance = form.attendance.value
+form.banquet60.value = attendance * 12;
+form.banquet72.value = attendance * 12.05;
+form.theater.value = attendance * 9;
+form.school18.value = attendance * 14.5;
+form.school30.value = attendance * 17.5;
+form.reception.value = attendance * 9.5;
+form.trade8.value = attendance * 160;
+form.trade10.value = attendance * 200;
+return true;
+}
+// End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /calculators/"><font color="#FF0000">Calculators</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Room Size</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Use JavaScript to find the approximate room size you'll need depending on your room setup and arrangement.
+<br>
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<CENTER>
+<FORM NAME="room" METHOD="post">
+<TABLE BORDER>
+<TR>
+<TD COLSPAN=8 ALIGN=CENTER>
+<B>Number of people or exhibition booths</B> <INPUT TYPE="text" name="attendance" SIZE=8></TD>
+</TR>
+<TR>
+<TD COLSPAN=8 ALIGN=CENTER>
+<INPUT TYPE="button" value="Calculate" onClick="SizeCalc(this.form)">
+<input type="button" value="Reset" onclick="ClearInput(this.form)"></TD>
+</TR>
+<TR ALIGN=CENTER><TD COLSPAN=8><B>Room Size Required</B></TD>
+</TR>
+<TR ALIGN=CENTER><TD COLSPAN=2><FONT SIZE=2>Banquet </TD><TD></TD><TD COLSPAN=2><FONT SIZE=2>School <BR> Room</TD><TD></TD><TD COLSPAN=2><FONT SIZE=2>Trade Show</TD>
+</TR>
+<TR ALIGN=CENTER><TD><FONT SIZE=2>60" <BR> round <BR> tables</TD><TD><FONT SIZE=2>72" <BR> round <BR>tables</TD><TD><FONT SIZE=2>Theater Seating</TD><TD><FONT SIZE=2>18" <BR>desks</TD><TD><FONT SIZE=2>30" <BR>desks</TD><TD><FONT SIZE=2>Reception</TD><TD><FONT SIZE=2>8'x10' <BR> booths</TD><TD><FONT SIZE=2>10'x10' <BR>booths</TD>
+</TR>
+<TR><TD><FONT SIZE=2>
+<INPUT TYPE="text" name="banquet60" SIZE=8> Sq. Ft.</TD><TD><FONT SIZE=2>
+<INPUT TYPE="text" name="banquet72" SIZE=8> Sq. Ft.</TD>
+<TD><FONT SIZE=2><INPUT TYPE="text" NAME="theater" SIZE=8> Sq. Ft.</TD>
+<TD><FONT SIZE=2><INPUT TYPE="text" name="school18" SIZE=8> Sq. Ft.</TD>
+<TD><FONT SIZE=2><INPUT TYPE="text" name="school30" SIZE=8> Sq. Ft.</TD>
+<TD><FONT SIZE=2><INPUT TYPE="text" name="reception" SIZE=8> Sq. Ft.</TD>
+<TD><FONT SIZE=2><INPUT TYPE="text" NAME="trade8" SIZE=8> Sq. Ft.</TD>
+<TD><FONT SIZE=2><INPUT TYPE="text" NAME="trade10" SIZE=8> Sq. Ft.</TD>
+</TR>
+</TABLE>
+</FORM>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Calculators:  Room Size</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  3.27 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL ROOM SIZE CALCULATOR:
+
+   1.  Paste the specified coding into the HEAD of your HTML document
+   2.  Put the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the HEAD your HTML document  --&gt;
+		  
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Motivational Marketing Associates
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function ClearInput(form) {
+form.attendance.value="";
+form.banquet60.value="";
+form.banquet72.value="";
+form.theater.value="";
+form.school18.value="";
+form.school30.value="";
+form.reception.value="";
+form.trade8.value="";
+form.trade10.value="";
+return true;
+}
+function help(helponwhat) {
+if (helponwhat == "attendance")
+alert("Enter the number of people who will be attending your event.")
+}
+ function SizeCalc(form) {
+var banquet60 = 0;
+var banquet72 = 0;
+var theater = 0;
+var school18 = 0;
+var school30 = 0;
+var reception = 0;
+var trade8 = 0;
+var trade10 = 0;
+if (form.attendance.value==null||form.attendance.value.length==0){
+alert("Please enter the number of people attending.");
+return false;
+}
+else
+attendance = form.attendance.value
+form.banquet60.value = attendance * 12;
+form.banquet72.value = attendance * 12.05;
+form.theater.value = attendance * 9;
+form.school18.value = attendance * 14.5;
+form.school30.value = attendance * 17.5;
+form.reception.value = attendance * 9.5;
+form.trade8.value = attendance * 160;
+form.trade10.value = attendance * 200;
+return true;
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;CENTER&gt;
+&lt;FORM NAME="room" METHOD="post"&gt;
+&lt;TABLE BORDER&gt;
+&lt;TR&gt;
+&lt;TD COLSPAN=8 ALIGN=CENTER&gt;
+&lt;B&gt;Number of people or exhibition booths&lt;/B&gt; &lt;INPUT TYPE="text" name="attendance" SIZE=8&gt;&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;TR&gt;&lt;TD COLSPAN=8 ALIGN=CENTER&gt;
+&lt;INPUT TYPE="button" value="Calculate" onClick="SizeCalc(this.form)"&gt;
+&lt;input type="button" value="Reset" onclick="ClearInput(this.form)"&gt;&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;TR ALIGN=CENTER&gt;&lt;TD COLSPAN=8&gt;&lt;B&gt;Room Size Required&lt;/B&gt;&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;TR ALIGN=CENTER&gt;&lt;TD COLSPAN=2&gt;&lt;FONT SIZE=2&gt;Banquet &lt;/TD&gt;&lt;TD&gt;&lt;/TD&gt;&lt;TD COLSPAN=2&gt;&lt;FONT SIZE=2&gt;School &lt;BR&gt; Room&lt;/TD&gt;&lt;TD&gt;&lt;/TD&gt;&lt;TD COLSPAN=2&gt;&lt;FONT SIZE=2&gt;Trade Show&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;TR ALIGN=CENTER&gt;&lt;TD&gt;&lt;FONT SIZE=2&gt;60" &lt;BR&gt; round &lt;BR&gt; tables&lt;/TD&gt;&lt;TD&gt;&lt;FONT SIZE=2&gt;72" &lt;BR&gt; round &lt;BR&gt;tables&lt;/TD&gt;&lt;TD&gt;&lt;FONT SIZE=2&gt;Theater Seating&lt;/TD&gt;&lt;TD&gt;&lt;FONT SIZE=2&gt;18" &lt;BR&gt;desks&lt;/TD&gt;&lt;TD&gt;&lt;FONT SIZE=2&gt;30" &lt;BR&gt;desks&lt;/TD&gt;&lt;TD&gt;&lt;FONT SIZE=2&gt;Reception&lt;/TD&gt;&lt;TD&gt;&lt;FONT SIZE=2&gt;8'x10' &lt;BR&gt; booths&lt;/TD&gt;&lt;TD&gt;&lt;FONT SIZE=2&gt;10'x10' &lt;BR&gt;booths&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;TR&gt;&lt;TD&gt;&lt;FONT SIZE=2&gt;
+&lt;INPUT TYPE="text" name="banquet60" SIZE=8&gt; Sq. Ft.&lt;/TD&gt;&lt;TD&gt;&lt;FONT SIZE=2&gt;
+&lt;INPUT TYPE="text" name="banquet72" SIZE=8&gt; Sq. Ft.&lt;/TD&gt;
+&lt;TD&gt;&lt;FONT SIZE=2&gt;&lt;INPUT TYPE="text" NAME="theater" SIZE=8&gt; Sq. Ft.&lt;/TD&gt;
+&lt;TD&gt;&lt;FONT SIZE=2&gt;&lt;INPUT TYPE="text" name="school18" SIZE=8&gt; Sq. Ft.&lt;/TD&gt;
+&lt;TD&gt;&lt;FONT SIZE=2&gt;&lt;INPUT TYPE="text" name="school30" SIZE=8&gt; Sq. Ft.&lt;/TD&gt;
+&lt;TD&gt;&lt;FONT SIZE=2&gt;&lt;INPUT TYPE="text" name="reception" SIZE=8&gt; Sq. Ft.&lt;/TD&gt;
+&lt;TD&gt;&lt;FONT SIZE=2&gt;&lt;INPUT TYPE="text" NAME="trade8" SIZE=8&gt; Sq. Ft.&lt;/TD&gt;
+&lt;TD&gt;&lt;FONT SIZE=2&gt;&lt;INPUT TYPE="text" NAME="trade10" SIZE=8&gt; Sq. Ft.&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;/TABLE&gt;
+&lt;/FORM&gt;
+&lt;/CENTER&gt;
+
+ 
+
+&lt;!-- Script Size:  3.27 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

@@ -1,0 +1,370 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Games:  Math Quiz</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Anja Henseler">
+<META NAME="section" CONTENT="Games">
+<META NAME="description" CONTENT="Flash cards were pretty good math practice.  But, they were always the same math problems, over and over.  Lo and behold, JavaScript to the rescue!  Just select the difficulty level then click the type of problem you want to practice with, (add, subtract, multiply, and divide) and JavaScript will give you a problem.  And, a built-in score checker grades you along the way!  Great practice for elementary-aged students just learning their math skills, or for anyone wishing to practice a bit!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Anja Henseler -->
+<!-- Web Site:  http://www.hens.com/binoculars -->
+
+
+
+
+<!-- Begin
+correct=0;
+wrong=0;
+
+function random(maxValue) {
+day= new Date();
+hour= day.getHours();
+min=day.getMinutes();
+sec=day.getSeconds();
+mili=day.getTime()
+return(((hour*3600)+(min*60)+(sec)+mili) % maxValue);
+}
+function ranom(maxValue) {
+day= new Date();
+mil=day.getTime();
+return((mil) % maxValue);
+}
+
+function add() {
+if(document.quizform.arithmetic[0].checked)
+maxValue=10;
+else {
+if(document.quizform.arithmetic[1].checked)
+maxValue=30;
+else {
+maxValue=60;
+   }
+}
+numA=random(maxValue);
+numB=ranom(maxValue);
+numC=numA + numB;
+Answer=window.prompt(  numA + "+"  + numB +  " = ", "");
+ans();
+}
+function subtract() {
+if(document.quizform.arithmetic[0].checked)
+maxValue=10;
+else
+{if(document.quizform.arithmetic[1].checked)
+maxValue=30;
+else {
+maxValue=60
+   }
+}
+numA=random(maxValue);
+numB=ranom(maxValue);
+numC=numA - numB;
+Answer=window.prompt(  numA + "-"  + numB+  " = ", 0);
+ans()
+}
+function divide() {
+if(document.quizform.arithmetic[0].checked)
+maxValue=10;
+else {
+if(document.quizform.arithmetic[1].checked)
+maxValue=30;
+else {
+maxValue=60
+   }
+}
+numA=random(maxValue)+1;
+numB=ranom(maxValue)+1;
+numC=numA / numB;
+numC=Math.round(numC)
+window.alert("Please round your answer off:\n"
++".5 or higher rounds one number up\n"
++".4 or lower rounds one number down");
+Answer=window.prompt(  numA + "/"  + numB +  " = ", 0);
+ans()
+}
+function multiply() {
+if(document.quizform.arithmetic[0].checked)
+maxValue=10;
+else {
+if(document.quizform.arithmetic[1].checked)
+maxValue=30;
+else {
+maxValue=60
+   }
+}
+numA=random(maxValue);
+numB=ranom(maxValue);
+numC=numA * numB;
+Answer=window.prompt(  numA + "*"  + numB +  " = ", 0);
+ans();
+}
+function check() {
+if ((correct+wrong) != 0) {
+score = "" + ((correct / (correct + wrong)) * 100);
+score = score.substring(0,4) + "%";
+alert("YOUR SCORE:  " + score + "\n" 
++ correct + " correct\n"
++ wrong + " incorrect")
+}
+else alert("You have not completed any exercises yet.");
+}
+function ans() {
+if (Answer == numC) {
+correct++;
+msg = "Congratulations, your answer is correct.";
+}
+else {
+wrong++;
+msg = "Oops!  " + Answer + " is incorrect.\n\n"
++ "The correct answer was " +numC + ".";
+   }
+score = "" + ((correct / (correct + wrong)) * 100);
+score = score.substring(0,4) + "%";
+alert(msg + "\n\nYOUR SCORE:  " + score + "\n" 
++ correct + " correct\n"
++ wrong + " incorrect")
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /games/"><font color="#FF0000"><b>Games</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Math Quiz</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Flash cards were pretty good math practice.  But, they were always the same math problems, over and over.  Lo and behold, JavaScript to the rescue!  Just select the difficulty level then click the type of problem you want to practice with, (add, subtract, multiply, and divide) and JavaScript will give you a problem.  And, a built-in score checker grades you along the way!  Great practice for elementary-aged students just learning their math skills, or for anyone wishing to practice a bit!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name=quizform>
+<input type=button value="add" onClick="add()">
+<input type=button value="subtract" onClick="subtract()">
+<input type=button value="multiply" onClick="multiply()">
+<input type=button value="divide" onClick="divide()">
+<br>
+<br>
+<input type="radio" name="arithmetic">Easy
+<input type="radio" name="arithmetic" checked>Moderate
+<input type="radio" name="arithmetic">Difficult
+<br>
+<br>
+<input type=button value="Check Score" onClick="check()">
+<input type=button value="Reset Score" onClick="javascript:correct=0;wrong=0;">
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Games:  Math Quiz</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  3.61 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL MATH QUIZ:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Anja Henseler --&gt;
+&lt;!-- Web Site:  http://www.hens.com/binoculars --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+correct=0;
+wrong=0;
+
+function random(maxValue) {
+day= new Date();
+hour= day.getHours();
+min=day.getMinutes();
+sec=day.getSeconds();
+mili=day.getTime()
+return(((hour*3600)+(min*60)+(sec)+mili) % maxValue);
+}
+function ranom(maxValue) {
+day= new Date();
+mil=day.getTime();
+return((mil) % maxValue);
+}
+
+function add() {
+if(document.quizform.arithmetic[0].checked)
+maxValue=10;
+else {
+if(document.quizform.arithmetic[1].checked)
+maxValue=30;
+else {
+maxValue=60;
+   }
+}
+numA=random(maxValue);
+numB=ranom(maxValue);
+numC=numA + numB;
+Answer=window.prompt(  numA + "+"  + numB +  " = ", "");
+ans();
+}
+function subtract() {
+if(document.quizform.arithmetic[0].checked)
+maxValue=10;
+else
+{if(document.quizform.arithmetic[1].checked)
+maxValue=30;
+else {
+maxValue=60
+   }
+}
+numA=random(maxValue);
+numB=ranom(maxValue);
+numC=numA - numB;
+Answer=window.prompt(  numA + "-"  + numB+  " = ", 0);
+ans()
+}
+function divide() {
+if(document.quizform.arithmetic[0].checked)
+maxValue=10;
+else {
+if(document.quizform.arithmetic[1].checked)
+maxValue=30;
+else {
+maxValue=60
+   }
+}
+numA=random(maxValue)+1;
+numB=ranom(maxValue)+1;
+numC=numA / numB;
+numC=Math.round(numC)
+window.alert("Please round your answer off:\n"
++".5 or higher rounds one number up\n"
++".4 or lower rounds one number down");
+Answer=window.prompt(  numA + "/"  + numB +  " = ", 0);
+ans()
+}
+function multiply() {
+if(document.quizform.arithmetic[0].checked)
+maxValue=10;
+else {
+if(document.quizform.arithmetic[1].checked)
+maxValue=30;
+else {
+maxValue=60
+   }
+}
+numA=random(maxValue);
+numB=ranom(maxValue);
+numC=numA * numB;
+Answer=window.prompt(  numA + "*"  + numB +  " = ", 0);
+ans();
+}
+function check() {
+if ((correct+wrong) != 0) {
+score = "" + ((correct / (correct + wrong)) * 100);
+score = score.substring(0,4) + "%";
+alert("YOUR SCORE:  " + score + "\n" 
++ correct + " correct\n"
++ wrong + " incorrect")
+}
+else alert("You have not completed any exercises yet.");
+}
+function ans() {
+if (Answer == numC) {
+correct++;
+msg = "Congratulations, your answer is correct.";
+}
+else {
+wrong++;
+msg = "Oops!  " + Answer + " is incorrect.\n\n"
++ "The correct answer was " +numC + ".";
+   }
+score = "" + ((correct / (correct + wrong)) * 100);
+score = score.substring(0,4) + "%";
+alert(msg + "\n\nYOUR SCORE:  " + score + "\n" 
++ correct + " correct\n"
++ wrong + " incorrect")
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form name=quizform&gt;
+&lt;input type=button value="add" onClick="add()"&gt;
+&lt;input type=button value="subtract" onClick="subtract()"&gt;
+&lt;input type=button value="multiply" onClick="multiply()"&gt;
+&lt;input type=button value="divide" onClick="divide()"&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;input type="radio" name="arithmetic"&gt;Easy
+&lt;input type="radio" name="arithmetic" checked&gt;Moderate
+&lt;input type="radio" name="arithmetic"&gt;Difficult
+&lt;br&gt;
+&lt;br&gt;
+&lt;input type=button value="Check Score" onClick="check()"&gt;
+&lt;input type=button value="Reset Score" onClick="javascript:correct=0;wrong=0;"&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  3.61 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

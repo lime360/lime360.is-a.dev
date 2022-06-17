@@ -1,0 +1,171 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Misc.:  Set Image</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Ronnie T. Moore, Editor">
+<META NAME="section" CONTENT="Miscellaneous">
+<META NAME="description" CONTENT="Set an image on the page when the cursor is over the link.  The image remains set until the user puts their cursor on another link (i.e. no onMouseOut command).  Then, the image is updated to the new one.  Great!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Ronnie T. Moore, Editor -->
+<!-- Web Site:  JavaScript Source Code 3000 -->
+
+
+
+
+<!-- Begin
+var dallas = new Image();
+var sandiego = new Image();
+var tokyo = new Image();
+
+dallas.src = "../img/change-image/dallas-large.jpg";
+sandiego.src = "../img/change-image/sandiego-large.jpg";
+tokyo.src = "../img/change-image/tokyo-large.jpg";
+
+function doButtons(picimage) {
+eval("document['picture'].src = " + picimage + ".src");
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /miscellaneous/"><font color="#FF0000"><b>Miscellaneous</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Set Image</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Set an image on the page when the cursor is over the link.  The image remains set until the user puts their cursor on another link (i.e. no onMouseOut command).  Then, the image is updated to the new one.  Great!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<table border=1>
+<tr><td>
+<center><h2>Places I've been:</h2></center>
+<p>
+<li><a href = "javascript:if(confirm('http://www.dallas.com/  \n\nYou must be connected to the Internet to access this link.  \n\nDo you want to open it from the server?'))window.location='http://www.dallas.com/'" tppabs="http://www.dallas.com/" onmouseover = "doButtons('dallas')">Dallas<p>
+
+<li><a href = "javascript:if(confirm('http://www.sannet.gov/  \n\nYou must be connected to the Internet to access this link.  \n\nDo you want to open it from the server?'))window.location='http://www.sannet.gov/'" tppabs="http://www.sannet.gov/" onmouseover = "doButtons('sandiego')">San Diego<p>
+
+<li><a href = "javascript:if(confirm('http://www.japan-guide.com/  \n\nYou must be connected to the Internet to access this link.  \n\nDo you want to open it from the server?'))window.location='http://www.japan-guide.com/'" tppabs="http://www.japan-guide.com/" onmouseover = "doButtons('tokyo')">Tokyo<p>
+
+<td>
+<img name=picture src="../img/change-image/blank.gif" /img/change-image/blank.gif" width=440 height=300 border=0></td>
+</tr>
+</table>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Misc.:  Set Image</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.52 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL SET IMAGE:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Ronnie T. Moore, Editor --&gt;
+&lt;!-- Web Site:  JavaScript Source Code 3000 --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var dallas = new Image();
+var sandiego = new Image();
+var tokyo = new Image();
+
+dallas.src = "../img/change-image/dallas-large.jpg";
+sandiego.src = "../img/change-image/sandiego-large.jpg";
+tokyo.src = "../img/change-image/tokyo-large.jpg";
+
+function doButtons(picimage) {
+eval("document['picture'].src = " + picimage + ".src");
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;table border=1&gt;
+&lt;tr&gt;&lt;td&gt;
+&lt;center&gt;&lt;h2&gt;Places I've been:&lt;/h2&gt;&lt;/center&gt;
+&lt;p&gt;
+&lt;li&gt;&lt;a href = "http://www.dallas.com" onmouseover = "doButtons('dallas')"&gt;Dallas&lt;p&gt;
+
+&lt;li&gt;&lt;a href = "http://www.sannet.gov" onmouseover = "doButtons('sandiego')"&gt;San Diego&lt;p&gt;
+
+&lt;li&gt;&lt;a href = "http://www.japan-guide.com" onmouseover = "doButtons('tokyo')"&gt;Tokyo&lt;p&gt;
+
+&lt;td&gt;
+&lt;img name=picture src="blank.gif" width=440 height=300 border=0&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  1.52 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>
+
+
+

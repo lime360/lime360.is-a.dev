@@ -1,0 +1,208 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Miscellaneous:  Fading Slide Show</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="Displays images continuously in a slideshow presentation format, with a fade effect on image transitions.  (Internet Explorer 4+ and Netscape 3+)">
+<META NAME="date" CONTENT="2001-03-08">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="CodeLifter.com">
+<META NAME="section" CONTENT="Miscellaneous">
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  CodeLifter.com (support@codelifter.com) -->
+<!-- Web Site:  http://www.codelifter.com -->
+
+
+
+
+<!-- Begin
+// Set slideShowSpeed (milliseconds)
+var slideShowSpeed = 5000;
+// Duration of crossfade (seconds)
+var crossFadeDuration = 3;
+// Specify the image files
+var Pic = new Array();
+// to add more images, just continue
+// the pattern, adding to the array below
+
+Pic[0] = '../img/fading-slide-show/1.jpg'
+Pic[1] = '../img/fading-slide-show/2.jpg'
+Pic[2] = '../img/fading-slide-show/3.jpg'
+Pic[3] = '../img/fading-slide-show/4.jpg'
+Pic[4] = '../img/fading-slide-show/5.jpg'
+
+// do not edit anything below this line
+var t;
+var j = 0;
+var p = Pic.length;
+var preLoad = new Array();
+for (i = 0; i < p; i++) {
+preLoad[i] = new Image();
+preLoad[i].src = Pic[i];
+}
+function runSlideShow() {
+if (document.all) {
+document.images.SlideShow.style.filter="blendTrans(duration=2)";
+document.images.SlideShow.style.filter="blendTrans(duration=crossFadeDuration)";
+document.images.SlideShow.filters.blendTrans.Apply();
+}
+document.images.SlideShow.src = preLoad[j].src;
+if (document.all) {
+document.images.SlideShow.filters.blendTrans.Play();
+}
+j = j + 1;
+if (j > (p - 1)) j = 0;
+t = setTimeout('runSlideShow()', slideShowSpeed);
+}
+//  End -->
+</script>
+
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff onLoad="runSlideShow()">
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /miscellaneous/"><font color="#FF0000"><b>Miscellaneous</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Fading Slide Show</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Displays images continuously in a slideshow presentation format, with a fade effect on image transitions.  (Fade in Internet Explorer 4+ only)
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<table border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td id="VU" height=150 width=150>
+<img src="../img/fading-slide-show/1.jpg" /img/fading-slide-show/1.jpg" name='SlideShow' width=150 height=150>
+</td>
+</tr>
+</table>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Miscellaneous:  Fading Slide Show</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Command-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.13 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL FADING SLIDE SHOW:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the onLoad event handler into the BODY tag
+  3.  Put the last coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  CodeLifter.com (support@codelifter.com) --&gt;
+&lt;!-- Web Site:  http://www.codelifter.com --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+// Set slideShowSpeed (milliseconds)
+var slideShowSpeed = 5000;
+// Duration of crossfade (seconds)
+var crossFadeDuration = 3;
+// Specify the image files
+var Pic = new Array();
+// to add more images, just continue
+// the pattern, adding to the array below
+
+Pic[0] = '1.jpg'
+Pic[1] = '2.jpg'
+Pic[2] = '3.jpg'
+Pic[3] = '4.jpg'
+Pic[4] = '5.jpg'
+
+// do not edit anything below this line
+var t;
+var j = 0;
+var p = Pic.length;
+var preLoad = new Array();
+for (i = 0; i &lt; p; i++) {
+preLoad[i] = new Image();
+preLoad[i].src = Pic[i];
+}
+function runSlideShow() {
+if (document.all) {
+document.images.SlideShow.style.filter="blendTrans(duration=2)";
+document.images.SlideShow.style.filter="blendTrans(duration=crossFadeDuration)";
+document.images.SlideShow.filters.blendTrans.Apply();
+}
+document.images.SlideShow.src = preLoad[j].src;
+if (document.all) {
+document.images.SlideShow.filters.blendTrans.Play();
+}
+j = j + 1;
+if (j &gt; (p - 1)) j = 0;
+t = setTimeout('runSlideShow()', slideShowSpeed);
+}
+//  End --&gt;
+&lt;/script&gt;
+
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Insert the onLoad event handler into your BODY tag  --&gt;
+
+&lt;BODY onLoad="runSlideShow()"&gt;
+
+&lt;!-- STEP THREE: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;table border="0" cellpadding="0" cellspacing="0"&gt;
+&lt;tr&gt;
+&lt;td id="VU" height=150 width=150&gt;
+&lt;img src="1.jpg" name='SlideShow' width=150 height=150&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+
+ 
+
+&lt;!-- Script Size:  2.13 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

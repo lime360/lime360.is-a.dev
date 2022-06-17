@@ -1,0 +1,290 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Equivalents:  Length</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Cut-N-Paste JavaScript">
+<META NAME="section" CONTENT="Equivalents">
+<META NAME="description" CONTENT="Use JavaScript to find length equivalents.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+function initArray() {
+this.length = initArray.arguments.length;
+for (var i = 0; i < this.length; i++) {
+this[i] = initArray.arguments[i];
+   }
+}
+var isn01 = new initArray("4b","5b","8b","8b");
+isn01[0] = "~01~10.3937~20.03281~30.01094~40.01~50.0004971~60.00001~70.000006214~8";
+isn01[1] = "~02.540~11~20.08333~30.02778~40.0254~50.001263~60.0000254~70.00001578~8";
+isn01[2] = "~030.48~112~21~30.3333~40.3048~50.01515~60.0003048~70.0001894~8";
+isn01[3] = "~091.44~136~23~31~40.9144~50.04545~60.0009144~70.0005682~8";
+isn01[4] = "~0100~139.37~23.281~31.0936~41~50.04971~60.001~70.0006214~8";
+isn01[5] = "~02012~1792~266~322~420.12~51~60.0212~70.0125~8";
+isn01[6] = "~0100000~139370~23281~31093.6~41000~549.71~61~70.6214~8";
+isn01[7] = "~0160934~163360~25280~31760~41609~580~61.609~71~8";
+function lenCon() {
+for (var i = 0; i < 8; i++) {
+if (document.isnform01.leni[i].checked) {
+leni = i;
+leninm = document.isnform01.leni[i].value;
+   }
+}
+for (var i = 0; i < 8; i++) {
+if (document.isnform01.leno[i].checked) {
+leno = i;
+lenonm = document.isnform01.leno[i].value;
+   }
+}
+useri = document.isnform01.leninp.value;
+if (useri == 0) {
+useri = 1;
+document.isnform01.leninp.value = useri;
+}
+mulstr = isn01[leni];
+picker = "~" + leno;
+ps = mulstr.indexOf(picker);
+leno++;
+picker = "~" + leno;
+ps1 = mulstr.indexOf(picker);
+mulstr = mulstr.substring((ps + 2),ps1);
+ps = (useri * mulstr);
+picker = "";
+picker += ps
+ps1 = picker.indexOf(".");
+if (ps1 > -1) {
+
+ps = ps + .000001;
+ picker = "";
+picker += ps;
+ps2 = picker.indexOf("e");
+if (ps2 < 0) {
+picker = picker.substring(0,(ps1 + 6));
+}
+if (ps2 == 0 || ps2 > 0) {
+ps3 = picker.indexOf("00000");
+if (ps3 > 0) {
+picker = picker.substring(0,ps3 + 1) + picker.substring(ps2,picker.length);
+      }
+   }
+}
+picker = useri + " " + leninm + " = " + picker + " " + lenonm
+document.isnform01.lenout.value = picker;
+}
+// End -->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /equivalents/"><font color="#FF0000">Equivalents</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Length</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Use JavaScript to find length equivalents.
+<br>
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<BODY>
+<CENTER>
+<TABLE BORDER=1 WIDTH=486>
+<TR><TD COLSPAN=9 ALIGN=CENTER><FORM NAME="isnform01"><FONT COLOR="blue"><B>Length Equivalents</B></FONT></TD></TR>
+<TR><TD COLSPAN=9 VALIGN=TOP><FONT SIZE=1><B>First, type the number you wish converted here: </B>
+<INPUT TYPE="text" NAME="leninp" SIZE=30 VALUE="" onChange="lenCon();"><BR><B>Then, click radio buttons for desired conversion:</FONT></TD></TR>
+<TR><TD ALIGN=CENTER><FONT COLOR="red" SIZE=1><B>From:</B></FONT></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>Centimeters<BR><INPUT TYPE="radio" NAME="leni" VALUE="Centimeters" CHECKED onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>Inches<BR><INPUT TYPE="radio" NAME="leni" VALUE="Inches" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>Feet<BR><INPUT TYPE="radio" NAME="leni" VALUE="Feet" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>Yards<BR><INPUT TYPE="radio" NAME="leni" VALUE="Yards" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>Meters<BR><INPUT TYPE="radio" NAME="leni" VALUE="Meters" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>Chains<BR><INPUT TYPE="radio" NAME="leni" VALUE="Chains" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>Kilometers<BR><INPUT TYPE="radio" NAME="leni" VALUE="Kilometers" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>Miles<BR><INPUT TYPE="radio" NAME="leni" VALUE="Miles" onClick = ""></TD></TR>
+<TR><TD ALIGN=CENTER><FONT COLOR="red" SIZE=1><B>To:</B></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>Centimeters<BR><INPUT TYPE="radio" NAME="leno" VALUE="Centimeters" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>Inches<BR><INPUT TYPE="radio" NAME="leno" VALUE="Inches" CHECKED onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>Feet<BR><INPUT TYPE="radio" NAME="leno" VALUE="Feet" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>Yards<BR><INPUT TYPE="radio" NAME="leno" VALUE="Yards" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>Meters<BR><INPUT TYPE="radio" NAME="leno" VALUE="Meters" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>Chains<BR><INPUT TYPE="radio" NAME="leno" VALUE="Chains" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>Kilometers<BR><INPUT TYPE="radio" NAME="leno" VALUE="Kilometers" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>Miles<BR><INPUT TYPE="radio" NAME="leno" VALUE="Miles" onClick = ""></TD></TR>
+<TR><TD COLSPAN=9 ALIGN=CENTER VALIGN=TOP><FONT SIZE=1><INPUT TYPE="button" VALUE=" Click for Conversion " onClick="lenCon();"> <INPUT TYPE="reset" VALUE=" Reset Values "><BR><INPUT TYPE="text" NAME="lenout" SIZE=60 VALUE="" onClick="lenCon();">
+</FONT></TD></TR>
+</TABLE>
+</FORM>
+</CENTER>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Equivalent:  Length</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  5.18 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL LENGTH EQUIVALENTS:
+
+   1.  Paste the specified coding into the HEAD of your HTML document
+   2.  Put the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the HEAD of your HTML document  --&gt;
+		  
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Cut-N-Paste JavaScript
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function initArray() {
+this.length = initArray.arguments.length;
+for (var i = 0; i &lt; this.length; i++) {
+this[i] = initArray.arguments[i];
+   }
+}
+var isn01 = new initArray("4b","5b","8b","8b");
+isn01[0] = "~01~10.3937~20.03281~30.01094~40.01~50.0004971~60.00001~70.000006214~8";
+isn01[1] = "~02.540~11~20.08333~30.02778~40.0254~50.001263~60.0000254~70.00001578~8";
+isn01[2] = "~030.48~112~21~30.3333~40.3048~50.01515~60.0003048~70.0001894~8";
+isn01[3] = "~091.44~136~23~31~40.9144~50.04545~60.0009144~70.0005682~8";
+isn01[4] = "~0100~139.37~23.281~31.0936~41~50.04971~60.001~70.0006214~8";
+isn01[5] = "~02012~1792~266~322~420.12~51~60.0212~70.0125~8";
+isn01[6] = "~0100000~139370~23281~31093.6~41000~549.71~61~70.6214~8";
+isn01[7] = "~0160934~163360~25280~31760~41609~580~61.609~71~8";
+function lenCon() {
+for (var i = 0; i &lt; 8; i++) {
+if (document.isnform01.leni[i].checked) {
+leni = i;
+leninm = document.isnform01.leni[i].value;
+   }
+}
+for (var i = 0; i &lt; 8; i++) {
+if (document.isnform01.leno[i].checked) {
+leno = i;
+lenonm = document.isnform01.leno[i].value;
+   }
+}
+useri = document.isnform01.leninp.value;
+if (useri == 0) {
+useri = 1;
+document.isnform01.leninp.value = useri;
+}
+mulstr = isn01[leni];
+picker = "~" + leno;
+ps = mulstr.indexOf(picker);
+leno++;
+picker = "~" + leno;
+ps1 = mulstr.indexOf(picker);
+mulstr = mulstr.substring((ps + 2),ps1);
+ps = (useri * mulstr);
+picker = "";
+picker += ps
+ps1 = picker.indexOf(".");
+if (ps1 &gt; -1) {
+
+ps = ps + .000001;
+ picker = "";
+picker += ps;
+ps2 = picker.indexOf("e");
+if (ps2 &lt; 0) {
+picker = picker.substring(0,(ps1 + 6));
+}
+if (ps2 == 0 || ps2 &gt; 0) {
+ps3 = picker.indexOf("00000");
+if (ps3 &gt; 0) {
+picker = picker.substring(0,ps3 + 1) + picker.substring(ps2,picker.length);
+      }
+   }
+}
+picker = useri + " " + leninm + " = " + picker + " " + lenonm
+document.isnform01.lenout.value = picker;
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;CENTER&gt;
+&lt;TABLE BORDER=1 WIDTH=486&gt;
+&lt;TR&gt;&lt;TD COLSPAN=9 ALIGN=CENTER&gt;&lt;FORM NAME="isnform01"&gt;&lt;FONT COLOR="blue"&gt;&lt;B&gt;Length Equivalents&lt;/B&gt;&lt;/FONT&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;TR&gt;&lt;TD COLSPAN=9 VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;&lt;B&gt;First, type the number you wish converted here: &lt;/B&gt;
+&lt;INPUT TYPE="text" NAME="leninp" SIZE=30 VALUE="" onChange="lenCon();"&gt;&lt;BR&gt;&lt;B&gt;Then, click radio buttons for desired conversion:&lt;/FONT&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;TR&gt;&lt;TD ALIGN=CENTER&gt;&lt;FONT COLOR="red" SIZE=1&gt;&lt;B&gt;From:&lt;/B&gt;&lt;/FONT&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;Centimeters&lt;BR&gt;&lt;INPUT TYPE="radio" NAME="leni" VALUE="Centimeters" CHECKED onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;Inches&lt;BR&gt;&lt;INPUT TYPE="radio" NAME="leni" VALUE="Inches" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;Feet&lt;BR&gt;&lt;INPUT TYPE="radio" NAME="leni" VALUE="Feet" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;Yards&lt;BR&gt;&lt;INPUT TYPE="radio" NAME="leni" VALUE="Yards" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;Meters&lt;BR&gt;&lt;INPUT TYPE="radio" NAME="leni" VALUE="Meters" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;Chains&lt;BR&gt;&lt;INPUT TYPE="radio" NAME="leni" VALUE="Chains" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;Kilometers&lt;BR&gt;&lt;INPUT TYPE="radio" NAME="leni" VALUE="Kilometers" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;Miles&lt;BR&gt;&lt;INPUT TYPE="radio" NAME="leni" VALUE="Miles" onClick = ""&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;TR&gt;&lt;TD ALIGN=CENTER&gt;&lt;FONT COLOR="red" SIZE=1&gt;&lt;B&gt;To:&lt;/B&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;Centimeters&lt;BR&gt;&lt;INPUT TYPE="radio" NAME="leno" VALUE="Centimeters" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;Inches&lt;BR&gt;&lt;INPUT TYPE="radio" NAME="leno" VALUE="Inches" CHECKED onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;Feet&lt;BR&gt;&lt;INPUT TYPE="radio" NAME="leno" VALUE="Feet" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;Yards&lt;BR&gt;&lt;INPUT TYPE="radio" NAME="leno" VALUE="Yards" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;Meters&lt;BR&gt;&lt;INPUT TYPE="radio" NAME="leno" VALUE="Meters" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;Chains&lt;BR&gt;&lt;INPUT TYPE="radio" NAME="leno" VALUE="Chains" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;Kilometers&lt;BR&gt;&lt;INPUT TYPE="radio" NAME="leno" VALUE="Kilometers" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;Miles&lt;BR&gt;&lt;INPUT TYPE="radio" NAME="leno" VALUE="Miles" onClick = ""&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;TR&gt;&lt;TD COLSPAN=9 ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;&lt;INPUT TYPE="button" VALUE=" Click for Conversion " onClick="lenCon();"&gt; &lt;INPUT TYPE="reset" VALUE=" Reset Values "&gt;&lt;BR&gt;&lt;INPUT TYPE="text" NAME="lenout" SIZE=60 VALUE="" onClick="lenCon();"&gt;
+&lt;/FONT&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;/TABLE&gt;
+&lt;/FORM&gt;
+&lt;/CENTER&gt;
+
+ 
+
+&lt;!-- Script Size: 5.18 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

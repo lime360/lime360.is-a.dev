@@ -1,0 +1,318 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Forms:  Validation (No Alert)</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Jeff Harding (jbh@site-ations.com)">
+<META NAME="section" CONTENT="Forms">
+<META NAME="description" CONTENT="Stop displaying those annoying alert boxes with your JavaScript form validation.  This script uses images to display any error messages to the user, cool!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Jeff Harding (jbh@site-ations.com) -->
+<!-- Web Site:  http://www.site-ations.com -->
+<!-- Modified by:  Ronnie T. Moore, Editor -->
+
+
+
+
+<!-- Begin
+// Preload images
+var empty = new Image(); empty.src = "../img/val-no-alert/fieldempty.gif";
+var email = new Image(); email.src = "../img/val-no-alert/emailerror.gif";
+var zipcd = new Image(); zipcd.src = "../img/val-no-alert/ziperror.gif";
+var phone = new Image(); phone.src = "../img/val-no-alert/phoneerror.gif";
+
+var haveerrors = 0;
+function showImage(imagename, imageurl, errors) {
+document[imagename].src = imageurl;
+if (!haveerrors && errors) haveerrors = errors;
+}
+
+function validateForm(f) {
+haveerrors = 0;
+(f.fname.value.length < 1) // validate first name length
+? showImage("firstnameerror", "../img/val-no-alert/fieldempty.gif", true)   // no semi-colon after this line!
+: showImage("firstnameerror", "../img/val-no-alert/blankimage.gif", false); // true = errors, false = no errors
+
+(f.lname.value.length < 1) // validate last name length
+? showImage("lastnameerror", "../img/val-no-alert/fieldempty.gif", true)
+: showImage("lastnameerror", "../img/val-no-alert/blankimage.gif", false);
+
+(f.zip.value.length != 5) // validate zip code length
+? showImage("ziperror", "../img/val-no-alert/ziperror.gif", true)
+: showImage("ziperror", "../img/val-no-alert/blankimage.gif", false);
+
+phonenumlength = f.area.value.length + 
+f.exchange.value.length + f.number.value.length;
+
+(phonenumlength != 10) // validate phone number length
+? showImage("phoneerror", "../img/val-no-alert/phoneerror.gif", true)
+: showImage("phoneerror", "../img/val-no-alert/blankimage.gif", false);
+
+(f.email.value.search("@") == -1 || f.email.value.search("[.*]") == -1) // validate email
+? showImage("emailerror", "../img/val-no-alert/emailerror.gif", true)
+: showImage("emailerror", "../img/val-no-alert/blankimage.gif", false);
+
+if (!haveerrors) alert('Your form would have been submitted right now, but this is just a demo.');
+return false;
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /forms/" ><font color="#FF0000"><b>Forms</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Validation (No Alert)</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Stop displaying those annoying alert boxes with your JavaScript form validation.  This script uses images to display any error messages to the user, cool!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form action="http://javascript.internet.com/forms/script.cgi" name="myform" onSubmit="return validateForm(this)">
+<table border=0 cellspacing=0 celpadding=0>    
+<tr>
+<td colspan=2>Enter your information:<br>
+<sup>(<font color="#ff0000">*</font> denotes required field).</sup></td>
+</tr>
+<tr>
+<td><p align=right>
+First Name:</td>
+<td>
+<input type=text name="fname" size=25 maxlength=50><font color="#ff0000">*</font><br>
+<img name=firstnameerror src="../img/val-no-alert/blankimage.gif" /img/val-no-alert/blankimage.gif" width=350 height=10 border=0></td>
+</tr>
+<tr>
+<td><p align=right>
+Last Name:</td>
+<td>
+<input type=text name="lname" size=25 maxlength=50><font color="#ff0000">*</font><br>
+<img name=lastnameerror src="../img/val-no-alert/blankimage.gif" /img/val-no-alert/blankimage.gif" width=350 height=10 border=0></td>
+</tr>    
+<tr>
+<td><p align=right>
+Zip Code:</td>
+<td>
+<input type=text name=zip size=25 maxlength=50><font color="#ff0000">*</font><br>
+<img name=ziperror src="../img/val-no-alert/blankimage.gif" /img/val-no-alert/blankimage.gif" width=350 height=10 border=0></td>
+</tr>
+<tr>
+<td><p align=right>
+Email:</td>
+<td>
+<input type=text name=email size=25 maxlength=50><font color="#ff0000">*</font><br>
+<img name=emailerror src="../img/val-no-alert/blankimage.gif" /img/val-no-alert/blankimage.gif" width=350 height=10 border=0></td>
+</tr>
+<tr>
+<td><p align=right>
+Phone:</td>
+<td>
+<input type=text name=area size=4 maxlength=5>-
+<input type=text name=exchange size=4 maxlength=3>-
+<input type=text name=number size=5 maxlength=4><font color="#ff0000">*</font><br>
+<img name=phoneerror src="../img/val-no-alert/blankimage.gif" /img/val-no-alert/blankimage.gif" width=350 height=10 border=0></td>
+</tr>
+<tr>
+<td colspan=2><p align=center>
+  <hr>
+</td>
+</tr>    
+<tr>
+<td><p align=center>
+</td>
+<td><p align=right>
+<input type=submit value="Submit Form"></td>
+</tr>
+</table>
+</form>
+</center>
+<P>
+<P>
+<br><br>
+You will need to upload these images<br>
+to your server to use this script.<br><br>
+<a href="../img/val-no-alert/val-no-alert.zip" /img/val-no-alert/val-no-alert.zip">val-no-alert.zip</a>
+<br><br>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Forms:  Validation (No Alert)</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  3.82 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL VALIDATION (NO ALERT):
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Jeff Harding (jbh@site-ations.com) --&gt;
+&lt;!-- Web Site:  http://www.site-ations.com --&gt;
+&lt;!-- Modified by:  Ronnie T. Moore, Editor --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+// Preload images
+var empty = new Image(); empty.src = "fieldempty.gif";
+var email = new Image(); email.src = "emailerror.gif";
+var zipcd = new Image(); zipcd.src = "ziperror.gif";
+var phone = new Image(); phone.src = "phoneerror.gif";
+
+var haveerrors = 0;
+function showImage(imagename, imageurl, errors) {
+document[imagename].src = imageurl;
+if (!haveerrors && errors) haveerrors = errors;
+}
+
+function validateForm(f) {
+haveerrors = 0;
+(f.fname.value.length &lt; 1) // validate first name length
+? showImage("firstnameerror", "fieldempty.gif", true)   // no semi-colon after this line!
+: showImage("firstnameerror", "blankimage.gif", false); // true = errors, false = no errors
+
+(f.lname.value.length &lt; 1) // validate last name length
+? showImage("lastnameerror", "fieldempty.gif", true)
+: showImage("lastnameerror", "blankimage.gif", false);
+
+(f.zip.value.length != 5) // validate zip code length
+? showImage("ziperror", "ziperror.gif", true)
+: showImage("ziperror", "blankimage.gif", false);
+
+phonenumlength = f.area.value.length + 
+f.exchange.value.length + f.number.value.length;
+
+(phonenumlength != 10) // validate phone number length
+? showImage("phoneerror", "phoneerror.gif", true)
+: showImage("phoneerror", "blankimage.gif", false);
+
+(f.email.value.search("@") == -1 || f.email.value.search("[.*]") == -1) // validate email
+? showImage("emailerror", "emailerror.gif", true)
+: showImage("emailerror", "blankimage.gif", false);
+
+return (!haveerrors);
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form action="script.cgi" name="myform" onSubmit="return validateForm(this)"&gt;
+&lt;table border=0 cellspacing=0 celpadding=0&gt;    
+&lt;tr&gt;
+&lt;td colspan=2&gt;Enter your information:&lt;br&gt;
+&lt;sup&gt;(&lt;font color="#ff0000"&gt;*&lt;/font&gt; denotes required field).&lt;/sup&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;p align=right&gt;
+First Name:&lt;/td&gt;
+&lt;td&gt;
+&lt;input type=text name="fname" size=25 maxlength=50&gt;&lt;font color="#ff0000"&gt;*&lt;/font&gt;&lt;br&gt;
+&lt;img name=firstnameerror src="blankimage.gif" width=350 height=10 border=0&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;p align=right&gt;
+Last Name:&lt;/td&gt;
+&lt;td&gt;
+&lt;input type=text name="lname" size=25 maxlength=50&gt;&lt;font color="#ff0000"&gt;*&lt;/font&gt;&lt;br&gt;
+&lt;img name=lastnameerror src="blankimage.gif" width=350 height=10 border=0&gt;&lt;/td&gt;
+&lt;/tr&gt;    
+&lt;tr&gt;
+&lt;td&gt;&lt;p align=right&gt;
+Zip Code:&lt;/td&gt;
+&lt;td&gt;
+&lt;input type=text name=zip size=25 maxlength=50&gt;&lt;font color="#ff0000"&gt;*&lt;/font&gt;&lt;br&gt;
+&lt;img name=ziperror src="blankimage.gif" width=350 height=10 border=0&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;p align=right&gt;
+Email:&lt;/td&gt;
+&lt;td&gt;
+&lt;input type=text name=email size=25 maxlength=50&gt;&lt;font color="#ff0000"&gt;*&lt;/font&gt;&lt;br&gt;
+&lt;img name=emailerror src="blankimage.gif" width=350 height=10 border=0&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;p align=right&gt;
+Phone:&lt;/td&gt;
+&lt;td&gt;
+&lt;input type=text name=area size=4 maxlength=5&gt;-
+&lt;input type=text name=exchange size=4 maxlength=3&gt;-
+&lt;input type=text name=number size=5 maxlength=4&gt;&lt;font color="#ff0000"&gt;*&lt;/font&gt;&lt;br&gt;
+&lt;img name=phoneerror src="blankimage.gif" width=350 height=10 border=0&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td colspan=2&gt;&lt;p align=center&gt;
+  &lt;hr&gt;
+&lt;/td&gt;
+&lt;/tr&gt;    
+&lt;tr&gt;
+&lt;td&gt;&lt;p align=center&gt;
+&lt;/td&gt;
+&lt;td&gt;&lt;p align=right&gt;
+&lt;input type=submit value="Submit Form"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  3.82 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

@@ -1,0 +1,431 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Games:  Connect 4</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Games">
+<META NAME="description" CONTENT="This is a JavaScript version of 2 player Connect 4.  Players take turns dropping pieces into the columns of the board.  The computer tracks wins and draws automatically individually a game or match set.  Awesome!">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /games/"><font color="#FF0000"><b>Games</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Connect 4</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+This is a JavaScript version of 2 player Connect 4.  Players take turns dropping pieces into the columns of the board.  The computer tracks wins and draws automatically individually a game or match set.  Awesome!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name="open-race">
+<input type=button value="Play Connect 4" onClick="window.open('connect-4-demo.html','connect4','top=100,left=100,width=575,height=400');">
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Games:  Connect 4</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  0.81 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- SIX STEPS TO INSTALL CONNECT 4:
+
+  1.  Copy the coding into your Connect 4 Opener page
+  2.  Create a new document, save it as connect-4.html
+  3.  Paste the next code into HEAD of your HTML document
+  4.  Add the onLoad event handler into the BODY tag
+  5.  Put the last coding into the BODY of your HTML document
+  6.  Be sure to upload all the game images to your site  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into your opener page  --&gt;
+
+&lt;center&gt;
+&lt;form name="open-connect4"&gt;
+&lt;input type=button value="Play Connect 4" onClick="window.open('connect-4.html','connect4','top=100,left=100,width=575,height=400');"&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+&lt;!-- STEP TWO: Create a new document, save it as connect-4.html  --&gt;
+
+&lt;!-- STEP THREE: Put this in the HEAD of the connect-4.html page  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;STYLE TYPE="text/css"&gt;
+BODY{background-color: white}
+IMG {border: 0}
+A:visited {color: blue}
+FONT.score {color: blue; font-size: large}
+FONT.redscore {color: red}
+FONT.blackscore {color: black}
+&lt;/STYLE&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var vals = new Array()
+var gameActive = 0
+function rePlay() {
+if (gameActive == 1) {
+document.formo.redScoreBoard.value = redScore + ""
+document.formo.blackScoreBoard.value = blackScore + ""
+clearBoard()
+}
+for (var c1 = 0; c1 &lt;= 6; c1++) {
+vals[c1] = 0
+   }
+}
+
+var redSpot = new Image()
+var blackSpot = new Image()
+var emptySpot = new Image()
+var emptyChecker = new Image()
+var redChecker = new Image()
+var blackChecker = new Image()
+
+redSpot.src = "fillred.gif"
+blackSpot.src = "fillblack.gif"
+emptySpot.src = "fillempty.gif"
+emptyChecker.src = "clearness.gif"
+redChecker.src = "redchecker.gif"
+blackChecker.src = "blackchecker.gif"
+
+var whosTurn = "red"
+var whosTurnSpot = new Image()
+var whosTurnChecker = new Image()
+whosTurnSpot.src = redSpot.src
+whosTurnChecker.src = redChecker.src
+
+function clearBoard() {
+for (var a = 7; a &lt;= 48; a++) {
+document.images[a].src = emptySpot.src
+   }
+}
+function placeTop(picToPlace) {
+if (gameActive == 1) {
+document.images[picToPlace].src = whosTurnChecker.src
+   }
+}
+function unPlaceTop(picToUnplace) {
+if (gameActive == 1) {
+document.images[picToUnplace].src = emptyChecker.src
+   }
+}
+var placeLoc
+function dropIt(whichRow) {
+if (gameActive == 1) {
+//alert("func dropIt")
+placeLoc = (7 - vals[whichRow]) * 7 -7 + whichRow
+if (vals[whichRow] &lt; 6) {
+document.images[placeLoc].src = whosTurnSpot.src
+vals[whichRow] = vals[whichRow] + 1
+checkForWinner(whosTurn)
+switchTurns()
+placeTop(whichRow)
+      }
+   }
+}
+function whoGoesFirst() {
+whosTurn = whosFirst
+switchTurns()
+if (whosFirst == "red") {
+whosFirst = "black"
+} else {
+whosFirst = "red"
+   }
+}
+function switchTurns() {
+if (gameActive == 1) {
+//alert("func switchTurns")
+if (whosTurn == "red") {
+whosTurn = "black"
+whosTurnSpot.src = blackSpot.src
+whosTurnChecker.src = blackChecker.src
+document.formo.texter.value = blackPlayer + "'s turn."
+} else {
+whosTurn = "red"
+whosTurnSpot.src = redSpot.src
+whosTurnChecker.src = redChecker.src
+document.formo.texter.value = redPlayer + "'s turn."
+      }
+   }
+}
+var redPlayer
+var blackPlayer
+var whosFirst
+function askForNames() {
+if (gameActive == 1) {
+//alert("func askForNames")
+redScore = 0
+blackScore = 0
+document.formo.redScoreBoard.value = redScore + ""
+document.formo.blackScoreBoard.value = blackScore + ""
+matchMade = 1
+redPlayer = prompt("What is the name of the red player?", "")
+blackPlayer = prompt("What is the name of the black player?", "")
+whosFirst = prompt("Which player is going first?", "")
+if (redPlayer == null || redPlayer == "") {
+redPlayer = "Red Player"
+}
+if (blackPlayer == null || blackPlayer == "") {
+blackPlayer = "Black Player"
+}
+if (whosFirst == "r" || whosFirst == "red" || whosFirst == redPlayer) {
+document.formo.texter.value = redPlayer + "'s turn."
+whosTurn = "black"
+switchTurns()
+whosFirst = "red"
+} else {
+document.formo.texter.value = blackPlayer + "'s turn."
+whosTurn = "red"
+switchTurns()
+whosFirst = "black"
+       }
+   }
+}
+var lookForSrc
+var redScore = 0
+var blackScore = 0
+var someOneWon
+var rowsFull = 0
+function checkForWinner(colorToCheck) {
+if (gameActive == 1) {
+//alert("func checkForWinner")
+someOneWon = 0
+if (colorToCheck == "red") {
+lookForSrc = redSpot.src
+}
+if (colorToCheck == "black") {
+lookForSrc = blackSpot.src
+}
+rowsFull = 0
+//alert("LookForSrc = " + lookForSrc + ".  And document.images[7].src = " + document.images[7].src)
+for (var counter = 7; counter &lt;= 48; counter++) {
+if (document.images[counter].src == lookForSrc) {
+if ((counter + 3 &lt;= 48 
+&& counter != 11 && counter != 12 && counter != 13 
+&& counter != 18 && counter != 19 && counter != 20 
+&& counter != 25 && counter != 26 && counter != 27 
+&& counter != 32 && counter != 33 && counter != 34 
+&& counter != 39 && counter != 40 && counter != 41
+&& document.images[counter + 1].src == lookForSrc
+&& document.images[counter + 2].src == lookForSrc
+&& document.images[counter + 3].src == lookForSrc) 
+|| (counter + 3 * 7 &lt;= 48
+&& document.images[counter + 7].src == lookForSrc
+&& document.images[counter + 7*2].src == lookForSrc
+&& document.images[counter + 7*3].src == lookForSrc)
+|| (counter + 3 * 7 &lt;= 48
+&& counter != 11 && counter != 12 && counter != 13 
+&& counter != 18 && counter != 19 && counter != 20 
+&& counter != 25 && counter != 26 && counter != 27 
+&& document.images[counter + 7 + 1].src == lookForSrc
+&& document.images[counter + 7*2 + 2].src == lookForSrc
+&& document.images[counter + 7*3 + 3].src == lookForSrc)
+|| (counter - 3 * 7 &gt;= 7
+&& counter != 32 && counter != 33 && counter != 34 
+&& counter != 39 && counter != 40 && counter != 41
+&& counter != 46 && counter != 47 && counter != 48
+&& document.images[counter - 7 + 1].src == lookForSrc
+&& document.images[counter - 7*2 + 2].src == lookForSrc
+&& document.images[counter - 7*3 + 3].src == lookForSrc)) {
+for (var c2 = 0; c2&lt;= 6; c2++) {
+unPlaceTop(c2)
+}
+if (colorToCheck == "red") {
+alert(redPlayer + " wins.")
+redScore += 1
+} else if (colorToCheck == "black") {
+alert(blackPlayer + " wins.")
+blackScore += 1
+}
+gameActive = 0
+someOneWon = 1
+counter = 49
+document.formo.redScoreBoard.value = redScore + ""
+document.formo.blackScoreBoard.value = blackScore + ""
+      }
+   }
+}
+if (someOneWon != 1) {
+for (var poo = 0; poo &lt;= 6; poo++) {
+if (vals[poo] == 6) {
+rowsFull += 1
+}
+}
+if (rowsFull == 7) {
+for (var c3 = 0; c3&lt;= 6; c3++) {
+unPlaceTop(c3)
+}
+gameActive = 0
+alert("This game has reached a draw.")
+         }
+      }
+   }
+}
+var matchMade = 0
+function newGame() {
+if (matchMade == 1) {
+gameActive = 1
+rePlay()
+whoGoesFirst()
+   }
+}
+function newMatchUp() {
+if (confirm("Are you sure you want to Start a new match?")) {
+gameActive = 1
+rePlay()
+askForNames()
+   }
+}
+function setMsg(whatToSay) {
+window.status = whatToSay
+return true
+}
+// End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP FOUR: Put this onLoad event handler into the BODY tag  --&gt;
+
+&lt;BODY OnLoad="rePlay()"&gt;
+
+&lt;!-- STEP FIVE: Copy this code into the BODY of connect-4.html  --&gt;
+
+&lt;center&gt;
+&lt;form name="formo"&gt;
+&lt;table cellspacing="0" cellpadding="0" border="0"&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="javascript:void dropIt(0)" onMouseOver="placeTop(0); setMsg(''); return true" onMouseOut="unPlaceTop(0)"&gt;&lt;img border="0" src="clearness.gif" height="50" width="50"&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="javascript:void dropIt(1)" onMouseOver="placeTop(1); setMsg(''); return true" onMouseOut="unPlaceTop(1)"&gt;&lt;img border="0" src="clearness.gif" height="50" width="50"&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="javascript:void dropIt(2)" onMouseOver="placeTop(2); setMsg(''); return true" onMouseOut="unPlaceTop(2)"&gt;&lt;img border="0" src="clearness.gif" height="50" width="50"&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="javascript:void dropIt(3)" onMouseOver="placeTop(3); setMsg(''); return true" onMouseOut="unPlaceTop(3)"&gt;&lt;img border="0" src="clearness.gif" height="50" width="50"&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="javascript:void dropIt(4)" onMouseOver="placeTop(4); setMsg(''); return true" onMouseOut="unPlaceTop(4)"&gt;&lt;img border="0" src="clearness.gif" height="50" width="50"&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="javascript:void dropIt(5)" onMouseOver="placeTop(5); setMsg(''); return true" onMouseOut="unPlaceTop(5)"&gt;&lt;img border="0" src="clearness.gif" height="50" width="50"&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="javascript:void dropIt(6)" onMouseOver="placeTop(6); setMsg(''); return true" onMouseOut="unPlaceTop(6)"&gt;&lt;img border="0" src="clearness.gif" height="50" width="50"&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td align=right&gt;Click to start --&gt; &lt;input type="button" name="startButton" value="New Match" onClick="newMatchUp()"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="javascript:void dropIt(0)" onMouseOver="placeTop(0); setMsg(''); return true" onMouseOut="unPlaceTop(0)"&gt;&lt;img border="0" src="fillempty.gif" height="50" width="50"&gt;&lt;/A&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="javascript:void dropIt(1)" onMouseOver="placeTop(1); setMsg(''); return true" onMouseOut="unPlaceTop(1)"&gt;&lt;img border="0" src="fillempty.gif" height="50" width="50"&gt;&lt;/A&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="javascript:void dropIt(2)" onMouseOver="placeTop(2); setMsg(''); return true" onMouseOut="unPlaceTop(2)"&gt;&lt;img border="0" src="fillempty.gif" height="50" width="50"&gt;&lt;/A&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="javascript:void dropIt(3)" onMouseOver="placeTop(3); setMsg(''); return true" onMouseOut="unPlaceTop(3)"&gt;&lt;img border="0" src="fillempty.gif" height="50" width="50"&gt;&lt;/A&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="javascript:void dropIt(4)" onMouseOver="placeTop(4); setMsg(''); return true" onMouseOut="unPlaceTop(4)"&gt;&lt;img border="0" src="fillempty.gif" height="50" width="50"&gt;&lt;/A&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="javascript:void dropIt(5)" onMouseOver="placeTop(5); setMsg(''); return true" onMouseOut="unPlaceTop(5)"&gt;&lt;img border="0" src="fillempty.gif" height="50" width="50"&gt;&lt;/A&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="javascript:void dropIt(6)" onMouseOver="placeTop(6); setMsg(''); return true" onMouseOut="unPlaceTop(6)"&gt;&lt;img border="0" src="fillempty.gif" height="50" width="50"&gt;&lt;/A&gt;&lt;/td&gt;
+&lt;td align=right&gt;&lt;input type="button" name="reStartButton" value="New Game" onClick="newGame()"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="javascript:void dropIt(0)" onMouseOver="placeTop(0); setMsg(''); return true" onMouseOut="unPlaceTop(0)"&gt;&lt;img border="0" src="fillempty.gif" height="50" width="50"&gt;&lt;/A&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="javascript:void dropIt(1)" onMouseOver="placeTop(1); setMsg(''); return true" onMouseOut="unPlaceTop(1)"&gt;&lt;img border="0" src="fillempty.gif" height="50" width="50"&gt;&lt;/A&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="javascript:void dropIt(2)" onMouseOver="placeTop(2); setMsg(''); return true" onMouseOut="unPlaceTop(2)"&gt;&lt;img border="0" src="fillempty.gif" height="50" width="50"&gt;&lt;/A&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="javascript:void dropIt(3)" onMouseOver="placeTop(3); setMsg(''); return true" onMouseOut="unPlaceTop(3)"&gt;&lt;img border="0" src="fillempty.gif" height="50" width="50"&gt;&lt;/A&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="javascript:void dropIt(4)" onMouseOver="placeTop(4); setMsg(''); return true" onMouseOut="unPlaceTop(4)"&gt;&lt;img border="0" src="fillempty.gif" height="50" width="50"&gt;&lt;/A&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="javascript:void dropIt(5)" onMouseOver="placeTop(5); setMsg(''); return true" onMouseOut="unPlaceTop(5)"&gt;&lt;img border="0" src="fillempty.gif" height="50" width="50"&gt;&lt;/A&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="javascript:void dropIt(6)" onMouseOver="placeTop(6); setMsg(''); return true" onMouseOut="unPlaceTop(6)"&gt;&lt;img border="0" src="fillempty.gif" height="50" width="50"&gt;&lt;/A&gt;&lt;/td&gt;
+&lt;td align=right&gt;&lt;input type="text" name="texter" size="20"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="javascript:void dropIt(0)" onMouseOver="placeTop(0); setMsg(''); return true" onMouseOut="unPlaceTop(0)"&gt;&lt;img border="0" src="fillempty.gif" height="50" width="50"&gt;&lt;/A&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="javascript:void dropIt(1)" onMouseOver="placeTop(1); setMsg(''); return true" onMouseOut="unPlaceTop(1)"&gt;&lt;img border="0" src="fillempty.gif" height="50" width="50"&gt;&lt;/A&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="javascript:void dropIt(2)" onMouseOver="placeTop(2); setMsg(''); return true" onMouseOut="unPlaceTop(2)"&gt;&lt;img border="0" src="fillempty.gif" height="50" width="50"&gt;&lt;/A&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="javascript:void dropIt(3)" onMouseOver="placeTop(3); setMsg(''); return true" onMouseOut="unPlaceTop(3)"&gt;&lt;img border="0" src="fillempty.gif" height="50" width="50"&gt;&lt;/A&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="javascript:void dropIt(4)" onMouseOver="placeTop(4); setMsg(''); return true" onMouseOut="unPlaceTop(4)"&gt;&lt;img border="0" src="fillempty.gif" height="50" width="50"&gt;&lt;/A&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="javascript:void dropIt(5)" onMouseOver="placeTop(5); setMsg(''); return true" onMouseOut="unPlaceTop(5)"&gt;&lt;img border="0" src="fillempty.gif" height="50" width="50"&gt;&lt;/A&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="javascript:void dropIt(6)" onMouseOver="placeTop(6); setMsg(''); return true" onMouseOut="unPlaceTop(6)"&gt;&lt;img border="0" src="fillempty.gif" height="50" width="50"&gt;&lt;/A&gt;&lt;/td&gt;
+&lt;td valign="bottom" align=right&gt;&lt;font class="score"&gt;SCORE:&lt;/font&gt;&lt;br&gt;&lt;font class="redscore"&gt;Red&lt;/font&gt;&nbsp;&nbsp;&lt;font class="blackscore"&gt;Black&lt;/font&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="javascript:void dropIt(0)" onMouseOver="placeTop(0); setMsg(''); return true" onMouseOut="unPlaceTop(0)"&gt;&lt;img border="0" src="fillempty.gif" height="50" width="50"&gt;&lt;/A&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="javascript:void dropIt(1)" onMouseOver="placeTop(1); setMsg(''); return true" onMouseOut="unPlaceTop(1)"&gt;&lt;img border="0" src="fillempty.gif" height="50" width="50"&gt;&lt;/A&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="javascript:void dropIt(2)" onMouseOver="placeTop(2); setMsg(''); return true" onMouseOut="unPlaceTop(2)"&gt;&lt;img border="0" src="fillempty.gif" height="50" width="50"&gt;&lt;/A&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="javascript:void dropIt(3)" onMouseOver="placeTop(3); setMsg(''); return true" onMouseOut="unPlaceTop(3)"&gt;&lt;img border="0" src="fillempty.gif" height="50" width="50"&gt;&lt;/A&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="javascript:void dropIt(4)" onMouseOver="placeTop(4); setMsg(''); return true" onMouseOut="unPlaceTop(4)"&gt;&lt;img border="0" src="fillempty.gif" height="50" width="50"&gt;&lt;/A&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="javascript:void dropIt(5)" onMouseOver="placeTop(5); setMsg(''); return true" onMouseOut="unPlaceTop(5)"&gt;&lt;img border="0" src="fillempty.gif" height="50" width="50"&gt;&lt;/A&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="javascript:void dropIt(6)" onMouseOver="placeTop(6); setMsg(''); return true" onMouseOut="unPlaceTop(6)"&gt;&lt;img border="0" src="fillempty.gif" height="50" width="50"&gt;&lt;/A&gt;&lt;/td&gt;
+&lt;td valign="top" align=right&gt;&lt;input type="text" name="redScoreBoard" size="3"&gt;&lt;input type ="text" name="blackScoreBoard" size="3"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="javascript:void dropIt(0)" onMouseOver="placeTop(0); setMsg(''); return true" onMouseOut="unPlaceTop(0)"&gt;&lt;img border="0" src="fillempty.gif" height="50" width="50"&gt;&lt;/A&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="javascript:void dropIt(1)" onMouseOver="placeTop(1); setMsg(''); return true" onMouseOut="unPlaceTop(1)"&gt;&lt;img border="0" src="fillempty.gif" height="50" width="50"&gt;&lt;/A&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="javascript:void dropIt(2)" onMouseOver="placeTop(2); setMsg(''); return true" onMouseOut="unPlaceTop(2)"&gt;&lt;img border="0" src="fillempty.gif" height="50" width="50"&gt;&lt;/A&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="javascript:void dropIt(3)" onMouseOver="placeTop(3); setMsg(''); return true" onMouseOut="unPlaceTop(3)"&gt;&lt;img border="0" src="fillempty.gif" height="50" width="50"&gt;&lt;/A&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="javascript:void dropIt(4)" onMouseOver="placeTop(4); setMsg(''); return true" onMouseOut="unPlaceTop(4)"&gt;&lt;img border="0" src="fillempty.gif" height="50" width="50"&gt;&lt;/A&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="javascript:void dropIt(5)" onMouseOver="placeTop(5); setMsg(''); return true" onMouseOut="unPlaceTop(5)"&gt;&lt;img border="0" src="fillempty.gif" height="50" width="50"&gt;&lt;/A&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="javascript:void dropIt(6)" onMouseOver="placeTop(6); setMsg(''); return true" onMouseOut="unPlaceTop(6)"&gt;&lt;img border="0" src="fillempty.gif" height="50" width="50"&gt;&lt;/A&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="javascript:void dropIt(0)" onMouseOver="placeTop(0); setMsg(''); return true" onMouseOut="unPlaceTop(0)"&gt;&lt;img border="0" src="fillempty.gif" height="50" width="50"&gt;&lt;/A&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="javascript:void dropIt(1)" onMouseOver="placeTop(1); setMsg(''); return true" onMouseOut="unPlaceTop(1)"&gt;&lt;img border="0" src="fillempty.gif" height="50" width="50"&gt;&lt;/A&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="javascript:void dropIt(2)" onMouseOver="placeTop(2); setMsg(''); return true" onMouseOut="unPlaceTop(2)"&gt;&lt;img border="0" src="fillempty.gif" height="50" width="50"&gt;&lt;/A&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="javascript:void dropIt(3)" onMouseOver="placeTop(3); setMsg(''); return true" onMouseOut="unPlaceTop(3)"&gt;&lt;img border="0" src="fillempty.gif" height="50" width="50"&gt;&lt;/A&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="javascript:void dropIt(4)" onMouseOver="placeTop(4); setMsg(''); return true" onMouseOut="unPlaceTop(4)"&gt;&lt;img border="0" src="fillempty.gif" height="50" width="50"&gt;&lt;/A&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="javascript:void dropIt(5)" onMouseOver="placeTop(5); setMsg(''); return true" onMouseOut="unPlaceTop(5)"&gt;&lt;img border="0" src="fillempty.gif" height="50" width="50"&gt;&lt;/A&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="javascript:void dropIt(6)" onMouseOver="placeTop(6); setMsg(''); return true" onMouseOut="unPlaceTop(6)"&gt;&lt;img border="0" src="fillempty.gif" height="50" width="50"&gt;&lt;/A&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+&lt;!-- STEP FOUR: Be sure to upload all the game images to your site  --&gt;
+
+&lt;!-- ../img/connect-4/connect-4.zip --&gt;
+
+&lt;p&gt;&lt;center&gt;
+&lt;font face="arial, helvetica" SIZE="-2"&gt;Free JavaScripts provided&lt;br&gt;
+by &lt;a href="http://javascriptsource.com"&gt;JavaScript Source Code 3000&lt;/a&gt;&lt;/font&gt;
+&lt;/center&gt;&lt;p&gt;
+
+&lt;!-- Script Size:  17.21 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

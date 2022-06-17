@@ -1,0 +1,342 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Equivalents:  Acceleration</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Cut-N-Paste JavaScript">
+<META NAME="section" CONTENT="Equivalents">
+<META NAME="description" CONTENT="Use JavaScript to find acceleration equivalents.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+function initArray() {
+this.length = initArray.arguments.length;
+for (var i = 0; i < this.length; i++) {
+this[i] = initArray.arguments[i];
+   }
+}
+var isn08 = new initArray("4b","5b","8b","8b");
+isn08[0] = "~01~10.01~236~30.036~4118.11~50.03281~6118.11~70.02237~80.01944~9";
+isn08[1] = "~0100~11~23600~33.6~411811~53.281~611811~72.237~81.944~9";
+isn08[2] = "~00.02778~10.0002778~21~30.001~43.281~50.0009113~63.281~70.0006214~80.00054~9";
+isn08[3] = "~027.78~10.2778~21000~31~43281~50.9113~63281~70.6214~80.54~9";
+isn08[4] = "~00.008467~10.00008467~20.3048~30.0003048~41~50.0002778~61~70.0001894~80.0001646~9";
+isn08[5] = "~030.48~10.3048~21097~31.097~43600~51~63600~70.6818~80.4572~9";
+isn08[6] = "~00.008467~10.00008467~20.3048~30.0003048~41~50.0002778~61~70.0001894~80.0001646~9";
+isn08[7] = "~044.7~10.447~21609~31.609~45280~51.467~65280~71~80.8690~9";
+isn08[8] = "~051.44~10.5144~21852~31.852~46076~51.688~66076~71.151~81~9";
+function accCon() {
+for (var i = 0; i < 9; i++) {
+if (document.isnform08.acci[i].checked) {
+acci = i;
+accinm = document.isnform08.acci[i].value;
+   }
+}
+for (var i = 0; i < 9; i++) {
+if (document.isnform08.acco[i].checked) {
+acco = i;
+acconm = document.isnform08.acco[i].value;
+   }
+}
+useri = document.isnform08.accinp.value;
+if (useri == 0) {
+useri = 1;
+document.isnform08.accinp.value = useri;
+}
+mulstr = isn08[acci];
+picker = "~" + acco;
+ps = mulstr.indexOf(picker);
+acco++;
+picker = "~" + acco;
+ps1 = mulstr.indexOf(picker);
+mulstr = mulstr.substring((ps + 2),ps1);
+ps = (useri * mulstr);
+picker = "";
+picker += ps
+ps1 = picker.indexOf(".");
+if (ps1 > -1) {
+ps = ps + .000001;
+picker = "";
+picker += ps;
+ps2 = picker.indexOf("e");
+if (ps2 < 0) {
+picker = picker.substring(0,(ps1 + 6));
+}
+if (ps2 == 0 || ps2 > 0) {
+ps3 = picker.indexOf("00000");
+if (ps3 > 0) {
+picker = picker.substring(0,ps3 + 1) + picker.substring(ps2,picker.length);
+      }
+   }
+}
+picker = useri + " " + accinm + " = " + picker + " " + acconm
+document.isnform08.accout.value = picker;
+}
+// End -->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /equivalents/"><font color="#FF0000">Equivalents</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Acceleration</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+JavaScript can help you find acceleration equivalents.
+<br>
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<BODY>
+<CENTER>
+<TABLE BORDER=1 WIDTH=486>
+<TR><TD COLSPAN=10 ALIGN=CENTER><FORM NAME="isnform08"><FONT COLOR="blue"><B>Acceleration Equivalents</B></FONT></TD></TR>
+<TR><TD COLSPAN=10 VALIGN=TOP><FONT SIZE=1><B>First, type the number you wish converted here: </B>
+<INPUT TYPE="text" NAME="accinp" SIZE=30 VALUE="" onChange="accCon();"><BR><B>Then, click radio buttons for desired conversion:</FONT></TD></TR>
+<TR><TD ALIGN=CENTER><FONT COLOR="red" SIZE=1><B>From:</B></FONT></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>cm/sec/sec<BR>
+<INPUT TYPE="radio" NAME="acci" VALUE="cm/sec/sec" CHECKED onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>m/sec/sec<BR>
+<INPUT TYPE="radio" NAME="acci" VALUE="m/sec/sec" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>m/hr/sec<BR>
+<INPUT TYPE="radio" NAME="acci" VALUE="m/hr/sec" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>km/hr/sec<BR>
+<INPUT TYPE="radio" NAME="acci" VALUE="km/hr/sec" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>ft/hr/sec<BR>
+<INPUT TYPE="radio" NAME="acci" VALUE="ft/hr/sec" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>ft/sec/sec<BR>
+<INPUT TYPE="radio" NAME="acci" VALUE="ft/sec/sec" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>ft/min/min<BR>
+<INPUT TYPE="radio" NAME="acci" VALUE="ft/min/min" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>mi/hr/sec<BR>
+<INPUT TYPE="radio" NAME="acci" VALUE="mi/hr/sec" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>knots/sec<BR>
+<INPUT TYPE="radio" NAME="acci" VALUE="knots/sec" onClick = ""></TD></TR>
+<TR><TD ALIGN=CENTER><FONT COLOR="red" SIZE=1><B>To:</B></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>cm/sec/sec<BR>
+<INPUT TYPE="radio" NAME="acco" VALUE="cm/sec/sec" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>m/sec/sec<BR>
+<INPUT TYPE="radio" NAME="acco" VALUE="m/sec/sec" CHECKED onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>m/hr/sec<BR>
+<INPUT TYPE="radio" NAME="acco" VALUE="m/hr/sec" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>km/hr/sec<BR>
+<INPUT TYPE="radio" NAME="acco" VALUE="km/hr/sec" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>ft/hr/sec<BR>
+<INPUT TYPE="radio" NAME="acco" VALUE="ft/hr/sec" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>ft/sec/sec<BR>
+<INPUT TYPE="radio" NAME="acco" VALUE="ft/sec/sec" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>ft/min/min<BR>
+<INPUT TYPE="radio" NAME="acco" VALUE="ft/min/min" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>mi/hr/sec<BR>
+<INPUT TYPE="radio" NAME="acco" VALUE="mi/hr/sec" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>knots/sec<BR>
+<INPUT TYPE="radio" NAME="acco" VALUE="knots/sec" onClick = ""></TD>
+</TR>
+<TR>
+<TD COLSPAN=10 ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>
+<INPUT TYPE="button" VALUE=" Click for Conversion " onClick="accCon();"> 
+<INPUT TYPE="reset" VALUE=" Reset Values "><BR>
+<INPUT TYPE="text" NAME="accout" SIZE=60 VALUE="" onClick="accCon();">
+</FONT></TD>
+</TR>
+</FORM>
+</TABLE>
+</CENTER>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Equivalents:  Acceleration</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  5.70 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL ACCELERATION EQUIVALENTS:
+
+   1.  Paste the specified coding into the HEAD of your HTML document
+   2.  Put the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the HEAD of your HTML document  --&gt;
+		  
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Cut-N-Paste JavaScript
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function initArray() {
+this.length = initArray.arguments.length;
+for (var i = 0; i &lt; this.length; i++) {
+this[i] = initArray.arguments[i];
+   }
+}
+var isn08 = new initArray("4b","5b","8b","8b");
+isn08[0] = "~01~10.01~236~30.036~4118.11~50.03281~6118.11~70.02237~80.01944~9";
+isn08[1] = "~0100~11~23600~33.6~411811~53.281~611811~72.237~81.944~9";
+isn08[2] = "~00.02778~10.0002778~21~30.001~43.281~50.0009113~63.281~70.0006214~80.00054~9";
+isn08[3] = "~027.78~10.2778~21000~31~43281~50.9113~63281~70.6214~80.54~9";
+isn08[4] = "~00.008467~10.00008467~20.3048~30.0003048~41~50.0002778~61~70.0001894~80.0001646~9";
+isn08[5] = "~030.48~10.3048~21097~31.097~43600~51~63600~70.6818~80.4572~9";
+isn08[6] = "~00.008467~10.00008467~20.3048~30.0003048~41~50.0002778~61~70.0001894~80.0001646~9";
+isn08[7] = "~044.7~10.447~21609~31.609~45280~51.467~65280~71~80.8690~9";
+isn08[8] = "~051.44~10.5144~21852~31.852~46076~51.688~66076~71.151~81~9";
+function accCon() {
+for (var i = 0; i &lt; 9; i++) {
+if (document.isnform08.acci[i].checked) {
+acci = i;
+accinm = document.isnform08.acci[i].value;
+   }
+}
+for (var i = 0; i &lt; 9; i++) {
+if (document.isnform08.acco[i].checked) {
+acco = i;
+acconm = document.isnform08.acco[i].value;
+   }
+}
+useri = document.isnform08.accinp.value;
+if (useri == 0) {
+useri = 1;
+document.isnform08.accinp.value = useri;
+}
+mulstr = isn08[acci];
+picker = "~" + acco;
+ps = mulstr.indexOf(picker);
+acco++;
+picker = "~" + acco;
+ps1 = mulstr.indexOf(picker);
+mulstr = mulstr.substring((ps + 2),ps1);
+ps = (useri * mulstr);
+picker = "";
+picker += ps
+ps1 = picker.indexOf(".");
+if (ps1 &gt; -1) {
+ps = ps + .000001;
+picker = "";
+picker += ps;
+ps2 = picker.indexOf("e");
+if (ps2 &lt; 0) {
+picker = picker.substring(0,(ps1 + 6));
+}
+if (ps2 == 0 || ps2 &gt; 0) {
+ps3 = picker.indexOf("00000");
+if (ps3 &gt; 0) {
+picker = picker.substring(0,ps3 + 1) + picker.substring(ps2,picker.length);
+      }
+   }
+}
+picker = useri + " " + accinm + " = " + picker + " " + acconm
+document.isnform08.accout.value = picker;
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;CENTER&gt;
+&lt;TABLE BORDER=1 WIDTH=486&gt;
+&lt;TR&gt;&lt;TD COLSPAN=10 ALIGN=CENTER&gt;&lt;FORM NAME="isnform08"&gt;&lt;FONT COLOR="blue"&gt;&lt;B&gt;Acceleration Equivalents&lt;/B&gt;&lt;/FONT&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;TR&gt;&lt;TD COLSPAN=10 VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;&lt;B&gt;First, type the number you wish converted here: &lt;/B&gt;
+&lt;INPUT TYPE="text" NAME="accinp" SIZE=30 VALUE="" onChange="accCon();"&gt;&lt;BR&gt;&lt;B&gt;Then, click radio buttons for desired conversion:&lt;/FONT&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;TR&gt;&lt;TD ALIGN=CENTER&gt;&lt;FONT COLOR="red" SIZE=1&gt;&lt;B&gt;From:&lt;/B&gt;&lt;/FONT&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;cm/sec/sec&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="acci" VALUE="cm/sec/sec" CHECKED onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;m/sec/sec&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="acci" VALUE="m/sec/sec" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;m/hr/sec&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="acci" VALUE="m/hr/sec" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;km/hr/sec&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="acci" VALUE="km/hr/sec" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;ft/hr/sec&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="acci" VALUE="ft/hr/sec" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;ft/sec/sec&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="acci" VALUE="ft/sec/sec" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;ft/min/min&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="acci" VALUE="ft/min/min" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;mi/hr/sec&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="acci" VALUE="mi/hr/sec" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;knots/sec&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="acci" VALUE="knots/sec" onClick = ""&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;TR&gt;&lt;TD ALIGN=CENTER&gt;&lt;FONT COLOR="red" SIZE=1&gt;&lt;B&gt;To:&lt;/B&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;cm/sec/sec&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="acco" VALUE="cm/sec/sec" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;m/sec/sec&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="acco" VALUE="m/sec/sec" CHECKED onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;m/hr/sec&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="acco" VALUE="m/hr/sec" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;km/hr/sec&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="acco" VALUE="km/hr/sec" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;ft/hr/sec&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="acco" VALUE="ft/hr/sec" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;ft/sec/sec&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="acco" VALUE="ft/sec/sec" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;ft/min/min&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="acco" VALUE="ft/min/min" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;mi/hr/sec&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="acco" VALUE="mi/hr/sec" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;knots/sec&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="acco" VALUE="knots/sec" onClick = ""&gt;&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;TR&gt;
+&lt;TD COLSPAN=10 ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;
+&lt;INPUT TYPE="button" VALUE=" Click for Conversion " onClick="accCon();"&gt; 
+&lt;INPUT TYPE="reset" VALUE=" Reset Values "&gt;&lt;BR&gt;
+&lt;INPUT TYPE="text" NAME="accout" SIZE=60 VALUE="" onClick="accCon();"&gt;
+&lt;/FONT&gt;&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;/FORM&gt;
+&lt;/TABLE&gt;
+&lt;/CENTER&gt;
+
+ 
+
+&lt;!-- Script Size:  5.70 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

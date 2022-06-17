@@ -1,0 +1,754 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Forms:  Copy Fields</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Forms">
+<META NAME="description" CONTENT="Allows the user to click a checkbox on a form to duplicate information.  For example, they can copy their billing information into the shipping information fields (assuming they are the same) with one click!  Another useful timesaver for your visitors!">
+
+<SCRIPT LANGUAGE="JavaScript">
+
+
+
+
+<!-- Begin
+var ShipFirst = "";
+var ShipLast = "";
+var ShipEmail = "";
+var ShipCompany = "";
+var ShipAddress1 = "";
+var ShipAddress2 = "";
+var ShipCity = "";
+var ShipState = "";
+var ShipStateIndex = 0;
+var ShipZip = "";
+var ShipConfirm = 0;
+
+function InitSaveVariables(form) {
+ShipFirst = form.ShipFirst.value;
+ShipLast = form.ShipLast.value;
+ShipEmail = form.ShipEmail.value;
+ShipCompany = form.ShipCompany.value;
+ShipAddress1 = form.ShipAddress1.value;
+ShipAddress2 = form.ShipAddress2.value;
+ShipCity = form.ShipCity.value;
+ShipZip = form.ShipZip.value;
+ShipStateIndex = form.ShipState.selectedIndex;
+ShipState = form.ShipState[ShipStateIndex].value;
+ShipConfirm = form.ShipConfirm.checked;
+}
+
+function ShipToBillPerson(form) {
+if (form.copy.checked) {
+InitSaveVariables(form);
+form.ShipFirst.value = form.BillFirst.value;
+form.ShipLast.value = form.BillLast.value;
+form.ShipEmail.value = form.BillEmail.value;
+form.ShipCompany.value = form.BillCompany.value;
+form.ShipAddress1.value = form.BillAddress1.value;
+form.ShipAddress2.value = form.BillAddress2.value;
+form.ShipCity.value = form.BillCity.value;
+form.ShipZip.value = form.BillZip.value;
+form.ShipState.selectedIndex = form.BillState.selectedIndex;
+form.ShipConfirm.checked = form.BillConfirm.checked;
+}
+else {
+form.ShipFirst.value = ShipFirst;
+form.ShipLast.value = ShipLast;
+form.ShipEmail.value = ShipEmail;
+form.ShipCompany.value = ShipCompany;
+form.ShipAddress1.value = ShipAddress1;
+form.ShipAddress2.value = ShipAddress2;
+form.ShipCity.value = ShipCity;
+form.ShipZip.value = ShipZip;       
+form.ShipState.selectedIndex = ShipStateIndex;
+form.ShipConfirm.checked = ShipConfirm;
+   }
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /forms/" ><font color="#FF0000"><b>Forms</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Copy Fields</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Allows the user to click a checkbox on a form to duplicate information.  For example, they can copy their billing information into the shipping information fields (assuming they are the same) with one click!  Another useful timesaver for your visitors!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name="billform">
+<table border="1" cellspacing="0" cellpadding="3" width="400">
+
+<tr bgcolor="#003399">
+<td colspan=2 width="100%" bgcolor="#003399">
+<b><font color=white size="-1" face="arial, helvetica">Billing Information</font></b>
+</td>
+</tr>
+<tr>
+<td>
+<font size="-1" face="arial, helvetica">First Name:</font>
+</td>
+<td>
+<input type="text" size="15" maxlength="50" name="BillFirst">
+</td>
+</tr>
+<tr>
+<td>
+<font size="-1" face="arial, helvetica">Last Name:</font>
+</td>
+<td>
+<input type="text" size="15" maxlength="50" name="BillLast">
+</td>
+</tr>
+<tr>
+<td>
+<font size="-1" face="arial, helvetica">E-Mail:</font>
+</td>
+<td>
+<input type="text" size="15" name="BillEmail">
+</td>
+</tr>
+<tr>
+<td>
+<font size="-1" face="arial, helvetica">Company:</font>
+</td>
+<td>
+<input type="text" size="25" maxlength="100" name="BillCompany">
+</td>
+</tr>
+<tr>
+<td>
+<font size="-1" face="arial, helvetica">Address:</font>
+</td>
+<td>
+<input type="text" size="40" maxlength="35" name="BillAddress1">
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+<td>
+<input type="text" size="40" maxlength="35" name="BillAddress2">
+</td>
+</tr>
+<tr>
+<td>
+<font size="-1" face="arial, helvetica">City:</font>
+</td>
+<td>
+<input type="text" size="25" maxlength="21" name="BillCity">
+</td>
+</tr>
+<tr>
+<td>
+<font size="-1" face="arial, helvetica">State:</font>
+</td> 
+<td>
+<select name="BillState">
+<option selected>
+<option value="AL">ALABAMA
+<option value="AK">ALASKA
+<option value="AZ">ARIZONA
+<option value="AR">ARKANSAS
+<option value="CA">CALIFORNIA
+<option value="CO">COLORADO
+<option value="CT">CONNECTICUT
+<option value="DE">DELAWARE
+<option value="FL">FLORIDA
+<option value="GA">GEORGIA
+<option value="HI">HAWAII
+<option value="ID">IDAHO
+<option value="IL">ILLINOIS
+<option value="IN">INDIANA
+<option value="IA">IOWA
+<option value="KS">KANSAS
+<option value="KY">KENTUCKY
+<option value="LA">LOUISIANA
+<option value="ME">MAINE
+<option value="MD">MARYLAND
+<option value="MA">MASSACHUSETTS
+<option value="MI">MICHIGAN
+<option value="MN">MINNESOTA
+<option value="MS">MISSISSIPPI
+<option value="MO">MISSOURI
+<option value="MT">MONTANA
+<option value="NE">NEBRASKA
+<option value="NV">NEVADA
+<option value="NH">NEW HAMPSHIRE
+<option value="NJ">NEW JERSEY
+<option value="NM">NEW MEXICO
+<option value="NY">NEW YORK
+<option value="NC">NORTH CAROLINA
+<option value="ND">NORTH DAKOTA
+<option value="OH">OHIO
+<option value="OK">OKLAHOMA
+<option value="OR">OREGON
+<option value="PA">PENNSYLVANIA
+<option value="RI">RHODE ISLAND
+<option value="SC">SOUTH CAROLINA
+<option value="SD">SOUTH DAKOTA
+<option value="TN">TENNESSEE
+<option value="TX">TEXAS
+<option value="UT">UTAH
+<option value="VT">VERMONT
+<option value="VA">VIRGINIA
+<option value="WA">WASHINGTON
+<option value="DC">WASHINGTON, D.C.
+<option value="WV">WEST VIRGINIA
+<option value="WI">WISCONSIN
+<option value="WY">WYOMING
+</select>
+&nbsp;&nbsp;
+<input type="text" size="10" maxlength="10" name="BillZip">
+</td>
+</tr>
+<tr>
+<td colspan=2 align=center>
+<input type="checkbox" name="BillConfirm" selected>&nbsp;<font face="arial, helvetica" size="-2">Send confirmation email via email</font>
+</td>
+</tr>
+
+
+<tr bgcolor="#003399">
+<td colspan=2 width="100%" bgcolor="#003399">
+<b><font color=white size="-1" face="arial, helvetica">Shipping Information</font></b>
+<font color=white size="-2" face="arial, helvetica">
+(Check to use Billing Information: <input type="checkbox" name="copy"
+OnClick="javascript:ShipToBillPerson(this.form);" value="checkbox"> )
+</td>
+</tr>
+<tr>
+<td>
+<font size="-1" face="arial, helvetica">First Name:</font></td>
+<td>
+<input type="text" size="15" maxlength="50" name="ShipFirst">
+</td>
+</tr>
+<tr>
+<td>
+<font size="-1" face="arial, helvetica">Last Name:</font>
+</td>
+<td>
+<input type="text" size="15" maxlength="50" name="ShipLast">
+</td>
+</tr>
+<tr>
+<td>
+<font size="-1" face="arial, helvetica">E-Mail:</font>
+</td>
+<td>
+<input type="text" size="15" name="ShipEmail">
+</td>
+</tr>
+<tr>
+<td>
+<font size="-1" face="arial, helvetica">Company:</font>
+</td>
+<td>
+<input type="text" size="25" maxlength="100" name="ShipCompany">
+</td>
+</tr>
+<tr>
+<td>
+<font size="-1" face="arial, helvetica">Address:</font>
+</td>
+<td>
+<input type="text" size="40" maxlength="35" name="ShipAddress1">
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+<td>
+<input type="text" size="40" maxlength="35" name="ShipAddress2">
+</td>
+</tr>
+<tr>
+<td>
+<font size="-1" face="arial, helvetica">City:</font>
+</td>
+<td>
+<input type="text" size="25" maxlength="21" name="ShipCity">
+</td>
+</tr>
+<tr>
+<td>
+<font size="-1" face="arial, helvetica">State:</font>
+</td> 
+<td>
+<select name="ShipState">
+<option selected>
+<option value="AL">ALABAMA
+<option value="AK">ALASKA
+<option value="AZ">ARIZONA
+<option value="AR">ARKANSAS
+<option value="CA">CALIFORNIA
+<option value="CO">COLORADO
+<option value="CT">CONNECTICUT
+<option value="DE">DELAWARE
+<option value="FL">FLORIDA
+<option value="GA">GEORGIA
+<option value="HI">HAWAII
+<option value="ID">IDAHO
+<option value="IL">ILLINOIS
+<option value="IN">INDIANA
+<option value="IA">IOWA
+<option value="KS">KANSAS
+<option value="KY">KENTUCKY
+<option value="LA">LOUISIANA
+<option value="ME">MAINE
+<option value="MD">MARYLAND
+<option value="MA">MASSACHUSETTS
+<option value="MI">MICHIGAN
+<option value="MN">MINNESOTA
+<option value="MS">MISSISSIPPI
+<option value="MO">MISSOURI
+<option value="MT">MONTANA
+<option value="NE">NEBRASKA
+<option value="NV">NEVADA
+<option value="NH">NEW HAMPSHIRE
+<option value="NJ">NEW JERSEY
+<option value="NM">NEW MEXICO
+<option value="NY">NEW YORK
+<option value="NC">NORTH CAROLINA
+<option value="ND">NORTH DAKOTA
+<option value="OH">OHIO
+<option value="OK">OKLAHOMA
+<option value="OR">OREGON
+<option value="PA">PENNSYLVANIA
+<option value="RI">RHODE ISLAND
+<option value="SC">SOUTH CAROLINA
+<option value="SD">SOUTH DAKOTA
+<option value="TN">TENNESSEE
+<option value="TX">TEXAS
+<option value="UT">UTAH
+<option value="VT">VERMONT
+<option value="VA">VIRGINIA
+<option value="WA">WASHINGTON
+<option value="DC">WASHINGTON, D.C.
+<option value="WV">WEST VIRGINIA
+<option value="WI">WISCONSIN
+<option value="WY">WYOMING
+</select>
+&nbsp;&nbsp;
+<input type="text" size="10" maxlength="10" name="ShipZip">
+</td>
+</tr>
+<tr>
+<td colspan=2 align=center>
+<input type="checkbox" name="ShipConfirm" selected>&nbsp;<font face="arial, helvetica" size="-2">Send confirmation email via email</font>
+</td>
+</tr>
+</table>
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Forms:  Copy Fields</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  8.75 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL COPY FIELDS:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var ShipFirst = "";
+var ShipLast = "";
+var ShipEmail = "";
+var ShipCompany = "";
+var ShipAddress1 = "";
+var ShipAddress2 = "";
+var ShipCity = "";
+var ShipState = "";
+var ShipStateIndex = 0;
+var ShipZip = "";
+var ShipConfirm = 0;
+
+function InitSaveVariables(form) {
+ShipFirst = form.ShipFirst.value;
+ShipLast = form.ShipLast.value;
+ShipEmail = form.ShipEmail.value;
+ShipCompany = form.ShipCompany.value;
+ShipAddress1 = form.ShipAddress1.value;
+ShipAddress2 = form.ShipAddress2.value;
+ShipCity = form.ShipCity.value;
+ShipZip = form.ShipZip.value;
+ShipStateIndex = form.ShipState.selectedIndex;
+ShipState = form.ShipState[ShipStateIndex].value;
+ShipConfirm = form.ShipConfirm.checked;
+}
+
+function ShipToBillPerson(form) {
+if (form.copy.checked) {
+InitSaveVariables(form);
+form.ShipFirst.value = form.BillFirst.value;
+form.ShipLast.value = form.BillLast.value;
+form.ShipEmail.value = form.BillEmail.value;
+form.ShipCompany.value = form.BillCompany.value;
+form.ShipAddress1.value = form.BillAddress1.value;
+form.ShipAddress2.value = form.BillAddress2.value;
+form.ShipCity.value = form.BillCity.value;
+form.ShipZip.value = form.BillZip.value;
+form.ShipState.selectedIndex = form.BillState.selectedIndex;
+form.ShipConfirm.checked = form.BillConfirm.checked;
+}
+else {
+form.ShipFirst.value = ShipFirst;
+form.ShipLast.value = ShipLast;
+form.ShipEmail.value = ShipEmail;
+form.ShipCompany.value = ShipCompany;
+form.ShipAddress1.value = ShipAddress1;
+form.ShipAddress2.value = ShipAddress2;
+form.ShipCity.value = ShipCity;
+form.ShipZip.value = ShipZip;       
+form.ShipState.selectedIndex = ShipStateIndex;
+form.ShipConfirm.checked = ShipConfirm;
+   }
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form method="post" action="http://www.your-web-site-address-here.com/script.cgi" name="billform"&gt;
+&lt;table border="1" cellspacing="0" cellpadding="3" width="400"&gt;
+
+&lt;tr bgcolor="#003399"&gt;
+&lt;td colspan=2 width="100%" bgcolor="#003399"&gt;
+&lt;b&gt;&lt;font color=white size="-1" face="arial, helvetica"&gt;Billing Information&lt;/font&gt;&lt;/b&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;font size="-1" face="arial, helvetica"&gt;First Name:&lt;/font&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;input type="text" size="15" maxlength="50" name="BillFirst"&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;font size="-1" face="arial, helvetica"&gt;Last Name:&lt;/font&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;input type="text" size="15" maxlength="50" name="BillLast"&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;font size="-1" face="arial, helvetica"&gt;E-Mail:&lt;/font&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;input type="text" size="15" name="BillEmail"&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;font size="-1" face="arial, helvetica"&gt;Company:&lt;/font&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;input type="text" size="25" maxlength="100" name="BillCompany"&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;font size="-1" face="arial, helvetica"&gt;Address:&lt;/font&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;input type="text" size="40" maxlength="35" name="BillAddress1"&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&nbsp;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;input type="text" size="40" maxlength="35" name="BillAddress2"&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;font size="-1" face="arial, helvetica"&gt;City:&lt;/font&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;input type="text" size="25" maxlength="21" name="BillCity"&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;font size="-1" face="arial, helvetica"&gt;State:&lt;/font&gt;
+&lt;/td&gt; 
+&lt;td&gt;
+&lt;select name="BillState"&gt;
+&lt;option selected&gt;
+&lt;option value="AL"&gt;ALABAMA
+&lt;option value="AK"&gt;ALASKA
+&lt;option value="AZ"&gt;ARIZONA
+&lt;option value="AR"&gt;ARKANSAS
+&lt;option value="CA"&gt;CALIFORNIA
+&lt;option value="CO"&gt;COLORADO
+&lt;option value="CT"&gt;CONNECTICUT
+&lt;option value="DE"&gt;DELAWARE
+&lt;option value="FL"&gt;FLORIDA
+&lt;option value="GA"&gt;GEORGIA
+&lt;option value="HI"&gt;HAWAII
+&lt;option value="ID"&gt;IDAHO
+&lt;option value="IL"&gt;ILLINOIS
+&lt;option value="IN"&gt;INDIANA
+&lt;option value="IA"&gt;IOWA
+&lt;option value="KS"&gt;KANSAS
+&lt;option value="KY"&gt;KENTUCKY
+&lt;option value="LA"&gt;LOUISIANA
+&lt;option value="ME"&gt;MAINE
+&lt;option value="MD"&gt;MARYLAND
+&lt;option value="MA"&gt;MASSACHUSETTS
+&lt;option value="MI"&gt;MICHIGAN
+&lt;option value="MN"&gt;MINNESOTA
+&lt;option value="MS"&gt;MISSISSIPPI
+&lt;option value="MO"&gt;MISSOURI
+&lt;option value="MT"&gt;MONTANA
+&lt;option value="NE"&gt;NEBRASKA
+&lt;option value="NV"&gt;NEVADA
+&lt;option value="NH"&gt;NEW HAMPSHIRE
+&lt;option value="NJ"&gt;NEW JERSEY
+&lt;option value="NM"&gt;NEW MEXICO
+&lt;option value="NY"&gt;NEW YORK
+&lt;option value="NC"&gt;NORTH CAROLINA
+&lt;option value="ND"&gt;NORTH DAKOTA
+&lt;option value="OH"&gt;OHIO
+&lt;option value="OK"&gt;OKLAHOMA
+&lt;option value="OR"&gt;OREGON
+&lt;option value="PA"&gt;PENNSYLVANIA
+&lt;option value="RI"&gt;RHODE ISLAND
+&lt;option value="SC"&gt;SOUTH CAROLINA
+&lt;option value="SD"&gt;SOUTH DAKOTA
+&lt;option value="TN"&gt;TENNESSEE
+&lt;option value="TX"&gt;TEXAS
+&lt;option value="UT"&gt;UTAH
+&lt;option value="VT"&gt;VERMONT
+&lt;option value="VA"&gt;VIRGINIA
+&lt;option value="WA"&gt;WASHINGTON
+&lt;option value="DC"&gt;WASHINGTON, D.C.
+&lt;option value="WV"&gt;WEST VIRGINIA
+&lt;option value="WI"&gt;WISCONSIN
+&lt;option value="WY"&gt;WYOMING
+&lt;/select&gt;
+&nbsp;&nbsp;
+&lt;input type="text" size="10" maxlength="10" name="BillZip"&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td colspan=2 align=center&gt;
+&lt;input type="checkbox" name="BillConfirm" selected&gt;&nbsp;&lt;font face="arial, helvetica" size="-2"&gt;Send confirmation email via email&lt;/font&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+
+
+&lt;tr bgcolor="#003399"&gt;
+&lt;td colspan=2 width="100%" bgcolor="#003399"&gt;
+&lt;b&gt;&lt;font color=white size="-1" face="arial, helvetica"&gt;Shipping Information&lt;/font&gt;&lt;/b&gt;
+&lt;font color=white size="-2" face="arial, helvetica"&gt;
+(Check to use Billing Information: &lt;input type="checkbox" name="copy"
+OnClick="javascript:ShipToBillPerson(this.form);" value="checkbox"&gt; )
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;font size="-1" face="arial, helvetica"&gt;First Name:&lt;/font&gt;&lt;/td&gt;
+&lt;td&gt;
+&lt;input type="text" size="15" maxlength="50" name="ShipFirst"&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;font size="-1" face="arial, helvetica"&gt;Last Name:&lt;/font&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;input type="text" size="15" maxlength="50" name="ShipLast"&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;font size="-1" face="arial, helvetica"&gt;E-Mail:&lt;/font&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;input type="text" size="15" name="ShipEmail"&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;font size="-1" face="arial, helvetica"&gt;Company:&lt;/font&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;input type="text" size="25" maxlength="100" name="ShipCompany"&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;font size="-1" face="arial, helvetica"&gt;Address:&lt;/font&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;input type="text" size="40" maxlength="35" name="ShipAddress1"&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&nbsp;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;input type="text" size="40" maxlength="35" name="ShipAddress2"&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;font size="-1" face="arial, helvetica"&gt;City:&lt;/font&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;input type="text" size="25" maxlength="21" name="ShipCity"&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;font size="-1" face="arial, helvetica"&gt;State:&lt;/font&gt;
+&lt;/td&gt; 
+&lt;td&gt;
+&lt;select name="ShipState"&gt;
+&lt;option selected&gt;
+&lt;option value="AL"&gt;ALABAMA
+&lt;option value="AK"&gt;ALASKA
+&lt;option value="AZ"&gt;ARIZONA
+&lt;option value="AR"&gt;ARKANSAS
+&lt;option value="CA"&gt;CALIFORNIA
+&lt;option value="CO"&gt;COLORADO
+&lt;option value="CT"&gt;CONNECTICUT
+&lt;option value="DE"&gt;DELAWARE
+&lt;option value="FL"&gt;FLORIDA
+&lt;option value="GA"&gt;GEORGIA
+&lt;option value="HI"&gt;HAWAII
+&lt;option value="ID"&gt;IDAHO
+&lt;option value="IL"&gt;ILLINOIS
+&lt;option value="IN"&gt;INDIANA
+&lt;option value="IA"&gt;IOWA
+&lt;option value="KS"&gt;KANSAS
+&lt;option value="KY"&gt;KENTUCKY
+&lt;option value="LA"&gt;LOUISIANA
+&lt;option value="ME"&gt;MAINE
+&lt;option value="MD"&gt;MARYLAND
+&lt;option value="MA"&gt;MASSACHUSETTS
+&lt;option value="MI"&gt;MICHIGAN
+&lt;option value="MN"&gt;MINNESOTA
+&lt;option value="MS"&gt;MISSISSIPPI
+&lt;option value="MO"&gt;MISSOURI
+&lt;option value="MT"&gt;MONTANA
+&lt;option value="NE"&gt;NEBRASKA
+&lt;option value="NV"&gt;NEVADA
+&lt;option value="NH"&gt;NEW HAMPSHIRE
+&lt;option value="NJ"&gt;NEW JERSEY
+&lt;option value="NM"&gt;NEW MEXICO
+&lt;option value="NY"&gt;NEW YORK
+&lt;option value="NC"&gt;NORTH CAROLINA
+&lt;option value="ND"&gt;NORTH DAKOTA
+&lt;option value="OH"&gt;OHIO
+&lt;option value="OK"&gt;OKLAHOMA
+&lt;option value="OR"&gt;OREGON
+&lt;option value="PA"&gt;PENNSYLVANIA
+&lt;option value="RI"&gt;RHODE ISLAND
+&lt;option value="SC"&gt;SOUTH CAROLINA
+&lt;option value="SD"&gt;SOUTH DAKOTA
+&lt;option value="TN"&gt;TENNESSEE
+&lt;option value="TX"&gt;TEXAS
+&lt;option value="UT"&gt;UTAH
+&lt;option value="VT"&gt;VERMONT
+&lt;option value="VA"&gt;VIRGINIA
+&lt;option value="WA"&gt;WASHINGTON
+&lt;option value="DC"&gt;WASHINGTON, D.C.
+&lt;option value="WV"&gt;WEST VIRGINIA
+&lt;option value="WI"&gt;WISCONSIN
+&lt;option value="WY"&gt;WYOMING
+&lt;/select&gt;
+&nbsp;&nbsp;
+&lt;input type="text" size="10" maxlength="10" name="ShipZip"&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td colspan=2 align=center&gt;
+&lt;input type="checkbox" name="ShipConfirm" selected&gt;&nbsp;&lt;font face="arial, helvetica" size="-2"&gt;Send confirmation email via email&lt;/font&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  8.75 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

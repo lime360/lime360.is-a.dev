@@ -1,0 +1,203 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Games:  Shift It</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Dion ">
+<META NAME="section" CONTENT="Games">
+<META NAME="description" CONTENT="Play this addictive little JavaScript game - try to put all the pieces in alphabetical order, 'A' through 'O'.  Awesome!">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /games/"><font color="#FF0000">Games</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Shift It</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Play this addictive little JavaScript game - try to put all the pieces in alphabetical order, 'A' through 'O'.  Awesome!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name=pad>
+<table border=2 cellpadding=2 cellspacing=2>
+<tr>
+<td colspan=4 align=center>Shift It 4x4 Game</td>
+</tr>
+
+<SCRIPT LANGUAGE="JavaScript">
+
+<!-- Original:  Dion  -->
+<!-- Web Site:  http://www.iinet.net.au/~biab/ -->
+
+
+
+
+<!-- Begin
+bx=3; by=3;
+for (y=0;y<4;y++) {
+document.write('<tr>');
+for (x=0;x<4;x++) {
+document.write('<td><tt><input type=button value="   " ');
+document.write('onclick="move('+x+','+y+');"></tt></td>');
+}
+document.write('</tr>');
+}
+function move(x,y) {
+ax=Math.abs(bx-x);
+ay=Math.abs(by-y);
+if (((ax*ay)==0)&&((ax+ay)==1)) {
+f=document.pad;
+f.elements[4*by+bx].value=f.elements[4*y+x].value;
+f.elements[4*y+x].value="   ";
+bx=x; by=y; f.msg.value++;
+   }
+}
+function rndize() {
+alpha="ABCDEFGHIJKLMNO ";
+for (i=0;i<16;i++) {
+x=0;
+y=0;
+while (document.pad.elements[4*y+x].value!="   ") {
+x=Math.floor(Math.random()*4);
+y=Math.floor(Math.random()*4);
+}
+document.pad.elements[4*y+x].value=alpha.substring(i,i+1);
+}
+bx=x;
+by=y;
+}
+rndize();
+// End -->
+</script>
+<tr>
+<td colspan=4><input type=text size=20 name=msg></td>
+</tr>
+</table>
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Games:  Shift It</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.46 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- ONE STEP TO INSTALL SHIFT IT:
+
+   1.  Paste the coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Copy this coding into the BODY of your HTML document  --&gt;
+		  
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form name=pad&gt;
+&lt;table border=2 cellpadding=2 cellspacing=2&gt;
+&lt;tr&gt;
+&lt;td colspan=4 align=center&gt;Shift It 4x4 Game&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;!-- Original:  Dion  --&gt;
+&lt;!-- Web Site:  http://www.iinet.net.au/~biab/ --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+bx=3; by=3;
+for (y=0;y&lt;4;y++) {
+document.write('&lt;tr&gt;');
+for (x=0;x&lt;4;x++) {
+document.write('&lt;td&gt;&lt;tt&gt;&lt;input type=button value="   " ');
+document.write('onclick="move('+x+','+y+');"&gt;&lt;/tt&gt;&lt;/td&gt;');
+}
+document.write('&lt;/tr&gt;');
+}
+function move(x,y) {
+ax=Math.abs(bx-x);
+ay=Math.abs(by-y);
+if (((ax*ay)==0)&&((ax+ay)==1)) {
+f=document.pad;
+f.elements[4*by+bx].value=f.elements[4*y+x].value;
+f.elements[4*y+x].value="   ";
+bx=x; by=y; f.msg.value++;
+   }
+}
+function rndize() {
+alpha="ABCDEFGHIJKLMNO ";
+for (i=0;i&lt;16;i++) {
+x=0;
+y=0;
+while (document.pad.elements[4*y+x].value!="   ") {
+x=Math.floor(Math.random()*4);
+y=Math.floor(Math.random()*4);
+}
+document.pad.elements[4*y+x].value=alpha.substring(i,i+1);
+}
+bx=x;
+by=y;
+}
+rndize();
+// End --&gt;
+&lt;/script&gt;
+
+&lt;tr&gt;
+&lt;td colspan=4&gt;&lt;input type=text size=20 name=msg&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+
+ 
+
+&lt;!-- Script Size:  1.46 KB  --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

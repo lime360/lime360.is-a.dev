@@ -1,0 +1,156 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Forms:  Replace Characters</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Forms">
+<META NAME="description" CONTENT="Replaces a character or multiple characters in a textbox when the visitor goes to the next field (or in this example, clicks the submit button).">
+
+<SCRIPT LANGUAGE="JavaScript">
+
+
+
+
+<!-- Begin
+function replaceChars(entry) {
+out = "a"; // replace this
+add = "z"; // with this
+temp = "" + entry; // temporary holder
+
+while (temp.indexOf(out)>-1) {
+pos= temp.indexOf(out);
+temp = "" + (temp.substring(0, pos) + add + 
+temp.substring((pos + out.length), temp.length));
+}
+document.subform.text.value = temp;
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /forms/" ><font color="#FF0000">Forms</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Replace Characters</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Replaces a character or multiple characters in a textbox when the visitor goes to the next field (or in this example, clicks the submit button).
+<br>
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<font face="arial, helvetica" size="-1">[ In this example, all "a" characters are changed to "z" ]</font><br><br>
+<form name="subform">
+<input type=text name=text size=40 value="abcdabcd"><br>
+<input type=button name=action "javascript:if(confirm('http://javascript.internet.com/forms/value="Done!"  \n\nThis file was not retrieved by Teleport Pro, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \n\nDo you want to open it from the server?'))window.location='http://javascript.internet.com/forms/value="Done!"'" /forms/value="Done!"" onClick="replaceChars(document.subform.text.value);">
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Forms:  Replace Characters</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.11 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL REPLACE CHARACTERS:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function replaceChars(entry) {
+out = "a"; // replace this
+add = "z"; // with this
+temp = "" + entry; // temporary holder
+
+while (temp.indexOf(out)&gt;-1) {
+pos= temp.indexOf(out);
+temp = "" + (temp.substring(0, pos) + add + 
+temp.substring((pos + out.length), temp.length));
+}
+document.subform.text.value = temp;
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form name="subform"&gt;
+
+&lt;input type=text name=text size=40 value="abcdabcd"&gt;&lt;br&gt;
+&lt;input type=button name=action value="Done!" onClick="replaceChars(document.subform.text.value);"&gt;
+
+&lt;!-- Or to make it change when the user clicks the next --&gt;
+&lt;!-- field, use this instead of the previous two lines: --&gt;
+
+&lt;!--  &lt;input type=text name=text size=40 value="abcdabcd" onBlur="replaceChars(this.value);"&gt;  --&gt;
+
+&lt;/form&gt;
+&lt;/center&gt;
+
+
+
+ 
+
+&lt;!-- Script Size:  1.09 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

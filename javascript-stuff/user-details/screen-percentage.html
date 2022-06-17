@@ -1,0 +1,157 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  User Details:  Screen Percentage</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="User Details">
+<META NAME="description" CONTENT="(Requires 4.0+ browsers)  Displays what percentage of your screen's total area is being used by the browser window.  This script will not even be run and will not cause errors in lower version browsers.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Idea by:  Giulio Gravinese -->
+<!-- Web Site:  http://www.universeg.com -->
+
+
+
+
+<!-- Begin
+// IE Compatability by Errol Burrow (errol@thru.net)
+
+function getwindowsize() {
+if (navigator.userAgent.indexOf("MSIE") > 0) {
+var sSize = (document.body.clientWidth * document.body.clientHeight);
+return sSize;
+} else {                                                
+var sSize = (window.outerWidth * window.outerHeight);
+return sSize;
+}
+return;      
+}
+// End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /user-details/"><font color="#FF0000"><b>User Details</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Screen Percentage</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+(Requires 4.0+ browsers)  Displays what percentage of your screen's total area is being used by the browser window.  This script will not even be run and will not cause errors in lower version browsers.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+var percent = Math.round((getwindowsize()/(screen.width * screen.height)*100) * Math.pow(10, 0));
+document.write("This window is using about " + percent + "% of your available screen.");
+// End -->
+</script>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  User Details:  Screen Percentage</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.45 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL SCREEN PERCENTAGE:
+
+  1.  Include the first code in the HEAD of your HTML document
+  2.  Copy the coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Add this code into the HEAD of your HTML document --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Idea by:  Giulio Gravinese --&gt;
+&lt;!-- Web Site:  http://www.universeg.com --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+// IE Compatability by Errol Burrow (errol@thru.net)
+
+function getwindowsize() {
+if (navigator.userAgent.indexOf("MSIE") &gt; 0) {
+var sSize = (document.body.clientWidth * document.body.clientHeight);
+return sSize;
+} else {                                                
+var sSize = (window.outerWidth * window.outerHeight);
+return sSize;
+}
+return;      
+}
+// End --&gt;
+&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Begin
+var percent = Math.round((getwindowsize()/(screen.width * screen.height)*100) * Math.pow(10, 0));
+document.write("This window is using about " + percent + "% of your available screen.");
+// End --&gt;
+&lt;/script&gt;
+&lt;/center&gt;
+
+&lt;p&gt;&lt;center&gt;
+&lt;font face="arial, helvetica" SIZE="-2"&gt;Free JavaScripts provided&lt;br&gt;
+by &lt;a href="http://javascriptsource.com"&gt;JavaScript Source Code 3000&lt;/a&gt;&lt;/font&gt;
+&lt;/center&gt;&lt;p&gt;
+
+&lt;!-- Script Size:  1.45 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

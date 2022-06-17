@@ -1,0 +1,338 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Equivalents:  Euro Converter</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Mike McGrath (mike_mcgrath@lineone.net)">
+<META NAME="section" CONTENT="Equivalents">
+<META NAME="description" CONTENT="Click a country button to display currency name and full fixed euro exchange rate.  Press Clear to empty the value boxes and enter either Euro or Local amount to convert.  Click the appropriate button for conversion of euro To Local or of local To Euro.  Conversion will display selected currency exchange rounded to two decimal places.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Mike McGrath (mike_mcgrath@lineone.net) -->
+<!-- Web Site:  http://website.lineone.net/~mike_mcgrath -->
+
+
+
+
+<!-- Begin
+var rate, index;
+
+function locate(f,member,curr,r) {
+f.country.value=member;
+f.currency.value=curr; 
+f.euro1.value=1;
+rate=r;
+toLocal(f);
+}
+function toLocal(f) {
+if (f.euro1.value != "") {
+f.local1.value = eval(f.euro1.value * rate);
+if (f.euro1.value != "1") {
+f.local1.value=eval(Math.round(f.local1.value * 100)) / 100;
+f.local1.value=format(f.local1.value);
+      }
+   }
+}
+function toEuro(f) {
+if (f.local2.value != "") {
+f.euro2.value = eval(f.local2.value / rate);
+if (f.local2.value != "1") {
+f.euro2.value=eval(Math.round(f.euro2.value * 100)) / 100;
+f.euro2.value=format(f.euro2.value);
+      }
+   }
+}
+function format(str) {
+index = str.indexOf(".");
+if (index < 0) str = str + ".00";
+else {
+str = str.substring(0, index + 3);
+if (str.length < (index + 3)) str += "0";
+}
+return str;
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /equivalents/"><font color="#FF0000"><b>Equivalents</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Euro Converter</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Click a country button to display currency name and full fixed euro exchange rate.  Press Clear to empty the value boxes and enter either Euro or Local amount to convert.  Click the appropriate button for conversion of euro To Local or of local To Euro.  Conversion will display selected currency exchange rounded to two decimal places.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name="euroform">
+<table border=1 cellpadding=3 cellspacing=0>
+<td align=center colspan=6>Euro Converter</td>
+<tr>
+<td align=center>
+<input type=button value="ATS" onClick="locate(this.form,'Austria','Schilling',13.7603)">
+</td>
+<td align=center>
+<input type=button value="BEF" onClick="locate(this.form,'Belgium','Franc',40.3399)">
+</td>
+<td align=center>
+<input type=button value="DEM" onClick="locate(this.form,'Germany','Mark',1.95583)">
+</td>
+<td align=center>
+<input type=button value="ESP" onClick="locate(this.form,'Spain','Peseta',166.386)">
+</td>
+<td align=center>
+<input type=button value="FRF" onClick="locate(this.form,'France','Franc',6.55957)">
+</td>
+<td align=center>
+<input type=button value="IEP " onClick="locate(this.form,'Ireland','Pound',0.787564)">
+</td>
+</tr>
+<tr> 
+<td align=center>
+<input type=button value=" ITL " onClick="locate(this.form,'Italy','Lira',1936.27)">
+</td>
+<td align=center>
+<input type=button value="NLG" onClick="locate(this.form,'Holland','Guilder',2.20371)">
+</td>
+<td align=center>
+<input type=button value="LUF" onClick="locate(this.form,'Luxembourg','Franc',40.3399)">
+</td>
+<td align=center>
+<input type=button value="PTE" onClick="locate(this.form,'Portugal','Escudo',200.482)">
+</td>
+<td align=center>
+<input type=button value="FIM " onClick="locate(this.form,'Finland','Mark',5.94573)">
+</td>
+<td align=center>
+<input type=reset value="Reset">
+</td>
+</tr>
+<tr>
+<td colspan=6 align=center>
+Country:&nbsp;<INPUT NAME="country" SIZE=8>
+&nbsp;&nbsp;&nbsp;&nbsp;
+Currency:&nbsp;<INPUT NAME="currency" SIZE=8>
+</td>
+</tr>
+<tr>
+<td colspan=2 align=center>
+<input name="euro1" size=8> Euro
+</td>
+<td colspan=2 align=center>
+<input type=button value="equals" onClick="toLocal(this.form)">
+</td>
+<td colspan=2 align=center>
+<input name="local1" size=8> Local
+</td>
+</tr>
+<tr>
+<td colspan=2 align=center>
+<input name="local2" size=8> Local&nbsp;&nbsp;
+</td>
+<td colspan=2 align=center>
+<input type=button value="equals" onClick="toEuro(this.form)">
+</td>
+<td colspan=2 align=center>
+<input name="euro2" SIZE=8> Euro
+</td>
+</tr>
+</table>
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Equivalents:  Euro Converter</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  3.63 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL EURO CONVERTER:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Mike McGrath (mike_mcgrath@lineone.net) --&gt;
+&lt;!-- Web Site:  http://website.lineone.net/~mike_mcgrath --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var rate, index;
+
+function locate(f,member,curr,r) {
+f.country.value=member;
+f.currency.value=curr; 
+f.euro1.value=1;
+rate=r;
+toLocal(f);
+}
+function toLocal(f) {
+if (f.euro1.value != "") {
+f.local1.value = eval(f.euro1.value * rate);
+if (f.euro1.value != "1") {
+f.local1.value=eval(Math.round(f.local1.value * 100)) / 100;
+f.local1.value=format(f.local1.value);
+      }
+   }
+}
+function toEuro(f) {
+if (f.local2.value != "") {
+f.euro2.value = eval(f.local2.value / rate);
+if (f.local2.value != "1") {
+f.euro2.value=eval(Math.round(f.euro2.value * 100)) / 100;
+f.euro2.value=format(f.euro2.value);
+      }
+   }
+}
+function format(str) {
+index = str.indexOf(".");
+if (index &lt; 0) str = str + ".00";
+else {
+str = str.substring(0, index + 3);
+if (str.length &lt; (index + 3)) str += "0";
+}
+return str;
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form name="euroform"&gt;
+&lt;table border=1 cellpadding=3 cellspacing=0&gt;
+&lt;td align=center colspan=6&gt;Euro Converter&lt;/td&gt;
+&lt;tr&gt;
+&lt;td align=center&gt;
+&lt;input type=button value="ATS" onClick="locate(this.form,'Austria','Schilling',13.7603)"&gt;
+&lt;/td&gt;
+&lt;td align=center&gt;
+&lt;input type=button value="BEF" onClick="locate(this.form,'Belgium','Franc',40.3399)"&gt;
+&lt;/td&gt;
+&lt;td align=center&gt;
+&lt;input type=button value="DEM" onClick="locate(this.form,'Germany','Mark',1.95583)"&gt;
+&lt;/td&gt;
+&lt;td align=center&gt;
+&lt;input type=button value="ESP" onClick="locate(this.form,'Spain','Peseta',166.386)"&gt;
+&lt;/td&gt;
+&lt;td align=center&gt;
+&lt;input type=button value="FRF" onClick="locate(this.form,'France','Franc',6.55957)"&gt;
+&lt;/td&gt;
+&lt;td align=center&gt;
+&lt;input type=button value="IEP " onClick="locate(this.form,'Ireland','Pound',0.787564)"&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt; 
+&lt;td align=center&gt;
+&lt;input type=button value=" ITL " onClick="locate(this.form,'Italy','Lira',1936.27)"&gt;
+&lt;/td&gt;
+&lt;td align=center&gt;
+&lt;input type=button value="NLG" onClick="locate(this.form,'Holland','Guilder',2.20371)"&gt;
+&lt;/td&gt;
+&lt;td align=center&gt;
+&lt;input type=button value="LUF" onClick="locate(this.form,'Luxembourg','Franc',40.3399)"&gt;
+&lt;/td&gt;
+&lt;td align=center&gt;
+&lt;input type=button value="PTE" onClick="locate(this.form,'Portugal','Escudo',200.482)"&gt;
+&lt;/td&gt;
+&lt;td align=center&gt;
+&lt;input type=button value="FIM " onClick="locate(this.form,'Finland','Mark',5.94573)"&gt;
+&lt;/td&gt;
+&lt;td align=center&gt;
+&lt;input type=reset value="Reset"&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td colspan=6 align=center&gt;
+Country:&nbsp;&lt;INPUT NAME="country" SIZE=8&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;
+Currency:&nbsp;&lt;INPUT NAME="currency" SIZE=8&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td colspan=2 align=center&gt;
+&lt;input name="euro1" size=8&gt; Euro
+&lt;/td&gt;
+&lt;td colspan=2 align=center&gt;
+&lt;input type=button value="equals" onClick="toLocal(this.form)"&gt;
+&lt;/td&gt;
+&lt;td colspan=2 align=center&gt;
+&lt;input name="local1" size=8&gt; Local
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td colspan=2 align=center&gt;
+&lt;input name="local2" size=8&gt; Local&nbsp;&nbsp;
+&lt;/td&gt;
+&lt;td colspan=2 align=center&gt;
+&lt;input type=button value="equals" onClick="toEuro(this.form)"&gt;
+&lt;/td&gt;
+&lt;td colspan=2 align=center&gt;
+&lt;input name="euro2" SIZE=8&gt; Euro
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  3.63 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

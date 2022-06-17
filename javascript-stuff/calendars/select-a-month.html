@@ -1,0 +1,429 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Calendars:  Select-A-Month</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Rob Patrick (rpatrick@mit.edu)">
+<META NAME="section" CONTENT="Calendars">
+<META NAME="description" CONTENT="This script is a wonderful example of JavaScript at it's best.  Simply select any month of any year, and JavaScript will "build" you the calendar for that month!  It's great!  Give it a try!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Rob Patrick (rpatrick@mit.edu) -->
+<!-- Begin
+function setToday() {
+var now   = new Date();
+var day   = now.getDate();
+var month = now.getMonth();
+var year  = now.getYear();
+if (year < 2000)    // Y2K Fix, Isaac Powell
+year = year + 1900; // http://onyx.idbsu.edu/~ipowell
+this.focusDay = day;
+document.calControl.month.selectedIndex = month;
+document.calControl.year.value = year;
+displayCalendar(month, year);
+}
+function isFourDigitYear(year) {
+if (year.length != 4) {
+alert ("Sorry, the year must be four-digits in length.");
+document.calControl.year.select();
+document.calControl.year.focus();
+} else { return true; }
+}
+function selectDate() {
+var year  = document.calControl.year.value;
+if (isFourDigitYear(year)) {
+var day   = 0;
+var month = document.calControl.month.selectedIndex;
+displayCalendar(month, year);
+    }
+}
+
+function setPreviousYear() {
+var year  = document.calControl.year.value;
+if (isFourDigitYear(year)) {
+var day   = 0;
+var month = document.calControl.month.selectedIndex;
+year--;
+document.calControl.year.value = year;
+displayCalendar(month, year);
+   }
+}
+function setPreviousMonth() {
+var year  = document.calControl.year.value;
+if (isFourDigitYear(year)) {
+var day   = 0;
+var month = document.calControl.month.selectedIndex;
+if (month == 0) {
+month = 11;
+if (year > 1000) {
+year--;
+document.calControl.year.value = year;
+}
+} else { month--; }
+document.calControl.month.selectedIndex = month;
+displayCalendar(month, year);
+   }
+}
+function setNextMonth() {
+var year  = document.calControl.year.value;
+if (isFourDigitYear(year)) {
+var day   = 0;
+var month = document.calControl.month.selectedIndex;
+if (month == 11) {
+month = 0;
+year++;
+document.calControl.year.value = year;
+} else { month++; }
+document.calControl.month.selectedIndex = month;
+displayCalendar(month, year);
+   }
+}
+function setNextYear() {
+var year = document.calControl.year.value;
+if (isFourDigitYear(year)) {
+var day = 0;
+var month = document.calControl.month.selectedIndex;
+year++;
+document.calControl.year.value = year;
+displayCalendar(month, year);
+   }
+}
+function displayCalendar(month, year) {       
+month = parseInt(month);
+year = parseInt(year);
+var i = 0;
+var days = getDaysInMonth(month+1,year);
+var firstOfMonth = new Date (year, month, 1);
+var startingPos = firstOfMonth.getDay();
+days += startingPos;
+document.calButtons.calPage.value  =   " Su Mo Tu We Th Fr Sa";
+document.calButtons.calPage.value += "\n --------------------";
+for (i = 0; i < startingPos; i++) {
+if ( i%7 == 0 ) document.calButtons.calPage.value += "\n ";
+document.calButtons.calPage.value += "   ";
+}
+for (i = startingPos; i < days; i++) {
+if ( i%7 == 0 ) document.calButtons.calPage.value += "\n ";
+if (i-startingPos+1 < 10)
+document.calButtons.calPage.value += "0";
+document.calButtons.calPage.value += i-startingPos+1;
+document.calButtons.calPage.value += " ";
+}
+for (i=days; i<42; i++)  {
+if ( i%7 == 0 ) document.calButtons.calPage.value += "\n ";
+document.calButtons.calPage.value += "   ";
+}
+document.calControl.Go.focus();
+}
+function getDaysInMonth(month,year)  {
+var days;
+if (month==1 || month==3 || month==5 || month==7 || month==8 || month==10 || month==12)  days=31;
+else if (month==4 || month==6 || month==9 || month==11) days=30;
+else if (month==2)  {
+if (isLeapYear(year)) { days=29; }
+else { days=28; }
+}
+return (days);
+}
+function isLeapYear (Year) {
+if (((Year % 4)==0) && ((Year % 100)!=0) || ((Year % 400)==0)) {
+return (true);
+} else { return (false); }
+}
+// End -->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /calendars/"><font color="#FF0000">Calendars</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Select-A-Month</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+This script is a wonderful example of JavaScript at it's best.  Simply select any month of any year, and JavaScript will "build" you the calendar for that month!  It's great!  Give it a try!
+<br>
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<BODY onLoad="setToday()">
+<CENTER>
+<H2>Select-A-Month</H2>
+<FORM NAME="calControl" onSubmit="return false;">
+<TABLE CELLPADDING=0 CELLSPACING=0 BORDER=0>
+<TR><TD COLSPAN=7>
+<CENTER>
+<SELECT NAME="month" onChange="selectDate()">
+   <OPTION>January
+   <OPTION>February
+   <OPTION>March
+   <OPTION>April
+   <OPTION>May
+   <OPTION>June
+   <OPTION>July
+   <OPTION>August
+   <OPTION>September
+   <OPTION>October
+   <OPTION>November
+   <OPTION>December
+</SELECT>
+<INPUT NAME="year" TYPE=TEXT SIZE=4 MAXLENGTH=4>
+<INPUT TYPE="button" NAME="Go" value="Build!" onClick="selectDate()">
+</CENTER>
+</TD>
+</TR>
+</FORM>
+
+<FORM NAME="calButtons">
+<TR><TD align="center"><textarea FONT="Courier" NAME="calPage" WRAP=no ROWS=8 COLS=22></textarea></TD>
+<TR><TD><CENTER>
+<INPUT TYPE=BUTTON NAME="previousYear" VALUE=" <<  "    onClick="setPreviousYear()">
+<INPUT TYPE=BUTTON NAME="previousYear" VALUE="  <  "    onClick="setPreviousMonth()">
+<INPUT TYPE=BUTTON NAME="previousYear" VALUE="Today"    onClick="setToday()">
+<INPUT TYPE=BUTTON NAME="previousYear" VALUE="  >  "    onClick="setNextMonth()">
+<INPUT TYPE=BUTTON NAME="previousYear" VALUE="  >> "    onClick="setNextYear()">
+
+</CENTER></TD></TR>
+
+</TABLE>
+</FORM>
+</FONT>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Calendars:  Select-A-Month</b>
+<p>Simply click inside the window below, use your cursor to hilight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  5.31 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL SELECT-A-MONTH:
+
+   1.  Paste the specified coding into the HEAD of your HTML document
+   2.  Add the onLoad event handler to the BODY tag
+   3.  Put the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the HEAD your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Original:  Rob Patrick (rpatrick@mit.edu) --&gt;
+&lt;!-- Begin
+function setToday() {
+var now   = new Date();
+var day   = now.getDate();
+var month = now.getMonth();
+var year  = now.getYear();
+if (year < 2000)    // Y2K Fix, Isaac Powell
+year = year + 1900; // http://onyx.idbsu.edu/~ipowell
+this.focusDay = day;
+document.calControl.month.selectedIndex = month;
+document.calControl.year.value = year;
+displayCalendar(month, year);
+}
+function isFourDigitYear(year) {
+if (year.length != 4) {
+alert ("Sorry, the year must be four-digits in length.");
+document.calControl.year.select();
+document.calControl.year.focus();
+} else { return true; }
+}
+function selectDate() {
+var year  = document.calControl.year.value;
+if (isFourDigitYear(year)) {
+var day   = 0;
+var month = document.calControl.month.selectedIndex;
+displayCalendar(month, year);
+    }
+}
+
+function setPreviousYear() {
+var year  = document.calControl.year.value;
+if (isFourDigitYear(year)) {
+var day   = 0;
+var month = document.calControl.month.selectedIndex;
+year--;
+document.calControl.year.value = year;
+displayCalendar(month, year);
+   }
+}
+function setPreviousMonth() {
+var year  = document.calControl.year.value;
+if (isFourDigitYear(year)) {
+var day   = 0;
+var month = document.calControl.month.selectedIndex;
+if (month == 0) {
+month = 11;
+if (year &gt; 1000) {
+year--;
+document.calControl.year.value = year;
+}
+} else { month--; }
+document.calControl.month.selectedIndex = month;
+displayCalendar(month, year);
+   }
+}
+function setNextMonth() {
+var year  = document.calControl.year.value;
+if (isFourDigitYear(year)) {
+var day   = 0;
+var month = document.calControl.month.selectedIndex;
+if (month == 11) {
+month = 0;
+year++;
+document.calControl.year.value = year;
+} else { month++; }
+document.calControl.month.selectedIndex = month;
+displayCalendar(month, year);
+   }
+}
+function setNextYear() {
+var year = document.calControl.year.value;
+if (isFourDigitYear(year)) {
+var day = 0;
+var month = document.calControl.month.selectedIndex;
+year++;
+document.calControl.year.value = year;
+displayCalendar(month, year);
+   }
+}
+function displayCalendar(month, year) {       
+month = parseInt(month);
+year = parseInt(year);
+var i = 0;
+var days = getDaysInMonth(month+1,year);
+var firstOfMonth = new Date (year, month, 1);
+var startingPos = firstOfMonth.getDay();
+days += startingPos;
+document.calButtons.calPage.value  =   " Su Mo Tu We Th Fr Sa";
+document.calButtons.calPage.value += "\n --------------------";
+for (i = 0; i &lt; startingPos; i++) {
+if ( i%7 == 0 ) document.calButtons.calPage.value += "\n ";
+document.calButtons.calPage.value += "   ";
+}
+for (i = startingPos; i &lt; days; i++) {
+if ( i%7 == 0 ) document.calButtons.calPage.value += "\n ";
+if (i-startingPos+1 &lt; 10)
+document.calButtons.calPage.value += "0";
+document.calButtons.calPage.value += i-startingPos+1;
+document.calButtons.calPage.value += " ";
+}
+for (i=days; i&lt;42; i++)  {
+if ( i%7 == 0 ) document.calButtons.calPage.value += "\n ";
+document.calButtons.calPage.value += "   ";
+}
+document.calControl.Go.focus();
+}
+function getDaysInMonth(month,year)  {
+var days;
+if (month==1 || month==3 || month==5 || month==7 || month==8 || month==10 || month==12)  days=31;
+else if (month==4 || month==6 || month==9 || month==11) days=30;
+else if (month==2)  {
+if (isLeapYear(year)) { days=29; }
+else { days=28; }
+}
+return (days);
+}
+function isLeapYear (Year) {
+if (((Year % 4)==0) && ((Year % 100)!=0) || ((Year % 400)==0)) {
+return (true);
+} else { return (false); }
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+&lt;!-- STEP TWO: Add the onLoad event handler to the BODY tag  --&gt;
+
+&lt;BODY onLoad="setToday()"&gt;
+
+&lt;!-- STEP THREE: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;CENTER&gt;
+&lt;H2&gt;Select-A-Month&lt;/H2&gt;
+&lt;FORM NAME="calControl" onSubmit="return false;"&gt;
+&lt;TABLE CELLPADDING=0 CELLSPACING=0 BORDER=0&gt;
+&lt;TR&gt;&lt;TD COLSPAN=7&gt;
+&lt;CENTER&gt;
+&lt;SELECT NAME="month" onChange="selectDate()"&gt;
+&lt;OPTION&gt;January
+&lt;OPTION&gt;February
+&lt;OPTION&gt;March
+&lt;OPTION&gt;April
+&lt;OPTION&gt;May
+&lt;OPTION&gt;June
+&lt;OPTION&gt;July
+
+&lt;OPTION&gt;August
+&lt;OPTION&gt;September
+&lt;OPTION&gt;October
+&lt;OPTION&gt;November
+&lt;OPTION&gt;December
+&lt;/SELECT&gt;
+&lt;INPUT NAME="year" TYPE=TEXT SIZE=4 MAXLENGTH=4&gt;
+&lt;INPUT TYPE="button" NAME="Go" value="Build!" onClick="selectDate()"&gt;
+&lt;/CENTER&gt;
+&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;/FORM&gt;
+&lt;FORM NAME="calButtons"&gt;
+&lt;TR&gt;&lt;TD align="center"&gt;&lt;textarea FONT="Courier" NAME="calPage" WRAP=no ROWS=8 COLS=22&gt;&lt;/textarea&gt;&lt;/TD&gt;&lt;TR&gt;&lt;TD&gt;&lt;CENTER&gt;
+&lt;INPUT TYPE=BUTTON NAME="previousYear" VALUE=" &lt;&lt;  "    onClick="setPreviousYear()"&gt;
+&lt;INPUT TYPE=BUTTON NAME="previousYear" VALUE="  &lt;  "    onClick="setPreviousMonth()"&gt;
+&lt;INPUT TYPE=BUTTON NAME="previousYear" VALUE="Today"    onClick="setToday()"&gt;
+&lt;INPUT TYPE=BUTTON NAME="previousYear" VALUE="  &gt;  "    onClick="setNextMonth()"&gt;
+&lt;INPUT TYPE=BUTTON NAME="previousYear" VALUE="  &gt;&gt; "    onClick="setNextYear()"&gt;
+&lt;/CENTER&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;/TABLE&gt;&lt;/FORM&gt;&lt;/FONT&gt;
+
+ 
+
+&lt;!-- Script Size:  5.31 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

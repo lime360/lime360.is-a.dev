@@ -1,0 +1,131 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Page Details:  Content Protector</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Ronnie T. Moore">
+<META NAME="section" CONTENT="Page Details">
+<META NAME="description" CONTENT="If your content page is loaded directly (not in frames) the page is reloaded in your frames. And to the aid of webmasters everywhere, this script also foils other sites loading your content page in their frames.  Visitors are notified of the bandwidth theft then are sent to the page on your site (if used with our Dynamic Frameset script) or back to your main page.">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /page-details/"><font color="#FF0000"><b>Page Details</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Content Protector</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+If your content page is loaded directly (not in frames) the page is reloaded in your frames. And to the aid of webmasters everywhere, this script also foils other sites loading your content page in their frames.  Visitors are notified of the bandwidth theft then are sent to the page on your site (if used with our <a href="../navigation/dynamic-frameset.html" /navigation/dynamic-frameset.html">Dynamic Frameset script</a>) or back to your main page.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>Demo - <a href="content-protector-content.html" /page-details/content-protector-content.html" target="_new">Load our content page directly</a> or <a href="javascript:if(confirm('http://www.webdeveloper.com/javascript/content-protector-thievery.html  \n\nYou must be connected to the Internet to access this link.  \n\nDo you want to open it from the server?'))window.location='http://www.webdeveloper.com/javascript/content-protector-thievery.html'" tppabs="http://www.webdeveloper.com/javascript/content-protector-thievery.html" target="_new">Load our content page in a 'thief' site's frames</a><p>
+(both links will open in a new window)</center>
+
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Page Details:  Content Protector</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.45 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- ONE STEP TO INSTALL CONTENT PROTECTOR:
+
+  1.  Copy the coding into the HEAD of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Ronnie T. Moore --&gt;
+&lt;!-- Web Site:  http://javascriptsource.com --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+ok_urls = new Array();
+ok_urls[1] = "http://your-web-site-address-here.com/frameset.html";
+ok_urls[2] = "http://www.your-web-site-address-here.com/frameset.html";
+
+// Enter all the possible web addresses that your site's frameset
+// page can be accessed online, such as with and without the 'www'
+
+function reportError(msg, url, line) {
+if (url == window.location.href) {
+
+msg = "\nBandwidth Theft Alert!\n\n" +
+"This site is illegally stealing bandwidth\n" +
+"from our site, WWW.OUR-SITE.COM.\n\n" +
+"We will now load the content page\n" +
+"from our server so you may view it.\n\n" +
+"Thanks for your patience!";
+alert(msg);
+
+top.location.href = ok_urls[1] + "?" + window.location.href;
+return true;
+   }
+}
+
+window.onerror = reportError;
+
+url_found = 0;
+for (var i = 1; i &lt;= ok_urls.length && !url_found; i++) {
+url_found = (parent.location.href.indexOf(ok_urls[i]) == -1);
+}
+if (!url_found || (window == top))
+top.location.href = ok_urls[1] + "?" + window.location.href;
+//  End --&gt;
+&lt;/script&gt;
+
+ 
+
+&lt;!-- Script Size:  1.45 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>
+

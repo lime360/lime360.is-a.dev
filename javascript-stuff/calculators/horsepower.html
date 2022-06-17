@@ -1,0 +1,404 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Calculators:  Horsepower</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Joel Lavarez">
+<META NAME="section" CONTENT="Calculators">
+<META NAME="description" CONTENT="Enter your vehicle's quarter mile time (assuming you know it) and vehicle weight and this JavaScript program will display your car's estimated horsepower.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+var weight, eTime;
+var horsepower1, horsepower2, horsepower3, horsepower4;
+var temp1, temp2, temp3, temp4;
+var speed;
+var finalhp1, finalhp2, finalhp3, finalhp4, finalhp5, finalhp6;
+function create(form){
+eTime = form.elapsedTime.value;
+weight = form.vehicleWeight.value;
+temp1 = eTime / 5.825;
+temp1 = temp1 * temp1 * temp1;
+horsepower1 = weight / temp1;
+finalhp1 = roundOff(horsepower1, 2)
+horsepower2 = horsepower1 * 1.3;
+finalhp2 = roundOff(horsepower2, 2)
+text = "<HEAD><TITLE>1/4 Method</TITLE>";
+text += "</HEAD><BODY BGCOLOR=#000000 TEXT=#FFFFFF>";
+text += "<font face=arial size=-1><CENTER>";
+text += "Horsepower Results - 1/4 Mile Method</CENTER><P>";
+text += "Your " +form.carModel.value;
+text += " weighs about " +form.vehicleWeight.value+ " pounds ";
+text += "and can complete a 1/4 mile in about ";
+text += form.elapsedTime.value;
+text += " seconds. That means that you've got about " +finalhp1;
+text += " HP at the wheels, and about " + finalhp2;
+text += " HP at the flywheel.</font>";
+text += "<center><form><input type=button onClick='self.close()' ";
+text += "value='Close Window'></form></center></font>";
+resultsWindow=window.open("", "displayWindow", "toolbar=no,menubar=no,scrollbar=auto,resizable=no,width=320,height=180")
+resultsWindow.document.writeln(text);
+resultsWindow.document.close();
+}
+function input1(form) {
+Ctrl = form.carModel;
+if (Ctrl.value == "") {
+validatePrompt (Ctrl, "Please Input a Car Model.")
+return (false);
+} else
+return (true);
+}
+function input2(form) {
+Ctrl = form.vehicleWeight;
+if (Ctrl.value == "") {
+validatePrompt (Ctrl, "Please enter Your Vehicle Weight in Pounds.")
+return (false);
+} else
+return (true);
+}
+function input3(form) {
+Ctrl = form.elapsedTime;
+if (Ctrl.value == "") {
+validatePrompt (Ctrl, "Please enter Your 1/4 mile trapspeed. You can estimate...")
+return (false);
+} else
+return (true);
+}
+function runSubmit (form, button)  {
+if (!input1(form)) return;
+if (!input2(form)) return;
+if (!input3(form)) return;
+create(form);       
+return;
+}
+function validatePrompt (Ctrl, PromptStr) {
+alert (PromptStr)
+Ctrl.focus();
+return;
+}
+function roundOff(value, precision) {
+value = "" + value;
+precision = parseInt(precision);
+var whole = "" + Math.round(value * Math.pow(10, precision));
+var decPoint = whole.length - precision;
+if(decPoint != 0) {
+result = whole.substring(0, decPoint);
+result += ".";
+result += whole.substring(decPoint, whole.length);
+}
+else {
+result = whole;
+}
+return result;
+}
+// End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<P>
+<center>
+
+	
+<P>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /calculators/"><font color="#FF0000">Calculators</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Horsepower</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Enter your vehicle's quarter mile time (assuming you know it) and vehicle weight and this JavaScript program will display your car's estimated horsepower.
+<br>
+
+<br>
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<CENTER>
+<SCRIPT LANGUAGE="JavaScript">
+
+<!-- Original:  Joel Lavarez -->
+<!-- Web Site:  http://www.speed-online.com -->
+
+<!-- Begin
+var weight, eTime;
+var horsepower1, horsepower2, horsepower3, horsepower4;
+var temp1, temp2, temp3, temp4;
+var speed;
+var finalhp1, finalhp2, finalhp3, finalhp4, finalhp5, finalhp6;
+function create(form){
+eTime = form.elapsedTime.value;
+weight = form.vehicleWeight.value;
+temp1 = eTime / 5.825;
+temp1 = temp1 * temp1 * temp1;
+horsepower1 = weight / temp1;
+finalhp1 = roundOff(horsepower1, 2)
+horsepower2 = horsepower1 * 1.3;
+finalhp2 = roundOff(horsepower2, 2)
+text = "<HEAD><TITLE>1/4 Method</TITLE>";
+text += "</HEAD><BODY BGCOLOR=#000000 TEXT=#FFFFFF>";
+text += "<font face=arial size=-1><CENTER>";
+text += "Horsepower Results - 1/4 Mile Method</CENTER><P>";
+text += "Your " +form.carModel.value;
+text += " weighs about " +form.vehicleWeight.value+ " pounds ";
+text += "and can complete a 1/4 mile in about ";
+text += form.elapsedTime.value;
+text += " seconds. That means that you've got about " +finalhp1;
+text += " HP at the wheels, and about " + finalhp2;
+text += " HP at the flywheel.</font>";
+text += "<center><form><input type=button onClick='self.close()' ";
+text += "value='Close Window'></form></center></font>";
+resultsWindow=window.open("", "displayWindow", "toolbar=no,menubar=no,scrollbar=auto,resizable=no,width=320,height=180")
+resultsWindow.document.writeln(text);
+resultsWindow.document.close();
+}
+function input1(form) {
+Ctrl = form.carModel;
+if (Ctrl.value == "") {
+validatePrompt (Ctrl, "Please Input a Car Model.")
+return (false);
+} else
+return (true);
+}
+function input2(form) {
+Ctrl = form.vehicleWeight;
+if (Ctrl.value == "") {
+validatePrompt (Ctrl, "Please enter Your Vehicle Weight in Pounds.")
+return (false);
+} else
+return (true);
+}
+function input3(form) {
+Ctrl = form.elapsedTime;
+if (Ctrl.value == "") {
+validatePrompt (Ctrl, "Please enter Your 1/4 mile trapspeed. You can estimate...")
+return (false);
+} else
+return (true);
+}
+function runSubmit (form, button)  {
+if (!input1(form)) return;
+if (!input2(form)) return;
+if (!input3(form)) return;
+create(form);       
+return;
+}
+function validatePrompt (Ctrl, PromptStr) {
+alert (PromptStr)
+Ctrl.focus();
+return;
+}
+function roundOff(value, precision) {
+value = "" + value;
+precision = parseInt(precision);
+var whole = "" + Math.round(value * Math.pow(10, precision));
+var decPoint = whole.length - precision;
+if(decPoint != 0) {
+result = whole.substring(0, decPoint);
+result += ".";
+result += whole.substring(decPoint, whole.length);
+}
+else {
+result = whole;
+}
+return result;
+}
+// End -->
+</script>
+
+<body>
+
+<center>
+<b>Horsepower Calculator</b>
+<form name="hp" method=get action="">
+<center>
+<table border=0>
+<tr bgcolor="#909090">
+<td align=right><font face="Arial, Helv"><b>Car Model : </b></font></td>
+<td><INPUT TYPE=text NAME="carModel" SIZE=20></td>
+<tr bgcolor="#909090">
+<td align=right><font face="Arial, Helv"><b>Vehicle Weight With Driver : </b></font></td>
+<td><INPUT TYPE=text NAME="vehicleWeight" SIZE=10> (in Pounds)</td>
+<tr bgcolor="#909090">
+<td align=right><font face="Arial, Helv"><b>Quarter Mile time : </b></font></td>
+<td><INPUT TYPE=text NAME="elapsedTime" SIZE=10> (in seconds)</td>
+</table>
+<p>
+</font>
+<input type=button onClick="runSubmit(form)" name="HPcalc" value="Calculate Horsepower">
+</form>
+</td></table>
+</td></table>
+</td></table>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Calculators:  Horsepower</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  3.85 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL HORSEPOWER CALCULATOR:
+
+   1.  Paste the coding into the HEAD your HTML document
+   2.  Copy the last code into the BODY of your document  --&gt;
+
+&lt;!--  STEP ONE: Put this code into the HEAD of your HTML document  --&gt;
+		  
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form name="Calc"&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;!-- Original:  Joel Lavarez --&gt;
+&lt;!-- Web Site:  http://www.speed-online.com --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var weight, eTime;
+var horsepower1, horsepower2, horsepower3, horsepower4;
+var temp1, temp2, temp3, temp4;
+var speed;
+var finalhp1, finalhp2, finalhp3, finalhp4, finalhp5, finalhp6;
+function create(form){
+eTime = form.elapsedTime.value;
+weight = form.vehicleWeight.value;
+temp1 = eTime / 5.825;
+temp1 = temp1 * temp1 * temp1;
+horsepower1 = weight / temp1;
+finalhp1 = roundOff(horsepower1, 2)
+horsepower2 = horsepower1 * 1.3;
+finalhp2 = roundOff(horsepower2, 2)
+text = "&lt;HEAD&gt;&lt;TITLE&gt;1/4 Method&lt;/TITLE&gt;";
+text += "&lt;/HEAD&gt;&lt;BODY BGCOLOR=#000000 TEXT=#FFFFFF&gt;";
+text += "&lt;font face=arial size=-1&gt;&lt;CENTER&gt;";
+text += "Horsepower Results - 1/4 Mile Method&lt;/CENTER&gt;&lt;P&gt;";
+text += "Your " +form.carModel.value;
+text += " weighs about " +form.vehicleWeight.value+ " pounds ";
+text += "and can complete a 1/4 mile in about ";
+text += form.elapsedTime.value;
+text += " seconds. That means that you've got about " +finalhp1;
+text += " HP at the wheels, and about " + finalhp2;
+text += " HP at the flywheel.&lt;/font&gt;";
+text += "&lt;center&gt;&lt;form&gt;&lt;input type=button onClick='self.close()' ";
+text += "value='Close Window'&gt;&lt;/form&gt;&lt;/center&gt;&lt;/font&gt;";
+resultsWindow=window.open("", "displayWindow", "toolbar=no,menubar=no,scrollbar=auto,resizable=no,width=320,height=180")
+resultsWindow.document.writeln(text);
+resultsWindow.document.close();
+}
+function input1(form) {
+Ctrl = form.carModel;
+if (Ctrl.value == "") {
+validatePrompt (Ctrl, "Please Input a Car Model.")
+return (false);
+} else
+return (true);
+}
+function input2(form) {
+Ctrl = form.vehicleWeight;
+if (Ctrl.value == "") {
+validatePrompt (Ctrl, "Please enter Your Vehicle Weight in Pounds.")
+return (false);
+} else
+return (true);
+}
+function input3(form) {
+Ctrl = form.elapsedTime;
+if (Ctrl.value == "") {
+validatePrompt (Ctrl, "Please enter Your 1/4 mile trapspeed. You can estimate...")
+return (false);
+} else
+return (true);
+}
+function runSubmit (form, button)  {
+if (!input1(form)) return;
+if (!input2(form)) return;
+if (!input3(form)) return;
+create(form);       
+return;
+}
+function validatePrompt (Ctrl, PromptStr) {
+alert (PromptStr)
+Ctrl.focus();
+return;
+}
+function roundOff(value, precision) {
+value = "" + value;
+precision = parseInt(precision);
+var whole = "" + Math.round(value * Math.pow(10, precision));
+var decPoint = whole.length - precision;
+if(decPoint != 0) {
+result = whole.substring(0, decPoint);
+result += ".";
+result += whole.substring(decPoint, whole.length);
+}
+else {
+result = whole;
+}
+return result;
+}
+// End --&gt;
+&lt;/script&gt;
+
+&lt;body&gt;
+
+&lt;center&gt;
+&lt;b&gt;Horsepower Calculator&lt;/b&gt;
+&lt;form name="hp" method=get action=""&gt;
+&lt;center&gt;
+&lt;table border=0&gt;
+&lt;tr bgcolor="#909090"&gt;
+&lt;td align=right&gt;&lt;font face="Arial, Helv"&gt;&lt;b&gt;Car Model : &lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td&gt;&lt;INPUT TYPE=text NAME="carModel" SIZE=20&gt;&lt;/td&gt;
+&lt;tr bgcolor="#909090"&gt;
+&lt;td align=right&gt;&lt;font face="Arial, Helv"&gt;&lt;b&gt;Vehicle Weight With Driver : &lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td&gt;&lt;INPUT TYPE=text NAME="vehicleWeight" SIZE=10&gt; (in Pounds)&lt;/td&gt;
+&lt;tr bgcolor="#909090"&gt;
+&lt;td align=right&gt;&lt;font face="Arial, Helv"&gt;&lt;b&gt;Quarter Mile time : &lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+&lt;td&gt;&lt;INPUT TYPE=text NAME="elapsedTime" SIZE=10&gt; (in seconds)&lt;/td&gt;
+&lt;/table&gt;
+&lt;p&gt;
+&lt;/font&gt;
+&lt;input type=button onClick="runSubmit(form)" name="HPcalc" value="Calculate Horsepower"&gt;
+&lt;/form&gt;
+&lt;/td&gt;&lt;/table&gt;
+&lt;/td&gt;&lt;/table&gt;
+&lt;/td&gt;&lt;/table&gt;
+
+ 
+
+&lt;!-- Script Size:  3.85 KB  --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

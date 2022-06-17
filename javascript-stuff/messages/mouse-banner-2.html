@@ -1,0 +1,255 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Messages:  Mouse Banner 2</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="Another way to display a banner behind the cursor.  It's easy to change the font, size or color.">
+<META NAME="date" CONTENT="2000-12-27">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Kurt Grigg">
+<META NAME="section" CONTENT="Messages">
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Kurt Grigg (kurt.grigg@virgin.net) -->
+<!-- Web Site:  http://website.lineone.net/~kurt.grigg/javascript -->
+
+
+
+
+<!-- Begin
+message = 'JavaScript Source Code 3000';
+FonT = 'Verdana';
+ColoR = '999999';
+SizE = 3; //1 to 7 only!
+
+var amount = 5, ypos =- 50, xpos = 0, Ay = 0, Ax = 0, By = 0, Bx = 0, Cy = 0, Cx = 0, Dy = 0, Dx = 0, Ey = 0, Ex = 0;
+if (document.layers) {
+for (i = 0; i < amount; i++) {
+document.write('<layer name=nsl'+i+' top=0 left=0><font face='+FonT+' size='+SizE+' color='+ColoR+'>'+message+'</font></layer>');
+}
+window.captureEvents(Event.MOUSEMOVE);
+function nsmouse(evnt) {
+xpos = evnt.pageX + 20;
+ypos = evnt.pageY + 20;
+}
+window.onMouseMove = nsmouse;
+}
+else if (document.all) {
+document.write("<div id='outer' style='position:absolute;top:0px;left:0px'>");
+document.write("<div style='position:relative'>");
+for (i = 0; i < amount; i++) {
+document.write('<div id="text"'+i+' style="position:absolute;top:0px;left:0px;width:400px;height:20px"><font face='+FonT+' size='+SizE+' color='+ColoR+'>'+message+'</font></div>')
+}
+document.write("</div>");
+document.write("</div>");
+function iemouse() {
+ypos = event.y + 20;
+xpos = event.x + 20;
+}
+window.document.onmousemove = iemouse;
+}
+function makefollow() {
+if (document.layers) {
+document.layers['nsl'+0].top = ay;
+document.layers['nsl'+0].left = ax;
+document.layers['nsl'+1].top = by;
+document.layers['nsl'+1].left = bx;
+document.layers['nsl'+2].top = cy;
+document.layers['nsl'+2].left = cx;
+document.layers['nsl'+3].top = Dy;
+document.layers['nsl'+3].left = Dx;
+document.layers['nsl'+4].top = Ey;
+document.layers['nsl'+4].left = Ex;
+}
+else if (document.all) {
+outer.style.pixelTop = document.body.scrollTop; 
+text[0].style.pixelTop = ay;
+text[0].style.pixelLeft = ax;
+text[1].style.pixelTop = by;
+text[1].style.pixelLeft = bx;
+text[2].style.pixelTop = cy;
+text[2].style.pixelLeft = cx;
+text[3].style.pixelTop = Dy;
+text[3].style.pixelLeft = Dx;
+text[4].style.pixelTop = Ey;
+text[4].style.pixelLeft = Ex;
+   }
+}
+function move() {
+ey = Ey += (ypos - Ey) * 0.2;
+ex = Ex += (xpos - Ex) * 0.2;
+dy = Dy += (ey - Dy) * 0.3;
+dx = Dx += (ex - Dx) * 0.3;
+cy = Cy += (dy - Cy) * 0.4;
+cx = Cx += (dx - Cx) * 0.4;
+by = By += (cy - By) * 0.5;
+bx = Bx += (cx - Bx) * 0.5;
+ay = Ay += (by - Ay) * 0.6;
+ax = Ax += (bx - Ax) * 0.6;
+makefollow();
+setTimeout('move()', 10);
+}
+window.onload=move;
+//  End -->
+</script>
+
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /messages/"><font color="#FF0000"><b>Messages</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Mouse Banner 2</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Another way to display a banner behind the cursor.  It's easy to change the font, size or color.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Messages:  Mouse Banner 2</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Command-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.91 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- ONE STEP TO INSTALL MOUSE BANNER 2:
+
+  1.  Copy the coding into the HEAD of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Kurt Grigg (kurt.grigg@virgin.net) --&gt;
+&lt;!-- Web Site:  http://website.lineone.net/~kurt.grigg/javascript --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+message = 'JavaScript Source Code 3000';
+FonT = 'Verdana';
+ColoR = '999999';
+SizE = 3; //1 to 7 only!
+
+var amount = 5, ypos =- 50, xpos = 0, Ay = 0, Ax = 0, By = 0, Bx = 0, Cy = 0, Cx = 0, Dy = 0, Dx = 0, Ey = 0, Ex = 0;
+if (document.layers) {
+for (i = 0; i &lt; amount; i++) {
+document.write('&lt;layer name=nsl'+i+' top=0 left=0&gt;&lt;font face='+FonT+' size='+SizE+' color='+ColoR+'&gt;'+message+'&lt;/font&gt;&lt;/layer&gt;');
+}
+window.captureEvents(Event.MOUSEMOVE);
+function nsmouse(evnt) {
+xpos = evnt.pageX + 20;
+ypos = evnt.pageY + 20;
+}
+window.onMouseMove = nsmouse;
+}
+else if (document.all) {
+document.write("&lt;div id='outer' style='position:absolute;top:0px;left:0px'&gt;");
+document.write("&lt;div style='position:relative'&gt;");
+for (i = 0; i &lt; amount; i++) {
+document.write('&lt;div id="text"'+i+' style="position:absolute;top:0px;left:0px;width:400px;height:20px"&gt;&lt;font face='+FonT+' size='+SizE+' color='+ColoR+'&gt;'+message+'&lt;/font&gt;&lt;/div&gt;')
+}
+document.write("&lt;/div&gt;");
+document.write("&lt;/div&gt;");
+function iemouse() {
+ypos = event.y + 20;
+xpos = event.x + 20;
+}
+window.document.onmousemove = iemouse;
+}
+function makefollow() {
+if (document.layers) {
+document.layers['nsl'+0].top = ay;
+document.layers['nsl'+0].left = ax;
+document.layers['nsl'+1].top = by;
+document.layers['nsl'+1].left = bx;
+document.layers['nsl'+2].top = cy;
+document.layers['nsl'+2].left = cx;
+document.layers['nsl'+3].top = Dy;
+document.layers['nsl'+3].left = Dx;
+document.layers['nsl'+4].top = Ey;
+document.layers['nsl'+4].left = Ex;
+}
+else if (document.all) {
+outer.style.pixelTop = document.body.scrollTop; 
+text[0].style.pixelTop = ay;
+text[0].style.pixelLeft = ax;
+text[1].style.pixelTop = by;
+text[1].style.pixelLeft = bx;
+text[2].style.pixelTop = cy;
+text[2].style.pixelLeft = cx;
+text[3].style.pixelTop = Dy;
+text[3].style.pixelLeft = Dx;
+text[4].style.pixelTop = Ey;
+text[4].style.pixelLeft = Ex;
+   }
+}
+function move() {
+ey = Ey += (ypos - Ey) * 0.2;
+ex = Ex += (xpos - Ex) * 0.2;
+dy = Dy += (ey - Dy) * 0.3;
+dx = Dx += (ex - Dx) * 0.3;
+cy = Cy += (dy - Cy) * 0.4;
+cx = Cx += (dx - Cx) * 0.4;
+by = By += (cy - By) * 0.5;
+bx = Bx += (cx - Bx) * 0.5;
+ay = Ay += (by - Ay) * 0.6;
+ax = Ax += (bx - Ax) * 0.6;
+makefollow();
+setTimeout('move()', 10);
+}
+window.onload=move;
+//  End --&gt;
+&lt;/script&gt;
+
+
+ 
+
+&lt;!-- Script Size:  2.91 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

@@ -1,0 +1,189 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Forms:  Validation (IP Address)</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="Verify the value of an IP address.  Check for special cases such as "0.0.0.0" and "255.255.255.255".  Cool!">
+<META NAME="date" CONTENT="2000-11-23">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Jay Bienvenu">
+<META NAME="section" CONTENT="Forms">
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Jay Bienvenu -->
+<!-- Web Site:  http://www.bienvenu.net -->
+
+
+
+
+<!-- Begin
+function verifyIP (IPvalue) {
+errorString = "";
+theName = "IPaddress";
+
+var ipPattern = /^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$/;
+var ipArray = IPvalue.match(ipPattern); 
+
+if (IPvalue == "0.0.0.0")
+errorString = errorString + theName + ': '+IPvalue+' is a special IP address and cannot be used here.';
+else if (IPvalue == "255.255.255.255")
+errorString = errorString + theName + ': '+IPvalue+' is a special IP address and cannot be used here.';
+if (ipArray == null)
+errorString = errorString + theName + ': '+IPvalue+' is not a valid IP address.';
+else {
+for (i = 0; i < 4; i++) {
+thisSegment = ipArray[i];
+if (thisSegment > 255) {
+errorString = errorString + theName + ': '+IPvalue+' is not a valid IP address.';
+i = 4;
+}
+if ((i == 0) && (thisSegment > 255)) {
+errorString = errorString + theName + ': '+IPvalue+' is a special IP address and cannot be used here.';
+i = 4;
+      }
+   }
+}
+extensionLength = 3;
+if (errorString == "")
+alert ("That is a valid IP address.");
+else
+alert (errorString);
+}
+//  End -->
+</script>
+
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /forms/" ><font color="#FF0000"><b>Forms</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Validation (IP Address)</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Verify the value of an IP address.  Check for special cases such as "0.0.0.0" and "255.255.255.255".  Cool!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<form>
+IP Address:
+<input size=15 name="IPvalue">
+<input type="submit" value="Verify" onClick="verifyIP(IPvalue.value)";>
+</form>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Forms:  Validation (IP Address)</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Command-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.91 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL VALIDATION (IP ADDRESS):
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Jay Bienvenu --&gt;
+&lt;!-- Web Site:  http://www.bienvenu.net --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function verifyIP (IPvalue) {
+errorString = "";
+theName = "IPaddress";
+
+var ipPattern = /^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$/;
+var ipArray = IPvalue.match(ipPattern); 
+
+if (IPvalue == "0.0.0.0")
+errorString = errorString + theName + ': '+IPvalue+' is a special IP address and cannot be used here.';
+else if (IPvalue == "255.255.255.255")
+errorString = errorString + theName + ': '+IPvalue+' is a special IP address and cannot be used here.';
+if (ipArray == null)
+errorString = errorString + theName + ': '+IPvalue+' is not a valid IP address.';
+else {
+for (i = 0; i &lt; 4; i++) {
+thisSegment = ipArray[i];
+if (thisSegment &gt; 255) {
+errorString = errorString + theName + ': '+IPvalue+' is not a valid IP address.';
+i = 4;
+}
+if ((i == 0) && (thisSegment &gt; 255)) {
+errorString = errorString + theName + ': '+IPvalue+' is a special IP address and cannot be used here.';
+i = 4;
+      }
+   }
+}
+extensionLength = 3;
+if (errorString == "")
+alert ("That is a valid IP address.");
+else
+alert (errorString);
+}
+//  End --&gt;
+&lt;/script&gt;
+
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;form&gt;
+IP Address:
+&lt;input size=15 name="IPvalue"&gt;
+&lt;input type="submit" value="Verify" onClick="verifyIP(IPvalue.value)";&gt;
+&lt;/form&gt;
+
+ 
+
+&lt;!-- Script Size:  1.91 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

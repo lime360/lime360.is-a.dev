@@ -1,0 +1,388 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Calculators:  Field Depth Calculator</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="alistair@silverlight.co.uk">
+<META NAME="section" CONTENT="Calculators">
+<META NAME="description" CONTENT="For all you photography enthusiasts out there, this script makes it a breeze to determine the field depth and amount that will be in focus in a photograph.  Includes other measurements such as nearest and furthest points of focus, too.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  alistair@silverlight.co.uk -->
+<!-- Web Site:  http://www.silverlight.co.uk -->
+
+
+
+
+<!-- Begin
+// alistair@silverlight.co.uk
+// http://www.silverlight.co.uk
+function doField(form) {
+distance = (form.distance.value)*1000;
+CoC = (document.form.format.options[document.form.format.selectedIndex].value);
+aperture = (document.form.aperture.options[document.form.aperture.selectedIndex].value);
+focal = (document.form.focal.options[document.form.focal.selectedIndex].value);
+if (isNaN(distance))  {
+alert('Please enter a numerical value for subject distance.');
+document.form.distance.focus();
+document.form.distance.select();
+}
+else {
+hyperFocal = (focal * focal) / (aperture * CoC);
+form.hyperFocal.value  = Math.round(hyperFocal) / 1000 + " m";
+dofNear = (hyperFocal * distance) / (hyperFocal + (distance - focal));
+form.dofNear.value = Math.round(dofNear) / 1000 + " m";
+dofFar = (hyperFocal * distance) / (hyperFocal - (distance - focal));
+if (dofFar < 0) {
+form.dofFar.value  = "Infinity.";
+}
+else {
+form.dofFar.value  = Math.round(dofFar)/1000+" m";
+}
+dofTotal = Math.round(dofFar - dofNear);
+if (dofTotal < 0) {
+form.dofTotal.value  = "Infinite.";
+}
+else {
+if (dofTotal >= 0 && dofTotal < 0.001) {
+form.dofTotal.value  = ">1 mm ";  
+}
+else {
+form.dofTotal.value = dofTotal / 1000 + " m";  
+         }
+      }
+   }
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /calculators/"><font color="#FF0000"><b>Calculators</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Field Depth Calculator</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+For all you photography enthusiasts out there, this script makes it a breeze to determine the field depth and amount that will be in focus in a photograph.  Includes other measurements such as nearest and furthest points of focus, too.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center> 
+<form method=post name=form>
+<table border=3 cellpadding=10 cellspacing=0 width=500>
+<tr>
+<td align=center colspan=2>
+Depth of Field Calculator
+</td>
+</tr>
+<tr>
+<td align=left>
+Negative Format
+</td>
+<td align=left>
+<select name=format>
+<option value=0.033>35 mm
+<option value=0.025>APS
+<option value=0.05>6x45 cm  
+<option value=0.06>6x6 cm
+<option value=0.065>6x7 cm
+<option value=0.15>5x4 inch
+<option value=0.3>10x8 inch
+</select>
+</td>
+</tr>
+<tr>
+<td align=left>
+Lens focal length
+</td>
+<td align=left>
+<select name=focal>
+<option value=17>17 mm
+<option value=20>20 mm
+<option value=24>24 mm
+<option value=28>28 mm
+<option value=35>35 mm
+<option value=50>50 mm 
+<option value=70>70 mm
+<option value=80>80 mm
+<option value=100>100 mm
+<option value=135>135 mm
+<option value=150>150 mm 
+<option value=200>200 mm
+<option value=210>210 mm
+<option value=300>300 mm
+<option value=350>350 mm
+<option value=400>400 mm
+</select>
+</td>
+</tr>
+<tr>
+<td align=left>
+Selected aperture
+</td>
+<td align=left>
+<select name=aperture>
+<option value=1.4>F 1.4
+<option value=1.8>F 1.8
+<option value=2>F 2
+<option value=2.8>F 2.8
+<option value=4>F 4
+<option value=5.6>F 5.6
+<option value=8> F 8
+<option value=11>F 11
+<option value=16>F 16
+<option value=22>F 22
+<option value=32>F 32
+<option value=45>F 45
+<option value=64>F 64
+<option value=90>F 90
+</select>
+</td>
+</tr>
+<tr>
+<td align=left>
+Subject distance (Meters)
+</td>
+<td align=left>
+<input type=text name=distance value="" size=6>
+</td>
+</tr>
+<tr>
+<td colspan=2 align=left>
+<br>
+<center><input type=button value="Calculate." onclick="doField(this.form)"></center>
+<p>
+<input name=hyperFocal type=text value="" size=6>&nbsp;Hyperfocal distance for this lens/aperture combination.
+<BR>
+<input name=dofNear type=text value="" size=6>&nbsp;Near limit of acceptable sharpness.
+<BR>
+<input name=dofFar type=text value="" size=6>&nbsp;Far limit of acceptable sharpness.
+<BR>
+<input name=dofTotal type=text value="" size=6>&nbsp;Total depth of field.
+<BR>
+<br>
+</td></tr>
+</table>
+</form>
+</table>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Calculators:  Field Depth Calculator</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  4.00 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL FIELD DEPTH CALCULATOR:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  alistair@silverlight.co.uk --&gt;
+&lt;!-- Web Site:  http://www.silverlight.co.uk --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+// alistair@silverlight.co.uk
+// http://www.silverlight.co.uk
+function doField(form) {
+distance = (form.distance.value)*1000;
+CoC = (document.form.format.options[document.form.format.selectedIndex].value);
+aperture = (document.form.aperture.options[document.form.aperture.selectedIndex].value);
+focal = (document.form.focal.options[document.form.focal.selectedIndex].value);
+if (isNaN(distance))  {
+alert('Please enter a numerical value for subject distance.');
+document.form.distance.focus();
+document.form.distance.select();
+}
+else {
+hyperFocal = (focal * focal) / (aperture * CoC);
+form.hyperFocal.value  = Math.round(hyperFocal) / 1000 + " m";
+dofNear = (hyperFocal * distance) / (hyperFocal + (distance - focal));
+form.dofNear.value = Math.round(dofNear) / 1000 + " m";
+dofFar = (hyperFocal * distance) / (hyperFocal - (distance - focal));
+if (dofFar &lt; 0) {
+form.dofFar.value  = "Infinity.";
+}
+else {
+form.dofFar.value  = Math.round(dofFar)/1000+" m";
+}
+dofTotal = Math.round(dofFar - dofNear);
+if (dofTotal &lt; 0) {
+form.dofTotal.value  = "Infinite.";
+}
+else {
+if (dofTotal &gt;= 0 && dofTotal &lt; 0.001) {
+form.dofTotal.value  = "&gt;1 mm ";  
+}
+else {
+form.dofTotal.value = dofTotal / 1000 + " m";  
+         }
+      }
+   }
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt; 
+&lt;form method=post name=form&gt;
+&lt;table border=3 cellpadding=10 cellspacing=0 width=500&gt;
+&lt;tr&gt;
+&lt;td align=center colspan=2&gt;
+Depth of Field Calculator
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=left&gt;
+Negative Format
+&lt;/td&gt;
+&lt;td align=left&gt;
+&lt;select name=format&gt;
+&lt;option value=0.033&gt;35 mm
+&lt;option value=0.025&gt;APS
+&lt;option value=0.05&gt;6x45 cm  
+&lt;option value=0.06&gt;6x6 cm
+&lt;option value=0.065&gt;6x7 cm
+&lt;option value=0.15&gt;5x4 inch
+&lt;option value=0.3&gt;10x8 inch
+&lt;/select&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=left&gt;
+Lens focal length
+&lt;/td&gt;
+&lt;td align=left&gt;
+&lt;select name=focal&gt;
+&lt;option value=17&gt;17 mm
+&lt;option value=20&gt;20 mm
+&lt;option value=24&gt;24 mm
+&lt;option value=28&gt;28 mm
+&lt;option value=35&gt;35 mm
+&lt;option value=50&gt;50 mm 
+&lt;option value=70&gt;70 mm
+&lt;option value=80&gt;80 mm
+&lt;option value=100&gt;100 mm
+&lt;option value=135&gt;135 mm
+&lt;option value=150&gt;150 mm 
+&lt;option value=200&gt;200 mm
+&lt;option value=210&gt;210 mm
+&lt;option value=300&gt;300 mm
+&lt;option value=350&gt;350 mm
+&lt;option value=400&gt;400 mm
+&lt;/select&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=left&gt;
+Selected aperture
+&lt;/td&gt;
+&lt;td align=left&gt;
+&lt;select name=aperture&gt;
+&lt;option value=1.4&gt;F 1.4
+&lt;option value=1.8&gt;F 1.8
+&lt;option value=2&gt;F 2
+&lt;option value=2.8&gt;F 2.8
+&lt;option value=4&gt;F 4
+&lt;option value=5.6&gt;F 5.6
+&lt;option value=8&gt; F 8
+&lt;option value=11&gt;F 11
+&lt;option value=16&gt;F 16
+&lt;option value=22&gt;F 22
+&lt;option value=32&gt;F 32
+&lt;option value=45&gt;F 45
+&lt;option value=64&gt;F 64
+&lt;option value=90&gt;F 90
+&lt;/select&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=left&gt;
+Subject distance (Meters)
+&lt;/td&gt;
+&lt;td align=left&gt;
+&lt;input type=text name=distance value="" size=6&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td colspan=2 align=left&gt;
+&lt;br&gt;
+&lt;center&gt;&lt;input type=button value="Calculate." onclick="doField(this.form)"&gt;&lt;/center&gt;
+&lt;p&gt;
+&lt;input name=hyperFocal type=text value="" size=6&gt;&nbsp;Hyperfocal distance for this lens/aperture combination.
+&lt;BR&gt;
+&lt;input name=dofNear type=text value="" size=6&gt;&nbsp;Near limit of acceptable sharpness.
+&lt;BR&gt;
+&lt;input name=dofFar type=text value="" size=6&gt;&nbsp;Far limit of acceptable sharpness.
+&lt;BR&gt;
+&lt;input name=dofTotal type=text value="" size=6&gt;&nbsp;Total depth of field.
+&lt;BR&gt;
+&lt;br&gt;
+&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;/table&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  4.00 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

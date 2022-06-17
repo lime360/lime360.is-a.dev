@@ -1,0 +1,270 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Games:  Reaction Time - Button</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Games">
+<META NAME="description" CONTENT="(Netscape only)  Just how fast can you react?  Play this little JavaScript wonder and find out.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+function rnd() {
+r1=new Date();
+num=Math.round(Math.abs(Math.sin(r1.getTime())*10000000))%5;
+return num;}
+function start() {
+if(q==1){return}
+c=0;
+ad=0;
+da=0;
+setTimeout("spel()",1000+1000*rnd());
+document.ful.text8.value="wait...";}
+function stop() {
+if(da==1){return}
+if(ad==1){return}
+if(q==1){return}
+if(c==0){fusk()}
+if(c==0){return}
+da=1
+rak();}
+function rak() {
+slutTime=new Date();
+sltid=slutTime.getTime();
+tidpo=(sltid-stid)/1000
+if (ad==1)tidpo=2;
+tidtot=tidtot+tidpo;
+as="";if (tidtot<1)as="0"
+document.ful.text6.value="Total time: "
++as+Math.round(tidtot*100)/100+" seconds"
+as="";if (tidpo<1)as="0"
+if(ad==0){
+if (k==1)document.ful.text1.value="Reaction time 1: "+as+tidpo+" seconds"
+if (k==2)document.ful.text2.value="Reaction time 2: "+as+tidpo+" seconds"
+if (k==3)document.ful.text3.value="Reaction time 3: "+as+tidpo+" seconds"
+if (k==4)document.ful.text4.value="Reaction time 4: "+as+tidpo+" seconds"
+if (k==5)document.ful.text5.value="Reaction time 5: "+as+tidpo+" seconds"
+document.ful.text8.value="Push Start";
+}
+as="";if (tidtot<1)as="0"
+document.ful.text6.value="Total time: "
++as+Math.round(tidtot*100)/100+" seconds"
+as="";if (tidtot/k<1)as="0"
+document.ful.text7.value="Avg. time: "
++as+Math.round(tidtot*10000/(k*100))/100+" seconds"
+if(k>4){
+q=1
+document.ful.text8.value="Game Over...";
+   }
+}
+function spel() {
+if (ad==1)return
+k=k+1
+c=1;
+startTime=new Date();
+stid=startTime.getTime();
+document.ful.text8.value="PUSH STOP!!!";
+}
+function fusk() {
+document.ful.text8.value="Too soon. 2 sec penalty. Push start!"
+ad=1
+stid=0;
+rak();
+}
+tidtot=0;
+k=0;
+q=0;
+ad=0;
+// End -->
+</SCRIPT> 
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /games/"><font color="#FF0000">Games</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Reaction Time - Button</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+(Netscape only)  Just how fast can you react?  Play this little JavaScript wonder and find out.
+<br><hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<CENTER>
+<FORM name=ful>
+<INPUT SIZE=30 NAME="text1" value="Reaction time 1:"><br>
+<INPUT SIZE=30 NAME="text2" value="Reaction time 2:"><br>
+<INPUT SIZE=30 NAME="text3" value="Reaction time 3:"><br>
+<INPUT SIZE=30 NAME="text4" value="Reaction time 4:"><br>
+<INPUT SIZE=30 NAME="text5" value="Reaction time 5:"><p>
+<INPUT SIZE=30 NAME="text6" value="Total time: "><br>
+<INPUT SIZE=30 NAME="text7" value="Avg. time: "><p>
+<INPUT SIZE=30 NAME="text8" value="Push Start"><br>
+<INPUT TYPE="button" VALUE="Start" onClick="start()">
+<INPUT TYPE="button" VALUE="STOP" onClick="stop()"><p>
+<INPUT TYPE="button" VALUE="New Game" onClick="location='react-button.html'">
+</FORM>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Games:  Reaction Time - Button</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.87 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL REACTION TIME - BUTTON:
+
+   1.  Put the designated coding into the BODY of your HTML document
+   2.  Paste the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt; 
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function rnd() {
+r1=new Date();
+num=Math.round(Math.abs(Math.sin(r1.getTime())*10000000))%5;
+return num;
+}
+function start() {
+if(q==1){return}
+c=0;
+ad=0;
+da=0;
+setTimeout("spel()",1000+1000*rnd());
+document.ful.text8.value="wait...";
+}
+function stop() {
+if(da==1){return}
+if(ad==1){return}
+if(q==1){return}
+if(c==0){fusk()}
+if(c==0){return}
+da=1
+rak();
+}
+function rak() {
+slutTime=new Date();
+sltid=slutTime.getTime();
+tidpo=(sltid-stid)/1000
+if (ad==1)tidpo=2;
+tidtot=tidtot+tidpo;
+as="";if (tidtot&lt;1)as="0"
+document.ful.text6.value="Total time: "
++as+Math.round(tidtot*100)/100+" seconds"
+as="";
+if (tidpo&lt;1) as="0"
+if(ad==0){
+if (k==1)document.ful.text1.value="Reaction time 1: "+as+tidpo+" seconds"
+if (k==2)document.ful.text2.value="Reaction time 2: "+as+tidpo+" seconds"
+if (k==3)document.ful.text3.value="Reaction time 3: "+as+tidpo+" seconds"
+if (k==4)document.ful.text4.value="Reaction time 4: "+as+tidpo+" seconds"
+if (k==5)document.ful.text5.value="Reaction time 5: "+as+tidpo+" seconds"
+document.ful.text8.value="Push Start";
+}
+as="";if (tidtot&lt;1)as="0"
+document.ful.text6.value="Total time: "
++as+Math.round(tidtot*100)/100+" seconds"
+as="";if (tidtot/k&lt;1)as="0"
+document.ful.text7.value="Avg. time: "
++as+Math.round(tidtot*10000/(k*100))/100+" seconds"
+if(k&gt;4){
+q=1
+document.ful.text8.value="Game Over...";
+   }
+}
+function spel() {
+if (ad==1)return
+k=k+1
+c=1;
+startTime=new Date();
+stid=startTime.getTime();
+document.ful.text8.value="PUSH STOP!!!";
+}
+function fusk() {
+document.ful.text8.value="Too soon. 2 sec penalty. Push start!"
+ad=1
+stid=0;
+rak();
+}
+tidtot=0;
+k=0;
+q=0;
+ad=0;
+// End --&gt;
+&lt;/SCRIPT&gt; 
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;CENTER&gt;
+&lt;FORM name=ful&gt;
+&lt;INPUT SIZE=30 NAME="text1" value="Reaction time 1:"&gt;&lt;br&gt;
+&lt;INPUT SIZE=30 NAME="text2" value="Reaction time 2:"&gt;&lt;br&gt;
+&lt;INPUT SIZE=30 NAME="text3" value="Reaction time 3:"&gt;&lt;br&gt;
+&lt;INPUT SIZE=30 NAME="text4" value="Reaction time 4:"&gt;&lt;br&gt;
+&lt;INPUT SIZE=30 NAME="text5" value="Reaction time 5:"&gt;&lt;p&gt;
+&lt;INPUT SIZE=30 NAME="text6" value="Total time: "&gt;&lt;br&gt;
+&lt;INPUT SIZE=30 NAME="text7" value="Avg. time: "&gt;&lt;p&gt;
+&lt;INPUT SIZE=30 NAME="text8" value="Push Start"&gt;&lt;br&gt;
+&lt;INPUT TYPE="button" VALUE="Start" onClick="start()"&gt;
+&lt;INPUT TYPE="button" VALUE="STOP" onClick="stop()"&gt;&lt;p&gt;
+&lt;INPUT TYPE="button" VALUE="New Game" onClick="history.go(0)"&gt;
+&lt;/FORM&gt;
+&lt;/CENTER&gt;
+
+ 
+
+&lt;!-- Script Size:  2.87 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

@@ -1,0 +1,182 @@
+<HTL>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Calculators:  World Population</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Ronnie Moore, Editor">
+<META NAME="section" CONTENT="Calculators">
+<META NAME="description" CONTENT="Estimates the current world population based on US census data and the world growth rate.  Not exactly precise, but neat anyways.">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /calculators/"><font color="#FF0000"><b>Calculators</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>World Population</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Estimates the current world population based on US census data and the world growth rate.  Not exactly precise, but neat anyways.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Ronnie Moore, Editor -->
+
+
+
+
+<!-- Begin
+var worldpop = 6080141683;
+// US Census estimate on 7/1/00
+m = 7
+d = 1
+yr = 2000
+
+var montharray=new Array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec");
+var today=new Date();
+var todayy=today.getYear();
+
+// Y2K Fix by Isaac Powell
+// http://onyx.idbsu.edu/~ipowell
+
+if ((navigator.appName == "Microsoft Internet Explorer") && (todayy < 2000))
+todayy="19" + todayy;
+if (navigator.appName == "Netscape")
+todayy = 1900 + todayy;
+function outputComma(number) { // (c) irt.org
+number = '' + number;
+if (number.length > 3) {
+var mod = number.length%3;
+var output = (mod > 0 ? (number.substring(0,mod)) : '');
+for (i=0 ; i < Math.floor(number.length/3) ; i++) {
+if ((mod ==0) && (i ==0))
+output += number.substring(mod+3*i,mod+3*i+3);
+else
+output += ',' + number.substring(mod+3*i,mod+3*i+3);
+}
+return (output);
+}
+else return number;
+}
+var todaym = today.getMonth();
+var todayd = today.getDate();
+var todaystring = new Date();
+var paststring = montharray[m-1]+" "+d+", "+yr;
+growth = Math.floor(2.6*(Math.round((Date.parse(todaystring)-Date.parse(paststring))/(1000))*1));
+document.write("World Population is estimated to be: <b>" + outputComma(worldpop+growth) + "</b>");
+//  End -->
+</script>
+<p>
+<center><font color=red>(Refresh the page to see an updated world population amount.)</font></center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Calculators:  World Population</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.71 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- ONE STEP TO INSTALL WORLD POPULATION:
+
+  1.  Copy the coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Ronnie Moore, Editor --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var worldpop = 6080141683;
+// US Census estimate on 7/1/00
+m = 7
+d = 1
+yr = 2000
+
+var montharray=new Array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec");
+var today=new Date();
+var todayy=today.getYear();
+
+// Y2K Fix by Isaac Powell
+// http://onyx.idbsu.edu/~ipowell
+
+if ((navigator.appName == "Microsoft Internet Explorer") && (todayy &lt; 2000))
+todayy="19" + todayy;
+if (navigator.appName == "Netscape")
+todayy = 1900 + todayy;
+function outputComma(number) { // (c) irt.org
+number = '' + number;
+if (number.length &gt; 3) {
+var mod = number.length%3;
+var output = (mod &gt; 0 ? (number.substring(0,mod)) : '');
+for (i=0 ; i &lt; Math.floor(number.length/3) ; i++) {
+if ((mod ==0) && (i ==0))
+output += number.substring(mod+3*i,mod+3*i+3);
+else
+output += ',' + number.substring(mod+3*i,mod+3*i+3);
+}
+return (output);
+}
+else return number;
+}
+var todaym = today.getMonth();
+var todayd = today.getDate();
+var todaystring = new Date();
+var paststring = montharray[m-1]+" "+d+", "+yr;
+growth = Math.floor(2.6*(Math.round((Date.parse(todaystring)-Date.parse(paststring))/(1000))*1));
+document.write("World Population is estimated to be: &lt;b&gt;" + outputComma(worldpop+growth) + "&lt;/b&gt;");
+//  End --&gt;
+&lt;/script&gt;
+
+ 
+
+&lt;!-- Script Size:  1.71 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

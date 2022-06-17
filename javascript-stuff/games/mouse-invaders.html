@@ -1,0 +1,598 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Games:  Mouse Invaders</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Juan Ignacio Garcia (jigarcia@topmail.com.ar)">
+<META NAME="section" CONTENT="Games">
+<META NAME="description" CONTENT="Three UFOs chase your mouse cursor around the screen.  If they get close enough, they even fire at it.  Hilarious!">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /games/"><font color="#FF0000"><b>Games</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Mouse Invaders</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Three UFOs chase your mouse cursor around the screen.  If they get close enough, they even fire at it.  Hilarious!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<script language="Javascript">
+<!-- Original:  Juan Ignacio Garcia (jigarcia@topmail.com.ar) -->
+<!-- Web Site:  http://ignac.homepage.com -->
+
+
+
+<!-- Begin
+var starttime = 5000; // time before script starts, in milliseconds
+var ufocontrol = true; // can UFOs be turned off?  true or false
+var nImpactos = 3;
+var nOvnis = 3;
+var Xpos = 0;
+var Ypos = 0;
+var STOPACCEL = 10;
+var TAMOVNI = 20;
+var REBOTE = 0.65;
+var isNetscape = navigator.appName == "Netscape";
+var impactoActual = 0;
+var ovnis = new Array();
+var disparos = new Array();
+var impactos = new Array();
+var impactos2 = new Array();
+var activos = true;
+var fondoMovil = false;
+var backgroundOffset = 0;
+init();
+function changeUFOs(element) {
+activos = element.checked;
+}
+function init() {
+var text;
+var i = 0;
+text  = "<div id=imp20 style='POSITION: absolute;'>";
+text += "<img src='../img/mouse-invaders/impact2.gif' WIDTH=11 height=14 align=bottom></div>";
+for (i = 0; i < nImpactos; i++) {
+text += "<div id=imp1" + i + " style='POSITION: absolute;'>";
+text += "<img src='../img/mouse-invaders/impact1.gif' WIDTH=23 height=31 align=bottom></div>";
+}
+for (i = 0; i < nOvnis; i++) {
+text += "<div id=dis" + i + " style='POSITION: absolute;'>";
+text += "<img src='../img/mouse-invaders/bullet.gif' WIDTH=5 height=5 align=bottom></div>";
+}
+for (i = 0; i < nOvnis; i++) {
+text += "<div id=ovn" + i + " style='POSITION: absolute;'>";
+text += "<img src='../img/mouse-invaders/alien.gif' WIDTH=29 height=24 align=bottom></div>";
+}
+text += "\n";
+document.write(text);
+for (i = 0; i < 1; i++) {
+impactos2[i] = new impacto2(i);
+impactos2[i].obj.left = -25;
+impactos2[i].obj.top = -25;
+}
+for (i = 0; i < nImpactos; i++) {
+impactos[i] = new impacto1(i);
+impactos[i].obj.left = -50;
+impactos[i].obj.top = -50;
+}
+for (i = 0; i < nOvnis; i++) {
+disparos[i] = new disparo(i);
+disparos[i].obj.left = -5;
+disparos[i].obj.top = -5;
+}
+for (i = 0; i < nOvnis; i++) {
+ovnis[i] = new ovni(i);
+ovnis[i].obj.left = -29;
+ovnis[i].obj.top = -24;
+}
+if (ufocontrol) {
+document.write('<form>');
+document.write('<input type=checkbox onClick="changeUFOs(this)" CHECKED>');
+document.write('Turn On/Off UFOs');
+document.write('</form>');
+}
+if (isNetscape) {
+startanimate();
+}
+else {
+setTimeout("startanimate()", starttime);
+   }
+}
+function impacto1(i) {
+this.X = -20;
+this.Y = -20;
+if (isNetscape) {
+this.obj = eval("document.imp1" + i);
+}
+else {
+this.obj = eval("imp1" + i + ".style");
+   }
+}
+function impacto2(i) {
+if (isNetscape) {
+this.obj = eval("document.imp2" + i);
+}
+else {
+this.obj = eval("imp2" + i + ".style");
+   }
+}
+function disparo(i) {
+this.X = -5;
+this.Y = -5;
+this.dx = 0;
+this.dy = 0;
+this.estado = 0;
+if (isNetscape) {       
+this.obj = eval("document.dis" + i);
+}
+else {
+this.obj = eval("dis" + i + ".style");
+   }
+}
+function ovni(i) {
+this.X = -30;
+this.Y = -30;
+this.dx = 0;
+this.dy = 0;
+if (isNetscape) {       
+this.obj = eval("document.ovn" + i);
+}
+else {
+this.obj = eval("ovn" + i + ".style");
+   }
+}
+function startanimate() {
+setInterval("animate()", 32);
+}
+function MoveHandlerN(e) {
+Xpos = e.pageX;
+Ypos = e.pageY;   
+return true;
+}
+function MoveHandlerIE() {
+Xpos = window.event.x + document.body.scrollLeft;
+Ypos = window.event.y + document.body.scrollTop;          
+}
+if (isNetscape) {
+document.captureEvents(Event.MOUSEMOVE);
+document.onMouseMove = MoveHandlerN;
+}
+else {
+document.onmousemove = MoveHandlerIE;
+}
+function animate() {
+var deltaX, deltaY, height, width;
+if (activos) {
+for (i = 0;i < nOvnis;i++) {
+if (Xpos > ovnis[i].X) ovnis[i].dx += (i+1)/5;
+else ovnis[i].dx -= (i+1)/5;
+if (ovnis[i].dx > STOPACCEL) ovnis[i].dx = STOPACCEL;
+if (-ovnis[i].dx > STOPACCEL) ovnis[i].dx = -STOPACCEL;
+if (Ypos > ovnis[i].Y) ovnis[i].dy += (i+1)/5;
+else ovnis[i].dy -= (i+1)/5;
+if (ovnis[i].dy > STOPACCEL) ovnis[i].dy = STOPACCEL;
+if (-ovnis[i].dy > STOPACCEL) ovnis[i].dy = -STOPACCEL;
+ovnis[i].X += ovnis[i].dx;
+ovnis[i].Y += ovnis[i].dy;
+deltaX = Xpos - ovnis[i].X - 10;
+deltaY = Ypos - ovnis[i].Y - 10;
+if ((disparos[i].estado == 0) && ((Math.abs(deltaX) + (Math.abs(deltaY))) < 100)) {
+disparos[i].dx = deltaX/10;
+disparos[i].dy = deltaY/10;
+disparos[i].estado++;
+}
+if ((disparos[i].estado > 0) && (disparos[i].estado < 12)) {
+disparos[i].X += disparos[i].dx;
+disparos[i].Y += disparos[i].dy;
+disparos[i].estado++;
+}
+else {
+if (disparos[i].estado != 0) {
+impactoActual++;
+if (impactoActual >= nImpactos) {
+impactoActual = 1;
+}
+impactos2[0].obj.left = impactos[impactoActual].X + 5;
+impactos2[0].obj.top = impactos[impactoActual].Y + 13;
+impactos[impactoActual].X = disparos[i].X - 10;
+impactos[impactoActual].Y = disparos[i].Y - 14;
+impactos[impactoActual].obj.left = impactos[impactoActual].X;
+impactos[impactoActual].obj.top = impactos[impactoActual].Y;
+}
+disparos[i].X = ovnis[i].X+10;
+disparos[i].Y = ovnis[i].Y+10;
+disparos[i].estado = 0;
+}
+if (isNetscape) {
+height = window.innerHeight + document.scrollTop;
+width = window.innerWidth + document.scrollLeft;
+}
+else {
+height = document.body.clientHeight + document.body.scrollTop;
+width = document.body.clientWidth + document.body.scrollLeft;
+}
+if (ovnis[i].Y >=  height - TAMOVNI - 1) {
+if (ovnis[i].dy > 0) {
+ovnis[i].dy = REBOTE * -ovnis[i].dy;
+}
+ovnis[i].Y = height - TAMOVNI - 1;
+}
+if (ovnis[i].X >= width - TAMOVNI) {
+if (ovnis[i].dx > 0) {
+ovnis[i].dx = REBOTE * -ovnis[i].dx;
+}
+ovnis[i].X = width - TAMOVNI - 1;
+}
+if (ovnis[i].X < 0) {
+if (ovnis[i].dx < 0) {
+ovnis[i].dx = REBOTE * -ovnis[i].dx;
+}
+ovnis[i].X = 0;
+}
+if (ovnis[i].Y < 0) {
+if (ovnis[i].dy < 0) {
+ovnis[i].dy = REBOTE * -ovnis[i].dy;
+}
+ovnis[i].Y = 0;
+}
+ovnis[i].obj.left = ovnis[i].X;
+ovnis[i].obj.top =  ovnis[i].Y;
+disparos[i].obj.left = disparos[i].X;
+disparos[i].obj.top =  disparos[i].Y;
+   }
+}
+else {
+if (impactoActual != nImpactos+1)
+{  //while the UFO's are off
+for (i = 0;i < nOvnis;i++) {
+ovnis[i].obj.left = -50;
+ovnis[i].obj.top =  -50;
+disparos[i].obj.left = -10;
+disparos[i].obj.top =  -10;
+}
+for (i = 1;i < nImpactos;i++) {
+impactos[i].obj.left = -20;
+impactos[i].obj.top =  -20;
+}
+impactos2[0].obj.left = -20;
+impactos2[0].obj.top =  -20;
+impactoActual = nImpactos+1;
+      }
+   }
+}
+// End -->
+</script>
+</center>
+<br><br>
+You must also upload all these<br>
+necessary images to your website.<br>
+Download this .zip file and upload<br>
+the images to your web server.<br><br>
+<a href="../img/mouse-invaders/mouse-invaders.zip" /img/mouse-invaders/mouse-invaders.zip">Dowload mouse-invaders.zip</a><br><br>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Games:  Mouse Invaders</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  6.61 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL MOUSE INVADERS:
+
+  1.  Copy the coding into a new file, save as mouse-invaders.js
+  2.  Add the last code into the BODY of your HTML document
+  3.  Be sure to save the necessary images to your web server  --&gt;
+
+&lt;!-- STEP ONE: Save this code as a new file, mouse-invaders.js  --&gt;
+
+
+&lt;!-- Original:  Juan Ignacio Garcia (jigarcia@topmail.com.ar) --&gt;
+&lt;!-- Web Site:  http://ignac.homepage.com --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+var starttime = 10000; // time before script starts, in milliseconds
+var ufocontrol = true; // can UFOs be turned off?  true or false
+var nImpactos = 3;
+var nOvnis = 3;
+var Xpos = 0;
+var Ypos = 0;
+var STOPACCEL = 10;
+var TAMOVNI = 20;
+var REBOTE = 0.65;
+var isNetscape = navigator.appName == "Netscape";
+var impactoActual = 0;
+var ovnis = new Array();
+var disparos = new Array();
+var impactos = new Array();
+var impactos2 = new Array();
+var activos = true;
+var fondoMovil = false;
+var backgroundOffset = 0;
+init();
+function changeUFOs(element) {
+activos = element.checked;
+}
+function init() {
+var text;
+var i = 0;
+text  = "&lt;div id=imp20 style='POSITION: absolute;'&gt;";
+text += "&lt;img src='impact2.gif' WIDTH=11 height=14 align=bottom&gt;&lt;/div&gt;";
+for (i = 0; i &lt; nImpactos; i++) {
+text += "&lt;div id=imp1" + i + " style='POSITION: absolute;'&gt;";
+text += "&lt;img src='impact1.gif' WIDTH=23 height=31 align=bottom&gt;&lt;/div&gt;";
+}
+for (i = 0; i &lt; nOvnis; i++) {
+text += "&lt;div id=dis" + i + " style='POSITION: absolute;'&gt;";
+text += "&lt;img src='bullet.gif' WIDTH=5 height=5 align=bottom&gt;&lt;/div&gt;";
+}
+for (i = 0; i &lt; nOvnis; i++) {
+text += "&lt;div id=ovn" + i + " style='POSITION: absolute;'&gt;";
+text += "&lt;img src='alien.gif' WIDTH=29 height=24 align=bottom&gt;&lt;/div&gt;";
+}
+text += "\n";
+document.write(text);
+for (i = 0; i &lt; 1; i++) {
+impactos2[i] = new impacto2(i);
+impactos2[i].obj.left = -25;
+impactos2[i].obj.top = -25;
+}
+for (i = 0; i &lt; nImpactos; i++) {
+impactos[i] = new impacto1(i);
+impactos[i].obj.left = -50;
+impactos[i].obj.top = -50;
+}
+for (i = 0; i &lt; nOvnis; i++) {
+disparos[i] = new disparo(i);
+disparos[i].obj.left = -5;
+disparos[i].obj.top = -5;
+}
+for (i = 0; i &lt; nOvnis; i++) {
+ovnis[i] = new ovni(i);
+ovnis[i].obj.left = -29;
+ovnis[i].obj.top = -24;
+}
+if (ufocontrol) {
+document.write('&lt;form&gt;');
+document.write('&lt;input type=checkbox onClick="changeUFOs(this)" CHECKED&gt;');
+document.write('Turn On/Off UFOs');
+document.write('&lt;/form&gt;');
+}
+if (isNetscape) {
+startanimate();
+}
+else {
+setTimeout("startanimate()", starttime);
+   }
+}
+function impacto1(i) {
+this.X = -20;
+this.Y = -20;
+if (isNetscape) {
+this.obj = eval("document.imp1" + i);
+}
+else {
+this.obj = eval("imp1" + i + ".style");
+   }
+}
+function impacto2(i) {
+if (isNetscape) {
+this.obj = eval("document.imp2" + i);
+}
+else {
+this.obj = eval("imp2" + i + ".style");
+   }
+}
+function disparo(i) {
+this.X = -5;
+this.Y = -5;
+this.dx = 0;
+this.dy = 0;
+this.estado = 0;
+if (isNetscape) {       
+this.obj = eval("document.dis" + i);
+}
+else {
+this.obj = eval("dis" + i + ".style");
+   }
+}
+function ovni(i) {
+this.X = -30;
+this.Y = -30;
+this.dx = 0;
+this.dy = 0;
+if (isNetscape) {       
+this.obj = eval("document.ovn" + i);
+}
+else {
+this.obj = eval("ovn" + i + ".style");
+   }
+}
+function startanimate() {
+setInterval("animate()", 32);
+}
+function MoveHandlerN(e) {
+Xpos = e.pageX;
+Ypos = e.pageY;   
+return true;
+}
+function MoveHandlerIE() {
+Xpos = window.event.x + document.body.scrollLeft;
+Ypos = window.event.y + document.body.scrollTop;          
+}
+if (isNetscape) {
+document.captureEvents(Event.MOUSEMOVE);
+document.onMouseMove = MoveHandlerN;
+}
+else {
+document.onmousemove = MoveHandlerIE;
+}
+function animate() {
+var deltaX, deltaY, height, width;
+if (activos) {
+for (i = 0;i &lt; nOvnis;i++) {
+if (Xpos &gt; ovnis[i].X) ovnis[i].dx += (i+1)/5;
+else ovnis[i].dx -= (i+1)/5;
+if (ovnis[i].dx &gt; STOPACCEL) ovnis[i].dx = STOPACCEL;
+if (-ovnis[i].dx &gt; STOPACCEL) ovnis[i].dx = -STOPACCEL;
+if (Ypos &gt; ovnis[i].Y) ovnis[i].dy += (i+1)/5;
+else ovnis[i].dy -= (i+1)/5;
+if (ovnis[i].dy &gt; STOPACCEL) ovnis[i].dy = STOPACCEL;
+if (-ovnis[i].dy &gt; STOPACCEL) ovnis[i].dy = -STOPACCEL;
+ovnis[i].X += ovnis[i].dx;
+ovnis[i].Y += ovnis[i].dy;
+deltaX = Xpos - ovnis[i].X - 10;
+deltaY = Ypos - ovnis[i].Y - 10;
+if ((disparos[i].estado == 0) && ((Math.abs(deltaX) + (Math.abs(deltaY))) &lt; 100)) {
+disparos[i].dx = deltaX/10;
+disparos[i].dy = deltaY/10;
+disparos[i].estado++;
+}
+if ((disparos[i].estado &gt; 0) && (disparos[i].estado &lt; 12)) {
+disparos[i].X += disparos[i].dx;
+disparos[i].Y += disparos[i].dy;
+disparos[i].estado++;
+}
+else {
+if (disparos[i].estado != 0) {
+impactoActual++;
+if (impactoActual &gt;= nImpactos) {
+impactoActual = 1;
+}
+impactos2[0].obj.left = impactos[impactoActual].X + 5;
+impactos2[0].obj.top = impactos[impactoActual].Y + 13;
+impactos[impactoActual].X = disparos[i].X - 10;
+impactos[impactoActual].Y = disparos[i].Y - 14;
+impactos[impactoActual].obj.left = impactos[impactoActual].X;
+impactos[impactoActual].obj.top = impactos[impactoActual].Y;
+}
+disparos[i].X = ovnis[i].X+10;
+disparos[i].Y = ovnis[i].Y+10;
+disparos[i].estado = 0;
+}
+if (isNetscape) {
+height = window.innerHeight + document.scrollTop;
+width = window.innerWidth + document.scrollLeft;
+}
+else {
+height = document.body.clientHeight + document.body.scrollTop;
+width = document.body.clientWidth + document.body.scrollLeft;
+}
+if (ovnis[i].Y &gt;=  height - TAMOVNI - 1) {
+if (ovnis[i].dy &gt; 0) {
+ovnis[i].dy = REBOTE * -ovnis[i].dy;
+}
+ovnis[i].Y = height - TAMOVNI - 1;
+}
+if (ovnis[i].X &gt;= width - TAMOVNI) {
+if (ovnis[i].dx &gt; 0) {
+ovnis[i].dx = REBOTE * -ovnis[i].dx;
+}
+ovnis[i].X = width - TAMOVNI - 1;
+}
+if (ovnis[i].X &lt; 0) {
+if (ovnis[i].dx &lt; 0) {
+ovnis[i].dx = REBOTE * -ovnis[i].dx;
+}
+ovnis[i].X = 0;
+}
+if (ovnis[i].Y &lt; 0) {
+if (ovnis[i].dy &lt; 0) {
+ovnis[i].dy = REBOTE * -ovnis[i].dy;
+}
+ovnis[i].Y = 0;
+}
+ovnis[i].obj.left = ovnis[i].X;
+ovnis[i].obj.top =  ovnis[i].Y;
+disparos[i].obj.left = disparos[i].X;
+disparos[i].obj.top =  disparos[i].Y;
+   }
+}
+else {
+if (impactoActual != nImpactos+1)
+{  //while the UFO's are off
+for (i = 0;i &lt; nOvnis;i++) {
+ovnis[i].obj.left = -50;
+ovnis[i].obj.top =  -50;
+disparos[i].obj.left = -10;
+disparos[i].obj.top =  -10;
+}
+for (i = 1;i &lt; nImpactos;i++) {
+impactos[i].obj.left = -20;
+impactos[i].obj.top =  -20;
+}
+impactos2[0].obj.left = -20;
+impactos2[0].obj.top =  -20;
+impactoActual = nImpactos+1;
+      }
+   }
+}
+
+
+
+
+&lt;!-- STEP TWO: Insert code into BODY of your HTML document  --&gt;
+&lt;!-- (Will also be where the UFO control checkbox appears)  --&gt;
+
+&lt;BODY&gt;
+
+&lt;script language="JavaScript" src="mouse-invaders.js"&gt;&lt;/script&gt;
+
+&lt;!-- STEP THREE: Get all the UFO script images from:  --&gt;
+&lt;!-- ../img/mouse-invaders/mouse-invaders.zip  --&gt;
+
+&lt;p&gt;&lt;center&gt;
+&lt;font face="arial, helvetica" SIZE="-2"&gt;Free JavaScripts provided&lt;br&gt;
+by &lt;a href="http://javascriptsource.com"&gt;JavaScript Source Code 3000&lt;/a&gt;&lt;/font&gt;
+&lt;/center&gt;&lt;p&gt;
+
+&lt;!-- Script Size:  6.61 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

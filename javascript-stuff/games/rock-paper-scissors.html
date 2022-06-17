@@ -1,0 +1,227 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Games:  Rock, Paper, Scissors</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Ronnie T. Moore">
+<META NAME="section" CONTENT="Games">
+<META NAME="description" CONTENT="Play Rock, Paper, Scissors against your computer.  Make your selection and the computer will randomly choose as well and then the game will be scored.  Fun!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Suggestion by:  mi-cul@boya-kasha.co.uk -->
+<!-- Based on code by:  Maximilian Stocker (maxstocker@reallyusefulcomputing.com) -->
+
+<!-- Original:  Ronnie T. Moore -->
+<!-- Web Site:  JavaScript Source Code 3000 -->
+
+
+
+
+<!-- Begin
+function playGame(choice) {
+with (document.game) {
+comp = Math.round((Math.random() * 2) + 1); 
+var choicename;
+if (comp == 1) choicename = "rock";
+if (comp == 2) choicename = "paper";
+if (comp == 3) choicename = "scissors";
+msg.value = 'The computer chose ' + choicename + ';  ';
+
+switch(choice) { // calculates score
+case 1 : // rock
+         if (comp == 1) {  draw.value++; msg.value += 'It is a draw.'; break; }
+         if (comp == 2) {  loss.value++;  msg.value += 'You lost!';     break; }
+         if (comp == 3) {  win.value++; msg.value += 'You won!';      break; }
+case 2 : // paper
+         if (comp == 1) {  win.value++;  msg.value += 'You won!';      break; }
+         if (comp == 2) {  draw.value++; msg.value += 'It is a draw.'; break; }
+         if (comp == 3) {  loss.value++; msg.value += 'You lost!';     break; }
+case 3 : // scissors
+         if (comp == 1) {  loss.value++;  msg.value += 'You lost!';     break; }
+         if (comp == 2) {  win.value++; msg.value += 'You won!';      break; }
+         if (comp == 3) {  draw.value++; msg.value += 'It is a draw.'; break; }
+      }
+      msg.value += '  Go again!';
+   }
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /games/"><font color="#FF0000"><b>Games</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Rock, Paper, Scissors</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Play Rock, Paper, Scissors against your computer.  Make your selection and the computer will randomly choose as well and then the game will be scored.  Fun!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name=game>
+<table border=1 cellpadding=5>
+<tr>
+<td align=center>User:</td>
+<td align=center><a href="javascript:void(0);" onClick="playGame(1);"><img src="../img/rock-paper-scissors/rock.gif" /img/rock-paper-scissors/rock.gif" width=29 height=23 border=0></a></td>
+<td align=center><a href="javascript:void(0);" onClick="playGame(2);"><img src="../img/rock-paper-scissors/paper.gif" /img/rock-paper-scissors/paper.gif" width=29 height=23 border=0></a></td>
+<td align=center><a href="javascript:void(0);" onClick="playGame(3);"><img src="../img/rock-paper-scissors/scissors.gif" /img/rock-paper-scissors/scissors.gif" width=29 height=23 border=0></a></td>
+</tr>
+<tr>
+<td colspan=4 align=center><input type=text name=msg size=45></td>
+</tr>
+<tr>
+<td colspan=4 align=center>
+<input type=text name=win readonly value="0" size="2"> Wins&nbsp;&nbsp;
+<input type=text name=loss readonly value="0" size="2"> Losses&nbsp;&nbsp; 
+<input type=text name=draw readonly value="0" size="2"> Draws
+</td>
+</tr>
+</table>
+</form>
+</center>
+<P>
+<P>
+You need the game images to use<br>
+this script.  To get the images,<br>
+you may download this zip file.<br><br>
+<a href="../img/rock-paper-scissors/rock-paper-scissors.zip" /img/rock-paper-scissors/rock-paper-scissors.zip">../img/rock-paper-scissors/rock-paper-scissors.zip</a>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Games:  Rock, Paper, Scissors</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.66 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL ROCK, PAPER, SCISSORS:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document
+  3.  Also be sure to save the game images to your server  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Suggestion by:  mi-cul@boya-kasha.co.uk --&gt;
+&lt;!-- Based on code by:  Maximilian Stocker (maxstocker@reallyusefulcomputing.com) --&gt;
+
+&lt;!-- Original:  Ronnie T. Moore --&gt;
+&lt;!-- Web Site:  JavaScript Source Code 3000 --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function playGame(choice) {
+with (document.game) {
+comp = Math.round((Math.random() * 2) + 1); 
+var choicename;
+if (comp == 1) choicename = "rock";
+if (comp == 2) choicename = "paper";
+if (comp == 3) choicename = "scissors";
+msg.value = 'The computer chose ' + choicename + ';  ';
+
+switch(choice) { // calculates score
+case 1 : // rock
+         if (comp == 1) {  draw.value++; msg.value += 'It is a draw.'; break; }
+         if (comp == 2) {  loss.value++;  msg.value += 'You lost!';     break; }
+         if (comp == 3) {  win.value++; msg.value += 'You won!';      break; }
+case 2 : // paper
+         if (comp == 1) {  win.value++;  msg.value += 'You won!';      break; }
+         if (comp == 2) {  draw.value++; msg.value += 'It is a draw.'; break; }
+         if (comp == 3) {  loss.value++; msg.value += 'You lost!';     break; }
+case 3 : // scissors
+         if (comp == 1) {  loss.value++;  msg.value += 'You lost!';     break; }
+         if (comp == 2) {  win.value++; msg.value += 'You won!';      break; }
+         if (comp == 3) {  draw.value++; msg.value += 'It is a draw.'; break; }
+      }
+      msg.value += '  Go again!';
+   }
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form name=game&gt;
+&lt;table border=1 cellpadding=5&gt;
+&lt;tr&gt;
+&lt;td align=center&gt;User:&lt;/td&gt;
+&lt;td align=center&gt;&lt;a href="javascript:void(0);" onClick="playGame(1);"&gt;&lt;img src="rock.gif" width=29 height=23 border=0&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center&gt;&lt;a href="javascript:void(0);" onClick="playGame(2);"&gt;&lt;img src="paper.gif" width=29 height=23 border=0&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center&gt;&lt;a href="javascript:void(0);" onClick="playGame(3);"&gt;&lt;img src="scissors.gif" width=29 height=23 border=0&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td colspan=4 align=center&gt;&lt;input type=text name=msg size=45&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td colspan=4 align=center&gt;
+&lt;input type=text name=win readonly value="0" size="2"&gt; Wins&nbsp;&nbsp;
+&lt;input type=text name=loss readonly value="0" size="2"&gt; Losses&nbsp;&nbsp; 
+&lt;input type=text name=draw readonly value="0" size="2"&gt; Draws
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+&lt;!-- STEP THREE: Save this zip file and extract to your web site directory  --&gt;
+
+&lt;!-- ../img/rock-paper-scissors/rock-paper-scissors.zip --&gt;
+
+ 
+
+&lt;!-- Script Size:  2.66 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

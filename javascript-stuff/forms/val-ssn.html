@@ -1,0 +1,163 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Forms:  Validation (SSN)</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="Input the Social Security Number using either the 9 digit or NNN-NN-NNNN format.  The number ranges can be easily changed by the S.S.A, so this is not checked.">
+<META NAME="date" CONTENT="2000-11-17">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Sandeep V. Tamhankar">
+<META NAME="section" CONTENT="Forms">
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Carol Gevers -->
+<!-- Modified:  Sandeep V. Tamhankar (stamhankar@hotmail.com) -->
+<!-- Web Site:  http://207.20.242.93 -->
+
+
+
+
+<!-- Begin
+function SSNValidation(ssn) {
+var matchArr = ssn.match(/^(\d{3})-?\d{2}-?\d{4}$/);
+var numDashes = ssn.split('-').length - 1;
+if (matchArr == null || numDashes == 1) {
+alert('Invalid SSN. Must be 9 digits or in the form NNN-NN-NNNN.');
+msg = "does not appear to be valid";
+}
+else 
+if (parseInt(matchArr[1],10)==0) {
+alert("Invalid SSN: SSN's can't start with 000.");
+msg = "does not appear to be valid";
+}
+else {
+msg = "appears to be valid";
+alert(ssn + "\r\n\r\n" + msg + " Social Security Number.");
+   }
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /forms/" ><font color="#FF0000"><b>Forms</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Validation (SSN)</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Input the Social Security Number using either the 9 digit or NNN-NN-NNNN format.  The number ranges can be easily changed by the S.S.A, so this is not checked.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<form>
+<tt>
+SS #:  <input type=text name=ssn size=11 maxlength=11> (use dashes!)
+</tt>
+<p>
+<input type=button value="Validate Number" onClick="SSNValidation(this.form.ssn.value);">
+</form>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Forms:  Validation (SSN)</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Command-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.54 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL VALIDATION (SSN):
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Carol Gevers --&gt;
+&lt;!-- Modified:  Sandeep V. Tamhankar (stamhankar@hotmail.com) --&gt;
+&lt;!-- Web Site:  http://207.20.242.93 --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function SSNValidation(ssn) {
+var matchArr = ssn.match(/^(\d{3})-?\d{2}-?\d{4}$/);
+var numDashes = ssn.split('-').length - 1;
+if (matchArr == null || numDashes == 1) {
+alert('Invalid SSN. Must be 9 digits or in the form NNN-NN-NNNN.');
+msg = "does not appear to be valid";
+}
+else 
+if (parseInt(matchArr[1],10)==0) {
+alert("Invalid SSN: SSN's can't start with 000.");
+msg = "does not appear to be valid";
+}
+else {
+msg = "appears to be valid";
+alert(ssn + "\r\n\r\n" + msg + " Social Security Number.");
+   }
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;form&gt;
+&lt;tt&gt;
+SS #:  &lt;input type=text name=ssn size=11 maxlength=11&gt; (use dashes!)
+&lt;/tt&gt;
+&lt;p&gt;
+&lt;input type=button value="Validate Number" onClick="SSNValidation(this.form.ssn.value);"&gt;
+&lt;/form&gt;
+
+ 
+
+&lt;!-- Script Size:  1.54 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

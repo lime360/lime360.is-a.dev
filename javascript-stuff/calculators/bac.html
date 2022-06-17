@@ -1,0 +1,301 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Calculators:  BAC Calculator</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="James P. Dildine (jpd@wlsmail.com)">
+<META NAME="section" CONTENT="Calculators">
+<META NAME="description" CONTENT="Calculates an individual's blood alcohol content based on the quantity of beverages consumed, the alcohol percentage in each drink, the person's weight, and the time spent consuming the drink.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  James P. Dildine (jpd@wlsmail.com) -->
+<!-- Web Site:  http://www.mste.uiuc.edu/dildine -->
+
+
+
+
+<!-- Begin
+function solveBAC(form) {
+var ounces = eval(form.ounces.value);
+var percent = eval(form.percent.value);
+var weight = eval(form.weight.value);
+var hours = eval(form.hours.value);
+
+var result = (ounces * percent * 0.075 / weight) - (hours * 0.015);
+if (result < 0) {
+message = "There is a negligible amount of alcohol in your system.  You are not legally intoxicated.";
+result = "-- neglible amount --";
+}
+else {
+if (result == "NaN")
+mesage = "Please try again."; 
+if (result > 0.08) 
+message = "In MOST and possibly ALL states you would be considered intoxicated and arrested for DUI.";
+if (result < 0.08)
+message = "You are not legally intoxicated";
+}
+form.message.value = message;
+form.bacamount.value = result + " %";
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /calculators/"><font color="#FF0000"><b>Calculators</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>BAC Calculator</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Calculates an individual's blood alcohol content based on the quantity of beverages consumed, the alcohol percentage in each drink, the person's weight, and the time spent consuming the drink.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+
+<table>
+<tr><td>
+<ul>
+<li>FLUID OUNCES CONSUMED<br>
+(Beer ~ 12 oz. Wine Glass  ~ 4 oz.  1 Shot ~ 1.5 oz)</li>
+<li>YOUR WEIGHT (Lbs)</li>
+<li>ALCOHOL PERCENTAGE IN BEVERAGE<br>
+(Beer ~ 4-4.5%  Wine ~ 15-20%  1 Shot ~ 30-50%)</li>
+<li>HOURS CONSUMING DRINK</li>
+</ul>
+</td>
+</tr>
+</table>
+
+<form method=post name=bacform>
+<table border=4>
+<tr>
+<td align=center>
+Fluid Ounces Consumed
+</td>
+<td align=center>
+<input type=text name=ounces size=6>
+</td>
+<td align=center>
+Percent Alcohol
+</td>
+<td align=center>
+<input type=text name=percent size=6>
+</td>
+</tr>
+<tr>
+<td align=center>
+Your Weight (Lbs)
+</td>
+<td align=center>
+<input type=text name=weight size=6>
+</td>
+<td align=center>
+Hours Consuming Drink
+</td>
+<td align=center>
+<input type=text name=hours size=6>
+</td>
+</tr>
+<tr>
+<td colspan=4 align=center>
+<input type=button name=bac value="Calculate Your BAC %" onClick="javascript:solveBAC(this.form)">
+</td>
+</tr>
+<tr>
+<td align=center>
+BAC Percentage
+</td>
+<td colspan=3 align=center>
+<input type=text name=bacamount size=21>
+</td>
+</tr>
+<tr>
+<td align=center>
+BAC Analysis
+</td>
+<td colspan=3 align=center>
+<textarea name=message rows=3 cols=35 wrap=virtual></textarea>
+</td>
+</tr>
+</table>
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Calculators:  BAC Calculator</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.67 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL BAC CALCULATOR:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  James P. Dildine (jpd@wlsmail.com) --&gt;
+&lt;!-- Web Site:  http://www.mste.uiuc.edu/dildine --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function solveBAC(form) {
+var ounces = eval(form.ounces.value);
+var percent = eval(form.percent.value);
+var weight = eval(form.weight.value);
+var hours = eval(form.hours.value);
+
+var result = (ounces * percent * 0.075 / weight) - (hours * 0.015);
+if (result &lt; 0) {
+message = "There is a negligible amount of alcohol in your system.  You are not legally intoxicated.";
+result = "-- neglible amount --";
+}
+else {
+if (result == "NaN")
+mesage = "Please try again."; 
+if (result &gt; 0.08) 
+message = "In MOST and possibly ALL states you would be considered intoxicated and arrested for DUI.";
+if (result &lt; 0.08)
+message = "You are not legally intoxicated";
+}
+form.message.value = message;
+form.bacamount.value = result + " %";
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+
+&lt;table&gt;
+&lt;tr&gt;&lt;td&gt;
+&lt;ul&gt;
+&lt;li&gt;FLUID OUNCES CONSUMED&lt;br&gt;
+(Beer ~ 12 oz. Wine Glass  ~ 4 oz.  1 Shot ~ 1.5 oz)&lt;/li&gt;
+&lt;li&gt;YOUR WEIGHT (Lbs)&lt;/li&gt;
+&lt;li&gt;ALCOHOL PERCENTAGE IN BEVERAGE&lt;br&gt;
+(Beer ~ 4-4.5%  Wine ~ 15-20%  1 Shot ~ 30-50%)&lt;/li&gt;
+&lt;li&gt;HOURS CONSUMING DRINK&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;form method=post name=bacform&gt;
+&lt;table border=4&gt;
+&lt;tr&gt;
+&lt;td align=center&gt;
+Fluid Ounces Consumed
+&lt;/td&gt;
+&lt;td align=center&gt;
+&lt;input type=text name=ounces size=6&gt;
+&lt;/td&gt;
+&lt;td align=center&gt;
+Percent Alcohol
+&lt;/td&gt;
+&lt;td align=center&gt;
+&lt;input type=text name=percent size=6&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=center&gt;
+Your Weight (Lbs)
+&lt;/td&gt;
+&lt;td align=center&gt;
+&lt;input type=text name=weight size=6&gt;
+&lt;/td&gt;
+&lt;td align=center&gt;
+Hours Consuming Drink
+&lt;/td&gt;
+&lt;td align=center&gt;
+&lt;input type=text name=hours size=6&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td colspan=4 align=center&gt;
+&lt;input type=button name=bac value="Calculate Your BAC %" onClick="javascript:solveBAC(this.form)"&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=center&gt;
+BAC Percentage
+&lt;/td&gt;
+&lt;td colspan=3 align=center&gt;
+&lt;input type=text name=bacamount size=21&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=center&gt;
+BAC Analysis
+&lt;/td&gt;
+&lt;td colspan=3 align=center&gt;
+&lt;textarea name=message rows=3 cols=35 wrap=virtual&gt;&lt;/textarea&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  2.67 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>
+
+
+

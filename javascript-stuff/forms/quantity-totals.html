@@ -1,0 +1,264 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Forms:  Quantity Totals</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="(Best with Internet Explorer)  Update to our Form Totals Script.  Allows you to enter a quantity of each item selected and finds the total automatically.  Great!">
+<META NAME="date" CONTENT="2000-11-30">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Paul DeBrino">
+<META NAME="section" CONTENT="Forms">
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Paul DeBrino (irandd@aol.com) -->
+
+
+
+
+<!-- Begin
+function checkChoice(whichbox) {
+with (whichbox.form) {
+if (isNaN(whichbox.value)) { 
+whichbox.value = whichbox.priorval;
+whichbox.focus();
+}
+whichbox.value = Math.abs(whichbox.value);
+var dec = whichbox.value.indexOf('.', 1)
+if (dec > 0) { 
+alert('No decimal places allowed for \"' +whichbox.name +'\" !');
+whichbox.value = whichbox.priorval;
+whichbox.focus();
+}
+hiddentotal.value = eval(hiddentotal.value) - eval(whichbox.price * whichbox.priorval);
+whichbox.priorval = whichbox.value;
+hiddentotal.value = eval(hiddentotal.value) + eval(whichbox.price * whichbox.value);
+return(formatCurrency(hiddentotal.value));
+   }
+}
+function formatCurrency(num) {
+<!-- Function courtesy of:  Cyanide_7 (leo7278@hotmail.com) -->
+<!-- Web Site:  http://www7.ewebcity.com/cyanide7 -->
+num = num.toString().replace(/\$|\,/g,'');
+if(isNaN(num)) num = "0";
+cents = Math.floor((num * 100 + 0.5) % 100);
+num = Math.floor((num * 100 + 0.5) / 100).toString();
+if(cents < 10) cents = "0" + cents;
+for (var i = 0; i < Math.floor((num.length - (1 + i)) / 3); i++)
+num = num.substring(0,num.length - (4 * i + 3))+','+num.substring(num.length-(4 * i + 3));
+return ("$" + num + "." + cents);
+}
+function InitForm() {
+document.myform.total.value = '$0';
+document.myform.hiddentotal.value = 0;
+for (xx = 0; xx < document.myform.elements.length; xx++) {
+if (document.myform.elements[xx].type == 'text') { 
+document.myform.elements[xx].value = 0;
+   }
+}
+for (xx=0; xx < document.myform2.elements.length; xx++) {
+if (document.myform2.elements[xx].type == 'text') {
+document.myform2.elements[xx].value = 0;
+      }
+   }
+}
+//  End -->
+</script>
+
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff onLoad="InitForm()">
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /forms/" ><font color="#FF0000"><b>Forms</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Quantity Totals</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+(Best with Internet Explorer)  Update to our Form Totals Script.  Allows you to enter a quantity of each item selected and finds the total automatically.  More JavaScript forms available at <a href="javascript:if(confirm('http://members.aol.com/irandd/  \n\nYou must be connected to the Internet to access this link.  \n\nDo you want to open it from the server?'))window.location='http://members.aol.com/irandd/'" tppabs="http://members.aol.com/irandd/">http://members.aol.com/irandd/</a>.Great!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<table>
+<tr>
+<td>
+<form name=myform>
+<pre>
+<b>Example 1</b>
+Steak    $15.25     <input type=text name=Steak   size=3 value=0 priorval=0 price="15.25" onChange="this.form.total.value=checkChoice(this);">
+Chicken  $12.39     <input type=text name=Chicken size=3 value=0 priorval=0 price="12.39" onChange="this.form.total.value=checkChoice(this);">
+Sushi    $18.75     <input type=text name=Sushi   size=3 value=0 priorval=0 price="18.75" onChange="this.form.total.value=checkChoice(this);">
+<br>
+Your total is:  <input type="text" name="total" value="" size=8 readonly><input type=hidden name=hiddentotal value=0>
+</pre>
+</form>
+<hr width="100%" noshsde>
+<form name=myform2>
+<pre>
+<b>Example 2</b>
+Tea      $  .50     <input type=text name=Tea    size=3 value=0 priorval=0 price=".50"  onChange="this.form.total.value=checkChoice(this);">
+Cola     $  .79     <input type=text name=Cola   size=3 value=0 priorval=0 price=".79"  onChange="this.form.total.value=checkChoice(this);">
+Coffee   $ 1.75     <input type=text name=Coffee size=3 value=0 priorval=0 price="1.75" onChange="this.form.total.value=checkChoice(this);">
+<br>
+Your total is:  <input type="text" name="total" value="" size=8 readonly><input type=hidden name=hiddentotal value=0>
+</pre>
+</form>
+</td>
+</tr>
+</table>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Forms:  Quantity Totals</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Command-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  3.96 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL QUANTITY TOTALS:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the onLoad event handler into the BODY tag
+  3.  Put the last coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Paul DeBrino (irandd@aol.com) --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function checkChoice(whichbox) {
+with (whichbox.form) {
+if (isNaN(whichbox.value)) { 
+whichbox.value = whichbox.priorval;
+whichbox.focus();
+}
+whichbox.value = Math.abs(whichbox.value);
+var dec = whichbox.value.indexOf('.', 1)
+if (dec &gt; 0) { 
+alert('No decimal places allowed for \"' +whichbox.name +'\" !');
+whichbox.value = whichbox.priorval;
+whichbox.focus();
+}
+hiddentotal.value = eval(hiddentotal.value) - eval(whichbox.price * whichbox.priorval);
+whichbox.priorval = whichbox.value;
+hiddentotal.value = eval(hiddentotal.value) + eval(whichbox.price * whichbox.value);
+return(formatCurrency(hiddentotal.value));
+   }
+}
+function formatCurrency(num) {
+&lt;!-- Function courtesy of:  Cyanide_7 (leo7278@hotmail.com) --&gt;
+&lt;!-- Web Site:  http://www7.ewebcity.com/cyanide7 --&gt;
+num = num.toString().replace(/\$|\,/g,'');
+if(isNaN(num)) num = "0";
+cents = Math.floor((num * 100 + 0.5) % 100);
+num = Math.floor((num * 100 + 0.5) / 100).toString();
+if(cents &lt; 10) cents = "0" + cents;
+for (var i = 0; i &lt; Math.floor((num.length - (1 + i)) / 3); i++)
+num = num.substring(0,num.length - (4 * i + 3))+','+num.substring(num.length-(4 * i + 3));
+return ("$" + num + "." + cents);
+}
+function InitForm() {
+document.myform.total.value = '$0';
+document.myform.hiddentotal.value = 0;
+for (xx = 0; xx &lt; document.myform.elements.length; xx++) {
+if (document.myform.elements[xx].type == 'text') { 
+document.myform.elements[xx].value = 0;
+   }
+}
+for (xx=0; xx &lt; document.myform2.elements.length; xx++) {
+if (document.myform2.elements[xx].type == 'text') {
+document.myform2.elements[xx].value = 0;
+      }
+   }
+}
+//  End --&gt;
+&lt;/script&gt;
+
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Insert the onLoad event handler into your BODY tag  --&gt;
+
+&lt;BODY onLoad="InitForm()"&gt;
+
+&lt;!-- STEP THREE: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;center&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;form name=myform&gt;
+&lt;pre&gt;
+&lt;b&gt;Example 1&lt;/b&gt;
+Steak    $15.25     &lt;input type=text name=Steak   size=3 value=0 priorval=0 price="15.25" onChange="this.form.total.value=checkChoice(this);"&gt;
+Chicken  $12.39     &lt;input type=text name=Chicken size=3 value=0 priorval=0 price="12.39" onChange="this.form.total.value=checkChoice(this);"&gt;
+Sushi    $18.75     &lt;input type=text name=Sushi   size=3 value=0 priorval=0 price="18.75" onChange="this.form.total.value=checkChoice(this);"&gt;
+&lt;br&gt;
+Your total is:  &lt;input type="text" name="total" value="" size=8 readonly&gt;&lt;input type=hidden name=hiddentotal value=0&gt;
+&lt;/pre&gt;
+&lt;/form&gt;
+&lt;hr width="100%" noshsde&gt;
+&lt;form name=myform2&gt;
+&lt;pre&gt;
+&lt;b&gt;Example 2&lt;/b&gt;
+Tea      $  .50     &lt;input type=text name=Tea    size=3 value=0 priorval=0 price=".50"  onChange="this.form.total.value=checkChoice(this);"&gt;
+Cola     $  .79     &lt;input type=text name=Cola   size=3 value=0 priorval=0 price=".79"  onChange="this.form.total.value=checkChoice(this);"&gt;
+Coffee   $ 1.75     &lt;input type=text name=Coffee size=3 value=0 priorval=0 price="1.75" onChange="this.form.total.value=checkChoice(this);"&gt;
+&lt;br&gt;
+Your total is:  &lt;input type="text" name="total" value="" size=8 readonly&gt;&lt;input type=hidden name=hiddentotal value=0&gt;
+&lt;/pre&gt;
+&lt;/form&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  3.96 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

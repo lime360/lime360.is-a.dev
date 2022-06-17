@@ -1,0 +1,221 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  BG Effects:  Random Background</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="BG Effects">
+<META NAME="description" CONTENT="Get a random background color with the touch of a button.  This script uses 15 pre-determined background colors and then randomly chooses one.  This is a great effect if you know what background colors don't interfere with the text on your page.  Then, you can make them the 15 pre-determined background colors.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function backcolor(form) {
+temp = ""
+for (var i = 0; i < 16; i++) {
+temp = form.color[i].value
+if (form.color[i].checked){ document.bgColor = temp }
+   }
+}
+function randombackground() {
+document.bgColor = getColor()
+}
+function getColor(){
+currentdate = new Date()
+backgroundcolor = currentdate.getSeconds()
+if (backgroundcolor > 44)
+backgroundcolor = backgroundcolor - 45
+else if (backgroundcolor > 29)
+backgroundcolor = backgroundcolor - 30
+else if (backgroundcolor > 15)
+backgroundcolor = backgroundcolor - 16
+if (backgroundcolor == 0 )
+return "olive";
+else if (backgroundcolor == 1 )
+return "teal";
+else if (backgroundcolor == 2 )
+return "red";
+else if (backgroundcolor == 3 )
+return "blue";
+else if (backgroundcolor == 4 )
+return "maroon";
+else if (backgroundcolor == 5 )
+return "navy";
+else if (backgroundcolor == 6 )
+return "lime";
+else if (backgroundcolor == 7 )
+return "fuschia";
+else if (backgroundcolor == 8 )
+return "green";
+else if (backgroundcolor == 9 )
+return "purple";
+else if (backgroundcolor == 10 )
+return "gray";
+else if (backgroundcolor == 11 )
+return "yellow";
+else if (backgroundcolor == 12 )
+return "aqua";
+else if (backgroundcolor == 13 )
+return "black";
+else if (backgroundcolor == 14 )
+return "white";
+else if (backgroundcolor == 15 )
+return "silver";
+}
+// End -->
+</SCRIPT>
+</HEAD>
+
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /bgeffects/"><font color="#FF0000">Background Effects</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Random Background</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Get a random background color with the touch of a button.  This script uses 15 pre-determined background colors and then randomly chooses one.  This is a great effect if you know what background colors don't interfere with the text on your page.  Then, you can make them the 15 pre-determined background colors.
+<br>
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<CENTER>
+<FORM>
+<input type="button" value="Get Another Random Background" onClick="randombackground()">
+</FORM>
+</CENTER>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  BG Effects:  Random Background</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.00 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL RANDOM BACKGROUND:
+
+   1.  Add the designated script to the HEAD of your HTML document
+   2.  Place the last script into the BODY of your HTML document  --&gt;
+		  
+&lt;!-- STEP ONE:  Add this script to the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function backcolor(form) {
+temp = ""
+for (var i = 0; i &lt; 16; i++) {
+temp = form.color[i].value
+if (form.color[i].checked){ document.bgColor = temp }
+   }
+}
+function randombackground() {
+document.bgColor = getColor()
+}
+function getColor(){
+currentdate = new Date()
+backgroundcolor = currentdate.getSeconds()
+if (backgroundcolor &gt; 44)
+backgroundcolor = backgroundcolor - 45
+else if (backgroundcolor &gt; 29)
+backgroundcolor = backgroundcolor - 30
+else if (backgroundcolor &gt; 15)
+backgroundcolor = backgroundcolor - 16
+if (backgroundcolor == 0 )
+return "olive";
+else if (backgroundcolor == 1 )
+return "teal";
+else if (backgroundcolor == 2 )
+return "red";
+else if (backgroundcolor == 3 )
+return "blue";
+else if (backgroundcolor == 4 )
+return "maroon";
+else if (backgroundcolor == 5 )
+return "navy";
+else if (backgroundcolor == 6 )
+return "lime";
+else if (backgroundcolor == 7 )
+return "fuschia";
+else if (backgroundcolor == 8 )
+return "green";
+else if (backgroundcolor == 9 )
+return "purple";
+else if (backgroundcolor == 10 )
+return "gray";
+else if (backgroundcolor == 11 )
+return "yellow";
+else if (backgroundcolor == 12 )
+return "aqua";
+else if (backgroundcolor == 13 )
+return "black";
+else if (backgroundcolor == 14 )
+return "white";
+else if (backgroundcolor == 15 )
+return "silver";
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+&lt;!-- STEP TWO:  Put this form in the BODY of the HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;CENTER&gt;
+&lt;FORM&gt;
+&lt;input type="button" value="Get Another Random Background" onClick="randombackground()"&gt;
+&lt;/FORM&gt;
+&lt;/CENTER&gt;
+
+ 
+
+&lt;!-- Script Size:  2.00 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

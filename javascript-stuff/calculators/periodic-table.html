@@ -1,0 +1,701 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Calculators:  Periodic Table</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Matthew Hoesch (mdih@msn.com)">
+<META NAME="section" CONTENT="Calculators">
+<META NAME="description" CONTENT="Besides a clean Periodic Table, this script will tell you lots of information about any periodic element you click on.  Very neat!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+function display (Name, Number, Weight, Melt, Freeze) {
+document.table.name.value=Name;
+document.table.number.value=Number;
+document.table.weight.value=Weight;
+document.table.melt.value=Melt;
+document.table.freeze.value=Freeze;
+}
+// End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /calculators/"><font color="#FF0000">Calculators</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Periodic Table</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE=" helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Besides a very organized Periodic Table, this script will tell you lots of information about any periodic element you click on.  Very neat!<br><hr>
+</td></tr>
+</table>
+<!--  Demonstration -->
+<center><h2>Periodic Table of the Elements</h2>
+<p>
+<form>
+<table cellspacing=2 cellpadding=0 width=500>
+<tr>
+<td align=center bgcolor="#FFE4C4"><a 
+href="javascript:display('Hydrogen','1','1.0079','-259.14C','-252.87C');">H</a></td>
+<td colspan="16"></td>
+<td align=center bgcolor="#FFE4C4"><a 
+href="javascript:display('Helium','2','4.0026','-272C @ 26ATM','-268.6C');">He</a></td>
+</tr>
+<tr>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Lithium','3','6.94','180.54 C','1347 C');">Li</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Beryllium','4','9.01218','1278 C','2970 C');">Be</a></td>
+<td colspan="10"></td>
+<td align=center bgcolor="#FF4500"><a
+href="javascript:display('Boron','5','10.81','2300 C','2550 C');">B</a></td>
+<td align=center bgcolor="#FFE4C4"><a
+href="javascript:display('Carbon','6','12.011','3500 C','4827 C');">C</a></td>
+<td align=center bgcolor="#FFE4C4"><a
+href="javascript:display('Nitrogen','7','14.0067','-209.9 C','-195.8 C');">N</a></td>
+<td align=center bgcolor="#FFE4C4"><a
+href="javascript:display('Oxygen','8','15.9994','-218.4 C','-183.0 C');">O</a></td>
+<td align=center bgcolor="#FFE4C4"><a
+href="javascript:display('Flourine','9','18.998403','-219.62 C','-188.14 C');">F</a></td>
+<td align=center bgcolor="#FFE4C4"><a
+href="javascript:display('Neon','10','20.17','-248.6 C','-246.1 C');">Ne</a></td>
+</tr>
+<tr>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Sodium','11','22.98977','97.8 C','882.9 C');">Na</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Magnesium','12','24.305','638.8 C','1090 C');">Mg</a></td>
+<td colspan="10"></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Aluminum','13','26.98154','660.37 C','2467 C');">Al</a></td>
+<td align=center bgcolor="#FF4500"><a
+href="javascript:display('Silicon','14','28.0855','1410 C','2355 C');">Si</a></td>
+<td align=center bgcolor="#FFE4C4"><a
+href="javascript:display('Phosphorous','15','30.97376','44.1 C','280 C');">P</a></td>
+<td align=center bgcolor="#FFE4C4"><a
+href="javascript:display('Sulfur','16','32.06','112.8 C','444.6 C');">S</a></td>
+<td align=center bgcolor="#FFE4C4"><a
+href="javascript:display('Chlorine','17','35.453','-100.98 C','-34.6 C');">Cl</a></td>
+<td align=center bgcolor="#FFE4C4"><a
+href="javascript:display('Argon','18','39.948','-189.3 C','-186 C');">Ar</a></td>
+</tr>
+<tr>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Potassium','19','39.0983','63.65 C','774 C');">K</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Calcium','20','40.08','839 C','1484.4 C');">Ca</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Scandium','21','44.9559','1539 C','2832 C');">Sc</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Titanium','22','47.90','1660 C','3287 C');">Ti</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Vandium','23','50.9415','1890±10 C','3380 C');">V</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Chromium','24','51.996','1857 C','2672 C');">Cr</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Manganese','25','54.9380','1245 C','1962 C');">Mn</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Iron','26','55.847','1535 C','2750 C');">Fe</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Cobalt','27','58.9332','1495 C','2870 C');">Co</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Nickel','28','58.71','1453 C','2732 C');">Ni</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Copper','29','63.546','1803 C','2567 C');">Cu</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Zinc','30','65.38','419.58 C','907 C');">Zn</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Gallium','31','69.735','29.78 C','2403 C');">Ga</a></td>
+<td align=center bgcolor="#FF4500"><a
+href="javascript:display('Germanium','32','72.59','937.4 C','2830 C');">Ge</a></td>
+<td align=center bgcolor="#FF4500"><a
+href="javascript:display('Arsenic','33','74.9216','81 C @ 28ATM','Sublimes at 613')">As</a></td>
+<td align=center bgcolor="#FFE4C4"><a
+href="javascript:display('Selenium','34','78.96','217 C','684.9 C');">Se</a></td>
+<td align=center bgcolor="#FFE4C4"><a
+href="javascript:display('Bromine','35','79.904','-7.2 C','58.78 C');">Br</a></td>
+<td align=center bgcolor="#FFE4C4"><a
+href="javascript:display('Krypton','36','83.80','-157.2 C','-153.4 C');">Kr</a></td>
+</tr>
+<tr>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Rubidium','37','85.467','38.89 C','688 C');">Rb</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Strontium','38','87.62','769 C','1384 C');">Sr</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Yttrium','39','88.9059','1523 C','3337 C');">Y</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Zirconium','40','91.22','1852±2 C','4377 C');">Zr</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Niobium','41','92.9064','2468±10 C','4927 C');">Nb</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Molybdenum','42','95.94','2617 C','4612 C');">Mo</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Technetium','43','98.9062','2200±50 C','4877 C');">Tc</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Ruthenium','44','101.07','2250 C','3900 C');">Ru</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Rhodium','45','102.9055','1966±3 C','3727 C');">Rh</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Palladium','46','106.4','1552 C','2927 C');">Pd</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Silver','47','107.868','961.93 C','2212 C');">Ag</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Cadmium','48','112.41','320.9 C','765 C');">Cd</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Indium','49','114.82','156.61 C','2000±10 C');">In</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Tin','50','118.69','231.9 C','2270 C');">Sn</a></td>
+<td align=center bgcolor="#FF4500"><a
+href="javascript:display('Antimony','51','121.75','630 C','1750 C');">Sb</a></td>
+<td align=center bgcolor="#FF4500"><a
+href="javascript:display('Tellurium','52','127.60','449.5 C','989.8 C');">Te</a></td>
+<td align=center bgcolor="#FFE4C4"><a
+href="javascript:display('Iodine','53','126.9045','113.5 C','184 C @ 35 atm')">I</a></td>
+<td align=center bgcolor="#FFE4C4"><a
+href="javascript:display('Xenon','54','131.30','-111.9 C','-108.1 C');">Xe</a></td>
+</tr>
+<tr>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Cesium','55','132.9054','28.5 C','678.4 C');">Cs</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Barium','56','137.33','725 C','1140 C');">Ba</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Lanthanum','57','138.9055','920 C','3469 C');">La</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Hafnium','72','178.49','2150 C','5400 C');">Hf</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Tantalum','73','180.947','2996 C','5425±100 C');">Ta</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Tungsten','74','183.85','3410±20 C','5660 C');">W</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Rhenium','75','186.207','3180 C','5627 C');">Re</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Osmium','76','190.2','3045 C','5027 C');">Os</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Iridium','77','192.22','2410 C','4527±100 C');">Ir</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Platinum','78','195.09','1772 C','3827 C');">Pt</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Gold','79','196.9665','1064.43 C','2807 C');">Au</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Mercury','80','200.59','-38.87 C','356.58 C');">Hg</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Thallium','81','204.37','303.5 C','1457±10C');">Tl</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Lead','82','207.2','327.5 C','1740 C');">Pb</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Bismuth','83','208.9804','271.3 C','1560±5C');">Bi</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Polonium','84','(209)','254 C','962 C');">Po</a></td>
+<td align=center bgcolor="#FF4500"><a
+href="javascript:display('Astatine','85','(210)','302 C','337 C');">At</a></td>
+<td align=center bgcolor="#FFE4C4"><a
+href="javascript:display('Radon','86','(222)','-71 C\t','-61.8 C');">Rn</a></td>
+</tr>
+<tr>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Francium','87','(223)','27 C\t','677 C');">Fr</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Radium','88','226.0254','700 C','1737 C');">Ra</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Actinium','89','(227)','1050 C','3200±300 C');">Ac</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Unnilquadium','104','(260)','N/A C','N/A C');">Unq</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Unnilpentium','105','(260)','N/A C','N/A C');">Unp</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Unnilhexium','106','(263)','N/A C','N/A C');">Unh</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Unnilseptium','107','(262)','N/A C','N/A C');">Uns</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Unniloctium', '108', '(265)', ' N/A C', 'N/A C');">Uno</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Unnilennium', '109', '(267)', ' N/A C', 'N/A C');">Une</a></td>
+<td colspan="9"></td>
+</tr>
+<tr>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Cerium','58','140.12','795 C','3257 C');">Ce</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Praseodymium','59','140.9077','935 C','3127 C');">Pr</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Neodymium','60','144.24','1010 C','3127 C');">Nd</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Promethium','61','(145)','N/A C','N/A C');">Pm</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Samarium','62','150.4','1072 C','1900 C');">Sm</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Europium','63','151.96','822 C','1597 C');">Eu</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Gadolinium','64','157.25','1311 C','3233 C');">Gd</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Terbium','65','158.9254','1360 C','3041 C');">Tb</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Dysprosium','66','162.50','1412 C','2562 C');">Dy</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Holmium','67','164.9304','1470 C','2720 C');">Ho</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Erbium','68','167.26','1522 C','2510 C');">Er</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Thulium','69','168.9342','1545 C','1727 C');">Tm</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Ytterbium','70','173.04','824 C','1466 C');">Yb</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Lutetium','71','174.96','1656 C','3315 C');">Lu</a></td>
+<td colspan="4"></td>
+</tr>
+<tr>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Thorium','90','232.0381','1750 C','4790 C');">Th</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Proactinium','91','231.0359','1600 C','N/A C');">Pa</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Uranium','92','238.029','1132 C','3818 C');">U</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Neptunium','93','237.0482','640 C','3902 C');">Np</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Plutonium','94','(244)','639.5±2 C','3235±19 C');">Pu</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Americium','95','(243)','994 C','2607 C');">Am</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Curium','96','(247)','1340 C','N/A C');">Cm</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Berkelium','97','(247)','N/A C','N/A C');">Bk</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Californium','98','(251)','N/A C','N/A C');">Cf</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Einsteinium','99','(254)','N/A C','N/A C');">Es</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Fremium','100','(257)','N/A C','N/A C');">Fm</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Mendelevium','101','(258)','N/A C','N/A C');">Md</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Nobelium','102','(259)','N/A C','N/A C');">No</a></td>
+<td align=center bgcolor="#5F9EA0"><a
+href="javascript:display('Lawrencium','103','(260)','N/A C','N/A C');">Lr</a></td>
+<td colspan="4"></td>
+</tr>
+</table>
+</form>
+<form name="table">
+<table width="500">
+<tr>
+<td align="center" width="33%">Name</td>
+<td align="center" width="33%">Number</td>
+<td align="center" width="33%">Weight</td>
+</tr>
+<tr>
+<td align="center" width="33%"><input type="text" name="name" value=" " size="14"></td>
+<td align="center" width="33%"><input type="text" name="number" value=" " size="6"></td>
+<td align="center" width="33%"><input type="text" name="weight" value=" " size="16"></td>
+</tr>
+<tr>
+<td align="center" width="33%">Melts</td>
+<td align="center" width="33%"></td>
+<td align="center" width="33%">Boils</td>
+</tr>
+<tr>
+<td align="center" width="33%"><input type="text" name="melt" value=" " size="18"></td>
+<td align="center" width="33%"></td>
+<td align="center" width="33%"><input type="text" name="freeze" value=" " size="18"></td>
+</tr>
+</table>
+</form>
+<hr width=600>
+<p><center>
+<table border=1 width=500>
+<tr><td colspan=2 align=center>Legend</td>
+</tr>
+<tr>
+<td align=center bgcolor="#5F9EA0">Metals</td>
+<td>A solid substance that is a good conductor of heat and electricity.  Can be formed into many shapes.</td>
+</tr>
+<tr>
+<td align=center bgcolor="#FF4500">Metalloid</td>
+<td>"Middle elements" - conduct heat and electricity better than nonmetals, but not as well as metals. Easier to shape than nonmetals, but not as easy as metals.  Solid at room temperature.</td>
+</tr>
+<tr>
+<td align=center bgcolor="#FFE4C4">Nonmetals</td>
+<td>A poor conductor of heat and electricity.  Not easily formed into shapes.</td>
+</tr>
+</table>
+</center>
+<P>
+<BR>
+<P>
+<a name="source">
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Calculators:  Periodic Table</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as NotePad or SimpleText) and save (Control-s or Apple-s).  The script is yours!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  15.90 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL PERIODIC TABLE:
+
+   1.  Paste the first code in the HEAD of your HTML document
+   2.  Add the last coding to the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste the first code in the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Matthew Hoesch (mdih@msn.com) --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function display (Name, Number, Weight, Melt, Freeze) {
+document.table.name.value=Name;
+document.table.number.value=Number;
+document.table.weight.value=Weight;
+document.table.melt.value=Melt;
+document.table.freeze.value=Freeze;
+}
+// End --&gt;
+&lt;/script&gt;
+
+&lt;!-- STEP TWO: Add the last coding to the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;&lt;h2&gt;Periodic Table of the Elements&lt;/h2&gt;
+&lt;p&gt;
+&lt;form&gt;
+&lt;table cellspacing=2 cellpadding=0 width=500&gt;
+&lt;tr&gt;
+&lt;td align=center bgcolor="#FFE4C4"&gt;&lt;a 
+href="javascript:display('Hydrogen','1','1.0079','-259.14C','-252.87C');"&gt;H&lt;/a&gt;&lt;/td&gt;
+&lt;td colspan="16"&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#FFE4C4"&gt;&lt;a 
+href="javascript:display('Helium','2','4.0026','-272C @ 26ATM','-268.6C');"&gt;He&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Lithium','3','6.94','180.54 C','1347 C');"&gt;Li&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Beryllium','4','9.01218','1278 C','2970 C');"&gt;Be&lt;/a&gt;&lt;/td&gt;
+&lt;td colspan="10"&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#FF4500"&gt;&lt;a
+href="javascript:display('Boron','5','10.81','2300 C','2550 C');"&gt;B&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#FFE4C4"&gt;&lt;a
+href="javascript:display('Carbon','6','12.011','3500 C','4827 C');"&gt;C&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#FFE4C4"&gt;&lt;a
+href="javascript:display('Nitrogen','7','14.0067','-209.9 C','-195.8 C');"&gt;N&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#FFE4C4"&gt;&lt;a
+href="javascript:display('Oxygen','8','15.9994','-218.4 C','-183.0 C');"&gt;O&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#FFE4C4"&gt;&lt;a
+href="javascript:display('Flourine','9','18.998403','-219.62 C','-188.14 C');"&gt;F&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#FFE4C4"&gt;&lt;a
+href="javascript:display('Neon','10','20.17','-248.6 C','-246.1 C');"&gt;Ne&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Sodium','11','22.98977','97.8 C','882.9 C');"&gt;Na&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Magnesium','12','24.305','638.8 C','1090 C');"&gt;Mg&lt;/a&gt;&lt;/td&gt;
+&lt;td colspan="10"&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Aluminum','13','26.98154','660.37 C','2467 C');"&gt;Al&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#FF4500"&gt;&lt;a
+href="javascript:display('Silicon','14','28.0855','1410 C','2355 C');"&gt;Si&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#FFE4C4"&gt;&lt;a
+href="javascript:display('Phosphorous','15','30.97376','44.1 C','280 C');"&gt;P&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#FFE4C4"&gt;&lt;a
+href="javascript:display('Sulfur','16','32.06','112.8 C','444.6 C');"&gt;S&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#FFE4C4"&gt;&lt;a
+href="javascript:display('Chlorine','17','35.453','-100.98 C','-34.6 C');"&gt;Cl&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#FFE4C4"&gt;&lt;a
+href="javascript:display('Argon','18','39.948','-189.3 C','-186 C');"&gt;Ar&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Potassium','19','39.0983','63.65 C','774 C');"&gt;K&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Calcium','20','40.08','839 C','1484.4 C');"&gt;Ca&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Scandium','21','44.9559','1539 C','2832 C');"&gt;Sc&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Titanium','22','47.90','1660 C','3287 C');"&gt;Ti&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Vandium','23','50.9415','1890±10 C','3380 C');"&gt;V&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Chromium','24','51.996','1857 C','2672 C');"&gt;Cr&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Manganese','25','54.9380','1245 C','1962 C');"&gt;Mn&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Iron','26','55.847','1535 C','2750 C');"&gt;Fe&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Cobalt','27','58.9332','1495 C','2870 C');"&gt;Co&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Nickel','28','58.71','1453 C','2732 C');"&gt;Ni&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Copper','29','63.546','1803 C','2567 C');"&gt;Cu&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Zinc','30','65.38','419.58 C','907 C');"&gt;Zn&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Gallium','31','69.735','29.78 C','2403 C');"&gt;Ga&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#FF4500"&gt;&lt;a
+href="javascript:display('Germanium','32','72.59','937.4 C','2830 C');"&gt;Ge&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#FF4500"&gt;&lt;a
+href="javascript:display('Arsenic','33','74.9216','81 C @ 28ATM','Sublimes at 613')"&gt;As&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#FFE4C4"&gt;&lt;a
+href="javascript:display('Selenium','34','78.96','217 C','684.9 C');"&gt;Se&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#FFE4C4"&gt;&lt;a
+href="javascript:display('Bromine','35','79.904','-7.2 C','58.78 C');"&gt;Br&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#FFE4C4"&gt;&lt;a
+href="javascript:display('Krypton','36','83.80','-157.2 C','-153.4 C');"&gt;Kr&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Rubidium','37','85.467','38.89 C','688 C');"&gt;Rb&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Strontium','38','87.62','769 C','1384 C');"&gt;Sr&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Yttrium','39','88.9059','1523 C','3337 C');"&gt;Y&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Zirconium','40','91.22','1852±2 C','4377 C');"&gt;Zr&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Niobium','41','92.9064','2468±10 C','4927 C');"&gt;Nb&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Molybdenum','42','95.94','2617 C','4612 C');"&gt;Mo&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Technetium','43','98.9062','2200±50 C','4877 C');"&gt;Tc&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Ruthenium','44','101.07','2250 C','3900 C');"&gt;Ru&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Rhodium','45','102.9055','1966±3 C','3727 C');"&gt;Rh&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Palladium','46','106.4','1552 C','2927 C');"&gt;Pd&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Silver','47','107.868','961.93 C','2212 C');"&gt;Ag&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Cadmium','48','112.41','320.9 C','765 C');"&gt;Cd&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Indium','49','114.82','156.61 C','2000±10 C');"&gt;In&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Tin','50','118.69','231.9 C','2270 C');"&gt;Sn&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#FF4500"&gt;&lt;a
+href="javascript:display('Antimony','51','121.75','630 C','1750 C');"&gt;Sb&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#FF4500"&gt;&lt;a
+href="javascript:display('Tellurium','52','127.60','449.5 C','989.8 C');"&gt;Te&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#FFE4C4"&gt;&lt;a
+href="javascript:display('Iodine','53','126.9045','113.5 C','184 C @ 35 atm')"&gt;I&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#FFE4C4"&gt;&lt;a
+href="javascript:display('Xenon','54','131.30','-111.9 C','-108.1 C');"&gt;Xe&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Cesium','55','132.9054','28.5 C','678.4 C');"&gt;Cs&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Barium','56','137.33','725 C','1140 C');"&gt;Ba&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Lanthanum','57','138.9055','920 C','3469 C');"&gt;La&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Hafnium','72','178.49','2150 C','5400 C');"&gt;Hf&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Tantalum','73','180.947','2996 C','5425±100 C');"&gt;Ta&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Tungsten','74','183.85','3410±20 C','5660 C');"&gt;W&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Rhenium','75','186.207','3180 C','5627 C');"&gt;Re&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Osmium','76','190.2','3045 C','5027 C');"&gt;Os&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Iridium','77','192.22','2410 C','4527±100 C');"&gt;Ir&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Platinum','78','195.09','1772 C','3827 C');"&gt;Pt&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Gold','79','196.9665','1064.43 C','2807 C');"&gt;Au&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Mercury','80','200.59','-38.87 C','356.58 C');"&gt;Hg&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Thallium','81','204.37','303.5 C','1457±10C');"&gt;Tl&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Lead','82','207.2','327.5 C','1740 C');"&gt;Pb&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Bismuth','83','208.9804','271.3 C','1560±5C');"&gt;Bi&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Polonium','84','(209)','254 C','962 C');"&gt;Po&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#FF4500"&gt;&lt;a
+href="javascript:display('Astatine','85','(210)','302 C','337 C');"&gt;At&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#FFE4C4"&gt;&lt;a
+href="javascript:display('Radon','86','(222)','-71 C\t','-61.8 C');"&gt;Rn&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Francium','87','(223)','27 C\t','677 C');"&gt;Fr&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Radium','88','226.0254','700 C','1737 C');"&gt;Ra&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Actinium','89','(227)','1050 C','3200±300 C');"&gt;Ac&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Unnilquadium','104','(260)','N/A C','N/A C');"&gt;Unq&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Unnilpentium','105','(260)','N/A C','N/A C');"&gt;Unp&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Unnilhexium','106','(263)','N/A C','N/A C');"&gt;Unh&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Unnilseptium','107','(262)','N/A C','N/A C');"&gt;Uns&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Unniloctium', '108', '(265)', ' N/A C', 'N/A C');"&gt;Uno&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Unnilennium', '109', '(267)', ' N/A C', 'N/A C');"&gt;Une&lt;/a&gt;&lt;/td&gt;
+&lt;td colspan="9"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Cerium','58','140.12','795 C','3257 C');"&gt;Ce&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Praseodymium','59','140.9077','935 C','3127 C');"&gt;Pr&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Neodymium','60','144.24','1010 C','3127 C');"&gt;Nd&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Promethium','61','(145)','N/A C','N/A C');"&gt;Pm&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Samarium','62','150.4','1072 C','1900 C');"&gt;Sm&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Europium','63','151.96','822 C','1597 C');"&gt;Eu&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Gadolinium','64','157.25','1311 C','3233 C');"&gt;Gd&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Terbium','65','158.9254','1360 C','3041 C');"&gt;Tb&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Dysprosium','66','162.50','1412 C','2562 C');"&gt;Dy&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Holmium','67','164.9304','1470 C','2720 C');"&gt;Ho&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Erbium','68','167.26','1522 C','2510 C');"&gt;Er&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Thulium','69','168.9342','1545 C','1727 C');"&gt;Tm&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Ytterbium','70','173.04','824 C','1466 C');"&gt;Yb&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Lutetium','71','174.96','1656 C','3315 C');"&gt;Lu&lt;/a&gt;&lt;/td&gt;
+&lt;td colspan="4"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Thorium','90','232.0381','1750 C','4790 C');"&gt;Th&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Proactinium','91','231.0359','1600 C','N/A C');"&gt;Pa&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Uranium','92','238.029','1132 C','3818 C');"&gt;U&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Neptunium','93','237.0482','640 C','3902 C');"&gt;Np&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Plutonium','94','(244)','639.5±2 C','3235±19 C');"&gt;Pu&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Americium','95','(243)','994 C','2607 C');"&gt;Am&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Curium','96','(247)','1340 C','N/A C');"&gt;Cm&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Berkelium','97','(247)','N/A C','N/A C');"&gt;Bk&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Californium','98','(251)','N/A C','N/A C');"&gt;Cf&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Einsteinium','99','(254)','N/A C','N/A C');"&gt;Es&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Fremium','100','(257)','N/A C','N/A C');"&gt;Fm&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Mendelevium','101','(258)','N/A C','N/A C');"&gt;Md&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Nobelium','102','(259)','N/A C','N/A C');"&gt;No&lt;/a&gt;&lt;/td&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;&lt;a
+href="javascript:display('Lawrencium','103','(260)','N/A C','N/A C');"&gt;Lr&lt;/a&gt;&lt;/td&gt;
+&lt;td colspan="4"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;form name="table"&gt;
+&lt;table width="500"&gt;
+&lt;tr&gt;
+&lt;td align="center" width="33%"&gt;Name&lt;/td&gt;
+&lt;td align="center" width="33%"&gt;Number&lt;/td&gt;
+&lt;td align="center" width="33%"&gt;Weight&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center" width="33%"&gt;&lt;input type="text" name="name" value=" " size="14"&gt;&lt;/td&gt;
+&lt;td align="center" width="33%"&gt;&lt;input type="text" name="number" value=" " size="6"&gt;&lt;/td&gt;
+&lt;td align="center" width="33%"&gt;&lt;input type="text" name="weight" value=" " size="16"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center" width="33%"&gt;Melts&lt;/td&gt;
+&lt;td align="center" width="33%"&gt;&lt;/td&gt;
+&lt;td align="center" width="33%"&gt;Boils&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center" width="33%"&gt;&lt;input type="text" name="melt" value=" " size="18"&gt;&lt;/td&gt;
+&lt;td align="center" width="33%"&gt;&lt;/td&gt;
+&lt;td align="center" width="33%"&gt;&lt;input type="text" name="freeze" value=" " size="18"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;hr width=600&gt;
+&lt;p&gt;&lt;center&gt;
+&lt;table border=1 width=500&gt;
+&lt;tr&gt;&lt;td colspan=2 align=center&gt;Legend&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=center bgcolor="#5F9EA0"&gt;Metals&lt;/td&gt;
+&lt;td&gt;A solid substance that is a good conductor of heat and electricity.  Can be formed into many shapes.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=center bgcolor="#FF4500"&gt;Metalloid&lt;/td&gt;
+&lt;td&gt;"Middle elements" - conduct heat and electricity better than nonmetals, but not as well as metals. Easier to shape than nonmetals, but not as easy as metals.  Solid at room temperature.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=center bgcolor="#FFE4C4"&gt;Nonmetals&lt;/td&gt;
+&lt;td&gt;A poor conductor of heat and electricity.  Not easily formed into shapes.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  15.90 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

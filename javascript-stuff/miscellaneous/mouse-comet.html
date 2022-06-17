@@ -1,0 +1,199 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Miscellaneous:  mouse comet</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="This script creates the effect of a comet following the mouse around the browser window.  Cool!">
+<META NAME="date" CONTENT="2000-12-12">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Kurt Grigg">
+<META NAME="section" CONTENT="Miscellaneous">
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Kurt Grigg (kurt.grigg@virgin.net)) -->
+<!-- Web Site:  http://website.lineone.net/~kurt.grigg/javascript -->
+
+
+
+
+<!-- Begin
+ns = (document.layers)?1:0;
+Clrs = new Array('ff0000','00ff00','ffffff','ff00ff','ffa500','ffff00','00ff00','ffffff','ff00ff')
+yBase = 0;
+xBase = 0;
+step = 3;
+currStep = 0;
+Ypos = 0;
+Xpos = 0;
+if (ns){
+for (i = 0; i < 14; i++)
+document.write('<LAYER NAME="n'+i+'" LEFT=0 TOP=0 CLIP="0,0,'+i/4+','+i/4+'"></LAYER>');
+window.captureEvents(Event.MOUSEMOVE);  
+function nMouse(evnt){
+Ypos = evnt.pageY;
+Xpos = evnt.pageX;
+}
+window.onMouseMove = nMouse;
+}
+else{
+document.write('<div style="position:absolute;top:0;left:0"><div style="position:relative">');
+for (i=0; i < 14; i++)
+{document.write('<div id="me" style="position:absolute;top:0;left:0;width:'+i/4+';height:'+i/4+';font-size:'+i/4+'"></div>')}
+document.write('</div></div>');
+function iMouse() {
+Ypos = event.y+document.body.scrollTop;
+Xpos = event.x+document.body.scrollLeft;
+}
+document.onmousemove = iMouse;
+}
+function Comet() {
+var yBase = (document.layers)?window.innerHeight/4:window.document.body.clientHeight/4;
+var xBase = (document.layers)?window.innerWidth/4:window.document.body.clientWidth/4;
+for (i = 0; i < 14; i++){
+var randCol = Math.round(Math.random()*8);
+var layer = (document.layers)?document.layers['n'+i]:me[i].style;
+layer.top =Ypos + yBase*Math.cos((currStep+i*4)/12)*Math.cos(0.7+currStep/200);
+layer.left = Xpos + xBase*Math.sin((currStep+i*3)/10)*Math.sin(8.2+currStep/400);
+if (ns) layer.bgColor = Clrs[randCol];
+else
+layer.background = Clrs[randCol];
+}
+currStep += step;
+setTimeout("Comet()",10);
+}
+window.onload = Comet;
+//  End -->
+</script>
+
+</HEAD>
+
+<BODY BGCOLOR=#000000 vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /miscellaneous/"><font color="#FF0000"><b>Miscellaneous</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Mouse Comet</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva" color="#ffffff">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+This script creates the effect of a comet following the mouse around the browser window.  Cool!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Miscellaneous:  mouse comet</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Command-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.17 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- ONE STEP TO INSTALL MOUSE COMET:
+
+  1.  Copy the coding into the HEAD of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Kurt Grigg (kurt.grigg@virgin.net)) --&gt;
+&lt;!-- Web Site:  http://website.lineone.net/~kurt.grigg/javascript --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+ns = (document.layers)?1:0;
+Clrs = new Array('ff0000','00ff00','ffffff','ff00ff','ffa500','ffff00','00ff00','ffffff','ff00ff')
+yBase = 0;
+xBase = 0;
+step = 3;
+currStep = 0;
+Ypos = 0;
+Xpos = 0;
+if (ns){
+for (i = 0; i &lt; 14; i++)
+document.write('&lt;LAYER NAME="n'+i+'" LEFT=0 TOP=0 CLIP="0,0,'+i/4+','+i/4+'"&gt;&lt;/LAYER&gt;');
+window.captureEvents(Event.MOUSEMOVE);  
+function nMouse(evnt){
+Ypos = evnt.pageY;
+Xpos = evnt.pageX;
+}
+window.onMouseMove = nMouse;
+}
+else{
+document.write('&lt;div style="position:absolute;top:0;left:0"&gt;&lt;div style="position:relative"&gt;');
+for (i=0; i &lt; 14; i++)
+{document.write('&lt;div id="me" style="position:absolute;top:0;left:0;width:'+i/4+';height:'+i/4+';font-size:'+i/4+'"&gt;&lt;/div&gt;')}
+document.write('&lt;/div&gt;&lt;/div&gt;');
+function iMouse() {
+Ypos = event.y+document.body.scrollTop;
+Xpos = event.x+document.body.scrollLeft;
+}
+document.onmousemove = iMouse;
+}
+function Comet() {
+var yBase = (document.layers)?window.innerHeight/4:window.document.body.clientHeight/4;
+var xBase = (document.layers)?window.innerWidth/4:window.document.body.clientWidth/4;
+for (i = 0; i &lt; 14; i++){
+var randCol = Math.round(Math.random()*8);
+var layer = (document.layers)?document.layers['n'+i]:me[i].style;
+layer.top =Ypos + yBase*Math.cos((currStep+i*4)/12)*Math.cos(0.7+currStep/200);
+layer.left = Xpos + xBase*Math.sin((currStep+i*3)/10)*Math.sin(8.2+currStep/400);
+if (ns) layer.bgColor = Clrs[randCol];
+else
+layer.background = Clrs[randCol];
+}
+currStep += step;
+setTimeout("Comet()",10);
+}
+window.onload = Comet;
+//  End --&gt;
+&lt;/script&gt;
+
+
+ 
+
+&lt;!-- Script Size:  2.17 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

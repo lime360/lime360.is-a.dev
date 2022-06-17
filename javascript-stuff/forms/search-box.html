@@ -1,0 +1,169 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Forms:  Search Box</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="This JavaScript search form opens a seperate window where you can select from search engines such as Yahoo!, Excite, and more.  Awesome!">
+<META NAME="date" CONTENT="2001-02-15">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="">
+<META NAME="section" CONTENT="Forms">
+<SCRIPT LANGUAGE="JavaScript">
+
+
+
+
+<!-- Begin
+function searchFunc() {
+var newWindow = window.open("about:blank", "searchValue", "width=200, height=200, resizable=no, maximizable=no");
+var searchValue = document.search.queryField.value;
+var yahooSearch = document.search.yahoo.value;
+var altavistaSearch = document.search.altavista.value;
+var webcrawlerSearch = document.search.webcrawler.value;
+var exciteSearch = document.search.excite.value;
+newWindow.document.write("<html>\n<head>\n<title>Select Seach Engine</title>\n</head>");
+newWindow.document.write("<body>\n");
+newWindow.document.write("<a href='" + yahooSearch + searchValue + "' target = 'main'>Yahoo!</a><br><br>\n");
+newWindow.document.write("<a href='" + altavistaSearch + searchValue + "' target = 'main'>Altavista</a><br><br>\n");
+newWindow.document.write("<a href='" + webcrawlerSearch + searchValue + "' target = 'main'>WebCrawler</a><br><br>\n");
+newWindow.document.write("<a href='" + exciteSearch + searchValue + "' target = 'main'>Excite</a><br><br>\n");
+newWindow.document.close();
+self.name = "main";
+}
+//  End -->
+</script>
+
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /forms/" ><font color="#FF0000"><b>Forms</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Search Box</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+This JavaScript search form opens a seperate window where you can select from search engines such as Yahoo!, Excite, and more.  Awesome!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<form name=search>
+<input type=hidden name=yahoo value="http://search.yahoo.com/search?p=">
+<input type=hidden name=altavista value="http://www.altavista.com/cgi-bin/query?pg=q&amp;what=web&amp;fmt=.&amp;q=">
+<input type=hidden name=webcrawler value="http://www.webcrawler.com/cgi-bin/WebQuery?searchText=">
+<input type=hidden name=excite value="http://www.excite.com/search.gw?trace=a&amp;search=">
+Search the internet for:
+<input type=text size=25 name=queryField>
+<br>
+<input type=button value="Search" onClick="searchFunc()">
+<input type=reset value="Clear">
+<br>
+(A separate window will open where you can select a search engine.)
+</form>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Forms:  Search Box</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Command-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.49 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL SEARCH BOX:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function searchFunc() {
+var newWindow = window.open("about:blank", "searchValue", "width=200, height=200, resizable=no, maximizable=no");
+var searchValue = document.search.queryField.value;
+var yahooSearch = document.search.yahoo.value;
+var altavistaSearch = document.search.altavista.value;
+var webcrawlerSearch = document.search.webcrawler.value;
+var exciteSearch = document.search.excite.value;
+newWindow.document.write("&lt;html&gt;\n&lt;head&gt;\n&lt;title&gt;Select Seach Engine&lt;/title&gt;\n&lt;/head&gt;");
+newWindow.document.write("&lt;body&gt;\n");
+newWindow.document.write("&lt;a href='" + yahooSearch + searchValue + "' target = 'main'&gt;Yahoo!&lt;/a&gt;&lt;br&gt;&lt;br&gt;\n");
+newWindow.document.write("&lt;a href='" + altavistaSearch + searchValue + "' target = 'main'&gt;Altavista&lt;/a&gt;&lt;br&gt;&lt;br&gt;\n");
+newWindow.document.write("&lt;a href='" + webcrawlerSearch + searchValue + "' target = 'main'&gt;WebCrawler&lt;/a&gt;&lt;br&gt;&lt;br&gt;\n");
+newWindow.document.write("&lt;a href='" + exciteSearch + searchValue + "' target = 'main'&gt;Excite&lt;/a&gt;&lt;br&gt;&lt;br&gt;\n");
+newWindow.document.close();
+self.name = "main";
+}
+//  End --&gt;
+&lt;/script&gt;
+
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;form name=search&gt;
+&lt;input type=hidden name=yahoo value="http://search.yahoo.com/search?p="&gt;
+&lt;input type=hidden name=altavista value="http://www.altavista.com/cgi-bin/query?pg=q&amp;what=web&amp;fmt=.&amp;q="&gt;
+&lt;input type=hidden name=webcrawler value="http://www.webcrawler.com/cgi-bin/WebQuery?searchText="&gt;
+&lt;input type=hidden name=excite value="http://www.excite.com/search.gw?trace=a&amp;search="&gt;
+Search the internet for:
+&lt;input type=text size=25 name=queryField&gt;
+&lt;br&gt;
+&lt;input type=button value="Search" onClick="searchFunc()"&gt;
+&lt;input type=reset value="Clear"&gt;
+&lt;br&gt;
+(A separate window will open where you can select a search engine.)
+&lt;/form&gt;
+
+ 
+
+&lt;!-- Script Size:  2.49 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

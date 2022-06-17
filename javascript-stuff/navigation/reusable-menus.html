@@ -1,0 +1,723 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Navigation:  Reusable Menus</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Cyanide_7 (leo7278@hotmail.com)">
+<META NAME="section" CONTENT="Navigation">
+<META NAME="description" CONTENT="A Javascript-powered set of related menus that all run in the same select object on a page. This allows for easy customization and menu independence. You can have as many sublevels as you like, in as many individual menus as you like, in as many different forms as you like!  Awesome!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Cyanide_7 (leo7278@hotmail.com) -->
+<!-- Web Site:  http://www7.ewebcity.com/cyanide7 -->
+
+
+
+
+<!-- Begin
+window.onerror = errorHandler;
+function errorHandler(e,f,l){
+alert("Error in file: " + f + ", line: " +l+"\n\t" + e);
+return true;
+}
+function DURPM(text,value,parent){
+this.parent = parent;
+this.children = new Array();
+this.text = text;
+this.value = value;
+this.header = "Please make a selection:"; // default
+this.target = "_self"; // default
+this.winArgs = ""; // default
+this.stat = false; // default
+
+this.addChild = addChild;
+this.relate = relate;
+this.loadSelection = loadSelection;
+this.back = back;
+this.jmp = jmp;
+this.isStatic = isStatic;
+this.redir = redir;
+this.write = write;
+
+if(typeof(parent)=="undefined"){
+this.parent = null;
+DURPMArray.current = DURPMArray[this.value] = this;
+}
+
+function addChild(text, value){
+return (this.children[this.children.length] = new DURPM(text, value, this));
+}
+function relate(menu){
+var index = menu.selectedIndex - 1; // remove header
+if(this.parent!=null)
+index--;
+if(index==-1 && this.parent!=null)
+this.back(menu);
+else if(index > -1)
+if(this.children[index].children.length > 0)
+this.children[index].loadSelection(menu);
+else
+this.jmp(index);
+}
+function loadSelection(menu){
+if(menu==null){
+menu = document.forms[this.text][this.value];
+menu.durpm = this;
+}
+for(var i = menu.options.length; i > 0; i--)
+menu.options[i-1] = null;
+menu.options[0] = new Option(this.header, null, true, true);
+if(this.parent!=null)
+menu.options[1] = new Option("BACK", null);
+offset = menu.options.length;
+for(var i = 0; i < this.children.length; i++)
+menu.options[i+offset] = new Option(this.children[i].text, 
+this.children[i].text);
+menu.durpm = this;
+}
+function back(menu){
+this.parent.loadSelection(menu);
+}
+function jmp(index){
+if(!((this.parent!=null)?this.parent.isStatic():this.stat))
+alert("You would have been taken to : " + this.children[index].value + " but 
+this is just a demo!");
+// this.redir(this.children[index].value); // redirect for navigation, not 
+used if menu is static
+}
+function isStatic(){
+return (this.parent!=null)?this.parent.isStatic():this.stat;
+}
+
+function redir(page){
+if(this.parent!=null)
+this.parent.redir(page);
+else if(page!=null){
+if(this.winArgs.length == 0)
+win = window.open(page, this.target);
+else
+win = window.open(page, this.target, this.winArgs);
+if(typeof(focus)!="undefined")
+win.focus();
+}
+}
+function write(cols, rows, size){
+document.writeln("<select name=\""+this.value+"\" size=\""+size+"\" 
+onChange=\"this.durpm.relate(this);\">");
+for(var i = 0; i < rows-1; i++)
+document.writeln("<option> </option>");
+document.write("<option>");
+for(var i = 0; i < cols; i++)
+document.write("=");
+document.writeln("</option>");
+document.writeln("</select>");
+}
+}
+function main(){
+for(var durpm in DURPMArray)
+if(typeof(DURPMArray[durpm])=="object")
+DURPMArray[durpm].loadSelection(null);
+}
+function addCat(text){
+DURPMArray.current = DURPMArray.current.addChild(text);
+}
+function endCat(){
+if(DURPMArray.current.parent!=null)
+DURPMArray.current = DURPMArray.current.parent;
+}
+function addItem(text, value){
+DURPMArray.current.addChild(text, value);
+}
+function addHeader(text){
+DURPMArray.current.header = text;
+}
+function setWindowArgs(args){
+DURPMArray.current.winArgs = args;
+}
+function setTarget(target){
+DURPMArray.current.target = target;
+}
+function setStatic(){
+DURPMArray.current.stat = true;
+}
+
+// v, tests if the script will run (much like if(document.images).
+// if !v, then you can add optional code.
+var v = (typeof(Option)!="undefined");
+// constructs the master array, do not modify, this is used internally.
+var DURPMArray = new Array();
+
+if(v){ // "if the menu will work"
+
+// First argument is the name or index of the FORM in which
+// the SELECT menu will reside. The second is the name for
+// the actual SELECT object (for data retrieval purposes).
+// This begins the construction of the first menu
+new DURPM("form1","foo");
+  // setTarget, well, sets the target for the redirect
+  // defaults to "_self"
+  setTarget("_blank");
+  // setWindowArgs accepts the argument string passed to window.open
+  // this is the format of the window that the menu redirects to.
+  // defaults to the empty string. The new window will inherit the
+  // the style of the current window. Ignore for use with frames.
+  setWindowArgs("width=300,height=200");
+  // each new menu object has a header.
+  // defaults to "Please make a selection:"
+  addHeader("Please choose a subject:");
+  // addCat means that when this option is selected, it will load sub
+  // options. The sub options immediately follow until endCat is called.
+  addCat("Experts");
+    // As before, each new menu has a header.
+    addHeader("Please choose a topic:");
+    addCat("3-D Animation");
+      addHeader("Please choose a subtopic:");
+      // addItem means that when this option is selected, no menu is
+      // loaded. If the SELECT redirects, the it does so now.
+      // If redirecting, first param is the text, the second is the 
+location.
+      addItem("Glossary","process.html?page=/3d/glossary/");
+      addItem("Lesson56","process.html?page=/3d/lesson56/");
+      addItem("Lesson57","process.html?page=/3d/lesson57/");
+      // spacer bars may be created with a value of null
+      addItem("------------", null);
+      addItem("Lesson58","process.html?page=/3d/lesson58/");
+      addItem("Lesson59","process.html?page=/3d/lesson59/");
+    // end cat means that this list of sub options is complete.
+    // the following cats/items are added the menu before.
+    endCat();
+    addCat("Design");
+      addHeader("Please choose a subtopic:");
+      addItem("About","process.html?page=/dlab/about.html");
+      addItem("Books","process.html?page=/dlab/books/");
+      addItem("Dessert Links","process.html?page=/dlab/dessert.html");
+      addItem("People Say","process.html?page=/dlab/peoplesay.html");
+    endCat();
+    addCat("DHTML");
+      addHeader("Please choose a subtopic:");
+      addItem("Dynomat","process.html?page=/dhtml/dynomat/");
+      addItem("Diner","process.html?page=/dhtml/diner/");
+      addItem("Hiermenus","process.html?page=/dhtml/hiermenus/");
+      addItem("About","process.html?page=/dhtml/about.html");
+    endCat();
+    addCat("E-Commerce");
+      addHeader("Please choose a subtopic:");
+      addItem("About","process.html?page=/ecommerce/mm/about.html");
+      addItem("Archive","process.html?page=/ecommerce/mm/archives.html");
+      addItem("Links","process.html?page=/ecommerce/mm/linkidx.html");
+    endCat();
+    addCat("Graphics");
+      addHeader("Please choose a subtopic:");
+      addItem("Bio","process.html?page=/graphics/bio.html");
+      addItem("Column1","process.html?page=/graphics/column1/");
+      addItem("Column2","process.html?page=/graphics/column2/");
+      addItem("Column3","process.html?page=/graphics/column3/");
+    endCat();
+    addCat("HTML");
+      addHeader("Please choose a subtopic:");
+      addItem("About","process.html?page=/html/about/");
+      addItem("What's New","process.html?page=/html/new/");
+      addItem("Tutorials","process.html?page=/html/tutorials/");
+      addItem("Style Watch","process.html?page=/html/watch/");
+    endCat();
+    addCat("JavaScript");
+      addHeader("Please choose a subtopic:");
+      addItem("About","process.html?page=/js/about.html");
+      addItem("Jx Pharmacy","process.html?page=/js/pharmacy/");
+      addItem("Column1","process.html?page=/js/column1/");
+      addItem("Column2","process.html?page=/js/column2/");
+      addItem("Column3","process.html?page=/js/column3/");
+    endCat();
+  endCat();
+  addCat("Contents");
+    addHeader("Please choose a topic:");
+    addCat("Authoring");
+      addHeader("Please choose a subtopic:");
+      
+addItem("Collections","process.html?page=/authoring/collections.html");
+      addItem("Design","process.html?page=/authoring/design/");
+      addItem("FAQs","process.html?page=/authoring/faqs.html");
+      addItem("Graphics","process.html?page=/authoring/graphics/");
+      addItem("Languages","process.html?page=/authoring/languages/");
+      
+addItem("Organizations","process.html?page=/authoring/organizations.html");
+      addItem("Programming","process.html?page=/programming/");
+      addItem("Site 
+Management","process.html?page=/authoring/languages/html/site.html");
+      addItem("Style","process.html?page=/authoring/style/");
+      addItem("Tutorials","process.html?page=/authoring/tutorials.html");
+    endCat();
+    addCat("Internet");
+      addHeader("Please choose a subtopic:");
+      addItem("Collections","process.html?page=/internet/collections.html");
+      addItem("Conferences","process.html?page=/internet/conferences.html");
+      addItem("Discussion","process.html?page=/internet/discussion.html");
+      addItem("FAQs","process.html?page=/internet/faqs.html");
+      addItem("Formats","process.html?page=/internet/formats.html");
+      addItem("Glossaries","process.html?page=/internet/glossaries.html");
+      addItem("History","process.html?page=/internet/history.html");
+      addItem("Intranet","process.html?page=/internet/intranet/");
+      addItem("Jobs","process.html?page=/internet/jobs/");
+    endCat();
+  endCat();
+endCat();
+// This ends the construction of the first menu
+
+
+// This begins the construction of the second menu
+new DURPM(1,"bar");
+  // setStatic means that the window does not redirect.
+  // no target or windowArgs need be set.
+  // This is used when the SELECT object is to hold information
+  // to be submitted to a script.
+  setStatic();
+  addHeader("Please choose a meat.");
+  addCat("Beef");
+    // when static, the first arg is the text, the second is the value.
+    addItem("Hamburger","burg");
+    addItem("Steak","steak");
+    addItem("Meatball","mb");
+  endCat();
+  addCat("Chicken");
+    addItem("Lemon Chicken","lchx");
+    addItem("McNuggets","McN");
+    addItem("Chicken Strips","chx_strips");
+  endCat();
+  addCat("Pork");
+    addItem("PorkChops","prok_chops");
+    addItem("Bacon","bac");
+    addItem("Ham","ham");
+  endCat();
+endCat();
+// This ends the construction of the second menu
+} // if(v)
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff OnLoad="main()">
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /navigation/"><font color="#FF0000"><b>Navigation</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Reusable Menus</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+A Javascript-powered set of related menus that all run in the same select object on a page. This allows for easy customization and menu independence. You can have as many sublevels as you like, in as many individual menus as you like, in as many different forms as you like!  Awesome!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<table width="300" align="center">
+<tr><td align="center">Options set here: cols = 35, rows = 9, size = 7, 
+custom headers, new window (_blank), sized</td></tr>
+<tr><td align="center">
+<form name="form1">
+  <script>
+    <!--
+    // "foo" is the name of the SELECT object to write here.
+    // make sure this code is between the proper <FORM> and </FORM> tags!
+    // the arg format is (int cols, int rows, int size)
+    if(v)DURPMArray["foo"].write(35,9,7);
+    //-->  </script>
+</form>
+</td></tr>
+<tr><td>  </td></tr>
+<tr><td align="center">Options set here: cols = 25, rows = 7, size = 1, 
+default headers, no redirect (static)</td></tr>
+<tr><td align="center">
+<form>
+  <script>
+    <!--
+    if(v)DURPMArray["bar"].write(30,7,1);
+    //-->
+  </script>
+</form>
+</td></tr>
+</table>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Navigation:  Reusable Menus</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.40 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL REUSABLE MENUS:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the onLoad event handler into the BODY tag
+  3.  Put the last coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Cyanide_7 (leo7278@hotmail.com) --&gt;
+&lt;!-- Web Site:  http://www7.ewebcity.com/cyanide7 --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+window.onerror = errorHandler;
+function errorHandler(e,f,l){
+alert("Error in file: " + f + ", line: " +l+"\n\t" + e);
+return true;
+}
+function DURPM(text,value,parent){
+this.parent = parent;
+this.children = new Array();
+this.text = text;
+this.value = value;
+this.header = "Please make a selection:"; // default
+this.target = "_self"; // default
+this.winArgs = ""; // default
+this.stat = false; // default
+
+this.addChild = addChild;
+this.relate = relate;
+this.loadSelection = loadSelection;
+this.back = back;
+this.jmp = jmp;
+this.isStatic = isStatic;
+this.redir = redir;
+this.write = write;
+
+if(typeof(parent)=="undefined"){
+this.parent = null;
+DURPMArray.current = DURPMArray[this.value] = this;
+}
+
+function addChild(text, value){
+return (this.children[this.children.length] = new DURPM(text, value, this));
+}
+function relate(menu){
+var index = menu.selectedIndex - 1; // remove header
+if(this.parent!=null)
+index--;
+if(index==-1 && this.parent!=null)
+this.back(menu);
+else if(index > -1)
+if(this.children[index].children.length > 0)
+this.children[index].loadSelection(menu);
+else
+this.jmp(index);
+}
+function loadSelection(menu){
+if(menu==null){
+menu = document.forms[this.text][this.value];
+menu.durpm = this;
+}
+for(var i = menu.options.length; i > 0; i--)
+menu.options[i-1] = null;
+menu.options[0] = new Option(this.header, null, true, true);
+if(this.parent!=null)
+menu.options[1] = new Option("BACK", null);
+offset = menu.options.length;
+for(var i = 0; i < this.children.length; i++)
+menu.options[i+offset] = new Option(this.children[i].text, 
+this.children[i].text);
+menu.durpm = this;
+}
+function back(menu){
+this.parent.loadSelection(menu);
+}
+function jmp(index){
+if(!((this.parent!=null)?this.parent.isStatic():this.stat))
+alert("You would have been taken to : " + this.children[index].value + " but 
+this is just a demo!");
+// this.redir(this.children[index].value); // redirect for navigation, not 
+used if menu is static
+}
+function isStatic(){
+return (this.parent!=null)?this.parent.isStatic():this.stat;
+}
+
+function redir(page){
+if(this.parent!=null)
+this.parent.redir(page);
+else if(page!=null){
+if(this.winArgs.length == 0)
+win = window.open(page, this.target);
+else
+win = window.open(page, this.target, this.winArgs);
+if(typeof(focus)!="undefined")
+win.focus();
+}
+}
+function write(cols, rows, size){
+document.writeln("<select name=\""+this.value+"\" size=\""+size+"\" 
+onChange=\"this.durpm.relate(this);\">");
+for(var i = 0; i < rows-1; i++)
+document.writeln("<option> </option>");
+document.write("<option>");
+for(var i = 0; i < cols; i++)
+document.write("=");
+document.writeln("</option>");
+document.writeln("</select>");
+}
+}
+function main(){
+for(var durpm in DURPMArray)
+if(typeof(DURPMArray[durpm])=="object")
+DURPMArray[durpm].loadSelection(null);
+}
+function addCat(text){
+DURPMArray.current = DURPMArray.current.addChild(text);
+}
+function endCat(){
+if(DURPMArray.current.parent!=null)
+DURPMArray.current = DURPMArray.current.parent;
+}
+function addItem(text, value){
+DURPMArray.current.addChild(text, value);
+}
+function addHeader(text){
+DURPMArray.current.header = text;
+}
+function setWindowArgs(args){
+DURPMArray.current.winArgs = args;
+}
+function setTarget(target){
+DURPMArray.current.target = target;
+}
+function setStatic(){
+DURPMArray.current.stat = true;
+}
+
+// v, tests if the script will run (much like if(document.images).
+// if !v, then you can add optional code.
+var v = (typeof(Option)!="undefined");
+// constructs the master array, do not modify, this is used internally.
+var DURPMArray = new Array();
+
+if(v){ // "if the menu will work"
+
+// First argument is the name or index of the FORM in which
+// the SELECT menu will reside. The second is the name for
+// the actual SELECT object (for data retrieval purposes).
+// This begins the construction of the first menu
+new DURPM("form1","foo");
+  // setTarget, well, sets the target for the redirect
+  // defaults to "_self"
+  setTarget("_blank");
+  // setWindowArgs accepts the argument string passed to window.open
+  // this is the format of the window that the menu redirects to.
+  // defaults to the empty string. The new window will inherit the
+  // the style of the current window. Ignore for use with frames.
+  setWindowArgs("width=300,height=200");
+  // each new menu object has a header.
+  // defaults to "Please make a selection:"
+  addHeader("Please choose a subject:");
+  // addCat means that when this option is selected, it will load sub
+  // options. The sub options immediately follow until endCat is called.
+  addCat("Experts");
+    // As before, each new menu has a header.
+    addHeader("Please choose a topic:");
+    addCat("3-D Animation");
+      addHeader("Please choose a subtopic:");
+      // addItem means that when this option is selected, no menu is
+      // loaded. If the SELECT redirects, the it does so now.
+      // If redirecting, first param is the text, the second is the 
+location.
+      addItem("Glossary","process.html?page=/3d/glossary/");
+      addItem("Lesson56","process.html?page=/3d/lesson56/");
+      addItem("Lesson57","process.html?page=/3d/lesson57/");
+      // spacer bars may be created with a value of null
+      addItem("------------", null);
+      addItem("Lesson58","process.html?page=/3d/lesson58/");
+      addItem("Lesson59","process.html?page=/3d/lesson59/");
+    // end cat means that this list of sub options is complete.
+    // the following cats/items are added the menu before.
+    endCat();
+    addCat("Design");
+      addHeader("Please choose a subtopic:");
+      addItem("About","process.html?page=/dlab/about.html");
+      addItem("Books","process.html?page=/dlab/books/");
+      addItem("Dessert Links","process.html?page=/dlab/dessert.html");
+      addItem("People Say","process.html?page=/dlab/peoplesay.html");
+    endCat();
+    addCat("DHTML");
+      addHeader("Please choose a subtopic:");
+      addItem("Dynomat","process.html?page=/dhtml/dynomat/");
+      addItem("Diner","process.html?page=/dhtml/diner/");
+      addItem("Hiermenus","process.html?page=/dhtml/hiermenus/");
+      addItem("About","process.html?page=/dhtml/about.html");
+    endCat();
+    addCat("E-Commerce");
+      addHeader("Please choose a subtopic:");
+      addItem("About","process.html?page=/ecommerce/mm/about.html");
+      addItem("Archive","process.html?page=/ecommerce/mm/archives.html");
+      addItem("Links","process.html?page=/ecommerce/mm/linkidx.html");
+    endCat();
+    addCat("Graphics");
+      addHeader("Please choose a subtopic:");
+      addItem("Bio","process.html?page=/graphics/bio.html");
+      addItem("Column1","process.html?page=/graphics/column1/");
+      addItem("Column2","process.html?page=/graphics/column2/");
+      addItem("Column3","process.html?page=/graphics/column3/");
+    endCat();
+    addCat("HTML");
+      addHeader("Please choose a subtopic:");
+      addItem("About","process.html?page=/html/about/");
+      addItem("What's New","process.html?page=/html/new/");
+      addItem("Tutorials","process.html?page=/html/tutorials/");
+      addItem("Style Watch","process.html?page=/html/watch/");
+    endCat();
+    addCat("JavaScript");
+      addHeader("Please choose a subtopic:");
+      addItem("About","process.html?page=/js/about.html");
+      addItem("Jx Pharmacy","process.html?page=/js/pharmacy/");
+      addItem("Column1","process.html?page=/js/column1/");
+      addItem("Column2","process.html?page=/js/column2/");
+      addItem("Column3","process.html?page=/js/column3/");
+    endCat();
+  endCat();
+  addCat("Contents");
+    addHeader("Please choose a topic:");
+    addCat("Authoring");
+      addHeader("Please choose a subtopic:");
+      
+addItem("Collections","process.html?page=/authoring/collections.html");
+      addItem("Design","process.html?page=/authoring/design/");
+      addItem("FAQs","process.html?page=/authoring/faqs.html");
+      addItem("Graphics","process.html?page=/authoring/graphics/");
+      addItem("Languages","process.html?page=/authoring/languages/");
+      
+addItem("Organizations","process.html?page=/authoring/organizations.html");
+      addItem("Programming","process.html?page=/programming/");
+      addItem("Site 
+Management","process.html?page=/authoring/languages/html/site.html");
+      addItem("Style","process.html?page=/authoring/style/");
+      addItem("Tutorials","process.html?page=/authoring/tutorials.html");
+    endCat();
+    addCat("Internet");
+      addHeader("Please choose a subtopic:");
+      addItem("Collections","process.html?page=/internet/collections.html");
+      addItem("Conferences","process.html?page=/internet/conferences.html");
+      addItem("Discussion","process.html?page=/internet/discussion.html");
+      addItem("FAQs","process.html?page=/internet/faqs.html");
+      addItem("Formats","process.html?page=/internet/formats.html");
+      addItem("Glossaries","process.html?page=/internet/glossaries.html");
+      addItem("History","process.html?page=/internet/history.html");
+      addItem("Intranet","process.html?page=/internet/intranet/");
+      addItem("Jobs","process.html?page=/internet/jobs/");
+    endCat();
+  endCat();
+endCat();
+// This ends the construction of the first menu
+
+
+// This begins the construction of the second menu
+new DURPM(1,"bar");
+  // setStatic means that the window does not redirect.
+  // no target or windowArgs need be set.
+  // This is used when the SELECT object is to hold information
+  // to be submitted to a script.
+  setStatic();
+  addHeader("Please choose a meat.");
+  addCat("Beef");
+    // when static, the first arg is the text, the second is the value.
+    addItem("Hamburger","burg");
+    addItem("Steak","steak");
+    addItem("Meatball","mb");
+  endCat();
+  addCat("Chicken");
+    addItem("Lemon Chicken","lchx");
+    addItem("McNuggets","McN");
+    addItem("Chicken Strips","chx_strips");
+  endCat();
+  addCat("Pork");
+    addItem("PorkChops","prok_chops");
+    addItem("Bacon","bac");
+    addItem("Ham","ham");
+  endCat();
+endCat();
+// This ends the construction of the second menu
+} // if(v)
+// End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Insert the onLoad event handler into your BODY tag  --&gt;
+
+&lt;BODY OnLoad="main()"&gt;
+
+&lt;!-- STEP THREE: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;center&gt;
+&lt;table width="300" align="center"&gt;
+&lt;tr&gt;&lt;td align="center"&gt;Options set here: rows = 9, cols = 35, size = 1, custom headers&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td align="center"&gt;
+&lt;form name="form1"&gt;
+  &lt;script&gt;
+    &lt;!--
+    if(v)DURPMArray["foo"].write(9,35,1);
+    //--&gt;
+  &lt;/script&gt;
+&lt;/form&gt;
+&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt; &nbsp;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td align="center"&gt;Options set here: rows = 5, cols = 25, size = 5, default headers&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td align="center"&gt;
+&lt;form&gt;
+  &lt;script&gt;
+    &lt;!--
+    if(v)DURPMArray["bar"].write(7,30,5);
+    //--&gt;
+  &lt;/script&gt;
+&lt;/form&gt;
+&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  1.40 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

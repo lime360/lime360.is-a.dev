@@ -1,0 +1,177 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Forms:  Decimals Allowed</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Fred Serry">
+<META NAME="section" CONTENT="Forms">
+<META NAME="description" CONTENT="Allows the user to enter a number with up to 2 decimal places in a text box.  In other words, 99 is ok, 99.9 is ok, 99.99 is ok, but 99.999 is rejected.  You can easily change the number of decimal places that are permitted. (i.e. 1, 2, 3, etc.)  For the example, enter a number with up to 2 decimal places then try entering one with more than 2 decimal places.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Fred Serry -->
+
+
+
+
+<!-- Begin
+function checkDecimals(fieldName, fieldValue) {
+
+decallowed = 2;  // how many decimals are allowed?
+
+if (isNaN(fieldValue) || fieldValue == "") {
+alert("Oops!  That does not appear to be a valid number.  Please try again.");
+fieldName.select();
+fieldName.focus();
+}
+else {
+if (fieldValue.indexOf('.') == -1) fieldValue += ".";
+dectext = fieldValue.substring(fieldValue.indexOf('.')+1, fieldValue.length);
+
+if (dectext.length > decallowed)
+{
+alert ("Oops!  Please enter a number with up to " + decallowed + " decimal places.  Please try again.");
+fieldName.select();
+fieldName.focus();
+      }
+else {
+alert ("That number validated successfully.");
+      }
+   }
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /forms/" ><font color="#FF0000"><b>Forms</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Decimals Allowed</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Allows the user to enter a number with up to 2 decimal places in a text box.  In other words, 99 is ok, 99.9 is ok, 99.99 is ok, but 99.999 is rejected.  You can easily change the number of decimal places that are permitted. (i.e. 1, 2, 3, etc.)  For the example, enter a number with up to 2 decimal places then try entering one with more than 2 decimal places.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form>
+Please enter a number with up to 2 decimal places:  <br>
+<input type=text name=numbox>
+<input type=button name=ok value="Ok" onClick="checkDecimals(this.form.numbox, this.form.numbox.value)">
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Forms:  Decimals Allowed</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.42 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL DECIMALS ALLOWED:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Ronnie T. Moore, Editor --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function checkDecimals(fieldName, fieldValue) {
+
+decallowed = 2;  // how many decimals are allowed?
+
+if (isNaN(fieldValue) || fieldValue == "") {
+alert("Oops!  That does not appear to be a valid number.  Please try again.");
+fieldName.select();
+fieldName.focus();
+}
+else {
+if (fieldValue.indexOf('.') == -1) fieldValue += ".";
+dectext = fieldValue.substring(fieldValue.indexOf('.')+1, fieldValue.length);
+
+if (dectext.length &gt; decallowed)
+{
+alert ("Oops!  Please enter a number with up to " + decallowed + " decimal places.  Please try again.");
+fieldName.select();
+fieldName.focus();
+      }
+else {
+alert ("That number validated successfully.");
+      }
+   }
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form&gt;
+Please enter a number with up to 2 decimal places:  &lt;br&gt;
+&lt;input type=text name=numbox&gt;
+&lt;input type=button name=ok value="Ok" onClick="checkDecimals(this.form.numbox, this.form.numbox.value)"&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+&lt;p&gt;&lt;center&gt;
+&lt;font face="arial, helvetica" SIZE="-2"&gt;Free JavaScripts provided&lt;br&gt;
+by &lt;a href="http://javascriptsource.com"&gt;JavaScript Source Code 3000&lt;/a&gt;&lt;/font&gt;
+&lt;/center&gt;&lt;p&gt;
+
+&lt;!-- Script Size:  1.42 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

@@ -1,0 +1,596 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Calculators:  Driving Distance</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Cut-N-Paste JavaScript">
+<META NAME="section" CONTENT="Calculators">
+<META NAME="description" CONTENT="Use JavaScript to estimate the driving distance between U.S. cities.">
+
+<SCRIPT LANGUAGE="JavaScript">
+
+<!--
+var l=0;
+var r=0;
+  var tc="";
+  var al=" abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  +"123456789";
+  var ns="0123456789";
+  function iA(){
+   this.length=iA.arguments.length;
+   for (var i=0;i<this.length;i++){
+    this[i]=iA.arguments[i];
+   }
+  }
+  /* 5829 byte database of distances uses position into the
+     string "al" to substitute for the numerics, saving a bit
+     over 10k download to visitors. */
+  var a=new iA(61);
+  a[0]="Albany, New York*  tdjaddcdu jgybagc hhfdggqihbdhhbfdphrc"
+  +"khfevbniu aaqghamejgm zcmfBehflcn iclejcndafeao malcbfxidebdC"
+  +"bqiAfjdvesgBeChxid ni";
+  a[1]="Albuquerque, New Mexico*  n xfriiileidvbqgq p pcedmaoipbn"
+  +"ffdddigofbglidcu helgjepdgheihhhalijasgmhlblcl t riedhiqdsedf"
+  +"pcw mghbjbjdf gchakanereei";
+  a[2]="Atlanta, Georgia*  mcfer aevbkaiabie bdnhgagcbaeihbncifgc"
+  +"ndmipfifgiecd cahbsheeuidbchffh kbbedhheefhcjadcgercfhkgzfobx"
+  +"aegscj uexhzcfbie";
+  a[3]="Augusta, Maine*  fgxgoaCfbggclbjdkavblehglajatbvdogjfzcri"
+  +"yacgublbqengqbDcqgG lepcrcmbpdnbraeahiscqapbeiCbhfagGhueEdnfz"
+  +"dviFgGhFfgbrh";
+  a[4]="Baltimore, Maryland*  sbggxadccgegcfdbpggbcfebdcmfpdjdeas"
+  +"hmes cbn egjagejgx jdzefdiajigikag kdb bcmakehia wabeedB pczb"
+  +"hctgpczhBbAa dlh";
+  a[5]="Billings, Montana*  qhfav qbuhqbt dflcpatfpanbeeihoblffaf"
+  +"gu oinaqbv jdjenbldocnfybkfhcp rctdthkeiavcshl pfvgi cbifmafd"
+  +"obmakihcuaje";
+  a[6]="Birmingham, Alabama*  tglci ddefcinbffgccfegfdmchcgflgm p"
+  +"cjhg dhbedfgcrcdctecfbfgegdjgaiceihgagbhheehgphgimdyinavheaqi"
+  +"hfsiwgydgdhc";
+  a[7]="Boise, Idaho*  zivaxiudwegcqatcwisgoihdmfshl lafczarbretd"
+  +"xgnbfgqghescrbBgqdnhshuexiybndldzdxcihucAidcifdcpgcdpgihfeebw"
+  +"gmf";
+  a[8]="Boston, Massachusetts*  dgidgehesbj ffifh qet mdh whpevga"
+  +"arcicnfkfndAendDbifmdobjimijioabaehpingm cbzgegaaEdsaBglawhtb"
+  +"BhEcDbdepc";
+  a[9]="Buffalo, New York*  icdegao edaih ccmfoehecfsgkiqidbnieak"
+  +"bjijavhjfyheeibn fciegblfcgf lbjbl cfvbbbedzgncxegesdpcyczgyh"
+  +"dal ";
+  a[10]="Charleston, South Carolina*  dhbaqaiagcaafejiqbl hdq oas"
+  +"fhcjegbfgbdkavhhcxifag eijbmcedgcggddkdlgchffubfejeCeraAbhfui"
+  +"lhxbBbCcecld";
+  a[11]="Charleston, West Virginia*  bgnadgbecfagjemggid phkdpbfh"
+  +"khcbh ffgfucgcxabffcjaefhgdbiaeedajbidh dhshbchhyemgwheardmcw"
+  +"dz xgcdif";
+  a[12]="Charlotte, North Carolina*  pbgdeb iddjfohjffcpemhrbgdjc"
+  +"eefcciigv ghxadffcgdhckedbgbfbcak kdeceatce ifAhpezbgcthldxaA"
+  +"bAdchji";
+  a[13]="Cheyenne, Wyoming*  ihmcpfm hha fdldgighcerekajhlgqefhhe"
+  +"jgkbl kduej hhlfmhqer fie rgqfidnctfkhcbigidddjfkikilepdfb";
+  a[14]="Chicago, Illinois*  ceh cfibjbcdbhnffelgiajiaigejaedqhff"
+  +"tec edn  idadgibhahghcdhkegiqddhjiubiasebinblatiugtegagc";
+  a[15]="Cleveland, Ohio*  faadkimfffagqdj paefmacbidiahbtihgwhce"
+  +"gcleddgfecjfdgeajchcjedctcacgcxcldvfehqfnewixhwicfja";
+  a[16]="Columbia, South Carolina*  ecjcpbkagbpcncrdhajcfaf c jbu"
+  +"igfxbe fbfdhhladdfigbcijfkhddfatceijdBdpizaghublcwhAgAidhkg";
+  a[17]="Columbus, Ohio*  jeldffaip ieniffkgahh hcfhtbgcvdbaeikgd"
+  +"gghchibefefibgiifdhs aihgxdldvadbphmavfxcwedchg";
+  a[18]="Dallas/Ft Worth, Texas*  ghg kffbjiihpibehidajdealccbn h"
+  +"cdemdjbieffebofmebaffk ndj larhtdjipgfflfbgmeqeucmacg";
+  a[19]="Denver, Colorado*  fglhfihhbet jcjfl qdfagfidjckbjduajdi"
+  +"bkhlhqiqgfcedrhqdhanctglfdbjchfeciek lfmdpbeb";
+  a[20]="Des Moines, Iowa*  eikcdhibleiddhhcldb ncefqaeifboicgbef"
+  +"iihkbkeeeacmfjincghn rbfdp cgjgihqgrcr jfci";
+  a[21]="Detroit, Michigan*  pgibobgclhbhifjeggtbhhvichgbmicffied"
+  +"jgfegcjcgckgfatac i whkiv ecpgnewgx wcebif";
+  a[22]="El Paso, Texas*  nefgvigdnbjcohidgbidhbnejgs odnflhk ues"
+  +"efhlephtgddqhxfpcjdkgkhhgefgcl qbschd";
+  a[23]="Fargo, North Dakota*  kaofm hcmapifbodjdraidkct egbdkamh"
+  +"nenghgdcrancpikcqcnieaohhekemcrgrbnbmcgc";
+  a[24]="Grand Junction, Colorado*  uelbmcnasfhfeakeghmglgw likfn"
+  +"bngtdtbhbgitgsiehpiwdjeffgekabijiheihkcrhgc";
+  a[25]="Hartford, Connecticut*  qchdmejemdzfmdC hgl nbj mbj ncab"
+  +"dipdmgk baygdgb D rbB jhvgsaC DhCecfoc";
+  a[26]="Houston, Texas*  j dbhigdngdcodidegkikhkhghcepamedfhfiho"
+  +"akfmgsfvdmbrhghndb nisawgmgfb";
+  a[27]="Indianapolis, Indiana*  fghde rdfatfaadgkibgeibhh gcgagd"
+  +"faigffqccfjevdkatfbdogkithviveehfi";
+  a[28]="Jackson, Mississippi*  fafipcbfrbeibaiahcjfdabalbieefhgg"
+  +" kanfidoixemgthe pffgqfueydiggf";
+  a[29]="Jacksonville, Florida*  kdvdhbwegcficekanfefefiefbkembad"
+  +"het hcmaCfrczihhwajhwfAeCggblh";
+  a[30]="Kansas City, Kansas/Missouri*  mgdboheadhnhefddehhdlckfc"
+  +"eailekgldhgofrbfipdbfkaghoirfrfjdb ";
+  a[31]="Las Vegas, Nevada*  nfbgrgp ygr pfraqcygxhkam wexhbivaBf"
+  +"j kadepbdblicdegkhxbkh";
+  a[32]="Little Rock, Arkansas*  pieaadkfgghccedblejbcdehifkdmci "
+  +"uikdsad ndehpgsivejadd";
+  a[33]="Los Angeles, California*  uhraAbtgrftarfAizimdogxcA cixc"
+  +"Edifmfdgrdfimiaccikczemi";
+  a[34]="Louisville, Kentucky*  chjichgaagg ggfegeg hfgaqecik wal"
+  +"audbfpbk tiwewef g ";
+  a[35]="Memphis, Tennessee*  j fbiabadak hhdhfdghjanggfnfwaketcb"
+  +"hoegcraubwbheeh";
+  a[36]="Miami, Florida*  nfqgiahfmcigo pdbclcwekhpfFfuhD lcygmiz"
+  +"hDiG jfp ";
+  a[37]="Milwaukee, Wisconsin*  cdeejchiiehhe lbhgqgefkftbhdsfchn"
+  +"cliucugshhage";
+  a[38]="Minneapolis, Minnesota*  hcmelblcgichogl phhingqbehrcfck"
+  +"ilet shpejifc";
+  a[39]="Nashville, Tennessee*  eci fgfhgffigipgegl wglevbcbq ict"
+  +" wcxdffgd";
+  a[40]="New Orleans, Louisiana*  mdjdfijcfelco kdpdydo vcg qheer"
+  +"dvhyik he";
+  a[41]="New York City, New York*  cgnhlejiaaxechcbCaqbAaihuirbB "
+  +"CcBdbdnb";
+  a[42]="Norfolk, Virginia*  mgmbggbgwedbgcCgqfAii vboezhD Biaimg";
+  a[43]="Oklahoma City, Oklahoma*  dflcmiihkaqdrgheofe k dhmcpfsi"
+  +"mcaf";
+  a[44]="Omaha, Nebraska*  nal meicocpiecngddididpcpipikdc ";
+  a[45]="Orlando, Florida*  iithihn DgsgBdj wdkgxaBgDihemi";
+  a[46]="Philadelphia, Pennsylvania*  wgcadbBfpezei ueqdAgC Bbacmf";
+  a[47]="Phoenix, Arizona*  tiAelglcgcnhfej cegfngw jd";
+  a[48]="Pittsburgh, Pennsylvania*  fiyemfwgfasbnhxdzaybbeje";
+  a[49]="Portland, Maine*  FbshCglhyaucE FbDiefqa";
+  a[50]="Portland, Oregon*  lfehtfgfu jifdagAhqe";
+  a[51]="Rapid City, South Dakota*  lciegdleninekcoigc";
+  a[52]="Reno, Nevada*  riecqcf bcgcygnh";
+  a[53]="St Louis, Missouri*  mfiercubudhfdf";
+  a[54]="Salt Lake City, Utah*  mcgfgehetejb";
+  a[55]="San Antonio, Texas*  m qduhoifd";
+  a[56]="San Diego, California*  ealfz n ";
+  a[57]="San Francisco, California*  haBdq ";
+  a[58]="Seattle, Washington*  Abrf";
+  a[59]="Washington, DC*  lh";
+  a[60]="Wichita, Kansas*  ";
+  // For string to numerics on Win3.x
+  var b=new iA(4);
+  b[0]=1;
+  b[1]=10;
+  b[2]=100;
+  b[3]=1000;
+  function getMiles(form){
+   lf=(document.isn.isn1.options[document.isn.isn1.selectedIndex].value);
+   rf=(document.isn.isn2.options[document.isn.isn2.selectedIndex].value);
+   l=al.indexOf(lf);
+   r=al.indexOf(rf);
+   if (r<l){
+    l=r;
+    r=al.indexOf(lf);
+    }
+   ls=a[l];
+   pos=ls.indexOf("*")
+   ls1="From "+ls.substring(0,pos)+" to "
+   +a[r].substring(0,a[r].indexOf("*"))+" is about ";
+   ls=ls.substring(pos+1,ls.length);
+   tc=ls.substring(((r*2)-(l*2)),ls.length);
+   if (document.isn.rb[1].checked){
+    dispKm();
+    }
+   else{
+    dispMi();
+    }
+  }
+  function dispMi(){
+   ch=tc.charAt(0);
+   ls1+=al.indexOf(ch);
+   ch=tc.charAt(1);
+   if (ch!=" "){
+    ls1+=(al.indexOf(ch)*10)+" miles";
+    } //1.613
+    else ls1+="00"+" miles";
+   document.isn.disp.value=ls1;
+  }
+  function dispKm(){
+   ch=tc.charAt(0);
+   km="";
+   km+=al.indexOf(ch);
+   ch=tc.charAt(1);
+   if (ch!=" "){
+    km+=(al.indexOf(ch)*10);
+    } //1.613
+    else{
+     km+="00";
+    }
+    num=0;
+    kml=km.length;
+    for (var i=kml-1;i>-1;i--){
+     cr=km.substring(i,i+1);
+     pos=ns.indexOf(cr);
+     num+=pos*b[kml-i-1];
+    }
+    km="";
+    km+=num*1.613;
+    pos=km.indexOf(".");
+    if (pos>-1){
+     km=km.substring(0,pos);
+    }
+    ls1+=km+" kilometers";
+    document.isn.disp.value=ls1;
+  }
+  // End Hiding -->
+  </SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<P>
+<center>
+
+	
+<P>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /calculators/"><font color="#FF0000">Calculators</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Driving Distance</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Use JavaScript to estimate the driving distance between U.S. cities.
+<br>
+<hr>
+</td></tr>
+</table>
+<BODY BGCOLOR="white">
+<CENTER>
+<FORM NAME="isn">
+<TABLE BORDER=0 WIDTH=486>
+<TR><TD COLSPAN=3 ALIGN=CENTER>
+<HR NOSHADE><FONT COLOR="blue">
+<B>Driving Distances between Selected USA Cities</B></FONT></TD></TR>
+<TR><TD ALIGN=CENTER><FONT COLOR="blue">
+<B>Starting City</FONT></b></FONT><BR><SELECT NAME="isn1" SIZE=12>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+ls="";
+for (var i=0;i<61;i++){
+ls+='<OPTION VALUE="'+al.substring(i,i+1)+'" onClick=""';
+if (i==0){ls+=' SELECTED';}
+ls+='>'+a[i].substring(0,a[i].indexOf("*"));
+}
+document.write(ls);
+// End hiding -->
+</SCRIPT>
+</SELECT></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT COLOR="blue" SIZE=1>
+<B>Instructions:</B></FONT>
+<BR>Select starting city at left, destination at right. 
+Or, if you are feeling particularly contrary today, 
+vice versa. Then click below.
+<P><INPUT TYPE="button" NAME="but" VALUE=" Get Distance " onClick="getMiles(this.form)">
+<BR><INPUT TYPE="radio" NAME="rb" VALUE="a" CHECKED onClick="">Miles 
+<INPUT TYPE="radio" NAME="rb" VALUE="b" onClick="">Kilometers
+<TD ALIGN=CENTER><FONT COLOR="blue">
+<B>Destination City</B></FONT>
+<BR><SELECT NAME="isn2" SIZE=12>
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+ls="";
+for (var i=0;i<61;i++){
+ls+='<OPTION VALUE="'+al.substring(i,i+1)+'" onClick=""';
+if (i==1){ls+=' SELECTED';}
+ls+='>'+a[i].substring(0,a[i].indexOf("*"));
+}
+document.write(ls);
+// End hiding -->
+</SCRIPT>
+</SELECT></TD></TR>
+<TR><TD COLSPAN=3 ALIGN=CENTER>
+<TABLE BORDER=2>
+<TR><TD><INPUT TYPE="text" NAME="disp" VALUE="" SIZE=80>
+</TD></TR></TABLE></TD></TR>
+<TR><TD COLSPAN=3><HR NOSHADE></TD></TR>
+</TABLE>
+</FORM>
+</CENTER>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Calculators:  Driving Distance</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE=" Script Size:  9.43 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL DRIVING DISTANCE CALCULATOR:
+
+   1.  Paste the specified coding into the HEAD of your HTML document
+   2.  Put the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the HEAD your HTML document  --&gt;
+		  
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Cut-N-Paste JavaScript --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!--
+var l=0;
+var r=0;
+  var tc="";
+  var al=" abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  +"123456789";
+  var ns="0123456789";
+  function iA(){
+   this.length=iA.arguments.length;
+   for (var i=0;i&lt;this.length;i++){
+    this[i]=iA.arguments[i];
+   }
+  }
+  /* 5829 byte database of distances uses position into the
+     string "al" to substitute for the numerics, saving a bit
+     over 10k download to visitors. */
+  var a=new iA(61);
+  a[0]="Albany, New York*  tdjaddcdu jgybagc hhfdggqihbdhhbfdphrc"
+  +"khfevbniu aaqghamejgm zcmfBehflcn iclejcndafeao malcbfxidebdC"
+  +"bqiAfjdvesgBeChxid ni";
+  a[1]="Albuquerque, New Mexico*  n xfriiileidvbqgq p pcedmaoipbn"
+  +"ffdddigofbglidcu helgjepdgheihhhalijasgmhlblcl t riedhiqdsedf"
+  +"pcw mghbjbjdf gchakanereei";
+  a[2]="Atlanta, Georgia*  mcfer aevbkaiabie bdnhgagcbaeihbncifgc"
+  +"ndmipfifgiecd cahbsheeuidbchffh kbbedhheefhcjadcgercfhkgzfobx"
+  +"aegscj uexhzcfbie";
+  a[3]="Augusta, Maine*  fgxgoaCfbggclbjdkavblehglajatbvdogjfzcri"
+  +"yacgublbqengqbDcqgG lepcrcmbpdnbraeahiscqapbeiCbhfagGhueEdnfz"
+  +"dviFgGhFfgbrh";
+  a[4]="Baltimore, Maryland*  sbggxadccgegcfdbpggbcfebdcmfpdjdeas"
+  +"hmes cbn egjagejgx jdzefdiajigikag kdb bcmakehia wabeedB pczb"
+  +"hctgpczhBbAa dlh";
+  a[5]="Billings, Montana*  qhfav qbuhqbt dflcpatfpanbeeihoblffaf"
+  +"gu oinaqbv jdjenbldocnfybkfhcp rctdthkeiavcshl pfvgi cbifmafd"
+  +"obmakihcuaje";
+  a[6]="Birmingham, Alabama*  tglci ddefcinbffgccfegfdmchcgflgm p"
+  +"cjhg dhbedfgcrcdctecfbfgegdjgaiceihgagbhheehgphgimdyinavheaqi"
+  +"hfsiwgydgdhc";
+  a[7]="Boise, Idaho*  zivaxiudwegcqatcwisgoihdmfshl lafczarbretd"
+  +"xgnbfgqghescrbBgqdnhshuexiybndldzdxcihucAidcifdcpgcdpgihfeebw"
+  +"gmf";
+  a[8]="Boston, Massachusetts*  dgidgehesbj ffifh qet mdh whpevga"
+  +"arcicnfkfndAendDbifmdobjimijioabaehpingm cbzgegaaEdsaBglawhtb"
+  +"BhEcDbdepc";
+  a[9]="Buffalo, New York*  icdegao edaih ccmfoehecfsgkiqidbnieak"
+  +"bjijavhjfyheeibn fciegblfcgf lbjbl cfvbbbedzgncxegesdpcyczgyh"
+  +"dal ";
+  a[10]="Charleston, South Carolina*  dhbaqaiagcaafejiqbl hdq oas"
+  +"fhcjegbfgbdkavhhcxifag eijbmcedgcggddkdlgchffubfejeCeraAbhfui"
+  +"lhxbBbCcecld";
+  a[11]="Charleston, West Virginia*  bgnadgbecfagjemggid phkdpbfh"
+  +"khcbh ffgfucgcxabffcjaefhgdbiaeedajbidh dhshbchhyemgwheardmcw"
+  +"dz xgcdif";
+  a[12]="Charlotte, North Carolina*  pbgdeb iddjfohjffcpemhrbgdjc"
+  +"eefcciigv ghxadffcgdhckedbgbfbcak kdeceatce ifAhpezbgcthldxaA"
+  +"bAdchji";
+  a[13]="Cheyenne, Wyoming*  ihmcpfm hha fdldgighcerekajhlgqefhhe"
+  +"jgkbl kduej hhlfmhqer fie rgqfidnctfkhcbigidddjfkikilepdfb";
+  a[14]="Chicago, Illinois*  ceh cfibjbcdbhnffelgiajiaigejaedqhff"
+  +"tec edn  idadgibhahghcdhkegiqddhjiubiasebinblatiugtegagc";
+  a[15]="Cleveland, Ohio*  faadkimfffagqdj paefmacbidiahbtihgwhce"
+  +"gcleddgfecjfdgeajchcjedctcacgcxcldvfehqfnewixhwicfja";
+  a[16]="Columbia, South Carolina*  ecjcpbkagbpcncrdhajcfaf c jbu"
+  +"igfxbe fbfdhhladdfigbcijfkhddfatceijdBdpizaghublcwhAgAidhkg";
+  a[17]="Columbus, Ohio*  jeldffaip ieniffkgahh hcfhtbgcvdbaeikgd"
+  +"gghchibefefibgiifdhs aihgxdldvadbphmavfxcwedchg";
+  a[18]="Dallas/Ft Worth, Texas*  ghg kffbjiihpibehidajdealccbn h"
+  +"cdemdjbieffebofmebaffk ndj larhtdjipgfflfbgmeqeucmacg";
+  a[19]="Denver, Colorado*  fglhfihhbet jcjfl qdfagfidjckbjduajdi"
+  +"bkhlhqiqgfcedrhqdhanctglfdbjchfeciek lfmdpbeb";
+  a[20]="Des Moines, Iowa*  eikcdhibleiddhhcldb ncefqaeifboicgbef"
+  +"iihkbkeeeacmfjincghn rbfdp cgjgihqgrcr jfci";
+  a[21]="Detroit, Michigan*  pgibobgclhbhifjeggtbhhvichgbmicffied"
+  +"jgfegcjcgckgfatac i whkiv ecpgnewgx wcebif";
+  a[22]="El Paso, Texas*  nefgvigdnbjcohidgbidhbnejgs odnflhk ues"
+  +"efhlephtgddqhxfpcjdkgkhhgefgcl qbschd";
+  a[23]="Fargo, North Dakota*  kaofm hcmapifbodjdraidkct egbdkamh"
+  +"nenghgdcrancpikcqcnieaohhekemcrgrbnbmcgc";
+  a[24]="Grand Junction, Colorado*  uelbmcnasfhfeakeghmglgw likfn"
+  +"bngtdtbhbgitgsiehpiwdjeffgekabijiheihkcrhgc";
+  a[25]="Hartford, Connecticut*  qchdmejemdzfmdC hgl nbj mbj ncab"
+  +"dipdmgk baygdgb D rbB jhvgsaC DhCecfoc";
+  a[26]="Houston, Texas*  j dbhigdngdcodidegkikhkhghcepamedfhfiho"
+  +"akfmgsfvdmbrhghndb nisawgmgfb";
+  a[27]="Indianapolis, Indiana*  fghde rdfatfaadgkibgeibhh gcgagd"
+  +"faigffqccfjevdkatfbdogkithviveehfi";
+  a[28]="Jackson, Mississippi*  fafipcbfrbeibaiahcjfdabalbieefhgg"
+  +" kanfidoixemgthe pffgqfueydiggf";
+  a[29]="Jacksonville, Florida*  kdvdhbwegcficekanfefefiefbkembad"
+  +"het hcmaCfrczihhwajhwfAeCggblh";
+  a[30]="Kansas City, Kansas/Missouri*  mgdboheadhnhefddehhdlckfc"
+  +"eailekgldhgofrbfipdbfkaghoirfrfjdb ";
+  a[31]="Las Vegas, Nevada*  nfbgrgp ygr pfraqcygxhkam wexhbivaBf"
+  +"j kadepbdblicdegkhxbkh";
+  a[32]="Little Rock, Arkansas*  pieaadkfgghccedblejbcdehifkdmci "
+  +"uikdsad ndehpgsivejadd";
+  a[33]="Los Angeles, California*  uhraAbtgrftarfAizimdogxcA cixc"
+  +"Edifmfdgrdfimiaccikczemi";
+  a[34]="Louisville, Kentucky*  chjichgaagg ggfegeg hfgaqecik wal"
+  +"audbfpbk tiwewef g ";
+  a[35]="Memphis, Tennessee*  j fbiabadak hhdhfdghjanggfnfwaketcb"
+  +"hoegcraubwbheeh";
+  a[36]="Miami, Florida*  nfqgiahfmcigo pdbclcwekhpfFfuhD lcygmiz"
+  +"hDiG jfp ";
+  a[37]="Milwaukee, Wisconsin*  cdeejchiiehhe lbhgqgefkftbhdsfchn"
+  +"cliucugshhage";
+  a[38]="Minneapolis, Minnesota*  hcmelblcgichogl phhingqbehrcfck"
+  +"ilet shpejifc";
+  a[39]="Nashville, Tennessee*  eci fgfhgffigipgegl wglevbcbq ict"
+  +" wcxdffgd";
+  a[40]="New Orleans, Louisiana*  mdjdfijcfelco kdpdydo vcg qheer"
+  +"dvhyik he";
+  a[41]="New York City, New York*  cgnhlejiaaxechcbCaqbAaihuirbB "
+  +"CcBdbdnb";
+  a[42]="Norfolk, Virginia*  mgmbggbgwedbgcCgqfAii vboezhD Biaimg";
+  a[43]="Oklahoma City, Oklahoma*  dflcmiihkaqdrgheofe k dhmcpfsi"
+  +"mcaf";
+  a[44]="Omaha, Nebraska*  nal meicocpiecngddididpcpipikdc ";
+  a[45]="Orlando, Florida*  iithihn DgsgBdj wdkgxaBgDihemi";
+  a[46]="Philadelphia, Pennsylvania*  wgcadbBfpezei ueqdAgC Bbacmf";
+  a[47]="Phoenix, Arizona*  tiAelglcgcnhfej cegfngw jd";
+  a[48]="Pittsburgh, Pennsylvania*  fiyemfwgfasbnhxdzaybbeje";
+  a[49]="Portland, Maine*  FbshCglhyaucE FbDiefqa";
+  a[50]="Portland, Oregon*  lfehtfgfu jifdagAhqe";
+  a[51]="Rapid City, South Dakota*  lciegdleninekcoigc";
+  a[52]="Reno, Nevada*  riecqcf bcgcygnh";
+  a[53]="St Louis, Missouri*  mfiercubudhfdf";
+  a[54]="Salt Lake City, Utah*  mcgfgehetejb";
+  a[55]="San Antonio, Texas*  m qduhoifd";
+  a[56]="San Diego, California*  ealfz n ";
+  a[57]="San Francisco, California*  haBdq ";
+  a[58]="Seattle, Washington*  Abrf";
+  a[59]="Washington, DC*  lh";
+  a[60]="Wichita, Kansas*  ";
+  // For string to numerics on Win3.x
+  var b=new iA(4);
+  b[0]=1;
+  b[1]=10;
+  b[2]=100;
+  b[3]=1000;
+  function getMiles(form){
+   lf=(document.isn.isn1.options[document.isn.isn1.selectedIndex].value);
+   rf=(document.isn.isn2.options[document.isn.isn2.selectedIndex].value);
+   l=al.indexOf(lf);
+   r=al.indexOf(rf);
+   if (r&lt;l){
+    l=r;
+    r=al.indexOf(lf);
+    }
+   ls=a[l];
+   pos=ls.indexOf("*")
+   ls1="From "+ls.substring(0,pos)+" to "
+   +a[r].substring(0,a[r].indexOf("*"))+" is about ";
+   ls=ls.substring(pos+1,ls.length);
+   tc=ls.substring(((r*2)-(l*2)),ls.length);
+   if (document.isn.rb[1].checked){
+    dispKm();
+    }
+   else{
+    dispMi();
+    }
+  }
+  function dispMi(){
+   ch=tc.charAt(0);
+   ls1+=al.indexOf(ch);
+   ch=tc.charAt(1);
+   if (ch!=" "){
+    ls1+=(al.indexOf(ch)*10)+" miles";
+    } //1.613
+    else ls1+="00"+" miles";
+   document.isn.disp.value=ls1;
+  }
+  function dispKm(){
+   ch=tc.charAt(0);
+   km="";
+   km+=al.indexOf(ch);
+   ch=tc.charAt(1);
+   if (ch!=" "){
+    km+=(al.indexOf(ch)*10);
+    } //1.613
+    else{
+     km+="00";
+    }
+    num=0;
+    kml=km.length;
+    for (var i=kml-1;i&gt;-1;i--){
+     cr=km.substring(i,i+1);
+     pos=ns.indexOf(cr);
+     num+=pos*b[kml-i-1];
+    }
+    km="";
+    km+=num*1.613;
+    pos=km.indexOf(".");
+    if (pos&gt;-1){
+     km=km.substring(0,pos);
+    }
+    ls1+=km+" kilometers";
+    document.isn.disp.value=ls1;
+  }
+  // End Hiding --&gt;
+  &lt;/SCRIPT&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;CENTER&gt;
+&lt;FORM NAME="isn"&gt;
+&lt;TABLE BORDER=0 WIDTH=486&gt;
+&lt;TR&gt;&lt;TD COLSPAN=3 ALIGN=CENTER&gt;
+&lt;HR NOSHADE&gt;&lt;FONT COLOR="blue"&gt;
+&lt;B&gt;Driving Distances between Selected USA Cities&lt;/B&gt;&lt;/FONT&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;TR&gt;&lt;TD ALIGN=CENTER&gt;&lt;FONT COLOR="blue"&gt;
+&lt;B&gt;Starting City&lt;/FONT&gt;&lt;/b&gt;&lt;/FONT&gt;&lt;BR&gt;&lt;SELECT NAME="isn1" SIZE=12&gt;
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!--
+ls="";
+for (var i=0;i&lt;61;i++){
+ls+='&lt;OPTION VALUE="'+al.substring(i,i+1)+'" onClick=""';
+if (i==0){ls+=' SELECTED';}
+ls+='&gt;'+a[i].substring(0,a[i].indexOf("*"));
+}
+document.write(ls);
+// End hiding --&gt;
+&lt;/SCRIPT&gt;
+&lt;/SELECT&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT COLOR="blue" SIZE=1&gt;
+&lt;B&gt;Instructions:&lt;/B&gt;&lt;/FONT&gt;
+&lt;BR&gt;Select starting city at left, destination at right. 
+Or, if you are feeling particularly contrary today, 
+vice versa. Then click below.
+&lt;P&gt;&lt;INPUT TYPE="button" NAME="but" VALUE=" Get Distance " onClick="getMiles(this.form)"&gt;
+&lt;BR&gt;&lt;INPUT TYPE="radio" NAME="rb" VALUE="a" CHECKED onClick=""&gt;Miles 
+&lt;INPUT TYPE="radio" NAME="rb" VALUE="b" onClick=""&gt;Kilometers
+&lt;TD ALIGN=CENTER&gt;&lt;FONT COLOR="blue"&gt;
+&lt;B&gt;Destination City&lt;/B&gt;&lt;/FONT&gt;
+&lt;BR&gt;&lt;SELECT NAME="isn2" SIZE=12&gt;
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Begin
+ls="";
+for (var i=0;i&lt;61;i++){
+ls+='&lt;OPTION VALUE="'+al.substring(i,i+1)+'" onClick=""';
+if (i==1){ls+=' SELECTED';}
+ls+='&gt;'+a[i].substring(0,a[i].indexOf("*"));
+}
+document.write(ls);
+// End hiding --&gt;
+&lt;/SCRIPT&gt;
+&lt;/SELECT&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;TR&gt;&lt;TD COLSPAN=3 ALIGN=CENTER&gt;
+&lt;TABLE BORDER=2&gt;
+&lt;TR&gt;&lt;TD&gt;&lt;INPUT TYPE="text" NAME="disp" VALUE="" SIZE=80&gt;
+&lt;/TD&gt;&lt;/TR&gt;&lt;/TABLE&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;TR&gt;&lt;TD COLSPAN=3&gt;&lt;HR NOSHADE&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;/TABLE&gt;
+&lt;/FORM&gt;
+&lt;/CENTER&gt;
+
+ 
+
+&lt;!-- Script Size:  9.43 KB  --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

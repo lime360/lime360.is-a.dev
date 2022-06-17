@@ -1,0 +1,202 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Games:  Flipper</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Games">
+<META NAME="description" CONTENT="JavaScript allows users to create flashing marquees.  Take a look at the example below and see what I mean.  This example also allows the user to edit the messages and the speed of those messages.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin    
+var CurrentMsg = 'Hello!  Welcome to JavaScript Source Code 3000!! ';
+function update(msg) {
+var pad_str="";                           
+n = msg.length;
+if(n<72) {
+pad = (73-n)/2;
+for(var i=0; i<pad; i++) {
+pad_str+=" ";                        
+   }                        
+}                          
+CurrentMsg = pad_str + msg;                           
+document.messages.field.value = CurrentMsg;
+clearTimeout(timer);                           
+timer = setTimeout("idleMsg()",2500);        
+}
+function MakeArray(n) {                           
+this.length=n;                           
+for(var i = 1; i<= n; i++) {                                   
+this[i] = "";                
+}                           
+return(this);        
+}               
+var index = 1;           
+var notice_num = 9;                   
+var notices = new MakeArray(notice_num);        
+notices[1] = "Welcome to JavaScript Source Code 3000!";
+notices[2] = "Hey, thanks for coming!  I am glad you visited!";
+notices[3] = "Each message can be adjusted either in speed, or content.";        
+notices[4] = "The length of the message box can also be personalized to fit your needs.";
+notices[5] = "More scripts to this effect can be found throughout this site.";
+notices[6] = "Don't forget to get your own home page to show off all your scripts!"; 
+notices[7] = "I hope that these scripts help you to improve your web site!!";       
+notices[8] = "Be sure to sign my guestbook and complete my survey before you leave!";                   
+var timer = setTimeout('idleMsg()',1500);                   
+function nochange() {
+document.messages.field.value = CurrentMsg;        
+}                   
+function idleMsg() {                           
+update(notices[index++]);                           
+if(index>notice_num) { 
+index=1; 
+   }  
+}
+// End -->                  
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /games/"><font color="#FF0000">Games</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Flipper</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<TABLE BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE=" helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+JavaScript allows users to create flashing marquees.  Take a look at the example below and see what I mean.  This example also allows the user to edit the messages and the speed of those messages.
+<br><hr>
+</td></tr>
+</table>
+<!--  Demonstration  -->
+<BODY>
+<CENTER>
+<FORM name="messages" onSubmit="return false">
+<input type="text" name="field" size=73 value=" Hello?  Welcome to TJS!!" onFocus="self.status='This is a JavaScript information data field'; return true" onChange="nochange()">
+</FORM>
+</CENTER>
+<P>
+<P>
+<a name="source">
+<TABLE BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Games:  Flipper</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as NotePad or SimpleText) and save (Control-s or Apple-s).  The script is yours!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.62 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL FLIPPER:
+
+   1.  Paste the coding into the HEAD of your HTML document
+   2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var CurrentMsg = 'Hello?  Welcome to JavaScript Source Code 3000!!';
+function update(msg) {
+var pad_str="";                           
+n = msg.length;
+if(n&lt;72) {
+pad = (73-n)/2;
+for(var i=0; i&lt;pad; i++) {
+pad_str+=" ";                        
+   }                        
+}                          
+CurrentMsg = pad_str + msg;                           
+document.messages.field.value = CurrentMsg;
+clearTimeout(timer);                           
+timer = setTimeout("idleMsg()",2500);        
+}
+function MakeArray(n) {                           
+this.length=n;                           
+for(var i = 1; i&lt;= n; i++) {                                   
+this[i] = "";                
+}                           
+return(this);        
+}               
+var index = 1;           
+var notice_num = 9;                   
+var notices = new MakeArray(notice_num);        
+notices[1] = "Welcome to JavaScript Source Code 3000!";
+notices[2] = "Hey, thanks for coming!  I am glad you visited!";
+notices[3] = "Each message can be adjusted either in speed, or content.";        
+notices[4] = "The length of the message box can also be personalized to fit your needs.";
+notices[5] = "More scripts to this effect can be found throughout this site.";
+notices[6] = "Don't forget to get your own home page to show off all your scripts!"; 
+notices[7] = "I hope that these scripts help you to improve your web site!!";       
+notices[8] = "Be sure to sign my guestbook and complete my survey before you leave!";                     
+var timer = setTimeout('idleMsg()',1500);                   
+function nochange() {
+document.messages.field.value = CurrentMsg;        
+}                   
+function idleMsg() {                           
+update(notices[index++]);                           
+if(index&gt;notice_num) { 
+index=1; 
+   }  
+}
+// End --&gt;                  
+&lt;/SCRIPT&gt;
+
+&lt;!-- STEP TWO: Put this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;CENTER&gt;
+&lt;FORM name="messages" onSubmit="return false"&gt;
+&lt;input type="text" name="field" size=73 value=" Hello?  Welcome to TJS!!" onFocus="self.status='This is a JavaScript information data field'; return true" onChange="nochange()"&gt;
+&lt;/FORM&gt;
+&lt;/CENTER&gt;
+
+ 
+
+&lt;!-- Script Size:  2.62 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

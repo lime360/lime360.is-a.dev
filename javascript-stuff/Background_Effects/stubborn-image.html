@@ -1,0 +1,193 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  BG Effects:  Stubborn Image</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="Chase the image across the screen with your mouse, but you will never catch it.  Entertaining!">
+<META NAME="date" CONTENT="2000-11-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Kien Caoxuan">
+<META NAME="section" CONTENT="BG Effects">
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Kien Caoxuan (kcaoxuan@caoxuan.com) -->
+<!-- Web Site:  http://www.caoxuan.com/ -->
+
+
+
+
+<!-- Begin
+N = (navigator.appName.indexOf("Netscape") != -1);
+M = (navigator.appName.indexOf("Microsoft") != -1);
+Vis = new Array();
+Vis[0] = (M) ? "hidden":"hide";
+Vis[1] = (M) ? "visible":"show";
+function GetDiv(divId, divY, divX, divW, divH, bCol, visb, zInd) {
+bkCol = (bCol != "")?((N)?" bgColor = "+bCol:";background:"+bCol):"";
+DivTyp = (M) ? "<DIV" : "<LAYER";
+if(M) {
+Styl = " ID="+divId+" style = 'position:absolute; top:"+divY+"; left:"+divX+"; width:"+divW+"; height:"+divH+bkCol+"; visibility:"+Vis[visb]+"; z-index:"+zInd+"'>";
+}
+if(N) {
+Styl = " ID = "+divId+" top = "+divY+" left = "+divX+" width = "+divW+" height = "+divH+bkCol+" visibility = "+Vis[visb]+" z-index = "+zInd+">";
+}
+document.writeln(DivTyp+Styl);
+}
+function EndDiv() {
+(M)? document.writeln("</DIV>"): document.writeln("</LAYER>");
+}
+GetDiv('Obj', 300, 300, 20, 20, '', 1, 0);
+document.write("<img src=../img/logo.gif width=100 height=40>");
+EndDiv();
+if(document.layers) document.captureEvents(Event.MOUSEMOVE);
+document.onmousemove = newPos;
+function newPos(e) {
+X = (navigator.appName.indexOf("Microsoft") != -1)?event.clientX:e.pageX;
+Y = (navigator.appName.indexOf("Microsoft") != -1)?event.clientY:e.pageY;
+Xo = parseInt((M)?document.all.Obj.style.left:document.Obj.left);
+Yo = parseInt((M)?document.all.Obj.style.top:document.Obj.top);
+if(Math.abs(X - Xo) < 50 && Math.abs(Y - Yo) < 50) {
+if(M) {
+document.all.Obj.style.left = Math.floor(Math.random() * 400);
+document.all.Obj.style.top = 100 + Math.floor(Math.random() * 300);
+}
+if(N) {
+document.Obj.left = Math.floor(Math.random() * 700);
+document.Obj.top = Math.floor(Math.random() * 500);
+      }
+   }
+}
+//  End -->
+</script>
+
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /bgeffects/"><font color="#FF0000"><b>BG Effects</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Stubborn Image</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Chase the image across the screen with your mouse, but you will never catch it.  Entertaining!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  BG Effects:  Stubborn Image</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Command-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.28 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- ONE STEP TO INSTALL STUBBORN IMAGE:
+
+  1.  Copy the coding into the HEAD of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Kien Caoxuan (kcaoxuan@caoxuan.com) --&gt;
+&lt;!-- Web Site:  http://www.caoxuan.com/ --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+N = (navigator.appName.indexOf("Netscape") != -1);
+M = (navigator.appName.indexOf("Microsoft") != -1);
+Vis = new Array();
+Vis[0] = (M) ? "hidden":"hide";
+Vis[1] = (M) ? "visible":"show";
+function GetDiv(divId, divY, divX, divW, divH, bCol, visb, zInd) {
+bkCol = (bCol != "")?((N)?" bgColor = "+bCol:";background:"+bCol):"";
+DivTyp = (M) ? "&lt;DIV" : "&lt;LAYER";
+if(M) {
+Styl = " ID="+divId+" style = 'position:absolute; top:"+divY+"; left:"+divX+"; width:"+divW+"; height:"+divH+bkCol+"; visibility:"+Vis[visb]+"; z-index:"+zInd+"'&gt;";
+}
+if(N) {
+Styl = " ID = "+divId+" top = "+divY+" left = "+divX+" width = "+divW+" height = "+divH+bkCol+" visibility = "+Vis[visb]+" z-index = "+zInd+"&gt;";
+}
+document.writeln(DivTyp+Styl);
+}
+function EndDiv() {
+(M)? document.writeln("&lt;/DIV&gt;"): document.writeln("&lt;/LAYER&gt;");
+}
+GetDiv('Obj', 300, 300, 20, 20, '', 1, 0);
+document.write("&lt;img src=../img/logo.gif width=100 height=40&gt;");
+EndDiv();
+if(document.layers) document.captureEvents(Event.MOUSEMOVE);
+document.onmousemove = newPos;
+function newPos(e) {
+X = (navigator.appName.indexOf("Microsoft") != -1)?event.clientX:e.pageX;
+Y = (navigator.appName.indexOf("Microsoft") != -1)?event.clientY:e.pageY;
+Xo = parseInt((M)?document.all.Obj.style.left:document.Obj.left);
+Yo = parseInt((M)?document.all.Obj.style.top:document.Obj.top);
+if(Math.abs(X - Xo) &lt; 50 && Math.abs(Y - Yo) &lt; 50) {
+if(M) {
+document.all.Obj.style.left = Math.floor(Math.random() * 400);
+document.all.Obj.style.top = 100 + Math.floor(Math.random() * 300);
+}
+if(N) {
+document.Obj.left = Math.floor(Math.random() * 700);
+document.Obj.top = Math.floor(Math.random() * 500);
+      }
+   }
+}
+//  End --&gt;
+&lt;/script&gt;
+
+
+ 
+
+&lt;!-- Script Size:  2.28 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

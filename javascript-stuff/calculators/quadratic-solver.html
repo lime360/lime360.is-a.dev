@@ -1,0 +1,299 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Calculators:  Quadratic Solver</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="Solves quadratic equations for inputted coefficients.  Answers can be either real or complex.  Awesome!">
+<META NAME="date" CONTENT="2000-11-24">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="John Caranta">
+<META NAME="section" CONTENT="Calculators">
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  John Caranta (caranta@netzero.net) -->
+
+
+
+
+<!-- Begin
+var rootparti;
+var rootpart;
+var det;
+var rootparti1;
+var rootparti2;
+var a;
+var b;
+var c;
+var x1;
+var x2;
+var i = "i";
+function checkQuad() {
+var a = document.fquad.fa.value;
+var b = document.fquad.fb.value;
+var c = document.fquad.fc.value;
+if (a == 0 && c != 0) {
+x1 = -c / b;
+x2 = "Not a quadratic equation, but here is your answer for x";
+document.fquad.x1.value=x1;
+document.fquad.x2.value=x2;
+}
+else if (a == "" && c != 0) {
+x1 = -c / b;
+x2 = "Not a quadratic equation";
+document.fquad.x1.value=x1;
+document.fquad.x2.value=x2;
+}
+else {
+quad();
+   }
+}
+function quad() {
+var a = document.fquad.fa.value;
+var b = document.fquad.fb.value;
+var c = document.fquad.fc.value;
+det = Math.pow(b,2) - 4 * a * c;
+rootpart = Math.sqrt(det) / (2 * a);
+rootparti = (Math.sqrt(-det) / (2 * a)) + i;
+if (parseFloat(rootparti) < 0) {
+rootparti1 = rootparti;
+rootparti2 = (-1 * parseFloat(rootparti)) + i;
+}
+else {
+rootparti1 = (-1 * parseFloat(rootparti)) + i;
+rootparti2 = rootparti;
+}
+if (rootparti1 == "1i") {
+rootparti1 = i;
+rootparti2 = "-i";
+}
+else if (rootparti1 == "-1i") {
+rootparti1 = "-i";
+rootparti2 = i;
+}
+if (det == 0) {
+x1 = x2 = -b / (2 * a);
+}
+else if (det > 0) {
+x1 = (-b + Math.sqrt(det)) / (2 * a);
+x2 = (-b - Math.sqrt(det)) / (2 * a);
+}
+else if ((-b / (2 * a)) == 0) {
+x1 = rootparti1;
+x2 = rootparti2;
+}
+else {
+x1 = (-b / (2 * a) + " + " + rootparti1);
+x2 = (-b / (2 * a) + " + " + rootparti2);
+}
+document.fquad.x1.value=x1;
+document.fquad.x2.value=x2;
+}
+//  End -->
+</script>
+
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /calculators/"><font color="#FF0000"><b>Calculators</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Quadratic Solver</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Solves quadratic equations for inputted coefficients.  Answers can be either real or complex.  Awesome!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<form name=fquad>
+<table>
+<tr>
+<td>
+<h2>
+<input name=fa size=4> x<SUP>2</SUP>+ <input name=fb size=4> x + <input name=fc size=4> = 0 
+<input type=button value="Solve" onClick="checkQuad()"> <input type=reset value="Reset">
+</h2>
+</td>
+</tr>
+<tr>
+<td>
+<h2>
+x<sub>1</sub>= <input name=x1 size=45>
+<br>
+x<sub>2</sub>= <input name=x2 size=45>
+</h2>
+</td>
+</tr>
+</table>
+</form>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Calculators:  Quadratic Solver</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Command-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.77 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL QUADRATIC SOLVER:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  John Caranta (caranta@netzero.net) --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var rootparti;
+var rootpart;
+var det;
+var rootparti1;
+var rootparti2;
+var a;
+var b;
+var c;
+var x1;
+var x2;
+var i = "i";
+function checkQuad() {
+var a = document.fquad.fa.value;
+var b = document.fquad.fb.value;
+var c = document.fquad.fc.value;
+if (a == 0 && c != 0) {
+x1 = -c / b;
+x2 = "Not a quadratic equation, but here is your answer for x";
+document.fquad.x1.value=x1;
+document.fquad.x2.value=x2;
+}
+else if (a == "" && c != 0) {
+x1 = -c / b;
+x2 = "Not a quadratic equation";
+document.fquad.x1.value=x1;
+document.fquad.x2.value=x2;
+}
+else {
+quad();
+   }
+}
+function quad() {
+var a = document.fquad.fa.value;
+var b = document.fquad.fb.value;
+var c = document.fquad.fc.value;
+det = Math.pow(b,2) - 4 * a * c;
+rootpart = Math.sqrt(det) / (2 * a);
+rootparti = (Math.sqrt(-det) / (2 * a)) + i;
+if (parseFloat(rootparti) &lt; 0) {
+rootparti1 = rootparti;
+rootparti2 = (-1 * parseFloat(rootparti)) + i;
+}
+else {
+rootparti1 = (-1 * parseFloat(rootparti)) + i;
+rootparti2 = rootparti;
+}
+if (rootparti1 == "1i") {
+rootparti1 = i;
+rootparti2 = "-i";
+}
+else if (rootparti1 == "-1i") {
+rootparti1 = "-i";
+rootparti2 = i;
+}
+if (det == 0) {
+x1 = x2 = -b / (2 * a);
+}
+else if (det &gt; 0) {
+x1 = (-b + Math.sqrt(det)) / (2 * a);
+x2 = (-b - Math.sqrt(det)) / (2 * a);
+}
+else if ((-b / (2 * a)) == 0) {
+x1 = rootparti1;
+x2 = rootparti2;
+}
+else {
+x1 = (-b / (2 * a) + " + " + rootparti1);
+x2 = (-b / (2 * a) + " + " + rootparti2);
+}
+document.fquad.x1.value=x1;
+document.fquad.x2.value=x2;
+}
+//  End --&gt;
+&lt;/script&gt;
+
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;form name=fquad&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;h2&gt;
+&lt;input name=fa size=4&gt; x&lt;SUP&gt;2&lt;/SUP&gt;+ &lt;input name=fb size=4&gt; x + &lt;input name=fc size=4&gt; = 0 
+&lt;input type=button value="Solve" onClick="checkQuad()"&gt; &lt;input type=reset value="Reset"&gt;
+&lt;/h2&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;h2&gt;
+x&lt;sub&gt;1&lt;/sub&gt;=&lt;input name=x1 size=45&gt;
+&lt;br&gt;
+x&lt;sub&gt;2&lt;/sub&gt;= &lt;input name=x2 size=45&gt;
+&lt;/h2&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+
+ 
+
+&lt;!-- Script Size:  2.77 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

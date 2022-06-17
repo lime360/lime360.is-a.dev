@@ -1,0 +1,182 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Forms:  Validation (Character)</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="Automatically removes specified characters from input box.  Good for fields that require only text/number inputs. Easily modified to accept only text or only numerals.">
+<META NAME="date" CONTENT="2001-01-15">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Mikhail Esteves">
+<META NAME="section" CONTENT="Forms">
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Mikhail Esteves (miks80@yahoo.com) -->
+<!-- Web Site:  http://www.freebox.com/jackol -->
+
+
+
+
+<!-- Begin
+var mikExp = /[$\\@\\\#%\^\&\*\(\)\[\]\+\_\{\}\`\~\=\|]/;
+function dodacheck(val) {
+var strPass = val.value;
+var strLength = strPass.length;
+var lchar = val.value.charAt((strLength) - 1);
+if(lchar.search(mikExp) != -1) {
+var tst = val.value.substring(0, (strLength) - 1);
+val.value = tst;
+   }
+}
+function doanothercheck(form) {
+if(form.value.length < 1) {
+alert("Please enter something.");
+return false;
+}
+if(form.value.search(mikExp) == -1) {
+alert("Correct Input");
+return false;
+}
+else {
+alert("Sorry, but the following characters\n\r\n\r@ $ % ^ & * # ( ) [ ] \\ { + } ` ~ =  | \n\r\n\rare not allowed!\n");
+form.select();
+form.focus();
+return false;
+}
+alert("Correct Input");
+return false;
+}
+//  End -->
+</script>
+
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /forms/" ><font color="#FF0000"><b>Forms</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Validation (Character)</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Automatically removes specified characters from input box.  Good for fields that require only text/number inputs. Easily modified to accept only text or only numerals.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+(Try entering characters other than A-Z and 0 - 9.)
+<form name=xyz onSubmit="return doanothercheck(this.txtTerm);">
+<input type="text" name="txtTerm" size="35" maxlength="50" value="" onKeyUp="javascript:dodacheck(xyz.txtTerm);">
+<br>
+<input type=submit value=Check>
+</form>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Forms:  Validation (Character)</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Command-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.72 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL VALIDATION (CHARACTER):
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Mikhail Esteves (miks80@yahoo.com) --&gt;
+&lt;!-- Web Site:  http://www.freebox.com/jackol --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var mikExp = /[$\\@\\\#%\^\&\*\(\)\[\]\+\_\{\}\`\~\=\|]/;
+function dodacheck(val) {
+var strPass = val.value;
+var strLength = strPass.length;
+var lchar = val.value.charAt((strLength) - 1);
+if(lchar.search(mikExp) != -1) {
+var tst = val.value.substring(0, (strLength) - 1);
+val.value = tst;
+   }
+}
+function doanothercheck(form) {
+if(form.value.length &lt; 1) {
+alert("Please enter something.");
+return false;
+}
+if(form.value.search(mikExp) == -1) {
+alert("Correct Input");
+return false;
+}
+else {
+alert("Sorry, but the following characters\n\r\n\r@ $ % ^ & * # ( ) [ ] \\ { + } ` ~ =  | \n\r\n\rare not allowed!\n");
+form.select();
+form.focus();
+return false;
+}
+alert("Correct Input");
+return false;
+}
+//  End --&gt;
+&lt;/script&gt;
+
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;form name=xyz onSubmit="return doanothercheck(this.txtTerm);"&gt;
+&lt;input type="text" name="txtTerm" size="35" maxlength="50" value="" onKeyUp="javascript:dodacheck(xyz.txtTerm);"&gt;
+&lt;br&gt;
+&lt;input type=submit value=Check&gt;
+&lt;/form&gt;
+
+ 
+
+&lt;!-- Script Size:  1.72 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

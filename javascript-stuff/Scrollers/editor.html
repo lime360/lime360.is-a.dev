@@ -1,0 +1,187 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Scrolls:  Editor</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Scrolls">
+<META NAME="description" CONTENT="This is a very cool way to show you a little bit better how Javascript works.  Go ahead.  You can manipulate several different variables and then see the effects on the scroll box.  Have fun!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+var id,pause=0,position=0;
+function banner() {
+var i,k,msg=document.form1.message.value;
+k=(66/msg.length)+1;
+for(i=0;i<=k;i++) msg+=" "+msg;	document.form2.banner.value=msg.substring(position,position+50);
+if(position++==document.form1.message.value.length) 
+position=0;	
+id=setTimeout("banner()",1000/document.form1.speed.value);
+}
+function action"http://javascript.internet.com/scrolls/()" {	
+if(!pause) {		
+clearTimeout(id);		
+pause=1; 
+}	
+else {
+banner();		
+pause=0; 
+   }
+}
+// End -->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff onLoad="banner()">
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /scrolls/"><font color="#FF0000">Scrolls</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Editor</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE=" helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+This is a very cool way to show you a little bit better how Javascript works.  Go ahead.  You can manipulate several different variables and then see the effects on the scroll box.  Have fun!<br><hr>
+</td></tr>
+</table>
+<!--  Demonstration  -->
+<BODY>
+<CENTER>
+<FORM name="form1">
+<TABLE border="3">
+<caption>Edit box</caption>
+<tr><td align="right">Message:</td>
+<td><input type="text" name="message" value="This is a scroll - a text box scroll.                                              " size="50"></td></tr>
+<tr><td align="right">Speed:</td>
+<td><input type="text" name="speed" value="10" size="5"></td></tr>
+<tr><td align="right">Change:</td>
+<td><center><input type="button" value=" Click here to make changes take effect" onclick="clearTimeout(id);position=0;banner()"></center></td></tr>
+</TABLE>
+</FORM>
+<p>
+<hr size="4" width="40%">
+<p>
+<FORM name="form2">
+<input type="text" name="banner" size="50"><br>
+<input type="hidden" value=" Start Banner " onclick="action()">
+</FORM>
+</CENTER>
+<P>
+<BR>
+<P>
+<a name="source">
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Scrolls:  Editor</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as NotePad or SimpleText) and save (Control-s or Apple-s).  The script is yours!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.89 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL EDITOR:
+
+   1.  Paste the coding into the HEAD of your HTML document
+   2.  Copy the onLoad event handler into the BODY tag
+   3.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var id,pause=0,position=0;
+function banner() {
+var i,k,msg=document.form1.message.value;
+k=(66/msg.length)+1;
+for(i=0;i&lt;=k;i++) msg+=" "+msg;	document.form2.banner.value=msg.substring(position,position+50);
+if(position++==document.form1.message.value.length) 
+position=0;	
+id=setTimeout("banner()",1000/document.form1.speed.value); 
+}
+function action() {	
+if(!pause) {		
+clearTimeout(id);		
+pause=1; 
+}	
+else {
+banner();		
+pause=0; 
+   }
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+&lt;!-- STEP TWO: Add this onLoad event handler into the BODY tag  --&gt;
+
+&lt;BODY onLoad="banner()"&gt;
+
+&lt;!-- STEP THREE: Put this code into the BODY of your HTML document  --&gt;
+
+&lt;CENTER&gt;
+&lt;FORM name="form1"&gt;
+&lt;TABLE border="3"&gt;
+&lt;caption&gt;Edit box&lt;/caption&gt;
+&lt;tr&gt;&lt;td align="right"&gt;Message:&lt;/td&gt;
+&lt;td&gt;&lt;input type="text" name="message" value="This is a scroll - a text box scroll.                                              " size="50"&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td align="right"&gt;Speed:&lt;/td&gt;
+&lt;td&gt;&lt;input type="text" name="speed" value="10" size="5"&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td align="right"&gt;Change:&lt;/td&gt;
+&lt;td&gt;&lt;center&gt;&lt;input type="button" value=" Click here to make changes take effect" onclick="clearTimeout(id);position=0;banner()"&gt;&lt;/center&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/TABLE&gt;
+&lt;/FORM&gt;
+&lt;p&gt;
+&lt;hr size="4" width="40%"&gt;
+&lt;p&gt;
+&lt;FORM name="form2"&gt;
+&lt;input type="text" name="banner" size="50"&gt;&lt;br&gt;
+&lt;input type="hidden" value=" Start Banner " onclick="action()"&gt;
+&lt;/FORM&gt;
+&lt;/CENTER&gt;
+
+ 
+
+&lt;!-- Script Size:  1.89 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

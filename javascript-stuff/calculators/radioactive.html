@@ -1,0 +1,164 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Calculators:  Radioactive</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Calculators">
+<META NAME="description" CONTENT="Use JavaScript to find how much radioactive material remains after a given time.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+function computeamount(h,a,t){  
+h = document.forms[0].h.value  
+a = document.forms[0].a.value  
+t = document.forms[0].t.value  
+document.forms[0].result1.value=eval(a*Math.exp((Math.log(0.5)/h)*t));  
+document.forms[0].result2.value=eval((document.forms[0].result1.value/a)*100);    
+}
+// End -->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /calculators/"><font color="#FF0000">Calculators</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Radioactive</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Use JavaScript to find how much radioactive material remains after a given time.
+<P>
+Note:   Please enter the halflife, original amount, and elapsed time since the original amount was true and the current amount, and percentof the original will be returned.  Please note that the time periods and mass amounts must be in the same units or the results will be inaccurate.
+<br>
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<BODY BGCOLOR="white">
+<center> 
+<table border=1> 
+<tr> 
+<td>Halflife</td> 
+<td>Amount</td> 
+<td>Time</td> 
+</tr> 
+<tr> 
+<td><form><input name="h" size=10 ></td> 
+<td><input name="a" size=10 ></td> 
+<td><input name="t" size=10 ></td> 
+<td><input type="button" value="Calculate Amount Left" onclick="computeamount()"></td> 
+</tr> 
+</table>
+</center>
+<br>The amount remaining is: 
+<input name="result1" size=22> or 
+<input name="result2" size=5> percent of the original sample.
+<input type="reset" value="Reset Form">
+</form>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Calculators:  Radioactive</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.37 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL RADIOACTIVE CALCULATOR:
+
+   1.  Copy the first code into the BODY of your HTML document
+   2.  Put the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the HEAD of your HTML document  --&gt;
+		  
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function computeamount(h,a,t){  
+h = document.forms[0].h.value  
+a = document.forms[0].a.value  
+t = document.forms[0].t.value  
+document.forms[0].result1.value=eval(a*Math.exp((Math.log(0.5)/h)*t));  
+document.forms[0].result2.value=eval((document.forms[0].result1.value/a)*100);    
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;CENTER&gt; 
+&lt;TABLE border=1&gt; 
+&lt;TR&gt; 
+&lt;TD&gt;Halflife&lt;/TD&gt; 
+&lt;TD&gt;Amount&lt;/TD&gt; 
+&lt;TD&gt;Time&lt;/TD&gt; 
+&lt;/TR&gt; 
+&lt;TR&gt; 
+&lt;TD&gt;&lt;FORM&gt;&lt;input name="h" size=10 &gt;&lt;/TD&gt; 
+&lt;TD&gt;&lt;input name="a" size=10 &gt;&lt;/TD&gt; 
+&lt;TD&gt;&lt;input name="t" size=10 &gt;&lt;/TD&gt; 
+&lt;TD&gt;&lt;input type="button" value="Calculate Amount Left" onclick="computeamount()"&gt;&lt;/TD&gt; 
+&lt;/TR&gt; 
+&lt;/TABLE&gt;
+&lt;/CENTER&gt;
+&lt;BR&gt;The amount remaining is: 
+&lt;input name="result1" size=22&gt; or 
+&lt;input name="result2" size=5&gt; percent of the original sample.
+&lt;input type="reset" value="Reset Form"&gt;
+&lt;/FORM&gt;
+
+ 
+
+&lt;!-- Script Size:  1.37 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

@@ -1,0 +1,333 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Forms:  List Chooser</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Anand Raman (anand_raman@poboxes.com)">
+<META NAME="section" CONTENT="Forms">
+<META NAME="description" CONTENT="The user can immediately locate what he has been searching for in the long options list just by typing.  With each character the user types in the text field, the available items listed are narrowed down (similar to a help file's index feature).  Clever!  (Start by entering an 'a' to narrow the list)">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Anand Raman (anand_raman@poboxes.com) -->
+<!-- Web Site:  http://www.angelfire.com/ar/diduknow -->
+
+
+
+
+<!-- Begin
+function SelObj(formname,selname,textname,str) {
+this.formname = formname;
+this.selname = selname;
+this.textname = textname;
+this.select_str = str || '';
+this.selectArr = new Array();
+this.initialize = initialize;
+this.bldInitial = bldInitial;
+this.bldUpdate = bldUpdate;
+}
+
+function initialize() {
+if (this.select_str =='') {
+for(var i=0;i<document.forms[this.formname][this.selname].options.length;i++) {
+this.selectArr[i] = document.forms[this.formname][this.selname].options[i];
+this.select_str += document.forms[this.formname][this.selname].options[i].value+":"+
+document.forms[this.formname][this.selname].options[i].text+",";
+   }
+}
+else {
+var tempArr = this.select_str.split(',');
+for(var i=0;i<tempArr.length;i++) {
+var prop = tempArr[i].split(':');
+this.selectArr[i] = new Option(prop[1],prop[0]);
+   }
+}
+return;
+}
+function bldInitial() {
+this.initialize();
+for(var i=0;i<this.selectArr.length;i++)
+document.forms[this.formname][this.selname].options[i] = this.selectArr[i];
+document.forms[this.formname][this.selname].options.length = this.selectArr.length;
+return;
+}
+
+function bldUpdate() {
+var str = document.forms[this.formname][this.textname].value.replace('^\\s*','');
+if(str == '') {this.bldInitial();return;}
+this.initialize();
+var j = 0;
+pattern1 = new RegExp("^"+str,"i");
+for(var i=0;i<this.selectArr.length;i++)
+if(pattern1.test(this.selectArr[i].text)) 
+document.forms[this.formname][this.selname].options[j++] = this.selectArr[i];
+document.forms[this.formname][this.selname].options.length = j;
+if(j==1){
+document.forms[this.formname][this.selname].options[0].selected = true;
+//document.forms[this.formname][this.textname].value = document.forms[this.formname][this.selname].options[0].text;
+   }
+}
+function setUp() {
+obj1 = new SelObj('menuform','itemlist','entry');
+// menuform is the name of the form you use
+// itemlist is the name of the select pulldown menu you use
+// entry is the name of text box you use for typing in
+obj1.bldInitial(); 
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff OnLoad="javascript:setUp()">
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /forms/" ><font color="#FF0000"><b>Forms</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>List Chooser</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+The user can immediately locate what he has been searching for in the long options list just by typing.  With each character the user types in the text field, the available items listed are narrowed down (similar to a help file's index feature).  Clever!  (Start by entering an 'a' to narrow the list)
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name="menuform" onSubmit="javascript:alert('You would have been taken to the ' + document.menuform.itemlist.options[document.menuform.itemlist.selectedIndex].text + ' page but this is only an example - none of the pages have been created.\r\nA live version on your site would take them to the page.');return false;">
+
+<font face="arial, helvetica" size="-1">Please enter the first few letters of the item you are looking for.</font>
+<br><br>
+<input type="text" name="entry" size="30" onKeyUp="javascript:obj1.bldUpdate();">
+<br>
+<select name="itemlist" size=5>
+<option value="page.html">ALL
+<option value="page.html">ALL CATALOG
+<option value="page.html">ALL CLUSTERS
+<option value="page.html">ALL CLUSTERS HASH EXPRESSIONS
+<option value="page.html">ALL COL COMMENTS
+<option value="page.html">ALL COL PRIVS
+<option value="page.html">ALL COL PRIVS MADE
+<option value="page.html">ALL COL PRIVS SENT
+<option value="page.html">ALL CONSTRAINTS
+<option value="page.html">ALL CONS COLUMNS
+<option value="page.html">ALL DB LINKS
+<option value="page.html">ALL DEF AUDIT
+<option value="page.html">ALL DEPENDENCIES
+<option value="page.html">ALL ERRORS
+<option value="page.html">ALL HISTOGRAMS
+<option value="page.html">ALL INDEXES
+<option value="page.html">ALL IND COLUMNS
+<option value="page.html">ALL JOBS
+<option value="page.html">ALL OBJECTS
+<option value="page.html">ALL REFRESH
+<option value="page.html">ALL REFRESH NOW
+<option value="page.html">ALL USERS
+<option value="page.html">ALL VIEWS
+<option value="page.html">AUDIT ACTIONS
+<option value="page.html">BOOKS
+<option value="page.html">CLIENTS
+<option value="page.html">CLOSED
+<option value="page.html">COLUMN PRIVILEGES
+<option value="page.html">DBA ANALYZE COST
+<option value="page.html">DBA FROM CLIENTS
+<option value="page.html">DBA FROM NEIGHBORS
+<option value="page.html">DBA PROFILES
+<option value="page.html">DBA REFRESH ALL
+<option value="page.html">DBA REFRESH PAGE
+<option value="page.html">DBA REPORT
+<option value="page.html">DBA RGROUP
+<option value="page.html">DBA ROLE
+<option value="page.html">DBA ROLE SUMMARY
+<option value="page.html">DBA ROLLBACK SEGS
+</select>
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Forms:  List Chooser</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  4.83 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL LIST CHOOSER:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the onLoad event handler into the BODY tag
+  3.  Put the last coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Anand Raman (anand_raman@poboxes.com) --&gt;
+&lt;!-- Web Site:  http://www.angelfire.com/ar/diduknow --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function SelObj(formname,selname,textname,str) {
+this.formname = formname;
+this.selname = selname;
+this.textname = textname;
+this.select_str = str || '';
+this.selectArr = new Array();
+this.initialize = initialize;
+this.bldInitial = bldInitial;
+this.bldUpdate = bldUpdate;
+}
+
+function initialize() {
+if (this.select_str =='') {
+for(var i=0;i&lt;document.forms[this.formname][this.selname].options.length;i++) {
+this.selectArr[i] = document.forms[this.formname][this.selname].options[i];
+this.select_str += document.forms[this.formname][this.selname].options[i].value+":"+
+document.forms[this.formname][this.selname].options[i].text+",";
+   }
+}
+else {
+var tempArr = this.select_str.split(',');
+for(var i=0;i&lt;tempArr.length;i++) {
+var prop = tempArr[i].split(':');
+this.selectArr[i] = new Option(prop[1],prop[0]);
+   }
+}
+return;
+}
+function bldInitial() {
+this.initialize();
+for(var i=0;i&lt;this.selectArr.length;i++)
+document.forms[this.formname][this.selname].options[i] = this.selectArr[i];
+document.forms[this.formname][this.selname].options.length = this.selectArr.length;
+return;
+}
+
+function bldUpdate() {
+var str = document.forms[this.formname][this.textname].value.replace('^\\s*','');
+if(str == '') {this.bldInitial();return;}
+this.initialize();
+var j = 0;
+pattern1 = new RegExp("^"+str,"i");
+for(var i=0;i&lt;this.selectArr.length;i++)
+if(pattern1.test(this.selectArr[i].text)) 
+document.forms[this.formname][this.selname].options[j++] = this.selectArr[i];
+document.forms[this.formname][this.selname].options.length = j;
+if(j==1){
+document.forms[this.formname][this.selname].options[0].selected = true;
+//document.forms[this.formname][this.textname].value = document.forms[this.formname][this.selname].options[0].text;
+   }
+}
+function setUp() {
+obj1 = new SelObj('menuform','itemlist','entry');
+// menuform is the name of the form you use
+// itemlist is the name of the select pulldown menu you use
+// entry is the name of text box you use for typing in
+obj1.bldInitial(); 
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Insert the onLoad event handler into your BODY tag  --&gt;
+
+&lt;BODY OnLoad="javascript:setUp()"&gt;
+
+&lt;!-- STEP THREE: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;center&gt;
+&lt;form name="menuform" onSubmit="javascript:window.location = document.menuform.itemlist.options[document.menuform.itemlist.selectedIndex].value;return false;"&gt;
+
+&lt;font face="arial, helvetica" size="-1"&gt;Please enter the first few letters of the item you are looking for.&lt;/font&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;input type="text" name="entry" size="30" onKeyUp="javascript:obj1.bldUpdate();"&gt;
+&lt;br&gt;
+&lt;select name="itemlist" size=5&gt;
+&lt;option value="page.html"&gt;ALL
+&lt;option value="page.html"&gt;ALL CATALOG
+&lt;option value="page.html"&gt;ALL CLUSTERS
+&lt;option value="page.html"&gt;ALL CLUSTERS HASH EXPRESSIONS
+&lt;option value="page.html"&gt;ALL COL COMMENTS
+&lt;option value="page.html"&gt;ALL COL PRIVS
+&lt;option value="page.html"&gt;ALL COL PRIVS MADE
+&lt;option value="page.html"&gt;ALL COL PRIVS SENT
+&lt;option value="page.html"&gt;ALL CONSTRAINTS
+&lt;option value="page.html"&gt;ALL CONS COLUMNS
+&lt;option value="page.html"&gt;ALL DB LINKS
+&lt;option value="page.html"&gt;ALL DEF AUDIT
+&lt;option value="page.html"&gt;ALL DEPENDENCIES
+&lt;option value="page.html"&gt;ALL ERRORS
+&lt;option value="page.html"&gt;ALL HISTOGRAMS
+&lt;option value="page.html"&gt;ALL INDEXES
+&lt;option value="page.html"&gt;ALL IND COLUMNS
+&lt;option value="page.html"&gt;ALL JOBS
+&lt;option value="page.html"&gt;ALL OBJECTS
+&lt;option value="page.html"&gt;ALL REFRESH
+&lt;option value="page.html"&gt;ALL REFRESH NOW
+&lt;option value="page.html"&gt;ALL USERS
+&lt;option value="page.html"&gt;ALL VIEWS
+&lt;option value="page.html"&gt;AUDIT ACTIONS
+&lt;option value="page.html"&gt;BOOKS
+&lt;option value="page.html"&gt;CLIENTS
+&lt;option value="page.html"&gt;CLOSED
+&lt;option value="page.html"&gt;COLUMN PRIVILEGES
+&lt;option value="page.html"&gt;DBA ANALYZE COST
+&lt;option value="page.html"&gt;DBA FROM CLIENTS
+&lt;option value="page.html"&gt;DBA FROM NEIGHBORS
+&lt;option value="page.html"&gt;DBA PROFILES
+&lt;option value="page.html"&gt;DBA REFRESH ALL
+&lt;option value="page.html"&gt;DBA REFRESH PAGE
+&lt;option value="page.html"&gt;DBA REPORT
+&lt;option value="page.html"&gt;DBA RGROUP
+&lt;option value="page.html"&gt;DBA ROLE
+&lt;option value="page.html"&gt;DBA ROLE SUMMARY
+&lt;option value="page.html"&gt;DBA ROLLBACK SEGS
+&lt;/select&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  4.83 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

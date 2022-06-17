@@ -1,0 +1,343 @@
+<xbasehref="../img/simon-says/">
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Games:  Simon Says</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Brian Gosselin (bgaudiodr@aol.com)">
+<META NAME="section" CONTENT="Games">
+<META NAME="description" CONTENT="Recall your childhood with a JavaScript version of Simon Says.  Click the buttons in the same order as Simon (the computer) does to advance to the next level.  Each level gets increasingly difficult.  See how far you can go.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Brian Gosselin (bgaudiodr@aol.com) -->
+<!-- Web Site:  http://www.bgaudiodr.iwarp.com -->
+
+
+
+
+<!-- Begin
+var image_directory = "../img/simon-says/";
+var ok = false; 
+var pcbusy = false; 
+var userturn = true;
+var butdown = false;
+var stage = 1;
+var cnt = 1;
+var pcclicks = new Array();
+var userclicks = new Array();
+var pos;
+var tst = true;
+var msg = "Click Go!";
+btn1 = new Image();
+btn1.src = image_directory + "purple.gif";
+btn2 = new Image();
+btn2.src = image_directory + "yellow.gif";
+function updown(isdn) {
+if (isdn) {
+document.f[('pl'+pos)].src = image_directory + 'yellow.gif';
+}
+else {
+document.f[('pl'+pos)].src= image_directory + 'purple.gif';
+   }
+}
+function dopc() {
+document.f.st.value = stage;
+if (cnt <= stage) {
+pcbusy = true;
+userturn = false;
+document.f.s.value = "Simon's  Turn";
+setTimeout("pos=Math.floor((Math.random()*8)+1); updown(true)",500);
+setTimeout("updown(false) ; pcclicks[cnt]=pos; cnt++; dopc()",1200);
+}
+else {
+userclicks = new Array();
+cnt = 1;
+document.f.s.value = "Player's  Turn";
+pcbusy = false;
+userturn = true;
+document.f.b.focus();
+   }
+}
+function testclicks() {
+tst = true;
+for(i = 1;cnt > i; i++) {
+if (pcclicks[i] == userclicks[i]) {
+tst = true && tst;
+}
+else {
+tst = false && tst;
+   }
+}
+if(tst) {
+setTimeout("stage++ ; document.f.st.value=stage ; alert('That is correct!  Advancing to the next level....'); document.f.s.value=msg ; document.f.b.focus()",300);
+}
+else {
+setTimeout("stage=1 ; cnt=1 ; pcclicks=new Array() ; document.f.st.value=stage ; alert('Sorry, that is not correct.  Start a new game if you would like to play again.') ; document.f.s.value=msg",300);
+}
+cnt = 1;
+}
+function testclk(downflag, pos) {
+if (userturn&&(!pcbusy)) {
+if (downflag) {
+document.f[('pl'+pos)].src = image_directory + 'yellow.gif';
+}else{
+document.f[('pl'+pos)].src = image_directory + 'purple.gif';
+}
+if (ok && !downflag) {
+userclicks[cnt] = pos;
+cnt++;
+if (pcclicks.length == userclicks.length) {
+testclicks();
+         }
+      }
+   }
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<font color="#FF0000"><b>Games</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Simon Says</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Recall your childhood with a JavaScript version of Simon Says.  Click the buttons in the same order as Simon (the computer) does to advance to the next level.  Each level gets increasingly difficult.  See how far you can go.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name="f">
+<table cellspacing="20" cols="5" width="600">
+<tr height="60">
+<td colspan="5" align="center"><img src="../img/simon-says/purple.gif" /img/simon-says/purple.gif" name="pl1" onMousedown="testclk(true,1)" onMouseup="testclk(false,1)"></td>
+</tr>
+<tr height="60">
+<td width="20%">&nbsp;</td>
+<td align="center" width="20%"><img src="../img/simon-says/purple.gif" /img/simon-says/purple.gif" name="pl2" onMousedown="testclk(true,2)" onMouseup="testclk(false,2)"></td>
+<td width="20%" align="center"><font size="3">Level<br></font><input type="text" size="2" value="1" name="st" readonly></td>
+<td align="center" width="20%"><img src="../img/simon-says/purple.gif" /img/simon-says/purple.gif" name="pl3" onMousedown="testclk(true,3)" onMouseup="testclk(false,3)"></td>
+<td width="20%">&nbsp;</td>
+</tr>
+<tr height="60">
+<td align="center"><img src="../img/simon-says/purple.gif" /img/simon-says/purple.gif" name="pl4" onMousedown="testclk(true,4)" onMouseup="testclk(false,4)"></td>
+<td align="center" colspan="3"><input type="text"  name="s" value="Click 'Go!' to start" readonly></td>
+<td align="center"><img src="../img/simon-says/purple.gif" /img/simon-says/purple.gif" name="pl5" onMousedown="testclk(true,5)" onMouseup="testclk(false,5)"></td>
+</tr>
+<tr height="60">
+<td>&nbsp;</td>
+<td align="center"><img src="../img/simon-says/purple.gif" /img/simon-says/purple.gif" name="pl6" onMousedown="testclk(true,6)" onMouseup="testclk(false,6)"></td>
+<td align="center"><input type="button" value="    Go!    " name="b" onClick="ok=true ; if(!pcbusy) dopc()"></td>
+<td align="center"><img src="../img/simon-says/purple.gif" /img/simon-says/purple.gif" name="pl7" onMousedown="testclk(true,7)" onMouseup="testclk(false,7)"></td>
+<td>&nbsp;</td>
+</tr>
+<tr height="60">
+<td colspan="2" align="left"></td>
+<td align="center"><img src="../img/simon-says/purple.gif" /img/simon-says/purple.gif" name="pl8" onMousedown="testclk(true,8)" onMouseup="testclk(false,8)"></td>
+<td colspan="2" align="right"></td>
+</tr>
+</table>
+</form>
+</center>
+<br><br>
+You must also save these images<br>
+to your server to use this game.<br>
+Right-click the images below and<br>
+select "Save Image As..."<br><br>
+<img src="../img/simon-says/purple.gif" /img/simon-says/purple.gif" border=1><br><br>
+<img src="../img/simon-says/yellow.gif" /img/simon-says/yellow.gif" border=1><br><br>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Games:  Simon Says</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  4.21 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL SIMON SAYS:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Brian Gosselin (bgaudiodr@aol.com) --&gt;
+&lt;!-- Web Site:  http://www.bgaudiodr.iwarp.com --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var image_directory = "http://www.your-web-site-address-here.com/simon-says-pics/";
+var ok = false; 
+var pcbusy = false; 
+var userturn = true;
+var butdown = false;
+var stage = 1;
+var cnt = 1;
+var pcclicks = new Array();
+var userclicks = new Array();
+var pos;
+var tst = true;
+var msg = "Click Go!";
+btn1 = new Image();
+btn1.src = image_directory + "purple.gif";
+btn2 = new Image();
+btn2.src = image_directory + "yellow.gif";
+function updown(isdn) {
+if (isdn) {
+document.f[('pl'+pos)].src = image_directory + 'yellow.gif';
+}
+else {
+document.f[('pl'+pos)].src= image_directory + 'purple.gif';
+   }
+}
+function dopc() {
+document.f.st.value = stage;
+if (cnt &lt;= stage) {
+pcbusy = true;
+userturn = false;
+document.f.s.value = "Simon's  Turn";
+setTimeout("pos=Math.floor((Math.random()*8)+1); updown(true)",500);
+setTimeout("updown(false) ; pcclicks[cnt]=pos; cnt++; dopc()",1200);
+}
+else {
+userclicks = new Array();
+cnt = 1;
+document.f.s.value = "Player's  Turn";
+pcbusy = false;
+userturn = true;
+document.f.b.focus();
+   }
+}
+function testclicks() {
+tst = true;
+for(i = 1;cnt &gt; i; i++) {
+if (pcclicks[i] == userclicks[i]) {
+tst = true && tst;
+}
+else {
+tst = false && tst;
+   }
+}
+if(tst) {
+setTimeout("stage++ ; document.f.st.value=stage ; alert('That is correct!  Advancing to the next level....'); document.f.s.value=msg ; document.f.b.focus()",300);
+}
+else {
+setTimeout("stage=1 ; cnt=1 ; pcclicks=new Array() ; document.f.st.value=stage ; alert('Sorry, that is not correct.  Start a new game if you would like to play again.') ; document.f.s.value=msg",300);
+}
+cnt = 1;
+}
+function testclk(downflag, pos) {
+if (userturn&&(!pcbusy)) {
+if (downflag) {
+document.f[('pl'+pos)].src = image_directory + 'yellow.gif';
+}else{
+document.f[('pl'+pos)].src = image_directory + 'purple.gif';
+}
+if (ok && !downflag) {
+userclicks[cnt] = pos;
+cnt++;
+if (pcclicks.length == userclicks.length) {
+testclicks();
+         }
+      }
+   }
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form name="f"&gt;
+&lt;table cellspacing="20" cols="5" width="600"&gt;
+&lt;tr height="60"&gt;
+&lt;td colspan="5" align="center"&gt;&lt;img src="purple.gif" name="pl1" onMousedown="testclk(true,1)" onMouseup="testclk(false,1)"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr height="60"&gt;
+&lt;td width="20%"&gt;&nbsp;&lt;/td&gt;
+&lt;td align="center" width="20%"&gt;&lt;img src="purple.gif" name="pl2" onMousedown="testclk(true,2)" onMouseup="testclk(false,2)"&gt;&lt;/td&gt;
+&lt;td width="20%" align="center"&gt;&lt;font size="3"&gt;Level&lt;br&gt;&lt;/font&gt;&lt;input type="text" size="2" value="1" name="st" readonly&gt;&lt;/td&gt;
+&lt;td align="center" width="20%"&gt;&lt;img src="purple.gif" name="pl3" onMousedown="testclk(true,3)" onMouseup="testclk(false,3)"&gt;&lt;/td&gt;
+&lt;td width="20%"&gt;&nbsp;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr height="60"&gt;
+&lt;td align="center"&gt;&lt;img src="purple.gif" name="pl4" onMousedown="testclk(true,4)" onMouseup="testclk(false,4)"&gt;&lt;/td&gt;
+&lt;td align="center" colspan="3"&gt;&lt;input type="text"  name="s" value="Click 'Go!' to start" readonly&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;img src="purple.gif" name="pl5" onMousedown="testclk(true,5)" onMouseup="testclk(false,5)"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr height="60"&gt;
+&lt;td&gt;&nbsp;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;img src="purple.gif" name="pl6" onMousedown="testclk(true,6)" onMouseup="testclk(false,6)"&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;input type="button" value="    Go!    " name="b" onClick="ok=true ; if(!pcbusy) dopc()"&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;img src="purple.gif" name="pl7" onMousedown="testclk(true,7)" onMouseup="testclk(false,7)"&gt;&lt;/td&gt;
+&lt;td&gt;&nbsp;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr height="60"&gt;
+&lt;td colspan="2" align="left"&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;img src="purple.gif" name="pl8" onMousedown="testclk(true,8)" onMouseup="testclk(false,8)"&gt;&lt;/td&gt;
+&lt;td colspan="2" align="right"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  4.21 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>
+
+
+

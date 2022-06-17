@@ -1,0 +1,105 @@
+<html>
+<head>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+function init() {
+with (document) {
+tform.alignment.value="left"
+tform.align.value="left"
+tform.calign.value="left"
+tform.cvalign.value="center"
+   }
+}
+function clearit(form) {
+form.alignment.value   = "left"
+form.align.value="left"
+form.border.value  = 1
+form.cellspacing.value = 1
+form.cellpadding.value = 1
+form.numrows.selectedIndex = 0
+form.numcols.selectedIndex = 1
+form.calign.value  = ''
+form.cvalign.value = ''
+}
+function isNum(entry) {
+var str = entry.value;
+for (var i = 0; i < str.length; i++) {
+var ch = str.substring(i, i + 1)
+if ((ch < "0" || "9" < ch) && ch != '.') {
+alert("You must enter a number.")
+entry.value=0
+entry.focus()
+entry.select()
+      }
+   }
+}
+// End -->
+</SCRIPT>
+</head>
+ 
+<body onLoad="init()" bgcolor="#ffffff">
+
+<br>
+This interactive guide has been designed to teach web designers the attributes of the &lt;TABLE&gt; tag.  It allows the user to modify these attributes and see the immediate effects on an example table which is displayed in the right frame.
+
+
+<hr>
+<center><table border=1><form name="tform">
+<tr align=center>
+<td><input type="reset" name="clear" value="Reset to Defaults" onClick="clearit(this.form)">
+<td>Alignment:<br>
+<input type="radio" name="align" value="left" onClick="document.tform.alignment.value=this.value" checked>Left
+<input type="radio" name="align" value="center" onClick="document.tform.alignment.value=this.value">Center
+<input type="radio" name="align" value="right" onClick="document.tform.alignment.value=this.value">Right
+<input type="hidden" name="alignment" value="left">
+<tr align=center>
+<td colspan=2>Border Width (in Pixels):
+<input name="border" value="1" size="3" onChange="isNum(this)" value=1>
+<br>
+<input type="radio" name="br" value="0" onClick="tform.border.value=0">0
+<input type="radio" name="br" value="1" onClick="tform.border.value=1" checked>1
+<input type="radio" name="br" value="2" onClick="tform.border.value=2">2
+<input type="radio" name="br" value="5" onClick="tform.border.value=5">5
+<input type="radio" name="br" value="10" onClick="tform.border.value=10">10
+<input type="radio" name="br" value="15" onClick="tform.border.value=15">15
+<tr>
+<td>Cellpadding:<input name="cellpadding" size=3 value=1 onChange="isNum(this)">
+<td>Cellspacing:<input name="cellspacing" size=3 value=1 onChange="isNum(this)">
+<tr align=center>
+<td>Rows:<br><select name="numrows">
+<option selected>1 <option>2 <option>3 <option>4 <option>5
+</select>
+<td>Cols:<br><select name="numcols">
+<option>1 <option selected>2 <option>3 <option>4 <option>5
+</select>
+<tr>
+<td>HORIZONTAL ALIGNMENT (cells):<br>
+<input type="radio" name="calign" value="left" onClick="document.tform.calign.value=this.value" checked>Left
+<input type="radio" name="calign" value="center"onClick="document.tform.calign.value=this.value">Center
+<input type="radio" name="calign" value="right" onClick="document.tform.calign.value=this.value">Right
+<td>VERTICAL ALIGNMENT (cells):<BR>
+<input type="radio" name="cvalign" value="top" onClick="document.tform.cvalign.value=this.value">Top
+<input type="radio" name="cvalign" value="center" onClick="document.tform.cvalign.value=this.value" checked>Center
+<input type="radio" name="cvalign" value="bottom" onClick="document.tform.cvalign.value=this.value">Bottom
+<tr align=center>
+<td colspan=2><input type="button" name="drawtable" value="Draw this table!" onClick="parent.myTable.setValues(this.form);parent.drawTable(parent.myTable)">
+</tr>
+<tr>
+<td colspan=2>The following features correspond to bottom frame:</TD>
+</tr>
+<tr align=center>
+<td colspan=2><input type="button" value="See HTML code for table!" onClick="parent.showSource()">
+</tr>
+<tr align=center>
+<td colspan=2><input type="button" value="View table values" onClick="alert(parent.dumpProps(parent.myTable,'myTable'))">
+</tr>
+</table>
+</form></table>
+<br>
+<br>
+<a href="table-maker-source.html" /miscellaneous/table-maker-source.html" target="_parent">View Source Code for Table Maker Script</a></center>
+</body>
+</html>
+
+

@@ -1,0 +1,460 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Buttons:  Headliner</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Jan Pijnacker (Jan_P@dds.nl)">
+<META NAME="section" CONTENT="Buttons">
+<META NAME="description" CONTENT="When you need to present information on your site, you should consider this script.  Appropriately named the Headliner, it presents a number of messages to your visitors in many different formats including a simple scroll, typewriter, expand, and just static text.  Each message when clicked can take the visitor to a different URL!">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff onLoad="StartHeadliner()">
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /buttons/"><font color="#FF0000">Buttons</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Headliner</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+When you need to present information on your site, you should consider this script.  Appropriately named the Headliner, it presents a number of messages to your visitors in many different formats including a simple scroll, typewriter, expand, and just static text.  Each message when clicked can take the visitor to a different URL! This script is really great....  Just check it out!<br><hr>
+</td></tr>
+</table>
+<!--  Demonstration -->
+<CENTER><BR>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+typeWriterWait=120		// Typewriter delay
+blinkTextWait=1000   	// Blinking delay
+blinkSpacesWait=300 	// Blinking 'blank-spaces' delay
+blinkMax=3         		// how many times to blink
+expandWait=100  		// expanding headliner delay
+scrollWait=90		// scrolling headliner delay
+scrollWidth=34 		// characters in scroll display
+randomLines=false		// randomly choose lines?  (true or false)
+lineMax=7			// how many lines you have
+lines=new Array(lineMax)
+
+// Use this format for all the lines below:
+// (display text, url or mailto, frame name, effect, delay time)
+
+lines[1]=new Line("The JavaScript Headliner!", "http://www.piaster.nl/perspicacity/js/headliner", "", Blink, 500)
+lines[2]=new Line("This is a great JavaScript example - appropriately named ' The JavaScript Headliner ' !", "", "", Scroll, 1000)
+lines[3]=new Line("Wouldn't this be good on your site?", "", "", Static, 3500)
+lines[4]=new Line("Many ways to present information....", "", "", Expand, 2000)
+lines[5]=new Line("Each message can even take the visitor to different a URL when clicked !", "", "", Scroll, 3000)
+lines[6]=new Line("Click now to email the author", "mailto:Jan_P@dds.nl?subject=The Headliner", "", TypeWriter, 1500)
+lines[7]=new Line("Or here to go back to Buttons", "http://buttons.javascriptsource.com", "", Static, 3500)
+lineText=""
+timerID=null
+timerRunning=false
+spaces=""
+charNo=0
+charMax=0
+charMiddle=0
+lineNo=0
+lineWait=0
+function Line(text, url, frame, type, wait) {
+this.text=text
+this.url=url
+this.frame=frame
+this.Display=type
+this.wait=wait
+}
+function StringFill(c, n) {
+var s=""
+while (--n >= 0) {
+s+=c
+}
+return s
+}
+function getNewRandomInteger(oldnumber, max) {
+var n=Math.floor(Math.random() * (max - 1) + 1)
+if (n >= oldnumber) {
+n++
+}
+return n
+}
+function getRandomInteger(max) {
+var n=Math.floor(Math.random() * max + 1)
+return n
+}
+function GotoUrl(url, frame) {
+if (frame != '') {
+if (frame == 'self') self.location.href=url
+else if (frame == 'parent') parent.location.href=url
+else if (frame == 'top') top.location.href=url
+else {
+s=eval(top.frames[frame])
+if (s != null) top.eval(frame).location.href=url
+else window.open(url, frame, "toolbar=yes,status=yes,scrollbars=yes")
+      }
+   }
+else window.location.href=url
+}
+function Static() {
+document.formDisplay.buttonFace.value=this.text
+timerID=setTimeout("ShowNextLine()", this.wait)
+}
+function TypeWriter() {
+lineText=this.text
+lineWait=this.wait
+charMax=lineText.length
+spaces=StringFill(" ", charMax)
+TextTypeWriter()
+}
+function TextTypeWriter() {
+if (charNo <= charMax) {
+document.formDisplay.buttonFace.value=lineText.substring(0, charNo)+spaces.substring(0, charMax-charNo)
+charNo++
+timerID=setTimeout("TextTypeWriter()", typeWriterWait)
+}
+else {
+charNo=0
+timerID=setTimeout("ShowNextLine()", lineWait)
+   }
+}
+function Blink() {
+lineText=this.text
+charMax=lineText.length
+spaces=StringFill(" ", charMax)
+lineWait=this.wait
+TextBlink()
+}
+function TextBlink() {
+if (charNo <= blinkMax * 2) {
+if ((charNo % 2) == 1) {
+document.formDisplay.buttonFace.value=lineText
+blinkWait=blinkTextWait
+}
+else {
+document.formDisplay.buttonFace.value=spaces
+blinkWait=blinkSpacesWait
+}
+charNo++
+timerID=setTimeout("TextBlink()", blinkWait)
+}
+else {
+charNo=0
+timerID=setTimeout("ShowNextLine()", lineWait)
+   }
+}
+function Expand() {
+lineText=this.text
+charMax=lineText.length
+charMiddle=Math.round(charMax / 2)
+lineWait=this.wait
+TextExpand()
+}
+function TextExpand() {
+if (charNo <= charMiddle) {
+document.formDisplay.buttonFace.value=lineText.substring(charMiddle - charNo, charMiddle + charNo)
+charNo++
+timerID=setTimeout("TextExpand()", expandWait)
+}
+else {
+charNo=0
+timerID=setTimeout("ShowNextLine()", lineWait)
+   }
+}
+function Scroll() {
+spaces=StringFill(" ", scrollWidth)
+lineText=spaces+this.text
+charMax=lineText.length
+lineText+=spaces
+lineWait=this.wait
+TextScroll()
+}
+function TextScroll() {
+if (charNo <= charMax) {
+document.formDisplay.buttonFace.value=lineText.substring(charNo, scrollWidth+charNo)
+charNo++
+timerID=setTimeout("TextScroll()", scrollWait)
+}
+else {
+charNo=0
+timerID=setTimeout("ShowNextLine()", lineWait)
+   }
+}
+function StartHeadliner() {
+StopHeadliner()
+timerID=setTimeout("ShowNextLine()", 2000)
+timerRunning=true
+}
+function StopHeadliner() {
+if (timerRunning) { 
+clearTimeout(timerID)
+timerRunning=false
+   }
+}
+function ShowNextLine() {
+if (randomLines) lineNo=getNewRandomInteger(lineNo, lineMax)
+else (lineNo < lineMax) ? lineNo++ : lineNo=1
+lines[lineNo].Display()
+}
+function LineClick(lineNo) {
+document.formDisplay.buttonFace.blur()
+if (lineNo > 0) GotoUrl(lines[lineNo].url, lines[lineNo].frame)
+}
+with (document) {
+write('<center><form name="formDisplay"><input type="button"')
+write('name="buttonFace" value="JavaScript Source Code 3000 presents...."')
+write('onClick="LineClick(lineNo)"></input></form></center>')
+}
+// End -->
+</SCRIPT>
+<P>
+<BR>
+<P>
+<a name="source">
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Messages:  Headliner</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as NotePad or SimpleText) and save (Control-s or Apple-s).  The script is yours!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  5.69 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL HEADLINER:
+
+   1.  Add the onLoad event handler to the BODY tag
+   2.  Copy the specified code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Add this onLoad event handler to the BODY tag  --&gt;
+
+&lt;body onLoad="StartHeadliner()"&gt;
+
+&lt;!-- STEP TWO: Put this code into the BODY of your HTML document  --&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Original:  Jan Pijnacker &lt;Jan_P@dds.nl&gt; --&gt;
+
+&lt;!-- Begin
+typeWriterWait=120		// Typewriter delay
+blinkTextWait=1000   	// Blinking delay
+blinkSpacesWait=300 	// Blinking 'blank-spaces' delay
+blinkMax=3         		// how many times to blink
+expandWait=100  		// expanding headliner delay
+scrollWait=90		// scrolling headliner delay
+scrollWidth=34 		// characters in scroll display
+randomLines=false		// randomly choose lines?  (true or false)
+lineMax=7			// how many lines you have
+lines=new Array(lineMax)
+
+// Use this format for all the lines below:
+// (display text, url or mailto, frame name, effect, delay time)
+
+lines[1]=new Line("The JavaScript Headliner!", "http://www.piaster.nl/perspicacity/js/headliner", "", Blink, 500)
+lines[2]=new Line("This is a great JavaScript example - appropriately named ' The JavaScript Headliner ' !", "", "", Scroll, 1000)
+lines[3]=new Line("Wouldn't this be good on your site?", "", "", Static, 3500)
+lines[4]=new Line("Many ways to present information....", "", "", Expand, 2000)
+lines[5]=new Line("Each message can even take the visitor to different a URL when clicked !", "", "", Scroll, 3000)
+lines[6]=new Line("Click now to email the author", "mailto:Jan_P@dds.nl?subject=The Headliner", "", TypeWriter, 1500)
+lines[7]=new Line("Or here to go back to Messages", "http://messages.javascriptsource.com", "", Static, 3500)
+// Don't change these variables below  :-)
+lineText=""
+timerID=null
+timerRunning=false
+spaces=""
+charNo=0
+charMax=0
+charMiddle=0
+lineNo=0
+lineWait=0
+function Line(text, url, frame, type, wait) {
+this.text=text
+this.url=url
+this.frame=frame
+this.Display=type
+this.wait=wait
+}
+function StringFill(c, n) {
+var s=""
+while (--n &gt;= 0) {
+s+=c
+}
+return s
+}
+function getNewRandomInteger(oldnumber, max) {
+var n=Math.floor(Math.random() * (max - 1) + 1)
+if (n &gt;= oldnumber) {
+n++
+}
+return n
+}
+function getRandomInteger(max) {
+var n=Math.floor(Math.random() * max + 1)
+return n
+}
+function GotoUrl(url, frame) {
+if (frame != '') {
+if (frame == 'self') self.location.href=url
+else if (frame == 'parent') parent.location.href=url
+else if (frame == 'top') top.location.href=url
+else {
+s=eval(top.frames[frame])
+if (s != null) top.eval(frame).location.href=url
+else window.open(url, frame, "toolbar=yes,status=yes,scrollbars=yes")
+      }
+   }
+else window.location.href=url
+}
+function Static() {
+document.formDisplay.buttonFace.value=this.text
+timerID=setTimeout("ShowNextLine()", this.wait)
+}
+function TypeWriter() {
+lineText=this.text
+lineWait=this.wait
+charMax=lineText.length
+spaces=StringFill(" ", charMax)
+TextTypeWriter()
+}
+function TextTypeWriter() {
+if (charNo &lt;= charMax) {
+document.formDisplay.buttonFace.value=lineText.substring(0, charNo)+spaces.substring(0, charMax-charNo)
+charNo++
+timerID=setTimeout("TextTypeWriter()", typeWriterWait)
+}
+else {
+charNo=0
+timerID=setTimeout("ShowNextLine()", lineWait)
+   }
+}
+function Blink() {
+lineText=this.text
+charMax=lineText.length
+spaces=StringFill(" ", charMax)
+lineWait=this.wait
+TextBlink()
+}
+function TextBlink() {
+if (charNo &lt;= blinkMax * 2) {
+if ((charNo % 2) == 1) {
+document.formDisplay.buttonFace.value=lineText
+blinkWait=blinkTextWait
+}
+else {
+document.formDisplay.buttonFace.value=spaces
+blinkWait=blinkSpacesWait
+}
+charNo++
+timerID=setTimeout("TextBlink()", blinkWait)
+}
+else {
+charNo=0
+timerID=setTimeout("ShowNextLine()", lineWait)
+   }
+}
+function Expand() {
+lineText=this.text
+charMax=lineText.length
+charMiddle=Math.round(charMax / 2)
+lineWait=this.wait
+TextExpand()
+}
+function TextExpand() {
+if (charNo &lt;= charMiddle) {
+document.formDisplay.buttonFace.value=lineText.substring(charMiddle - charNo, charMiddle + charNo)
+charNo++
+timerID=setTimeout("TextExpand()", expandWait)
+}
+else {
+charNo=0
+timerID=setTimeout("ShowNextLine()", lineWait)
+   }
+}
+function Scroll() {
+spaces=StringFill(" ", scrollWidth)
+lineText=spaces+this.text
+charMax=lineText.length
+lineText+=spaces
+lineWait=this.wait
+TextScroll()
+}
+function TextScroll() {
+if (charNo &lt;= charMax) {
+document.formDisplay.buttonFace.value=lineText.substring(charNo, scrollWidth+charNo)
+charNo++
+timerID=setTimeout("TextScroll()", scrollWait)
+}
+else {
+charNo=0
+timerID=setTimeout("ShowNextLine()", lineWait)
+   }
+}
+function StartHeadliner() {
+StopHeadliner()
+timerID=setTimeout("ShowNextLine()", 2000)
+timerRunning=true
+}
+function StopHeadliner() {
+if (timerRunning) { 
+clearTimeout(timerID)
+timerRunning=false
+   }
+}
+function ShowNextLine() {
+if (randomLines) lineNo=getNewRandomInteger(lineNo, lineMax)
+else (lineNo &lt; lineMax) ? lineNo++ : lineNo=1
+lines[lineNo].Display()
+}
+function LineClick(lineNo) {
+document.formDisplay.buttonFace.blur()
+if (lineNo &gt; 0) GotoUrl(lines[lineNo].url, lines[lineNo].frame)
+}
+with (document) {
+write('&lt;center&gt;&lt;form name="formDisplay"&gt;&lt;input type="button"')
+write('name="buttonFace" value="JavaScript Source Code 3000 presents...."')
+write('onClick="LineClick(lineNo)"&gt;&lt;/input&gt;&lt;/form&gt;&lt;/center&gt;')
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+ 
+
+&lt;!-- Script Size:  5.69 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

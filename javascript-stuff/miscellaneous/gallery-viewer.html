@@ -1,0 +1,180 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Miscellaneous:  Gallery Viewer</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Jenny Blewitt (webmaster@webdesignsdirect.com)">
+<META NAME="section" CONTENT="Miscellaneous">
+<META NAME="description" CONTENT="Displays any of several images on the same page just by clicking its thumbnail.  This way, it is unnecessary to open a new window or use the back button after going to each page. Sizes can be altered as required.  Easy!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Jenny Blewitt (webmaster@webdesignsdirect.com) -->
+<!-- Web Site:  http://www.webdesignsdirect.com -->
+
+
+
+
+<!-- Begin
+browserName = navigator.appName;
+browserVer = parseInt(navigator.appVersion);
+
+ns3up = (browserName == "Netscape" && browserVer >= 3);
+ie4up = (browserName.indexOf("Microsoft") >= 0 && browserVer >= 4);
+
+function doPic(imgName) {
+if (ns3up || ie4up) {
+imgOn = ("" + imgName);
+document.mainpic.src = imgOn;
+   }
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /miscellaneous/"><font color="#FF0000"><b>Miscellaneous</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Gallery Viewer</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Displays any of several images on the same page just by clicking its thumbnail.  This way, it is unnecessary to open a new window or use the back button after going to each page. Sizes can be altered as required.  Easy!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<table width=360 border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td><a href="javascript:doPic('../img/gallery-viewer/p1.jpg');"><img src="../img/gallery-viewer/p1.jpg" /img/gallery-viewer/p1.jpg" width=90 height=60 border=0></a></td>
+<td><a href="javascript:doPic('../img/gallery-viewer/p2.jpg');"><img src="../img/gallery-viewer/p2.jpg" /img/gallery-viewer/p2.jpg" width=90 height=60 border=0></a></td>
+<td><a href="javascript:doPic('../img/gallery-viewer/p3.jpg');"><img src="../img/gallery-viewer/p3.jpg" /img/gallery-viewer/p3.jpg" width=90 height=60 border=0></a></td>
+<td><a href="javascript:doPic('../img/gallery-viewer/p4.jpg');"><img src="../img/gallery-viewer/p4.jpg" /img/gallery-viewer/p4.jpg" width=90 height=60 border=0></a></td>
+</tr>
+<tr>
+<td colspan=4 align=center><img name="mainpic" src="../img/gallery-viewer/p1.jpg" /img/gallery-viewer/p1.jpg" width=360 height=240 border=0></td>
+</tr>
+<tr>
+<td><a href="javascript:doPic('../img/gallery-viewer/p5.jpg');"><img src="../img/gallery-viewer/p5.jpg" /img/gallery-viewer/p5.jpg" width=90 height=60 border=0></a></td>
+<td><a href="javascript:doPic('../img/gallery-viewer/p6.jpg');"><img src="../img/gallery-viewer/p6.jpg" /img/gallery-viewer/p6.jpg" width=90 height=60 border=0></a></td>
+<td><a href="javascript:doPic('../img/gallery-viewer/p7.jpg');"><img src="../img/gallery-viewer/p7.jpg" /img/gallery-viewer/p7.jpg" width=90 height=60 border=0></a></td>
+<td><a href="javascript:doPic('../img/gallery-viewer/p8.jpg');"><img src="../img/gallery-viewer/p8.jpg" /img/gallery-viewer/p8.jpg" width=90 height=60 border=0></a></td>
+</tr>
+</table>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Miscellaneous:  Gallery Viewer</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.00 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL GALLERY VIEWER:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Jenny Blewitt (webmaster@webdesignsdirect.com) --&gt;
+&lt;!-- Web Site:  http://www.webdesignsdirect.com --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+browserName = navigator.appName;
+browserVer = parseInt(navigator.appVersion);
+
+ns3up = (browserName == "Netscape" && browserVer &gt;= 3);
+ie4up = (browserName.indexOf("Microsoft") &gt;= 0 && browserVer &gt;= 4);
+
+function doPic(imgName) {
+if (ns3up || ie4up) {
+imgOn = ("" + imgName);
+document.mainpic.src = imgOn;
+   }
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;table width=360 border=0 cellspacing=0 cellpadding=0&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="javascript:doPic('p1.jpg');"&gt;&lt;img src="p1.jpg" width=90 height=60 border=0&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="javascript:doPic('p2.jpg');"&gt;&lt;img src="p2.jpg" width=90 height=60 border=0&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="javascript:doPic('p3.jpg');"&gt;&lt;img src="p3.jpg" width=90 height=60 border=0&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="javascript:doPic('p4.jpg');"&gt;&lt;img src="p4.jpg" width=90 height=60 border=0&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td colspan=4 align=center&gt;&lt;img name="mainpic" src="p1.jpg" width=360 height=240 border=0&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="javascript:doPic('p5.jpg');"&gt;&lt;img src="p5.jpg" width=90 height=60 border=0&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="javascript:doPic('p6.jpg');"&gt;&lt;img src="p6.jpg" width=90 height=60 border=0&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="javascript:doPic('p7.jpg');"&gt;&lt;img src="p7.jpg" width=90 height=60 border=0&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="javascript:doPic('p8.jpg');"&gt;&lt;img src="p8.jpg" width=90 height=60 border=0&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  2.00 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>
+
+
+
+

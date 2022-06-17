@@ -1,0 +1,330 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Equivalents:  Metrology</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Equivalents">
+<META NAME="description" CONTENT="Use JavaScript to find metrology equivalents.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+function initArray() {
+this.length = initArray.arguments.length;
+for (var i = 0; i < this.length; i++) {
+this[i] = initArray.arguments[i];
+   }
+}
+var isn02 = new initArray("4b","5b","8b","8b");
+isn02[0] = "~01~10.003937~20.0001~30.0003404~40.00003937~50.000003937~60.0000001~70.000000003937~8";
+isn02[1] = "~0254~11~20.0254~30.086~40.01~50.001~60.0000254~70.000001~8";
+isn02[2] = "~010~139.37~21~33.404~40.3937~50.03937~60.001~70.00003937~8";
+isn02[3] = "~02937.5~111.566~20.29375~31~40.11566~50.011566~60.00029375~70.000011566~8";
+isn02[4] = "~025400~1100~22.54~38.646~41~50.1~60.00254~70.0001~8";
+isn02[5] = "~0254000~11000~225.4~386.46~410~51~60.0254~70.001~8";
+isn02[6] = "~010000000~139370~21000~33404~4393.7~539.37~61~70.03937~8";
+isn02[7] = "~0254000000~11000000~225400~386460~410000~51000~625.4~71~8";
+function metCon() {
+for (var i = 0; i < 8; i++) {
+if (document.isnform02.meti[i].checked) {
+meti = i;
+metinm = document.isnform02.meti[i].value;
+   }
+}
+for (var i = 0; i < 8; i++) {
+if (document.isnform02.meto[i].checked) {
+meto = i;
+metonm = document.isnform02.meto[i].value;
+   }
+}
+useri = document.isnform02.metinp.value;
+if (useri == 0) {
+useri = 1;
+document.isnform02.metinp.value = useri;
+}
+mulstr = isn02[meti];
+picker = "~" + meto;
+ps = mulstr.indexOf(picker);
+meto++;
+picker = "~" + meto;
+ps1 = mulstr.indexOf(picker);
+mulstr = mulstr.substring((ps + 2),ps1);
+ps = (useri * mulstr);
+picker = "";
+picker += ps
+ps1 = picker.indexOf(".");
+if (ps1 > -1) {
+ps = ps + .000001;
+picker = "";
+picker += ps;
+ps2 = picker.indexOf("e");
+if (ps2 < 0) {
+picker = picker.substring(0,(ps1 + 6));
+}
+if (ps2 == 0 || ps2 > 0) {
+ps3 = picker.indexOf("00000");
+if (ps3 > 0) {
+picker = picker.substring(0,ps3 + 1) + picker.substring(ps2,picker.length);
+      }
+   }
+}
+picker = useri + " " + metinm + " = " + picker + " " + metonm
+document.isnform02.metout.value = picker;
+}
+// End -->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /equivalents/"><font color="#FF0000">Equivalents</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Metrology</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<TABLE BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<TR><TD><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Use JavaScript to find Metrology equivalents.
+<br>
+<hr>
+</TD></TR>
+</TABLE>
+<!-- Demonstration -->
+<BODY>
+<CENTER>
+<TABLE BORDER=1 WIDTH=486>
+<TR><TD COLSPAN=9 ALIGN=CENTER><FORM NAME="isnform02"><FONT COLOR="blue"><B>Metrology Equivalents</B></FONT></TD></TR>
+<TR><TD COLSPAN=9 VALIGN=TOP><FONT SIZE=1><B>First, type the number you wish converted here: </B>
+<INPUT TYPE="text" NAME="metinp" SIZE=30 VALUE="" onChange="metCon();"><BR><B>Then, click radio buttons for desired conversion:</FONT></TD></TR>
+<TR><TD ALIGN=CENTER><FONT COLOR="red" SIZE=1><B>From:</B></FONT></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>Angstrom Units<BR>
+<INPUT TYPE="radio" NAME="meti" VALUE="Angstrom Units" CHECKED onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>Surface Microinch<BR>
+<INPUT TYPE="radio" NAME="meti" VALUE="Surface Microinch" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>Surface Microns<BR>
+<INPUT TYPE="radio" NAME="meti" VALUE="Surface Microns" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>Light Bands*<BR>
+<INPUT TYPE="radio" NAME="meti" VALUE="Light Bands" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>Precision tenths<BR>
+<INPUT TYPE="radio" NAME="meti" VALUE="Precision tenths" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>Close Tol. thousandths<BR>
+<INPUT TYPE="radio" NAME="meti" VALUE="Close Tol. thousandths" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>MeTRic Milimeters<BR>
+<INPUT TYPE="radio" NAME="meti" VALUE="MeTRic Milimeters" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>U.S. Inches<BR>
+<INPUT TYPE="radio" NAME="meti" VALUE="U.S. Inches" onClick = ""></TD></TR>
+<TR><TD ALIGN=CENTER><FONT COLOR="red" SIZE=1><B>To:</B></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>AngsTRom Units<BR>
+<INPUT TYPE="radio" NAME="meto" VALUE="AngsTRom Units" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>Surface Microinches<BR>
+<INPUT TYPE="radio" NAME="meto" VALUE="Surface Microinches" CHECKED onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>Surface Microns<BR>
+<INPUT TYPE="radio" NAME="meto" VALUE="Surface Microns" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>Light Bands*<BR>
+<INPUT TYPE="radio" NAME="meto" VALUE="Light Bands" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>Precision tenths<BR>
+<INPUT TYPE="radio" NAME="meto" VALUE="Precision tenths" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>Close Tol. thousandths<BR>
+<INPUT TYPE="radio" NAME="meto" VALUE="Close Tol. thousandths" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>MeTRic Milimeters<BR>
+<INPUT TYPE="radio" NAME="meto" VALUE="MeTRic Milimeters" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>U.S. Inches<BR>
+<INPUT TYPE="radio" NAME="meto" VALUE="U.S. Inches" onClick = ""></TD></TR>
+<TR><TD COLSPAN=9 ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>
+<INPUT TYPE="button" VALUE=" Click for Conversion " onClick="metCon();"> 
+<INPUT TYPE="reset" VALUE=" Reset Values "><BR>
+<INPUT TYPE="text" NAME="metout" SIZE=60 VALUE="" onClick="lenCon();"><BR>* Monochromatic helium count
+</FONT></TD></TR>
+</TABLE></FORM>
+</CENTER>
+<P>
+<P>
+<a name="source">
+<TABLE BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<TR><TD BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Equivalent:  Metrology</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<TR><TD BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  5.83 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL Metrology EQUIVALENTS:
+
+   1.  Paste the specified coding into the HEAD of your HTML document
+   2.  Put the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the HEAD of your HTML document  --&gt;
+		  
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original: Cut-N-Paste Javascript --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function initArray() {
+this.length = initArray.arguments.length;
+for (var i = 0; i &lt; this.length; i++) {
+this[i] = initArray.arguments[i];
+   }
+}
+/* Please don't ask about this work-around. It works... We're sure arrays
+    will be better supported soon. */
+var isn02 = new initArray("4b","5b","8b","8b");
+isn02[0] = "~01~10.003937~20.0001~30.0003404~40.00003937~50.000003937~60.0000001~70.000000003937~8";
+isn02[1] = "~0254~11~20.0254~30.086~40.01~50.001~60.0000254~70.000001~8";
+isn02[2] = "~010~139.37~21~33.404~40.3937~50.03937~60.001~70.00003937~8";
+isn02[3] = "~02937.5~111.566~20.29375~31~40.11566~50.011566~60.00029375~70.000011566~8";
+isn02[4] = "~025400~1100~22.54~38.646~41~50.1~60.00254~70.0001~8";
+isn02[5] = "~0254000~11000~225.4~386.46~410~51~60.0254~70.001~8";
+isn02[6] = "~010000000~139370~21000~33404~4393.7~539.37~61~70.03937~8";
+isn02[7] = "~0254000000~11000000~225400~386460~410000~51000~625.4~71~8";
+function metCon() {
+// First, get the variables checked by the user
+for (var i = 0; i &lt; 8; i++) {
+if (document.isnform02.meti[i].checked) {
+meti = i;
+metinm = document.isnform02.meti[i].value;
+   }
+}
+for (var i = 0; i &lt; 8; i++) {
+if (document.isnform02.meto[i].checked) {
+meto = i;
+metonm = document.isnform02.meto[i].value;
+   }
+}
+// Now grab the number input by user and parse to be sure numeric
+useri = document.isnform02.metinp.value;
+if (useri == 0) {
+useri = 1;
+document.isnform02.metinp.value = useri;
+}
+mulstr = isn02[meti];
+picker = "~" + meto;
+ps = mulstr.indexOf(picker);
+meto++;
+picker = "~" + meto;
+ps1 = mulstr.indexOf(picker);
+mulsTR = mulstr.substring((ps + 2),ps1);
+ps = (useri * mulstr);
+picker = "";
+picker += ps
+ps1 = picker.indexOf(".");
+if (ps1 &gt; -1) {
+// Correct for binary/floating point conversion error
+ps = ps + .000001;
+picker = "";
+picker += ps;
+ps2 = picker.indexOf("e");
+if (ps2 &lt; 0) {
+picker = picker.substring(0,(ps1 + 6));
+}
+if (ps2 == 0 || ps2 &gt; 0) {
+ps3 = picker.indexOf("00000");
+if (ps3 &gt; 0) {
+picker = picker.substring(0,ps3 + 1) + picker.substring(ps2,picker.length);
+      }
+   }
+}
+picker = useri + " " + metinm + " = " + picker + " " + metonm
+document.isnform02.metout.value = picker;
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;CENTER&gt;
+&lt;TABLE BORDER=1 WIDTH=486&gt;
+&lt;TR&gt;&lt;TD COLSPAN=9 ALIGN=CENTER&gt;&lt;FORM NAME="isnform02"&gt;&lt;FONT COLOR="blue"&gt;&lt;B&gt;Metrology Equivalents&lt;/B&gt;&lt;/FONT&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;TR&gt;&lt;TD COLSPAN=9 VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;&lt;B&gt;First, type the number you wish converted here: &lt;/B&gt;
+&lt;INPUT TYPE="text" NAME="metinp" SIZE=30 VALUE="" onChange="metCon();"&gt;&lt;BR&gt;&lt;B&gt;Then, click radio buttons for desired conversion:&lt;/FONT&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;TR&gt;&lt;TD ALIGN=CENTER&gt;&lt;FONT COLOR="red" SIZE=1&gt;&lt;B&gt;From:&lt;/B&gt;&lt;/FONT&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;Angstrom Units&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="meti" VALUE="Angstrom Units" CHECKED onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;Surface Microinch&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="meti" VALUE="Surface Microinch" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;Surface Microns&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="meti" VALUE="Surface Microns" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;Light Bands*&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="meti" VALUE="Light Bands" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;Precision tenths&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="meti" VALUE="Precision tenths" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;Close Tol. thousandths&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="meti" VALUE="Close Tol. thousandths" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;MeTRic Milimeters&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="meti" VALUE="MeTRic Milimeters" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;U.S. Inches&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="meti" VALUE="U.S. Inches" onClick = ""&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;TR&gt;&lt;TD ALIGN=CENTER&gt;&lt;FONT COLOR="red" SIZE=1&gt;&lt;B&gt;To:&lt;/B&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;AngsTRom Units&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="meto" VALUE="AngsTRom Units" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;Surface Microinches&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="meto" VALUE="Surface Microinches" CHECKED onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;Surface Microns&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="meto" VALUE="Surface Microns" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;Light Bands*&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="meto" VALUE="Light Bands" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;Precision tenths&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="meto" VALUE="Precision tenths" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;Close Tol. thousandths&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="meto" VALUE="Close Tol. thousandths" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;MeTRic Milimeters&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="meto" VALUE="MeTRic Milimeters" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;U.S. Inches&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="meto" VALUE="U.S. Inches" onClick = ""&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;TR&gt;&lt;TD COLSPAN=9 ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;
+&lt;INPUT TYPE="button" VALUE=" Click for Conversion " onClick="metCon();"&gt; 
+&lt;INPUT TYPE="reset" VALUE=" Reset Values "&gt;&lt;BR&gt;
+&lt;INPUT TYPE="text" NAME="metout" SIZE=60 VALUE="" onClick="lenCon();"&gt;&lt;BR&gt;* Monochromatic helium count
+&lt;/FONT&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;/TABLE&gt;&lt;/FORM&gt;
+&lt;/CENTER&gt;
+
+ 
+
+&lt;!-- Script Size:  5.83 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

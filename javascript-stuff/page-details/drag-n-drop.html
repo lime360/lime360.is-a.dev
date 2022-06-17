@@ -1,0 +1,225 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Page Details:  Drag-n-Drop</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Randy Bennett (rbennett@thezone.net)">
+<META NAME="section" CONTENT="Page Details">
+<META NAME="description" CONTENT="Simply click images on the web page, drag to move, and then drop images anywhere on the web page.  A fun way to allow your visitors to interact with your site.  And, it is a short script too!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Randy Bennett (rbennett@thezone.net) -->
+<!-- Web Site:  http://home.thezone.net/~rbennett/sitemap.htm -->
+
+
+
+
+<!-- Begin
+N = (document.all) ? 0 : 1;
+var ob;
+function MD(e) {
+if (N) {
+ob = document.layers[e.target.name];
+X=e.x;
+Y=e.y;
+return false;
+}
+else {
+ob = event.srcElement.parentElement.style;
+X=event.offsetX;
+Y=event.offsetY;
+   }
+}
+function MM(e) {
+if (ob) {
+if (N) {
+ob.moveTo((e.pageX-X), (e.pageY-Y));
+}
+else {
+ob.pixelLeft = event.clientX-X + document.body.scrollLeft;
+ob.pixelTop = event.clientY-Y + document.body.scrollTop;
+return false;
+      }
+   }
+}
+function MU() {
+ob = null;
+}
+
+if (N) {
+document.captureEvents(Event.MOUSEDOWN | Event.MOUSEMOVE | Event.MOUSEUP);
+}
+document.onmousedown = MD;
+document.onmousemove = MM;
+document.onmouseup = MU;
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /page-details/"><font color="#FF0000"><b>Page Details</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Drag-n-Drop</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Simply click images on the web page, drag to move, and then drop images anywhere on the web page.  A fun way to allow your visitors to interact with your site.  And, it is a short script too!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<div id="s" style="position:absolute;left:50;top:300;">
+<img src="../img/cards/spades.gif" /img/cards/spades.gif" name="s">
+</div>
+
+<div id="d" style="position:absolute;left:50;top:350;">
+<img src="../img/cards/diamonds.gif" /img/cards/diamonds.gif" name="d">
+</div>
+
+<div id="c" style="position:absolute;left:100;top:300;">
+<img src="../img/cards/clubs.gif" /img/cards/clubs.gif" name="c">
+</div>
+
+<div id="h" style="position:absolute;left:100;top:350;">
+<img src="../img/cards/hearts.gif" /img/cards/hearts.gif" name="h">
+</div>
+
+Just click and hold the 4 suit images to the left and then you can move them around the page!
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Page Details:  Drag-n-Drop</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.99 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL DRAG-N-DROP:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Randy Bennett (rbennett@thezone.net) --&gt;
+&lt;!-- Web Site:  http://home.thezone.net/~rbennett/sitemap.htm --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+N = (document.all) ? 0 : 1;
+var ob;
+function MD(e) {
+if (N) {
+ob = document.layers[e.target.name];
+X=e.x;
+Y=e.y;
+return false;
+}
+else {
+ob = event.srcElement.parentElement.style;
+X=event.offsetX;
+Y=event.offsetY;
+   }
+}
+function MM(e) {
+if (ob) {
+if (N) {
+ob.moveTo((e.pageX-X), (e.pageY-Y));
+}
+else {
+ob.pixelLeft = event.clientX-X + document.body.scrollLeft;
+ob.pixelTop = event.clientY-Y + document.body.scrollTop;
+return false;
+      }
+   }
+}
+function MU() {
+ob = null;
+}
+
+if (N) {
+document.captureEvents(Event.MOUSEDOWN | Event.MOUSEMOVE | Event.MOUSEUP);
+}
+document.onmousedown = MD;
+document.onmousemove = MM;
+document.onmouseup = MU;
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;div id="s" style="position:absolute;left:50;top:300;"&gt;
+&lt;img src=../img/cards/spades.gif name="s"&gt;
+&lt;/div&gt;
+
+&lt;div id="d" style="position:absolute;left:50;top:350;"&gt;
+&lt;img src=../img/cards/diamonds.gif name="d"&gt;
+&lt;/div&gt;
+
+&lt;div id="c" style="position:absolute;left:100;top:300;"&gt;
+&lt;img src=../img/cards/clubs.gif name="c"&gt;
+&lt;/div&gt;
+
+&lt;div id="h" style="position:absolute;left:100;top:350;"&gt;
+&lt;img src=../img/cards/hearts.gif name="h"&gt;
+&lt;/div&gt;
+
+Just click and hold the 4 suit images to the left and then you can move them around the page!
+
+ 
+
+&lt;!-- Script Size:  1.99 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>
+
+
+

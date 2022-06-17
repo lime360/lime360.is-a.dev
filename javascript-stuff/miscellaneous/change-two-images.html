@@ -1,0 +1,188 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Misc.:  Change Two Images</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Miscellaneous">
+<META NAME="description" CONTENT="Changes two images simultaneously when the user puts their cursor on the link.  The necesary images are preloaded to ensure there is no delay when showing the images.">
+
+<SCRIPT LANGUAGE="JavaScript">
+
+
+
+
+<!-- Begin
+var dtext = new Image();
+var dlarge = new Image();
+var stext = new Image();
+var slarge = new Image();
+var ttext = new Image();
+var tlarge = new Image();
+
+dtext.src = "../img/change-image/dallas-text.jpg";
+dlarge.src = "../img/change-image/dallas-large.jpg";
+stext.src = "../img/change-image/sandiego-text.jpg";
+slarge.src = "../img/change-image/sandiego-large.jpg";
+ttext.src = "../img/change-image/tokyo-text.jpg";
+tlarge.src = "../img/change-image/tokyo-large.jpg";
+
+function doButtons(textimage, picimage) {
+document['text'].src=textimage;
+document['picture'].src=picimage;
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /miscellaneous/"><font color="#FF0000"><b>Miscellaneous</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Change Two Images</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Changes two images simultaneously when the user puts their cursor on the link.  The necesary images are preloaded to ensure there is no delay when showing the images.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<table border=1>
+<tr><td>
+<center><h2>Places I've been:</h2></center>
+<p>
+<li><a href = "http://www.dallas.com/" onmouseover = "doButtons('../img/change-image/dallas-text.jpg', '../img/change-image/dallas-large.jpg')" onmouseout = "doButtons('../img/change-image/blank.gif', '../img/change-image/blank.gif')">Dallas<p>
+
+<li><a href = "http://www.sannet.gov/" onmouseover = "doButtons('../img/change-image/sandiego-text.jpg', '../img/change-image/sandiego-large.jpg')" onmouseout = "doButtons('../img/change-image/blank.gif', '../img/change-image/blank.gif')">San Diego<p>
+
+<li><a href = "http://www.japan-guide.com/e/e2164.html" onmouseover = "doButtons('../img/change-image/tokyo-text.jpg', '../img/change-image/tokyo-large.jpg')" onmouseout = "doButtons('../img/change-image/blank.gif', '../img/change-image/blank.gif')">Tokyo<p>
+
+<img name=text src="../img/change-image/blank.gif" /img/change-image/blank.gif" width=240 height=20 border=0></td>
+
+<td>
+<img name=picture src="../img/change-image/blank.gif" /img/change-image/blank.gif" width=440 height=300 border=0></td>
+</tr>
+</table>
+<br>
+<font face="arial, helvetica" size="-1">[ 
+If you use this script, you need this blank.gif <br>
+which acts as an initial placeholder image.<br>
+Right click the box below and "Save Image As..." ]</font><p>
+<img name=copyimage src="../img/change-image/blank.gif" /img/change-image/blank.gif" width=10 height=10 border=1>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Misc.:  Change Two Images</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.80 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL CHANGE TWO IMAGES:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var dtext = new Image();
+var dlarge = new Image();
+var stext = new Image();
+var slarge = new Image();
+var ttext = new Image();
+var tlarge = new Image();
+
+dtext.src = "dallas-text.jpg";
+dlarge.src = "dallas-large.jpg";
+stext.src = "sandiego-text.jpg";
+slarge.src = "sandiego-large.jpg";
+ttext.src = "tokyo-text.jpg";
+tlarge.src = "tokyo-large.jpg";
+
+function doButtons(textimage, picimage) {
+document['text'].src=textimage;
+document['picture'].src=picimage;
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;table border=1&gt;
+&lt;tr&gt;&lt;td&gt;
+&lt;center&gt;&lt;h2&gt;Places I've been:&lt;/h2&gt;&lt;/center&gt;
+&lt;p&gt;
+&lt;li&gt;&lt;a href = "http://www.dallas.com" onmouseover = "doButtons('dallas-text.jpg', 'dallas-large.jpg')" onmouseout = "doButtons('blank.gif', 'blank.gif')"&gt;Dallas&lt;p&gt;
+
+&lt;li&gt;&lt;a href = "http://www.sannet.gov" onmouseover = "doButtons('sandiego-text.jpg', 'sandiego-large.jpg')" onmouseout = "doButtons('blank.gif', 'blank.gif')"&gt;San Diego&lt;p&gt;
+
+&lt;li&gt;&lt;a href = "http://www.japan-guide.com/e/e2164.html" onmouseover = "doButtons('tokyo-text.jpg', 'tokyo-large.jpg')" onmouseout = "doButtons('blank.gif', 'blank.gif')"&gt;Tokyo&lt;p&gt;
+
+&lt;img name=text src="blank.gif" width=240 height=20 border=0&gt;&lt;/td&gt;
+
+&lt;td&gt;
+&lt;img name=picture src="blank.gif" width=440 height=300 border=0&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  1.80 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

@@ -1,0 +1,302 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Code Generators:  Popup Window Maker</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Code Generators">
+<META NAME="description" CONTENT="Don't worry any more about editing the code by hand, use our code generator!  Fill out the specifications of the popup window you would like to use, including the URL and the various options such as menubars, toolbars, scrollbars, etc, and click the generate button.  Just add this generated code to your site, or even have us mail it to you!  Neat!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+var email = GetCookie('email_address');
+if (email == null) {
+email = 'your email here';
+}
+function getCookieVal (offset) {
+var endstr = document.cookie.indexOf (";", offset);
+if (endstr == -1)
+endstr = document.cookie.length;
+return unescape(document.cookie.substring(offset, endstr));
+}
+function GetCookie (name) {
+var arg = name + "=";
+var alen = arg.length;
+var clen = document.cookie.length;
+var i = 0;
+while (i < clen) {
+var j = i + alen;
+if (document.cookie.substring(i, j) == arg)
+return getCookieVal (j);
+i = document.cookie.indexOf(" ", i) + 1;
+if (i == 0)
+break;}
+return null;}
+function SetCookie (name, value) {
+var argv = SetCookie.arguments;
+var argc = SetCookie.arguments.length;
+var expires = (argc > 2) ? argv[2] : null;
+var path = (argc > 3) ? argv[3] : null;
+var domain = ".internet.com";
+// (argc > 4) ? argv[4] : null;
+var secure = (argc > 5) ? argv[5] : false;
+document.cookie = name + "=" + escape (value) +
+((expires == null) ? "" : ("; expires=" +
+expires.toGMTString())) +
+((path == null) ? "" : ("; path=" + path)) +
+((domain == null) ? "" : ("; domain=" + domain)) +
+((secure == true) ? "; secure" : "");}
+
+function checkCodeMail() {
+invalid = ""
+email = document.mail.user.value;
+code = document.mail.source.value;
+if (code == "") {
+invalid += "Before you can send your code to yourself you need to ";
+invalid += "follow the instructions above to output the code.  When "
+invalid += "the code has been generated, click \"Done\" to email it!\r\n\r\n";}
+if (email.indexOf("@")<1 || email == "your email here" || email == "") {
+invalid += "Invalid email address!  Be sure that in your email address ";
+invalid += "you included your Username, the '@' Sign, and the Domain Name.";}
+if (invalid == "") {
+doAd();
+return true;
+}
+else {
+alert(invalid);
+return false;}}
+function doAd() {
+pathname = location.pathname;
+myDomain = pathname.substring(0,pathname.lastIndexOf('/')) +'/';
+var largeExpDate = new Date ();
+largeExpDate.setTime(largeExpDate.getTime() + (24 * 3600 * 1000));
+SetCookie('email_address',email,largeExpDate,myDomain);
+page = "http://javascript.internet.com/sent.html?" + email;
+window.open(page, "AdWindow", "width=515,height=150");
+return true;}
+function uncode() {
+smut="&lt;";
+replacewords="< ";
+txt=document.mail.source2.value;
+tstx="";
+space=replacewords.indexOf(" ");
+wrd=replacewords.substring(0,space);
+wrdl=wrd.length
+replacewords=replacewords.substring(space+1,replacewords.length);
+while (txt.indexOf(wrd)>-1){
+space=txt.indexOf(wrd);
+txt=txt.substring(0,space)+smut+txt.substring((space+wrdl),txt.length);}
+smut="&gt;";
+replacewords="> ";
+space=replacewords.indexOf(" ");
+wrd=replacewords.substring(0,space);
+wrdl=wrd.length
+replacewords=replacewords.substring(space+1,replacewords.length);
+while (txt.indexOf(wrd)>-1){
+space=txt.indexOf(wrd);
+txt=txt.substring(0,space)+smut+txt.substring((space+wrdl),txt.length);}
+document.mail.source2.value=txt;}
+// End -->
+</script>
+
+
+<!--  Now it's time for the *REAL* code generator to begin....  -->
+
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Idea by:  Nic Wolfe (Nic@TimelapseProductions.com) -->
+<!-- Web URL:  http://fineline.xs.mw -->
+
+
+
+
+<!--  Begin
+function generate(form){
+page = document.inputForm.page.value;
+toolbars = document.inputForm.toolbars.checked;
+scrollprops = document.inputForm.scrollit.checked;
+locations = document.inputForm.locations.checked;
+statusbars = document.inputForm.statusbars.checked;
+menubars = document.inputForm.menubars.checked;
+resizeable = document.inputForm.resizeable.checked;
+width = document.inputForm.width.value;
+if (!width) width = screen.width;
+height = document.inputForm.height.value;
+if (!height) height = screen.height;
+howto = document.inputForm.howtoopen.options[document.inputForm.howtoopen.selectedIndex].value;
+center = document.inputForm.center.checked;
+
+start = "<";
+
+if(howto == 'body') {
+otherOutput = start + "!-- STEP TWO: Paste this onLoad event handler into the BODY tag -->\n\n" + start + "BODY onLoad=\"javascript:popUp('" + page + "')\">";
+}
+if(howto == 'link') {
+otherOutput = start + "!-- STEP TWO: Use the following link to open the new window -->\n\n" + start + "A HREF=\"javascript:popUp('" + page + "')\">Open the Popup Window" + start + "/A>";
+}
+if(howto == 'button') {
+otherOutput = start + "!-- STEP TWO: Use the following button code for the new window -->\n\n" + start + "form>\n" + start + "input type=button value=\"Open the Popup Window\" onClick=\"javascript:popUp('" + page + "')\">\n" + start + "/form>";
+}
+
+scriptOutput = start + '!-- TWO STEPS TO INSTALL POPUP WINDOW:\r\n\r\n'
++ '   1.  Paste the first into the HEAD of your HTML document\r\n'
++ '   2.  Use the code to open the popup page on your site  -->\r\n\r\n'
++ '<!-- STEP ONE: Copy this code into the HEAD of your HTML document  -->\r\n\r\n'
++ '<HEAD>\r\n\r\n' + start + 'SCRIPT LANGUAGE="JavaScript">\r\n' 
++ '<!-- Idea by:  Nic Wolfe (Nic@TimelapseProductions.com) -->\r\n'
++ '<!-- Web URL:  http://fineline.xs.mw -->\r\n\r\n'
++ '\r\n'
++ '\r\n\r\n'
++ '<!-- Begin\r\n'
++ 'function pop' + 'Up(URL) {\nday = new Date();\nid = day.getTime();\n';
+
+scriptOutput += "eval(\"page\" + id + \" = window.open(URL, '\" + id + \"', '" +
+
+((toolbars) ? "toolbar=1," : "toolbar=0,") + 
+((scrollprops) ? "scrollbars=1," : "scrollbars=0,") +
+((locations) ? "location=1," : "location=0,") +
+((statusbars) ? "statusbar=1," : "statusbar=0,") +
+((menubars) ? "menubar=1," : "menubar=0,") +
+((resizeable) ? "resizable=1" : "resizable=0") +
+((width) ? ",width=" + width : "") +
+((height) ? ",height=" + height : "") +
+((center) ? ",left = " + ((screen.width - width) / 2) : "") +
+((center) ? ",top = " + ((screen.height - height) / 2) : "") +
+"');\");\n}\n// End -->\n" + start + "/sc" + "ript>\n";
+
+output = scriptOutput + "\n\n" + otherOutput + '\n\n' + start +'!-- Script Size:  0.73 KB  --'+'>';
+
+document.mail.source.value = output;
+document.mail.source2.value = output;
+
+uncode();
+}
+// End -->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<P>
+<center>
+
+	
+<P>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /generators/"><font color="#FF0000">Generators</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Popup Window Maker</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Don't worry any more about editing the code by hand, use our code generator!  Fill out the specifications of the popup window you would like to use, including the URL and the various options such as menubars, toolbars, scrollbars, etc, and click the generate button.  Just add this generated code to your site, or even have us mail it to you!  Neat!
+<br>
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name=inputForm>
+<table width=500 cellpadding=2 cellspacing=0 border=1>
+<tr>
+<td>
+<table cellpadding=8 cellspacing=2 border=1>
+<tr>
+<td colspan=2>This machine will make a script that will pop up and optionally center the popup window for you.  Fill in the values below and click Make Code.</td>
+</tr>
+<tr>
+<td width="400">What filename should be opened?</td>
+<td><input type=text name=page size=10><br>(filename or http://....)</td>
+</tr>
+<tr>
+<td>Would you like it to have toolbars?</td>
+<td><input type=checkbox name=toolbars></td>
+</tr>
+<tr>
+<td>Would you like the window to have scrollbars?</td>
+<td><input type=checkbox name=scrollit></td>
+</tr>
+<tr>
+<td>Would you like it to have the location bar?</td>
+<td><input type=checkbox name=locations></td>
+</tr>
+<tr>
+<td>Would you like it to have a status bar?</td>
+<td><input type=checkbox name=statusbars></td>
+</tr>
+<tr>
+<td>Would you like it to have a menu bar?</td>
+<td><input type=checkbox name=menubars></td>
+</tr>
+<tr>
+<td>Would you like it to be resizeable?</td>
+<td><input type=checkbox name=resizeable></td>
+</tr>
+<tr>
+<td>How wide would you like it to be?</td>
+<td><input type=text name=width size=4> (in pixels)</td>
+</tr>
+<tr>
+<td>How high would you like it to be?</td>
+<td><input type=text name=height size=4> (in pixels)</td>
+</tr>
+<tr>
+<td>How should the window be opened?</td>
+<td><select name=howtoopen>
+<option value="button">by a button
+<option value="link">by a link
+<option value="body">automatically
+</select>
+</td>
+</tr>
+<tr>
+<td>Should we center the window on screen?</td>
+<td><input type=checkbox name=center></td>
+</tr>
+<tr>
+<td colspan=2><center><input type=button value="Make Code!" onClick="javascript:generate();"></center></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</form>
+
+<p>
+<center>
+<form name="mail" action="http://javascript.internet.com/cgi-bin/code-mail.cgi" method="POST" onSubmit="return checkCodeMail()">
+<input type=hidden name=scriptname value="Popup Window Maker">
+<table bgcolor="dedfdf" border="2" cellpadding="4" width=400>
+<tr><td align=center><textarea name="source" rows=12 cols=80></textarea><br>
+<input type=hidden name="source2"><br>
+<font size="2" face="arial">"Cut and Paste" the code above, or....</font><br><br>
+<table cellpadding=20 cellspacing=0 border=1>
+<tr bgcolor=#ebebeb><td align=center><tt>We'll send your generated code to you!<p></tt>
+<SCRIPT>
+<!-- Begin
+document.write('<input type=text size=25 name=user value="'+email+'" onfocus=\"select()\">');
+// End -->
+</SCRIPT>
+<NOSCRIPT>
+<input type=text size=25 name=email value="your email here">
+</NOSCRIPT>
+<input type=submit value="Send it!"><p><font size="-2">(just click "Send it!" once!)</font>
+</td>
+</tr>
+</table></td><p></tr>
+</table>
+</form>
+</center>
+</FONT>
+</CENTER>
+
+</CENTER>

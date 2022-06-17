@@ -1,0 +1,288 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Navigation:  Slide Menu</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="This auto-hiding menu slides in and out when you move your mouse over it.  Easily add as many links as you need!">
+<META NAME="date" CONTENT="2001-01-19">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="">
+<META NAME="section" CONTENT="Navigation">
+<STYLE>
+#menuOut, #menuIn
+{
+position:absolute;
+left:-155px;
+width:160px;
+top:170px;
+border:1.5px solid green;
+background-color:yellow;
+layer-background-color:yellow;
+font:bold 12px Verdana;
+line-height:20px;
+}
+</STYLE>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+<!-- Demonstration -->
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  qv247@hotmail.com -->
+<!-- Web Site:  http://majestix.cjb.com -->
+
+
+
+
+<!-- Begin
+if (document.all)
+document.write('<div id="menuIn" style="left:-150" onMouseover="pull()" onMouseout="draw()">')
+//  End -->
+</script>
+<layer id="menuOut" onMouseover="pull()" onMouseout="draw()">
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+var siteName = new Array();
+var siteLink = new Array();
+siteName[0] = "Yahoo";
+siteName[1] = "Item 2";
+siteName[2] = "Item 3";
+siteName[3] = "Item 4";
+siteName[4] = "Item 5";
+siteName[5] = "Item 6";
+siteLink[0] = "http://www.yahoo.com";
+siteLink[1] = "link2";
+siteLink[2] = "link3";
+siteLink[3] = "link4";
+siteLink[4] = "link5";
+siteLink[5] = "link6";
+for (i = 0; i <= siteName.length - 1; i++)
+document.write('<a href=' + siteLink[i] + '>' + siteName[i] + '</a><br>');
+//  End -->
+</script>
+</layer>
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+function regenerate() {
+window.location.reload();
+}
+function regenerate2() {
+if (document.layers)
+setTimeout("window.onresize=regenerate", 400);
+}
+window.onload = regenerate2;
+if (document.all) {
+document.write('</div>');
+slideMenu = document.all.menuIn.style;
+boundryR = 0;
+boundryL = -150;
+}
+else {
+slideMenu = document.layers.menuOut;
+boundryR = 150;
+boundryL = 10;
+}
+function pull() {
+if (window.drawMenu)
+clearInterval(drawMenu);
+pullMenu = setInterval("pullEngine()", 50);
+}
+function draw() {
+clearInterval(pullMenu);
+drawMenu = setInterval("drawEngine()", 50);
+}
+function pullEngine() {
+if (document.all && slideMenu.pixelLeft < boundryR)
+slideMenu.pixelLeft += 5;
+else if(document.layers && slideMenu.left < boundryR)
+slideMenu.left += 5;
+else if (window.pullMenu)
+clearInterval(pullMenu);
+}
+function drawEngine() {
+if (document.all && slideMenu.pixelLeft > boundryL)
+slideMenu.pixelLeft -= 5;
+else if(document.layers && slideMenu.left > boundryL)
+slideMenu.left -= 5;
+else if (window.drawMenu)
+clearInterval(drawMenu);
+}
+//  End -->
+</script>
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /navigation/"><font color="#FF0000"><b>Navigation</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Slide Menu</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+This auto-hiding menu slides in and out when you move your mouse over it.  Easily add as many links as you need!
+<hr>
+</td></tr>
+</table>
+Try the menu out for yourself!  Move your mouse over the yellow border to the left.
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Navigation:  Slide Menu</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Command-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  3.03 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL SLIDE MENU:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;STYLE&gt;
+#menuOut, #menuIn
+{
+position:absolute;
+left:-155px;
+width:160px;
+top:170px;
+border:1.5px solid green;
+background-color:yellow;
+layer-background-color:yellow;
+font:bold 12px Verdana;
+line-height:20px;
+}
+&lt;/STYLE&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  qv247@hotmail.com --&gt;
+&lt;!-- Web Site:  http://majestix.cjb.com --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+if (document.all)
+document.write('&lt;div id="menuIn" style="left:-150" onMouseover="pull()" onMouseout="draw()"&gt;')
+//  End --&gt;
+&lt;/script&gt;
+&lt;layer id="menuOut" onMouseover="pull()" onMouseout="draw()"&gt;
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Begin
+var siteName = new Array();
+var siteLink = new Array();
+siteName[0] = "New JavaScripts";
+siteName[1] = "Item 2";
+siteName[2] = "Item 3";
+siteName[3] = "Item 4";
+siteName[4] = "Item 5";
+siteName[5] = "Item 6";
+siteLink[0] = "http://javascript.internet.com/new/";
+siteLink[1] = "link2";
+siteLink[2] = "link3";
+siteLink[3] = "link4";
+siteLink[4] = "link5";
+siteLink[5] = "link6";
+for (i = 0; i &lt;= siteName.length - 1; i++)
+document.write('&lt;a href=' + siteLink[i] + '&gt;' + siteName[i] + '&lt;/a&gt;&lt;br&gt;');
+//  End --&gt;
+&lt;/script&gt;
+&lt;/layer&gt;
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Begin
+function regenerate() {
+window.location.reload();
+}
+function regenerate2() {
+if (document.layers)
+setTimeout("window.onresize=regenerate", 400);
+}
+window.onload = regenerate2;
+if (document.all) {
+document.write('&lt;/div&gt;');
+slideMenu = document.all.menuIn.style;
+boundryR = 0;
+boundryL = -150;
+}
+else {
+slideMenu = document.layers.menuOut;
+boundryR = 150;
+boundryL = 10;
+}
+function pull() {
+if (window.drawMenu)
+clearInterval(drawMenu);
+pullMenu = setInterval("pullEngine()", 50);
+}
+function draw() {
+clearInterval(pullMenu);
+drawMenu = setInterval("drawEngine()", 50);
+}
+function pullEngine() {
+if (document.all && slideMenu.pixelLeft &lt; boundryR)
+slideMenu.pixelLeft += 5;
+else if(document.layers && slideMenu.left &lt; boundryR)
+slideMenu.left += 5;
+else if (window.pullMenu)
+clearInterval(pullMenu);
+}
+function drawEngine() {
+if (document.all && slideMenu.pixelLeft &gt; boundryL)
+slideMenu.pixelLeft -= 5;
+else if(document.layers && slideMenu.left &gt; boundryL)
+slideMenu.left -= 5;
+else if (window.drawMenu)
+clearInterval(drawMenu);
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;center&gt;
+Try the menu out for yourself!  Move your mouse over the yellow border to the left.
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  3.03 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

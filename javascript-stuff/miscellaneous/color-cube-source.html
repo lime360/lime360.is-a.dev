@@ -1,0 +1,646 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Misc.:  Color Cube (Source)</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Scott Yanoff and Willem Jonkman">
+<META NAME="section" CONTENT="Miscellaneous">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /miscellaneous/"><font color="#FF0000">Miscellaneous</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Color Cube (Source)</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE=" helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Here is the coding that is necessary to put the colorCube on your site.  There are 3 pages and an image, be sure to get them all!<br><hr>
+</td></tr>
+</table>
+<!--  Demonstration -->
+<BODY>
+<center>Save this image to your web site directory as:  cube.gif<P>
+<IMG SRC="../img/colorcube/cube.gif" /img/colorcube/cube.gif">
+</center>
+<P>
+<BR>
+<P>
+<a name="source">
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Misc.:  Color Cube (colorcube.html)</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as NotePad or SimpleText) and save (Control-s or Apple-s).  The script is yours!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text1" NAME="total" VALUE="Script Size:  1.07 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt1" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL COLOR CUBE (color-cube.html):
+
+   1.  Paste the coding into the HEAD of your HTML document  
+   2.  Add the second code into the BODY of your HTML document
+   3.  Save this document as color-cube.html  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;!-- Original:  Scott Yanoff and Willem Jonkman --&gt;
+&lt;!-- Web Site:  http://www.geocities.com/SiliconValley/Way/1265 --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Add this into the BODY of your html document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;FRAMESET COLS="45%,*" BORDER=0 FRAMEBORDER=0&gt;
+&lt;FRAME SRC="color-cubel.html" SCROLLING="AUTO" NAME="left"&gt;
+&lt;FRAME SRC="color-cuber.html" SCROLLING="AUTO" MARGINWIDTH=25 MARGINHEIGHT=13 NAME="right"&gt;
+&lt;/FRAMESET&gt;
+&lt;/FRAMESET&gt;
+
+&lt;!-- STEP THREE:  Save this document as color-cube.html --&gt;
+
+ 
+
+&lt;!-- Script Size:  1.07 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Misc.:  Color Cube (colorcubel.html)</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as NotePad or SimpleText) and save (Control-s or Apple-s).  The script is yours!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<INPUT TYPE="text2" NAME="total" VALUE="Script Size:  28.00 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt2" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL COLOR CUBE (colorcubel.html):
+
+   1.  Paste the coding into the HEAD of your HTML document  
+   2.  Add the second code into the BODY of your HTML document
+   3.  Save this document as color-cubel.html  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Begin
+var bg = "#FFFFFF";
+var fg = "#000000";
+var link = "#0000FF";
+var vlink = "#663399";
+var alink = "#FF0000";
+var bold = "xb";
+var notbold = "xb";
+var isbold = "b";
+var italic = "xi";
+var notitalic = "xi";
+var isitalic = "i";
+var fontsize = "3";
+var size1 = "1";
+var size2 = "2";
+var size3 = "3";
+var size4 = "4";
+var size5 = "5";
+var size6 = "6";
+var size7 = "7";
+function SendColor(color) {
+if (top.frames[0].document.colors.elements[0].checked) bg = color;
+else if (top.frames[0].document.colors.elements[1].checked) fg = color;
+else if (top.frames[0].document.colors.elements[2].checked) link = color;
+else if (top.frames[0].document.colors.elements[3].checked) vlink = color;
+else if (top.frames[0].document.colors.elements[4].checked) alink = color;
+if (top.frames[0].document.colors.checkBold.checked) bold = isbold;
+else bold = notbold;
+// Find out if the italics box is checked
+if (top.frames[0].document.colors.checkItalic.checked) italic = isitalic;
+else italic = notitalic;
+// Find out the font size selected
+if (top.frames[0].document.sizes.elements[0].checked) fontsize = size1;
+else if (top.frames[0].document.sizes.elements[1].checked) fontsize = size2;
+else if (top.frames[0].document.sizes.elements[2].checked) fontsize = size3;
+else if (top.frames[0].document.sizes.elements[3].checked) fontsize = size4;
+else if (top.frames[0].document.sizes.elements[4].checked) fontsize = size5;
+else if (top.frames[0].document.sizes.elements[5].checked) fontsize = size6;
+else if (top.frames[0].document.sizes.elements[6].checked) fontsize = size7;
+top.frames[0].document.colors.fileUp.focus();
+top.frames[0].document.colors.fileUp.blur();
+var fileName = top.frames[0].document.colors.fileUp.value;
+var driveLetter = fileName.charAt(0);
+var fileNameLength = fileName.length;
+var n1 = fileName.length;
+var newFilename = ""; 
+var letter01 = "\\";
+var letter02 = "/";
+while (n1 &gt; 2) {
+n1 = n1 - 1;
+var letter = fileName.charAt(n1);
+if ( letter == letter01 ) 
+letter = letter02
+else letter = letter
+newFilename = letter + newFilename;
+}
+var backgroundFile = "";
+var b1 = fileName.length;
+var b2 = b1;
+var letter03 = fileName.charAt(b1);
+if (b1 == 0) backgroundFile = "jj";
+else while (letter03 != letter01) {
+b1 = b1 - 1;
+letter03 = fileName.charAt(b1);
+}
+b1 = b1 + 1
+backgroundFile = fileName.substring(b2,b1);
+backgroundFile = backgroundFile.toLowerCase();
+top.frames[1].document.clear();
+top.frames[1].document.write("&lt;HTML&gt;");
+top.frames[1].document.write("&lt;HEAD&gt;");
+top.frames[1].document.write("&lt;TITLE&gt;The Pick A Colour O'Mat&lt;/TITLE&gt;");
+top.frames[1].document.write("&lt;/HEAD&gt;");
+top.frames[1].document.write("&lt;BODY BGCOLOR='"+bg+"' TEXT='"+fg+"' LINK='"+link+"' VLINK='"+vlink+"' ALINK='"+alink+"' BACKGROUND='file:///"+driveLetter+"|"+newFilename+"'&gt;");
+top.frames[1].document.write("&lt;FONT FACE=\"arial\" color="+fg+" size=4&gt;and view the results . . . . .&lt;/FONT&gt;&lt;P&gt;");
+top.frames[1].document.write("&lt;FONT FACE=\""+"\" size="+fontsize+" color="+fg+"&gt;&lt;"+italic+"&gt;&lt;"+bold+"&gt;text color&lt;/"+bold+"&gt;&lt;/"+italic+"&gt;&lt;/FONT&gt;&lt;P&gt;");
+top.frames[1].document.write("&lt;FONT FACE=\""+"\" size="+fontsize+" color="+link+"&gt;&lt;"+italic+"&gt;&lt;"+bold+"&gt;&lt;U&gt;regular link color&lt;/U&gt;&lt;/"+bold+"&gt;&lt;/"+italic+"&gt;&lt;/FONT&gt;&lt;P&gt;");
+top.frames[1].document.write("&lt;FONT FACE=\""+"\" size="+fontsize+" color="+vlink+"&gt;&lt;"+italic+"&gt;&lt;"+bold+"&gt;&lt;U&gt;visited link color&lt;/U&gt;&lt;/"+bold+"&gt;&lt;/"+italic+"&gt;&lt;/FONT&gt;&lt;P&gt;");
+top.frames[1].document.write("&lt;FONT face=\""+"\" size="+fontsize+" color="+alink+"&gt;&lt;"+italic+"&gt;&lt;"+bold+"&gt;&lt;U&gt;active link color&lt;/U&gt;&lt;/"+bold+"&gt;&lt;/"+italic+"&gt;&lt;/FONT&gt;&lt;P&gt;");
+top.frames[1].document.write("This is the HTML coding you need :&lt;P&gt;");
+top.frames[1].document.write("&lt;TT&gt;&lt;B&gt;");
+top.frames[1].document.write("&nbsp;&nbsp;&lt;BODY&lt;BR&gt;");
+top.frames[1].document.write("&nbsp;&nbsp;BGCOLOR=\""+bg+"\"&lt;BR&gt;");
+top.frames[1].document.write("&nbsp;&nbsp;BACKGROUND=\""+backgroundFile+"\"&lt;BR&gt;");
+top.frames[1].document.write("&nbsp;&nbsp;TEXT=\""+fg+"\"&lt;BR&gt;");
+top.frames[1].document.write("&nbsp;&nbsp;LINK=\""+link+"\"&lt;BR&gt;");
+top.frames[1].document.write("&nbsp;&nbsp;VLINK=\""+vlink+"\"&lt;BR&gt;");
+top.frames[1].document.write("&nbsp;&nbsp;ALINK=\""+alink+"\"&gt;&lt;BR&gt;");
+top.frames[1].document.write("&lt;/B&gt;&lt;/TT&gt;");
+top.frames[1].document.write("&lt;/BODY&gt;");
+top.frames[1].document.write("&lt;/HTML&gt;");
+top.frames[1].document.close();
+}
+function SendOther() {
+if (top.frames[0].document.colors.checkBold.checked) bold = isbold;
+else bold = notbold;
+if (top.frames[0].document.colors.checkItalic.checked) italic = isitalic;
+else italic = notitalic;
+if (top.frames[0].document.sizes.elements[0].checked) fontsize = size1;
+else if (top.frames[0].document.sizes.elements[1].checked) fontsize = size2;
+else if (top.frames[0].document.sizes.elements[2].checked) fontsize = size3;
+else if (top.frames[0].document.sizes.elements[3].checked) fontsize = size4;
+else if (top.frames[0].document.sizes.elements[4].checked) fontsize = size5;
+else if (top.frames[0].document.sizes.elements[5].checked) fontsize = size6;
+else if (top.frames[0].document.sizes.elements[6].checked) fontsize = size7;
+top.frames[0].document.colors.fileUp.focus();
+top.frames[0].document.colors.fileUp.blur();
+var fileName = top.frames[0].document.colors.fileUp.value;
+var driveLetter = fileName.charAt(0);
+var fileNameLength = fileName.length;
+var n1 = fileName.length;
+var newFilename = ""; 
+var letter01 = "\\";
+var letter02 = "/";
+while (n1 &gt; 2) {
+n1 = n1 - 1;
+var letter = fileName.charAt(n1);
+if ( letter == letter01 ) 
+letter = letter02
+else letter = letter
+newFilename = letter + newFilename;
+}
+var backgroundFile = "";
+var b1 = fileName.length;
+var b2 = b1;
+var letter03 = fileName.charAt(b1);
+if (b1 == 0) backgroundFile = "jj";
+else while (letter03 != letter01) {
+b1 = b1 - 1;
+letter03 = fileName.charAt(b1);
+}
+b1 = b1 + 1
+backgroundFile = fileName.substring(b2,b1);
+backgroundFile = backgroundFile.toLowerCase();
+top.frames[1].document.clear();
+top.frames[1].document.write("&lt;HTML&gt;");
+top.frames[1].document.write("&lt;HEAD&gt;");
+top.frames[1].document.write("&lt;TITLE&gt;The Pick A Colour O'Mat&lt;/TITLE&gt;");
+top.frames[1].document.write("&lt;/HEAD&gt;");
+top.frames[1].document.write("&lt;BODY BGCOLOR='"+bg+"' TEXT='"+fg+"' LINK='"+link+"' VLINK='"+vlink+"' ALINK='"+alink+"' BACKGROUND='file:///"+driveLetter+"|"+newFilename+"'&gt;");
+top.frames[1].document.write("&lt;FONT FACE=\"arial\" color="+fg+" size=4&gt;and view the results . . . . .&lt;/FONT&gt;&lt;P&gt;");
+top.frames[1].document.write("&lt;FONT FACE=\""+"\" size="+fontsize+" color="+fg+"&gt;&lt;"+italic+"&gt;&lt;"+bold+"&gt;text color&lt;/"+bold+"&gt;&lt;/"+italic+"&gt;&lt;/FONT&gt;&lt;P&gt;");
+top.frames[1].document.write("&lt;FONT FACE=\""+"\" size="+fontsize+" color="+link+"&gt;&lt;"+italic+"&gt;&lt;"+bold+"&gt;&lt;U&gt;regular link color&lt;/U&gt;&lt;/"+bold+"&gt;&lt;/"+italic+"&gt;&lt;/FONT&gt;&lt;P&gt;");
+top.frames[1].document.write("&lt;FONT FACE=\""+"\" size="+fontsize+" color="+vlink+"&gt;&lt;"+italic+"&gt;&lt;"+bold+"&gt;&lt;U&gt;visited link color&lt;/U&gt;&lt;/"+bold+"&gt;&lt;/"+italic+"&gt;&lt;/FONT&gt;&lt;P&gt;");
+top.frames[1].document.write("&lt;FONT FACE=\""+"\" size="+fontsize+" color="+alink+"&gt;&lt;"+italic+"&gt;&lt;"+bold+"&gt;&lt;U&gt;active link color&lt;/U&gt;&lt;/"+bold+"&gt;&lt;/"+italic+"&gt;&lt;/FONT&gt;&lt;P&gt;");
+top.frames[1].document.write("This is the HTML string you need :&lt;P&gt;");
+top.frames[1].document.write("&lt;TT&gt;&lt;B&gt;");
+top.frames[1].document.write("&nbsp;&nbsp;&lt;BODY&lt;BR&gt;");
+top.frames[1].document.write("&nbsp;&nbsp;BGCOLOR=\""+bg+"\"&lt;BR&gt;");
+top.frames[1].document.write("&nbsp;&nbsp;BACKGROUND=\""+backgroundFile+"\"&lt;BR&gt;");
+top.frames[1].document.write("&nbsp;&nbsp;TEXT=\""+fg+"\"&lt;BR&gt;");
+top.frames[1].document.write("&nbsp;&nbsp;LINK=\""+link+"\"&lt;BR&gt;");
+top.frames[1].document.write("&nbsp;&nbsp;VLINK=\""+vlink+"\"&lt;BR&gt;");
+top.frames[1].document.write("&nbsp;&nbsp;ALINK=\""+alink+"\"&gt;&lt;BR&gt;");
+top.frames[1].document.write("&lt;/B&gt;&lt;/TT&gt;");
+top.frames[1].document.write("&lt;/BODY&gt;");
+top.frames[1].document.write("&lt;/HTML&gt;");
+top.frames[1].document.close();
+ }
+// End --&gt;
+&lt;/SCRIPT&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Add this into the BODY of your html document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;MAP NAME="map_webpal"&gt;
+&lt;!--- Row 1 ---&gt;
+&lt;AREA COORDS="2,2,18,18" HREF="javascript:SendColor('#330000')"&gt;   
+&lt;AREA COORDS="18,2,34,18" HREF="javascript:SendColor('#333300')"&gt;   
+&lt;AREA COORDS="34,2,50,18" HREF="javascript:SendColor('#336600')"&gt;   
+&lt;AREA COORDS="50,2,66,18" HREF="javascript:SendColor('#339900')"&gt;   
+&lt;AREA COORDS="66,2,82,18" HREF="javascript:SendColor('#33CC00')"&gt;   
+&lt;AREA COORDS="82,2,98,18" HREF="javascript:SendColor('#33FF00')"&gt;   
+&lt;AREA COORDS="98,2,114,18" HREF="javascript:SendColor('#66FF00')"&gt;   
+&lt;AREA COORDS="114,2,130,18" HREF="javascript:SendColor('#66CC00')"&gt;   
+&lt;AREA COORDS="130,2,146,18" HREF="javascript:SendColor('#669900')"&gt;   
+&lt;AREA COORDS="146,2,162,18" HREF="javascript:SendColor('#666600')"&gt;   
+&lt;AREA COORDS="162,2,178,18" HREF="javascript:SendColor('#663300')"&gt;   
+&lt;AREA COORDS="178,2,194,18" HREF="javascript:SendColor('#660000')"&gt;   
+&lt;AREA COORDS="194,2,210,18" HREF="javascript:SendColor('#FF0000')"&gt;   
+&lt;AREA COORDS="210,2,226,18" HREF="javascript:SendColor('#FF3300')"&gt;   
+&lt;AREA COORDS="226,2,242,18" HREF="javascript:SendColor('#FF6600')"&gt;   
+&lt;AREA COORDS="242,2,258,18" HREF="javascript:SendColor('#FF9900')"&gt;   
+&lt;AREA COORDS="258,2,274,18" HREF="javascript:SendColor('#FFCC00')"&gt;   
+&lt;AREA COORDS="274,2,290,18" HREF="javascript:SendColor('#FFFF00')"&gt; 
+&lt;!--- Row 2 ---&gt;
+&lt;AREA COORDS="2,18,18,34" HREF="javascript:SendColor('#330033')"&gt;   
+&lt;AREA COORDS="18,18,34,34" HREF="javascript:SendColor('#333333')"&gt;   
+&lt;AREA COORDS="34,18,50,34" HREF="javascript:SendColor('#336633')"&gt;   
+&lt;AREA COORDS="50,18,66,34" HREF="javascript:SendColor('#339933')"&gt;   
+&lt;AREA COORDS="66,18,82,34" HREF="javascript:SendColor('#33CC33')"&gt;   
+&lt;AREA COORDS="82,18,98,34" HREF="javascript:SendColor('#33FF33')"&gt;   
+&lt;AREA COORDS="98,18,114,34" HREF="javascript:SendColor('#66FF33')"&gt;   
+&lt;AREA COORDS="114,18,130,34" HREF="javascript:SendColor('#66CC33')"&gt;   
+&lt;AREA COORDS="130,18,146,34" HREF="javascript:SendColor('#669933')"&gt;   
+&lt;AREA COORDS="146,18,162,34" HREF="javascript:SendColor('#666633')"&gt;   
+&lt;AREA COORDS="162,18,178,34" HREF="javascript:SendColor('#663333')"&gt;   
+&lt;AREA COORDS="178,18,194,34" HREF="javascript:SendColor('#660033')"&gt;   
+&lt;AREA COORDS="194,18,210,34" HREF="javascript:SendColor('#FF0033')"&gt;   
+&lt;AREA COORDS="210,18,226,34" HREF="javascript:SendColor('#FF3333')"&gt;   
+&lt;AREA COORDS="226,18,242,34" HREF="javascript:SendColor('#FF6633')"&gt;   
+&lt;AREA COORDS="242,18,258,34" HREF="javascript:SendColor('#FF9933')"&gt;   
+&lt;AREA COORDS="258,18,274,34" HREF="javascript:SendColor('#FFCC33')"&gt;   
+&lt;AREA COORDS="274,18,290,34" HREF="javascript:SendColor('#FFFF33')"&gt; 
+&lt;!--- Row 3 ---&gt;
+&lt;AREA COORDS="2,34,18,50" HREF="javascript:SendColor('#330066')"&gt;
+&lt;AREA COORDS="18,34,34,50" HREF="javascript:SendColor('#333366')"&gt; 
+&lt;AREA COORDS="34,34,50,50" HREF="javascript:SendColor('#336666')"&gt; 
+&lt;AREA COORDS="50,34,66,50" HREF="javascript:SendColor('#339966')"&gt; 
+&lt;AREA COORDS="66,34,82,50" HREF="javascript:SendColor('#33CC66')"&gt; 
+&lt;AREA COORDS="82,34,98,50" HREF="javascript:SendColor('#33FF66')"&gt; 
+&lt;AREA COORDS="98,34,114,50" HREF="javascript:SendColor('#66FF66')"&gt; 
+&lt;AREA COORDS="114,34,130,50" HREF="javascript:SendColor('#66CC66')"&gt; 
+&lt;AREA COORDS="130,34,146,50" HREF="javascript:SendColor('#669966')"&gt; 
+&lt;AREA COORDS="146,34,162,50" HREF="javascript:SendColor('#666666')"&gt; 
+&lt;AREA COORDS="162,34,178,50" HREF="javascript:SendColor('#663366')"&gt; 
+&lt;AREA COORDS="178,34,194,50" HREF="javascript:SendColor('#660066')"&gt; 
+&lt;AREA COORDS="194,34,210,50" HREF="javascript:SendColor('#FF0066')"&gt; 
+&lt;AREA COORDS="210,34,226,50" HREF="javascript:SendColor('#FF3366')"&gt; 
+&lt;AREA COORDS="226,34,242,50" HREF="javascript:SendColor('#FF6666')"&gt; 
+&lt;AREA COORDS="242,34,258,50" HREF="javascript:SendColor('#FF9966')"&gt; 
+&lt;AREA COORDS="258,34,274,50" HREF="javascript:SendColor('#FFCC66')"&gt; 
+&lt;AREA COORDS="274,34,290,50" HREF="javascript:SendColor('#FFFF66')"&gt; 
+&lt;!--- Row 4 ---&gt;
+&lt;AREA COORDS="2,50,18,66" HREF="javascript:SendColor('#330099')"&gt; 
+&lt;AREA COORDS="18,50,34,66" HREF="javascript:SendColor('#333399')"&gt; 
+&lt;AREA COORDS="34,50,50,66" HREF="javascript:SendColor('#336699')"&gt; 
+&lt;AREA COORDS="50,50,66,66" HREF="javascript:SendColor('#339999')"&gt; 
+&lt;AREA COORDS="66,50,82,66" HREF="javascript:SendColor('#33CC99')"&gt; 
+&lt;AREA COORDS="82,50,98,66" HREF="javascript:SendColor('#33FF99')"&gt; 
+&lt;AREA COORDS="98,50,114,66" HREF="javascript:SendColor('#66FF99')"&gt; 
+&lt;AREA COORDS="114,50,130,66" HREF="javascript:SendColor('#66CC99')"&gt; 
+&lt;AREA COORDS="130,50,146,66" HREF="javascript:SendColor('#669999')"&gt; 
+&lt;AREA COORDS="146,50,162,66" HREF="javascript:SendColor('#666699')"&gt; 
+&lt;AREA COORDS="162,50,178,66" HREF="javascript:SendColor('#663399')"&gt;
+&lt;AREA COORDS="178,50,194,66" HREF="javascript:SendColor('#660099')"&gt; 
+&lt;AREA COORDS="194,50,210,66" HREF="javascript:SendColor('#FF0099')"&gt; 
+&lt;AREA COORDS="210,50,226,66" HREF="javascript:SendColor('#FF3399')"&gt; 
+&lt;AREA COORDS="226,50,242,66" HREF="javascript:SendColor('#FF6699')"&gt; 
+&lt;AREA COORDS="242,50,258,66" HREF="javascript:SendColor('#FF9999')"&gt; 
+&lt;AREA COORDS="258,50,274,66" HREF="javascript:SendColor('#FFCC99')"&gt; 
+&lt;AREA COORDS="274,50,290,66" HREF="javascript:SendColor('#FFFF99')"&gt; 
+&lt;!--- Row 5 ---&gt;
+&lt;AREA COORDS="2,66,18,82" HREF="javascript:SendColor('#3300CC')"&gt; 
+&lt;AREA COORDS="18,66,34,82" HREF="javascript:SendColor('#3333CC')"&gt; 
+&lt;AREA COORDS="34,66,50,82" HREF="javascript:SendColor('#3366CC')"&gt; 
+&lt;AREA COORDS="50,66,66,82" HREF="javascript:SendColor('#3399CC')"&gt; 
+&lt;AREA COORDS="66,66,82,82" HREF="javascript:SendColor('#33CCCC')"&gt; 
+&lt;AREA COORDS="82,66,98,82" HREF="javascript:SendColor('#33FFCC')"&gt; 
+&lt;AREA COORDS="98,66,114,82" HREF="javascript:SendColor('#66FFCC')"&gt; 
+&lt;AREA COORDS="114,66,130,82" HREF="javascript:SendColor('#66CCCC')"&gt; 
+&lt;AREA COORDS="130,66,146,82" HREF="javascript:SendColor('#6699CC')"&gt; 
+&lt;AREA COORDS="146,66,162,82" HREF="javascript:SendColor('#6666CC')"&gt; 
+&lt;AREA COORDS="162,66,178,82" HREF="javascript:SendColor('#6633CC')"&gt; 
+&lt;AREA COORDS="178,66,194,82" HREF="javascript:SendColor('#6600CC')"&gt; 
+&lt;AREA COORDS="194,66,210,82" HREF="javascript:SendColor('#FF00CC')"&gt; 
+&lt;AREA COORDS="210,66,226,82" HREF="javascript:SendColor('#FF33CC')"&gt; 
+&lt;AREA COORDS="226,66,242,82" HREF="javascript:SendColor('#FF66CC')"&gt; 
+&lt;AREA COORDS="242,66,258,82" HREF="javascript:SendColor('#FF99CC')"&gt; 
+&lt;AREA COORDS="258,66,274,82" HREF="javascript:SendColor('#FFCCCC')"&gt; 
+&lt;AREA COORDS="274,66,290,82" HREF="javascript:SendColor('#FFFFCC')"&gt; 
+&lt;!--- Row 6 ---&gt;
+&lt;AREA COORDS="2,82,18,98" HREF="javascript:SendColor('#3300FF')"&gt; 
+&lt;AREA COORDS="18,82,34,98" HREF="javascript:SendColor('#3333FF')"&gt; 
+&lt;AREA COORDS="34,82,50,98" HREF="javascript:SendColor('#3366FF')"&gt; 
+&lt;AREA COORDS="50,82,66,98" HREF="javascript:SendColor('#3399FF')"&gt; 
+&lt;AREA COORDS="66,82,82,98" HREF="javascript:SendColor('#33CCFF')"&gt; 
+&lt;AREA COORDS="82,82,98,98" HREF="javascript:SendColor('#33FFFF')"&gt; 
+&lt;AREA COORDS="98,82,114,98" HREF="javascript:SendColor('#66FFFF')"&gt; 
+&lt;AREA COORDS="114,82,130,98" HREF="javascript:SendColor('#66CCFF')"&gt; 
+&lt;AREA COORDS="130,82,146,98" HREF="javascript:SendColor('#6699FF')"&gt; 
+&lt;AREA COORDS="146,82,162,98" HREF="javascript:SendColor('#6666FF')"&gt; 
+&lt;AREA COORDS="162,82,178,98" HREF="javascript:SendColor('#6633FF')"&gt; 
+&lt;AREA COORDS="178,82,194,98" HREF="javascript:SendColor('#6600FF')"&gt; 
+&lt;AREA COORDS="194,82,210,98" HREF="javascript:SendColor('#FF00FF')"&gt; 
+&lt;AREA COORDS="210,82,226,98" HREF="javascript:SendColor('#FF33FF')"&gt; 
+&lt;AREA COORDS="226,82,242,98" HREF="javascript:SendColor('#FF66FF')"&gt; 
+&lt;AREA COORDS="242,82,258,98" HREF="javascript:SendColor('#FF99FF')"&gt; 
+&lt;AREA COORDS="258,82,274,98" HREF="javascript:SendColor('#FFCCFF')"&gt; 
+&lt;AREA COORDS="274,82,290,98" HREF="javascript:SendColor('#FFFFFF')"&gt; 
+&lt;!--- Row 7 ---&gt;
+&lt;AREA COORDS="2,98,18,114" HREF="javascript:SendColor('#0000FF')"&gt; 
+&lt;AREA COORDS="18,98,34,114" HREF="javascript:SendColor('#0033FF')"&gt; 
+&lt;AREA COORDS="34,98,50,114" HREF="javascript:SendColor('#0066FF')"&gt; 
+&lt;AREA COORDS="50,98,66,114" HREF="javascript:SendColor('#0099FF')"&gt; 
+&lt;AREA COORDS="66,98,82,114" HREF="javascript:SendColor('#00CCFF')"&gt; 
+&lt;AREA COORDS="82,98,98,114" HREF="javascript:SendColor('#00FFFF')"&gt; 
+&lt;AREA COORDS="98,98,114,114" HREF="javascript:SendColor('#99FFFF')"&gt; 
+&lt;AREA COORDS="114,98,130,114" HREF="javascript:SendColor('#99CCFF')"&gt; 
+&lt;AREA COORDS="130,98,146,114" HREF="javascript:SendColor('#9999FF')"&gt; 
+&lt;AREA COORDS="146,98,162,114" HREF="javascript:SendColor('#9966FF')"&gt; 
+&lt;AREA COORDS="162,98,178,114" HREF="javascript:SendColor('#9933FF')"&gt; 
+&lt;AREA COORDS="178,98,194,114" HREF="javascript:SendColor('#9900FF')"&gt; 
+&lt;AREA COORDS="194,98,210,114" HREF="javascript:SendColor('#CC00FF')"&gt; 
+&lt;AREA COORDS="210,98,226,114" HREF="javascript:SendColor('#CC33FF')"&gt; 
+&lt;AREA COORDS="226,98,242,114" HREF="javascript:SendColor('#CC66FF')"&gt; 
+&lt;AREA COORDS="242,98,258,114" HREF="javascript:SendColor('#CC99FF')"&gt; 
+&lt;AREA COORDS="258,98,274,114" HREF="javascript:SendColor('#CCCCFF')"&gt; 
+&lt;AREA COORDS="274,98,290,114" HREF="javascript:SendColor('#CCFFFF')"&gt; 
+&lt;!--- Row 8 ---&gt;
+&lt;AREA COORDS="2,114,18,130" HREF="javascript:SendColor('#0000CC')"&gt; 
+&lt;AREA COORDS="18,114,34,130" HREF="javascript:SendColor('#0033CC')"&gt; 
+&lt;AREA COORDS="34,114,50,130" HREF="javascript:SendColor('#0066CC')"&gt; 
+&lt;AREA COORDS="50,114,66,130" HREF="javascript:SendColor('#0099CC')"&gt; 
+&lt;AREA COORDS="66,114,82,130" HREF="javascript:SendColor('#00CCCC')"&gt; 
+&lt;AREA COORDS="82,114,98,130" HREF="javascript:SendColor('#00FFCC')"&gt; 
+&lt;AREA COORDS="98,114,114,130" HREF="javascript:SendColor('#99FFCC')"&gt; 
+&lt;AREA COORDS="114,114,130,130" HREF="javascript:SendColor('#99CCCC')"&gt; 
+&lt;AREA COORDS="130,114,146,130" HREF="javascript:SendColor('#9999CC')"&gt; 
+&lt;AREA COORDS="146,114,162,130" HREF="javascript:SendColor('#9966CC')"&gt; 
+&lt;AREA COORDS="162,114,178,130" HREF="javascript:SendColor('#9933CC')"&gt; 
+&lt;AREA COORDS="178,114,194,130" HREF="javascript:SendColor('#9900CC')"&gt; 
+&lt;AREA COORDS="194,114,210,130" HREF="javascript:SendColor('#CC00CC')"&gt; 
+&lt;AREA COORDS="210,114,226,130" HREF="javascript:SendColor('#CC33CC')"&gt; 
+&lt;AREA COORDS="226,114,242,130" HREF="javascript:SendColor('#CC66CC')"&gt; 
+&lt;AREA COORDS="242,114,258,130" HREF="javascript:SendColor('#CC99CC')"&gt; 
+&lt;AREA COORDS="258,114,274,130" HREF="javascript:SendColor('#CCCCCC')"&gt; 
+&lt;AREA COORDS="274,114,290,130" HREF="javascript:SendColor('#CCFFCC')"&gt; 
+&lt;!--- Row 9 ---&gt;
+&lt;AREA COORDS="2,130,18,146" HREF="javascript:SendColor('#000099')"&gt; 
+&lt;AREA COORDS="18,130,34,146" HREF="javascript:SendColor('#003399')"&gt; 
+&lt;AREA COORDS="34,130,50,146" HREF="javascript:SendColor('#006699')"&gt; 
+&lt;AREA COORDS="50,130,66,146" HREF="javascript:SendColor('#009999')"&gt; 
+&lt;AREA COORDS="66,130,82,146" HREF="javascript:SendColor('#00CC99')"&gt; 
+&lt;AREA COORDS="82,130,98,146" HREF="javascript:SendColor('#00FF99')"&gt; 
+&lt;AREA COORDS="98,130,114,146" HREF="javascript:SendColor('#99FF99')"&gt; 
+&lt;AREA COORDS="114,130,130,146" HREF="javascript:SendColor('#99CC99')"&gt; 
+&lt;AREA COORDS="130,130,146,146" HREF="javascript:SendColor('#999999')"&gt; 
+&lt;AREA COORDS="146,130,162,146" HREF="javascript:SendColor('#996699')"&gt; 
+&lt;AREA COORDS="162,130,178,146" HREF="javascript:SendColor('#993399')"&gt; 
+&lt;AREA COORDS="178,130,194,146" HREF="javascript:SendColor('#990099')"&gt; 
+&lt;AREA COORDS="194,130,210,146" HREF="javascript:SendColor('#CC0099')"&gt; 
+&lt;AREA COORDS="210,130,226,146" HREF="javascript:SendColor('#CC3399')"&gt; 
+&lt;AREA COORDS="226,130,242,146" HREF="javascript:SendColor('#CC6699')"&gt; 
+&lt;AREA COORDS="242,130,258,146" HREF="javascript:SendColor('#CC9999')"&gt; 
+&lt;AREA COORDS="258,130,274,146" HREF="javascript:SendColor('#CCCC99')"&gt; 
+&lt;AREA COORDS="274,130,290,146" HREF="javascript:SendColor('#CCFF99')"&gt; 
+&lt;!--- Row 10 ---&gt;
+&lt;AREA COORDS="2,146,18,162" HREF="javascript:SendColor('#000066')"&gt; 
+&lt;AREA COORDS="18,146,34,162" HREF="javascript:SendColor('#003366')"&gt; 
+&lt;AREA COORDS="34,146,50,162" HREF="javascript:SendColor('#006666')"&gt; 
+&lt;AREA COORDS="50,146,66,162" HREF="javascript:SendColor('#009966')"&gt; 
+&lt;AREA COORDS="66,146,82,162" HREF="javascript:SendColor('#00CC66')"&gt; 
+&lt;AREA COORDS="82,146,98,162" HREF="javascript:SendColor('#00FF66')"&gt; 
+&lt;AREA COORDS="98,146,114,162" HREF="javascript:SendColor('#99FF66')"&gt; 
+&lt;AREA COORDS="114,146,130,162" HREF="javascript:SendColor('#99CC66')"&gt; 
+&lt;AREA COORDS="130,146,146,162" HREF="javascript:SendColor('#999966')"&gt; 
+&lt;AREA COORDS="146,146,162,162" HREF="javascript:SendColor('#996666')"&gt; 
+&lt;AREA COORDS="162,146,178,162" HREF="javascript:SendColor('#993366')"&gt; 
+&lt;AREA COORDS="178,146,194,162" HREF="javascript:SendColor('#990066')"&gt; 
+&lt;AREA COORDS="194,146,210,162" HREF="javascript:SendColor('#CC0066')"&gt; 
+&lt;AREA COORDS="210,146,226,162" HREF="javascript:SendColor('#CC3366')"&gt; 
+&lt;AREA COORDS="226,146,242,162" HREF="javascript:SendColor('#CC6666')"&gt; 
+&lt;AREA COORDS="242,146,258,162" HREF="javascript:SendColor('#CC9966')"&gt; 
+&lt;AREA COORDS="258,146,274,162" HREF="javascript:SendColor('#CCCC66')"&gt; 
+&lt;AREA COORDS="274,146,290,162" HREF="javascript:SendColor('#CCFF66')"&gt; 
+&lt;!--- Row 11 ---&gt;
+&lt;AREA COORDS="2,162,18,178" HREF="javascript:SendColor('#000033')"&gt; 
+&lt;AREA COORDS="18,162,34,178" HREF="javascript:SendColor('#003333')"&gt; 
+&lt;AREA COORDS="34,162,50,178" HREF="javascript:SendColor('#006633')"&gt; 
+&lt;AREA COORDS="50,162,66,178" HREF="javascript:SendColor('#009933')"&gt; 
+&lt;AREA COORDS="66,162,82,178" HREF="javascript:SendColor('#00CC33')"&gt; 
+&lt;AREA COORDS="82,162,98,178" HREF="javascript:SendColor('#00FF33')"&gt; 
+&lt;AREA COORDS="98,162,114,178" HREF="javascript:SendColor('#99FF33')"&gt; 
+&lt;AREA COORDS="114,162,130,178" HREF="javascript:SendColor('#99CC33')"&gt; 
+&lt;AREA COORDS="130,162,146,178" HREF="javascript:SendColor('#999933')"&gt; 
+&lt;AREA COORDS="146,162,162,178" HREF="javascript:SendColor('#996633')"&gt; 
+&lt;AREA COORDS="162,162,178,178" HREF="javascript:SendColor('#993333')"&gt; 
+&lt;AREA COORDS="178,162,194,178" HREF="javascript:SendColor('#990033')"&gt; 
+&lt;AREA COORDS="194,162,210,178" HREF="javascript:SendColor('#CC0033')"&gt; 
+&lt;AREA COORDS="210,162,226,178" HREF="javascript:SendColor('#CC3333')"&gt; 
+&lt;AREA COORDS="226,162,242,178" HREF="javascript:SendColor('#CC6633')"&gt; 
+&lt;AREA COORDS="242,162,258,178" HREF="javascript:SendColor('#CC9933')"&gt; 
+&lt;AREA COORDS="258,162,274,178" HREF="javascript:SendColor('#CCCC33')"&gt; 
+&lt;AREA COORDS="274,162,290,178" HREF="javascript:SendColor('#CCFF33')"&gt; 
+&lt;!--- Row 12 ---&gt;
+&lt;AREA COORDS="2,178,18,194" HREF="javascript:SendColor('#000000')"&gt; 
+&lt;AREA COORDS="18,178,34,194" HREF="javascript:SendColor('#003300')"&gt; 
+&lt;AREA COORDS="34,178,50,194" HREF="javascript:SendColor('#006600')"&gt; 
+&lt;AREA COORDS="50,178,66,194" HREF="javascript:SendColor('#009900')"&gt; 
+&lt;AREA COORDS="66,178,82,194" HREF="javascript:SendColor('#00CC00')"&gt; 
+&lt;AREA COORDS="82,178,98,194" HREF="javascript:SendColor('#00FF00')"&gt; 
+&lt;AREA COORDS="98,178,114,194" HREF="javascript:SendColor('#99FF00')"&gt; 
+&lt;AREA COORDS="114,178,130,194" HREF="javascript:SendColor('#99CC00')"&gt; 
+&lt;AREA COORDS="130,178,146,194" HREF="javascript:SendColor('#999900')"&gt; 
+&lt;AREA COORDS="146,178,162,194" HREF="javascript:SendColor('#996600')"&gt; 
+&lt;AREA COORDS="162,178,178,194" HREF="javascript:SendColor('#993300')"&gt; 
+&lt;AREA COORDS="178,178,194,194" HREF="javascript:SendColor('#990000')"&gt; 
+&lt;AREA COORDS="194,178,210,194" HREF="javascript:SendColor('#CC0000')"&gt; 
+&lt;AREA COORDS="210,178,226,194" HREF="javascript:SendColor('#CC3300')"&gt; 
+&lt;AREA COORDS="226,178,242,194" HREF="javascript:SendColor('#CC6600')"&gt; 
+&lt;AREA COORDS="242,178,258,194" HREF="javascript:SendColor('#CC9900')"&gt; 
+&lt;AREA COORDS="258,178,274,194" HREF="javascript:SendColor('#CCCC00')"&gt; 
+&lt;AREA COORDS="274,178,290,194" HREF="javascript:SendColor('#CCFF00')"&gt; 
+&lt;/MAP&gt;
+&lt;CENTER&gt;
+&lt;TABLE BORDER=0 CELLPADDING=3 CELLSPACING=0 WIDTH=292&gt;
+&lt;TR&gt;
+&lt;TD VALIGN=TOP&gt;&lt;FONT SIZE=4 FACE=ARIAL COLOR=#0000FF&gt;Set your preferences&lt;/TD&gt;
+&lt;/TR&gt;
+
+&lt;TR&gt;
+&lt;TD&gt;
+&lt;A HREF="webpal.map"&gt;&lt;IMG SRC="cube.gif" WIDTH=292 HEIGHT=196 BORDER=0 ALT="" USEMAP="#map_webpal" ISMAP&gt;&lt;/A&gt;
+&lt;/TD&gt;
+&lt;/TR&gt;
+
+&lt;FORM NAME="colors"&gt;
+&lt;TR&gt;
+&lt;TD ALIGN=LEFT&gt;
+&lt;INPUT TYPE="radio" NAME="choice" VALUE="bg" CHECKED&gt;&lt;FONT SIZE=2 FACE=ARIAL&gt;Background&lt;/FONT&gt;
+&nbsp;&nbsp;&nbsp;
+&lt;INPUT TYPE="radio" NAME="choice" VALUE="text"&gt;&lt;FONT SIZE=2 FACE=ARIAL&gt;Text&lt;/FONT&gt;
+&nbsp;&nbsp;&nbsp;
+&lt;INPUT TYPE="radio" NAME="choice" VALUE="link"&gt;&lt;FONT SIZE=2 FACE=ARIAL&gt;Link&lt;/FONT&gt;
+&lt;/TD&gt;
+&lt;/TR&gt;
+
+&lt;TR&gt;
+&lt;TD ALIGN=LEFT&gt;
+&lt;INPUT TYPE="radio" NAME="choice" VALUE="vlink"&gt;&lt;FONT SIZE=2 FACE=ARIAL&gt;Visited Link&lt;/FONT&gt;
+&nbsp;&nbsp;&nbsp;
+&lt;INPUT TYPE="radio" NAME="choice" VALUE="alink"&gt;&lt;FONT SIZE=2 FACE=ARIAL&gt;Active Link&lt;/FONT&gt;
+&lt;/TD&gt;
+&lt;/TR&gt;
+
+&lt;TR&gt;
+&lt;TD ALIGN=LEFT&gt;
+&lt;FONT SIZE=2 FACE=ARIAL&gt;&nbsp;Background Image:&lt;/FONT&gt;&nbsp;&lt;FONT SIZE=2 FACE=ARIAL&gt;&nbsp;&lt;INPUT NAME="fileUp" TYPE="file" SIZE=12 onClick="SendOther()"&gt;&lt;/FONT&gt;&lt;BR&gt;
+&lt;/TD&gt;
+&lt;/TR&gt;
+
+&lt;TR&gt;
+&lt;TD ALIGN=LEFT&gt;
+&lt;INPUT TYPE="checkbox" NAME="checkBold" onClick="SendOther()"&gt;&lt;FONT SIZE=2 FACE=ARIAL&gt;&lt;B&gt;Bold&lt;/B&gt;&lt;/FONT&gt;
+&nbsp;&nbsp;&nbsp;
+&lt;INPUT TYPE="checkbox" NAME="checkItalic" onClick="SendOther()"&gt;&lt;FONT SIZE=2 FACE=ARIAL&gt;&lt;I&gt;Italic&lt;/I&gt;&lt;/FONT&gt;
+&lt;/TD&gt;
+&lt;/TR&gt;
+
+&lt;/FORM&gt;
+
+&lt;FORM NAME="sizes"&gt;
+&lt;TR&gt;
+&lt;TD ALIGN=LEFT&gt;
+&lt;FONT SIZE=2 FACE=ARIAL&gt;&nbsp;Font size:&lt;/FONT&gt;&nbsp;
+&lt;INPUT TYPE="radio" NAME="size" onClick="SendOther()"&gt;&lt;FONT SIZE=2 FACE=ARIAL&gt;1&lt;/FONT&gt;
+&lt;INPUT TYPE="radio" NAME="size" onClick="SendOther()"&gt;&lt;FONT SIZE=2 FACE=ARIAL&gt;2&lt;/FONT&gt;
+&lt;INPUT TYPE="radio" NAME="size" checked onClick="SendOther()"&gt;&lt;FONT SIZE=2 FACE=ARIAL&gt;3&lt;/FONT&gt;
+&lt;INPUT TYPE="radio" NAME="size" onClick="SendOther()"&gt;&lt;FONT SIZE=2 FACE=ARIAL&gt;4&lt;/FONT&gt;
+&lt;INPUT TYPE="radio" NAME="size" onClick="SendOther()"&gt;&lt;FONT SIZE=2 FACE=ARIAL&gt;5&lt;/FONT&gt;
+&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;/FORM&gt;
+&lt;/TD&gt;&lt;/TR&gt;&lt;/TABLE&gt;
+&lt;/CENTER&gt;
+
+&lt;!-- STEP THREE:  Save this document as colorcubel.html --&gt;
+
+ 
+
+&lt;!-- Script Size:  28.00 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Misc.:  Color Cube (colorcuber.html)</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as NotePad or SimpleText) and save (Control-s or Apple-s).  The script is yours!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<INPUT TYPE="text3" NAME="total" VALUE="Script Size:  1.23 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt3" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL COLOR CUBE (color-cuber.html):
+
+   1.  Paste the coding into the BODY of your HTML document  
+   2.  Save this document as color-cuber.html  --&gt;
+
+&lt;!-- STEP ONE: Add this into the BODY of your html document  --&gt;
+
+&lt;BODY BGCOLOR=#FFFFFF TEXT=#000000 LINK=#0000FF VLINK=#663399 ALINK=#FF0000&gt;
+&lt;FONT FACE=ARIAL COLOR=#0000FF SIZE=4&gt;and view the results . . . . .&lt;/FONT&gt;&lt;P&gt;
+&lt;FONT COLOR=#000000&gt;The colour of the text&lt;/FONT&gt;&lt;P&gt;
+&lt;FONT COLOR=#0000FF&gt;&lt;U&gt;The colour of a link&lt;/U&gt;&lt;/FONT&gt;&lt;P&gt;
+&lt;FONT COLOR=#663399&gt;&lt;U&gt;The colour of a visited link&lt;/U&gt;&lt;/FONT&gt;&lt;P&gt;
+&lt;FONT COLOR=#FF0000&gt;&lt;U&gt;The colour of an active link&lt;/U&gt;&lt;/FONT&gt;&lt;P&gt;
+This is the HTML string you need :&lt;P&gt;
+&lt;TT&gt;&lt;B&gt;
+&nbsp;&nbsp;&lt;BODY&lt;BR&gt;
+&nbsp;&nbsp;BGCOLOR="#ffffff"&lt;BR&gt;
+&nbsp;&nbsp;BACKGROUND=""&lt;BR&gt;
+&nbsp;&nbsp;TEXT="#000000"&lt;BR&gt;
+&nbsp;&nbsp;LINK="#0000ff"&lt;BR&gt;
+&nbsp;&nbsp;VLINK="#663399"&lt;BR&gt;
+&nbsp;&nbsp;ALINK="#ff0000"&gt;&lt;BR&gt;
+&lt;/B&gt;&lt;/TT&gt;
+
+&lt;!-- STEP THREE:  Save this document as colorcuber.html --&gt;
+
+ 
+
+&lt;!-- Script Size:  1.23 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

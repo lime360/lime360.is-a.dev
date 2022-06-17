@@ -1,0 +1,265 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Scrolls:  Keyboard Slider</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Massimo Giari (motore@iol.it)">
+<META NAME="section" CONTENT="Scrolls">
+<META NAME="description" CONTENT="Now you can move images and objects across the screen by simply using keys from the keyboard.  Amazing!">
+<META NAME="date" CONTENT="2000-09-20">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Massimo Giari">
+<META NAME="section" CONTENT="Scrolls">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Massimo Giari (motore@iol.it) -->
+
+
+
+
+<!-- Begin
+n = (document.layers) ? 1 : 0;
+ie = (document.all) ? 1 : 0;
+function moveImage() {
+if (n) {
+block = document.blockDiv;
+}
+if (ie) {
+block = blockDiv.style;
+}
+block.xpos = parseInt(block.left);
+block.active = 0;
+document.onkeydown = keyDown;
+document.onkeyup = keyUp;
+if (n) {
+document.captureEvents(Event.keydown | Event.keyup); 
+   }
+}
+function keyDown(e) {
+if (n) {
+var nKey = e.which;
+var ieKey = 0;
+}
+if (ie) {
+var ieKey = event.keyCode;
+var nKey = 0;
+}
+if ((nKey == 97 || ieKey == 65) && !block.active) {   
+block.active = 1;
+slideLeft();
+}
+if ((nKey == 100 || ieKey == 68) && !block.active) {   
+block.active = 1;
+slideRight();
+   }
+}
+function keyUp(e) {
+if (n) {
+var nKey = e.which;
+var ieKey = 0;
+}
+if (ie) {
+var ieKey = event.keyCode;
+var nKey = 0;
+}
+if ((nKey == 97 || ieKey == 65 || nKey == 100 || ieKey == 68))
+block.active = 0;
+}
+function slideRight() {
+if (block.active) {
+block.xpos += 5;
+block.left = block.xpos;
+status = block.xpos;
+setTimeout("slideRight()", 25);
+   }
+}
+function slideLeft() {
+if (block.active) {
+block.xpos -= 5;
+block.left = block.xpos;
+status = block.xpos;
+setTimeout("slideLeft()", 25);
+   }
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff OnLoad="moveImage()">
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /scrolls/"><font color="#FF0000"><b>Scrolls</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Keyboard Slider</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Now you can move images and objects across the screen by simply using keys from the keyboard.  Amazing!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+
+
+
+<div id="blockDiv" STYLE="position:absolute; left:317px; top:260px; width:137px; height: 121px"> 
+<img src="../img/keyboard-slider/javaguy.gif" /img/keyboard-slider/javaguy.gif" width="115" height="63"></div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+Use <b>A</b> to move the image toward left, <b>D</b> to move the image right.
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Scrolls:  Keyboard Slider</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.32 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL KEYBOARD SLIDER:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the onLoad event handler into the BODY tag
+  3.  Put the last coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Massimo Giari (motore@iol.it) --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+n = (document.layers) ? 1 : 0;
+ie = (document.all) ? 1 : 0;
+function moveImage() {
+if (n) {
+block = document.blockDiv;
+}
+if (ie) {
+block = blockDiv.style;
+}
+block.xpos = parseInt(block.left);
+block.active = 0;
+document.onkeydown = keyDown;
+document.onkeyup = keyUp;
+if (n) {
+document.captureEvents(Event.keydown | Event.keyup); 
+   }
+}
+function keyDown(e) {
+if (n) {
+var nKey = e.which;
+var ieKey = 0;
+}
+if (ie) {
+var ieKey = event.keyCode;
+var nKey = 0;
+}
+if ((nKey == 97 || ieKey == 65) && !block.active) {   
+block.active = 1;
+slideLeft();
+}
+if ((nKey == 100 || ieKey == 68) && !block.active) {   
+block.active = 1;
+slideRight();
+   }
+}
+function keyUp(e) {
+if (n) {
+var nKey = e.which;
+var ieKey = 0;
+}
+if (ie) {
+var ieKey = event.keyCode;
+var nKey = 0;
+}
+if ((nKey == 97 || ieKey == 65 || nKey == 100 || ieKey == 68))
+block.active = 0;
+}
+function slideRight() {
+if (block.active) {
+block.xpos += 5;
+block.left = block.xpos;
+status = block.xpos;
+setTimeout("slideRight()", 25);
+   }
+}
+function slideLeft() {
+if (block.active) {
+block.xpos -= 5;
+block.left = block.xpos;
+status = block.xpos;
+setTimeout("slideLeft()", 25);
+   }
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Insert the onLoad event handler into your BODY tag  --&gt;
+
+&lt;BODY OnLoad="moveImage()"&gt;
+
+&lt;!-- STEP THREE: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;div id="blockDiv" STYLE="position:absolute; left:317px; top:130px; width:137px; height: 121px"&gt; 
+&lt;img src="javaguy.gif" width="115" height="63"&gt;&lt;/div&gt;
+
+Use &lt;b&gt;A&lt;/b&gt; to move the image toward left, &lt;b&gt;D&lt;/b&gt; to move the image right.
+
+ 
+
+&lt;!-- Script Size:  2.32 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

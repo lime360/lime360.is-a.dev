@@ -1,0 +1,301 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Page Details:  Right Click Menu</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Page Details">
+<META NAME="description" CONTENT="(Internet Explorer Only)  Displays a menu when the visitor right click's on the page.  You can easily use style sheets to modify the menu 'skins', or write your own.  Awesome!">
+<META NAME="date" CONTENT="2000-09-21">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Page Details">
+
+<style>
+<!--
+.skin0 {
+position:absolute;
+text-align:left;
+width:200px;
+border:2px solid black;
+background-color:menu;
+font-family:Verdana;
+line-height:20px;
+cursor:default;
+visibility:hidden;
+}
+.skin1 {
+cursor:default;
+font:menutext;
+position:absolute;
+text-align:left;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 10pt;
+width:120px;
+background-color:menu;
+border:1 solid buttonface;
+visibility:hidden;
+border:2 outset buttonhighlight;
+}
+.menuitems {
+padding-left:15px;
+padding-right:10px;
+}
+-->
+</style>
+
+<SCRIPT LANGUAGE="JavaScript1.2">
+<!-- Web Site:  http://www.dynamicdrive.com -->
+
+
+
+
+<!-- Begin
+var menuskin = "skin1"; // skin0, or skin1
+var display_url = 0; // Show URLs in status bar?
+function showmenuie5() {
+var rightedge = document.body.clientWidth-event.clientX;
+var bottomedge = document.body.clientHeight-event.clientY;
+if (rightedge < ie5menu.offsetWidth)
+ie5menu.style.left = document.body.scrollLeft + event.clientX - ie5menu.offsetWidth;
+else
+ie5menu.style.left = document.body.scrollLeft + event.clientX;
+if (bottomedge < ie5menu.offsetHeight)
+ie5menu.style.top = document.body.scrollTop + event.clientY - ie5menu.offsetHeight;
+else
+ie5menu.style.top = document.body.scrollTop + event.clientY;
+ie5menu.style.visibility = "visible";
+return false;
+}
+function hidemenuie5() {
+ie5menu.style.visibility = "hidden";
+}
+function highlightie5() {
+if (event.srcElement.className == "menuitems") {
+event.srcElement.style.backgroundColor = "highlight";
+event.srcElement.style.color = "white";
+if (display_url)
+window.status = event.srcElement.url;
+   }
+}
+function lowlightie5() {
+if (event.srcElement.className == "menuitems") {
+event.srcElement.style.backgroundColor = "";
+event.srcElement.style.color = "black";
+window.status = "";
+   }
+}
+function jumptoie5() {
+if (event.srcElement.className == "menuitems") {
+if (event.srcElement.getAttribute("target") != null)
+window.open(event.srcElement.url, event.srcElement.getAttribute("target"));
+else
+window.location = event.srcElement.url;
+   }
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /page-details/"><font color="#FF0000"><b>Page Details</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Right Click Menu</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+(Internet Explorer Only)  Displays a menu when the visitor right click's on the page.  You can easily use style sheets to modify the menu 'skins', or write your own.  Awesome!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<div id="ie5menu" class="skin0" onMouseover="highlightie5()" onMouseout="lowlightie5()" onClick="jumptoie5();">
+<div class="menuitems" url="javascript:history.back();">Go Back</div>
+<div class="menuitems" url="http://www.yahoo.com">Yahoo!</div>
+<hr>
+<div class="menuitems" url="http://www.excite.com">Excite</div>
+<div class="menuitems" url="http://www.altavista.com">Altavista</div>
+<hr>
+<div class="menuitems" url="http://www.lycos.com">Lycos</div>
+<div class="menuitems" url="http://www.hotbot.com">Hotbot</div>
+</div>
+<script language="JavaScript1.2">
+if (document.all && window.print) {
+ie5menu.className = menuskin;
+document.oncontextmenu = showmenuie5;
+document.body.onclick = hidemenuie5;
+}
+</script>
+<font face="arial, helvetica" size="-1" color="red"><b>(Just right click on the page for the demo)</b></font>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Page Details:  Right Click Menu</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  3.36 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL RIGHT CLICK MENU:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;style&gt;
+&lt;!--
+.skin0 {
+position:absolute;
+text-align:left;
+width:200px;
+border:2px solid black;
+background-color:menu;
+font-family:Verdana;
+line-height:20px;
+cursor:default;
+visibility:hidden;
+}
+.skin1 {
+cursor:default;
+font:menutext;
+position:absolute;
+text-align:left;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 10pt;
+width:120px;
+background-color:menu;
+border:1 solid buttonface;
+visibility:hidden;
+border:2 outset buttonhighlight;
+}
+.menuitems {
+padding-left:15px;
+padding-right:10px;
+}
+--&gt;
+&lt;/style&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript1.2"&gt;
+&lt;!-- Web Site:  http://www.dynamicdrive.com --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var menuskin = "skin1"; // skin0, or skin1
+var display_url = 0; // Show URLs in status bar?
+function showmenuie5() {
+var rightedge = document.body.clientWidth-event.clientX;
+var bottomedge = document.body.clientHeight-event.clientY;
+if (rightedge &lt; ie5menu.offsetWidth)
+ie5menu.style.left = document.body.scrollLeft + event.clientX - ie5menu.offsetWidth;
+else
+ie5menu.style.left = document.body.scrollLeft + event.clientX;
+if (bottomedge &lt; ie5menu.offsetHeight)
+ie5menu.style.top = document.body.scrollTop + event.clientY - ie5menu.offsetHeight;
+else
+ie5menu.style.top = document.body.scrollTop + event.clientY;
+ie5menu.style.visibility = "visible";
+return false;
+}
+function hidemenuie5() {
+ie5menu.style.visibility = "hidden";
+}
+function highlightie5() {
+if (event.srcElement.className == "menuitems") {
+event.srcElement.style.backgroundColor = "highlight";
+event.srcElement.style.color = "white";
+if (display_url)
+window.status = event.srcElement.url;
+   }
+}
+function lowlightie5() {
+if (event.srcElement.className == "menuitems") {
+event.srcElement.style.backgroundColor = "";
+event.srcElement.style.color = "black";
+window.status = "";
+   }
+}
+function jumptoie5() {
+if (event.srcElement.className == "menuitems") {
+if (event.srcElement.getAttribute("target") != null)
+window.open(event.srcElement.url, event.srcElement.getAttribute("target"));
+else
+window.location = event.srcElement.url;
+   }
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;div id="ie5menu" class="skin0" onMouseover="highlightie5()" onMouseout="lowlightie5()" onClick="jumptoie5();"&gt;
+&lt;div class="menuitems" url="javascript:history.back();"&gt;Go Back&lt;/div&gt;
+&lt;div class="menuitems" url="http://javascript.internet.com"&gt;Go Home&lt;/div&gt;
+&lt;hr&gt;
+&lt;div class="menuitems" url="http://forum.javascriptsource.com"&gt;JS Forum&lt;/div&gt;
+&lt;div class="menuitems" url="http://faq.javascriptsource.com"&gt;Site FAQs&lt;/div&gt;
+&lt;hr&gt;
+&lt;div class="menuitems" url="http://javascript.internet.com/link-us.html"&gt;Link to Us&lt;/div&gt;
+&lt;div class="menuitems" url="http://javascript.internet.com/feedback.html"&gt;Contact Us&lt;/div&gt;
+&lt;/div&gt;
+&lt;script language="JavaScript1.2"&gt;
+if (document.all && window.print) {
+ie5menu.className = menuskin;
+document.oncontextmenu = showmenuie5;
+document.body.onclick = hidemenuie5;
+}
+&lt;/script&gt;
+
+ 
+
+&lt;!-- Script Size:  3.36 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

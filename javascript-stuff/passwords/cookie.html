@@ -1,0 +1,158 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Password Protection:  Cookie</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT="no-cache">
+<META NAME="description" CONTENT="You can use a basic cookie script to keep visitors (that don't have the cookie on their system) from viewing certain parts of your site (kind of.... There are always ways around it). The cookie is placed when the password provided is correct.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+function getCookieVal (offset) {
+var endstr = document.cookie.indexOf (";", offset);
+if (endstr == -1)
+endstr = document.cookie.length;
+return unescape(document.cookie.substring(offset, endstr));
+}
+function GetCookie (name)  {
+var arg = name + "=";
+var alen = arg.length;
+var clen = document.cookie.length;
+var i = 0;
+while (i < clen)  {
+var j = i + alen;
+if (document.cookie.substring(i, j) == arg)
+return getCookieVal (j);i = document.cookie.indexOf(" ", i) + 1;
+if (i == 0) break; 
+}
+return null;
+}
+function SetCookie (name, value)  {
+var argv = SetCookie.arguments;
+var argc = SetCookie.arguments.length;
+var expires = (argc > 2) ? argv[2] : null;
+var path = (argc > 3) ? argv[3] : null;
+var domain = (argc > 4) ? argv[4] : null;
+var secure = (argc > 5) ? argv[5] : false;
+document.cookie = name + "=" + escape (value) +
+((expires == null) ? "" : ("; expires=" + expires.toGMTString())) +
+((path == null) ? "" : ("; path=" + path)) +
+((domain == null) ? "" : ("; domain=" + domain)) +
+((secure == true) ? "; secure" : "");
+}
+function DeleteCookie () { 
+var exp = new Date();
+exp.setTime (exp.getTime() - 1000000000);  // This cookie is history
+var cval = GetCookie ('FreeStuffL');
+document.cookie ='FreeStuffL' + "=" + cval + "; expires=" + exp.toGMTString();    
+}
+function cookieCreater () {
+if(GetCookie('FreeStuffL') == null) {
+var FreeStuffL_Name =  prompt ("What name do you want to go by?", "" );
+if (FreeStuffL_Name != null && FreeStuffL_Name != "") {
+var expdate = new Date (); 
+expdate.setTime(expdate.getTime() + (24 * 60 * 60 * 1000 * 365)); 
+SetCookie('FreeStuffL', FreeStuffL_Name, expdate);  
+alert ("You now are logged in!  From now on, when you come to this page, you will be forwarded to the Password Protected Members-Only Area.  Please do not tell anyone your entry code.  At this new page, you will be shown a list of functions.  Have fun!");
+location.href = document.login2.go.value;
+   }
+}
+else {
+DeleteCookie ();
+cookieCreater ()
+}
+}
+if(GetCookie('FreeStuffL') != null) {
+location.href="cookie-in.html"
+}
+function check() {
+var tester = document.login.numOne.value + document.login.numTwo.value;
+if (tester == "") {
+alert ("I'm sorry, that code is not correct.");
+}
+else
+{
+if (tester == document.login.numThree.value) {
+alert ("That is correct!");
+cookieCreater ();
+}
+else {
+alert ("Nope!");
+      }
+   }
+}
+// End -->
+</SCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /passwords/"><font color="#FF0000">Password Protection</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Cookie</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description -->
+Welcome to The Javascript Source Password-Protected Members-Only Login Area.  If you do not know the password, you can still use some of the functions and scripts in The Javascript Source, but not all!  The login codes are:<BR>
+<CENTER>Login #1 - java<BR>
+Login #2 - script<BR>
+Login #3 - javascript<BR>
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<CENTER>
+<FORM name='login'>
+Enter your login codes:
+<p><input TYPE='text' NAME='numOne' SIZE=15><br>
+<input TYPE='text' NAME='numTwo' SIZE=15 ><br>
+<input TYPE='text' NAME='numThree' SIZE=15 ><br>
+<input TYPE='button' VALUE='Login' ONCLICK='check()'>
+</FORM>
+</CENTER>
+<font size=1 color=white>
+This page requires Javascript to run!  Please get Netscape 2.0 or greater!
+</font>
+<FORM name="login2">
+<input type=hidden name="go" value="cookie-in.html">
+</FORM>
+</script>
+<BR>
+
+	
+
+<P>
+<!-- Nwsletter Script -->
+<P>
+<CENTER>
+<TABLE CELLPADDING=0 CELLSPACING=0 BORDER=0 WIDTH="100%">
+  <TR>
+    <TD ALIGN=LEFT>
+      &nbsp;
+    </TD>
+    <TD ALIGN=CENTER>
+
+
+</CENTER>

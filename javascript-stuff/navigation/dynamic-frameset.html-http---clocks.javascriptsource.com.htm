@@ -1,0 +1,137 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 2002:  Navigation:  Dynamic Frameset</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 2002" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 2002">
+<META NAME="section" CONTENT="Navigation">
+<META NAME="description" CONTENT="Rather than setup separate framesets each time you want to start over and open one of your page inside your frames, use this dynamic frameset script.  You can load all your content pages as necessary through one page -- the magic begins when you use a search string (a '?' in the URL).  The page passed then is opened in your frames.  A default content page is used if no information is passed.  Cool!">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    <!-- AdSpace site=internetcom&size=468x60&PagePos=10&channel=_CHANNEL_&content_site=_SITE_&feature=_FEATURE_ -->
+    <a target="_blank" href="javascript:if(confirm('http://javascript.internet.com/event.ng/Type=click&ProfileID=499&RunID=14429&AdID=8739&TagValues=194.208.222.250.313.572.579.619.915&FamilyID=880&GroupID=7&Redirect=http:/www.searchenginestrategies.com  \n\nThis file was not retrieved by Teleport Pro, because it was redirected to an invalid location.  You should report this problem to the site\'s webmaster.  \n\nDo you want to open it from the server?'))window.location='http://javascript.internet.com/event.ng/Type=click&ProfileID=499&RunID=14429&AdID=8739&TagValues=194.208.222.250.313.572.579.619.915&FamilyID=880&GroupID=7&Redirect=http:/www.searchenginestrategies.com'" /event.ng/Type=click&ProfileID=499&RunID=14429&AdID=8739&TagValues=194.208.222.250.313.572.579.619.915&FamilyID=880&GroupID=7&Redirect=http:/www.searchenginestrategies.com"><img src="../ads/2001/01/boston_468x60.gif" /ads/2001/01/boston_468x60.gif" border=0 height=60 width=468 alt="Essential survival skills for Internet success!"></a>
+    <!-- /AdSpace -->
+</td>
+<td width=120 align=center>
+    <!-- AdSpace site=internetcom&size=120x60&PagePos=10&channel=_CHANNEL_&content_site=_SITE_&feature=_FEATURE_ -->
+    <a target="_blank" href="javascript:if(confirm('http://javascript.internet.com/event.ng/Type=click&ProfileID=2&RunID=14953&AdID=2816&TagValues=196.208.222.250.313.572.579.619.915&FamilyID=3&GroupID=1&Redirect=http:/www.internettradeshowlist.com  \n\nThis file was not retrieved by Teleport Pro, because it was redirected to an invalid location.  You should report this problem to the site\'s webmaster.  \n\nDo you want to open it from the server?'))window.location='http://javascript.internet.com/event.ng/Type=click&ProfileID=2&RunID=14953&AdID=2816&TagValues=196.208.222.250.313.572.579.619.915&FamilyID=3&GroupID=1&Redirect=http:/www.internettradeshowlist.com'" /event.ng/Type=click&ProfileID=2&RunID=14953&AdID=2816&TagValues=196.208.222.250.313.572.579.619.915&FamilyID=3&GroupID=1&Redirect=http:/www.internettradeshowlist.com"><img src="../../images.internet.com/ads/1999/12/tsl-tile.gif" tppabs="http://images.internet.com/ads/1999/12/tsl-tile.gif" border=0 height=60 width=120 alt="Internet Trade Show List"></a>
+    <!-- /AdSpace -->
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /navigation/"><font color="#FF0000"><b>Navigation</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Dynamic Frameset</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Rather than setup separate framesets each time you want to start over and open one of your page inside your frames, use this dynamic frameset script.  You can load all your content pages as necessary through one page -- the magic begins when you use a search string (a '?' in the URL).  The page passed then is opened in your frames.  A default content page is used if no information is passed.  Cool!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<a href="dynamic-frameset-demo.html-http---buttons.javascriptsource.com.htm" /navigation/dynamic-frameset-demo.html?http://buttons.javascriptsource.com" target="_new">Load Buttons in My Frames</a>
+<br>
+<a href="dynamic-frameset-demo.html-http---clocks.javascriptsource.com.htm" /navigation/dynamic-frameset-demo.html?http://clocks.javascriptsource.com" target="_new">Load Clocks in My Frames</a>
+<br>
+<a href="dynamic-frameset-demo.html" /navigation/dynamic-frameset-demo.html" target="_new">Load Default Page in My Frames</a>
+
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 2002:  Navigation:  Dynamic Frameset</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.20 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- FOUR STEPS TO INSTALL DYNAMIC FRAMESET:
+
+  1.  Create a new HTML page, name it dynamic-frameset.html
+  2.  Insert this first script into the HEAD of the frameset page
+  3.  Add the last code into the BODY of your HTML document
+  4.  Then link to your dynamic-frameset.html page as demonstrated  --&gt;
+
+&lt;!-- STEP ONE:  Create a new HTML page, save as dynamic-frameset.html  --&gt;
+
+&lt;!-- STEP TWO: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;!-- This script and many more are available free online at --&gt;
+&lt;!-- JavaScript Source Code 2002!! http://javascript.internet.com --&gt;
+
+&lt;!-- Begin
+var table_of_contents = "http://javascript.internet.com/new/";  // change to your default frame page
+
+var blank = " "; // blank page
+var content = (location.search) ? location.search.substring(1, location.search.length) : table_of_contents;
+
+// if query string ('?' after URL) set content variable to what follows the '?'
+// otherwise, start fresh by setting content variable to table_of_contents page
+
+function fillFrame() {
+parent.main.location.href = content;
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP THREE: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;frameset rows="100,*" onLoad="fillFrame();"&gt;
+  &lt;frame name="header" scrolling="no" noresize src="banner.html"&gt;
+  &lt;frame name="main" src="javascript:parent.blank" scrolling="auto" noresize&gt;
+&lt;/frameset&gt;
+
+&lt;!-- STEP FOUR: Then use this format for each contact page link you use  --&gt;
+
+<a href="dynamic-frameset.html-http---buttons.javascriptsource.com.htm" /navigation/dynamic-frameset.html?http://buttons.javascriptsource.com" target="_new">Load Buttons in My Frames</a>
+<br>
+<a href="dynamic-frameset.html-http---clocks.javascriptsource.com.htm" /navigation/dynamic-frameset.html?http://clocks.javascriptsource.com" target="_new">Load Clocks in My Frames</a>
+<br>
+<a href="dynamic-frameset.html" /navigation/dynamic-frameset.html" target="_new">Load Default Page in My Frames</a>
+
+
+&lt;!-- Script Size:  1.20 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

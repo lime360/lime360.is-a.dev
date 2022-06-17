@@ -1,0 +1,403 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Messages:  Help Popups</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Messages">
+<META NAME="description" CONTENT="Microsoft Windows help boxes are second-nature to most of us by now.  How about having a similar popup help box on your web site!?  When visitors put their cursor on an item you have defined as having a help popup, it will load very quickly because JavaScript is actually creating the entire HTML page for the popup!  There are tons of customizations you can play with the tailor the appearance of the popups to your site.  You have to see this script, it's great!">
+
+<SCRIPT LANGUAGE="JavaScript">
+
+
+
+
+<!-- Begin
+
+// Create an entry in this format for each help popup you will have.
+// hmsg["popup name"] = new helpmsg(
+// "Title of popup", "header style", "Message Style", "Help Message");
+
+// 'popup name' is the what you will call the popup later, used to open help.
+// 'title of popup' is shown at the top of the help box that opens.  (Optional)
+// 'header style' is a predefined style of how to display the title.  
+//    header style valid options include:  'header', 'fancyheader', 'h1', 'h2', or ""
+// 'message style' is a predefined style of how to display the help message.
+//    message style valid options include:  'plain', 'italics', 'bold', ""
+// 'help message' is the the text shown in the popup.  It should explain the topic.
+ 
+// I have tried to show a multitude of different popup combinations below....
+
+var hmsg = new Array();
+
+hmsg["home"] = new helpmsg(
+"Yahoo",  "fancyheader", "plain", "Clicking this link will bring you to the Yahoo search engine.");
+
+hmsg["forum"] = new helpmsg(
+"", "", "bold", "Clicking this link will take you to Excite.");
+
+hmsg["faq"] = new helpmsg(
+"Altavista", "h2", "italics", "Visit the Altavista search engine.");
+
+hmsg["faq"] = new helpmsg(
+"Hotbot", "h2", "italics", "Visit the Hotbot search engine.");
+
+
+var myPopup = new helpbox("myPopup", hmsg, 275, 175, "#ffffee");
+
+// 275 is the width of the popup box
+// 175 is the height of the popup box
+// "#ffffee" is the color of the popup box
+
+
+function helpmsg(header, hstyle, mstyle, message) {
+this.DEFAULTHSTYLE = "plain";
+this.DEFAULTMSTYLE = "plain";
+
+this.header = header;
+if (hstyle) this.hstyle = hstyle;
+else this.hstyle = this.DEFAULTHSTYLE;
+this.message = message;
+if (mstyle) this.mstyle = mstyle;
+else this.mstyle = this.DEFAULTMSTYLE;
+return this;
+}
+new helpmsg();
+helpmsg.prototype.show = show;
+
+function show() {
+var H = "<FONT FACE='arial'>" + this.header + "</FONT>";
+if (this.hstyle == "h1") H = "<H1>" + H + "</H1>";
+else if (this.hstyle == "h2") H = "<H2>" + H + "</H2>";
+else if (this.hstyle == "h3") H = "<H3>" + H + "</H3>";
+else if (this.hstyle == "h4") H = "<H4>" + H + "</H4>";
+if (this.hstyle == "fancyheader") H = "<table width='75%'>" +
+"<tr><td bgcolor='#6060ff' align='center' valign='center'>" +
+"<H1><FONT COLOR='white'>" + H +
+"</FONT></H1>" + "</td></tr></table>";
+else if (this.hstyle == "italics")
+H = "<I>" + H + "</I>";
+
+var M = "<FONT FACE='arial'>" + this.message + "</FONT>";
+if (this.mstyle == "plain") {}
+if (this.mstyle == "italics") M = M.italics();
+else if (this.mstyle == "bold") M = M.bold();
+
+var htmlpage = "";
+if (this.hstyle.indexOf("header")>=0)
+htmlpage = H + M;
+else htmlpage = H + "<BR>" + M;
+return htmlpage;
+}
+
+function helpbox(name, hm, width, height, bgcolor) {
+this.name = name;
+this.helpmessage = hm;
+this.timerHandle = null;
+this.windowHandle = null;
+this.DEFAULTWIDTH = 250;
+this.DEFAULTHEIGHT = 150;
+this.DEFAULTBGCOLOR = "#ffffcc";
+this.POPUPDELAY = 100;
+if (width) this.width = width;
+else this.width = this.DEFAULTWIDTH;
+if (height) this.height = height;
+else this.height = this.DEFAULTHEIGHT;
+if (bgcolor) this.bgcolor = bgcolor;
+else this.bgcolor = this.DEFAULTBGCOLOR;
+return this;
+}
+function startHelp(msgindex) {
+var cmdstr="top." + this.name + ".showHelp('" + msgindex + "')";
+this.timerHandle = setTimeout(cmdstr, this.POPUPDELAY);
+}
+function showHelp(msgindex) {
+if (!this.windowHandle || !this.windowHandle.name || this.windowHandle.name=="")
+this.windowHandle = window.open(
+"", 
+"subWindow", 
+"toolbar=no," +
+"location=no," +
+"directories=no," +
+"status=no," +
+"menubar=no," +
+"scrollbars=no," +
+"resizable=no," +
+"width=" + this.width + "," +
+"height=" + this.height
+);
+else
+this.windowHandle.focus();
+this.windowHandle.document.open();
+var to_page =
+"<HTML>\n" +
+"<BODY BGCOLOR='" + this.bgcolor + "'><P>" +
+this.helpmessage[msgindex].show() +
+"</BODY></HTML>\n";
+this.windowHandle.document.write(to_page);
+this.windowHandle.document.close();
+}
+function clearHelp() {
+clearTimeout(this.timerHandle);
+if (this.windowHandle && this.windowHandle.name) {
+this.windowHandle.close();
+this.windowHandle=null;
+   }
+}
+new helpbox();
+helpbox.prototype.startHelp = startHelp;
+helpbox.prototype.showHelp = showHelp;
+helpbox.prototype.clearHelp = clearHelp;
+// End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /messages/"><font color="#FF0000"><b>Messages</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Help Popups</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Microsoft Windows help boxes are second-nature to most of us by now.  How about having a similar popup help boxe on your web site!?  When visitors put their cursor on an item you have defined as having a help popup, it will load very quickly because JavaScript is actually creating the entire HTML page for the popup!  There are tons of customizations you can play with the tailor the appearance of the popups to your site.  You have to see this script, it's great!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<a href="http://www.yahoo.com" /" onMouseOver="myPopup.startHelp('home')" onMouseOut="myPopup.clearHelp()">Yahoo!</a><br>
+<br>
+<a href="http://www.excite.com" onMouseOver="myPopup.startHelp('forum')" onMouseOut="myPopup.clearHelp()">Excite</a><br>
+<br>
+<a href="http://www.altavista.com" onMouseOver="myPopup.startHelp('faq')" onMouseOut="myPopup.clearHelp()">Altavista</a><br>
+<br>
+<a href="http://www.hotbot.com" onMouseOver="myPopup.startHelp('hotbot')" onMouseOut="myPopup.clearHelp()">Hotbot</a><br>
+<br>
+<br>
+<P>
+<P>
+<font face="Arial,Helvetica" size="-1">[ Need help popups to work in frames?  <a href="javascript:if(confirm('http://faq.javascriptsource.com/?help-popups  \n\nYou must be connected to the Internet to access this link.  \n\nDo you want to open it from the server?'))window.location='http://faq.javascriptsource.com/?help-popups'" tppabs="http://faq.javascriptsource.com/?help-popups">Here's how</a>! ]</font>
+<p>
+
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Messages:  Help Popups</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  5.71 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL HELP POPUPS:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+
+// Need help-popups to work in frames?  Read how at:
+// http://faq.javascriptsource.com/?help-popups
+
+// Create an entry in this format for each help popup you will have.
+// hmsg["popup name"] = new helpmsg(
+// "Title of popup", "header style", "Message Style", "Help Message");
+
+// 'popup name' is the what you will call the popup later, used to open help.
+// 'title of popup' is shown at the top of the help box that opens.  (Optional)
+// 'header style' is a predefined style of how to display the title.  
+//    header style valid options include:  'header', 'fancyheader', 'h1', 'h2', or ""
+// 'message style' is a predefined style of how to display the help message.
+//    message style valid options include:  'plain', 'italics', 'bold', ""
+// 'help message' is the the text shown in the popup.  It should explain the topic.
+ 
+// I have tried to show a multitude of different popup combinations below....
+
+var hmsg = new Array();
+
+hmsg["home"] = new helpmsg(
+"Home Page",  "fancyheader", "plain", "Clicking this link will bring you to the JavaScript Source home page.");
+
+hmsg["forum"] = new helpmsg(
+"", "", "bold", "Ask a JavaScript question or post a script request and our other JavaScript-savvy visitors will try to help you.");
+
+hmsg["faq"] = new helpmsg(
+"JavaScript Source FAQs", "h2", "italics", "Answers to the most common JavaScript questions we receive at JavaScript Source Code 3000.");
+
+hmsg["news"] = new helpmsg(
+"", "", "", "A monthly newsletter with links to all the script we've added to the site in the last month, a webmaster-related column, and links to other useful webmaster sites.");
+
+
+var myPopup = new helpbox("myPopup", hmsg, 275, 175, "#ffffee");
+
+// 275 is the width of the popup box
+// 175 is the height of the popup box
+// "#ffffee" is the color of the popup box
+
+
+function helpmsg(header, hstyle, mstyle, message) {
+this.DEFAULTHSTYLE = "plain";
+this.DEFAULTMSTYLE = "plain";
+
+this.header = header;
+if (hstyle) this.hstyle = hstyle;
+else this.hstyle = this.DEFAULTHSTYLE;
+this.message = message;
+if (mstyle) this.mstyle = mstyle;
+else this.mstyle = this.DEFAULTMSTYLE;
+return this;
+}
+new helpmsg();
+helpmsg.prototype.show = show;
+
+function show() {
+var H = "&lt;FONT FACE='arial'&gt;" + this.header + "&lt;/FONT&gt;";
+if (this.hstyle == "h1") H = "&lt;H1&gt;" + H + "&lt;/H1&gt;";
+else if (this.hstyle == "h2") H = "&lt;H2&gt;" + H + "&lt;/H2&gt;";
+else if (this.hstyle == "h3") H = "&lt;H3&gt;" + H + "&lt;/H3&gt;";
+else if (this.hstyle == "h4") H = "&lt;H4&gt;" + H + "&lt;/H4&gt;";
+if (this.hstyle == "fancyheader") H = "&lt;table width='75%'&gt;" +
+"&lt;tr&gt;&lt;td bgcolor='#6060ff' align='center' valign='center'&gt;" +
+"&lt;H1&gt;&lt;FONT COLOR='white'&gt;" + H +
+"&lt;/FONT&gt;&lt;/H1&gt;" + "&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;";
+else if (this.hstyle == "italics")
+H = "&lt;I&gt;" + H + "&lt;/I&gt;";
+
+var M = "&lt;FONT FACE='arial'&gt;" + this.message + "&lt;/FONT&gt;";
+if (this.mstyle == "plain") {}
+if (this.mstyle == "italics") M = M.italics();
+else if (this.mstyle == "bold") M = M.bold();
+
+var htmlpage = "";
+if (this.hstyle.indexOf("header")&gt;=0)
+htmlpage = H + M;
+else htmlpage = H + "&lt;BR&gt;" + M;
+return htmlpage;
+}
+
+function helpbox(name, hm, width, height, bgcolor) {
+this.name = name;
+this.helpmessage = hm;
+this.timerHandle = null;
+this.windowHandle = null;
+this.DEFAULTWIDTH = 250;
+this.DEFAULTHEIGHT = 150;
+this.DEFAULTBGCOLOR = "#ffffcc";
+this.POPUPDELAY = 100;
+if (width) this.width = width;
+else this.width = this.DEFAULTWIDTH;
+if (height) this.height = height;
+else this.height = this.DEFAULTHEIGHT;
+if (bgcolor) this.bgcolor = bgcolor;
+else this.bgcolor = this.DEFAULTBGCOLOR;
+return this;
+}
+function startHelp(msgindex) {
+var cmdstr="top." + this.name + ".showHelp('" + msgindex + "')";
+this.timerHandle = setTimeout(cmdstr, this.POPUPDELAY);
+}
+function showHelp(msgindex) {
+if (!this.windowHandle || !this.windowHandle.name || this.windowHandle.name=="")
+this.windowHandle = window.open(
+"", 
+"subWindow", 
+"toolbar=no," +
+"location=no," +
+"directories=no," +
+"status=no," +
+"menubar=no," +
+"scrollbars=no," +
+"resizable=no," +
+"width=" + this.width + "," +
+"height=" + this.height
+);
+else
+this.windowHandle.focus();
+this.windowHandle.document.open();
+var to_page =
+"&lt;HTML&gt;\n" +
+"&lt;BODY BGCOLOR='" + this.bgcolor + "'&gt;&lt;P&gt;" +
+this.helpmessage[msgindex].show() +
+"&lt;/BODY&gt;&lt;/HTML&gt;\n";
+this.windowHandle.document.write(to_page);
+this.windowHandle.document.close();
+}
+function clearHelp() {
+clearTimeout(this.timerHandle);
+if (this.windowHandle && this.windowHandle.name) {
+this.windowHandle.close();
+this.windowHandle=null;
+   }
+}
+new helpbox();
+helpbox.prototype.startHelp = startHelp;
+helpbox.prototype.showHelp = showHelp;
+helpbox.prototype.clearHelp = clearHelp;
+// End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;a href="http://javascript.internet.com/" onMouseOver="myPopup.startHelp('home')" onMouseOut="myPopup.clearHelp()"&gt;JavaScript Source Home Page&lt;/a&gt;&lt;br&gt;
+&lt;br&gt;
+&lt;a href="http://forum.javascriptsource.com/" onMouseOver="myPopup.startHelp('forum')" onMouseOut="myPopup.clearHelp()"&gt;JavaScript Message Forum&lt;/a&gt;&lt;br&gt;
+&lt;br&gt;
+&lt;a href="http://faq.javascriptsource.com/" onMouseOver="myPopup.startHelp('faq')" onMouseOut="myPopup.clearHelp()"&gt;JavaScript Source FAQs&lt;/a&gt;&lt;br&gt;
+&lt;br&gt;
+&lt;a href="http://e-newsletters.internet.com/javascriptsource.html" onMouseOver="myPopup.startHelp('news')" onMouseOut="myPopup.clearHelp()"&gt;JavaScript Source Newsletter&lt;/a&gt;&lt;br&gt;
+&lt;br&gt;
+
+ 
+
+&lt;!-- Script Size:  5.71 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

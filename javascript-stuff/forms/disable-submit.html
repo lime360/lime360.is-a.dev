@@ -1,0 +1,154 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Forms:  Disable Submit</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Forms">
+<META NAME="description" CONTENT="(Internet Explorer only)  When the form is submitted, any submit and reset buttons are disabled.  This prevents the user from submitting the form repeatedly, whether by accident or on purpose.  The form will just act normally for Netscape users.  Great!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Web Site:  http://dynamicdrive.com -->
+
+
+
+
+<!-- Begin
+function disableForm(theform) {
+if (document.all || document.getElementById) {
+for (i = 0; i < theform.length; i++) {
+var tempobj = theform.elements[i];
+if (tempobj.type.toLowerCase() == "submit" || tempobj.type.toLowerCase() == "reset")
+tempobj.disabled = true;
+}
+setTimeout('alert("Your form would have been submitted, but this is just a demo.  Notice how the submit and reset buttons were disabled upon submission.")', 2000);
+return false;
+}
+else {
+alert("Your form would have been submitted, but this is just a demo.  But, since you're not using IE 4+ or NS 6, the submit button was not disabled on form submission.");
+return false;
+   }
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /forms/" ><font color="#FF0000"><b>Forms</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Disable Submit</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+(Internet Explorer only)  When the form is submitted, any submit and reset buttons are disabled.  This prevents the user from submitting the form repeatedly, whether by accident or on purpose.  The form will just act normally for Netscape users.  Great!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form onSubmit="return disableForm(this);">
+Name: <input type=text name=person>
+<input type=submit><input type=reset>
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Forms:  Disable Submit</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.33 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL DISABLE SUBMIT:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Web Site:  http://dynamicdrive.com --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function disableForm(theform) {
+if (document.all || document.getElementById) {
+for (i = 0; i &lt; theform.length; i++) {
+var tempobj = theform.elements[i];
+if (tempobj.type.toLowerCase() == "submit" || tempobj.type.toLowerCase() == "reset")
+tempobj.disabled = true;
+}
+setTimeout('alert("Your form has been submitted.  Notice how the submit and reset buttons were disabled upon submission.")', 2000);
+return true;
+}
+else {
+alert("The form has been submitted.  But, since you're not using IE 4+ or NS 6, the submit button was not disabled on form submission.");
+return false;
+   }
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form onSubmit="return disableForm(this);"&gt;
+Name: &lt;input type=text name=person&gt;
+&lt;input type=submit&gt;&lt;input type=reset&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  1.33 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

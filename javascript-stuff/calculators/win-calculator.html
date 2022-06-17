@@ -1,0 +1,537 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Calculators:  Windows Calculator</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Steve Dulaney">
+<META NAME="section" CONTENT="Calculators">
+<META NAME="description" CONTENT="Always been fond of the calculator within Microsoft Windows?  This JavaScript mimics the Windows calculator in appearance and function.  Everyone, including Macintosh computer users, can now their own Windows Calculator!">
+
+<style type="text/css">
+<!--
+body {font-family: helvetica}
+p {font-size: 12pt}
+.red {color: red}
+.blue {color: blue}
+-->
+</style>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Steve Dulaney -->
+<!-- Web Site:  http://www.hmhd.com/steve -->
+
+
+
+
+<!-- Begin
+var Memory = 0;
+var Number1 = "";
+var Number2 = "";
+var NewNumber = "blank";
+var opvalue = "";
+
+function Display(displaynumber) {
+document.calculator.answer.value = displaynumber;
+}
+
+function MemoryClear() {
+Memory = 0;
+document.calculator.mem.value = "";
+}
+
+function MemoryRecall(answer) {
+if(NewNumber != "blank") {
+Number2 += answer;
+} else {
+Number1 = answer;
+}
+NewNumber = "blank";
+Display(answer);
+}
+
+function MemorySubtract(answer) {
+Memory = Memory - eval(answer);
+}
+
+function MemoryAdd(answer) {
+Memory = Memory + eval(answer);
+document.calculator.mem.value = " M ";
+NewNumber = "blank";
+}
+
+function ClearCalc() {
+Number1 = "";
+Number2 = "";
+NewNumber = "blank";
+Display("");
+}
+
+function Backspace(answer) {
+answerlength = answer.length;
+answer = answer.substring(0, answerlength - 1);
+if (Number2 != "") {
+Number2 = answer.toString();
+Display(Number2);
+} else {
+Number1 = answer.toString();
+Display(Number1);
+   }
+}
+
+function CECalc() {
+Number2 = "";
+NewNumber = "yes";
+Display("");
+}
+
+function CheckNumber(answer) {
+if(answer == ".") {
+Number = document.calculator.answer.value;
+if(Number.indexOf(".") != -1) {
+answer = "";
+   }
+}
+if(NewNumber == "yes") {
+Number2 += answer;
+Display(Number2);
+}
+else {
+if(NewNumber == "blank") {
+Number1 = answer;
+Number2 = "";
+NewNumber = "no";
+}
+else {
+Number1 += answer;
+}
+Display(Number1);
+   }
+}
+function AddButton(x) {
+if(x == 1) EqualButton();
+if(Number2 != "") {
+Number1 = parseFloat(Number1) + parseFloat(Number2);
+}
+NewNumber = "yes";
+opvalue = '+';
+Display(Number1);
+}
+function SubButton(x) {
+if(x == 1) EqualButton();
+if(Number2 != "") {
+Number1 = parseFloat(Number1) - parseFloat(Number2);
+}
+NewNumber = "yes";
+opvalue = '-';
+Display(Number1);
+}
+function MultButton(x) {
+if(x == 1) EqualButton();
+if(Number2 != "") {
+Number1 = parseFloat(Number1) * parseFloat(Number2);
+}
+NewNumber = "yes";
+opvalue = '*';
+Display(Number1);
+}
+function DivButton(x) {
+if(x == 1) EqualButton();
+if(Number2 != "") {
+Number1 = parseFloat(Number1) / parseFloat(Number2);
+}
+NewNumber = "yes";
+opvalue = '/';
+Display(Number1);
+}
+function SqrtButton() {
+Number1 = Math.sqrt(Number1);
+NewNumber = "blank";
+Display(Number1);
+}
+function PercentButton() {
+if(NewNumber != "blank") {
+Number2 *= .01;
+NewNumber = "blank";
+Display(Number2);
+   }
+}
+function RecipButton() {
+Number1 = 1/Number1;
+NewNumber = "blank";
+Display(Number1);
+}
+function NegateButton() {
+Number1 = parseFloat(-Number1);
+NewNumber = "no";
+Display(Number1);
+}
+function EqualButton() {
+if(opvalue == '+') AddButton(0);
+if(opvalue == '-') SubButton(0);
+if(opvalue == '*') MultButton(0);
+if(opvalue == '/') DivButton(0);
+Number2 = "";
+opvalue = "";
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /calculators/"><font color="#FF0000"><b>Calculators</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Windows Calculator</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Always been fond of the calculator within Microsoft Windows?  This JavaScript mimics the Windows calculator in appearance and function.  Everyone, including Macintosh computer users, can now their own Windows Calculator!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name="calculator">
+<table bgcolor="#aaaaaa" width=220>
+<tr><td>
+<table bgcolor="#cccccc" border=1>
+<tr><td>
+<table border=0 cellpadding=0>
+<tr><td bgcolor="#000080"><b style="color:white">Calculator</b></td></tr>
+<tr><td>
+<table width="100%" border=0>
+<tr><td colspan=6><input type="text" name="answer" size=30 maxlength=30 onChange="CheckNumber(this.value)"></td></tr>
+<tr><td colspan=6>
+<table border=0 cellpadding=0>
+<tr><td>
+<input type="text" name="mem" size=3 maxlength=3>&nbsp;<input type="button" name="backspace" class="red" value="Backspace" onClick="Backspace(document.calculator.answer.value); return false;">&nbsp;<input type="button" name="CE" class="red" value=" CE " onClick="CECalc(); return false;">&nbsp;<input type="reset" name="C" class="red" value="  C  " onClick="ClearCalc(); return false;">
+</td></tr>
+</table>
+</td></tr>
+<tr><td><input type="button" name="MC" class="red" value=" MC " onClick="MemoryClear(); return false;"></td>
+<td><input type="button" name="calc7" class="blue" value="  7  " onClick="CheckNumber('7'); return false;"></td>
+<td><input type="button" name="calc8" class="blue" value="  8  " onClick="CheckNumber('8'); return false;"></td>
+<td><input type="button" name="calc9" class="blue" value="  9  " onClick="CheckNumber('9'); return false;"></td>
+<td><input type="button" name="divide" class="red" value="  /  " onClick="DivButton(1); return false;"></td>
+<td><input type="button" name="sqrt" class="blue" value="sqrt" onClick="SqrtButton(); return false;"></td></tr>
+<tr><td><input type="button" name="MR" class="red" value=" MR " onClick="MemoryRecall(Memory); return false;"></td>
+<td><input type="button" name="calc4" class="blue" value="  4  " onClick="CheckNumber('4'); return false;"></td>
+<td><input type="button" name="calc5" class="blue" value="  5  " onClick="CheckNumber('5'); return false;"></td>
+<td><input type="button" name="calc6" class="blue" value="  6  " onClick="CheckNumber('6'); return false;"></td>
+<td><input type="button" name="multiply" class="red" value="  *  " onClick="MultButton(1); return false;"></td>
+<td><input type="button" name="percent" class="blue" value=" %  " onClick="PercentButton(); return false;"></td></tr>
+<tr><td><input type="button" name="MS" class="red" value=" MS " onClick="MemorySubtract(document.calculator.answer.value); return false;"></td>
+<td><input type="button" name="calc1" class="blue" value="  1  " onClick="CheckNumber('1'); return false;"></td>
+<td><input type="button" name="calc2" class="blue" value="  2  " onClick="CheckNumber('2'); return false;"></td>
+<td><input type="button" name="calc3" class="blue" value="  3  " onClick="CheckNumber('3'); return false;"></td>
+<td><input type="button" name="minus" class="red" value="  -  " onClick="SubButton(1); return false;"></td>
+<td><input type="button" name="recip" class="blue" value="1/x " onClick="RecipButton(); return false;"></td></tr>
+<tr><td><input type="button" name="Mplus" class="red" value=" M+  " onClick="MemoryAdd(document.calculator.answer.value); return false;"></td>
+<td><input type="button" name="calc0" class="blue" value="  0  " onClick="CheckNumber('0'); return false;"></td>
+<td><input type="button" name="negate" class="blue" value="+/- " onClick="NegateButton(); return false;"></td>
+<td><input type="button" name="dot" class="blue" value="  .   " onClick="CheckNumber('.'); return false;"></td>
+<td><input type="button" name="plus" class="red" value=" +  " onClick="AddButton(1); return false;"></td>
+<td><input type="button" name="equal" class="red" value="  =   " onClick="EqualButton(); return false;"></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</td></tr>
+</table>
+</td></tr>
+</table>
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Calculators:  Windows Calculator</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  7.19 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL WINDOWS CALCULATOR:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;style type="text/css"&gt;
+&lt;!--
+body {font-family: helvetica}
+p {font-size: 12pt}
+.red {color: red}
+.blue {color: blue}
+--&gt;
+&lt;/style&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Steve Dulaney --&gt;
+&lt;!-- Web Site:  http://www.hmhd.com/steve --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var Memory = 0;
+var Number1 = "";
+var Number2 = "";
+var NewNumber = "blank";
+var opvalue = "";
+
+function Display(displaynumber) {
+document.calculator.answer.value = displaynumber;
+}
+
+function MemoryClear() {
+Memory = 0;
+document.calculator.mem.value = "";
+}
+
+function MemoryRecall(answer) {
+if(NewNumber != "blank") {
+Number2 += answer;
+} else {
+Number1 = answer;
+}
+NewNumber = "blank";
+Display(answer);
+}
+
+function MemorySubtract(answer) {
+Memory = Memory - eval(answer);
+}
+
+function MemoryAdd(answer) {
+Memory = Memory + eval(answer);
+document.calculator.mem.value = " M ";
+NewNumber = "blank";
+}
+
+function ClearCalc() {
+Number1 = "";
+Number2 = "";
+NewNumber = "blank";
+Display("");
+}
+
+function Backspace(answer) {
+answerlength = answer.length;
+answer = answer.substring(0, answerlength - 1);
+if (Number2 != "") {
+Number2 = answer.toString();
+Display(Number2);
+} else {
+Number1 = answer.toString();
+Display(Number1);
+   }
+}
+
+function CECalc() {
+Number2 = "";
+NewNumber = "yes";
+Display("");
+}
+
+function CheckNumber(answer) {
+if(answer == ".") {
+Number = document.calculator.answer.value;
+if(Number.indexOf(".") != -1) {
+answer = "";
+   }
+}
+if(NewNumber == "yes") {
+Number2 += answer;
+Display(Number2);
+}
+else {
+if(NewNumber == "blank") {
+Number1 = answer;
+Number2 = "";
+NewNumber = "no";
+}
+else {
+Number1 += answer;
+}
+Display(Number1);
+   }
+}
+function AddButton(x) {
+if(x == 1) EqualButton();
+if(Number2 != "") {
+Number1 = parseFloat(Number1) + parseFloat(Number2);
+}
+NewNumber = "yes";
+opvalue = '+';
+Display(Number1);
+}
+function SubButton(x) {
+if(x == 1) EqualButton();
+if(Number2 != "") {
+Number1 = parseFloat(Number1) - parseFloat(Number2);
+}
+NewNumber = "yes";
+opvalue = '-';
+Display(Number1);
+}
+function MultButton(x) {
+if(x == 1) EqualButton();
+if(Number2 != "") {
+Number1 = parseFloat(Number1) * parseFloat(Number2);
+}
+NewNumber = "yes";
+opvalue = '*';
+Display(Number1);
+}
+function DivButton(x) {
+if(x == 1) EqualButton();
+if(Number2 != "") {
+Number1 = parseFloat(Number1) / parseFloat(Number2);
+}
+NewNumber = "yes";
+opvalue = '/';
+Display(Number1);
+}
+function SqrtButton() {
+Number1 = Math.sqrt(Number1);
+NewNumber = "blank";
+Display(Number1);
+}
+function PercentButton() {
+if(NewNumber != "blank") {
+Number2 *= .01;
+NewNumber = "blank";
+Display(Number2);
+   }
+}
+function RecipButton() {
+Number1 = 1/Number1;
+NewNumber = "blank";
+Display(Number1);
+}
+function NegateButton() {
+Number1 = parseFloat(-Number1);
+NewNumber = "no";
+Display(Number1);
+}
+function EqualButton() {
+if(opvalue == '+') AddButton(0);
+if(opvalue == '-') SubButton(0);
+if(opvalue == '*') MultButton(0);
+if(opvalue == '/') DivButton(0);
+Number2 = "";
+opvalue = "";
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form name="calculator"&gt;
+&lt;table bgcolor="#aaaaaa" width=220&gt;
+&lt;tr&gt;&lt;td&gt;
+&lt;table bgcolor="#cccccc" border=1&gt;
+&lt;tr&gt;&lt;td&gt;
+&lt;table border=0 cellpadding=0&gt;
+&lt;tr&gt;&lt;td bgcolor="#000080"&gt;&lt;b style="color:white"&gt;Calculator&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;
+&lt;table width="100%" border=0&gt;
+&lt;tr&gt;&lt;td colspan=6&gt;&lt;input type="text" name="answer" size=30 maxlength=30 onChange="CheckNumber(this.value)"&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td colspan=6&gt;
+&lt;table border=0 cellpadding=0&gt;
+&lt;tr&gt;&lt;td&gt;
+&lt;input type="text" name="mem" size=3 maxlength=3&gt;&nbsp;&lt;input type="button" name="backspace" class="red" value="Backspace" onClick="Backspace(document.calculator.answer.value); return false;"&gt;&nbsp;&lt;input type="button" name="CE" class="red" value=" CE " onClick="CECalc(); return false;"&gt;&nbsp;&lt;input type="reset" name="C" class="red" value="  C  " onClick="ClearCalc(); return false;"&gt;
+&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;input type="button" name="MC" class="red" value=" MC " onClick="MemoryClear(); return false;"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type="button" name="calc7" class="blue" value="  7  " onClick="CheckNumber('7'); return false;"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type="button" name="calc8" class="blue" value="  8  " onClick="CheckNumber('8'); return false;"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type="button" name="calc9" class="blue" value="  9  " onClick="CheckNumber('9'); return false;"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type="button" name="divide" class="red" value="  /  " onClick="DivButton(1); return false;"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type="button" name="sqrt" class="blue" value="sqrt" onClick="SqrtButton(); return false;"&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;input type="button" name="MR" class="red" value=" MR " onClick="MemoryRecall(Memory); return false;"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type="button" name="calc4" class="blue" value="  4  " onClick="CheckNumber('4'); return false;"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type="button" name="calc5" class="blue" value="  5  " onClick="CheckNumber('5'); return false;"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type="button" name="calc6" class="blue" value="  6  " onClick="CheckNumber('6'); return false;"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type="button" name="multiply" class="red" value="  *  " onClick="MultButton(1); return false;"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type="button" name="percent" class="blue" value=" %  " onClick="PercentButton(); return false;"&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;input type="button" name="MS" class="red" value=" MS " onClick="MemorySubtract(document.calculator.answer.value); return false;"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type="button" name="calc1" class="blue" value="  1  " onClick="CheckNumber('1'); return false;"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type="button" name="calc2" class="blue" value="  2  " onClick="CheckNumber('2'); return false;"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type="button" name="calc3" class="blue" value="  3  " onClick="CheckNumber('3'); return false;"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type="button" name="minus" class="red" value="  -  " onClick="SubButton(1); return false;"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type="button" name="recip" class="blue" value="1/x " onClick="RecipButton(); return false;"&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;input type="button" name="Mplus" class="red" value=" M+  " onClick="MemoryAdd(document.calculator.answer.value); return false;"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type="button" name="calc0" class="blue" value="  0  " onClick="CheckNumber('0'); return false;"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type="button" name="negate" class="blue" value="+/- " onClick="NegateButton(); return false;"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type="button" name="dot" class="blue" value="  .   " onClick="CheckNumber('.'); return false;"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type="button" name="plus" class="red" value=" +  " onClick="AddButton(1); return false;"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type="button" name="equal" class="red" value="  =   " onClick="EqualButton(); return false;"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  7.19 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>
+
+
+

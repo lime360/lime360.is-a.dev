@@ -1,0 +1,145 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Buttons:  Fading Button</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="(Internet Explorer Only) Move your mouse over the button and watch it fade to another color and then fade back to original color once you move your mouse off.  The message on the button will even change after you click on it!">
+<META NAME="date" CONTENT="2001-01-29">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Aidan Samuel">
+<META NAME="section" CONTENT="Buttons">
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Aidan Samuel (emmaster@yahoo.com) -->
+<!-- Web Site:  http://www.geocities.com/emmaster/ -->
+
+
+
+
+<!-- Begin
+hexColor = ["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"];
+function mOver() {
+for (i = 0; i < 13; i++) {
+setTimeout('document.myForm.button.style.background = "#'+hexColor[12-i]+'0'+hexColor[12-i]+'0c0";', i * 40);
+   }
+}
+function mOut() {
+document.myForm.button.value = "  Click Me!  ";
+for (i = 0; i < 12; i++) {
+setTimeout('document.myForm.button.style.background = "#'+hexColor[i]+'0'+hexColor[i]+'0c0";', i * 40);
+   }
+}
+//  End -->
+</script>
+
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /buttons/"><font color="#FF0000"><b>Buttons</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Fading Button</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+(Internet Explorer Only) Move your mouse over the button and watch it fade to another color and then fade back to original color once you move your mouse off.  The message on the button will even change after you click on it!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<form name=myForm>
+<input type=button name=button value="  Click Me!  " onMouseOver='mOver()'' onMouseDown='document.myForm.button.value="Thank You!"' onClick='window.location="http://javascript.internet.com"' onMouseOut='mOut()'>
+</form>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Buttons:  Fading Button</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Command-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.46 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL FADING BUTTON:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Aidan Samuel (emmaster@yahoo.com) --&gt;
+&lt;!-- Web Site:  http://www.geocities.com/emmaster/ --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+hexColor = ["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"];
+function mOver() {
+for (i = 0; i &lt; 13; i++) {
+setTimeout('document.myForm.button.style.background = "#'+hexColor[12-i]+'0'+hexColor[12-i]+'0c0";', i * 40);
+   }
+}
+function mOut() {
+document.myForm.button.value = "  Click Me!  ";
+for (i = 0; i &lt; 12; i++) {
+setTimeout('document.myForm.button.style.background = "#'+hexColor[i]+'0'+hexColor[i]+'0c0";', i * 40);
+   }
+}
+//  End --&gt;
+&lt;/script&gt;
+
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;form name=myForm&gt;
+&lt;input type=button name=button value="  Click Me!  " onMouseOver='mOver()'' onMouseDown='document.myForm.button.value="Thank You!"' onClick='window.location="http://javascript.internet.com"' onMouseOut='mOut()'&gt;
+&lt;/form&gt;
+
+ 
+
+&lt;!-- Script Size:  1.46 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

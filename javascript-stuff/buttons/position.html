@@ -1,0 +1,187 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Buttons:  Window Position</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Buttons">
+<META NAME="description" CONTENT="Do you not like where window.open() opens your new windows?  Using this JavaScript, you can actually have the new window open wherever you want!  Look at our example to see what we mean!  Really neat!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+function openZero() {
+zero=open("","zero","height=175,width=175,status=no,toolbar=no,directories=no,menubar=no,location=no,resizable=no,left=0,top=0");
+zero.document.write("<html><title>Windows!</title>"
++ "<body bgcolor='white' onblur=window.close()>"
++ "<table height=100% width=100% border=0>"
++ "<tr><td align=center valign=center width=100%>"
++ "<img src=../img/tjsbutton.gif "
++ "alt='javascriptsource.com' align=center valign=center><P>"
++ "<b><a href='javascript:window.close()'>This window is:<br>" 
++ "0 pixels from left<br>0 pixels from "
++ " top</a>.</b></td></tr>"
++ "</table></body></html><p>");
+}
+function openHundred() {
+one=open("","one","height=175,width=175,status=no,toolbar=no,directories=no,menubar=no,location=no,resizable=no,left=100,top=100");
+one.document.write("<html><title>Windows!</title>"
++ "<body bgcolor='white' onblur=window.close()>"
++ "<table height=100% width=100% border=0>"
++ "<tr><td align=center valign=center width=100%>"
++ "<img src=../img/tjsbutton.gif "
++ "alt='javascriptsource.com' align=center valign=center><P>"
++ "<b><a href='javascript:window.close()'>This window is:<br>" 
++ "100 pixels from left<br>100 pixels from "
++ " top</a>.</b></td></tr>"
++ "</table></body></html><p>");
+}
+function openTwohundred() {
+two=open("","two","height=175,width=175,status=no,toolbar=no,directories=no,menubar=no,location=no,resizable=no,left=200,top=200");
+two.document.write("<html><title>Windows!</title>"
++ "<body bgcolor='white' onblur=window.close()>"
++ "<table height=100% width=100% border=0>"
++ "<tr><td align=center valign=center width=100%>"
++ "<img src=../img/tjsbutton.gif "
++ "alt='javascriptsource.com' align=center valign=center><P>"
++ "<b><a href='javascript:window.close()'>This window is:<br>" 
++ "200 pixels from left<br>200 pixels from "
++ " top</a>.</b></td></tr>"
++ "</table></body></html><p>");
+}
+function openThreehundred() {
+three=open("","three","height=175,width=175,status=no,toolbar=no,directories=no,menubar=no,location=no,resizable=no,left=300,top=300");
+three.document.write("<html><title>Windows!</title>"
++ "<body bgcolor='white' onblur=window.close()>"
++ "<table height=100% width=100% border=0>"
++ "<tr><td align=center valign=center width=100%>"
++ "<img src=../img/tjsbutton.gif "
++ "alt='javascriptsource.com' align=center valign=center><P>"
++ "<b><a href='javascript:window.close()'>This window is:<br>" 
++ "300 pixels from left<br>300 pixels from "
++ " top</a>.</b></td></tr>"
++ "</table></body></html><p>");
+}
+// End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /buttons/"><font color="#FF0000">Buttons</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Window Position</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE=" helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Do you not where window.open() opens your new windows?  Using this JavaScript, you can actually have the new window open wherever you want!  Look at our example to see what we mean!  Really neat!<br><hr>
+</td></tr>
+</table>
+<!--  Demonstration -->
+<body bgcolor="white">
+
+<p>
+<center>
+<form>
+<input type="button" value="Window: 0 pixels from left & top" onclick="openZero()"><br>
+<input type="button" value="Window: 100 pixels from left & top" onclick="openHundred()"><br>
+<input type="button" value="Window: 200 pixels from left & top" onclick="openTwohundred()"><br>
+<input type="button" value="Window: 300 pixels from left &top" onclick="openThreehundred()"><br>
+</form>
+
+
+<P>
+<BR>
+<P>
+<a name="source">
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Buttons:  Window Position</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as NotePad or SimpleText) and save (Control-s or Apple-s).  The script is yours!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.25 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL WINDOW POSITION:
+
+   1.  Paste the first code in the HEAD of your HTML document
+   2.  Add the last coding to the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste the first code in the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function win() {
+msg=window.open("","msg","height=200,width=200,left=80,top=80");
+msg.document.write("&lt;html&gt;&lt;title&gt;Windows!&lt;/title&gt;");
+msg.document.write("&lt;body bgcolor='white' onblur=window.close()&gt;");
+msg.document.write("&lt;center&gt;page content here&lt;/center&gt;");
+msg.document.write("&lt;/body&gt;&lt;/html&gt;&lt;p&gt;");
+
+// If you just want to open an existing HTML page in the 
+// new window, you can replace win()'s coding above with:
+// window.open("page.html","","height=200,width=200,left=80,top=80");
+
+}
+// End --&gt;
+&lt;/script&gt;
+
+&lt;!-- STEP TWO: Add the last coding to the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;body bgcolor="white"&gt;
+
+&lt;center&gt;
+&lt;form&gt;
+&lt;input type="button" value="Open Window" onclick="win()"&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+&lt;!-- Or you may use: &lt;a href="javascript:win()"&gt;Open Window&lt;/a&gt; --&gt;
+
+ 
+
+&lt;!-- Script Size:  1.25 KB  --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

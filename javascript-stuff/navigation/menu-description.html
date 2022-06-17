@@ -1,0 +1,291 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Navigation:  Pulldown Menu (Description)</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Navigation">
+<META NAME="description" CONTENT="If you have plenty of space on you webpage or just would like to use a more comprehensive menu list, then this script might suit you nicely.  This script  works very well and is also very visually appealing.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+function go_to_station() {
+if (document.stationform.stationselect.options[0].selected) {
+window.location.href = "http://www.abctelevision.com";} 
+else if (document.stationform.stationselect.options[1].selected) {
+window.location.href = "http://www.cbs.com";}
+else if (document.stationform.stationselect.options[2].selected) {
+window.location.href = "http://www.nbc.com";}   
+else if (document.stationform.stationselect.options[3].selected) {
+window.location.href = "http://www.foxnetwork.com";}    
+else if (document.stationform.stationselect.options[4].selected) {
+window.location.href = "http://www.filmzone.com";}   
+else if (document.stationform.stationselect.options[5].selected) {
+window.location.href = "http://www.discovery.com";}     
+else if (document.stationform.stationselect.options[6].selected) {
+window.location.href = "http://www.cs.brandeis.com";}   
+else if (document.stationform.stationselect.options[7].selected) {
+window.location.href = "http://www.qvc.com";}   
+else if (document.stationform.stationselect.options[8].selected) {
+window.location.href = "http://www.historychannel.com";}        
+else if (document.stationform.stationselect.options[9].selected) {
+window.location.href = "http://www.mtv.com";}   
+else if (document.stationform.stationselect.options[10].selected) {
+window.location.href = "http://www.cnn.com";}   
+else if (document.stationform.stationselect.options[11].selected) {
+window.location.href = "http://www.aetv.com";}  
+else if (document.stationform.stationselect.options[12].selected) {
+window.location.href = "http://www.amctv.com";} 
+else if (document.stationform.stationselect.options[13].selected) {
+window.location.href = "http://www.bravotv.com";}       
+else if (document.stationform.stationselect.options[14].selected) {
+window.location.href = "http://www.c-span.org";}        
+else if (document.stationform.stationselect.options[15].selected) {
+window.location.href = "http://www.comcentral.com";}
+else if (document.stationform.stationselect.options[16].selected) {
+window.location.href = "http://espnet.sportszone.com";} 
+else if (document.stationform.stationselect.options[17].selected) {
+window.location.href = "http://www.fxnetworks.com";}    
+else if (document.stationform.stationselect.options[18].selected) {
+window.location.href = "http://www.hbohomevideo.com";}  
+else if (document.stationform.stationselect.options[19].selected) {
+window.location.href = "http://www.scifi.com";} 
+else if (document.stationform.stationselect.options[20].selected) {
+window.location.href = "http://showtimeonline.com";}    
+else if (document.stationform.stationselect.options[21].selected) {
+window.location.href = "http://vh1.com";}       
+else if (document.stationform.stationselect.options[22].selected) {
+window.location.href = "http://www.weather.com";}       
+else if (document.stationform.stationselect.options[23].selected) {
+window.location.href = "http://www.disneychannel.com";} 
+return true;    
+}
+function textValue() {   
+var stationInteger, stationString       
+stationInteger=document.stationform.stationselect.selectedIndex 
+stationString=document.stationform.stationselect.options[stationInteger].text   
+document.stationform.stationtext.value = "Go to " + stationString +"!"
+}
+// End -->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /navigation/"><font color="#FF0000">Navigation</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Pulldown Menu (Description)</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE=" helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+If you have plenty of space on you webpage or just would like to use a more comprehensive menu list, then this script might suit you nicely.  This script  works very well and is also very visually appealing.<br><hr>
+</td></tr>
+</table>
+<!--  Demonstration -->
+<BODY>
+<CENTER>
+<FORM name="stationform">
+<SELECT name="stationselect" onChange="textValue()" multiple size="5">
+<option>ABC
+<option>CBS
+<option>NBC
+<option>Fox
+<option>Cartoon Network
+<option>Discovery Channel
+<option>Warner Brothers Network
+<option>QVC
+<option>History Channel
+<option>MTV
+<option>CNN
+<option>A&E
+<option>American Movie Classics(AMC)
+<option>Bravo
+<option>C-SPAN
+<option>Comedy Central
+<option>ESPN
+<option>fX
+<option>HBO
+<option>Sci-Fi Channel
+<option>Showtime
+<option>VH-1
+<option>Weather Channel
+<option>Disney Channel
+</SELECT>
+<br>
+<p>
+<input type="button" name="stationbutton" value="Go!" onClick="go_to_station()">
+<p>
+<input type="text" name="stationtext" value="" size="35" maxlength="35">
+<p>
+</FORM>
+<P>
+<BR>
+<P>
+<a name="source">
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Navigation:  Pulldown Menu (Description)</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as NotePad or SimpleText) and save (Control-s or Apple-s).  The script is yours!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  4.54 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL PULLDOWN MENU (DESCRIPTION):
+
+   1.  Paste the coding into the HEAD of your HTML document
+   2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function go_to_station() {
+if (document.stationform.stationselect.options[0].selected) {
+window.location.href = "http://www.abctelevision.com";} 
+else if (document.stationform.stationselect.options[1].selected) {
+window.location.href = "http://www.cbs.com";}
+else if (document.stationform.stationselect.options[2].selected) {
+window.location.href = "http://www.nbc.com";}   
+else if (document.stationform.stationselect.options[3].selected) {
+window.location.href = "http://www.foxnetwork.com";}    
+else if (document.stationform.stationselect.options[4].selected) {
+window.location.href = "http://www.filmzone.com";}   
+else if (document.stationform.stationselect.options[5].selected) {
+window.location.href = "http://www.discovery.com";}     
+else if (document.stationform.stationselect.options[6].selected) {
+window.location.href = "http://www.cs.brandeis.com";}   
+else if (document.stationform.stationselect.options[7].selected) {
+window.location.href = "http://www.qvc.com";}   
+else if (document.stationform.stationselect.options[8].selected) {
+window.location.href = "http://www.historychannel.com";}        
+else if (document.stationform.stationselect.options[9].selected) {
+window.location.href = "http://www.mtv.com";}   
+else if (document.stationform.stationselect.options[10].selected) {
+window.location.href = "http://www.cnn.com";}   
+else if (document.stationform.stationselect.options[11].selected) {
+window.location.href = "http://www.aetv.com";}  
+else if (document.stationform.stationselect.options[12].selected) {
+window.location.href = "http://www.amctv.com";} 
+else if (document.stationform.stationselect.options[13].selected) {
+window.location.href = "http://www.bravotv.com";}       
+else if (document.stationform.stationselect.options[14].selected) {
+window.location.href = "http://www.c-span.org";}        
+else if (document.stationform.stationselect.options[15].selected) {
+window.location.href = "http://www.comcentral.com";}
+else if (document.stationform.stationselect.options[16].selected) {
+window.location.href = "http://espnet.sportszone.com";} 
+else if (document.stationform.stationselect.options[17].selected) {
+window.location.href = "http://www.fxnetworks.com";}    
+else if (document.stationform.stationselect.options[18].selected) {
+window.location.href = "http://www.hbohomevideo.com";}  
+else if (document.stationform.stationselect.options[19].selected) {
+window.location.href = "http://www.scifi.com";} 
+else if (document.stationform.stationselect.options[20].selected) {
+window.location.href = "http://showtimeonline.com";}    
+else if (document.stationform.stationselect.options[21].selected) {
+window.location.href = "http://vh1.com";}       
+else if (document.stationform.stationselect.options[22].selected) {
+window.location.href = "http://www.weather.com";}       
+else if (document.stationform.stationselect.options[23].selected) {
+window.location.href = "http://www.disneychannel.com";} 
+return true;    
+}
+function textValue() {   
+var stationInteger, stationString       
+stationInteger=document.stationform.stationselect.selectedIndex 
+stationString=document.stationform.stationselect.options[stationInteger].text   
+document.stationform.stationtext.value = "Go to " + stationString +"!"
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+&lt;!-- STEP TWO: Put this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;CENTER&gt;
+&lt;FORM name="stationform"&gt;
+&lt;SELECT name="stationselect" onChange="textValue()" multiple size="5"&gt;
+&lt;option&gt;ABC
+&lt;option&gt;CBS
+&lt;option&gt;NBC
+&lt;option&gt;Fox
+&lt;option&gt;Cartoon Network
+&lt;option&gt;Discovery Channel
+&lt;option&gt;Warner Brothers Network
+&lt;option&gt;QVC
+&lt;option&gt;History Channel
+&lt;option&gt;MTV
+&lt;option&gt;CNN
+&lt;option&gt;A&E
+&lt;option&gt;American Movie Classics(AMC)
+&lt;option&gt;Bravo
+&lt;option&gt;C-SPAN
+&lt;option&gt;Comedy Central
+&lt;option&gt;ESPN
+&lt;option&gt;fX
+&lt;option&gt;HBO
+&lt;option&gt;Sci-Fi Channel
+&lt;option&gt;Showtime
+&lt;option&gt;VH-1
+&lt;option&gt;Weather Channel
+&lt;option&gt;Disney Channel
+&lt;/SELECT&gt;
+&lt;br&gt;
+&lt;p&gt;
+&lt;input type="button" name="stationbutton" value="Go!" onClick="go_to_station()"&gt;
+&lt;p&gt;
+&lt;input type="text" name="stationtext" value="" size="35" maxlength="35"&gt;
+&lt;p&gt;
+&lt;/FORM&gt;
+&lt;/CENTER&gt;
+
+ 
+
+&lt;!-- Script Size:  4.54 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

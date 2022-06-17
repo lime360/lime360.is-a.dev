@@ -1,0 +1,246 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Games:  Time Challenge</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Randy Bennett (rbennett@thezone.net)">
+<META NAME="section" CONTENT="Games">
+<META NAME="description" CONTENT="Start the game timer and try to click the button in exactly 10 seconds.  It is not easy as you think!">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /games/"><font color="#FF0000"><b>Games</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Time Challenge</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Start the game timer and try to click the button in exactly 10 seconds.  It is not easy as you think!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name="playgame">
+<input type=button value="Play Time Challenge" onClick="window.open('time-challenge-demo.html','challenge','top=100,left=100,width=575,height=400');">
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Games:  Time Challenge</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  4.33 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- FIVE STEPS TO INSTALL TIME CHALLENGE:
+
+  1.  Put the first code in the time challenge opener page
+  2.  Create a new document, save it as time-challenge.html
+  3.  Copy the coding into the HEAD of time-challenge.html
+  4.  Put the last coding into the BODY of time-challenge.html
+  5.  Save the necessary button images to your web server  --&gt;
+
+&lt;!-- STEP ONE:  Put this code in your game opener page  --&gt;
+
+&lt;center&gt;
+&lt;form name="playgame"&gt;
+&lt;input type=button value="Play Time Challenge" onClick="window.open('time-challenge','challenge','top=100,left=100,width=575,height=400');"&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+&lt;!-- STEP TWO: Create a new document, save it as time-challenge.html  --&gt;
+
+&lt;!-- STEP THREE: Copy the coding into the HEAD of time-challenge.html  --&gt;
+ 
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Randy Bennett (rbennett@thezone.net) --&gt;
+&lt;!-- Web Site:  http://home.thezone.net/~rbennett/sitemap.htm --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+Bdown = new Image();
+Bdown.src = "down.gif";
+bX = 200; bY = 250;
+function moveButton() {
+x = Math.random() * 50;
+y = Math.random() * 50;
+r1 = Math.random() * 10000;
+r2 = Math.random() * 10000;
+if (r1 &gt; 5000) r1 = 1; else r1 = -1;
+if (r2 &gt; 5000) r2 = 1; else r2 = -1;
+if (x &lt; 25) x = 25;
+if (y &lt; 25) y = 25;
+x = x * r1;
+y = y * r2;
+if (clock == "on") {
+bX += x;
+bY += y;
+if (document.all) {
+button.style.pixelTop = bY;
+button.style.pixelLeft = bX;
+}
+if (document.layers){
+document.button.left = bX;
+document.button.top = bY;
+      }
+   }
+}
+function message() {
+if (s &lt;= 0) alert('Start the clock first, and then click this button at exactly 10 seconds.');
+if (s &gt; 0 && s &lt; 7) alert("Your timing is way off, click when the timer says 10 seconds.");
+if (s &gt; 6 && s &lt; 9) alert("Don't panic, wait for the timer to get to 10 seconds.");
+if (s == 9) alert("Keep practicing, you are very close.");
+if (s == 10) {
+clearTimeout(timeID);
+alert("WOW, I didn't think it could be done!!! Congrats!");
+}
+if (s == 11) alert("Keep practicing, you are very close");
+if (s &gt; 11 && s &lt; 13) alert("Something else must have caught your attention");
+if (s &gt; 13) alert("Did you read the instructions?  You have gone past 10 seconds, reset the timer.");
+}
+var clock = "off";
+var timeID;
+var count = 0;
+var h = 0;
+var m = 0;
+var mm = 0;
+var s = 0;
+var ss = 0;
+kickStart = "off";
+function setMove(xx) {
+kickStart = xx;
+}
+function timer() {
+clearTimeout(timeID);
+count += 1;
+s += 1;
+if (s &gt; 8 && s &lt; 11) {
+clock = "on";
+if (kickStart == "on") moveButton();
+kickStart = "off";
+}
+else clock = "off";
+ss = s;
+if (s &gt; 59) { s -= 60; m += 1; ss -= 60; }
+mm = m;
+if (m &gt; 59) { m -= 60; h += 1; mm -= 60; }
+if (ss &lt; 10) ss = "0" + ss;
+if (mm &lt; 10) mm = "0" + mm;
+msg = "&lt;font size=+3&gt;" + h + ":" + mm + ":" + ss + "&lt;/font&gt;";
+if (navigator.appName == "Netscape") {
+document.t.document.write(msg);
+document.t.document.close();
+}
+else t.innerHTML = msg;
+timeID = setTimeout("timer()", 1000);
+}
+function stopTimer(c) {
+clock = "off"
+if (c == 'stop') clearTimeout(timeID);
+if (c == 'clear') { 
+clearTimeout(timeID);
+ss = 0; mm = 0; m = 0; s = -1;
+count = 0;
+timer();
+stopTimer('stop');
+   }
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP FOUR: Paste the last coding into the BODY of time-challenge.html  --&gt;
+
+&lt;BODY&gt;
+
+&lt;div id=object1 style="position:absolute; visibility:show; left:60px; top:5px; z-index:2"&gt;
+&lt;table cellpadding=2 border=1 width=175&gt;&lt;tr&gt;
+&lt;td&gt;&lt;center&gt;&lt;b&gt;&lt;font size="+2"&gt;Timer&lt;/font&gt;&lt;/b&gt;&lt;/center&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=center&gt;
+&lt;table&gt;&lt;tr&gt;
+&lt;td&gt;&lt;a href="javascript:timer();setMove('off')"&gt;Start&lt;/a&gt; |&lt;/td&gt;
+&lt;td&gt;&lt;a href="javascript:stopTimer('stop')"&gt;Stop&lt;/a&gt; |&lt;/td&gt;
+&lt;td&gt;&lt;a href="javascript:stopTimer('clear')"&gt;Reset&lt;/a&gt; &lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;div id=t style="position:absolute; visibility:show; left:100px; top:84px; z-index:2"&gt;&lt;font size=+3&gt;0:00:00&lt;/font&gt;&lt;/div&gt;
+
+&lt;div id=object1 style="position:absolute; visibility:show; left:260px; top:5px; z-index:2"&gt;
+&lt;font size="+2"&gt;&lt;b&gt;The Time Challenge:&lt;br&gt;&lt;/b&gt;&lt;/font&gt;&lt;br&gt;
+&lt;ul&gt;
+&lt;li&gt;Start the Timer (click start)&lt;br&gt;
+&lt;li&gt;At exactly 10 seconds, click the button&lt;br&gt;
+&lt;li&gt;Stop the timer at 10 seconds, you win!&lt;br&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id="button" style="position:absolute;left:115;top:120;z-index:5;"&gt;
+&lt;a href="javascript:message()"
+onMouseDown = "document.images['imBut'].src='down.gif'"
+onMouseUp = "document.images['imBut'].src='up.gif'"
+onMouseOut="setMove('off')"
+onMouseOver="moveButton(),setMove('on')"&gt;
+&lt;img name="imBut" src="up.gif" width=62 height=28 border=0&gt;&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;!-- STEP FIVE: Be sure to save the game images to your web server  --&gt;
+
+&lt;!-- Download them from:  ../img/time-challenge/time-challenge.zip  --&gt;
+
+ 
+
+&lt;!-- Script Size:  4.33 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

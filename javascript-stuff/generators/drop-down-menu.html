@@ -1,0 +1,346 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Code Generators:  Drop Down Menu Generator</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Ricocheting (ricocheting@hotmail.com) ">
+<META NAME="section" CONTENT="Code Generators">
+<META NAME="description" CONTENT="Simply select the options you would like in your pulldown menu, enter the text and URL for each listing, and click the button to generate the source code.  Easy!  And, we can even mail the generated code to you!  Wow...  :-)">
+
+<SCRIPT LANGUAGE = "JavaScript">
+<!-- Begin
+var email = GetCookie('email_address');
+if (email == null) {
+email = 'your email here';
+}
+function getCookieVal (offset) {
+var endstr = document.cookie.indexOf (";", offset);
+if (endstr == -1)
+endstr = document.cookie.length;
+return unescape(document.cookie.substring(offset, endstr));
+}
+function GetCookie (name) {
+var arg = name + "=";
+var alen = arg.length;
+var clen = document.cookie.length;
+var i = 0;
+while (i < clen) {
+var j = i + alen;
+if (document.cookie.substring(i, j) == arg)
+return getCookieVal (j);
+i = document.cookie.indexOf(" ", i) + 1;
+if (i == 0)
+break;}
+return null;}
+function SetCookie (name, value) {var argv = SetCookie.arguments;
+var argc = SetCookie.arguments.length;
+var expires = (argc > 2) ? argv[2] : null;
+var path = (argc > 3) ? argv[3] : null;
+var domain = ".internet.com";
+// (argc > 4) ? argv[4] : null;
+var secure = (argc > 5) ? argv[5] : false;
+document.cookie = name + "=" + escape (value) +
+((expires == null) ? "" : ("; expires=" +
+expires.toGMTString())) +
+((path == null) ? "" : ("; path=" + path)) +
+((domain == null) ? "" : ("; domain=" + domain)) +
+((secure == true) ? "; secure" : "");}
+
+function checkCodeMail() {
+invalid = ""
+email = document.mail.user.value;
+code = document.mail.source.value;
+if (code == "") {
+invalid += "Before you can send your code to yourself you need to ";
+invalid += "follow the instructions above to output the code.  When "
+invalid += "the code has been generated, click \"Done\" to email it!\r\n\r\n";}
+if (email.indexOf("@")<1 || email == "your email here" || email == "") {
+invalid += "Invalid email address!  Be sure that in your email address ";
+invalid += "you included your Username, the '@' Sign, and the Domain Name.";}
+if (invalid == "") {
+doAd();
+return true;
+}
+else {
+alert(invalid);
+return false;}}
+function doAd() {
+pathname = location.pathname;
+myDomain = pathname.substring(0,pathname.lastIndexOf('/')) +'/';
+var largeExpDate = new Date ();
+largeExpDate.setTime(largeExpDate.getTime() + (24 * 3600 * 1000));
+SetCookie('email_address',email,largeExpDate,myDomain);
+page = "http://javascript.internet.com/sent.html?" + email;
+window.open(page, "AdWindow", "width=515,height=150");
+return true;}
+function uncode() {
+smut="&lt;";
+replacewords="< ";
+txt=document.mail.source2.value;
+tstx="";
+space=replacewords.indexOf(" ");
+wrd=replacewords.substring(0,space);
+wrdl=wrd.length
+replacewords=replacewords.substring(space+1,replacewords.length);
+while (txt.indexOf(wrd)>-1){
+space=txt.indexOf(wrd);
+txt=txt.substring(0,space)+smut+txt.substring((space+wrdl),txt.length);}
+smut="&gt;";
+replacewords="> ";
+space=replacewords.indexOf(" ");
+wrd=replacewords.substring(0,space);
+wrdl=wrd.length
+replacewords=replacewords.substring(space+1,replacewords.length);
+while (txt.indexOf(wrd)>-1){
+space=txt.indexOf(wrd);
+txt=txt.substring(0,space)+smut+txt.substring((space+wrdl),txt.length);}
+document.mail.source2.value=txt;}
+// End -->
+</script>
+
+
+<!--  Now it's time for the *REAL* code generator to begin....  -->
+
+
+<SCRIPT LANGUAGE="JavaScript">
+
+
+
+
+<!--  Begin
+function generate(form){
+var txt = '<!-- ONE STEP TO INSTALL PULLDOWN MENU:\r\n\r\n'
++ '   1.  Paste the code into the BODY of your HTML document  -->\r\n\r\n'
++ '<!-- STEP ONE: Copy this code into the BODY of your HTML document  -->\r\n\r\n'
++ '<BODY>\r\n\r\n'
++ '<!-- Original:  Ricocheting (ricocheting@hotmail.com)  -->\r\n'
++ '<!-- Web Site:  http://free.prohosting.com/~ric  -->\r\n\r\n'
++ '\r\n'
++ '\r\n\r\n';
+
+if (document.jump.go[0].checked) {
+txt += "<form name=\"jump\">\n<select name=\"menu\" onChange=\"location=document.jump.menu.options[document.jump.menu.selectedIndex].value;\" value=\"GO\">\n";
+}
+if (document.jump.go[1].checked) {
+txt += "<form name=\"jump\">\n<select name=\"menu\">\n";
+var Button = "<input type=\"button\" onClick=\"location=document.jump.menu.options[document.jump.menu.selectedIndex].value;\" value=\"GO\">\n";
+}
+if (document.jump.go[2].checked) {
+txt += "<form name=\"jump\">\n<script>\nfunct" + 
+"ion jumpMenu(){\nlocation=document.jump.menu.options[document.jump.menu.selectedIndex].value;\n}\n" +
+"</sc" + "ript>\n<select name=\"menu\">\n";
+var Button = "<a href=\"Javascript:jumpMenu()\">"+
+"<IMG SRC=\""+document.jump.image.value+"\" border=0></a>\n";
+}
+for (jig = 5; jig <= 24; jig = jig + 2) {
+if (form[jig].value)
+{
+   txt += "<option";
+   if (form[jig+1].value)
+   { 
+   txt += " value=\""+form[jig+1].value+"\"";
+   }
+   else
+   {
+   txt += " value=\"#\"";
+   }
+   txt += ">"+form[jig].value+"</option>\n";
+}
+
+}
+
+if (document.jump.go[0].checked) {
+txt += "</select>\n</form>\n";
+}
+if (document.jump.go[1].checked) {
+txt += "</select>\n"+Button+"</form>\n";
+}
+if (document.jump.go[2].checked) {
+txt += "</select>\n"+Button+"</form>\n";
+   }
+document.mail.source.value=txt;
+document.mail.source2.value=txt;
+
+uncode();
+}
+
+function View(text) {
+msg=open("","DisplayWindow","menubar=1,width=300,height=100");
+msg.document.write(text);
+}
+// End -->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<P>
+<center>
+
+	
+<P>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /generators/"><font color="#FF0000">Generators</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Drop Down Menu Generator</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Simply select the options you would like in your pulldown menu, enter the text and URL for each listing, and click the button to generate the source code.  Easy!  And, we can even mail the generated code to you!  Wow...  :-) 
+<br>
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name="jump">
+<table border="0"><tr><td width=332>
+<table border="1"><tr>
+<td align="center" colspan=2>
+<font size=+2>Pulldown Menu Generator</font>
+</td></tr>
+<tr>
+<td colspan=2 height=5></td>
+</tr>
+<tr align="center">
+<td colspan=2 align=center>
+<b>Use GO Button:</b></font></td>
+</tr>
+<tr>
+<td colspan=2 align=left>
+<input type="radio" name="go" checked>Load selected page immediately<br>
+<input type="radio" name="go">Use button <input type="button" value="Go"><br>
+<input type="radio" name="go">Use image button (url=)
+<input type="text" name="image" value="http://">
+</td>
+</tr>
+<tr align="center">
+<td colspan=2 height=5></td>
+</tr>
+<tr align="center">
+<td colspan=2 align=center>
+<b>Pulldown Menu Entries:</b></td>
+</tr>
+<tr align="center">
+<td width=50%>
+<strong>Text Shown</strong></td>
+<td width=50%>
+<strong>Link URL</strong></td>
+</tr>
+<tr align="center">
+<td bgcolor="#E4E4E4">
+<input type="text" name="text1" size="20"></td>
+<td bgcolor="#E4E4E4">
+<input type="text" name="url1" size="20" value="http://"></td>
+</tr>
+<tr align="center">
+<td bgcolor="#E4E4E4">
+<input type="text" name="text2" size="20"></td>
+<td bgcolor="#E4E4E4">
+<input type="text" name="url2" size="20" value="http://"></td>
+</tr>		
+<tr align="center">
+<td bgcolor="#E4E4E4">
+<input type="text" name="text3" size="20"></td>
+<td bgcolor="#E4E4E4">
+<input type="text" name="url3" size="20" value="http://"></td>
+</tr>
+<tr align="center">
+<td bgcolor="#E4E4E4">
+<input type="text" name="text4" size="20"></td>
+<td bgcolor="#E4E4E4">
+<input type="text" name="url4" size="20"></td>
+</tr>
+<tr align="center">
+<td bgcolor="#E4E4E4">
+<input type="text" name="text5" size="20"></td>
+<td bgcolor="#E4E4E4">
+<input type="text" name="url5" size="20"></td>
+</tr>
+<tr align="center">
+<td bgcolor="#E4E4E4">
+<input type="text" name="text6" size="20"></td>
+<td bgcolor="#E4E4E4">
+<input type="text" name="url6" size="20"></td>
+</tr>
+<tr align="center">
+<td bgcolor="#E4E4E4">
+<input type="text" name="text7" size="20"></td>
+<td bgcolor="#E4E4E4">
+<input type="text" name="url7" size="20"></td>
+</tr>
+<tr align="center">
+<td bgcolor="#E4E4E4">
+<input type="text" name="text8" size="20"></td>
+<td bgcolor="#E4E4E4">
+<input type="text" name="url8" size="20"></td>
+</tr>
+<tr align="center">
+<td bgcolor="#E4E4E4">
+<input type="text" name="text9" size="20"></td>
+<td bgcolor="#E4E4E4">
+<input type="text" name="url9" size="20"></td>
+</tr>
+<tr align="center">
+<td bgcolor="#E4E4E4">
+<input type="text" name="text10" size="20"></td>
+<td bgcolor="#E4E4E4">
+<input type="text" name="url10" size="20"></td>
+</tr>
+<tr>
+<td colspan="2" align="center" height=33>
+<input type="button" class="button" value="Generate" onClick="generate(this.form)">
+<input type="reset" class="button" value="Reset">
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<br><br>
+Source Code:
+</form>
+</center>
+
+<p>
+<center>
+<form name="mail" action="http://javascript.internet.com/cgi-bin/code-mail.cgi" method="POST" onSubmit="return checkCodeMail()">
+<input type=hidden name=scriptname value="Drop Down Menu Generator">
+<table bgcolor="dedfdf" border="2" cellpadding="4" width=400>
+<tr><td align=center>
+<input type="button" class="button" value="Show me the Drop-Down Menu!" name="DOC" onClick="View(this.form.source.value);">
+<p>
+<textarea name="source" rows=12 cols=80></textarea><br>
+<input type="hidden" name="source2"><br>
+<font size="2" face="arial">"Cut and Paste" the code above, or....</font><br><br>
+<table cellpadding=20 cellspacing=0 border=1>
+<tr bgcolor=#ebebeb><td align=center><tt>We'll send your generated code to you!<p></tt>
+<SCRIPT>
+<!-- Begin
+document.write('<input type=text size=25 name=user value="'+email+'" onfocus=\"select()\">');
+// End -->
+</SCRIPT>
+<NOSCRIPT>
+<input type=text size=25 name=email value="your email here">
+</NOSCRIPT>
+<input type=submit value="Send it!"><p><font size="-2">(just click "Send it!" once!)</font>
+</td>
+</tr>
+</table></td><p></tr>
+</table>
+</form>
+</center>
+</FONT>
+</CENTER>
+
+</CENTER>

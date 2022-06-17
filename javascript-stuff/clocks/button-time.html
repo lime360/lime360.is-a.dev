@@ -1,0 +1,208 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Clock:  Button Time</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Clock">
+<META NAME="description" CONTENT="Here is a pretty neat way to show what time it is - in a little button!  When the page is loaded, JavaScript will show a little button with the time!  Check it out!">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /clocks/"><font color="#FF0000">Clocks</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Button Time</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Here is a pretty neat way to show what time it is - in a little button!  When the page is loaded, JavaScript will show a little button with the time!  Check it out!
+<br>
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+day = new Date();
+miVisit = day.getTime();
+function clock() {
+dayTwo = new Date();
+hrNow = dayTwo.getHours();
+mnNow = dayTwo.getMinutes();	
+scNow = dayTwo.getSeconds();
+miNow = dayTwo.getTime();
+if (hrNow == 0) {
+hour = 12;
+ap = " AM";
+} else if(hrNow <= 11) {
+ap = " AM";
+hour = hrNow;
+} else if(hrNow == 12) {
+ap = " PM";
+hour = 12;
+} else if (hrNow >= 13) {
+hour = (hrNow - 12);
+ap = " PM";
+}
+if (hrNow >= 13) {
+hour = hrNow - 12;
+}
+if (mnNow <= 9) {
+min = "0" + mnNow;
+}
+else (min = mnNow)
+if (scNow <= 9) {
+secs = "0" + scNow;
+} else {
+secs = scNow;
+}
+time = hour + ":" + min + ":" + secs + ap;
+document.form.button.value = time;
+self.status = time;
+setTimeout('clock()', 1000);
+}
+function timeInfo() {
+milliSince = miNow;
+milliNow = miNow - miVisit;
+secsVisit = Math.round(milliNow / 1000);
+minsVisit = Math.round((milliNow / 1000) / 60);
+alert("There have been " + milliSince + " milliseconds since midnight, January 1, 1970.  "
++ "You have spent " + milliNow + " of those milliseconds on this page.  "
++ ".... About " + minsVisit + " minutes, and "
++ secsVisit + " seconds.");
+}
+document.write("<center><form name=\"form\">"
++ "<input type=button value=\"Click for info!\""
++ " name=button onClick=\"timeInfo()\"></form></center>");
+onError = null;
+clock();
+// End -->
+</SCRIPT>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Clocks:  Button Time</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.72 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- ONE STEP TO INSTALL BUTTON TIME:
+
+   1.  Put the coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Add this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;!-- Original: Michael Tartaglia &lt;stonedstan@hotmail.com&gt; --&gt;
+&lt;!-- Web Site:  http://www.geocities.com/SiliconValley/Horizon/5235 --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+day = new Date();
+miVisit = day.getTime();
+function clock() {
+dayTwo = new Date();
+hrNow = dayTwo.getHours();
+mnNow = dayTwo.getMinutes();	
+scNow = dayTwo.getSeconds();
+miNow = dayTwo.getTime();
+if (hrNow == 0) {
+hour = 12;
+ap = " AM";
+} else if(hrNow <= 11) {
+ap = " AM";
+hour = hrNow;
+} else if(hrNow == 12) {
+ap = " PM";
+hour = 12;
+} else if (hrNow >= 13) {
+hour = (hrNow - 12);
+ap = " PM";
+}
+if (hrNow &gt;= 13) {
+hour = hrNow - 12;
+}
+if (mnNow &lt;= 9) {
+min = "0" + mnNow;
+}
+else (min = mnNow)
+if (scNow &lt;= 9) {
+secs = "0" + scNow;
+} else {
+secs = scNow;
+}
+time = hour + ":" + min + ":" + secs + ap;
+document.form.button.value = time;
+self.status = time;
+setTimeout('clock()', 1000);
+}
+function timeInfo() {
+milliSince = miNow;
+milliNow = miNow - miVisit;
+secsVisit = Math.round(milliNow / 1000);
+minsVisit = Math.round((milliNow / 1000) / 60);
+alert("There have been " + milliSince + " milliseconds since midnight, January 1, 1970.  "
++ "You have spent " + milliNow + " of those milliseconds on this page.  "
++ ".... About " + minsVisit + " minutes, and "
++ secsVisit + " seconds.");
+}
+document.write("&lt;form name=\"form\"&gt;"
++ "&lt;input type=button value=\"Click for info!\""
++ " name=button onClick=\"timeInfo()\"&gt;&lt;/form&gt;");
+onError = null;
+clock();
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+ 
+
+&lt;!-- Script Size:  1.72 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

@@ -1,0 +1,343 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Page Details:  Menu Branding</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Randy Bennett (rbennett@thezone.net)">
+<META NAME="section" CONTENT="Page Details">
+<META NAME="description" CONTENT="Keeps logo (or text) in the bottom right corner of the browser window as they scroll the page up and down.  The logo glides very smoothly when the page is scrolled and looks great.  When their cursor is on the logo, a menu appears in its place offering links to different sections of the site.  The menu returns to the logo a few seconds after the move the cursor off the menu.  Neat!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Randy Bennett (rbennett@thezone.net) -->
+<!-- Web Site:  http://home.thezone.net/~rbennett/sitemap.htm -->
+
+
+
+
+<!-- Begin
+function setVariables() {
+if (navigator.appName == "Netscape") {
+v = ".top=";
+h = ".left=";
+dS = "document.";
+sD = "";
+y = "window.pageYOffset";
+x = "window.pageXOffset";
+iW = "window.innerWidth";
+iH = "window.innerHeight";
+}
+
+else {
+h = ".pixelLeft=";
+v = ".pixelTop=";
+dS = "";
+sD = ".style";
+y = "document.body.scrollTop";
+x = "document.body.scrollLeft";
+iW = "document.body.clientWidth";
+iH = "document.body.clientHeight";
+}
+xyz = 500;
+innerX = eval(iW) - 115;
+innerY = eval(iH) - 110;
+object = "logo";
+checkLocationA();
+}
+movex = 0;
+movey = 0;
+xdiff = 0;
+ydiff = 0;
+ystart = 0;
+xstart = 0;
+
+function checkLocation() {
+yy = eval(y);
+xx = eval(x);
+ydiff = ystart - yy;
+xdiff = xstart - xx;
+if ((ydiff < (-1)) || (ydiff > (1))) movey = Math.round(ydiff / 10), ystart -= movey;
+if ((xdiff < (-1)) || (xdiff > (1))) movex = Math.round(xdiff / 10), xstart -= movex;
+eval(dS + object + sD + v + (ystart + innerY));
+eval(dS + object + sD + h + (xstart + innerX));
+setTimeout("checkLocation()", 10);
+}
+
+function checkLocationA() {
+ystart = eval(y);
+xstart=eval(x);
+}
+
+function switchLogo(abc) {
+if (abc == "menu") {
+eval(dS + object + sD + v + 0);
+eval(dS + object + sD + h + (-200));
+object = abc;
+}
+else xyz = setTimeout("delayLogo()", 2000)
+}
+
+function delayLogo() {
+eval(dS + object + sD + v + 0);
+eval(dS + object + sD + h + (-200));
+object = 'logo';
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff OnLoad="setVariables();checkLocation()">
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /page-details/"><font color="#FF0000"><b>Page Details</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Menu Branding</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Keeps logo (or text) in the bottom right corner of the browser window as they scroll the page up and down.  The logo glides very smoothly when the page is scrolled and looks great.  When their cursor is on the logo, a menu appears in its place offering links to different sections of the site.  The menu returns to the logo a few seconds after the move the cursor off the menu.  Neat!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<div id="logo" style="position:absolute; visibility:show; left:0px; top:-200px; z-index:2">
+
+<table border=0 cellspacing=10 cellpadding=0 width=100>
+<tr>
+<td>
+<center><br><br><br>
+<A href="javascript:void(0)"; onmouseover="switchLogo('menu')">
+
+Logo
+
+</A>
+</center>
+</td>
+</tr>
+</table>
+
+
+</div>
+
+
+<div id="menu" style="position:absolute; visibility:show; left:0px; top:-200px; z-index:2">
+
+<table border=0 cellspacing=10 cellpadding=0 width=100>
+<tr>
+<td>
+<center>
+<a href="javascript:alert('This would be a link to page one.')"; onmouseover="clearTimeout(xyz)"; onmouseout="switchLogo('logo')">Page One</a>
+</center>
+</td>
+</tr>
+<tr>
+<td>
+<center>
+<a href="javascript:alert('This would be a link to page two.')"; onmouseover="clearTimeout(xyz)"; onmouseout="switchLogo('logo')">Page Two</a>
+</center>
+</td>
+</tr>
+<tr>
+<td>
+<center>
+<a href="javascript:alert('This would be a link to page three.')"; onmouseover="clearTimeout(xyz)"; onmouseout="switchLogo('logo')">Page Three</a>
+</center>
+</td>
+</tr>
+</table>
+
+</div>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Page Details:  Menu Branding</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  3.24 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL MENU BRANDING:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the onLoad event handler into the BODY tag
+  3.  Put the last coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Randy Bennett (rbennett@thezone.net) --&gt;
+&lt;!-- Web Site:  http://home.thezone.net/~rbennett/sitemap.htm --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function setVariables() {
+if (navigator.appName == "Netscape") {
+v = ".top=";
+h = ".left=";
+dS = "document.";
+sD = "";
+y = "window.pageYOffset";
+x = "window.pageXOffset";
+iW = "window.innerWidth";
+iH = "window.innerHeight";
+}
+
+else {
+h = ".pixelLeft=";
+v = ".pixelTop=";
+dS = "";
+sD = ".style";
+y = "document.body.scrollTop";
+x = "document.body.scrollLeft";
+iW = "document.body.clientWidth";
+iH = "document.body.clientHeight";
+}
+xyz = 500;
+innerX = eval(iW) - 115;
+innerY = eval(iH) - 110;
+object = "logo";
+checkLocationA();
+}
+movex = 0;
+movey = 0;
+xdiff = 0;
+ydiff = 0;
+ystart = 0;
+xstart = 0;
+
+function checkLocation() {
+yy = eval(y);
+xx = eval(x);
+ydiff = ystart - yy;
+xdiff = xstart - xx;
+if ((ydiff &lt; (-1)) || (ydiff &gt; (1))) movey = Math.round(ydiff / 10), ystart -= movey;
+if ((xdiff &lt; (-1)) || (xdiff &gt; (1))) movex = Math.round(xdiff / 10), xstart -= movex;
+eval(dS + object + sD + v + (ystart + innerY));
+eval(dS + object + sD + h + (xstart + innerX));
+setTimeout("checkLocation()", 10);
+}
+
+function checkLocationA() {
+ystart = eval(y);
+xstart=eval(x);
+}
+
+function switchLogo(abc) {
+if (abc == "menu") {
+eval(dS + object + sD + v + 0);
+eval(dS + object + sD + h + (-200));
+object = abc;
+}
+else xyz = setTimeout("delayLogo()", 2000)
+}
+
+function delayLogo() {
+eval(dS + object + sD + v + 0);
+eval(dS + object + sD + h + (-200));
+object = 'logo';
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Insert the onLoad event handler into your BODY tag  --&gt;
+
+&lt;BODY OnLoad="setVariables();checkLocation()"&gt;
+
+&lt;!-- STEP THREE: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;div id="logo" style="position:absolute; visibility:show; left:0px; top:-200px; z-index:2"&gt;
+
+&lt;table border=0 cellspacing=10 cellpadding=0 width=100&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;center&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;A href="javascript:void(0)"; onmouseover="switchLogo('menu')"&gt;
+
+Logo
+
+&lt;/A&gt;
+&lt;/center&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+
+
+&lt;/div&gt;
+
+
+&lt;div id="menu" style="position:absolute; visibility:show; left:0px; top:-200px; z-index:2"&gt;
+
+&lt;table border=0 cellspacing=10 cellpadding=0 width=100&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;center&gt;
+&lt;a href="http://www.your-web-site-address-here.com/page-one.html"; onmouseover="clearTimeout(xyz)"; onmouseout="switchLogo('logo')"&gt;Page One&lt;/a&gt;
+&lt;/center&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;center&gt;
+&lt;a href="http://www.your-web-site-address-here.com/page-two.html"; onmouseover="clearTimeout(xyz)"; onmouseout="switchLogo('logo')"&gt;Page Two&lt;/a&gt;
+&lt;/center&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;center&gt;
+&lt;a href="http://www.your-web-site-address-here.com/page-three.html"; onmouseover="clearTimeout(xyz)"; onmouseout="switchLogo('logo')"&gt;Page Three&lt;/a&gt;
+&lt;/center&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;/div&gt;
+
+ 
+
+&lt;!-- Script Size:  3.24 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

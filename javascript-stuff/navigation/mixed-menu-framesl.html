@@ -1,0 +1,43 @@
+<HTML>
+<HEAD>
+
+<SCRIPT LANGUAGE="JavaScript">
+
+
+
+
+<!-- Begin
+function leapto(form) {
+var uid = new Date().getTime(); // unique ID to name popup
+var myindex=form.dest.selectedIndex; // number of selection
+str = new String(form.dest.options[myindex].value); // value of selection
+strarray = str.split(/\,/); // splits value on a comma
+
+if (strarray[0] == "frame") // loads in frames
+parent.right.location.href = strarray[1];
+else // load in popup window
+window.open(strarray[1], uid, "toolbars=0,scrollbars=0,location=0,statusbars=0,menubars=0"); 
+myindex = 0; // reset pulldown menu
+}
+// End -->
+</SCRIPT>
+</HEAD>
+
+<BODY>
+
+<CENTER>
+<FORM NAME="myform">
+<SELECT NAME="dest" SIZE=1>
+<OPTION VALUE="popup,http://javascriptsource.com" SELECTED>Home Page (in popup)
+<OPTION VALUE="frame,http://buttons.javascriptsource.com">Buttons (in frame)
+<OPTION VALUE="frame,http://games.javascriptsource.com">Games (in frame)
+<OPTION VALUE="popup,http://messages.javascriptsource.com">Messages (in popup)
+<OPTION VALUE="frame,http://navigation.javascriptsource.com">Navigation (in frame)
+<OPTION VALUE="popup,http://user-details.javascriptsource.com">User Details (in popup)
+</SELECT>
+<INPUT TYPE="BUTTON" VALUE="Go" onClick="leapto(this.form)">
+</FORM>
+</CENTER>
+
+</BODY>
+</HTML>

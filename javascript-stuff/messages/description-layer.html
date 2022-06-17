@@ -1,0 +1,261 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Messages:  Description Layer</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Randy Bennett (rbennett@thezone.net)">
+<META NAME="section" CONTENT="Messages">
+<META NAME="description" CONTENT="(4.0+ browsers)  Offer your visitors a quick description or more information about a link before they visit it.  When they put their cursor over a link a layer will appear describing the link.  Your visitors will appreciate the extra effort, and it looks great too!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Randy Bennett (rbennett@thezone.net) -->
+<!-- Web Site:  http://home.thezone.net/~rbennett/utility/javahead.htm -->
+
+
+
+
+<!-- Begin
+function setupDescriptions() {
+var x = navigator.appVersion;
+y = x.substring(0,4);
+if (y>=4) setVariables();
+}
+var x,y,a,b;
+function setVariables(){
+if (navigator.appName == "Netscape") {
+h=".left=";
+v=".top=";
+dS="document.";
+sD="";
+}
+else 
+{
+h=".pixelLeft=";
+v=".pixelTop=";
+dS="";
+sD=".style";
+   }
+}
+var isNav = (navigator.appName.indexOf("Netscape") !=-1);
+function popLayer(a){
+desc = "<table cellpadding=3 border=1 bgcolor=F7F7F7><td>";
+
+if (a==1) desc += "Go to Yahoo";
+if (a==2) desc += "Go to Lycos";
+if (a==3) desc += "Go to Excite";
+if (a==4) desc += "Go to Altavista";
+if (a==5) desc += "Go to Hotbot";
+
+desc += "</td></table>";
+
+if(isNav) {
+document.object1.document.write(desc);
+document.object1.document.close();
+document.object1.left=x+25;
+document.object1.top=y;
+}
+else {
+object1.innerHTML=desc;
+eval(dS+"object1"+sD+h+(x+25));
+eval(dS+"object1"+sD+v+y);
+   }
+}
+function hideLayer(a){
+if(isNav) {
+eval(document.object1.top=a);
+}
+else object1.innerHTML="";
+}
+function handlerMM(e){
+x = (isNav) ? e.pageX : event.clientX;
+y = (isNav) ? e.pageY : event.clientY;
+}
+if (isNav){
+document.captureEvents(Event.MOUSEMOVE);
+}
+document.onmousemove = handlerMM;
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff OnLoad="setupDescriptions()">
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /messages/"><font color="#FF0000"><b>Messages</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Description Layer</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+(4.0+ browsers)  Offer your visitors a quick description or more information about a link before they visit it.  When they put their cursor over a link a layer will appear describing the link.  Your visitors will appreciate the extra effort, and it looks great too!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<div id="object1" style="position:absolute; visibility:show; left:25px; top:-50px; z-index:2">layer hidden off the screen</div>
+
+
+<a href="http://www.yahoo.com/" onMouseOver="popLayer(1)" onMouseOut="hideLayer(-50)">Yahoo</a>
+<p>
+<a href="http://www.lycos.com" onMouseOver="popLayer(2)" onMouseOut="hideLayer(-50)">Lycos</a>
+<p>
+<a href="http://www.excite.com" onMouseOver="popLayer(3)" onMouseOut="hideLayer(-50)">Excite</a>
+<p>
+<a href="http://www.altavista.com" onMouseOver="popLayer(4)" onMouseOut="hideLayer(-50)">Altavista</a>
+<p>
+<a href="http://www.hotbot.com" onMouseOver="popLayer(5)" onMouseOut="hideLayer(-50)">Hotbot</a>
+<p>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Messages:  Description Layer</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.93 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL DESCRIPTION LAYER:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the onLoad event handler into the BODY tag
+  3.  Put the last coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Randy Bennett (rbennett@thezone.net) --&gt;
+&lt;!-- Web Site:  http://home.thezone.net/~rbennett/utility/javahead.htm --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function setupDescriptions() {
+var x = navigator.appVersion;
+y = x.substring(0,4);
+if (y&gt;=4) setVariables();
+}
+var x,y,a,b;
+function setVariables(){
+if (navigator.appName == "Netscape") {
+h=".left=";
+v=".top=";
+dS="document.";
+sD="";
+}
+else 
+{
+h=".pixelLeft=";
+v=".pixelTop=";
+dS="";
+sD=".style";
+   }
+}
+var isNav = (navigator.appName.indexOf("Netscape") !=-1);
+function popLayer(a){
+desc = "&lt;table cellpadding=3 border=1 bgcolor=F7F7F7&gt;&lt;td&gt;";
+
+if (a==1) desc += "JavaScript Source Code 3000 Home Page!";
+if (a==2) desc += "Updates on all the latest scripts added to the site!";
+if (a==3) desc += "Browser our Table of Contents page!";
+if (a==4) desc += "Get JavaScript assistance in our JS forum!";
+if (a==5) desc += "Get the answers to our commonly asked JS questions!";
+
+desc += "&lt;/td&gt;&lt;/table&gt;";
+
+if(isNav) {
+document.object1.document.write(desc);
+document.object1.document.close();
+document.object1.left=x+25;
+document.object1.top=y;
+}
+else {
+object1.innerHTML=desc;
+eval(dS+"object1"+sD+h+(x+25));
+eval(dS+"object1"+sD+v+y);
+   }
+}
+function hideLayer(a){
+if(isNav) {
+eval(document.object1.top=a);
+}
+else object1.innerHTML="";
+}
+function handlerMM(e){
+x = (isNav) ? e.pageX : event.clientX;
+y = (isNav) ? e.pageY : event.clientY;
+}
+if (isNav){
+document.captureEvents(Event.MOUSEMOVE);
+}
+document.onmousemove = handlerMM;
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Insert the onLoad event handler into your BODY tag  --&gt;
+
+&lt;BODY OnLoad="setupDescriptions()"&gt;
+
+&lt;!-- STEP THREE: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;div id="object1" style="position:absolute; visibility:show; left:25px; top:-50px; z-index:2"&gt;layer hidden off the screen&lt;/div&gt;
+
+
+&lt;a href="http://javascriptsource.com" onMouseOver="popLayer(1)" onMouseOut="hideLayer(-50)"&gt;Home Page&lt;/a&gt;
+&lt;p&gt;
+&lt;a href="http://javascriptsource.com/new.html" onMouseOver="popLayer(2)" onMouseOut="hideLayer(-50)"&gt;What's New?&lt;/a&gt;
+&lt;p&gt;
+&lt;a href="http://javascriptsource.com/toc.html" onMouseOver="popLayer(3)" onMouseOut="hideLayer(-50)"&gt;Site Contents&lt;/a&gt;
+&lt;p&gt;
+&lt;a href="http://javascriptsource.com/forum/" onMouseOver="popLayer(4)" onMouseOut="hideLayer(-50)"&gt;JavaScript Forum&lt;/a&gt;
+&lt;p&gt;
+&lt;a href="http://javascriptsource.com/faq/" onMouseOver="popLayer(5)" onMouseOut="hideLayer(-50)"&gt;JavaScript FAQs&lt;/a&gt;
+&lt;p&gt;
+
+ 
+
+&lt;!-- Script Size:  2.93 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

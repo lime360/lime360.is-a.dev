@@ -1,0 +1,247 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Games:  Mouse Bomb</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Diana Ugo (ugo76@libero.it)">
+<META NAME="section" CONTENT="Games">
+<META NAME="description" CONTENT="A bomb follows your mouse cursor around the screen and explodes when it reaches your cursor.  Cool.">
+
+<script language="JavaScript">
+<!-- Original:  Diana Ugo (ugo76@libero.it) -->
+<!-- Web Site:  http://utenti.tripod.it/falcons -->
+
+
+
+
+<!-- Begin
+picFollow = new Image();
+picFollow.src = "../img/mouse-bomb/bomb.gif";
+picExplosion = new Image();
+picExplosion.src = "../img/mouse-bomb/explode.gif";
+
+document.onmousemove = getMousePosition;
+document.onmouseout = pauseBomb;
+
+document.write("<div id=\"diva\" style=\"position:absolute\">");
+document.write("<img name=\"pic\"src=" + picFollow.src + "></div>");
+var picX = 20;
+var picY = 100;
+var step = 10;
+var speed = 100;
+var tolerance = step/2 +1;
+var mouseX = 0;
+var mouseY = 0;
+var mouseOut = true;
+var followMouse = false;
+myInterval = setInterval('moveBomb()', speed);
+function pauseBomb() {
+mouseOut = true;
+}
+function getMousePosition(e) {
+mouseX = window.event.x + document.body.scrollLeft;
+mouseY = window.event.y + document.body.scrollTop;
+mouseOut = false;
+if (followMouse) {
+diva.style.left = mouseX - pic.width / 2;
+diva.style.top = mouseY - pic.height / 2;
+   }
+}
+function calcNewPos() {
+if (mouseX == picX)
+return;
+arg = (mouseY-picY) / (mouseX-picX);
+mult = 1;
+if (mouseX - picX < 0)
+mult = -1;
+alpha = Math.atan(arg);
+dx = mult * step * Math.cos(alpha);
+dy = mult * step * Math.sin(alpha);
+picX += dx;
+picY += dy;
+}
+function collision() {
+if ((Math.abs(picX-mouseX) < tolerance) && (Math.abs(picY-mouseY) < tolerance) && (!mouseOut))
+return true;
+return false;
+}
+function hideAnimation() {
+diva.style.visibility = "hidden";
+}
+function moveBomb() {
+calcNewPos();
+window.status = "("+mouseX+","+mouseY+")";
+diva.style.left = picX - pic.width / 2;
+diva.style.top = picY - pic.height / 2;
+if (collision()) {
+clearInterval(myInterval);
+pic.src = picExplosion.src;
+followMouse = true;
+setTimeout('hideAnimation()', 2000);
+   }
+}
+// End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /games/"><font color="#FF0000"><b>Games</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Mouse Bomb</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+A bomb follows your mouse cursor around the screen and explodes when it reaches your cursor.  Cool.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<br><br>
+You must also upload all these<br>
+necessary images to your website.<br>
+Download this .zip file and upload<br>
+the images to your web server.<br><br>
+<a href="../img/mouse-bomb/mouse-bomb.zip" /img/mouse-bomb/mouse-bomb.zip">Dowload mouse-bomb.zip</a><br><br>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Games:  Mouse Bomb</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.26 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL MOUSE BOMB:
+
+  1.  Copy the coding into a new file, save as bomb.js
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into a new file, save as bomb.js --&gt;
+
+
+&lt;!-- Original:  Diana Ugo (ugo76@libero.it) --&gt;
+&lt;!-- Web Site:  http://utenti.tripod.it/falcons --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+picFollow = new Image();
+picFollow.src = "bomb.gif";
+picExplosion = new Image();
+picExplosion.src = "explode.gif";
+document.onmousemove = getMousePosition;
+document.onmouseout = pauseBomb;
+document.write("&lt;div id=\"diva\" style=\"position:absolute\"&gt;");
+document.write("&lt;img name=\"pic\"src=" + picFollow.src + "&gt;&lt;/div&gt;");
+var picX = 20;
+var picY = 100;
+var step = 10;
+var speed = 100;
+var tolerance = step/2 +1;
+var mouseX = 0;
+var mouseY = 0;
+var mouseOut = true;
+var followMouse = false;
+myInterval = setInterval('moveBomb()', speed);
+function pauseBomb() {
+mouseOut = true;
+}
+function getMousePosition(e) {
+mouseX = window.event.x + document.body.scrollLeft;
+mouseY = window.event.y + document.body.scrollTop;
+mouseOut = false;
+if (followMouse) {
+diva.style.left = mouseX - pic.width / 2;
+diva.style.top = mouseY - pic.height / 2;
+   }
+}
+function calcNewPos() {
+if (mouseX == picX)
+return;
+arg = (mouseY-picY) / (mouseX-picX);
+mult = 1;
+if (mouseX - picX &lt; 0)
+mult = -1;
+alpha = Math.atan(arg);
+dx = mult * step * Math.cos(alpha);
+dy = mult * step * Math.sin(alpha);
+picX += dx;
+picY += dy;
+}
+function collision() {
+if ((Math.abs(picX-mouseX) &lt; tolerance) && (Math.abs(picY-mouseY) &lt; tolerance) && (!mouseOut))
+return true;
+return false;
+}
+function hideAnimation() {
+diva.style.visibility = "hidden";
+}
+function moveBomb() {
+calcNewPos();
+window.status = "("+mouseX+","+mouseY+")";
+diva.style.left = picX - pic.width / 2;
+diva.style.top = picY - pic.height / 2;
+if (collision()) {
+clearInterval(myInterval);
+pic.src = picExplosion.src;
+followMouse = true;
+setTimeout('hideAnimation()', 2000);
+   }
+}
+
+
+
+&lt;!-- STEP TWO: Just add the script tag to include the bomb script  --&gt;
+
+&lt;BODY&gt;
+
+&lt;script src="bomb.js"&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;center&gt;
+&lt;font face="arial, helvetica" SIZE="-2"&gt;Free JavaScripts provided&lt;br&gt;
+by &lt;a href="http://javascriptsource.com"&gt;JavaScript Source Code 3000&lt;/a&gt;&lt;/font&gt;
+&lt;/center&gt;&lt;p&gt;
+
+&lt;!-- Script Size:  2.26 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

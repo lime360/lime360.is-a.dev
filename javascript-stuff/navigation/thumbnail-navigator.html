@@ -1,0 +1,276 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Navigation:  Thumbnail Navigator</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Daniel Smith (xalres@earthlink.net)">
+<META NAME="section" CONTENT="Navigation">
+<META NAME="description" CONTENT="Allows the visitor to easily browse with Previous and Next through several thumbnail images (all of which are preloaded so they show up instantly).  Then they can click the Go button to be taken to the selected thumbnail's full size image.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Daniel Smith (xalres@earthlink.net) -->
+<!-- Web Site:  http://home.earthlink.net/~xalres -->
+
+
+
+
+<!-- Begin
+prev1 = new Image (32,18);
+prev1.src = "../img/thumbnail-navigator/prev1.jpg";
+prev2 = new Image (32,18);
+prev2.src = "../img/thumbnail-navigator/prev2.jpg";
+
+next1 = new Image (32,18);
+next1.src = "../img/thumbnail-navigator/next1.jpg";
+next2 = new Image (32,18);
+next2.src = "../img/thumbnail-navigator/next2.jpg";
+
+go1 = new Image (48,24);
+go1.src = "../img/thumbnail-navigator/go1.jpg";
+go2 = new Image (48,24);
+go2.src = "../img/thumbnail-navigator/go2.jpg";
+
+maxPic = 5;
+
+p1 = new Image (144,96);
+p1.src = "../img/thumbnail-navigator/1-thumb.jpg";
+link1 = "../img/thumbnail-navigator/1-full.jpg";
+
+p2 = new Image (144,96);
+p2.src = "../img/thumbnail-navigator/2-thumb.jpg";
+link2 = "../img/thumbnail-navigator/2-full.jpg";
+
+p3 = new Image (144,96);
+p3.src = "../img/thumbnail-navigator/3-thumb.jpg";
+link3 = "../img/thumbnail-navigator/3-full.jpg";
+
+p4 = new Image (144,96);
+p4.src = "../img/thumbnail-navigator/4-thumb.jpg";
+link4 = "../img/thumbnail-navigator/4-full.jpg";
+
+p5 = new Image (144,96);
+p5.src = "../img/thumbnail-navigator/5-thumb.jpg";
+link5 = "../img/thumbnail-navigator/5-full.jpg";
+
+count = 1;
+function next() {
+count++;
+if (count > maxPic) {
+count = 1;
+}
+eval("document.p.src=p" + count + ".src");
+}
+function back() {
+count--;
+if (count == 0) {
+count = maxPic;
+}
+eval("document.p.src=p" + count + ".src");
+}
+function link() {
+location.href=eval("link" + count);
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /navigation/"><font color="#FF0000"><b>Navigation</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Thumbnail Navigator</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Allows the visitor to easily browse with Previous and Next through several thumbnail images (all of which are preloaded so they show up instantly).  Then they can click the Go button to be taken to the selected thumbnail's full size image.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<table bgcolor="#003366" border=0>
+<tr>
+<td align=center width=300>
+<font color=white face="Arial, Helvetica" size="+1">Thumbnail Navigator</font>
+<br><br>
+<img name=p src="../img/thumbnail-navigator/1-thumb.jpg" /img/thumbnail-navigator/1-thumb.jpg" border=0 width=144 height=96>
+<br>
+<table border=0>
+<tr>
+<td><a href="javascript:back()" onmouseover="prev.src=prev2.src" onmouseout="prev.src=prev1.src"><img src="../img/thumbnail-navigator/prev1.jpg" /img/thumbnail-navigator/prev1.jpg"  width="32" height="18" border="0" name="prev"></td>
+<td><a href="javascript:link()" onmouseover="go.src=go2.src" onmouseout="go.src=go1.src"><img src="../img/thumbnail-navigator/go1.jpg" /img/thumbnail-navigator/go1.jpg" width="48" height="24" border="0" name="go"></td>
+<td><a href="javascript:next()" onmouseover="next.src=next2.src" onmouseout="next.src=next1.src"><img src="../img/thumbnail-navigator/next1.jpg" /img/thumbnail-navigator/next1.jpg" width="32" height="18" border="0" name="next"></td>
+</tr>
+</table>
+<br>
+<font color="#A3ACC9" size="2" face="Arial">
+Browse to a picture you like and click "GO".</font>
+</td>
+</tr>
+</table>
+<p>
+<font face="Arial, Helvetica" size="-1">
+You will also need these images in<br>
+order to use this script.  Please<br>
+download the zip file link below<br>
+which includes all the images.<br><br>
+<a href="thumbnail-navigator-pics.zip" /navigation/thumbnail-navigator-pics.zip">thumbnail-navigator-pics.zip</a>
+</font>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Navigation:  Thumbnail Navigator</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.57 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL THUMBNAIL NAVIGATOR:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Daniel Smith (xalres@earthlink.net) --&gt;
+&lt;!-- Web Site:  http://home.earthlink.net/~xalres --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+prev1 = new Image (32,18);
+prev1.src = "prev1.jpg";
+prev2 = new Image (32,18);
+prev2.src = "prev2.jpg";
+
+next1 = new Image (32,18);
+next1.src = "next1.jpg";
+next2 = new Image (32,18);
+next2.src = "next2.jpg";
+
+go1 = new Image (48,24);
+go1.src = "go1.jpg";
+go2 = new Image (48,24);
+go2.src = "go2.jpg";
+
+maxPic = 5;
+
+p1 = new Image (144,96);
+p1.src = "1-thumb.jpg";
+link1 = "1-full.jpg";
+
+p2 = new Image (144,96);
+p2.src = "2-thumb.jpg";
+link2 = "2-full.jpg";
+
+p3 = new Image (144,96);
+p3.src = "3-thumb.jpg";
+link3 = "3-full.jpg";
+
+p4 = new Image (144,96);
+p4.src = "4-thumb.jpg";
+link4 = "4-full.jpg";
+
+p5 = new Image (144,96);
+p5.src = "5-thumb.jpg";
+link5 = "5-full.jpg";
+
+count = 1;
+function next() {
+count++;
+if (count &gt; maxPic) {
+count = 1;
+}
+eval("document.p.src=p" + count + ".src");
+}
+function back() {
+count--;
+if (count == 0) {
+count = maxPic;
+}
+eval("document.p.src=p" + count + ".src");
+}
+function link() {
+location.href=eval("link" + count);
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;table bgcolor="#003366" border=0&gt;
+&lt;tr&gt;
+&lt;td align=center width=300&gt;
+&lt;font color=white face="Arial, Helvetica" size="+1"&gt;Thumbnail Navigator&lt;/font&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img name=p src="1-thumb.jpg" border=0 width=144 height=96&gt;
+&lt;br&gt;
+&lt;table border=0&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="javascript:back()" onmouseover="prev.src=prev2.src" onmouseout="prev.src=prev1.src"&gt;&lt;img src="prev1.jpg"  width="32" height="18" border="0" name="prev"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="javascript:link()" onmouseover="go.src=go2.src" onmouseout="go.src=go1.src"&gt;&lt;img src="go1.jpg" width="48" height="24" border="0" name="go"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="javascript:next()" onmouseover="next.src=next2.src" onmouseout="next.src=next1.src"&gt;&lt;img src="next1.jpg" width="32" height="18" border="0" name="next"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;br&gt;
+&lt;font color="#A3ACC9" size="2" face="Arial"&gt;
+Browse to a picture you like and click "GO".&lt;/font&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  2.57 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

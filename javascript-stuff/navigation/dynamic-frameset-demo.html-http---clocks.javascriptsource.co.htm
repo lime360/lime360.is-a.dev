@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 2002:  Navigation:  Dynamic Frameset</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 2002" CONTENT = "no-cache">
+<META NAME="description" CONTENT="Rather than setup seperate framesets each time you want to start over and open one of your page inside your frames, use this dynamic frameset script.  You can load all your content pages as necessary through one page -- the magic begins when you use a search string (a '?' in the URL).  The page passed then is opened in your frames.  A default content page is used if no information is passed.  Cool!">
+
+<SCRIPT LANGUAGE="JavaScript">
+
+<!-- This script and many more are available free online at -->
+<!-- JavaScript Source Code 2002!! http://javascript.internet.com -->
+
+<!-- Begin
+var table_of_contents = "http://javascript.internet.com/new/";
+
+var blank = " "; // blank page
+var content = (location.search) ? location.search.substring(1, location.search.length) : table_of_contents;
+
+// if query string ('?' after URL) set content variable to what follows the '?'
+// otherwise, start fresh by setting content variable to table_of_contents page
+
+function fillFrame() {
+parent.main.location.href = content;
+}
+//  End -->
+</script>
+</HEAD>
+
+<frameset rows="100,*" onLoad="fillFrame();">
+  <frame name="header" scrolling="no" noresize src="dynamic-frameset-banner.html" /navigation/dynamic-frameset-banner.html">
+  <frame name="main" src="javascript:parent.blank" scrolling="auto" noresize>
+</frameset>
+
+</html>

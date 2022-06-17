@@ -1,0 +1,162 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Messages:  Text Rotater</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="Automatically rotates a series of messages within a layer or div based on the user's browser.  WC3 DOM Compatible.   Easy!">
+<META NAME="date" CONTENT="2000-10-23">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Bob Simpson">
+<META NAME="section" CONTENT="Messages">
+
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /messages/"><font color="#FF0000"><b>Messages</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Text Rotater</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Automatically rotates a series of messages within a layer or div based on the user's browser.  WC3 DOM Compatible.   Easy!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<SCRIPT LANGUAGE="JavaScript">
+
+
+
+<!-- Original:  Bob Simpson (webmaster@maryjanebrown.net) -->
+<!-- Web Site:  http://www.maryjanebrown.net/webmaster -->
+
+<!-- Begin
+var beforeMsg = "<center><font color=blue size=+2><b>";
+var afterMsg = "</b></font></center>";
+var msgRotateSpeed = 2000; // Rotate delay in milliseconds
+var textStr = new Array();
+textStr[0] = "Check out this script!";
+textStr[1] = "Why not add it to your page?";
+textStr[2] = "W3C-DOM compatible (NS6)";
+textStr[3] = "You are using "+navigator.userAgent;
+if (document.layers) {
+document.write('<ilayer id="NS4message" height=25 width=100%><layer id="NS4message2" height=25 width=100%></layer></ilayer>')
+temp = 'document.NS4message.document.NS4message2.document.write(beforeMsg + textStr[i++] + afterMsg);'+
+'document.NS4message.document.NS4message2.document.close()';
+}
+else if (document.getElementById) {
+document.write(beforeMsg + '<div id="message" style="position:relative;">IE division</div>' + afterMsg);
+temp = 'document.getElementById("message").firstChild.nodeValue = textStr[i++];';
+}
+else if (document.all) {
+document.write(beforeMsg + '<div id="message" style="position:relative;">IE division</div>' + afterMsg);
+temp = 'message.innerHTML = textStr[i++];';
+}
+var i = 0;
+function msgRotate() {
+eval(temp);
+if (i == textStr.length) i = 0;
+setTimeout("msgRotate()", msgRotateSpeed);
+}
+window.onload = msgRotate;
+//  End -->
+</script>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Messages:  Text Rotater</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.76 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- ONE STEP TO INSTALL TEXT ROTATER:
+
+  1.  Copy the coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+&lt;!-- Original:  Bob Simpson (webmaster@maryjanebrown.net) --&gt;
+&lt;!-- Web Site:  http://www.maryjanebrown.net/webmaster --&gt;
+
+&lt;!-- Begin
+var beforeMsg = "&lt;center&gt;&lt;font color=blue size=+2&gt;&lt;b&gt;";
+var afterMsg = "&lt;/b&gt;&lt;/font&gt;&lt;/center&gt;";
+var msgRotateSpeed = 2000; // Rotate delay in milliseconds
+var textStr = new Array();
+textStr[0] = "Check out this script!";
+textStr[1] = "Why not add it to your page?";
+textStr[2] = "W3C-DOM compatible (NS6)";
+textStr[3] = "You are using "+navigator.userAgent;
+if (document.layers) {
+document.write('&lt;ilayer id="NS4message" height=25 width=100%&gt;&lt;layer id="NS4message2" height=25 width=100%&gt;&lt;/layer&gt;&lt;/ilayer&gt;')
+temp = 'document.NS4message.document.NS4message2.document.write(beforeMsg + textStr[i++] + afterMsg);'+
+'document.NS4message.document.NS4message2.document.close()';
+}
+else if (document.getElementById) {
+document.write(beforeMsg + '&lt;div id="message" style="position:relative;"&gt;IE division&lt;/div&gt;' + afterMsg);
+temp = 'document.getElementById("message").firstChild.nodeValue = textStr[i++];';
+}
+else if (document.all) {
+document.write(beforeMsg + '&lt;div id="message" style="position:relative;"&gt;IE division&lt;/div&gt;' + afterMsg);
+temp = 'message.innerHTML = textStr[i++];';
+}
+var i = 0;
+function msgRotate() {
+eval(temp);
+if (i == textStr.length) i = 0;
+setTimeout("msgRotate()", msgRotateSpeed);
+}
+window.onload = msgRotate;
+//  End --&gt;
+&lt;/script&gt;
+ 
+
+&lt;!-- Script Size:  1.76 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

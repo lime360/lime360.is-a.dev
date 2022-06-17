@@ -1,0 +1,132 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Scrolls:  Flasher</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Scrolls">
+<META NAME="description" CONTENT="This script simply flashes (hence the name) a message on and off on your statusbar.  This script probably got your attention better than the Classic Scroll but, is not used as much.  The Flasher is just not as well known as the Classic Scroll.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+var message="JavaScript Source Code 3000 is your JavaScript solution!!      ";
+var speed=400;
+var visible=0;
+function Flash() {
+if (visible == 0) {
+window.status=message;
+visible=1;
+} else {
+window.status="";
+visible=0;
+}
+setTimeout('Flash()', speed);
+}
+// End -->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff onLoad="Flash()">
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /scrolls/"><font color="#FF0000">Scrolls</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Flasher</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE=" helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+This script simply flashes (hence the name) a message on and off on your statusbar.  This script probably got your attention better than the Classic Scroll but, is not used as much.  The Flasher is just not as well known as the Classic Scroll.<br><hr>
+</td></tr>
+</table>
+<!--  Demonstration  -->
+<BODY>
+<CENTER>
+<P>
+<BR>
+<P>
+<a name="source">
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Scrolls:  Flasher</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as NotePad or SimpleText) and save (Control-s or Apple-s).  The script is yours!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  0.83 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL FLASHER:
+
+   1.  Paste the coding into the HEAD of your HTML document
+   2.  Copy the onLoad event handler into the BODY tag  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var message="JavaScript Source Code 3000 is your JavaScript solution!!      ";
+var speed=400;
+var visible=0;
+function Flash() {
+if (visible == 0) {
+window.status=message;
+visible=1;
+} else {
+window.status="";
+visible=0;
+}
+setTimeout('Flash()', speed);
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+&lt;!-- STEP TWO: Add this onLoad event handler into the BODY tag  --&gt;
+
+&lt;BODY onLoad="Flash()"&gt;
+
+ 
+
+&lt;!-- Script Size:  0.83 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

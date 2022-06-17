@@ -1,0 +1,216 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Forms:  Form Totals</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="Presents an order form with checkboxes and upates the total price as the user checks and unchecks boxes.  The visitor also cannot change the total field.  Currently only supports selecting one of each item.">
+<META NAME="date" CONTENT="2000-10-10">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Paul Brino">
+<META NAME="section" CONTENT="Forms">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Paul DeBrino (irandd@aol.com) -->
+
+
+
+
+<!-- Begin
+function checkChoice(whichbox) {
+with (whichbox.form) {
+if (whichbox.checked == false)
+hiddentotal.value = eval(hiddentotal.value) - eval(whichbox.value);
+else
+hiddentotal.value = eval(hiddentotal.value) + eval(whichbox.value);
+return(formatCurrency(hiddentotal.value));
+   }
+}
+function formatCurrency(num) {
+<!-- Function courtesy of:  Cyanide_7 (leo7278@hotmail.com) -->
+<!-- Web Site:  http://www7.ewebcity.com/cyanide7 -->
+num = num.toString().replace(/\$|\,/g,'');
+if(isNaN(num)) num = "0";
+cents = Math.floor((num*100+0.5)%100);
+num = Math.floor((num*100+0.5)/100).toString();
+if(cents < 10) cents = "0" + cents;
+for (var i = 0; i < Math.floor((num.length-(1+i))/3); i++)
+num = num.substring(0,num.length-(4*i+3))+','+num.substring(num.length-(4*i+3));
+return ("$" + num + "." + cents);
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /forms/" ><font color="#FF0000"><b>Forms</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Form Totals</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Presents an order form with checkboxes and upates the total price as the user checks and unchecks boxes.  The visitor also cannot change the total field.  Currently only supports selecting one of each item.  More JavaScript forms available at <a href="javascript:if(confirm('http://members.aol.com/irandd/  \n\nYou must be connected to the Internet to access this link.  \n\nDo you want to open it from the server?'))window.location='http://members.aol.com/irandd/'" tppabs="http://members.aol.com/irandd/">http://members.aol.com/irandd/</a>.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<table>
+<tr>
+<td>
+<form name=myform>
+<pre>
+<b>Example 1</b>
+Steak    $15.25     <input type=checkbox name=Steak value="15.25" onClick="this.form.total.value=checkChoice(this);">
+Chicken  $12.39     <input type=checkbox name=Chicken value="12.39" onClick="this.form.total.value=checkChoice(this);">
+Sushi    $18.75     <input type=checkbox name=Sushi value="18.75" onClick="this.form.total.value=checkChoice(this);">
+<br>
+Your total is:  <input type="text" name="total" value="" size=6 readonly><input type=hidden name=hiddentotal value=0>
+</pre>
+</form>
+
+<hr width="100%" noshsde>
+<form name=myform2>
+<pre>
+<b>Example 2</b>
+Tea      $  .50     <input type=checkbox name=Tea value=".50" onClick="this.form.total.value=checkChoice(this);">
+Cola     $  .79     <input type=checkbox name=Cola value=".79" onClick="this.form.total.value=checkChoice(this);">
+Coffee   $ 1.75     <input type=checkbox name=Coffee value="1.75" onClick="this.form.total.value=checkChoice(this);">
+<br>
+Your total is:  <input type="text" name="total" value="" size=6 readonly><input type=hidden name=hiddentotal value=0>
+</pre>
+</form>
+
+</td>
+</tr>
+</table>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Forms:  Form Totals</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.56 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL FORM TOTALS:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Paul Brino (irandd@aol.com) --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function checkChoice(whichbox) {
+with (whichbox.form) {
+if (whichbox.checked == false)
+hiddentotal.value = eval(hiddentotal.value) - eval(whichbox.value);
+else
+hiddentotal.value = eval(hiddentotal.value) + eval(whichbox.value);
+return(formatCurrency(hiddentotal.value));
+   }
+}
+function formatCurrency(num) {
+&lt;!-- Function courtesy of:  Cyanide_7 (leo7278@hotmail.com) --&gt;
+&lt;!-- Web Site:  http://www7.ewebcity.com/cyanide7 --&gt;
+num = num.toString().replace(/\$|\,/g,'');
+if(isNaN(num)) num = "0";
+cents = Math.floor((num*100+0.5)%100);
+num = Math.floor((num*100+0.5)/100).toString();
+if(cents &lt; 10) cents = "0" + cents;
+for (var i = 0; i &lt; Math.floor((num.length-(1+i))/3); i++)
+num = num.substring(0,num.length-(4*i+3))+','+num.substring(num.length-(4*i+3));
+return ("$" + num + "." + cents);
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;form name=myform&gt;
+&lt;pre&gt;
+&lt;b&gt;Example 1&lt;/b&gt;
+Steak    $15.25     &lt;input type=checkbox name=Steak value="15.25" onClick="this.form.total.value=checkChoice(this);"&gt;
+Chicken  $12.39     &lt;input type=checkbox name=Chicken value="12.39" onClick="this.form.total.value=checkChoice(this);"&gt;
+Sushi    $18.75     &lt;input type=checkbox name=Sushi value="18.75" onClick="this.form.total.value=checkChoice(this);"&gt;
+&lt;br&gt;
+Your total is:  &lt;input type="text" name="total" value="" size=6 readonly&gt;&lt;input type=hidden name=hiddentotal value=0&gt;
+&lt;/pre&gt;
+&lt;/form&gt;
+
+&lt;hr width="100%" noshsde&gt;
+&lt;form name=myform2&gt;
+&lt;pre&gt;
+&lt;b&gt;Example 2&lt;/b&gt;
+Tea      $  .50     &lt;input type=checkbox name=Tea value=".50" onClick="this.form.total.value=checkChoice(this);"&gt;
+Cola     $  .79     &lt;input type=checkbox name=Cola value=".79" onClick="this.form.total.value=checkChoice(this);"&gt;
+Coffee   $ 1.75     &lt;input type=checkbox name=Coffee value="1.75" onClick="this.form.total.value=checkChoice(this);"&gt;
+&lt;br&gt;
+Your total is:  &lt;input type="text" name="total" value="" size=6 readonly&gt;&lt;input type=hidden name=hiddentotal value=0&gt;
+&lt;/pre&gt;
+&lt;/form&gt;
+
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  2.56 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

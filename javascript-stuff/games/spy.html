@@ -1,0 +1,417 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Games:  Find The Spy</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Aaron Mavrinac  ghent-slicer@geocities.com">
+<META NAME="section" CONTENT="Games">
+<META NAME="description" CONTENT="A spy is hidden in this field.  Start choosing locations and see if you can find the spy!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+xloc = new Array(10);
+yloc = new Array(10);
+xloc[0] = "xa"
+xloc[1] = "xb"
+xloc[2] = "xc"
+xloc[3] = "xd"
+xloc[4] = "xe"
+xloc[5] = "xf"
+xloc[6] = "xg"
+xloc[7] = "xh"
+xloc[8] = "xi"
+xloc[9] = "xj"
+yloc[0] = "ya"
+yloc[1] = "yb"
+yloc[2] = "yc"
+yloc[3] = "yd"
+yloc[4] = "ye"
+yloc[5] = "yf"
+yloc[6] = "yg"
+yloc[7] = "yh"
+yloc[8] = "yi"
+yloc[9] = "yj"
+today=new Date();
+jran=today.getTime();
+var number=10;
+var guesses=1;
+var random_numx=0;
+ia=9301;
+ic=49297;
+im=233280;
+jran = (jran*ia+ic) % im;
+random_numx=Math.ceil( (jran/(im*1.0)) *number);
+today=new Date();
+jran=today.getTime();
+var number=10;
+var random_numy=0;
+ia=9301;
+ic=49297;
+im=233280;
+jran = (jran*ia+ic) % im;
+random_numy=Math.ceil( (jran/(im*1.0)) *number);
+spyloc = xloc[random_numx-1] + yloc[random_numy-1]
+function search(loc) {
+if (loc==spyloc) {
+alert("\n\nCongrats!  Bravo!  Good job!");
+alert("\n\nYou found the spy in " + guesses + " guesses!");
+}
+else {
+guesses++;
+alert("Nothing here....")
+   }
+}
+// End -->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /games/"><font color="#FF0000">Games</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Find The Spy</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+A spy is hidden in this field.  Start choosing locations and see if you can find the spy!
+<br><hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<BODY>
+<CENTER>
+<FORM method="POST" name="searchb">
+<input type=checkbox onClick="javascript:search('xaya');">
+<input type=checkbox onClick="javascript:search('xbya');">
+<input type=checkbox onClick="javascript:search('xcya');">
+<input type=checkbox onClick="javascript:search('xdya');">
+<input type=checkbox onClick="javascript:search('xeya');">
+<input type=checkbox onClick="javascript:search('xfya');">
+<input type=checkbox onClick="javascript:search('xgya');">
+<input type=checkbox onClick="javascript:search('xhya');">
+<input type=checkbox onClick="javascript:search('xiya');">
+<input type=checkbox onClick="javascript:search('xjya');"><br>
+<input type=checkbox onClick="javascript:search('xayb');">
+<input type=checkbox onClick="javascript:search('xbyb');">
+<input type=checkbox onClick="javascript:search('xcyb');">
+<input type=checkbox onClick="javascript:search('xdyb');">
+<input type=checkbox onClick="javascript:search('xeyb');">
+<input type=checkbox onClick="javascript:search('xfyb');">
+<input type=checkbox onClick="javascript:search('xgyb');">
+<input type=checkbox onClick="javascript:search('xhyb');">
+<input type=checkbox onClick="javascript:search('xiyb');">
+<input type=checkbox onClick="javascript:search('xjyb');"><br>
+<input type=checkbox onClick="javascript:search('xayc');">
+<input type=checkbox onClick="javascript:search('xbyc');">
+<input type=checkbox onClick="javascript:search('xcyc');">
+<input type=checkbox onClick="javascript:search('xdyc');">
+<input type=checkbox onClick="javascript:search('xeyc');">
+<input type=checkbox onClick="javascript:search('xfyc');">
+<input type=checkbox onClick="javascript:search('xgyc');">
+<input type=checkbox onClick="javascript:search('xhyc');">
+<input type=checkbox onClick="javascript:search('xiyc');">
+<input type=checkbox onClick="javascript:search('xjyc');"><br>
+<input type=checkbox onClick="javascript:search('xayd');">
+<input type=checkbox onClick="javascript:search('xbyd');">
+<input type=checkbox onClick="javascript:search('xcyd');">
+<input type=checkbox onClick="javascript:search('xdyd');">
+<input type=checkbox onClick="javascript:search('xeyd');">
+<input type=checkbox onClick="javascript:search('xfyd');">
+<input type=checkbox onClick="javascript:search('xgyd');">
+<input type=checkbox onClick="javascript:search('xhyd');">
+<input type=checkbox onClick="javascript:search('xiyd');">
+<input type=checkbox onClick="javascript:search('xjyd');"><br>
+<input type=checkbox onClick="javascript:search('xaye');">
+<input type=checkbox onClick="javascript:search('xbye');">
+<input type=checkbox onClick="javascript:search('xcye');">
+<input type=checkbox onClick="javascript:search('xdye');">
+<input type=checkbox onClick="javascript:search('xeye');">
+<input type=checkbox onClick="javascript:search('xfye');">
+<input type=checkbox onClick="javascript:search('xgye');">
+<input type=checkbox onClick="javascript:search('xhye');">
+<input type=checkbox onClick="javascript:search('xiye');">
+<input type=checkbox onClick="javascript:search('xjye');"><br>
+<input type=checkbox onClick="javascript:search('xayf');">
+<input type=checkbox onClick="javascript:search('xbyf');">
+<input type=checkbox onClick="javascript:search('xcyf');">
+<input type=checkbox onClick="javascript:search('xdyf');">
+<input type=checkbox onClick="javascript:search('xeyf');">
+<input type=checkbox onClick="javascript:search('xfyf');">
+<input type=checkbox onClick="javascript:search('xgyf');">
+<input type=checkbox onClick="javascript:search('xhyf');">
+<input type=checkbox onClick="javascript:search('xiyf');">
+<input type=checkbox onClick="javascript:search('xjyf');"><br>
+<input type=checkbox onClick="javascript:search('xayg');">
+<input type=checkbox onClick="javascript:search('xbyg');">
+<input type=checkbox onClick="javascript:search('xcyg');">
+<input type=checkbox onClick="javascript:search('xdyg');">
+<input type=checkbox onClick="javascript:search('xeyg');">
+<input type=checkbox onClick="javascript:search('xfyg');">
+<input type=checkbox onClick="javascript:search('xgyg');">
+<input type=checkbox onClick="javascript:search('xhyg');">
+<input type=checkbox onClick="javascript:search('xiyg');">
+<input type=checkbox onClick="javascript:search('xjyg');"><br>
+<input type=checkbox onClick="javascript:search('xayh');">
+<input type=checkbox onClick="javascript:search('xbyh');">
+<input type=checkbox onClick="javascript:search('xcyh');">
+<input type=checkbox onClick="javascript:search('xdyh');">
+<input type=checkbox onClick="javascript:search('xeyh');">
+<input type=checkbox onClick="javascript:search('xfyh');">
+<input type=checkbox onClick="javascript:search('xgyh');">
+<input type=checkbox onClick="javascript:search('xhyh');">
+<input type=checkbox onClick="javascript:search('xiyh');">
+<input type=checkbox onClick="javascript:search('xjyh');"><br>
+<input type=checkbox onClick="javascript:search('xayi');">
+<input type=checkbox onClick="javascript:search('xbyi');">
+<input type=checkbox onClick="javascript:search('xcyi');">
+<input type=checkbox onClick="javascript:search('xdyi');">
+<input type=checkbox onClick="javascript:search('xeyi');">
+<input type=checkbox onClick="javascript:search('xfyi');">
+<input type=checkbox onClick="javascript:search('xgyi');">
+<input type=checkbox onClick="javascript:search('xhyi');">
+<input type=checkbox onClick="javascript:search('xiyi');">
+<input type=checkbox onClick="javascript:search('xjyi');"><br>
+<input type=checkbox onClick="javascript:search('xayj');">
+<input type=checkbox onClick="javascript:search('xbyj');">
+<input type=checkbox onClick="javascript:search('xcyj');">
+<input type=checkbox onClick="javascript:search('xdyj');">
+<input type=checkbox onClick="javascript:search('xeyj');">
+<input type=checkbox onClick="javascript:search('xfyj');">
+<input type=checkbox onClick="javascript:search('xgyj');">
+<input type=checkbox onClick="javascript:search('xhyj');">
+<input type=checkbox onClick="javascript:search('xiyj');">
+<input type=checkbox onClick="javascript:search('xjyj');"><br>
+</FORM>
+</CENTER>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Games:  Find The Spy</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  5.81 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL FIND THE SPY:
+
+   1.  Paste the coding into the HEAD of your HTML document
+   2.  Put the last coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Aaron Mavrinac  ghent-slicer@geocities.com --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+xloc = new Array(10);
+yloc = new Array(10);
+xloc[0] = "xa"
+xloc[1] = "xb"
+xloc[2] = "xc"
+xloc[3] = "xd"
+xloc[4] = "xe"
+xloc[5] = "xf"
+xloc[6] = "xg"
+xloc[7] = "xh"
+xloc[8] = "xi"
+xloc[9] = "xj"
+yloc[0] = "ya"
+yloc[1] = "yb"
+yloc[2] = "yc"
+yloc[3] = "yd"
+yloc[4] = "ye"
+yloc[5] = "yf"
+yloc[6] = "yg"
+yloc[7] = "yh"
+yloc[8] = "yi"
+yloc[9] = "yj"
+today=new Date();
+jran=today.getTime();
+var number=10;
+var random_numx=0;
+ia=9301;
+ic=49297;
+im=233280;
+jran = (jran*ia+ic) % im;
+random_numx=Math.ceil( (jran/(im*1.0)) *number);
+today=new Date();
+jran=today.getTime();
+var number=10;
+var random_numy=0;
+ia=9301;
+ic=49297;
+im=233280;
+jran = (jran*ia+ic) % im;
+random_numy=Math.ceil( (jran/(im*1.0)) *number);
+spyloc = xloc[random_numx-1] + yloc[random_numy-1]
+function search(loc) {
+if (loc==spyloc) {
+alert("\n\nCongrats!  Bravo!  Good job!");
+alert("\n\nYou found the spy in " + guesses + " guesses!");
+}
+else {
+alert("Nothing here.")
+   }
+}
+// End --&gt;
+&lt;/script&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;CENTER&gt;
+&lt;FORM method="POST" name="searchb"&gt;
+&lt;input type=checkbox onClick="javascript:search('xaya');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xbya');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xcya');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xdya');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xeya');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xfya');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xgya');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xhya');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xiya');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xjya');"&gt;&lt;br&gt;
+&lt;input type=checkbox onClick="javascript:search('xayb');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xbyb');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xcyb');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xdyb');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xeyb');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xfyb');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xgyb');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xhyb');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xiyb');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xjyb');"&gt;&lt;br&gt;
+&lt;input type=checkbox onClick="javascript:search('xayc');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xbyc');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xcyc');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xdyc');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xeyc');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xfyc');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xgyc');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xhyc');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xiyc');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xjyc');"&gt;&lt;br&gt;
+&lt;input type=checkbox onClick="javascript:search('xayd');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xbyd');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xcyd');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xdyd');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xeyd');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xfyd');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xgyd');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xhyd');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xiyd');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xjyd');"&gt;&lt;br&gt;
+&lt;input type=checkbox onClick="javascript:search('xaye');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xbye');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xcye');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xdye');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xeye');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xfye');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xgye');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xhye');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xiye');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xjye');"&gt;&lt;br&gt;
+&lt;input type=checkbox onClick="javascript:search('xayf');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xbyf');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xcyf');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xdyf');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xeyf');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xfyf');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xgyf');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xhyf');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xiyf');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xjyf');"&gt;&lt;br&gt;
+&lt;input type=checkbox onClick="javascript:search('xayg');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xbyg');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xcyg');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xdyg');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xeyg');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xfyg');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xgyg');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xhyg');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xiyg');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xjyg');"&gt;&lt;br&gt;
+&lt;input type=checkbox onClick="javascript:search('xayh');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xbyh');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xcyh');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xdyh');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xeyh');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xfyh');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xgyh');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xhyh');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xiyh');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xjyh');"&gt;&lt;br&gt;
+&lt;input type=checkbox onClick="javascript:search('xayi');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xbyi');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xcyi');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xdyi');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xeyi');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xfyi');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xgyi');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xhyi');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xiyi');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xjyi');"&gt;&lt;br&gt;
+&lt;input type=checkbox onClick="javascript:search('xayj');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xbyj');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xcyj');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xdyj');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xeyj');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xfyj');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xgyj');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xhyj');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xiyj');"&gt;
+&lt;input type=checkbox onClick="javascript:search('xjyj');"&gt;&lt;br&gt;
+&lt;/FORM&gt;
+&lt;/CENTER&gt;
+
+ 
+
+&lt;!-- Script Size:  5.81 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

@@ -1,0 +1,223 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Games:  Dice Roller</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Michael Hensley (yelsneh@geocities.com)">
+<META NAME="section" CONTENT="Games">
+<META NAME="description" CONTENT="Next time you play a game involving dice, give our JavaScript Dice Roller a try!  Just tell it how many dice to use, how many sides are on each die, and it'll give you the total for the number of dice you "rolled"!  Slick!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Michael Hensley (yelsneh@geocities.com) -->
+<!-- Web Site:  http://geocities.com/TimesSquare/Castle/6274 -->
+
+<!-- Begin
+var die = 6;
+var dice = 3;
+function dice_roll(die, dice) {
+var roll = 0;
+for (loop=0; loop < dice; loop++) {
+// random number fix by George Johnston (cali_scripter@yahoo.com)
+roll = roll + Math.round(Math.random() * die) % die + 1;
+}
+document.form.text.value = roll;
+}
+// End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /games/"><font color="#FF0000">Games</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Dice Roller</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font face=" helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Next time you play a game involving dice, give our JavaScript Dice Roller a try!  Just tell it how many dice to use, how many sides are on each die, and it'll give you the total for the number of dice you "rolled"!  Slick!<br><hr>
+</td></tr>
+</table>
+<!--  Demonstration -->
+<center>
+<form name=form>
+<table border=2 cellpadding=5>
+<tr>
+<td colspan=2 align=middle>What dice type?</td>
+<td colspan=2 align=middle>How many dice to roll?</td>
+</tr>
+<tr>
+<td valign=top align=middle>
+<p><input type=radio name=sides onclick="die = 3">3 Sided
+<p><input type=radio name=sides onclick="die = 4">4 Sided 
+<p><input type=radio name=sides onclick="die = 5">5 Sided
+<p><input type=radio checked name=sides onclick="die = 6">6 Sided
+<p><input type=radio name=sides onclick="die = 8">8 Sided
+</td>
+<td valign=top align=middle>
+<p><input type=radio name=sides onclick="die = 10">10 Sided
+<p><input type=radio name=sides onclick="die = 12">12 Sided
+<p><input type=radio name=sides onclick="die = 20">20 Sided
+<p><input type=radio name=sides onclick="die = 30">30 Sided
+<p><input type=radio name=sides onclick="die = 100">100 Sided
+</td>
+<td valign=top align=middle>
+<p><input type=radio name=number onclick="dice = 1">1 
+<p><input type=radio name=number onclick="dice = 2">2
+<p><input type=radio checked name=number onclick="dice = 3">3
+<p><input type=radio name=number onclick="dice = 4">4
+<p><input type=radio name=number onclick="dice = 5">5
+</td>
+<td valign=top align=middle>
+<p><input type=radio name=number onclick="dice = 6">6
+<p><input type=radio name=number onclick="dice = 7">7
+<p><input type=radio name=number onclick="dice = 8">8
+<p><input type=radio name=number onclick="dice = 9">9
+<p><input type=radio name=number onclick="dice = 10">10
+</td>
+</tr>
+<tr>
+<td align=middle colspan=4>
+<input type=button value="Roll Dice" name=button onclick="dice_roll(die, dice)">
+<input type=text size=10 name=text>
+</td>
+</tr>
+</table>
+</form>
+</center>
+<P>
+<BR>
+<P>
+<a name="source">
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Games:  Dice Roller</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as NotePad or SimpleText) and save (Control-s or Apple-s).  The script is yours!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.57 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL DICE ROLLER:
+
+   1.  Paste the first code into the HEAD of your HTML document  --&gt;
+
+   2.  Add the last coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste the first code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Michael Hensley (yelsneh@geocities.com) -->
+<!-- Web Site:  http://geocities.com/TimesSquare/Castle/6274 -->
+
+
+
+
+<!-- Begin
+var die = 6;
+var dice = 3;
+function dice_roll(die, dice) {
+var roll = 0;
+for (loop=0; loop < dice; loop++) {
+// random number fix by George Johnston (cali_scripter@yahoo.com)
+roll = roll + Math.round(Math.random() * die) % die + 1;
+}
+document.form.text.value = roll;
+}
+// End -->
+</script>
+
+&lt;!-- STEP TWO: Add the last coding into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+<center>
+<form name=form>
+<table border=2 cellpadding=5>
+<tr>
+<td colspan=2 align=middle>What dice type?</td>
+<td colspan=2 align=middle>How many dice to roll?</td>
+</tr>
+<tr>
+<td valign=top align=middle>
+<p><input type=radio name=sides onclick="die = 3">3 Sided
+<p><input type=radio name=sides onclick="die = 4">4 Sided 
+<p><input type=radio name=sides onclick="die = 5">5 Sided
+<p><input type=radio checked name=sides onclick="die = 6">6 Sided
+<p><input type=radio name=sides onclick="die = 8">8 Sided
+</td>
+<td valign=top align=middle>
+<p><input type=radio name=sides onclick="die = 10">10 Sided
+<p><input type=radio name=sides onclick="die = 12">12 Sided
+<p><input type=radio name=sides onclick="die = 20">20 Sided
+<p><input type=radio name=sides onclick="die = 30">30 Sided
+<p><input type=radio name=sides onclick="die = 100">100 Sided
+</td>
+<td valign=top align=middle>
+<p><input type=radio name=number onclick="dice = 1">1 
+<p><input type=radio name=number onclick="dice = 2">2
+<p><input type=radio checked name=number onclick="dice = 3">3
+<p><input type=radio name=number onclick="dice = 4">4
+<p><input type=radio name=number onclick="dice = 5">5
+</td>
+<td valign=top align=middle>
+<p><input type=radio name=number onclick="dice = 6">6
+<p><input type=radio name=number onclick="dice = 7">7
+<p><input type=radio name=number onclick="dice = 8">8
+<p><input type=radio name=number onclick="dice = 9">9
+<p><input type=radio name=number onclick="dice = 10">10
+</td>
+</tr>
+<tr>
+<td align=middle colspan=4>
+<input type=button value="Roll Dice" name=button onclick="dice_roll(die, dice)">
+<input type=text size=10 name=text>
+</td>
+</tr>
+</table>
+</form>
+</center>
+
+ 
+
+&lt;!-- Script Size:  2.57 KB  --&gt;
+</textarea><br><font face="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

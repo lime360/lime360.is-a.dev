@@ -1,0 +1,305 @@
+
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Forms:  Suggestions</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Forms">
+<META NAME="description" CONTENT="Use JavaScript to allow visitors to send your feedback.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+function leaptoIntro() {
+window.location="http://javascript.internet.com"
+}
+function About() {
+alert("\nHave a suggestion for a JavaScript example?\n\nFill out the form and submit it. I will see what I can do.\n\nPlease be as specific as possible.");
+document.forms[0].elements[1].focus();
+}
+function Reset() {
+document.forms[0].elements[1].value = "";
+document.forms[0].elements[2].value = navigator.appName + " " + navigator.appVersion;   
+document.forms[0].elements[3].value = "";
+document.forms[0].elements[1].focus();
+}
+function submitForm() {
+if ( (isName() ) && (isBrowser()) && (isSuggestion()) ) {
+if (confirm("\nYour submission is about to be sent.\n\nClick YES to submit.\n\nClick NO to cancel.")) 
+return true
+else
+return false;      
+}
+else
+return false;
+}
+function isName() {
+var str = document.forms[0].elements[1].value;
+if (str == "") {
+alert("\nThe NAME field is blank.\n\nPlease enter your name.")
+document.forms[0].elements[1].focus();
+return false;
+}
+for (var i = 0; i < str.length; i++) {
+var ch = str.substring(i, i + 1);
+if (((ch < "a" || "z" < ch) && (ch < "A" || "Z" < ch)) && ch != ' ') {
+alert("\nThe NAME field only accepts letters & spaces.\n\nPlease re-enter your name.");
+document.forms[0].elements[1].select();
+document.forms[0].elements[1].focus();
+return false;
+   }
+}
+return true;
+}
+function isBrowser() {
+if (document.forms[0].elements[2].value != navigator.appName + " " + navigator.appVersion) {
+if (confirm("\nYou've changed your browser type.\n\nClick YES to keep changes.\n\nClick NO to restore detected browser.")) 
+return true
+else
+{
+document.forms[0].elements[2].value = navigator.appName + " " + navigator.appVersion;
+return true;      
+   }
+}
+else
+return true;
+}
+function isSuggestion() {
+var str = document.forms[0].elements[3].value;
+if (str == "") {
+alert("\nThe SUGGESTION field is blank.\n\nPlease enter your suggestion.")
+document.forms[0].elements[3].focus();
+return false;
+}
+else
+return true   
+}
+// End -->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff onLoad="Reset()">
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /forms/" ><font color="#FF0000">Forms</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Suggestions</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Use JavaScript to allow visitors to send your feedback.
+<br>
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<BODY>
+<CENTER>
+<FORM ENCTYPE="text/plain" NAME="test" METHOD='POST' ACTION="http:///you@yourdomain.com"  onSubmit="return submitForm()">
+<INPUT TYPE="hidden" NAME="form1" VALUE="JS Suggestions">
+<TABLE BORDER=0 WIDTH=564>
+<TR>
+<TD align="center"> <FONT><STRONG>Enter your name:</STRONG></FONT>
+<TD align="center"> <FONT><STRONG>Browser/Version:</STRONG></FONT>
+</TR>
+<TR>
+<TD align="center"> <INPUT TYPE="text" NAME="name"   SIZE=26 MAXLENGTH=40>
+<TD align="center"> <INPUT TYPE="text" NAME="browser"   SIZE=26 MAXLENGTH=40>
+</TR>
+</TABLE>
+<BR>
+<TABLE BORDER=0>
+<TR>
+<TD align="center"> <FONT><STRONG>Enter your suggestion(s):</STRONG></FONT>
+</TR>
+<TR>
+<TD align="center"><TEXTAREA NAME="suggestions" ROWS=2 COLS=55 wrap=yes></TEXTAREA>
+</TR>
+</TABLE>
+<BR><BR>
+<TABLE BORDER=0 WIDTH=300>
+<TR>
+<TD align="center"><INPUT TYPE="submit" VALUE="Submit">
+<TD align="center"><INPUT TYPE="reset" VALUE="Reset" onClick="Reset()">
+<TD align="center"><INPUT TYPE="button" VALUE="About" onClick="About()">
+<TD align="center"><INPUT NAME="update" TYPE="BUTTON" VALUE="Close" OnClick="leaptoIntro()">
+</TR>
+</TABLE>
+</FORM>
+</CENTER>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Forms:  Suggestions</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  3.82 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL SUGGESTIONS:
+
+   1.  Paste the coding into the HEAD of your HTML document
+   2.  Add the onLoad event handler to the BODY tag
+   3.  Put the last code into the BODY of your HTML document  --&gt;
+
+&lt;!--  STEP ONE: Copy this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function leaptoIntro() {
+window.location="http://javascript.internet.com"
+}
+function About() {
+alert("\nHave a suggestion for a JavaScript example?\n\nFill out the form and submit it. I will see what I can do.\n\nPlease be as specific as possible.");
+document.forms[0].elements[1].focus();
+}
+function Reset() {
+document.forms[0].elements[1].value = "";
+document.forms[0].elements[2].value = navigator.appName + " " + navigator.appVersion;   
+document.forms[0].elements[3].value = "";
+document.forms[0].elements[1].focus();
+}
+function submitForm() {
+if ( (isName() ) && (isBrowser()) && (isSuggestion()) ) {
+if (confirm("\nYour submission is about to be sent.\n\nClick YES to submit.\n\nClick NO to cancel.")) 
+return true
+else
+return false;      
+}
+else
+return false;
+}
+function isName() {
+var str = document.forms[0].elements[1].value;
+if (str == "") {
+alert("\nThe NAME field is blank.\n\nPlease enter your name.")
+document.forms[0].elements[1].focus();
+return false;
+}
+for (var i = 0; i &lt; str.length; i++) {
+var ch = str.substring(i, i + 1);
+if (((ch &lt; "a" || "z" &lt; ch) && (ch &lt; "A" || "Z" &lt; ch)) && ch != ' ') {
+alert("\nThe NAME field only accepts letters & spaces.\n\nPlease re-enter your name.");
+document.forms[0].elements[1].select();
+document.forms[0].elements[1].focus();
+return false;
+   }
+}
+return true;
+}
+function isBrowser() {
+if (document.forms[0].elements[2].value != navigator.appName + " " + navigator.appVersion) {
+if (confirm("\nYou've changed your browser type.\n\nClick YES to keep changes.\n\nClick NO to restore detected browser.")) 
+return true
+else
+{
+document.forms[0].elements[2].value = navigator.appName + " " + navigator.appVersion;
+return true;      
+   }
+}
+else
+return true;
+}
+function isSuggestion() {
+var str = document.forms[0].elements[3].value;
+if (str == "") {
+alert("\nThe SUGGESTION field is blank.\n\nPlease enter your suggestion.")
+document.forms[0].elements[3].focus();
+return false;
+}
+else
+return true   
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+&lt;!-- STEP TWO: Add this onLoad event handler to the BODY tag  --&gt;
+
+&lt;BODY onLoad="Reset()"&gt;
+
+&lt;!-- STEP THREE: Copy this code into the BODY your HTML document  --&gt;
+
+&lt;CENTER&gt;
+&lt;FORM ENCTYPE="text/plain" NAME="test" METHOD='POST' ACTION='mailto:you@yourdomain.com?subject=JS Suggestions' onSubmit="return submitForm()"&gt;
+&lt;INPUT TYPE="hidden" NAME="form1" VALUE="JS Suggestions"&gt;
+&lt;TABLE BORDER=0 WIDTH=564&gt;
+&lt;TR&gt;
+&lt;TD align="center"&gt; &lt;FONT&gt;&lt;STRONG&gt;Enter your name:&lt;/STRONG&gt;&lt;/FONT&gt;
+&lt;TD align="center"&gt; &lt;FONT&gt;&lt;STRONG&gt;Browser/Version:&lt;/STRONG&gt;&lt;/FONT&gt;
+&lt;/TR&gt;
+&lt;TR&gt;
+&lt;TD align="center"&gt; &lt;INPUT TYPE="text" NAME="name"   SIZE=26 MAXLENGTH=40&gt;
+&lt;TD align="center"&gt; &lt;INPUT TYPE="text" NAME="browser"   SIZE=26 MAXLENGTH=40&gt;
+&lt;/TR&gt;
+&lt;/TABLE&gt;
+&lt;BR&gt;
+&lt;TABLE BORDER=0&gt;
+&lt;TR&gt;
+&lt;TD align="center"&gt; &lt;FONT&gt;&lt;STRONG&gt;Enter your suggestion(s):&lt;/STRONG&gt;&lt;/FONT&gt;
+&lt;/TR&gt;
+&lt;TR&gt;
+&lt;TD align="center"&gt;&lt;TEXTAREA NAME="suggestions" ROWS=2 COLS=55 wrap=yes&gt;&lt;/TEXTAREA&gt;
+&lt;/TR&gt;
+&lt;/TABLE&gt;
+&lt;BR&gt;&lt;BR&gt;
+&lt;TABLE BORDER=0 WIDTH=300&gt;
+&lt;TR&gt;
+&lt;TD align="center"&gt;&lt;INPUT TYPE="submit" VALUE="Submit"&gt;
+&lt;TD align="center"&gt;&lt;INPUT TYPE="reset" VALUE="Reset" onClick="Reset()"&gt;
+&lt;TD align="center"&gt;&lt;INPUT TYPE="button" VALUE="About" onClick="About()"&gt;
+&lt;TD align="center"&gt;&lt;INPUT NAME="update" TYPE="BUTTON" VALUE="Close" OnClick="leaptoIntro()"&gt;
+&lt;/TR&gt;
+&lt;/TABLE&gt;
+&lt;/FORM&gt;
+&lt;/CENTER&gt;
+
+ 
+
+&lt;!-- Script Size:  3.82 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

@@ -1,0 +1,176 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Navigation:  Remote Control</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Ronnie T. Moore, Editor">
+<META NAME="section" CONTENT="Navigation">
+<META NAME="description" CONTENT="Simplify the navigation process on your web site by allowing your visitors to open a small remote control window with links to the sections of your site.  And, when they click a link, the remote control closes and they are taken to the page in the main window.  Great!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Ronnie T. Moore, Editor -->
+<!-- Web Site:  JavaScript Source Code 3000 -->
+
+
+
+
+<!-- Begin
+function showRemote() {
+self.name = "main"; // names current window as "main"
+
+var windowprops = "toolbar=0,location=0,directories=0,status=0, " +
+"menubar=0,scrollbars=0,resizable=0,width=150,height=200";
+
+OpenWindow = window.open("remote-control-window.html", "remote", windowprops); // opens remote control
+}
+//  End -->
+</script>
+</html>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /navigation/"><font color="#FF0000"><b>Navigation</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Remote Control</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Simplify the navigation process on your web site by allowing your visitors to open a small remote control window with links to the sections of your site.  And, when they click a link, the remote control closes and they are taken to the page in the main window.  Great!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form>
+<input type=button value="Open Remote Control" onClick="showRemote();">
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Navigation:  Remote Control</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.76 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- FIVE STEPS TO INSTALL REMOTE CONTROL:
+
+  1.  Copy the first section into the HEAD of your main HTML document
+  2.  Add the next code into the BODY of your HTML document
+  3.  Open a new HTML file and save it as: remote-control.html
+  4.  Paste the remote control  HTML code into remote-control.html
+  5.  Modify the links to point to the sections of your web site --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Ronnie T. Moore, Editor --&gt;
+&lt;!-- Web Site:  JavaScript Source Code 3000 --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function showRemote() {
+self.name = "main"; // names current window as "main"
+
+var windowprops = "toolbar=0,location=0,directories=0,status=0, " +
+"menubar=0,scrollbars=0,resizable=0,width=150,height=200";
+
+OpenWindow = window.open("remote-control.html", "remote", windowprops); // opens remote control
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form&gt;
+&lt;input type=button value="Open Remote Control" onClick="showRemote();"&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+&lt;!-- STEP THREE: Create a new HTML file and save it as: remote-control.html  --&gt;
+
+&lt;!-- STEP FOUR: Paste the following HTML code into your remote-control.html page  --&gt;
+
+&lt;!-- Put this in the head of a separate, remote-control.html file --&gt;
+
+&lt;html&gt;
+&lt;head&gt;
+&lt;script language="JavaScript"&gt;
+&lt;!-- Begin
+function closeRemote() {
+timer = setTimeout('window.close();', 10);
+}
+// End --&gt;
+&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body bgcolor="#ffffcc"&gt;
+
+Remote Control
+&lt;p&gt;&lt;a href="http://javascript.internet.com" target="main" onClick="closeRemote()"&gt;Home&lt;/a&gt;
+&lt;p&gt;&lt;a href="http://javascript.internet.com/new/" target="main" onClick="closeRemote()"&gt;What's New?&lt;/a&gt;
+&lt;p&gt;&lt;a href="http://javascript.internet.com/faq/" target="main" onClick="closeRemote()"&gt;JavaScript FAQs&lt;/a&gt;
+&lt;p&gt;&lt;a href="http://javascript.internet.com/forum/" target="main" onClick="closeRemote()"&gt;JavaScript Forum&lt;/a&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+
+&lt;!-- STEP FIVE: Change links above, but don't change the --&gt;
+&lt;!--   target="main" or onClick="closeRemote" sections !!  --&gt;
+
+ 
+
+&lt;!-- Script Size:  1.76 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>
+

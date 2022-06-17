@@ -1,0 +1,302 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Password Protection:  Cookie (Protected)</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Password Protection">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+function getCookieVal (offset) {
+var endstr = document.cookie.indexOf (";", offset);
+if (endstr == -1)
+endstr = document.cookie.length;
+return unescape(document.cookie.substring(offset, endstr));
+}
+function GetCookie (name)  {
+var arg = name + "=";
+var alen = arg.length;
+var clen = document.cookie.length;
+var i = 0;
+while (i < clen) {
+var j = i + alen;
+if (document.cookie.substring(i, j) == arg)
+return getCookieVal (j);
+i = document.cookie.indexOf(" ", i) + 1;
+if (i == 0) break; 
+}
+return null;
+}
+function SetCookie (name, value) {
+var argv = SetCookie.arguments;
+var argc = SetCookie.arguments.length;
+var expires = (argc > 2) ? argv[2] : null;
+var path = (argc > 3) ? argv[3] : null;
+var domain = (argc > 4) ? argv[4] : null;
+var secure = (argc > 5) ? argv[5] : false;
+document.cookie = name + "=" + escape (value) +
+((expires == null) ? "" : ("; expires=" + expires.toGMTString())) +
+((path == null) ? "" : ("; path=" + path)) +
+((domain == null) ? "" : ("; domain=" + domain)) +
+((secure == true) ? "; secure" : "");
+}
+function DeleteCookie () {
+if (GetCookie('FreeStuffL') != null) { 
+if (confirm(GetCookie('FreeStuffL')+", do you REALLY want to delete your current login?")) {
+var exp = new Date();
+exp.setTime (exp.getTime() - 1000000000);  // This cookie is history
+var cval = GetCookie ('FreeStuffL');
+document.cookie ='FreeStuffL' + "=" + cval + "; expires=" + exp.toGMTString();
+alert("\nLogin deleted!  You better reload and enter a new login!\n");
+location.href="cookie.html"
+      }
+   }
+}
+function nameWhat () {
+alert ("Your login name is "+GetCookie('FreeStuffL')+"!  You can change it with one more click.");
+}
+function pageInfo () {
+alert ("The first time you login on the login page (cookie.html), a record is created in the cookie file on your hard drive.  This file can only be used to store small amounts of info, like your name.  Continued...");
+alert ("Every time you go the the login page or this page from then on, you are let in because your cookie file gives you security clearance.  This is a great way for you not to have to type your password in every time you reload.  Continue...");
+alert ("The cookie file can ONLY be updated by Netscape and only by the site that created it.  In this case, The Javascript Source.  If you have more questions, you should e-mail admin@javascriptsource.com");
+}
+// -->
+</SCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<P>
+<center>
+
+	
+<P>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /passwords/"><font color="#FF0000">Password Protection</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Cookie</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+You can use a basic cookie script to keep visitors (that don't have the cookie on their system) from viewing certain parts of your site (kind of....  There are always ways around it).  The cookie is placed when the password provided is correct.  Then, when they are forwarded to the password protected page, the cookie allows them to stay.  Those without the cookie are sent back.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+
+<TABLE border=0 cellspacing=1 cellpadding=1>
+<TR><TD colspan=2 bgcolor=#000000>
+<TABLE width=486 cellspadding=3 cellspacing=0 border=0>
+<TR><TD width=486 height=25 bgcolor=#FFFFCC valign=middle align=middle>
+<FONT face="verdana, arial" size="-2">
+The passwords are actually not "set" in the script.  Instead, <br>
+it relies on a basic method of password verification.  If:<P>
+password1 + password2 = password3<p>
+then they can enter the site.  For example:<P>
+java, script, javascript &nbsp;&nbsp; and &nbsp;&nbsp; test, ing, testing<p>
+work, but this set does not:<p>
+let, me, in<p>
+("let" + "me" -- which equals "letme" -- does not equal "in").<p>
+So, to actually use this script on your site, we recommend you<br>
+give each user a differnet password set that fulfills the pattern.
+</TD></TR></TABLE>
+</TD></TR></TABLE>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Password Protection:  Cookie (Login Page)</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE=" Script Size: 3.44 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL COOKIE PASSWORD PROTECTION:
+
+   1.  Put the designated coding into the HEAD of your login document
+   2.  Paste the final coding into the BODY of your login document  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the HEAD of your login document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function getCookieVal (offset) {
+var endstr = document.cookie.indexOf (";", offset);
+if (endstr == -1)
+endstr = document.cookie.length;
+return unescape(document.cookie.substring(offset, endstr));
+}
+function GetCookie (name)  {
+var arg = name + "=";
+var alen = arg.length;
+var clen = document.cookie.length;
+var i = 0;
+while (i &lt; clen)  {
+var j = i + alen;
+if (document.cookie.substring(i, j) == arg)
+return getCookieVal (j);i = document.cookie.indexOf(" ", i) + 1;
+if (i == 0) break; 
+}
+return null;
+}
+function SetCookie (name, value)  {
+var argv = SetCookie.arguments;
+var argc = SetCookie.arguments.length;
+var expires = (argc &gt; 2) ? argv[2] : null;
+var path = (argc &gt; 3) ? argv[3] : null;
+var domain = (argc &gt; 4) ? argv[4] : null;
+var secure = (argc &gt; 5) ? argv[5] : false;
+document.cookie = name + "=" + escape (value) +
+((expires == null) ? "" : ("; expires=" + expires.toGMTString())) +
+((path == null) ? "" : ("; path=" + path)) +
+((domain == null) ? "" : ("; domain=" + domain)) +
+((secure == true) ? "; secure" : "");
+}
+function DeleteCookie () { 
+var exp = new Date();
+exp.setTime (exp.getTime() - 1000000000);  // This cookie is history
+var cval = GetCookie ('FreeStuffL');
+document.cookie ='FreeStuffL' + "=" + cval + "; expires=" + exp.toGMTString();    
+}
+function cookieCreater () {
+if(GetCookie('FreeStuffL') == null) {
+var FreeStuffL_Name =  prompt ("What name do you want to go by?", "" );
+if (FreeStuffL_Name != null && FreeStuffL_Name != "") {
+var expdate = new Date (); 
+expdate.setTime(expdate.getTime() + (24 * 60 * 60 * 1000 * 365)); 
+SetCookie('FreeStuffL', FreeStuffL_Name, expdate);  
+alert ("You now are logged in!  From now on, when you come to this page, you will be forwarded to the Password Protected Members-Only Area.  Please do not tell anyone your entry code.  At this new page, you will be shown a list of functions.  Have fun!");
+location.href = "cookie-in.html"
+   }
+}
+else {
+DeleteCookie ();
+cookieCreater ()
+}
+}
+if(GetCookie('FreeStuffL') != null) {
+location.href="cookie-in.html"
+}
+function check() {
+var tester = document.login.numOne.value + document.login.numTwo.value;
+if (tester == "") {
+alert ("I'm sorry, that code is not correct.");
+}
+else
+{
+if (tester == document.login.numThree.value) {
+alert ("That is correct!");
+cookieCreater ();
+}
+else {
+alert ("Nope!");
+      }
+   }
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your login document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form name='login'&gt;
+Enter your login code (FORMAT: login # one, login # two, login # three):
+&lt;p&gt;&lt;input TYPE='text' NAME='numOne' SIZE=15&gt;&lt;br&gt;
+&lt;input TYPE='text' NAME='numTwo' SIZE=15 &gt;&lt;br&gt;
+&lt;input TYPE='text' NAME='numThree' SIZE=15 &gt;&lt;br&gt;
+&lt;input TYPE='button' VALUE='Login' ONCLICK='check()'&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+&lt;font size=1 color=white&gt;
+This page requires Javascript to run!  Please get Netscape 2.0 or greater!
+&lt;/font&gt;
+&lt;form name="login2"&gt;
+&lt;input type=hidden name="go" value="cookie-in.html"&gt;
+&lt;/form&gt;
+
+ 
+
+&lt;!-- Script Size:  3.44 KB  --&gt;
+</textarea><br></td></tr></form>
+
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Password Protection:  Cookie (Protected)</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="second">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE=" Script Size: 1K  (1453 bytes)" size="32">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- ONE STEP TO INSTALL COOKIE PASSWORD PROTECTION (PROTECTED):
+
+   1.  Put the designated coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;SCRIPT&gt;
+&lt;!-- Begin
+if(GetCookie('FreeStuffL') == null) {
+alert ("I'm sorry.  You can not view this area!  You will be bounced to the login page...")
+location.href="pass.html"
+}
+else
+{
+document.write("&lt;center&gt;&lt;font size=5 color=red&gt;Welcome "+GetCookie('FreeStuffL')+"!  &lt;/font&gt;&lt;font size=4 color=red&gt;Thank you for entering the Javascript Source Password Protected Area.  You have access to all files and scripts in this area.&lt;/font&gt;");
+document.write("&lt;hr&gt;&lt;br&gt;The following options will help you keep track of the Members-Only Section..&lt;br&gt;");
+document.write("&lt;p&gt;&lt;a href=index.html&gt;Go back to The Javascript Source Home Page&lt;/a&gt;");
+document.write("&lt;form&gt;&lt;input type=button onClick='nameWhat()' value='What is my login name?'&gt;&lt;/form&gt;");
+document.write("&lt;form&gt;&lt;input type=button value='Erase your account or change your login name!'  onClick='DeleteCookie ()'&gt;&lt;/form&gt;");
+document.write("&lt;a href=mailto:antispammer@earthling.net&gt;Mail antispammer@earthling.net&lt;/a&gt;");
+document.write("&lt;hr&gt;&lt;font size=5&gt;T&lt;/font&gt;he following items can not be accessed by users that do not have security clearence.&lt;br&gt;");
+document.write("&lt;form&gt;&lt;input type=button value='Info about how this login page works.' onClick='pageInfo ()'&gt;&lt;/form&gt;&lt;br&gt;");
+document.write("&lt;p&gt;&lt;font size=5 color=green&gt;This page will, of course, be updated very often!  And once again, thanks for registering!&lt;/center&gt;");
+}
+document.write ("&lt;font size=1 color=white&gt;");
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+ 
+
+&lt;!-- Script Size:  1.69 KB --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

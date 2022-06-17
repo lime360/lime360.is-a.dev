@@ -1,0 +1,1205 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Games:  Falcon Fighter</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Games">
+<META NAME="description" CONTENT="An extremely amazing JavaScript air fighter game that looks just like an arcade game!  It is absolutely amazing!  You have to give it a try to understand.  You can move the fighter plane with the J, K, L, and I keys and shoot at the enemy planes with Z, and X keys.  You only get one life but if you make it far through a level, you play against big enemy bosses.  Wow, color me impressed.">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /games/"><font color="#FF0000"><b>Games</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Falcon Fighter</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+An extremely amazing JavaScript air fighter game that looks just like an arcade game!  It is absolutely amazing!  You have to give it a try to understand.  You can move the fighter plane with the J, K, L, and I keys and shoot at the enemy planes with Z, and X keys.  You only get one life but if you make it far through a level, you play against big enemy bosses.  Wow, color me impressed.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name="open-race">
+<input type=button value="Play Falcon Fighter" onClick="window.open('falcon-fighter-example.html','falcon','top=100,left=100,width=575,height=400');">
+</form>
+</center>
+<br><br>
+You must also upload all these<br>
+necessary images to your website.<br>
+Download this .zip file and upload<br>
+the images to your web server.<br><br>
+<a href="../img/falcon-fighter/falcon-fighter.zip" /img/falcon-fighter/falcon-fighter.zip">Dowload falcon-fighter.zip</a><br><br>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Games:  Falcon Fighter (Opener)</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  0.30 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- ONE STEP TO INSTALL FALCON FIGHTER OPENER:
+
+  1.  Add the code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the BODY of your HTML document  --&gt;
+
+&lt;center&gt;
+&lt;form name="open-race"&gt;
+&lt;input type=button value="Play Falcon Fighter" onClick="window.open('falcon-fighter-example.html','race','top=100,left=100,width=575,height=400');"&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  0.30 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr></form>
+</table>
+
+<br><br>
+
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Games:  Falcon Fighter (Game)</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy2">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  29.70 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL FALCON FIGHTER:
+
+( create a new HTML file and name it falcon-fighter-example.html )
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the onLoad event handler into the BODY tag
+  3.  Put the last coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+ var Flimit=9                             
+ var BossTM=0                            
+ var BossLM=700                          
+ var Easy=0
+
+ var timerID = null
+ var TimeCounter = 0
+ var INT = 25                            
+ var k=0                                 
+ var X=100                               
+ var Y=100
+ var DX=0                                
+ var DY=0
+ var IX=0
+ var IY=0
+ var SDX=0
+ var SDY=0
+ var SIX=0
+ var SIY=0
+ var Endflg=0                            
+ var ff=0                                
+ var fc=0                                
+ var FX = new Array(12)                  
+ var FY = new Array(12)
+ var bf=0                                
+ var bc=0                                
+ var BX=0                                
+ var BY=-100
+ var BDX=0                               
+ var BDY=0
+ var Cname = new Array(2)                
+ var Bflag=0                             
+ var GND=0                               
+ var EFX = new Array(8)                  
+ var EFY = new Array(8)
+ var EVX = new Array(8)                  
+ var EVY = new Array(8)
+ var Fmax = 3                            
+ var EMX = 200                           
+ var EMY = 284
+ var PTN = 0                             
+ var Mvx = 0                             
+ var Mvy = 0
+ var mCount = 100                        
+ var EX = new Array(20)                  
+ var EY = new Array(20)
+ var CH = new Array(2)                   
+ var CW = new Array(2)                   
+ var tmp1 = 0
+ var tmp2 = 0
+ var Endflg = 1
+ var Bossflg = 0
+ var BossX = 0                           
+ var BossH = 0                           
+ var CanonX=-200                         
+ var CanonY=-200
+ var CanonC=0
+ var Bossflg=0
+ var tmpBF=0
+ var sf=0                                
+ var spCOUNT=0
+
+
+  systm=""
+  ver=navigator.appVersion
+  len=ver.length
+  for(iln=0;iln&lt;len;iln++) if(ver.charAt(iln)=="(") break
+  systm = ver.charAt(iln+1).toUpperCase()
+
+ function interval1(){
+  clearTimeout(timerID)
+
+   ccount0=ccount0+1
+   if (ccount0 &gt;= 2){cla0.left=-100}
+   ccount1=ccount1+1
+   if (ccount1 &gt;= 2){cla1.left=-100}
+   ccount2=ccount2+1
+   if (ccount2 &gt;= 2){cla2.left=-100}
+
+  TimeCounter=TimeCounter+1
+  with (Math){Fmax=floor(TimeCounter/100)+3}
+  if (Fmax &gt;= Flimit){Fmax=Flimit}
+  if (TimeCounter == Blimit){Bossflg=1;tmpbgc=100;tmpbgf=0}
+  if (Bossflg &gt;= 1){
+   tmpbgc=tmpbgc-5
+   if (tmpbgc &gt;= 0){
+    if (systm!="C"){}
+   }
+   if (tmpbgf == 0){
+    if (tmpbgc &lt;= 0){
+     if (systm!="C"){
+      tmpbgf=1
+     }else{
+      tmpbgf=1
+     }
+    }
+   }
+   tmpBF=0
+   for (tmp1=0; tmp1&lt;10; tmp1++){
+    if (EX[tmp1] &gt;= -50){tmpBF=1}
+   }
+   if (tmpBF == 0){BossMode()}
+  }
+
+  GND=GND-1;if (GND &lt;= -16){GND=0}
+  GNDs.left=GND
+
+  with (Math) {
+   for (tmp1=0; tmp1&lt;3; tmp1++){
+    EX[tmp1]=EX[tmp1]-5
+    if (EX[tmp1] &lt;= -30){
+     if (floor(random()*12) == 3 ){
+      if (Bossflg == 0){EX[tmp1]=400;EY[tmp1]=floor(random()*12)*20+20}
+     }
+    }
+   spMOV(27+tmp1,EX[tmp1],EY[tmp1])
+   with (Math){if (floor(random()*5) == 3 ){Efire(EX[tmp1],EY[tmp1])}}
+   }
+  }
+
+  if (TimeCounter &gt;= 300){
+   with (Math) {
+    for (tmp1=3; tmp1&lt;6; tmp1++){
+     EX[tmp1]=EX[tmp1]-CW[tmp1-3]
+     if (EY[tmp1] &lt;= 5){CH[tmp1-3]=2;CW[tmp1-3]=4}
+     if (EY[tmp1] &gt;= 240){CH[tmp1-3]=-2;CW[tmp1-3]=2}
+     EY[tmp1]=EY[tmp1]+CH[tmp1-3]
+     if (EX[tmp1] &lt;= -30){
+      if (floor(random()*12) == 3 ){
+       if (Bossflg == 0){EX[tmp1]=400;EY[tmp1]=floor(random()*12)*20+20}
+      }
+     }
+    spMOV(27+tmp1,EX[tmp1],EY[tmp1])
+    with (Math){if (floor(random()*5) == 3 ){Efire(EX[tmp1],EY[tmp1])}}
+    }
+   }
+  }
+
+  if (TimeCounter &gt;= 200){
+   with (Math){tmpTM=TimeCounter-floor(TimeCounter/100)*100}
+   if (tmpTM &lt;= 40){tmpTMX=3}else{if (tmpTM &lt;= 70){tmpTMX=1}else{tmpTMX=-1}}
+   for (tmp1=0; tmp1&lt;3; tmp1++){
+    EX[tmp1+6]=EX[tmp1+6]-tmpTMX
+    if (EX[tmp1+6] &lt;= -30){
+     if (EX[6] &lt;= 365){
+      if (EX[7] &lt;= 365){
+       if (EX[8] &lt;= 365){
+        if (Bossflg == 0){
+         with (Math){if (floor(random()*40) == 3 ){EX[tmp1+6]=400}}
+        }
+       }
+      }
+     }
+    }
+   spMOV(33+tmp1,EX[tmp1+6],EY[tmp1+6])
+   with (Math){if (floor(random()*5) == 3 ){Efire(EX[tmp1+6],EY[tmp1+6])}}
+   }
+  }
+
+  if (EX[9] &lt;= -600){if (Bossflg == 0){EX[9]=400}}
+  EX[9]=EX[9]-1;if (EX[9] &lt;= 250){EX[9]=EX[9]-4}
+  if (EX[9] == 365){EMX=EX[9]+7;EMY=EY[9]-10;mCount=0}
+  if (EX[9] == 310){EMX=EX[9]+7;EMY=EY[9]-10;mCount=0}
+  if (EX[9] == 255){EMX=EX[9]+7;EMY=EY[9]-10;mCount=0}
+  spMOV(36,EX[9],EY[9])
+
+  if (bf == 1){BX=X;BY=Y+30;bc=1;bf=0;BDX=12}
+  if (bc == 1){
+   BDY=BDY+2
+   if (BDY == 10){
+   spMOV(45+Bflag,-100,-100)
+    Bflag=1
+   }
+   if (BDY &gt;= 10){BDX=BDX+3;BX=BX+BDX}
+   BY=BY+BDY;tmpBMX=-100;tmpBMY=-100
+    for (tmp2=0; tmp2&lt;10; tmp2++){
+     if (BX &gt;= EX[tmp2]-30){
+      if (BX &lt;= EX[tmp2]+16){
+       if (BY &gt;= EY[tmp2]-3){
+        if (BY &lt;= EY[tmp2]+16){
+         tmpBMX=BX-8;tmpBMY=BY-4
+        }
+       }
+      }
+     }
+    }
+   if (BY &gt;= 284){tmpBMX=BX-8;tmpBMY=244}
+   if (tmpBMX != -100){
+    spMOV(45+Bflag,-100,-100)
+    spMOV(50,tmpBMX,tmpBMY)
+    Bflag=0;ccount2=0;bc=0;BY=-100;BDX=0;BDY=0
+    for (tmp2=0; tmp2&lt;10; tmp2++){
+     if (BX &gt;= EX[tmp2]-56){
+      if (BX &lt;= EX[tmp2]+40){
+       if (EY[tmp2] &gt;= tmpBMY-18){
+        if (EY[tmp2] &lt;= tmpBMY+63){
+         spMOV(33+tmp2,-100,-100)
+         spMOV(Cname[cflag],EX[tmp2],EY[tmp2]-6)
+         if (cflag == 0){ccount0=0}else{ccount1=0}
+         cflag=cflag+1;if (cflag &gt;= 2){cflag=0}
+         EX[tmp2]=-100;FX[tmp1]=500;score=score+50
+        }
+       }
+      }
+     }
+    }
+   }
+   spMOV(45+Bflag,BX,BY)
+  }
+
+  if (ff == 1){
+   FX[fc]=X;FY[fc]=Y+12
+   fc=fc+1;if (fc &gt;= 13){fc=0}
+   ff=0
+  }
+  for (tmp1=0; tmp1&lt;13; tmp1++){
+   FX[tmp1]=FX[tmp1]+32
+   for (tmp2=0; tmp2&lt;10; tmp2++){
+    if (FX[tmp1] &gt;= EX[tmp2]-8){
+     if (FX[tmp1] &lt;= EX[tmp2]+32){
+      if (FY[tmp1] &gt;= EY[tmp2]-8){
+       if (FY[tmp1] &lt;= EY[tmp2]+19){
+        spMOV(27+tmp2,-100,-100)
+        spMOV(Cname[cflag],EX[tmp2],EY[tmp2]-6)
+        if (cflag == 0){ccount0=0}else{ccount1=0}
+        cflag=cflag+1;if (cflag &gt;= 2){cflag=0}
+        EX[tmp2]=-100;FX[tmp1]=500;score=score+10
+       }
+      }
+     }
+    }
+   }
+   spMOV(tmp1+1,FX[tmp1],FY[tmp1])
+  }
+   
+  Efmove()
+  Emiss()
+
+  tmpIX=IX+SIX;if (tmpIX &gt;= 1){tmpIX=5+Easy}
+  tmpIY=IY+SIY;if (tmpIY &gt;= 1){tmpIY=5+Easy}
+  tmpDX=DX+SDX;if (tmpDX &gt;= 1){tmpDX=5+Easy}
+  tmpDY=DY+SDY;if (tmpDY &gt;= 1){tmpDY=5+Easy}
+  X=X+tmpIX-tmpDX
+  Y=Y+tmpIY-tmpDY
+  if (X &gt;= 368){X=368}
+  if (X &lt;=   0){X=  0}
+  if (Y &lt;=   0){Y=  0}
+  if (Y &gt;= 258){
+   
+   mycr.visibility="hidden"
+   DOC2c.visibility="hidden"
+   DOCc.visibility="visible"
+   spMOV(Cname[cflag],X,Y)
+   Endflg=1;EFX[tmp1]=-100;cflag=cflag+1;if (cflag &gt;= 2){cflag=0}
+  }
+   for (tmp2=0; tmp2&lt;10; tmp2++){
+    if (X &gt;= EX[tmp2]-20){
+     if (X &lt;= EX[tmp2]+20){
+      if (Y &gt;= EY[tmp2]-20){
+       if (Y &lt;= EY[tmp2]+10){
+        mycr.visibility="hidden"
+        DOC2c.visibility="hidden"
+        DOCc.visibility="visible"
+        spMOV(Cname[cflag],X,Y)
+        Endflg=1;EFX[tmp1]=-100;cflag=cflag+1;if (cflag &gt;= 2){cflag=0}
+       }
+      }
+     }
+    }
+   }
+  spMOV(0,X,Y)
+
+  with (Math) {
+   s5=floor(score/10000)
+   s4=floor((score-s5*10000)/1000)
+   s3=floor((score-s5*10000-s4*1000)/100)
+   s2=floor((score-s5*10000-s4*1000-s3*100)/10)
+   s1=score-s5*10000-s4*1000-s3*100-s2*10
+  }
+  L7c.top=-16*s5
+  L8c.top=-16*s4
+  L9c.top=-16*s3
+  L10c.top=-16*s2
+  L11c.top=-16*s1
+
+  if (Endflg != 1){timerID = setTimeout("interval1()",INT)
+  }else{
+   if (systm!="C"){
+   }else{
+   }
+   if (hscore &lt;= score){
+    document.cookie="JSFALCON="+score+"; expires=Fri. 31-Dec-1999 23:59:59 GMT"
+    hscore=score
+    loadSCORE()
+   }
+  }
+ }
+
+ function onLD(){
+   if (systm!="C"){
+    W1c=document.layers["W1"]
+    mycr=W1c.layers["Mychr"]
+    cla0=W1c.layers["clash"]
+    cla1=W1c.layers["clash1"]
+    cla2=W1c.layers["clash2"]
+    GNDs=W1c.layers["GND"]
+    DOCc=W1c.layers["doc"]
+    DOC2c=W1c.layers["doc2"]
+    EAS=W1c.layers["EASY"]
+    BOS0=W1c.layers["boss0"]
+    BOS1=W1c.layers["boss1"]
+    BOSR=W1c.layers["bossR"]
+    L2c=document.layers[2]
+    L3c=document.layers[3]
+    L4c=document.layers[4]
+    L5c=document.layers[5]
+    L6c=document.layers[6]
+    L7c=document.layers[8]
+    L8c=document.layers[9]
+    L9c=document.layers[10]
+    L10c=document.layers[11]
+    L11c=document.layers[12]
+   }else{
+    W1c=document.all.W1.style
+    mycr=document.all.W1.document.all.Mychr.style
+    cla0=document.all.W1.document.all.clash.style
+    cla1=document.all.W1.document.all.clash1.style
+    cla2=document.all.W1.document.all.clash2.style
+    GNDs=document.all.W1.document.all.GND.style
+    DOCc=document.all.W1.document.all.doc.style
+    DOC2c=document.all.W1.document.all.doc2.style
+    EAS=document.all.W1.document.all.EASY.style
+    BOS0=document.all.W1.document.all.boss0.style
+    BOS1=document.all.W1.document.all.boss1.style
+    BOSR=document.all.W1.document.all.bossR.style
+    L2c=L2I.style
+    L3c=L3I.style
+    L4c=L4I.style
+    L5c=L5I.style
+    L6c=L6I.style
+    L7c=L7I.style
+    L8c=L8I.style
+    L9c=L9I.style
+    L10c=L10I.style
+    L11c=L11I.style
+   W1c.clip="rect(118,400,418,0)"
+   }
+
+
+  loadSCORE()
+  sf=1
+  QuitPlay()
+ }
+
+ function EASY(){
+  Easy=1
+  EAS.visibility="visible"
+ }
+
+ function NORMAL(){
+  Easy=0
+  EAS.visibility="hidden"
+ }
+
+ function BossMode(){
+   if (Bossflg == 1){
+    BossX=BossX-10
+    if (BossX==250){
+     Bossflg=3
+     if (Flimit != 0){EMX=BossX+30;EMY=218;mCount=0}
+     EVX[0]=-5;EVY[0]=-5
+     EVX[1]=-6;EVY[1]=-4
+     EVX[2]=-4;EVY[2]=-6
+     EVX[3]=-2;EVY[3]=-7
+     EVX[8]=-7;EVY[8]=-7
+     EFX[0]=BossX+101;EFY[0]=225
+     EFX[1]=BossX+98;EFY[1]=229
+     EFX[2]=BossX+104;EFY[2]=222
+     EFX[3]=BossX+109;EFY[3]=222
+     EFX[8]=BossX+7;EFY[8]=232
+  
+    }
+    if (BossX==0){Bossflg=2}
+   }
+   if (Bossflg == 2){
+    BossX=BossX+10
+    if (BossX==150){
+     Bossflg=6
+     EVX[4]=-5;EVY[4]=-5
+     EVX[5]=-6;EVY[5]=-4
+     EVX[6]=-4;EVY[6]=-6
+     EVX[7]=-2;EVY[7]=-7
+     EVX[8]=-7;EVY[8]=-7
+     EFX[4]=BossX+101;EFY[4]=225
+     EFX[5]=BossX+98;EFY[5]=229
+     EFX[6]=BossX+104;EFY[6]=222
+     EFX[7]=BossX+109;EFY[7]=222
+     EFX[8]=BossX+7;EFY[8]=232
+    }
+    if (BossX==270){Bossflg=1}
+   }
+   BOS0.left=BossX
+
+   if (Bossflg == 3){
+    BossH=BossH-5
+    if (BossH == 170){Bossflg=4;CanonC=0}
+   }
+   if (Bossflg == 4){
+    if (CanonC==0){CanonX=BossX+55;CanonY=195;CanonC=1}else{
+                   CanonC=CanonC+1;if (CanonC==10){Bossflg=5}
+                   }
+   }
+   if (Bossflg == 5){
+    BossH=BossH+5
+    if (BossH == 220){Bossflg=1}
+   }
+   if (Bossflg == 6){
+    BossH=BossH-5
+    if (BossH == 170){Bossflg=7;CanonC=0}
+   }
+   if (Bossflg == 7){
+    if (CanonC==0){CanonX=BossX+55;CanonY=195;CanonC=1}else{
+                   CanonC=CanonC+1;if (CanonC==10){Bossflg=8}
+                   }
+   }
+   if (Bossflg == 8){
+    BossH=BossH+5
+    if (BossH == 220){Bossflg=2}
+   }
+   if (BossH == 220){tmpBHx=-200}else{tmpBHx=BossX+30}
+   CanonX=CanonX-25;CanonY=CanonY-25
+   spMOV(15,tmpBHx,BossH)
+   spMOV(14,CanonX,CanonY)
+   Fmax=Flimit;Efmove()
+
+   for (tmp2=0; tmp2&lt;10; tmp2++){
+    if (X &gt;= BossX-20){
+     if (X &lt;= BossX+124){
+      if (Y &gt;= 188){
+        mycr.visibility="hidden"
+        DOC2c.visibility="hidden"
+        DOCc.visibility="visible"
+        spMOV(Cname[cflag],X,Y)
+        Endflg=1;cflag=cflag+1;if (cflag &gt;= 2){cflag=0}
+      }
+     }
+    }
+   }
+
+   for (tmp2=0; tmp2&lt;10; tmp2++){
+    if (X &gt;= BossX+20){
+     if (X &lt;= BossX+105){
+      if (Y &gt;= BossH-16){
+        mycr.visibility="hidden"
+        DOC2c.visibility="hidden"
+        DOCc.visibility="visible"
+        spMOV(Cname[cflag],X,Y)
+        Endflg=1;cflag=cflag+1;if (cflag &gt;= 2){cflag=0}
+      }
+     }
+    }
+   }
+
+   Cchkflg=0
+    if (X &gt;= CanonX-16){
+     if (X &lt;= CanonX+16){
+      if (Y &gt;= CanonY-16){
+       if (Y &lt;= CanonY+16){
+        Cchkflg=1
+       }
+      }
+     }
+    }
+
+    if (X &gt;= CanonX){
+     if (X &lt;= CanonX+34){
+      if (Y &gt;= CanonY){
+       if (Y &lt;= CanonY+34){
+        Cchkflg=1
+       }
+      }
+     }
+    }
+
+   if (Cchkflg == 1){
+    mycr.visibility="hidden"
+    DOC2c.visibility="hidden"
+    DOCc.visibility="visible"
+    spMOV(Cname[cflag],X,Y)
+    Endflg=1;cflag=cflag+1;if (cflag &gt;= 2){cflag=0}
+   }
+
+   spMOV(47,-100,-100)
+   for (tmp1=0; tmp1&lt;13; tmp1++){
+    if (FX[tmp1] &gt;= BossX-8){
+     if (FX[tmp1] &lt;= BossX+128){
+      if (FY[tmp1] &gt;= 216){
+        FX[tmp1]=500
+        spMOV(47,BossX,FY[tmp1])
+      }
+     }
+    }
+   }
+   for (tmp1=0; tmp1&lt;13; tmp1++){
+    if (FX[tmp1] &gt;= BossX+38){
+     if (FX[tmp1] &lt;= BossX+70){
+      if (FY[tmp1] &gt;= BossH-4){
+       if (FY[tmp1] &lt; 216){
+        FX[tmp1]=500
+        spMOV(47,BossX+38,FY[tmp1])
+       }
+      }
+     }
+    }
+   }
+
+  tmpBMX=-100
+   if (BX &gt;= BossX-30){
+    if (BX &lt;= BossX+144){
+     if (BY &gt;= 216){
+      tmpBMX=BX-8;tmpBMY=BY-4
+     }
+    }
+   }
+   if (BX &gt;= BossX+2){
+    if (BX &lt;= BossX+94){
+     if (BY &gt;= BossH-4){
+      tmpBMX=BX-8;tmpBMY=BY-4
+     }
+    }
+   }
+
+   if (BY &gt;= 284){tmpBMX=BX-8;tmpBMY=244}
+   if (tmpBMX != -100){
+    spMOV(45+Bflag,-100,-100)
+    spMOV(50,tmpBMX,tmpBMY)
+    Bflag=0;ccount2=0;bc=0;BY=-100;BDX=0;BDY=0
+    if (BossH != 220){
+     if (tmpBMX &gt;= BossX+25){
+      if (tmpBMX &lt;= BossX+108){
+       if (tmpBMY &lt;= BossH+22){
+        if (tmpBMY &lt;= 219){
+         DOC2c.visibility="visible"
+         BOS1.left=-200
+         spMOV(16,tmpBHx,BossH)
+         Endflg=1;score=score+Flimit*1000
+        }
+       }
+      }
+     }
+    }
+   }
+
+
+ }
+
+ function QuitPlay(){
+  focus()
+  Endflg=1
+  DOC2c.visibility="hidden"
+  DOCc.visibility="visible"
+  clearTimeout(timerID)
+  }
+
+ function Restart(){
+  DOCc.visibility="hidden"
+  DOC2c.visibility="hidden"
+  for (tmp1=0; tmp1&lt;50; tmp1++){spLEFT(tmp1,-200)}
+  for (tmp1=0; tmp1&lt;10; tmp1++){EX[tmp1]=0;EY[tmp1]=0}
+  if (systm!="C"){
+  }else{
+  }
+  TimeCounter = 0
+  score=0
+  Cname[0]=48
+  Cname[1]=49
+  Cname[2]=50
+  cflag=0
+  Bossflg=BossTM
+  BossX=400
+  BossH=220
+  Blimit=BossLM
+  CanonX=-200
+  CanonY=-200
+  CanonC=0
+  X=100
+  Y=100
+  DX=0
+  DY=0
+  IX=0
+  IY=0
+  SDX=0
+  SDY=0
+  SIX=0
+  SIY=0
+  Endflg=0
+  ff=0
+  fc=0
+  ccount0=0
+  ccount1=0
+  ccount2=0
+   for (tmp1=0; tmp1&lt;13; tmp1++){FX[tmp1]=0;FY[tmp1]=-100}
+  bf=0
+  bc=0
+  BX=0
+  BY=-100
+  BDX=0
+  BDY=0
+  Bflag=0
+  GND=0
+  Mvx=0
+  Mvy=0
+  mCount=100
+  Fmax = 3
+   for (tmp1=0; tmp1&lt;9; tmp1++){EFX[tmp1]=-100;EFY[tmp1]=-100
+   spMOV(tmp1+18,EFX[tmp1],EFY[tmp1])
+   }
+  tmpE0 = 0
+   for (tmp1=0; tmp1&lt;3; tmp1++){
+     with (Math) {EX[tmp1] = 460 + floor(random()*200)}
+     with (Math) {EY[tmp1] = floor(random()*12)*20+20}
+   }
+    EX[3]=400;EX[4]=440;EX[5]=520
+    EY[3]=100;EY[4]=60 ;EY[5]=200
+    CH[0]=2  ;CH[1]=-2 ;CH[2]=-2
+    CW[0]=4  ;CW[1]=2 ;CW[2]=2
+   for (tmp1=0; tmp1&lt;3; tmp1++){
+    spMOV(tmp1+30,EX[tmp1],EY[tmp1])
+   }
+
+    EX[6]=400;EX[7]=496;EX[8]=530;EX[9]=500
+   for (tmp1=0; tmp1&lt;4; tmp1++){
+    EY[6+tmp1]=260
+    spMOV(tmp1+33,EX[tmp1],EY[tmp1])
+   }
+
+  spMOV(45,-100,-100)
+  spMOV(46,-100,-100)
+  mycr.visibility="visible"
+  if (BossTM != 0){for (tmp1=0; tmp1&lt;10; tmp1++){EX[tmp1]=-100;Blimit=5}}
+  timerID = setTimeout("interval1()",INT)
+ }
+
+ function Emiss(){
+  mCount=mCount+1
+  if (mCount == 50){
+   spLEFT(37+PTN,-100)
+   spMOV(Cname[cflag],EMX-4,EMY-4)
+   if (cflag == 0){ccount0=0}else{ccount1=0}
+   cflag=cflag+1;if (cflag &gt;= 2){cflag=0}
+     if (X &gt;= EMX-28){
+      if (X &lt;= EMX+24){
+       if (Y &gt;= EMY-28){
+        if (Y &lt;= EMY+24){
+         mycr.visibility="hidden"
+         DOC2c.visibility="hidden"
+         DOCc.visibility="visible"
+         spMOV(Cname[cflag],X,Y)
+         Endflg=1;EFX[tmp1]=-100;cflag=cflag+1;if (cflag &gt;= 2){cflag=0}
+        }
+       }
+      }
+     }
+  }
+  if (mCount &lt; 50){
+  tmpEMX=X-EMX;tmpEMY=EMY-Y
+  tmpPTN=PTN
+  if (tmpEMX == 0){tmpEMX=1}
+  if (tmpEMY == 0){tmpEMY=1}
+  tmpTx=tmpEMY/tmpEMX
+  if (tmpEMX &gt; 0){
+   if (tmpTx &gt; 2.4142){PTN=2;Mvx=Mvx/1.4;Mvy=Mvy+0.7}else{
+    if (tmpTx &gt; 0.4142){PTN=3;Mvx=Mvx+0.5;Mvy=Mvy+0.5}else{
+     if (tmpTx &gt; -0.4142){PTN=4;Mvx=Mvx+0.7;Mvy=Mvy/1.4}else{
+      if (tmpTx &gt; -2.4142){PTN=5;Mvx=Mvx+0.5;Mvy=Mvy-0.5}else{
+       PTN=6;Mvx=Mvx/1.4;Mvy=Mvy-0.7
+      }
+     }
+    }
+   }
+  }else{
+   if (-tmpTx &gt; 2.4142){PTN=2;Mvx=Mvx/1.4;Mvy=Mvy+0.7}else{
+    if (-tmpTx &gt; 0.4142){PTN=1;Mvx=Mvx-0.5;Mvy=Mvy+0.5}else{
+     if (-tmpTx &gt; -0.4142){PTN=0;Mvx=Mvx-0.7;Mvy=Mvy/1.4}else{
+      if (-tmpTx &gt; -2.4142){PTN=7;Mvx=Mvx-0.5;Mvy=Mvy-0.5}else{
+       PTN=6;Mvx=Mvx/1.4;Mvy=Mvy-0.7
+      }
+     }
+    }
+   }
+  }
+  if (mCount &lt;= 5){PTN=1;Mvx=Mvx-0.5;Mvy=Mvy+0.5}
+  if (Mvx &gt;= 5){Mvx=5}
+  if (Mvy &gt;= 5){Mvy=5}
+  if (Mvx &lt;=-5){Mvx=-5}
+  if (Mvy &lt;=-5){Mvy=-5}
+  EMX=EMX+Mvx-1;EMY=EMY-Mvy
+  spLEFT(37+tmpPTN,-100)
+  spMOV(37+PTN,EMX,EMY)
+     if (X &gt;= EMX-24){
+      if (X &lt;= EMX+20){
+       if (Y &gt;= EMY-24){
+        if (Y &lt;= EMY+20){
+         spLEFT(37+PTN,-100)
+         spMOV(Cname[cflag],EMX-4,EMY-4)
+         cflag=cflag+1;if (cflag &gt;= 2){cflag=0}
+         mycr.visibility="hidden"
+         DOC2c.visibility="hidden"
+         DOCc.visibility="visible"
+         spMOV(Cname[cflag],X,Y)
+         cflag=cflag+1;if (cflag &gt;= 2){cflag=0}
+         Endflg=1;EFX[tmp1]=-100
+        }
+       }
+      }
+     }
+  }
+ }
+
+ function Efmove(){
+  for (tmp1=0; tmp1&lt;Fmax; tmp1++){
+   if (EFX[tmp1] != -100){
+    EFX[tmp1]=EFX[tmp1]+EVX[tmp1];EFY[tmp1]=EFY[tmp1]+EVY[tmp1]
+     if (EFX[tmp1] &lt; -16){EFX[tmp1]=-100;EVX[tmp1]=0;EVY[tmp1]=0}
+     if (EFX[tmp1] &gt; 400){EFX[tmp1]=-100;EVX[tmp1]=0;EVY[tmp1]=0}
+     if (EFY[tmp1] &lt; -16){EFX[tmp1]=-100;EVX[tmp1]=0;EVY[tmp1]=0}
+     if (EFY[tmp1] &gt; 300){EFX[tmp1]=-100;EVX[tmp1]=0;EVY[tmp1]=0}
+   }
+    if (EFX[tmp1] &gt;= X-4){
+     if (EFX[tmp1] &lt;= X+26){
+      if (EFY[tmp1] &gt;= Y+8){
+       if (EFY[tmp1] &lt;= Y+24){
+        mycr.visibility="hidden"
+        DOC2c.visibility="hidden"
+        DOCc.visibility="visible"
+        spMOV(Cname[cflag],X,Y)
+        Endflg=1;EFX[tmp1]=-100;cflag=cflag+1;if (cflag &gt;= 2){cflag=0}
+       }
+      }
+     }
+    }
+   spMOV(tmp1+18,EFX[tmp1],EFY[tmp1])
+  }
+ }
+
+ function Efire(EPX,EPY){
+  if (Bossflg == 0){
+  tmpE0=tmpE0+1;if (tmpE0 &gt;= 9){tmpE0=0}
+  if (EFX[tmpE0] == -100){
+   EFX[tmpE0]=EPX;EFY[tmpE0]=EPY
+   tmpEx=X-EPX;tmpEy=Y-EPY
+   with (Math) {
+    tmpEr=sqrt(tmpEx*tmpEx+tmpEy*tmpEy)
+    if (tmpEr == 0){tmpEr=1}
+    EVX[tmpE0]=floor((tmpEx/tmpEr)*7);EVY[tmpE0]=floor((tmpEy/tmpEr)*7)
+   }
+  }
+  }
+ }
+
+ function loadSCORE(){
+  if (document.cookie){
+   FALCONtop = document.cookie.indexOf("JSFALCON", 0)
+   if (FALCONtop != -1){
+    tscore = document.cookie.substring(FALCONtop+9,FALCONtop+14)
+   }else{tscore="0"}
+  }else{tscore="0"}
+  with (Math) {
+   hscore=parseInt(tscore,10)
+   h5=floor(hscore/10000)
+   h4=floor((hscore-h5*10000)/1000)
+   h3=floor((hscore-h5*10000-h4*1000)/100)
+   h2=floor((hscore-h5*10000-h4*1000-h3*100)/10)
+   h1=hscore-h5*10000-h4*1000-h3*100-h2*10
+  }
+  L2c.top=-16*h5
+  L3c.top=-16*h4
+  L4c.top=-16*h3
+  L5c.top=-16*h2
+  L6c.top=-16*h1
+ }
+
+ function keyDown(DnEvents){
+  if (systm != "C"){
+   k=DnEvents.which
+  }else{
+   k=window.event.keyCode
+  }
+   if (k == 50){IY=1}                    
+   if (k == 56){DY=1}                    
+   if (k == 54){IX=1}                    
+   if (k == 52){DX=1}                    
+
+   if (k == 98 ){IY=1}                   
+   if (k == 104){DY=1}                   
+   if (k == 102){IX=1}                   
+   if (k == 100){DX=1}                   
+
+   if (k == 75){IY=1}                    
+   if (k == 73){DY=1}                    
+   if (k == 76){IX=1}                    
+   if (k == 74){DX=1}                    
+
+   if (k == 107){IY=1}                   
+   if (k == 105){DY=1}                   
+   if (k == 108){IX=1}                   
+   if (k == 106){DX=1}                   
+
+   if (k == 49){SDX=1;SIY=1}             
+   if (k == 51){SIX=1;SIY=1}             
+   if (k == 55){SDX=1;SDY=1}             
+   if (k == 57){SIX=1;SDY=1}             
+
+   if (k == 32){ff=1}                    
+   if (k == 90){ff=1}                    
+   if (k == 122){ff=1}                   
+   if (k == 0){ff=1}                     
+
+   if (k == 48){if (bc == 0){bf=1}}      
+   if (k == 96){if (bc == 0){bf=1}}      
+
+   if (k == 13){if (bc == 0){bf=1}}      
+   if (k == 88){if (bc == 0){bf=1}}      
+   if (k == 120){if (bc == 0){bf=1}}     
+   if (k == 83){if (Endflg == 1){if (sf == 1){Restart()}}}           
+   if (k == 115){if (Endflg == 1){if (sf == 1){Restart()}}}          
+   if (k == 69){if (Endflg == 1){Flimit=3;EASY()}}     
+   if (k == 101){if (Endflg == 1){Flimit=3;EASY()}}    
+   if (k == 78){if (Endflg == 1){Flimit=9;NORMAL()}}   
+   if (k == 110){if (Endflg == 1){Flimit=9;NORMAL()}}  
+   if (k == 81){QuitPlay()}             
+   if (k == 113){QuitPlay()}             
+
+ }
+
+ function keyUp(UpEvents){
+  if (systm != "C"){
+   k=UpEvents.which
+  }else{
+   k=window.event.keyCode
+  }
+   if (k == 50){IY=0}
+   if (k == 56){DY=0}
+   if (k == 54){IX=0}
+   if (k == 52){DX=0}
+
+   if (k == 98 ){IY=0}                   
+   if (k == 104){DY=0}                   
+   if (k == 102){IX=0}                   
+   if (k == 100){DX=0}                   
+
+   if (k == 75){IY=0}                    
+   if (k == 73){DY=0}                    
+   if (k == 76){IX=0}                    
+   if (k == 74){DX=0}                    
+
+   if (k == 107){IY=0}                   
+   if (k == 105){DY=0}                   
+   if (k == 108){IX=0}                   
+   if (k == 106){DX=0}                   
+
+
+   if (k == 49){SDX=0;SIY=0}
+   if (k == 51){SIX=0;SIY=0}
+   if (k == 55){SDX=0;SDY=0}
+   if (k == 57){SIX=0;SDY=0}
+
+ }
+
+ function spINI(spNAME,spX,spY,spW,spH,spIMG){
+   if (systm!="C"){
+    document.layers["W1"].document.write("&lt;LAYER NAME='"+spNAME+"' LEFT="+spX+" TOP="+spY+"&gt;&lt;IMG WIDTH="+spW+" HEIGHT="+spH+" SRC='"+spIMG+"'&gt;&lt;/LAYER&gt;")
+   }else{
+    with (document) {
+     write("&lt;IMG ID="+spNAME+" WIDTH="+spW+" HEIGHT="+spH+" SRC='"+spIMG+"' STYLE='position:absolute'&gt;")
+     images[spCOUNT+14].style.posLeft = spX
+     images[spCOUNT+14].style.posTop =  spY
+    }
+   }
+ spCOUNT=spCOUNT+1
+ }
+
+ function spMOV(spNO,spX,spY){
+  if (systm!="C"){
+   W1c.layers[spNO].moveTo(spX,spY)
+  }else{
+   document.images[spNO+14].style.posLeft = spX
+   document.images[spNO+14].style.posTop =  spY
+  }
+ }
+
+ function spLEFT(spNO,spX){
+  if (systm!="C"){
+   W1c.layers[spNO].left=spX
+  }else{
+   document.images[spNO+14].style.posLeft = spX
+  }
+ }
+
+  document.onkeydown = keyDown
+  document.onkeyup = keyUp
+  if (systm!="C"){
+   document.captureEvents(Event.KEYDOWN|Event.KEYUP)
+  }
+
+ //--&gt;
+ &lt;/SCRIPT&gt;
+ &lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Insert the onLoad event handler into your BODY tag  --&gt;
+
+ &lt;BODY BGCOLOR="#00003F" TEXT="#FFFFFF" ONLOAD="onLD()"&gt;
+
+&lt;!-- STEP THREE: Copy this code into the BODY of your HTML document  --&gt;
+
+ &lt;DIV ID="BG"&gt;&lt;/DIV&gt;
+
+ &lt;DIV STYLE='position:absolute; left:16; top:0'&gt;&lt;IMG WIDTH=50 HEIGHT=16 SRC="highc.gif"&gt;&lt;/DIV&gt;
+ &lt;DIV STYLE='position:absolute; left:60; top:0'&gt;&lt;IMG WIDTH=50 HEIGHT=16 SRC="score.gif"&gt;&lt;/DIV&gt;
+ &lt;DIV ID="L2I" STYLE='position:absolute; left:120; top:0'&gt;
+ &lt;IMG WIDTH=16 HEIGHT=160 SRC="number.gif"&gt;&lt;/DIV&gt;
+ &lt;DIV ID="L3I" STYLE='position:absolute; left:130; top:0'&gt;
+ &lt;IMG WIDTH=16 HEIGHT=160 SRC="number.gif"&gt;&lt;/DIV&gt;
+ &lt;DIV ID="L4I" STYLE='position:absolute; left:140; top:0'&gt;
+ &lt;IMG WIDTH=16 HEIGHT=160 SRC="number.gif"&gt;&lt;/DIV&gt;
+ &lt;DIV ID="L5I" STYLE='position:absolute; left:150; top:0'&gt;
+ &lt;IMG WIDTH=16 HEIGHT=160 SRC="number.gif"&gt;&lt;/DIV&gt;
+ &lt;DIV ID="L6I" STYLE='position:absolute; left:160; top:0'&gt;
+ &lt;IMG WIDTH=16 HEIGHT=160 SRC="number.gif"&gt;&lt;/DIV&gt;
+
+ &lt;DIV STYLE='position:absolute; left:290; top:0'&gt;&lt;IMG WIDTH=50 HEIGHT=16 SRC="score.gif"&gt;&lt;/DIV&gt;
+ &lt;DIV ID="L7I" STYLE='position:absolute; left:350; top:0'&gt;
+ &lt;IMG WIDTH=16 HEIGHT=160 SRC="number.gif"&gt;&lt;/DIV&gt;
+ &lt;DIV ID="L8I" STYLE='position:absolute; left:360; top:0'&gt;
+ &lt;IMG WIDTH=16 HEIGHT=160 SRC="number.gif"&gt;&lt;/DIV&gt;
+ &lt;DIV ID="L9I" STYLE='position:absolute; left:370; top:0'&gt;
+ &lt;IMG WIDTH=16 HEIGHT=160 SRC="number.gif"&gt;&lt;/DIV&gt;
+ &lt;DIV ID="L10I" STYLE='position:absolute; left:380; top:0'&gt;
+ &lt;IMG WIDTH=16 HEIGHT=160 SRC="number.gif"&gt;&lt;/DIV&gt;
+ &lt;DIV ID="L11I" STYLE='position:absolute; left:390; top:0'&gt;
+ &lt;IMG WIDTH=16 HEIGHT=160 SRC="number.gif"&gt;&lt;/DIV&gt;
+ &lt;DIV STYLE='position:absolute; left:16; top:16'&gt;
+ &lt;IMG WIDTH=400 HEIGHT=300 SRC="skybg.gif"&gt;
+ &lt;/DIV&gt;
+
+
+ &lt;DIV ID="TITL" STYLE='position:absolute; left:424; top:16'&gt;
+ &lt;PRE&gt;
+
+
+
+
+
+
+
+  Welcome to 
+&lt;FONT COLOR="#FFFF00" SIZE="+2"&gt;&lt;B&gt;JS FALCON!&lt;/B&gt;&lt;/FONT&gt;
+ &lt;/PRE&gt;
+ &lt;/DIV&gt;
+
+ &lt;DIV ID="KEYS" STYLE='position:absolute; left:16; top:320'&gt;
+&lt;PRE&gt;&lt;FONT SIZE="-1"&gt;
+                          - INSTRUCTIONS - 
+                    Move with 2,4,6,8 or K,J,L,I
+                    Shoot gun with SPACEBAR or Z
+                    Shoot Missles with 0 or X&lt;/FONT&gt;&lt;/PRE&gt;&lt;/DIV&gt;
+
+ &lt;DIV ID="W1" STYLE='position:absolute; left:16; top:16; clip:rect(0,400,300,0)'&gt;
+ &lt;SCRIPT LANGUAGE="JavaScript"&gt;
+ &lt;!--
+   spINI("Mychr",100,100,32,32,"f16c.gif")
+
+   spINI("MyF01",-100,0,32,8,"fire0c.gif")
+   spINI("MyF02",-100,0,32,8,"fire0c.gif")
+   spINI("MyF03",-100,0,32,8,"fire0c.gif")
+   spINI("MyF04",-100,0,32,8,"fire0c.gif")
+   spINI("MyF05",-100,0,32,8,"fire0c.gif")
+   spINI("MyF06",-100,0,32,8,"fire0c.gif")
+   spINI("MyF07",-100,0,32,8,"fire0c.gif")
+   spINI("MyF08",-100,0,32,8,"fire0c.gif")
+   spINI("MyF09",-100,0,32,8,"fire0c.gif")
+   spINI("MyF10",-100,0,32,8,"fire0c.gif")
+   spINI("MyF11",-100,0,32,8,"fire0c.gif")
+   spINI("MyF12",-100,0,32,8,"fire0c.gif")
+   spINI("MyF13",-100,0,32,8,"fire0c.gif")
+
+   spINI("boss2",-180,120,50,50,"boss2c.gif")
+   spINI("boss1",-230,170,80,50,"boss1c.gif")
+   spINI("bossR",-230,170,80,50,"boss1rc.gif")
+   spINI("boss0",-200,220,128,64,"boss0c.gif")
+
+   spINI("EnF1",-100,0,8,8,"fire1c.gif")
+   spINI("EnF2",-100,0,8,8,"fire1c.gif")
+   spINI("EnF3",-100,0,8,8,"fire1c.gif")
+   spINI("EnF4",-100,0,8,8,"fire1c.gif")
+   spINI("EnF5",-100,0,8,8,"fire1c.gif")
+   spINI("EnF6",-100,0,8,8,"fire1c.gif")
+   spINI("EnF7",-100,0,8,8,"fire1c.gif")
+   spINI("EnF8",-100,0,8,8,"fire1c.gif")
+   spINI("EnF9",-100,0,8,8,"fire1c.gif")
+
+   spINI("M231",-100,0,32,19,"m23c.gif")
+   spINI("M232",-100,0,32,19,"m23c.gif")
+   spINI("M233",-100,0,32,19,"m23c.gif")
+
+   spINI("cob1",-100,0,32,19,"cobrac.gif")
+   spINI("cob2",-100,0,32,19,"cobrac.gif")
+   spINI("cob3",-100,0,32,19,"cobrac.gif")
+
+   spINI("shi1",-100,0,32,24,"shilkac.gif")
+   spINI("shi2",-100,0,32,24,"shilkac.gif")
+   spINI("shi3",-100,0,32,24,"shilkac.gif")
+
+   spINI("sa81",-100,0,32,24,"sa8c.gif")
+
+   spINI("msl0",-100,0,24,24,"msl0c.gif")
+   spINI("msl1",-100,0,24,24,"msl1c.gif")
+   spINI("msl2",-100,0,24,24,"msl2c.gif")
+   spINI("msl3",-100,0,24,24,"msl3c.gif")
+   spINI("msl4",-100,0,24,24,"msl4c.gif")
+   spINI("msl5",-100,0,24,24,"msl5c.gif")
+   spINI("msl6",-100,0,24,24,"msl6c.gif")
+   spINI("msl7",-100,0,24,24,"msl7c.gif")
+
+   spINI("bom0",-100,0,32,8,"bom0c.gif")
+   spINI("bom1",-100,0,32,8,"bom1c.gif")
+   spINI("miss",-100,0,16,16,"clashc.gif")
+
+   spINI("clash",-100,0,32,32,"clashc.gif")
+   spINI("clash1",-100,0,32,32,"clashc.gif")
+   spINI("clash2",-100,0,64,64,"clash2c.gif")
+
+
+ //--&gt;
+ &lt;/SCRIPT&gt;
+
+   &lt;DIV ID="GND" STYLE='position:absolute; left:0; top:284'&gt;&lt;IMG HEIGHT=16 WIDTH=16 SRC="block.gif"&gt;&lt;IMG HEIGHT=16 WIDTH=16 SRC="block.gif"&gt;&lt;IMG HEIGHT=16 WIDTH=16 SRC="block.gif"&gt;&lt;IMG HEIGHT=16 WIDTH=16 SRC="block.gif"&gt;&lt;IMG HEIGHT=16 WIDTH=16 SRC="block.gif"&gt;&lt;IMG HEIGHT=16 WIDTH=16 SRC="block.gif"&gt;&lt;IMG HEIGHT=16 WIDTH=16 SRC="block.gif"&gt;&lt;IMG HEIGHT=16 WIDTH=16 SRC="block.gif"&gt;&lt;IMG HEIGHT=16 WIDTH=16 SRC="block.gif"&gt;&lt;IMG HEIGHT=16 WIDTH=16 SRC="block.gif"&gt;&lt;IMG HEIGHT=16 WIDTH=16 SRC="block.gif"&gt;&lt;IMG HEIGHT=16 WIDTH=16 SRC="block.gif"&gt;&lt;IMG HEIGHT=16 WIDTH=16 SRC="block.gif"&gt;&lt;IMG HEIGHT=16 WIDTH=16 SRC="block.gif"&gt;&lt;IMG HEIGHT=16 WIDTH=16 SRC="block.gif"&gt;&lt;IMG HEIGHT=16 WIDTH=16 SRC="block.gif"&gt;&lt;IMG HEIGHT=16 WIDTH=16 SRC="block.gif"&gt;&lt;IMG HEIGHT=16 WIDTH=16 SRC="block.gif"&gt;&lt;IMG HEIGHT=16 WIDTH=16 SRC="block.gif"&gt;&lt;IMG HEIGHT=16 WIDTH=16 SRC="block.gif"&gt;&lt;IMG HEIGHT=16 WIDTH=16 SRC="block.gif"&gt;&lt;IMG HEIGHT=16 WIDTH=16 SRC="block.gif"&gt;&lt;IMG HEIGHT=16 WIDTH=16 SRC="block.gif"&gt;&lt;IMG HEIGHT=16 WIDTH=16 SRC="block.gif"&gt;&lt;IMG HEIGHT=16 WIDTH=16 SRC="block.gif"&gt;&lt;IMG HEIGHT=16 WIDTH=16 SRC="block.gif"&gt;&lt;/DIV&gt;
+
+  &lt;DIV ID="doc" STYLE='position:absolute; left:0; top:150; visibility: hidden'&gt;
+  &lt;PRE&gt;
+         Oops, you died!  &lt;FONT COLOR="#0000FF"&gt;GAME OVER!&lt;/FONT&gt;
+      
+            To Play again, hit &lt;FONT COLOR="#FF0000"&gt;&lt;B&gt;S&lt;/B&gt;!&lt;/FONT&gt;
+
+             &lt;FONT SIZE="-1"&gt;You can change levels now:
+           hit 'E' now for easy, or 'N' for Normal&lt;/FONT&gt;
+  &lt;/PRE&gt;
+  &lt;/DIV&gt;
+
+  &lt;DIV ID="doc2" STYLE='position:absolute; left:0; top:150; visibility: hidden'&gt;
+  &lt;PRE&gt;
+   &lt;FONT COLOR="#0000FF" SIZE="+1"&gt;&lt;B&gt;DOKONCIL SI MISIU!&lt;/B&gt;&lt;/FONT&gt;
+      Chces si este zahrat ? ..&lt;FONT COLOR="#FF0000"&gt;Stlac &lt;B&gt;S&lt;/B&gt; !&lt;/FONT&gt;
+      &lt;FONT SIZE="-1"&gt;( Lahky mod ..E  / Normalny mod ..N )&lt;/FONT&gt;
+  &lt;/PRE&gt;
+  &lt;/DIV&gt;
+  &lt;DIV ID="EASY" STYLE='position:absolute; left:2; top:2; visibility: hidden'&gt;
+   &lt;FONT COLOR="#FF0000" SIZE="-1"&gt;EASY MODE&lt;/FONT&gt;
+  &lt;/DIV&gt;
+ &lt;/DIV&gt;
+
+ &lt;/BODY&gt;
+ &lt;/HTML&gt;
+
+ 
+
+&lt;!-- Script Size:  29.70 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>
+
+
+

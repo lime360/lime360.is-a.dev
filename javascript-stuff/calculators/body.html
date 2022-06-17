@@ -1,0 +1,985 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Calculators:  Body</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Tomer and Yehuda Shiran
+function getHeight(sex, age, height) {
+height = Math.round(height)
+var height5 = 0
+var height50 = 0
+if (age == 2) {
+height50 = 87
+height5 = 82
+} else
+if (age == 3) {
+height50 = 95
+height5 = 90
+} else
+if (age == 4) {
+height50 = 102
+height5 = 95
+} else 
+if (age == 5) {
+height50 = 109
+height5 = 101
+} else 
+if (age == 6) {
+height50 = 114
+height5 = 107
+} else 
+if (age == 7) {
+height50 = 120
+height5 = 112
+} else 
+if (age == 8) {
+height50 = 126
+height5 = 118
+} else 
+if (age == 9) {
+height50 = 131
+height5 = 121
+} else 
+if (age == 10) {
+height50 = 137
+height5 = 127
+} else 
+if (age == 11) {
+height50 = 143
+height5 = 131
+} else
+if (sex == "f") {
+if (age == 12) {
+height50 = 150
+height5 = 140
+} else 
+if (age == 13) {
+height50 = 157
+height5 = 145
+} else 
+if (age == 14) {
+height50 = 160
+height5 = 148
+} else 
+if (age == 15) {
+height50 = 162
+height5 = 150
+} else 
+if (age == 16) {
+height50 = 162
+height5 = 151
+} else 
+if (age == 17) {
+height50 = 163
+height5 = 153
+} else 
+if (age == 18) {
+height50 = 164
+height5 = 154
+}
+} else
+if (age == 12) {
+height50 = 150
+height5 = 137
+} else 
+if (age == 13) {
+height50 = 156
+height5 = 142
+} else 
+if (age == 14) {
+height50 = 162
+height5 = 148
+} else 
+if (age == 15) {
+height50 = 168
+height5 = 155
+} else 
+if (age == 16) {
+height50 = 174
+height5 = 160
+} else 
+if (age == 17) {
+height50 = 175
+height5 = 165
+} else 
+if (age == 18) {
+height50 = 176
+height5 = 165
+}
+var percent = (height - height5) * (50 - 5) / (height50 - height5) + 5
+return percent
+}
+function getWeight(sex, age, weight) {
+weight = Math.round(weight)
+var weight5 = 0
+var weight50 = 0
+if (age == 2) {
+weight50 = 12
+weight5 = 10
+} else
+if (age == 3) {
+weight50 =14
+weight5 = 12
+} else
+if (age == 4) {
+weight50 = 16
+weight5 = 14
+} else 
+if (age == 5) {
+weight50 = 18
+weight5 = 15
+} else 
+if (age == 6) {
+weight50 = 20
+weight5 = 17
+} else 
+if (age == 7) {
+weight50 = 22
+weight5 = 18
+} else 
+if (age == 8) {
+weight50 = 25
+weight5 = 20
+} else 
+if (age == 9) {
+weight50 = 29
+weight5 = 22
+} else 
+if (sex == "f") {
+if (age == 10) {
+weight50 = 32
+weight5 = 25
+} else
+if (age == 11) {
+weight50 = 37
+weight5 = 27
+} else
+if (age == 12) {
+weight50 = 41
+weight5 = 30
+} else 
+if (age == 13) {
+weight50 = 46
+weight5 = 34
+} else 
+if (age == 14) {
+weight50 = 50
+weight5 = 38
+} else 
+if (age == 15) {
+weight50 = 53
+weight5 = 40
+} else 
+if (age == 16) {
+weight50 = 56
+weight5 = 43
+} else 
+if (age == 17) {
+weight50 = 57
+weight5 = 45
+} else 
+if (age == 18) {
+weight50 = 57
+weight5 = 46
+}
+} else
+if (age == 10) {
+weight50 = 24
+weight5 = 31
+} else 
+if (age == 11) {
+weight50 = 35
+weight5 = 27
+} else
+if (age == 12) {
+weight50 = 40
+weight5 = 30
+} else 
+if (age == 13) {
+weight50 = 46
+weight5 = 35
+} else 
+if (age == 14) {
+weight50 = 51
+weight5 = 38
+} else 
+if (age == 15) {
+weight50 = 57 
+weight5 = 44
+} else 
+if (age == 16) {
+weight50 = 62
+weight5 = 48
+} else 
+if (age == 17) {
+weight50 = 67
+weight5 = 53
+} else 
+if (age == 18) {
+weight50 = 69
+weight5 = 55
+}
+var percent = (weight - weight5) * (50 - 5) / (weight50 - weight5) + 5
+return percent
+}
+function printResult(height, weight, sex, age) {
+var heightAdj = ""
+var weightAdj = ""
+var ageAdj = ""
+var sexAdj = ""
+var gradeAdj = ""
+var grade = 0
+var propWeight = weight / height
+if (height > 70) { 
+heightAdj = "tall"
+grade += 2
+} else
+if (height < 30) {
+heightAdj = "short"
+grade += 1
+} else {
+heightAdj = "medium-height"
+grade += 3
+}
+if (propWeight > 2) {
+weightAdj = "over-weight"
+grade += 1
+} else
+if (propWeight < 0.5) {
+weightAdj = "slim"
+grade += 2
+} else {
+weightAdj = "medium-weight"
+grade += 3
+}
+ageAdj = ageInput + "-year old"
+if (grade >= 5)
+gradeAdj = "great-looking"
+else
+if (grade <= 2)
+gradeAdj = "ackward-looking"
+else
+gradeAdj = "fine-looking"
+sexAdj = (sex == "f") ? "female" : "male"
+var finalMessage = "You are a " + heightAdj + ", "
+finalMessage += weightAdj + ", " + gradeAdj + " "
+finalMessage += ageAdj + " " + sexAdj + "."
+alert(finalMessage)
+if (confirm("Are you interested in scientific results?")) {
+scMessage = "height = " + Math.round(height)
+scMessage +="%\rweight = " + Math.round(weight)
+scMessage += "%\rweight/height = " + propWeight
+alert(scMessage)
+} else
+if (grade <= 4)
+alert("Good idea!")
+var notice = "Thank you for using the JavaScript weight "
+notice += "and height calculator. All calculations are "
+notice += "done according to the child-development graph "
+notice += "in \"Compton's Encyclopedia\". We appologize "
+notice += "if you were insulted by the comments">
+<META NAME="section" CONTENT="Calculators">
+<META NAME="description" CONTENT="I like this script because it uses some very ingenious JavaScripting techniques.  into the process, it analyzses a persons information (sex, height, weight) and responds with a comment message.">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<P>
+<center>
+
+	
+<P>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /calculators/"><font color="#FF0000">Calculators</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Body</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+I like this script because it uses some very ingenious JavaScripting techniques.  into the process, it analyzses a persons information (sex, height, weight) and responds with a comment message.
+<br>
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Tomer and Yehuda Shiran
+function getHeight(sex, age, height) {
+height = Math.round(height)
+var height5 = 0
+var height50 = 0
+if (age == 2) {
+height50 = 87
+height5 = 82
+} else
+if (age == 3) {
+height50 = 95
+height5 = 90
+} else
+if (age == 4) {
+height50 = 102
+height5 = 95
+} else 
+if (age == 5) {
+height50 = 109
+height5 = 101
+} else 
+if (age == 6) {
+height50 = 114
+height5 = 107
+} else 
+if (age == 7) {
+height50 = 120
+height5 = 112
+} else 
+if (age == 8) {
+height50 = 126
+height5 = 118
+} else 
+if (age == 9) {
+height50 = 131
+height5 = 121
+} else 
+if (age == 10) {
+height50 = 137
+height5 = 127
+} else 
+if (age == 11) {
+height50 = 143
+height5 = 131
+} else
+if (sex == "f") {
+if (age == 12) {
+height50 = 150
+height5 = 140
+} else 
+if (age == 13) {
+height50 = 157
+height5 = 145
+} else 
+if (age == 14) {
+height50 = 160
+height5 = 148
+} else 
+if (age == 15) {
+height50 = 162
+height5 = 150
+} else 
+if (age == 16) {
+height50 = 162
+height5 = 151
+} else 
+if (age == 17) {
+height50 = 163
+height5 = 153
+} else 
+if (age == 18) {
+height50 = 164
+height5 = 154
+}
+} else
+if (age == 12) {
+height50 = 150
+height5 = 137
+} else 
+if (age == 13) {
+height50 = 156
+height5 = 142
+} else 
+if (age == 14) {
+height50 = 162
+height5 = 148
+} else 
+if (age == 15) {
+height50 = 168
+height5 = 155
+} else 
+if (age == 16) {
+height50 = 174
+height5 = 160
+} else 
+if (age == 17) {
+height50 = 175
+height5 = 165
+} else 
+if (age == 18) {
+height50 = 176
+height5 = 165
+}
+var percent = (height - height5) * (50 - 5) / (height50 - height5) + 5
+return percent
+}
+function getWeight(sex, age, weight) {
+weight = Math.round(weight)
+var weight5 = 0
+var weight50 = 0
+if (age == 2) {
+weight50 = 12
+weight5 = 10
+} else
+if (age == 3) {
+weight50 =14
+weight5 = 12
+} else
+if (age == 4) {
+weight50 = 16
+weight5 = 14
+} else 
+if (age == 5) {
+weight50 = 18
+weight5 = 15
+} else 
+if (age == 6) {
+weight50 = 20
+weight5 = 17
+} else 
+if (age == 7) {
+weight50 = 22
+weight5 = 18
+} else 
+if (age == 8) {
+weight50 = 25
+weight5 = 20
+} else 
+if (age == 9) {
+weight50 = 29
+weight5 = 22
+} else 
+if (sex == "f") {
+if (age == 10) {
+weight50 = 32
+weight5 = 25
+} else
+if (age == 11) {
+weight50 = 37
+weight5 = 27
+} else
+if (age == 12) {
+weight50 = 41
+weight5 = 30
+} else 
+if (age == 13) {
+weight50 = 46
+weight5 = 34
+} else 
+if (age == 14) {
+weight50 = 50
+weight5 = 38
+} else 
+if (age == 15) {
+weight50 = 53
+weight5 = 40
+} else 
+if (age == 16) {
+weight50 = 56
+weight5 = 43
+} else 
+if (age == 17) {
+weight50 = 57
+weight5 = 45
+} else 
+if (age == 18) {
+weight50 = 57
+weight5 = 46
+}
+} else
+if (age == 10) {
+weight50 = 24
+weight5 = 31
+} else 
+if (age == 11) {
+weight50 = 35
+weight5 = 27
+} else
+if (age == 12) {
+weight50 = 40
+weight5 = 30
+} else 
+if (age == 13) {
+weight50 = 46
+weight5 = 35
+} else 
+if (age == 14) {
+weight50 = 51
+weight5 = 38
+} else 
+if (age == 15) {
+weight50 = 57 
+weight5 = 44
+} else 
+if (age == 16) {
+weight50 = 62
+weight5 = 48
+} else 
+if (age == 17) {
+weight50 = 67
+weight5 = 53
+} else 
+if (age == 18) {
+weight50 = 69
+weight5 = 55
+}
+var percent = (weight - weight5) * (50 - 5) / (weight50 - weight5) + 5
+return percent
+}
+function printResult(height, weight, sex, age) {
+var heightAdj = ""
+var weightAdj = ""
+var ageAdj = ""
+var sexAdj = ""
+var gradeAdj = ""
+var grade = 0
+var propWeight = weight / height
+if (height > 70) { 
+heightAdj = "tall"
+grade += 2
+} else
+if (height < 30) {
+heightAdj = "short"
+grade += 1
+} else {
+heightAdj = "medium-height"
+grade += 3
+}
+if (propWeight > 2) {
+weightAdj = "over-weight"
+grade += 1
+} else
+if (propWeight < 0.5) {
+weightAdj = "slim"
+grade += 2
+} else {
+weightAdj = "medium-weight"
+grade += 3
+}
+ageAdj = ageInput + "-year old"
+if (grade >= 5)
+gradeAdj = "great-looking"
+else
+if (grade <= 2)
+gradeAdj = "ackward-looking"
+else
+gradeAdj = "fine-looking"
+sexAdj = (sex == "f") ? "female" : "male"
+var finalMessage = "You are a " + heightAdj + ", "
+finalMessage += weightAdj + ", " + gradeAdj + " "
+finalMessage += ageAdj + " " + sexAdj + "."
+alert(finalMessage)
+if (confirm("Are you interested in scientific results?")) {
+scMessage = "height = " + Math.round(height)
+scMessage +="%\rweight = " + Math.round(weight)
+scMessage += "%\rweight/height = " + propWeight
+alert(scMessage)
+} else
+if (grade <= 4)
+alert("Good idea!")
+var notice = "Thank you for using the JavaScript weight "
+notice += "and height calculator. All calculations are "
+notice += "done according to the child-development graph "
+notice += "in \"Compton's Encyclopedia\". We appologize "
+notice += "if you were insulted by the comments -- that "
+notice += "was not our intention. We used them to demonstrate "
+notice += "various JavaScript scripting techniques."
+alert(notice)
+}
+function convertInput() {
+weightInput *= 0.45359
+heightInput *= 2.54
+}
+var sex = prompt("Enter sex ((m)ale or (f)emale):", "")
+var ageInput = parseInt(prompt("Enter age in years (minimum = 2):", ""))
+ageInput = Math.round(ageInput)
+var systemMessage = "Whould you like to use the (m)etric system "
+systemMessage += "or the (e)nglish one?"
+var system = prompt(systemMessage, "m")
+var heightUnit = (system == "m") ? "centimeters" : "inches" 
+var weightUnit = (system == "m") ? "kilograms" : "pounds"
+var heightInput = prompt("Enter height in " + heightUnit + ":", "")
+heightInput = parseInt(heightInput)
+var weightInput = prompt("Enter weight in " + weightUnit + ":", "")
+weightInput = parseInt(weightInput)
+if (system == "e")
+convertInput()
+if (ageInput > 18)
+var age = 18
+else
+if (ageInput < 2)
+var age = 2
+else
+var age = ageInput
+var heightPer = getHeight(sex, age, heightInput)
+var weightPer = getWeight(sex, age, weightInput)
+heightPer = (heightPer < 1) ? 1 : heightPer
+heightPer = (heightPer > 99) ? 99 : heightPer
+weightPer = (weightPer < 1) ? 1 : weightPer
+weightPer = (weightPer > 99) ? 99 : weightPer
+printResult(heightPer, weightPer, sex, age)
+// End -->
+</SCRIPT>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Calculator:  Body Calculator</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  6.35 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- ONE STEP TO INSTALL BODY CALCULATOR:
+
+   1.  Paste the coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the BODY of your HTML document  --&gt;
+		  
+&lt;BODY&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Tomer and Yehuda Shiran
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function getHeight(sex, age, height) {
+height = Math.round(height)
+var height5 = 0
+var height50 = 0
+if (age == 2) {
+height50 = 87
+height5 = 82
+} else
+if (age == 3) {
+height50 = 95
+height5 = 90
+} else
+if (age == 4) {
+height50 = 102
+height5 = 95
+} else 
+if (age == 5) {
+height50 = 109
+height5 = 101
+} else 
+if (age == 6) {
+height50 = 114
+height5 = 107
+} else 
+if (age == 7) {
+height50 = 120
+height5 = 112
+} else 
+if (age == 8) {
+height50 = 126
+height5 = 118
+} else 
+if (age == 9) {
+height50 = 131
+height5 = 121
+} else 
+if (age == 10) {
+height50 = 137
+height5 = 127
+} else 
+if (age == 11) {
+height50 = 143
+height5 = 131
+} else
+if (sex == "f") {
+if (age == 12) {
+height50 = 150
+height5 = 140
+} else 
+if (age == 13) {
+height50 = 157
+height5 = 145
+} else 
+if (age == 14) {
+height50 = 160
+height5 = 148
+} else 
+if (age == 15) {
+height50 = 162
+height5 = 150
+} else 
+if (age == 16) {
+height50 = 162
+height5 = 151
+} else 
+if (age == 17) {
+height50 = 163
+height5 = 153
+} else 
+if (age == 18) {
+height50 = 164
+height5 = 154
+}
+} else
+if (age == 12) {
+height50 = 150
+height5 = 137
+} else 
+if (age == 13) {
+height50 = 156
+height5 = 142
+} else 
+if (age == 14) {
+height50 = 162
+height5 = 148
+} else 
+if (age == 15) {
+height50 = 168
+height5 = 155
+} else 
+if (age == 16) {
+height50 = 174
+height5 = 160
+} else 
+if (age == 17) {
+height50 = 175
+height5 = 165
+} else 
+if (age == 18) {
+height50 = 176
+height5 = 165
+}
+var percent = (height - height5) * (50 - 5) / (height50 - height5) + 5
+return percent
+}
+function getWeight(sex, age, weight) {
+weight = Math.round(weight)
+var weight5 = 0
+var weight50 = 0
+if (age == 2) {
+weight50 = 12
+weight5 = 10
+} else
+if (age == 3) {
+weight50 =14
+weight5 = 12
+} else
+if (age == 4) {
+weight50 = 16
+weight5 = 14
+} else 
+if (age == 5) {
+weight50 = 18
+weight5 = 15
+} else 
+if (age == 6) {
+weight50 = 20
+weight5 = 17
+} else 
+if (age == 7) {
+weight50 = 22
+weight5 = 18
+} else 
+if (age == 8) {
+weight50 = 25
+weight5 = 20
+} else 
+if (age == 9) {
+weight50 = 29
+weight5 = 22
+} else 
+if (sex == "f") {
+if (age == 10) {
+weight50 = 32
+weight5 = 25
+} else
+if (age == 11) {
+weight50 = 37
+weight5 = 27
+} else
+if (age == 12) {
+weight50 = 41
+weight5 = 30
+} else 
+if (age == 13) {
+weight50 = 46
+weight5 = 34
+} else 
+if (age == 14) {
+weight50 = 50
+weight5 = 38
+} else 
+if (age == 15) {
+weight50 = 53
+weight5 = 40
+} else 
+if (age == 16) {
+weight50 = 56
+weight5 = 43
+} else 
+if (age == 17) {
+weight50 = 57
+weight5 = 45
+} else 
+if (age == 18) {
+weight50 = 57
+weight5 = 46
+}
+} else
+if (age == 10) {
+weight50 = 24
+weight5 = 31
+} else 
+if (age == 11) {
+weight50 = 35
+weight5 = 27
+} else
+if (age == 12) {
+weight50 = 40
+weight5 = 30
+} else 
+if (age == 13) {
+weight50 = 46
+weight5 = 35
+} else 
+if (age == 14) {
+weight50 = 51
+weight5 = 38
+} else 
+if (age == 15) {
+weight50 = 57 
+weight5 = 44
+} else 
+if (age == 16) {
+weight50 = 62
+weight5 = 48
+} else 
+if (age == 17) {
+weight50 = 67
+weight5 = 53
+} else 
+if (age == 18) {
+weight50 = 69
+weight5 = 55
+}
+var percent = (weight - weight5) * (50 - 5) / (weight50 - weight5) + 5
+return percent
+}
+function printResult(height, weight, sex, age) {
+var heightAdj = ""
+var weightAdj = ""
+var ageAdj = ""
+var sexAdj = ""
+var gradeAdj = ""
+var grade = 0
+var propWeight = weight / height
+if (height &gt; 70) { 
+heightAdj = "tall"
+grade += 2
+} else
+if (height &lt; 30) {
+heightAdj = "short"
+grade += 1
+} else {
+heightAdj = "medium-height"
+grade += 3
+}
+if (propWeight &gt; 2) {
+weightAdj = "over-weight"
+grade += 1
+} else
+if (propWeight &lt; 0.5) {
+weightAdj = "slim"
+grade += 2
+} else {
+weightAdj = "medium-weight"
+grade += 3
+}
+ageAdj = ageInput + "-year old"
+if (grade &gt;= 5)
+gradeAdj = "great-looking"
+else
+if (grade &lt;= 2)
+gradeAdj = "ackward-looking"
+else
+gradeAdj = "fine-looking"
+sexAdj = (sex == "f") ? "female" : "male"
+var finalMessage = "You are a " + heightAdj + ", "
+finalMessage += weightAdj + ", " + gradeAdj + " "
+finalMessage += ageAdj + " " + sexAdj + "."
+alert(finalMessage)
+if (confirm("Are you interested in scientific results?")) {
+scMessage = "height = " + Math.round(height)
+scMessage +="%\rweight = " + Math.round(weight)
+scMessage += "%\rweight/height = " + propWeight
+alert(scMessage)
+} else
+if (grade &lt;= 4)
+alert("Good idea!")
+var notice = "Thank you for using the JavaScript weight "
+notice += "and height calculator. All calculations are "
+notice += "done according to the child-development graph "
+notice += "in \"Compton's Encyclopedia\". We appologize "
+notice += "if you were insulted by the comments -- that "
+notice += "was not our intention. We used them to demonstrate "
+notice += "various JavaScript scripting techniques."
+alert(notice)
+}
+function convertInput() {
+weightInput *= 0.45359
+heightInput *= 2.54
+}
+var sex = prompt("Enter sex ((m)ale or (f)emale):", "")
+var ageInput = parseInt(prompt("Enter age in years (minimum = 2):", ""))
+ageInput = Math.round(ageInput)
+var systemMessage = "Whould you like to use the (m)etric system "
+systemMessage += "or the (e)nglish one?"
+var system = prompt(systemMessage, "m")
+var heightUnit = (system == "m") ? "centimeters" : "inches" 
+var weightUnit = (system == "m") ? "kilograms" : "pounds"
+var heightInput = prompt("Enter height in " + heightUnit + ":", "")
+heightInput = parseInt(heightInput)
+var weightInput = prompt("Enter weight in " + weightUnit + ":", "")
+weightInput = parseInt(weightInput)
+if (system == "e")
+convertInput()
+if (ageInput &gt; 18)
+var age = 18
+else
+if (ageInput &lt; 2)
+var age = 2
+else
+var age = ageInput
+var heightPer = getHeight(sex, age, heightInput)
+var weightPer = getWeight(sex, age, weightInput)
+heightPer = (heightPer &lt; 1) ? 1 : heightPer
+heightPer = (heightPer &gt; 99) ? 99 : heightPer
+weightPer = (weightPer &lt; 1) ? 1 : weightPer
+weightPer = (weightPer &gt; 99) ? 99 : weightPer
+printResult(heightPer, weightPer, sex, age)
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+ 
+
+&lt;!-- Script Size:  6.35 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

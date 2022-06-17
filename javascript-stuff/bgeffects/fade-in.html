@@ -1,0 +1,56 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  BG Effects:  Continuous Fader</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Fred S. Tucker (Slurpie_Tucker@yahoo.com)">
+<META NAME="section" CONTENT="BG Effects">
+<META NAME="description" CONTENT="Could you use an eye-catching introduction to your website?  You should see the example for it - it loads a blank screen, fades the background, and then brings you to the source code page.  If you weren't paying attention, click the example URL below and see it again.  It's some great JavaScripting!">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+function makearray(n) {
+this.length = n;
+for(var i = 1; i <= n; i++)
+this[i] = 0;
+return this;
+}
+hexa = new makearray(16);
+for(var i = 0; i < 10; i++)
+hexa[i] = i;
+hexa[10]="a"; hexa[11]="b"; hexa[12]="c";
+hexa[13]="d"; hexa[14]="e"; hexa[15]="f";
+function hex(i) {
+if (i < 0)
+return "00";
+else if (i > 255)
+return "ff";
+else
+return "" + hexa[Math.floor(i/16)] + hexa[i%16];
+}
+function setbgColor(r, g, b) {
+var hr = hex(r); var hg = hex(g); var hb = hex(b);
+document.bgColor = "#"+hr+hg+hb;
+}
+function fade(sr, sg, sb, er, eg, eb, step) {
+for(var i = 0; i <= step; i++) {
+setbgColor(
+Math.floor(sr * ((step-i)/step) + er * (i/step)),
+Math.floor(sg * ((step-i)/step) + eg * (i/step)),
+Math.floor(sb * ((step-i)/step) + eb * (i/step)));
+   }
+}
+function fadein() {
+fade(240,232,223,0,0,0,255);
+}
+
+fadein();
+window.location="fade-in-source.html";
+// End -->
+</SCRIPT>
+</BODY>
+</HTML>

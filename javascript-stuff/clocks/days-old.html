@@ -1,0 +1,144 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Clocks:  Days Old</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Clocks">
+<META NAME="description" CONTENT="How long have you had that job?  How many days old are you?  Find the answers to these questions and more!"></HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /clocks/"><font color="#FF0000">Clocks</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Days Old</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+How long have you had that job?  How many days old are you?  Find the answers to these questions and more!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<SCRIPT LANGUAGE="JavaScript">
+
+
+
+
+<!-- Begin
+var montharray=new Array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec");
+function countup(yr,m,d) {
+var today=new Date();
+var todayy=today.getYear();
+
+// Y2K Fix by Isaac Powell
+// http://onyx.idbsu.edu/~ipowell
+
+if ((navigator.appName == "Microsoft Internet Explorer") && (todayy < 2000))		
+todayy="19" + todayy;
+if (navigator.appName == "Netscape")
+todayy=1900 + todayy;
+
+var todaym=today.getMonth();
+var todayd=today.getDate();
+var todaystring=montharray[todaym]+" "+todayd+", "+todayy;
+var paststring=montharray[m-1]+" "+d+", "+yr;
+var difference=(Math.round((Date.parse(todaystring)-Date.parse(paststring))/(24*60*60*1000))*1);
+
+document.write("JSS was created " + difference + " days ago.");
+
+}
+countup(1997,08,29);  // Date in format:  (year,month,day)
+//  End -->
+</script>
+
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Clocks:  Days Old:</b>
+<p>Simply click inside the window below, use your cursor to highlight the 
+script, and copy (type Control-c or Apple-c) the script into a new file in 
+your text editor (such as Note Pad or Simple Text) and save (Control-s or 
+Apple-s).  The script is yours!!!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  0.99 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var montharray=new Array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec");
+function countup(yr,m,d) {
+var today=new Date();
+var todayy=today.getYear();
+
+// Y2K Fix by Isaac Powell
+// http://onyx.idbsu.edu/~ipowell
+
+if ((navigator.appName == "Microsoft Internet Explorer") && (todayy &lt; 2000))		
+todayy="19" + todayy;
+if (navigator.appName == "Netscape")
+todayy=1900 + todayy;
+
+var todaym=today.getMonth();
+var todayd=today.getDate();
+var todaystring=montharray[todaym]+" "+todayd+", "+todayy;
+var paststring=montharray[m-1]+" "+d+", "+yr;
+var difference=(Math.round((Date.parse(todaystring)-Date.parse(paststring))/(24*60*60*1000))*1);
+
+document.write("JSS was created " + difference + " days ago.");
+
+}
+countup(1997,08,29);  // Date in format:  (year,month,day)
+//  End --&gt;
+&lt;/script&gt;
+
+ 
+
+&lt;!-- Script Size:  0.99 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

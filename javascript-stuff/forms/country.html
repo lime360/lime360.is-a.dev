@@ -1,0 +1,576 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Forms:  Country Chooser</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Forms">
+<META NAME="description" CONTENT="If you'd like to know where visitors to your site live, add this to your feedback forms.  They just choose a region, and the second menu changes appropriately, allowing them to choose their country.  (If they choose USA, it allows them to select their state) Neat!">
+
+<SCRIPT LANGUAGE="JavaScript">
+
+<!-- This script and many more are available online from -->
+
+
+<!-- Begin
+var africaArray =  new Array("('Select country','',true,true)",
+"('Ethiopia')",
+"('Somalia')",
+"('South Africa')",
+"('Other')");
+var middleeastArray =  new Array("('Select country','',true,true)",
+"('Egypt')",
+"('Iran')",
+"('Israel')",
+"('Kuwait')",
+"('Lebanon')",
+"('Morocco')",
+"('Saudi Arabia')",
+"('Syria')",
+"('Turkey')",
+"('U. A. Emirates')",
+"('Other')");
+var asiaArray =  new Array("('Select country','',true,true)",
+"('Armenia')",
+"('Bangladesh')",
+"('Cambodia')",
+"('China')",
+"('India')",
+"('Indonesia')",
+"('Japan')",
+"('Malaysia')",
+"('Myanmar')",
+"('Nepal')",
+"('Pakistan')",
+"('Philippines')",
+"('Singapore')",
+"('South Korea')",
+"('Sri Lanka')",
+"('Taiwan')",
+"('Thailand')",
+"('Uzbekistan')",
+"('Vietnam')",
+"('Other')");
+var europeArray =  new Array("('Select country','',true,true)",
+"('Albania')",
+"('Austria')",
+"('Belarus')",
+"('Belgium')",
+"('Bosnia')",
+"('Bulgaria')",
+"('Croatia')",
+"('Cyprus')",
+"('Czech Rep.')",
+"('Denmark')",
+"('Estonia')",
+"('Finland')",
+"('France')",
+"('Germany')",
+"('Greece')",
+"('Hungary')",
+"('Iceland')",
+"('Ireland')",
+"('Italy')",
+"('Latvia')",
+"('Liechtenstein')",
+"('Lithuania')",
+"('Luxembourg')",
+"('Macedonia')",
+"('Malta')",
+"('Monaco')",
+"('Netherlands')",
+"('Norway')",
+"('Poland')",
+"('Portugal')",
+"('Romania')",
+"('Russia')",
+"('Slovakia')",
+"('Slovenia')",
+"('Spain')",
+"('Sweden')",
+"('Switzerland')",
+"('Ukraine')",
+"('United Kingdom')",
+"('Other')");
+var australiaArray =  new Array("('Select country','',true,true)",
+"('Australia')",
+"('New Zealand')",
+"('Other')");
+var lamericaArray =  new Array("('Select country','',true,true)",
+"('Costa Rica')",
+"('Cuba')",
+"('El Salvador')",
+"('Guatemala')",
+"('Haiti')",
+"('Jamaica')",
+"('Mexico')",
+"('Panama')",
+"('Other')");
+var namericaArray =  new Array("('Select country','',true,true)",
+"('Canada')",
+"('USA')",
+"('Other')");
+var samericaArray =  new Array("('Select country','',true,true)",
+"('Argentina')",
+"('Bolivia')",
+"('Brazil')",
+"('Chile')",
+"('Colombia')",
+"('Ecuador')",
+"('Paraguay')",
+"('Peru')",
+"('Suriname')",
+"('Uruguay')",
+"('Venezuela')",
+"('Other')");
+function populateCountry(inForm,selected) {
+var selectedArray = eval(selected + "Array");
+while (selectedArray.length < inForm.country.options.length) {
+inForm.country.options[(inForm.country.options.length - 1)] = null;
+}
+for (var i=0; i < selectedArray.length; i++) {
+eval("inForm.country.options[i]=" + "new Option" + selectedArray[i]);
+}
+if (inForm.region.options[0].value == '') {
+inForm.region.options[0]= null;
+if ( navigator.appName == 'Netscape') {
+if (parseInt(navigator.appVersion) < 4) {
+window.history.go(0);
+}
+else {   	
+if (navigator.platform == 'Win32' || navigator.platform == 'Win16') {
+window.history.go(0);
+            }
+         }
+      }
+   }
+}
+function populateUSstate(inForm,selected) {  
+var stateArray =  new Array("('Select State','',true,true)",
+"('Alabama')",
+"('Alaska')",
+"('Arizona')",
+"('Arkansas')",
+"('California')",
+"('Colorado')",
+"('Connecticut')",
+"('Delaware')",
+"('Columbia')",
+"('Florida')",
+"('Georgia')",
+"('Hawaii')",
+"('Idaho')",
+"('Illinois')",
+"('Indiana')",
+"('Iowa')",
+"('Kansas')",
+"('Kentucky')",
+"('Louisiana')",
+"('Maine')",
+"('Maryland')",
+"('Massachusetts')",
+"('Michigan')",
+"('Minnesota')",
+"('Mississippi')",
+"('Missouri')",
+"('Montana')",
+"('Nebraska')",
+"('Nevada')",
+"('New Hampshire')",
+"('New Jersey')",
+"('New Mexico')",
+"('New York')",
+"('North Carolina')",
+"('North Dakota')",
+"('Ohio')",
+"('Oklahoma')",
+"('Oregon')",
+"('Pennsylvania')",
+"('Rhode Island')",
+"('South Carolina')",
+"('South Dakota')",
+"('Tennessee')",
+"('Texas')",
+"('Utah')",
+"('Vermont')",
+"('Virginia')",
+"('Washington')",
+"('West Virginia')",
+"('Wisconsin')",
+"('Wyoming')");
+if (selected == 'USA') {
+for (var i=0; i < stateArray.length; i++) {
+eval("inForm.country.options[i]=" + "new Option" + stateArray[i]);
+}
+if ( navigator.appName == 'Netscape') {
+if (parseInt(navigator.appVersion) < 4) {
+window.history.go(0)
+}
+else {    	
+if (navigator.platform == 'Win32' || navigator.platform == 'Win16') {
+window.history.go(0)
+         }
+      }
+   }
+}
+else {
+}  
+if (selected == 'Other') {
+newCountry = "";
+while (newCountry == ""){
+newCountry=prompt ("Please enter the name of your country.", "");
+}
+if (newCountry != null) {
+inForm.country.options[(inForm.country.options.length-1)]=new Option(newCountry,newCountry,true,true);
+inForm.country.options[inForm.country.options.length]=new Option('Other, not listed','Other');
+   }
+}
+if(inForm.country.options[0].text == 'Select country') {
+inForm.country.options[0]= null;
+   }
+}
+// End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /forms/" ><font color="#FF0000">Forms</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Country Chooser</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE=" helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+If you'd like to know where visitors to your site live, add this to your feedback forms.  They just choose a region, and the second menu changes appropriately, allowing them to choose their country.  (If they choose USA, it allows them to select their state) Neat!<br><hr>
+</td></tr>
+</table>
+<!--  Demonstration -->
+<center>
+<form name="globe">
+<select name="region" onChange="populateCountry(document.globe,document.globe.region.options[document.globe.region.selectedIndex].value)">
+<option selected value=''>Select Region</option>
+<option value='asia'>Asia</option>
+<option value='africa'>Africa</option>
+<option value='australia'>Australia</option>
+<option value='europe'>Europe</option>
+<option value='middleeast'>Middle East</option>
+<option value='lamerica'>Latin America</option>
+<option value='namerica'>North America</option>
+<option value='samerica'>South America</option>
+</select>
+<select name="country" onChange="populateUSstate(document.globe,document.globe.country.options[document.globe.country.selectedIndex].text)">
+<option value=''><--------------------</option>
+</select>
+</form>
+</center>
+<P>
+<BR>
+<P>
+<a name="source">
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Forms:  Country Chooser</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as NotePad or SimpleText) and save (Control-s or Apple-s).  The script is yours!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  6.08 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL COUNTRY CHOOSER:
+
+   1.  Paste the first code in the HEAD of your HTML document
+   2.  Add the last coding to the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste the first code in the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var africaArray =  new Array("('Select country','',true,true)",
+"('Ethiopia')",
+"('Somalia')",
+"('South Africa')",
+"('Other')");
+var middleeastArray =  new Array("('Select country','',true,true)",
+"('Egypt')",
+"('Iran')",
+"('Israel')",
+"('Kuwait')",
+"('Lebanon')",
+"('Morocco')",
+"('Saudi Arabia')",
+"('Syria')",
+"('Turkey')",
+"('U. A. Emirates')",
+"('Other')");
+var asiaArray =  new Array("('Select country','',true,true)",
+"('Armenia')",
+"('Bangladesh')",
+"('Cambodia')",
+"('China')",
+"('India')",
+"('Indonesia')",
+"('Japan')",
+"('Malaysia')",
+"('Myanmar')",
+"('Nepal')",
+"('Pakistan')",
+"('Philippines')",
+"('Singapore')",
+"('South Korea')",
+"('Sri Lanka')",
+"('Taiwan')",
+"('Thailand')",
+"('Uzbekistan')",
+"('Vietnam')",
+"('Other')");
+var europeArray =  new Array("('Select country','',true,true)",
+"('Albania')",
+"('Austria')",
+"('Belarus')",
+"('Belgium')",
+"('Bosnia')",
+"('Bulgaria')",
+"('Croatia')",
+"('Cyprus')",
+"('Czech Rep.')",
+"('Denmark')",
+"('Estonia')",
+"('Finland')",
+"('France')",
+"('Germany')",
+"('Greece')",
+"('Hungary')",
+"('Iceland')",
+"('Ireland')",
+"('Italy')",
+"('Latvia')",
+"('Liechtenstein')",
+"('Lithuania')",
+"('Luxembourg')",
+"('Macedonia')",
+"('Malta')",
+"('Monaco')",
+"('Netherlands')",
+"('Norway')",
+"('Poland')",
+"('Portugal')",
+"('Romania')",
+"('Russia')",
+"('Slovakia')",
+"('Slovenia')",
+"('Spain')",
+"('Sweden')",
+"('Switzerland')",
+"('Ukraine')",
+"('United Kingdom')",
+"('Other')");
+var australiaArray =  new Array("('Select country','',true,true)",
+"('Australia')",
+"('New Zealand')",
+"('Other')");
+var lamericaArray =  new Array("('Select country','',true,true)",
+"('Costa Rica')",
+"('Cuba')",
+"('El Salvador')",
+"('Guatemala')",
+"('Haiti')",
+"('Jamaica')",
+"('Mexico')",
+"('Panama')",
+"('Other')");
+var namericaArray =  new Array("('Select country','',true,true)",
+"('Canada')",
+"('USA')",
+"('Other')");
+var samericaArray =  new Array("('Select country','',true,true)",
+"('Argentina')",
+"('Bolivia')",
+"('Brazil')",
+"('Chile')",
+"('Colombia')",
+"('Ecuador')",
+"('Paraguay')",
+"('Peru')",
+"('Suriname')",
+"('Uruguay')",
+"('Venezuela')",
+"('Other')");
+function populateCountry(inForm,selected) {
+var selectedArray = eval(selected + "Array");
+while (selectedArray.length &lt; inForm.country.options.length) {
+inForm.country.options[(inForm.country.options.length - 1)] = null;
+}
+for (var i=0; i &lt; selectedArray.length; i++) {
+eval("inForm.country.options[i]=" + "new Option" + selectedArray[i]);
+}
+if (inForm.region.options[0].value == '') {
+inForm.region.options[0]= null;
+if ( navigator.appName == 'Netscape') {
+if (parseInt(navigator.appVersion) &lt; 4) {
+window.history.go(0);
+}
+else {   	
+if (navigator.platform == 'Win32' || navigator.platform == 'Win16') {
+window.history.go(0);
+            }
+         }
+      }
+   }
+}
+function populateUSstate(inForm,selected) {  
+var stateArray =  new Array("('Select State','',true,true)",
+"('Alabama')",
+"('Alaska')",
+"('Arizona')",
+"('Arkansas')",
+"('California')",
+"('Colorado')",
+"('Connecticut')",
+"('Delaware')",
+"('Columbia')",
+"('Florida')",
+"('Georgia')",
+"('Hawaii')",
+"('Idaho')",
+"('Illinois')",
+"('Indiana')",
+"('Iowa')",
+"('Kansas')",
+"('Kentucky')",
+"('Louisiana')",
+"('Maine')",
+"('Maryland')",
+"('Massachusetts')",
+"('Michigan')",
+"('Minnesota')",
+"('Mississippi')",
+"('Missouri')",
+"('Montana')",
+"('Nebraska')",
+"('Nevada')",
+"('New Hampshire')",
+"('New Jersey')",
+"('New Mexico')",
+"('New York')",
+"('North Carolina')",
+"('North Dakota')",
+"('Ohio')",
+"('Oklahoma')",
+"('Oregon')",
+"('Pennsylvania')",
+"('Rhode Island')",
+"('South Carolina')",
+"('South Dakota')",
+"('Tennessee')",
+"('Texas')",
+"('Utah')",
+"('Vermont')",
+"('Virginia')",
+"('Washington')",
+"('West Virginia')",
+"('Wisconsin')",
+"('Wyoming')");
+if (selected == 'USA') {
+for (var i=0; i &lt; stateArray.length; i++) {
+eval("inForm.country.options[i]=" + "new Option" + stateArray[i]);
+}
+if ( navigator.appName == 'Netscape') {
+if (parseInt(navigator.appVersion) &lt; 4) {
+window.history.go(0)
+}
+else {    	
+if (navigator.platform == 'Win32' || navigator.platform == 'Win16') {
+window.history.go(0)
+         }
+      }
+   }
+}
+else {
+}  
+if (selected == 'Other') {
+newCountry = "";
+while (newCountry == ""){
+newCountry=prompt ("Please enter the name of your country.", "");
+}
+if (newCountry != null) {
+inForm.country.options[(inForm.country.options.length-1)]=new Option(newCountry,newCountry,true,true);
+inForm.country.options[inForm.country.options.length]=new Option('Other, not listed','Other');
+   }
+}
+if(inForm.country.options[0].text == 'Select country') {
+inForm.country.options[0]= null;
+   }
+}
+// End --&gt;
+&lt;/script&gt;
+
+&lt;!-- STEP TWO: Add the last coding to the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form name="globe"&gt;
+&lt;select name="region" onChange="populateCountry(document.globe,document.globe.region.options[document.globe.region.selectedIndex].value)"&gt;
+&lt;option selected value=''&gt;Select Region&lt;/option&gt;
+&lt;option value='asia'&gt;Asia&lt;/option&gt;
+&lt;option value='africa'&gt;Africa&lt;/option&gt;
+&lt;option value='australia'&gt;Australia&lt;/option&gt;
+&lt;option value='europe'&gt;Europe&lt;/option&gt;
+&lt;option value='middleeast'&gt;Middle East&lt;/option&gt;
+&lt;option value='lamerica'&gt;Latin America&lt;/option&gt;
+&lt;option value='namerica'&gt;North America&lt;/option&gt;
+&lt;option value='samerica'&gt;South America&lt;/option&gt;
+&lt;/select&gt;
+&lt;select name="country" onChange="populateUSstate(document.globe,document.globe.country.options[document.globe.country.selectedIndex].text)"&gt;
+&lt;option value=''&gt;&lt;--------------------&lt;/option&gt;
+&lt;/select&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  6.08 KB  --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

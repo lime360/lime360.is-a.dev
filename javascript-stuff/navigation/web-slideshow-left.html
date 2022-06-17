@@ -1,0 +1,54 @@
+<html>
+<head>
+<script language="JavaScript">
+<!-- Begin
+var repeatshow = 1; // 1 = yes, 0 = no
+var timedelay = 5000; // time in milliseconds, 5000 = 5 secs
+
+var page = new Array(
+"web-slideshow-page1.html",
+"web-slideshow-page2.html",
+"web-slideshow-page3.html"
+); // note no comma after last page!
+
+// your "the end" page.  Necessary if repeatshow = 0; 
+var endpage = "the-end.html"; 
+
+var slidenum = 0;
+var slidecount = page.length;
+var timerID = 0;
+var win2;
+function showSlideShow() {
+slidenum++;
+if (slidenum < slidecount+1) {
+parent.main.location.href = page[slidenum-1];
+}
+if (slidenum == slidecount+1) { // if finished
+if (repeatshow) {
+slidenum = 0;
+timerID = setTimeout('showSlideShow()', timedelay)
+}
+else parent.main.location.href = endpage;
+}
+else timerID = setTimeout('showSlideShow()', timedelay);
+}
+// End -->
+</script>
+
+
+</HEAD>
+
+<BODY onload="timerID=setTimeout('showSlideShow()',timedelay)">
+<center>
+<a href="web-slideshow-demo.html" /navigation/web-slideshow-demo.html" target="main" onClick="clearTimeout(timerID)"><B>MAIN MENU</B></A><br>
+<br>
+<a href="web-slideshow-page1.html" /navigation/web-slideshow-page1.html" target="main" onClick="clearTimeout(timerID)">Page One</a><br>
+<a href="web-slideshow-page2.html" /navigation/web-slideshow-page2.html" target="main" onClick="clearTimeout(timerID)">Page Two</a><br>
+<a href="web-slideshow-page3.html" /navigation/web-slideshow-page3.html" target="main" onClick="clearTimeout(timerID)">Page Three</a><br><br>
+<a href="javascript:showSlideShow();" onClick="clearTimeout(timerID)">Cycle Pages</a><br>
+</center>
+
+
+</BODY>
+
+</HTML>

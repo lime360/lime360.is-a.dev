@@ -1,0 +1,287 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Calendars:  Quarterly Calendar</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Calendars">
+<META NAME="description" CONTENT="This is a very interesting "pretty" JavaScript calendar.  It displays the current month, and the month prior and forthcoming on each side.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+var flg = 0;
+var fs = 1;
+var bg = "cyan";
+M = new Array("January","February",
+"March","April","May","June",
+"July","August","September",
+"October","November","December");
+D = new Array("Sun","Mon","Tue","Wed","Thu","Fri","Sat");
+function getBgn() {
+pdy = new Date();        // today
+pmo = pdy.getMonth();    // present month
+pyr = pdy.getYear();     // present year
+if (pyr < 2000)    // Y2K Fix, Isaac Powell
+pyr = pyr + 1900; // http://onyx.idbsu.edu/~ipowell
+yr = yr1 = (pmo==0?pyr-1:pyr); // last month's year
+mo = (pmo==0?11:pmo-1);  // last month
+bgn = new Date(M[mo]+" 1,"+yr1); // assign to date
+document.write('<TABLE BORDER=0><TR><TD VALIGN=TOP>');
+Calendar();           // Send last month to screen
+document.write('</TD><TD VALIGN=TOP>');
+yr = pyr;                // present year
+mo = pmo;                // present month
+bgn = new Date(M[mo]+" 1,"+yr); // assign to date
+Calendar();           // Send this month to screen
+document.write('</TD><TD VALIGN=TOP>');
+yr = (pmo==11?pyr+1:pyr); // next month's year
+mo = (pmo==11?0:pmo+1);   // next month
+bgn = new Date(M[mo]+" 1,"+yr); // assign to date
+Calendar();           // Send next month to screen
+document.write('</TD></TR></TABLE>'); // Finish up
+}
+function Calendar(){
+dy = bgn.getDay();
+yr = eval(yr);
+d = "312831303130313130313031";
+if (yr / 4 == Math.floor(yr / 4)) {
+d = d.substring(0, 2) + "29" + d.substring(4, d.length);
+}
+pos = (mo * 2);
+ld = eval(d.substring(pos, pos + 2));
+document.write("<TABLE BORDER=1"
++ " BGCOLOR='" + bg
++ "'><TR><TD ALIGN=CENTER COLSPAN=7>"
++ "<FONT SIZE=" + fs + ">" + M[mo] + " " + yr
++ "</FONT></TD></TR><TR><TR>");
+for (var i = 0;i < 7;i ++) {
+document.write("<TD ALIGN=CENTER>"
++"<FONT SIZE=1>" + D[i] + "</FONT></TD>");
+}
+document.write("</TR><TR>");
+ctr = 0;
+for (var i = 0;i < 7; i++){
+if (i < dy) {
+document.write("<TD ALIGN=CENTER>"
++"<FONT SIZE=" + fs + "> </FONT>"
++"</TD>");
+}
+else {
+ctr++;
+document.write("<TD ALIGN=CENTER>"
++ "<FONT SIZE=" + fs + ">" + ctr + "</FONT>"
++ "</TD>");
+   }
+}
+document.write("</TR><TR>");
+while (ctr < ld) {
+for (var i = 0;i < 7; i++){
+ctr++;
+if (ctr > ld){
+document.write("<TD ALIGN=CENTER>"
++ " </TD>");
+}
+else {
+document.write("<TD ALIGN=CENTER>"
++ "<FONT SIZE=" + fs + ">" + ctr + "</FONT>"
++ "</TD>");
+   }
+}
+document.write("</TR><TR>");
+}
+document.write("</TR></TABLE>");
+}
+// End -->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /calendars/"><font color="#FF0000">Calendars</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Quarterly Calendar</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+This is a very interesting "pretty" JavaScript calendar.  It displays the current month, and the month prior and forthcoming on each side.
+<br>
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<BODY>
+<CENTER>
+<P><B>JavaScript Quarterly Calendar</B>
+<SCRIPT LANGUAGE="JavaScript">
+<!-- 
+getBgn();
+// End -->
+</SCRIPT>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Calendars:  Quarterly Calendar</b>
+<p>Simply click inside the window below, use your cursor to hilight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.49 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL QUARTERLY CALENDAR:
+
+   1.  Paste the specified coding into the HEAD of your HTML document 
+   2.  Put the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the HEAD your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var flg = 0;
+var fs = 1;
+var bg = "cyan";
+M = new Array("January","February",
+"March","April","May","June",
+"July","August","September",
+"October","November","December");
+D = new Array("Sun","Mon","Tue","Wed","Thu","Fri","Sat");
+function getBgn() {
+pdy = new Date();        // today
+pmo = pdy.getMonth();    // present month
+pyr = pdy.getYear();     // present year
+if (pyr < 2000)    // Y2K Fix, Isaac Powell
+pyr = pyr + 1900; // http://onyx.idbsu.edu/~ipowell
+yr = yr1 = (pmo==0?pyr-1:pyr); // last month's year
+mo = (pmo==0?11:pmo-1);  // last month
+bgn = new Date(M[mo]+" 1,"+yr1); // assign to date
+document.write('<TABLE BORDER=0><TR><TD VALIGN=TOP>');
+Calendar();           // Send last month to screen
+document.write('</TD><TD VALIGN=TOP>');
+yr = pyr;                // present year
+mo = pmo;                // present month
+bgn = new Date(M[mo]+" 1,"+yr); // assign to date
+Calendar();           // Send this month to screen
+document.write('</TD><TD VALIGN=TOP>');
+yr = (pmo==11?pyr+1:pyr); // next month's year
+mo = (pmo==11?0:pmo+1);   // next month
+bgn = new Date(M[mo]+" 1,"+yr); // assign to date
+Calendar();           // Send next month to screen
+document.write('</TD></TR></TABLE>'); // Finish up
+}
+function Calendar(){
+dy = bgn.getDay();
+yr = eval(yr);
+d = "312831303130313130313031";
+if (yr / 4 == Math.floor(yr / 4)) {
+d = d.substring(0, 2) + "29" + d.substring(4, d.length);
+}
+pos = (mo * 2);
+ld = eval(d.substring(pos, pos + 2));
+document.write("<TABLE BORDER=1"
++ " BGCOLOR='" + bg
++ "'><TR><TD ALIGN=CENTER COLSPAN=7>"
++ "<FONT SIZE=" + fs + ">" + M[mo] + " " + yr
++ "</FONT></TD></TR><TR><TR>");
+for (var i = 0;i < 7;i ++) {
+document.write("<TD ALIGN=CENTER>"
++"<FONT SIZE=1>" + D[i] + "</FONT></TD>");
+}
+document.write("</TR><TR>");
+ctr = 0;
+for (var i = 0;i < 7; i++){
+if (i < dy) {
+document.write("<TD ALIGN=CENTER>"
++"<FONT SIZE=" + fs + "> </FONT>"
++"</TD>");
+}
+else {
+ctr++;
+document.write("<TD ALIGN=CENTER>"
++ "<FONT SIZE=" + fs + ">" + ctr + "</FONT>"
++ "</TD>");
+   }
+}
+document.write("</TR><TR>");
+while (ctr < ld) {
+for (var i = 0;i < 7; i++){
+ctr++;
+if (ctr > ld){
+document.write("<TD ALIGN=CENTER>"
++ " </TD>");
+}
+else {
+document.write("<TD ALIGN=CENTER>"
++ "<FONT SIZE=" + fs + ">" + ctr + "</FONT>"
++ "</TD>");
+   }
+}
+document.write("</TR><TR>");
+}
+document.write("</TR></TABLE>");
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;CENTER&gt;
+&lt;P&gt;&lt;B&gt;JavaScript Quarterly Calendar&lt;/B&gt;
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Begin
+getBgn();
+// End --&gt;
+&lt;/SCRIPT&gt;
+&lt;/CENTER&gt;
+
+ 
+
+&lt;!-- Script Size:  2.49 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

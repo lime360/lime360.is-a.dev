@@ -1,0 +1,223 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Miscellaneous:  Site Search</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Dion (biab@iinet.net.au)">
+<META NAME="section" CONTENT="Miscellaneous">
+<META NAME="description" CONTENT="How would you like a Search Engine for YOUR site?  This script does exactly that.  Copy the codes to your site, enter the listings information, and you've got your own site search engine!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Dion (biab@iinet.net.au) -->
+<!-- Web Site:  http://www.iinet.net.au/~biab -->
+
+
+
+
+<!-- Begin
+var item = new Array();
+
+/* Here is where all the magic happens.  
+    Just enter as many additional pages that
+    that you want to search, then fill in the
+    additional listings for each page.
+*/
+
+// "Page Name","path","Page Title","Many,Key,Words","Descriptive Comments"
+
+c=0; item[c]=new Array("index.html","","Misc. Page","demo,javascript,miscellaneous,page,category","Miscellaneous category page, lists all the scripts in the category.");
+c++; item[c]=new Array("site-search.html","","Site Search Page","demo,javascript,site,search","Site Search example page.  See the demo online!");
+
+page="<html><head><title>Search Results</title></head><body bgcolor='white'><center><table border=0 cellspacing=10 width=80%>";
+
+
+function search(frm) {
+win = window.open("","","scrollbars");
+win.document.write(page);
+txt = frm.srchval.value.split(" ");
+fnd = new Array(); total=0;
+for (i = 0; i < item.length; i++) {
+fnd[i] = 0; order = new Array(0, 4, 2, 3);
+for (j = 0; j < order.length; j++)
+for (k = 0; k < txt.length; k++)
+if (item[i][order[j]].toLowerCase().indexOf(txt[k]) > -1 && txt[k] != "")
+fnd[i] += (j+1);
+}
+for (i = 0; i < fnd.length; i++) {
+n = 0; w = -1;
+for (j = 0;j < fnd.length; j++)
+if (fnd[j] > n) { n = fnd[j]; w = j; };
+if (w > -1) total += show(w, win, n);
+fnd[w] = 0;
+}
+win.document.write("</table><br>Total found: "+total+"<br></body></html>");
+win.document.close();
+}
+function show(which,wind,num) {
+link = item[which][1] + item[which][0]; 
+line = "<tr><td><a href='"+link+"'>"+item[which][2]+"</a> Score: "+num+"<br>";
+line += item[which][4] + "<br>"+link+"</td></tr>";
+wind.document.write(line);
+return 1;
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /miscellaneous/"><font color="#FF0000"><b>Miscellaneous</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Site Search</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+How would you like a Search Engine for YOUR site?  This script does exactly that.  Copy the codes to your site, enter the listings information, and you've got your own site search engine!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<font face="arial, helvetica" size="-2">(For the demo, try searching for the word javascript, miscellaneous, or demo.</font>
+<p>
+
+<form method=get action="javascript:void(0)" onsubmit="search(this); return false;">
+<tr><td><input type=text name=srchval value=""><input type=submit value="Search"></td></tr>
+</form>
+
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Miscellaneous:  Site Search</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  3.16 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL SITE SEARCH:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Dion (biab@iinet.net.au) --&gt;
+&lt;!-- Web Site:  http://www.iinet.net.au/~biab --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var item = new Array();
+
+/* Here is where all the magic happens.  
+    Just enter as many additional pages that
+    that you want to search, then fill in the
+    additional listings for each page.
+*/
+
+// "Page Name","path","Page Title","Many,Key,Words","Descriptive Comments"
+
+c=0; item[c]=new Array("index.html","","DemoSite","index,main,start,home,front","Demonstration search engine data about an imagined but probable internet site.");
+c++; item[c]=new Array("about.htm","","About Me","about,author,contact,email,who","Contact details and general information about the creator of the site and what the site is about.");
+c++; item[c]=new Array("links.htm","","Links page","links,more,where,similar,friends","Links to my favourite sites which I find interesting. Other friends sites which have similar interests to my own.");
+c++; item[c]=new Array("main.htm","main/","Main Page","content,main,focus","The main part of my site which contains what you have come to see. Lots of stuff like that and more great things. All in a sub directory.");
+c++; item[c]=new Array("logo.jpg","main/images/","Link Logo","link,image,logo,graphic","The logo.jpg is just a small image which you can place on your site as a link to me. It's in a second level subdirectory.");
+
+page="&lt;html&gt;&lt;head&gt;&lt;title&gt;Search Results&lt;/title&gt;&lt;/head&gt;&lt;body bgcolor='white'&gt;&lt;center&gt;&lt;table border=0 cellspacing=10 width=80%&gt;";
+
+
+function search(frm) {
+win = window.open("","","scrollbars");
+win.document.write(page);
+txt = frm.srchval.value.split(" ");
+fnd = new Array(); total=0;
+for (i = 0; i &lt; item.length; i++) {
+fnd[i] = 0; order = new Array(0, 4, 2, 3);
+for (j = 0; j &lt; order.length; j++)
+for (k = 0; k &lt; txt.length; k++)
+if (item[i][order[j]].toLowerCase().indexOf(txt[k]) &gt; -1 && txt[k] != "")
+fnd[i] += (j+1);
+}
+for (i = 0; i &lt; fnd.length; i++) {
+n = 0; w = -1;
+for (j = 0;j &lt; fnd.length; j++)
+if (fnd[j] &gt; n) { n = fnd[j]; w = j; };
+if (w &gt; -1) total += show(w, win, n);
+fnd[w] = 0;
+}
+win.document.write("&lt;/table&gt;&lt;br&gt;Total found: "+total+"&lt;br&gt;&lt;/body&gt;&lt;/html&gt;");
+win.document.close();
+}
+function show(which,wind,num) {
+link = item[which][1] + item[which][0]; 
+line = "&lt;tr&gt;&lt;td&gt;&lt;a href='"+link+"'&gt;"+item[which][2]+"&lt;/a&gt; Score: "+num+"&lt;br&gt;";
+line += item[which][4] + "&lt;br&gt;"+link+"&lt;/td&gt;&lt;/tr&gt;";
+wind.document.write(line);
+return 1;
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+
+&lt;form method=get action="javascript:void(0)" onsubmit="search(this); return false;"&gt;
+&lt;tr&gt;&lt;td&gt;&lt;input type=text name=srchval value=""&gt;&lt;input type=submit value="Search"&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/form&gt;
+
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  3.16 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

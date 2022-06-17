@@ -1,0 +1,322 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Messages:  Neon Text</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="(IE Only)  Display messages using this unique neon style method.  (Netscape will only display the message normally.)  Cool!">
+<META NAME="date" CONTENT="2001-01-22">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="">
+<META NAME="section" CONTENT="Messages">
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  hallo503@hotmail.com -->
+<!-- Web Site:  http://www.bestjavascripts.com -->
+
+
+
+
+<!-- Begin
+neonBaseColor = "White";
+neonColor = "Red";
+num = 0;
+num2 = 0;
+num3 = 0;
+num4 = neonColor;
+function startNeon() {
+message = neon.innerText;
+neon.innerText = "";
+for(i = 0; i != message.length; i++) {
+neon.innerHTML += "<span id=\"neond\" style=\"color:"+neonBaseColor+"\">"+message.charAt(i)+"<\/span>"};
+neon2();
+}
+function neon2() {
+if(num != message.length) {
+document.all.neond[num].style.color = neonColor;
+num++;
+setTimeout("neon2()", 100);
+}
+else {
+num = 0;
+num2 = message.length;
+setTimeout("neon4onev()", 2000);
+   }
+}
+function neon4onev() {
+document.all.neond[num].style.color = neonBaseColor;
+document.all.neond[num2-1].style.color = neonBaseColor;
+if(Math.floor(message.length / 2) + 1 != num2) {
+num++;
+num2--;
+setTimeout("neon4onev()", 50);
+}
+else {
+setTimeout("neon5()", 50);
+   }
+}
+function neon5() {
+if(num3 != message.length && num3 != message.length+1) {
+document.all.neond[num3].style.color = neonColor;
+num3 = num3 + 2;
+setTimeout("neon5()",100);
+}
+else {
+setTimeout("neon52()", 50);
+   }
+}
+function neon52() {
+if(num3 == message.length) {
+num3++;
+neon52a();
+}
+else {
+num3--;
+neon52a();
+   }
+}
+function neon52a() {
+if(num3 != 1) {
+num3 = num3 - 2;
+document.all.neond[num3].style.color = neonColor;
+setTimeout("neon52a()", 100);
+}
+else {
+if(num4 == neonColor) {
+num3 = 0;
+neonColor = neonBaseColor;
+setTimeout("neon5()", 2000);
+}
+else {
+neonColor = num4;
+num3 = 0;
+setTimeout("neon4onev2()", 50);
+      }
+   }
+}
+function neon4onev2() {
+document.all.neond[num].style.color = neonColor;
+document.all.neond[num2 - 1].style.color = neonColor;
+if(message.length != num2) {
+num--;
+num2++;
+setTimeout("neon4onev2()", 50);
+}
+else {
+num = 0;
+num2 = 0;
+setTimeout("neon3()", 2000);
+   }
+}
+function neon3() {
+if(num != message.length) {
+document.all.neond[num].style.color = neonBaseColor;
+num++;
+setTimeout("neon3()", 100);
+}
+else {
+num = 0;
+neon2();
+   }
+}
+//  End -->
+</script>
+
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff onLoad="startNeon()">
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /messages/"><font color="#FF0000"><b>Messages</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Neon Text</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+(IE Only)  Display messages using this unique neon style method.  (Netscape will only display the message normally.)  Cool!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<h2><span id="neon">JavaScript Source Code 3000</span></h2>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Messages:  Neon Text</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Command-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.90 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL NEON TEXT:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the onLoad event handler into the BODY tag
+  3.  Put the last coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  hallo503@hotmail.com --&gt;
+&lt;!-- Web Site:  http://www.bestjavascripts.com --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+neonBaseColor = "White";
+neonColor = "Red";
+num = 0;
+num2 = 0;
+num3 = 0;
+num4 = neonColor;
+function startNeon() {
+message = neon.innerText;
+neon.innerText = "";
+for(i = 0; i != message.length; i++) {
+neon.innerHTML += "&lt;span id=\"neond\" style=\"color:"+neonBaseColor+"\"&gt;"+message.charAt(i)+"&lt;\/span&gt;"};
+neon2();
+}
+function neon2() {
+if(num != message.length) {
+document.all.neond[num].style.color = neonColor;
+num++;
+setTimeout("neon2()", 100);
+}
+else {
+num = 0;
+num2 = message.length;
+setTimeout("neon4onev()", 2000);
+   }
+}
+function neon4onev() {
+document.all.neond[num].style.color = neonBaseColor;
+document.all.neond[num2-1].style.color = neonBaseColor;
+if(Math.floor(message.length / 2) + 1 != num2) {
+num++;
+num2--;
+setTimeout("neon4onev()", 50);
+}
+else {
+setTimeout("neon5()", 50);
+   }
+}
+function neon5() {
+if(num3 != message.length && num3 != message.length+1) {
+document.all.neond[num3].style.color = neonColor;
+num3 = num3 + 2;
+setTimeout("neon5()",100);
+}
+else {
+setTimeout("neon52()", 50);
+   }
+}
+function neon52() {
+if(num3 == message.length) {
+num3++;
+neon52a();
+}
+else {
+num3--;
+neon52a();
+   }
+}
+function neon52a() {
+if(num3 != 1) {
+num3 = num3 - 2;
+document.all.neond[num3].style.color = neonColor;
+setTimeout("neon52a()", 100);
+}
+else {
+if(num4 == neonColor) {
+num3 = 0;
+neonColor = neonBaseColor;
+setTimeout("neon5()", 2000);
+}
+else {
+neonColor = num4;
+num3 = 0;
+setTimeout("neon4onev2()", 50);
+      }
+   }
+}
+function neon4onev2() {
+document.all.neond[num].style.color = neonColor;
+document.all.neond[num2 - 1].style.color = neonColor;
+if(message.length != num2) {
+num--;
+num2++;
+setTimeout("neon4onev2()", 50);
+}
+else {
+num = 0;
+num2 = 0;
+setTimeout("neon3()", 2000);
+   }
+}
+function neon3() {
+if(num != message.length) {
+document.all.neond[num].style.color = neonBaseColor;
+num++;
+setTimeout("neon3()", 100);
+}
+else {
+num = 0;
+neon2();
+   }
+}
+//  End --&gt;
+&lt;/script&gt;
+
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Insert the onLoad event handler into your BODY tag  --&gt;
+
+&lt;BODY onLoad="startNeon()"&gt;
+
+&lt;!-- STEP THREE: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;h2&gt;&lt;span id="neon"&gt;JavaScript Source Code 3000&lt;/span&gt;&lt;/h2&gt;
+
+ 
+
+&lt;!-- Script Size:  2.90 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

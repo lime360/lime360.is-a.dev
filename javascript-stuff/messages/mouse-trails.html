@@ -1,0 +1,235 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Messages:  Mouse Trails</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Marcin Wojtowicz (one_spook@hotmail.com)">
+<META NAME="section" CONTENT="Messages">
+<META NAME="description" CONTENT="A trail of cursors follow your cursor around the screen as you move the mouse.  The image used here is transparent so the effect is subtle, but you could use any transparent image you want.  Works in Internet Explorer and Netscape.">
+
+<style type="text/css">
+BODY {overflow: scroll; overflow-x: hidden;}
+</style>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /messages/"><font color="#FF0000"><b>Messages</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Mouse Trails</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+A trail of cursors follow your cursor around the screen as you move the mouse.  The image used here is transparent so the effect is subtle, but you could use any transparent image you want.  Works in Internet Explorer and Netscape.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<SCRIPT LANGUAGE="JavaScript1.2">
+<!-- Original:  Marcin Wojtowicz (one_spook@hotmail.com) -->
+
+
+
+
+<!-- Begin
+var trailLength = 8;     // The length of trail
+var path = "../img/mouse-trails/cursor.gif"; // URL to cursor image
+
+var isIE = false, isNav = false, range = "all.", style = ".style", i, d = 0;
+var topPix = ".pixelTop", leftPix = ".pixelLeft", images, storage;
+if (document.layers) {
+isNav = true, range = "layers.", style = "", topPix = ".top", leftPix = ".left";
+} else if (document.all) {
+isIE = true;
+}
+function initTrail() {
+images = new Array();
+for (i = 0; i < parseInt(trailLength); i++) {
+images[i] = new Image();
+images[i].src = path;
+}
+storage = new Array(); 
+for (i = 0; i < images.length*3; i++) {
+storage[i] = 0;
+}
+for (i = 0; i < images.length; i++) { // make divs for IE and layers for Navigator
+(isIE) ? document.write('<div id="obj' + i + '" style="position: absolute; z-Index: 100; height: 0; width: 0"><img src="' + images[i].src + '"></div>') : document.write('<layer name="obj' + i + '" width="0" height="0" z-index="100"><img src="' + images[i].src + '"></layer>');
+}
+trail();
+}
+function trail() {
+for (i = 0; i < images.length; i++) {
+eval("document." + range + "obj" + i + style + topPix + "=" + storage[d]);
+eval("document." + range + "obj" + i + style + leftPix + "=" + storage[d+1]);
+d = d+2;
+}
+for (i = storage.length; i >= 2; i--) {;
+storage[i] = storage[i-2];
+}
+d = 0;
+clearTimeout(timer);
+var timer = setTimeout("trail()", 10);
+}
+function processEvent(e) { 
+if (isIE) {
+storage[0] = window.event.y+document.body.scrollTop+10;
+storage[1] = window.event.x+document.body.scrollLeft+10;
+} else {
+storage[0] = e.pageY+12;
+storage[1] = e.pageX+12;
+   }
+}
+if (isNav) {
+document.captureEvents(Event.MOUSEMOVE);
+}
+if (isIE || isNav) {
+initTrail();
+document.onmousemove = processEvent;
+}
+//  End -->
+</script>
+<br><br>
+You must also save this image<br>
+to your server to use this script.<br>
+Right-click the images below and<br>
+select "Save Image As..."<br><br>
+<img src="../img/mouse-trails/cursor.gif" /img/mouse-trails/cursor.gif" border=1><br><br>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Messages:  Mouse Trails</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.44 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL MOUSE TRAILS:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;style type="text/css"&gt;
+BODY {overflow: scroll; overflow-x: hidden;}
+&lt;/style&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript1.2"&gt;
+&lt;!-- Original:  Marcin Wojtowicz (one_spook@hotmail.com) --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var trailLength = 8;     // The length of trail
+var path = "../img/mouse-trails/cursor.gif"; // URL to cursor image
+
+var isIE = false, isNav = false, range = "all.", style = ".style", i, d = 0;
+var topPix = ".pixelTop", leftPix = ".pixelLeft", images, storage;
+if (document.layers) {
+isNav = true, range = "layers.", style = "", topPix = ".top", leftPix = ".left";
+} else if (document.all) {
+isIE = true;
+}
+function initTrail() {
+images = new Array();
+for (i = 0; i &lt; parseInt(trailLength); i++) {
+images[i] = new Image();
+images[i].src = path;
+}
+storage = new Array(); 
+for (i = 0; i &lt; images.length*3; i++) {
+storage[i] = 0;
+}
+for (i = 0; i &lt; images.length; i++) { // make divs for IE and layers for Navigator
+(isIE) ? document.write('&lt;div id="obj' + i + '" style="position: absolute; z-Index: 100; height: 0; width: 0"&gt;&lt;img src="' + images[i].src + '"&gt;&lt;/div&gt;') : document.write('&lt;layer name="obj' + i + '" width="0" height="0" z-index="100"&gt;&lt;img src="' + images[i].src + '"&gt;&lt;/layer&gt;');
+}
+trail();
+}
+function trail() {
+for (i = 0; i &lt; images.length; i++) {
+eval("document." + range + "obj" + i + style + topPix + "=" + storage[d]);
+eval("document." + range + "obj" + i + style + leftPix + "=" + storage[d+1]);
+d = d+2;
+}
+for (i = storage.length; i &gt;= 2; i--) {;
+storage[i] = storage[i-2];
+}
+d = 0;
+clearTimeout(timer);
+var timer = setTimeout("trail()", 10);
+}
+function processEvent(e) { 
+if (isIE) {
+storage[0] = window.event.y+document.body.scrollTop+10;
+storage[1] = window.event.x+document.body.scrollLeft+10;
+} else {
+storage[0] = e.pageY+12;
+storage[1] = e.pageX+12;
+   }
+}
+if (isNav) {
+document.captureEvents(Event.MOUSEMOVE);
+}
+if (isIE || isNav) {
+initTrail();
+document.onmousemove = processEvent;
+}
+//  End --&gt;
+&lt;/script&gt;
+
+ 
+
+&lt;!-- Script Size:  2.44 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>
+
+
+

@@ -1,0 +1,236 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Equivalents:  URL Revealer</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Hanz Broden (webmeister@v-wave.com)">
+<META NAME="section" CONTENT="Equivalents">
+<META NAME="description" CONTENT="Spammers now frequently send their website addresses in an encoded form, hoping to hide its true origin and prevent being reported to their web host.  This script allows you to convert these URLs into human-readable form so that you may complain to the spammer's web host and get their account shut down.  A breath of fresh air for the fight against spam!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Hanz Broden (webmeister@v-wave.com) -->
+<!-- Web Site:  http://plaza.v-wave.com/dotcom -->
+
+
+
+
+<!-- Begin
+function unObfuscateURL(frm) {
+strURL = unescape(frm.txtURL.value.replace(/\s/g,""));
+strURLInitial = strURL;
+
+numHTTP = strURL.toLowerCase().indexOf("http://");
+numHTTPS = strURL.toLowerCase().indexOf("https://");
+numFTP = strURL.toLowerCase().indexOf("ftp://");
+
+if (numHTTP >= 0) numStart = numHTTP + 7;
+else if (numHTTPS >= 0) numStart = numHTTPS + 8;
+else if (numFTP >= 0) numStart = numFTP + 6;
+else numStart = 0;
+
+// ignore everything after the #
+numPound = strURL.indexOf("#", numStart);
+if (numPound >= 0) strURL = strURL.substring(0, numPound);
+
+// if @ before a /, ignore everything up to the @
+numAt = strURL.indexOf("@", numStart);
+numSlash = strURL.indexOf("/", numStart);
+if (numAt >= 0) {
+if ( (numSlash >=0 && numAt < numSlash) || numSlash < 0 ) {
+strURL = strURL.substring(0, numStart)
++ strURL.substring(numAt+1, strURL.length);
+   }
+}
+
+frm.txtURLInitial.value = strURLInitial;
+frm.txtURLFinal.innerText = strURL;
+}
+
+function clearURL(frm) {
+frm.txtURL.value = "";
+frm.txtURLInitial.value = "";
+frm.txtURLFinal.value = "";
+frm.txtURL.focus();
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /equivalents/"><font color="#FF0000"><b>Equivalents</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>URL Revealer</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Spammers now frequently send their website addresses in an encoded form, hoping to hide its true origin and prevent being reported to their web host.  This script allows you to convert these URLs into human-readable form so that you may complain to the spammer's web host and get their account shut down.  A breath of fresh air for the fight against spam!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name=frmURL>
+<table border=0 cellpadding=0 cellspacing=3>
+<tr>
+<td valign=top rowspan=2 bgcolor="#e0e0e0">Obfuscated URL</td>
+<td><textarea name=txtURL cols=50 rows=5>http://www.angelfire.com%40%77w%77%2e%63yb%65%72%67atew%61%79%2e%6e%65%74/s%70%61%6d%6d%65r/%69%6Ed%65%78.%68%74m%6C#3491382728/%32c%72%65%64%69%74c/%69%6Ed%65%78.%68%74m%6C</textarea></td>
+</tr>
+<tr>
+<td>
+<input type=button value="Reveal URL" onClick="unObfuscateURL(this.form)">
+<input type=button value="Clear" onClick="clearURL(this.form)"><br>
+</td>
+</tr>
+<tr>
+<td valign=top bgcolor="#e0e0e0">Intial unobfuscation</td>
+<td><input type=text size=65 name=txtURLInitial></td>
+</tr>
+<tr>
+<td valign=top bgcolor="#e0e0e0">Final unobfuscation</td>
+<td><input type=text size=65 name=txtURLFinal></td>
+</tr>
+</table>
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Equivalents:  URL Revealer</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.57 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL URL REVEALER:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Hanz Broden (webmeister@v-wave.com) --&gt;
+&lt;!-- Web Site:  http://plaza.v-wave.com/dotcom --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function unObfuscateURL(frm) {
+strURL = unescape(frm.txtURL.value.replace(/\s/g,""));
+strURLInitial = strURL;
+
+numHTTP = strURL.toLowerCase().indexOf("http://");
+numHTTPS = strURL.toLowerCase().indexOf("https://");
+numFTP = strURL.toLowerCase().indexOf("ftp://");
+
+if (numHTTP &gt;= 0) numStart = numHTTP + 7;
+else if (numHTTPS &gt;= 0) numStart = numHTTPS + 8;
+else if (numFTP &gt;= 0) numStart = numFTP + 6;
+else numStart = 0;
+
+// ignore everything after the #
+numPound = strURL.indexOf("#", numStart);
+if (numPound &gt;= 0) strURL = strURL.substring(0, numPound);
+
+// if @ before a /, ignore everything up to the @
+numAt = strURL.indexOf("@", numStart);
+numSlash = strURL.indexOf("/", numStart);
+if (numAt &gt;= 0) {
+if ( (numSlash &gt;=0 && numAt &lt; numSlash) || numSlash &lt; 0 ) {
+strURL = strURL.substring(0, numStart)
++ strURL.substring(numAt+1, strURL.length);
+   }
+}
+
+frm.txtURLInitial.value = strURLInitial;
+frm.txtURLFinal.innerText = strURL;
+}
+
+function clearURL(frm) {
+frm.txtURL.value = "";
+frm.txtURLInitial.value = "";
+frm.txtURLFinal.value = "";
+frm.txtURL.focus();
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form name=frmURL&gt;
+&lt;table border=0 cellpadding=0 cellspacing=3&gt;
+&lt;tr&gt;
+&lt;td valign=top rowspan=2 bgcolor="#e0e0e0"&gt;Obfuscated URL&lt;/td&gt;
+&lt;td&gt;&lt;textarea name=txtURL cols=50 rows=5&gt;http://www.angelfire.com%40%77w%77%2e%63yb%65%72%67atew%61%79%2e%6e%65%74/s%70%61%6d%6d%65r/%69%6Ed%65%78.%68%74m%6C#3491382728/%32c%72%65%64%69%74c/%69%6Ed%65%78.%68%74m%6C&lt;/textarea&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;input type=button value="Reveal URL" onClick="unObfuscateURL(this.form)"&gt;
+&lt;input type=button value="Clear" onClick="clearURL(this.form)"&gt;&lt;br&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td valign=top bgcolor="#e0e0e0"&gt;Intial unobfuscation&lt;/td&gt;
+&lt;td&gt;&lt;input type=text size=65 name=txtURLInitial&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td valign=top bgcolor="#e0e0e0"&gt;Final unobfuscation&lt;/td&gt;
+&lt;td&gt;&lt;input type=text size=65 name=txtURLFinal&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  2.57 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

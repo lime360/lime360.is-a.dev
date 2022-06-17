@@ -1,0 +1,275 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Messages:  Random Jokes</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Randy Hall (randy.hall@i.am)">
+<META NAME="section" CONTENT="Messages">
+<META NAME="description" CONTENT="Ask your visitors a random joke or question from an array of questions. When they put their cursor over the question, a layer or alert message will appear with the answer.  Cool!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Randy Hall (randy.hall@i.am) -->
+<!-- Web Site:  http://i.am/randy.hall -->
+
+
+
+
+<!-- Begin
+var QA = new Array();
+QA[0] = new Array("When is everything finished?", "Everything is finished when the fat lady sings");
+QA[1] = new Array("Who invented copper wire?", "Two tax attorneys fighting over a penny!");
+QA[2] = new Array("How do you know you have a good tax accountant?", "They have have a loophole named after them.");
+QA[3] = new Array("Who said.. If you do not think every day is a good one, just try missing one", "Zig Ziglar");
+QA[4] = new Array("Confusius say...  ", "Ambition without knowledge is like a boat on dry land.");
+
+var ql = QA.length - 1;
+var qx = Math.round(Math.random() * ql);
+if (qx < 0) { qx = 0; };
+x = QA[qx][0], y = QA[qx][1];
+var isNav = (navigator.appName.indexOf("Netscape") != -1);
+var Ypos = 0;
+function setupDescriptions() {
+var x = navigator.appVersion;
+y = x.substring(0,4);
+if (y >= 4) setVariables();
+}
+var x, y, a, b;
+function setVariables() {
+if (navigator.appName == "Netscape") {
+h=".left="; v=".top="; dS="document."; sD="";
+}
+else {
+h=".pixelLeft="; v=".pixelTop="; dS=""; sD=".style";
+   }
+}
+function popLayer(a) {
+desc = "<table cellpadding=3 border=1 bgcolor=F7F7F7><td>" + a + "</td></table>";
+if(isNav) {
+document.q1.document.write(desc);
+document.q1.document.close();
+document.q1.left = x+25;
+document.q1.top = y+40;
+}
+else {
+y = Ypos - 15;
+q1.innerHTML = desc;
+eval(dS+"q1"+sD+h+(x+25));
+eval(dS+"q1"+sD+v+(y+40));
+   }
+}
+function hideLayer(a) {
+if(isNav) {
+eval(document.q1.top = a);
+}
+else q1.innerHTML = "";
+}
+function doQuestion() {
+var text;
+if (!isNav) {
+text = "<div id=\"q1\" style=\"position:absolute; "
++ "visibility:show; left:25px; top:-50px; z-index:2\">layer "
++ "hidden off the screen</div><br><a nohref "
++ "onMouseover=\"popLayer('" + y + "')\" "
++ "onMouseout=\"hideLayer(-50)\"><font size=+1 "
++ "color=\"black\"><b>" + x + "</b></font></a><br>";
+}
+if(isNav) {
+text = "<br><a href onmouseover=\"alert('" + y + "!');return "
++ "true\" onmouseout=\"status=' '\"><font size=+1 "
++ "color=\"black\"><b>" + x + "</b></font></a><br>";
+}
+document.write(text);
+}
+function handlerMM(e) {
+x = (isNav) ? e.pageX : event.clientX;
+y = (isNav) ? e.pageY : event.clientY;
+if (!isNav) { Ypos = window.event.y + document.body.scrollTop; }
+}
+if (isNav) {
+document.captureEvents(Event.MOUSEMOVE);
+}
+document.onmousemove = handlerMM;
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff OnLoad="setupDescriptions()">
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /messages/"><font color="#FF0000"><b>Messages</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Random Jokes</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Ask your visitors a random joke or question from an array of questions. When they put their cursor over the question, a layer or alert message will appear with the answer.  Cool!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<script>
+doQuestion();
+</script>
+<br>
+<font size="-1" face="verdana, arial, helvetica">[Put your cursor on the above line to get the answer!]</font>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Messages:  Random Jokes</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  3.17 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL RANDOM JOKES:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the onLoad event handler into the BODY tag
+  3.  Put the last coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Randy Hall (randy.hall@i.am) --&gt;
+&lt;!-- Web Site:  http://i.am/randy.hall --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var QA = new Array();
+QA[0] = new Array("When is everything finished?", "Everything is finished when the fat lady sings");
+QA[1] = new Array("Who invented copper wire?", "Two tax attorneys fighting over a penny!");
+QA[2] = new Array("How do you know you have a good tax accountant?", "They have have a loophole named after them.");
+QA[3] = new Array("Who said.. If you do not think every day is a good one, just try missing one", "Zig Ziglar");
+QA[4] = new Array("Confusius say...  ", "Ambition without knowledge is like a boat on dry land.");
+
+var ql = QA.length - 1;
+var qx = Math.round(Math.random() * ql);
+if (qx &lt; 0) { qx = 0; };
+x = QA[qx][0], y = QA[qx][1];
+var isNav = (navigator.appName.indexOf("Netscape") != -1);
+var Ypos = 0;
+function setupDescriptions() {
+var x = navigator.appVersion;
+y = x.substring(0,4);
+if (y &gt;= 4) setVariables();
+}
+var x, y, a, b;
+function setVariables() {
+if (navigator.appName == "Netscape") {
+h=".left="; v=".top="; dS="document."; sD="";
+}
+else {
+h=".pixelLeft="; v=".pixelTop="; dS=""; sD=".style";
+   }
+}
+function popLayer(a) {
+desc = "&lt;table cellpadding=3 border=1 bgcolor=F7F7F7&gt;&lt;td&gt;" + a + "&lt;/td&gt;&lt;/table&gt;";
+if(isNav) {
+document.q1.document.write(desc);
+document.q1.document.close();
+document.q1.left = x+25;
+document.q1.top = y+40;
+}
+else {
+y = Ypos - 15;
+q1.innerHTML = desc;
+eval(dS+"q1"+sD+h+(x+25));
+eval(dS+"q1"+sD+v+(y+40));
+   }
+}
+function hideLayer(a) {
+if(isNav) {
+eval(document.q1.top = a);
+}
+else q1.innerHTML = "";
+}
+function doQuestion() {
+var text;
+if (!isNav) {
+text = "&lt;div id=\"q1\" style=\"position:absolute; "
++ "visibility:show; left:25px; top:-50px; z-index:2\"&gt;layer "
++ "hidden off the screen&lt;/div&gt;&lt;br&gt;&lt;a nohref "
++ "onMouseover=\"popLayer('" + y + "')\" "
++ "onMouseout=\"hideLayer(-50)\"&gt;&lt;font size=+1 "
++ "color=\"black\"&gt;&lt;b&gt;" + x + "&lt;/b&gt;&lt;/font&gt;&lt;/a&gt;&lt;br&gt;";
+}
+if(isNav) {
+text = "&lt;br&gt;&lt;a href onmouseover=\"alert('" + y + "!');return "
++ "true\" onmouseout=\"status=' '\"&gt;&lt;font size=+1 "
++ "color=\"black\"&gt;&lt;b&gt;" + x + "&lt;/b&gt;&lt;/font&gt;&lt;/a&gt;&lt;br&gt;";
+}
+document.write(text);
+}
+function handlerMM(e) {
+x = (isNav) ? e.pageX : event.clientX;
+y = (isNav) ? e.pageY : event.clientY;
+if (!isNav) { Ypos = window.event.y + document.body.scrollTop; }
+}
+if (isNav) {
+document.captureEvents(Event.MOUSEMOVE);
+}
+document.onmousemove = handlerMM;
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Insert the onLoad event handler into your BODY tag  --&gt;
+
+&lt;BODY OnLoad="setupDescriptions()"&gt;
+
+&lt;!-- STEP THREE: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;script&gt;
+doQuestion();
+&lt;/script&gt;
+
+ 
+
+&lt;!-- Script Size:  3.17 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>
+
+

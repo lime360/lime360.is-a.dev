@@ -1,0 +1,149 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Forms:  No Entry</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Forms">
+<META NAME="description" CONTENT="Use JavaScript to ensure that visitors do not leave a form entry blank.  If they do, they are prompted to complete it before they can continue.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+function noEntry() {
+mt=document.form.entry.value;
+if ((mt.length<1)||(mt.substring(0,6)=="******")) {
+alert("I'm sorry. This entry must be "
++"completed before I can submit this form"
++" for processing.");
+document.form.entry.value="******Please Complete This Entry";
+document.form.entry.focus();
+return false;
+}
+else { return true; }
+}
+// End -->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /forms/" ><font color="#FF0000">Forms</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">No Entry</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Use JavaScript to ensure that visitors do not leave a form entry blank.  If they do, they are prompted to complete it before they can continue.
+<br>
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<BODY>
+<form name="form" onSubmit="return noEntry();">
+<center>
+<input type=text name="entry" size=40><br>
+<input type=submit name="button" value="Submit">
+</center>
+</form>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Forms:  No Entry</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.00 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL NO ENTRY:
+
+   1.  Paste the coding into the HEAD of your HTML document
+   2.  Put the last code into the BODY of your HTML document
+   3.  Change the form's ACTION to point to your Form Mail CGI-Script  --&gt;
+
+&lt;!--  STEP ONE: Copy this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function noEntry() {
+mt=document.form.entry.value;
+if ((mt.length<1)||(mt.substring(0,6)=="******")) {
+alert("I'm sorry. This entry must be "
++"completed before I can submit this form"
++" for processing.");
+document.form.entry.value="******Please Complete This Entry";
+document.form.entry.focus();
+return false;
+}
+else { return true; }
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+&lt;!--  STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;form name="form" action="/cgi-bin/your-form-processor.pl" onsubmit="return noEntry()"&gt;
+&lt;center&gt;
+&lt;input type="text" name="entry" size=40&gt;&lt;br&gt;
+&lt;input type="submit" name="button" value="submit"&gt;
+&lt;/center&gt;
+&lt;/form&gt;
+
+&lt;!--  STEP THREE: Change the form's ACTION "javascript:if(confirm('http://javascript.internet.com/forms/to  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://javascript.internet.com/forms/to'" /forms/to" point to your Form Mail CGI-Script  --&gt;
+
+&lt;p&gt;&lt;center&gt;
+&lt;font face="arial, helvetica" size="-2"&gt;Free JavaScripts provided&lt;br&gt;
+by &lt;a href="javascript:if(confirm('http://javascriptsource.com/  \n\nYou must be connected to the Internet to access this link.  \n\nDo you want to open it from the server?'))window.location='http://javascriptsource.com/'" tppabs="http://javascriptsource.com/"&gt;JavaScript Source Code 3000&lt;/a&gt;&lt;/font&gt;
+&lt;/center&gt;&lt;p&gt;
+
+&lt;!-- Script Size:  1.00 KB  --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

@@ -1,0 +1,499 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Calculators:  Day of Week</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="Calculate what day of the week a given date was.  It works for leap yYears and also tells you whether the date is in the past future or today.">
+<META NAME="date" CONTENT="2001-03-05">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Peter Bonnett">
+<META NAME="section" CONTENT="Calculators">
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Peter Bonnett (PeterBonnett@hotmail.com) -->
+<!-- Web Site:  http://uk.geocities.com/peterbonnett -->
+
+
+
+
+<!-- Begin
+var D = "0";
+var M = "0";
+var Y = "0";
+var C = "0";
+var B = "0";
+var A = "0";
+var Day = "0";
+var Ending = "0";
+var Dayow = new Array();
+Dayow[-6] = "Monday";
+Dayow[-5] = "Tuesday";
+Dayow[-4] = "Wednesday";
+Dayow[-3] = "Thursday";
+Dayow[-2] = "Friday";
+Dayow[-1] = "Saturday";
+Dayow[0] = "Sunday";
+Dayow[1] = "Monday";
+Dayow[2] = "Tuesday";
+Dayow[3] = "Wednesday";
+Dayow[4] = "Thursday";
+Dayow[5] = "Friday";
+Dayow[6] = "Saturday";
+var mnth = new Array();
+mnth[0] = "January";
+mnth[1] = "February";
+mnth[2] = "March";
+mnth[3] = "April";
+mnth[4] = "May";
+mnth[5] = "June";
+mnth[6] = "July";
+mnth[7] = "August";
+mnth[8] = "September";
+mnth[9] = "October";
+mnth[10] = "November";
+mnth[11] = "December";
+function calcul() {
+if (document.calculate.mnth.options.value == 0 || document.calculate.day.options.value == 0 || document.calculate.year.value.length == 0) {
+alert('Please complete all options');
+}
+else if (document.calculate.mnth.options.value == 2 && document.calculate.day.options.value == 30 || document.calculate.mnth.options.value == 2 && document.calculate.day.options.value == 31) {
+alert('That Month does not have '+ document.calculate.day.options.value +' days');
+}
+else if (document.calculate.mnth.options.value == 4 && document.calculate.day.options.value == 31) {
+alert('That month does not have '+ document.calculate.day.options.value +' days');
+}
+else if (document.calculate.mnth.options.value == 6 && document.calculate.day.options.value == 31) {
+alert('That month does not have '+ document.calculate.day.options.value +' days');
+}
+else if (document.calculate.mnth.options.value == 9 && document.calculate.day.options.value == 31) {
+alert('That month does not have '+ document.calculate.day.options.value +' days');
+}
+else if (document.calculate.mnth.options.value == 11 && document.calculate.day.options.value == 31) {
+alert('That month does not have '+ document.calculate.day.options.value +' days');
+}
+else {
+calcul2();
+   }
+}
+function calcul2() {
+D = document.calculate.day.options.value;
+M = document.calculate.mnth.options.value;
+Y = document.calculate.year.value;
+if (M < 3) {
+M = ((M / 1) + 12);
+Y = (Y - 1);
+date2();
+}
+else {
+date2();
+   }
+}
+function date2() {
+C = (parseInt(Y / 100));
+B = (Y - (100 * C));
+A = ((parseInt((2.6 * M) - 5.39)) + (parseInt(B / 4)) + (parseInt(C / 4)) + (D / 1) + B - (2 * C));
+Day = (A - (7 * (parseInt(A / 7))));
+Leap = ((Y / 4) - (parseInt(Y / 4)));
+if (Leap != 0 && M >= 3 && A < 0) {
+Day =- -Day;
+daycalcu();
+}
+else if (Leap == 0 && M < 3 && A < 0) {
+Day = (Day - 2);
+daycalcu();
+}
+else {
+daycalcu();
+   }
+}
+function daycalcu() {
+if (document.calculate.mnth.options.value == 2 && document.calculate.day.options.value == 29 && Leap == 0) {
+alert('February does not have '+ document.calculate.day.options.value +' days in '+ document.calculate.year.value +'');
+}
+else {
+appear();
+   }
+}
+function appear() {
+if (document.calculate.day.options.value == 1 || document.calculate.day.options.value == 21 || document.calculate.day.options.value == 31) {
+Ending = "st";
+appear2();
+}
+else if (document.calculate.day.options.value == 2 || document.calculate.day.options.value == 22) {
+Ending = "nd";
+appear2();
+}
+else if (document.calculate.day.options.value == 3 || document.calculate.day.options.value == 23) {
+Ending = "rd";
+appear2();
+}
+else {
+Ending ="th";
+appear2();
+   }
+}
+function appear2() {
+test = new Date();
+gdate = test.getDate();
+gyear = test.getFullYear();
+gmonth = test.getMonth();
+E = (gmonth + 1);
+D = document.calculate.day.options.value;
+M = document.calculate.mnth.options.value;
+Y = document.calculate.year.value;
+F = (M - 1);
+if (gyear == Y && gdate == D && E == M) {
+alert('The '+ document.calculate.day.options.value + Ending +' of '+ mnth[F] +' '+ document.calculate.year.value +' is a '+ Dayow[Day] +'');
+}
+else if (gyear < Y || gyear == Y && E < M || gyear == Y && E == M && gdate < D) {
+alert('The '+ document.calculate.day.options.value + Ending +' of '+ mnth[F] +' '+ document.calculate.year.value +' will be a '+ Dayow[Day] +'');
+}
+else if (gyear > Y || gyear == Y && E > M || gyear == Y && E == M && gdate > D) {
+alert('The '+ document.calculate.day.options.value + Ending +' of '+ mnth[F] +' '+ document.calculate.year.value +' was a '+ Dayow[Day] +'');
+}
+else {
+alert('The '+ document.calculate.day.options.value + Ending +' of '+ mnth[F] +' '+ document.calculate.year.value +' was a '+ Dayow[Day] +'');
+   }
+}
+//  End -->
+</script>
+
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /calculators/"><font color="#FF0000"><b>Calculators</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Day of Week</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Calculate what day of the week a given date was.  It works for leap yYears and also tells you whether the date is in the past future or today.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<form name="calculate">
+<select name="day">
+<option>Choose Date
+<option value="1">1st
+<option value="2">2nd
+<option value="3">3rd
+<option value="4">4th
+<option value="5">5th
+<option value="6">6th
+<option value="7">7th
+<option value="8">8th
+<option value="9">9th
+<option value="10">10th
+<option value="11">11th
+<option value="12">12th
+<option value="13">13th
+<option value="14">14th
+<option value="15">15th
+<option value="16">16th
+<option value="17">17th
+<option value="18">18th
+<option value="19">19th
+<option value="20">20th
+<option value="21">21st
+<option value="22">22nd
+<option value="23">23rd
+<option value="24">24th
+<option value="25">25th
+<option value="26">26th
+<option value="27">27th
+<option value="28">28th
+<option value="29">29th
+<option value="30">30th
+<option value="31">31st
+</select>
+<select name="mnth">
+<option>Choose Month
+<option value="1">January
+<option value="2">February
+<option value="3">March
+<option value="4">April
+<option value="5">May
+<option value="6">June
+<option value="7">July
+<option value="8">August
+<option value="9">September
+<option value="10">October
+<option value="11">November
+<option value="12">December
+</select>
+<input type=text name="year" size=4 maxlength=4> Year
+<br>
+<input type=button value="Calculate" onclick="calcul()">
+</form>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Calculators:  Day of Week</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Command-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  6.84 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL DAY OF WEEK:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Peter Bonnett (PeterBonnett@hotmail.com) --&gt;
+&lt;!-- Web Site:  http://uk.geocities.com/peterbonnett --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var D = "0";
+var M = "0";
+var Y = "0";
+var C = "0";
+var B = "0";
+var A = "0";
+var Day = "0";
+var Ending = "0";
+var Dayow = new Array();
+Dayow[-6] = "Monday";
+Dayow[-5] = "Tuesday";
+Dayow[-4] = "Wednesday";
+Dayow[-3] = "Thursday";
+Dayow[-2] = "Friday";
+Dayow[-1] = "Saturday";
+Dayow[0] = "Sunday";
+Dayow[1] = "Monday";
+Dayow[2] = "Tuesday";
+Dayow[3] = "Wednesday";
+Dayow[4] = "Thursday";
+Dayow[5] = "Friday";
+Dayow[6] = "Saturday";
+var mnth = new Array();
+mnth[0] = "January";
+mnth[1] = "February";
+mnth[2] = "March";
+mnth[3] = "April";
+mnth[4] = "May";
+mnth[5] = "June";
+mnth[6] = "July";
+mnth[7] = "August";
+mnth[8] = "September";
+mnth[9] = "October";
+mnth[10] = "November";
+mnth[11] = "December";
+function calcul() {
+if (document.calculate.mnth.options.value == 0 || document.calculate.day.options.value == 0 || document.calculate.year.value.length == 0) {
+alert('Please complete all options');
+}
+else if (document.calculate.mnth.options.value == 2 && document.calculate.day.options.value == 30 || document.calculate.mnth.options.value == 2 && document.calculate.day.options.value == 31) {
+alert('That Month does not have '+ document.calculate.day.options.value +' days');
+}
+else if (document.calculate.mnth.options.value == 4 && document.calculate.day.options.value == 31) {
+alert('That month does not have '+ document.calculate.day.options.value +' days');
+}
+else if (document.calculate.mnth.options.value == 6 && document.calculate.day.options.value == 31) {
+alert('That month does not have '+ document.calculate.day.options.value +' days');
+}
+else if (document.calculate.mnth.options.value == 9 && document.calculate.day.options.value == 31) {
+alert('That month does not have '+ document.calculate.day.options.value +' days');
+}
+else if (document.calculate.mnth.options.value == 11 && document.calculate.day.options.value == 31) {
+alert('That month does not have '+ document.calculate.day.options.value +' days');
+}
+else {
+calcul2();
+   }
+}
+function calcul2() {
+D = document.calculate.day.options.value;
+M = document.calculate.mnth.options.value;
+Y = document.calculate.year.value;
+if (M &lt; 3) {
+M = ((M / 1) + 12);
+Y = (Y - 1);
+date2();
+}
+else {
+date2();
+   }
+}
+function date2() {
+C = (parseInt(Y / 100));
+B = (Y - (100 * C));
+A = ((parseInt((2.6 * M) - 5.39)) + (parseInt(B / 4)) + (parseInt(C / 4)) + (D / 1) + B - (2 * C));
+Day = (A - (7 * (parseInt(A / 7))));
+Leap = ((Y / 4) - (parseInt(Y / 4)));
+if (Leap != 0 && M &gt;= 3 && A &lt; 0) {
+Day =- -Day;
+daycalcu();
+}
+else if (Leap == 0 && M &lt; 3 && A &lt; 0) {
+Day = (Day - 2);
+daycalcu();
+}
+else {
+daycalcu();
+   }
+}
+function daycalcu() {
+if (document.calculate.mnth.options.value == 2 && document.calculate.day.options.value == 29 && Leap == 0) {
+alert('February does not have '+ document.calculate.day.options.value +' days in '+ document.calculate.year.value +'');
+}
+else {
+appear();
+   }
+}
+function appear() {
+if (document.calculate.day.options.value == 1 || document.calculate.day.options.value == 21 || document.calculate.day.options.value == 31) {
+Ending = "st";
+appear2();
+}
+else if (document.calculate.day.options.value == 2 || document.calculate.day.options.value == 22) {
+Ending = "nd";
+appear2();
+}
+else if (document.calculate.day.options.value == 3 || document.calculate.day.options.value == 23) {
+Ending = "rd";
+appear2();
+}
+else {
+Ending ="th";
+appear2();
+   }
+}
+function appear2() {
+test = new Date();
+gdate = test.getDate();
+gyear = test.getFullYear();
+gmonth = test.getMonth();
+E = (gmonth + 1);
+D = document.calculate.day.options.value;
+M = document.calculate.mnth.options.value;
+Y = document.calculate.year.value;
+F = (M - 1);
+if (gyear == Y && gdate == D && E == M) {
+alert('The '+ document.calculate.day.options.value + Ending +' of '+ mnth[F] +' '+ document.calculate.year.value +' is a '+ Dayow[Day] +'');
+}
+else if (gyear &lt; Y || gyear == Y && E &lt; M || gyear == Y && E == M && gdate &lt; D) {
+alert('The '+ document.calculate.day.options.value + Ending +' of '+ mnth[F] +' '+ document.calculate.year.value +' will be a '+ Dayow[Day] +'');
+}
+else if (gyear &gt; Y || gyear == Y && E &gt; M || gyear == Y && E == M && gdate &gt; D) {
+alert('The '+ document.calculate.day.options.value + Ending +' of '+ mnth[F] +' '+ document.calculate.year.value +' was a '+ Dayow[Day] +'');
+}
+else {
+alert('The '+ document.calculate.day.options.value + Ending +' of '+ mnth[F] +' '+ document.calculate.year.value +' was a '+ Dayow[Day] +'');
+   }
+}
+//  End --&gt;
+&lt;/script&gt;
+
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;form name="calculate"&gt;
+&lt;select name="day"&gt;
+&lt;option&gt;Choose Date
+&lt;option value="1"&gt;1st
+&lt;option value="2"&gt;2nd
+&lt;option value="3"&gt;3rd
+&lt;option value="4"&gt;4th
+&lt;option value="5"&gt;5th
+&lt;option value="6"&gt;6th
+&lt;option value="7"&gt;7th
+&lt;option value="8"&gt;8th
+&lt;option value="9"&gt;9th
+&lt;option value="10"&gt;10th
+&lt;option value="11"&gt;11th
+&lt;option value="12"&gt;12th
+&lt;option value="13"&gt;13th
+&lt;option value="14"&gt;14th
+&lt;option value="15"&gt;15th
+&lt;option value="16"&gt;16th
+&lt;option value="17"&gt;17th
+&lt;option value="18"&gt;18th
+&lt;option value="19"&gt;19th
+&lt;option value="20"&gt;20th
+&lt;option value="21"&gt;21st
+&lt;option value="22"&gt;22nd
+&lt;option value="23"&gt;23rd
+&lt;option value="24"&gt;24th
+&lt;option value="25"&gt;25th
+&lt;option value="26"&gt;26th
+&lt;option value="27"&gt;27th
+&lt;option value="28"&gt;28th
+&lt;option value="29"&gt;29th
+&lt;option value="30"&gt;30th
+&lt;option value="31"&gt;31st
+&lt;/select&gt;
+&lt;select name="mnth"&gt;
+&lt;option&gt;Choose Month
+&lt;option value="1"&gt;January
+&lt;option value="2"&gt;February
+&lt;option value="3"&gt;March
+&lt;option value="4"&gt;April
+&lt;option value="5"&gt;May
+&lt;option value="6"&gt;June
+&lt;option value="7"&gt;July
+&lt;option value="8"&gt;August
+&lt;option value="9"&gt;September
+&lt;option value="10"&gt;October
+&lt;option value="11"&gt;November
+&lt;option value="12"&gt;December
+&lt;/select&gt;
+&lt;input type=text name="year" size=4 maxlength=4&gt; Year
+&lt;br&gt;
+&lt;input type=button value="Calculate" onclick="calcul()"&gt;
+&lt;/form&gt;
+
+ 
+
+&lt;!-- Script Size:  6.84 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

@@ -1,0 +1,154 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  BG Effects:  Rainbow Fade (Source)</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Jenny Lam (tabiko@sprint.ca)">
+<META NAME="section" CONTENT="BG Effects">
+<META NAME="description" CONTENT="Here is another way to get your visitor's attention - with a rainbow!  Just take a look!  It's neat!">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /bgeffects/"><font color="#FF0000">Background Effects</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Rainbow Fade (Source)</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+That was another way to get your visitor's attention - with a rainbow fade!  Just take a look!  It's neat!
+<br>
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<BODY>
+<a href="rainbow.html" /bgeffects/rainbow.html">Click here to see the effect again!</a>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  BG Effects:  Rainbow Fade</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.05 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL RAINBOW FADE:
+
+   1.  Paste the first code into the BODY of your HTML document
+   2.  Change the destination URL to your web site's main page  --&gt;
+
+&lt;!-- STEP ONE:  Paste this code into BODY of your document  --&gt;
+ 
+&lt;BODY&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;!-- Original:  Jenny Lam (tabiko@sprint.ca) --&gt;
+&lt;!-- Web Site:  http://www.geocities.com/Tokyo/Ginza/3379 --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var hexChars="0123456789ABCDEF";
+function Dec2Hex (Dec) {
+var a=Dec % 16;
+var b=(Dec - a)/16;
+hex="" + hexChars.charAt(b) + hexChars.charAt(a);
+return hex;
+}
+function bgChanger (begin, end, steps) {
+steps=steps-1 ;
+redA=begin.charAt(0) + begin.charAt(1);
+red_valA=parseInt(redA,'16');
+redB=end.charAt(0) + end.charAt(1);
+red_valB=parseInt(redB,'16');
+red_int=((red_valB - red_valA) / steps) * -1;
+grnA=begin.charAt(2) + begin.charAt(3);
+grn_valA=parseInt(grnA,'16');
+grnB=end.charAt(2) + end.charAt(3);
+grn_valB=parseInt(grnB,'16');
+grn_int=((grn_valB - grn_valA) / steps) * -1;
+bluA=begin.charAt(4) + begin.charAt(5);
+blu_valA=parseInt(bluA,'16');
+bluB=end.charAt(4) + end.charAt(5);
+blu_valB=parseInt(bluB,'16');
+blu_int=((blu_valB - blu_valA) / steps) * -1;
+step=2;
+red=red_valA;
+grn=grn_valA;
+blu=blu_valA;
+while ( steps &gt;= step ) {
+red-=red_int;
+red_round=Math.round(red);
+red_hex=Dec2Hex(red);
+grn-=grn_int;
+grn_round=Math.round(grn);
+grn_hex=Dec2Hex(grn);
+blu-=blu_int;
+blu_round=Math.round(blu);
+blu_hex=Dec2Hex(blu);
+document.bgColor=red_hex + grn_hex + blu_hex;
+step++;
+   }
+}
+bgChanger("000000","000000",60);
+bgChanger("000000","FF0000",60);
+bgChanger("FF0000","000000",60);
+bgChanger("000000","AA00EE",60);
+bgChanger("AA00EE","000000",60);
+bgChanger("000000","0000FF",60);
+bgChanger("0000FF","000000",60);
+bgChanger("000000","000000",60);
+window.location="page2.html";
+// End --&gt;
+&lt;/script&gt;
+
+&lt;!-- STEP TWO:  Change page2.html to the HTML document  to go to after the fade --&gt;
+
+ 
+
+&lt;!-- Script Size:  2.05 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

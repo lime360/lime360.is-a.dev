@@ -1,0 +1,134 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Messages:  Rotating Pulldown Menu</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Dion (yobo42@hotmail.com)">
+<META NAME="section" CONTENT="Messages">
+<META NAME="description" CONTENT="Rotates site messages in a pulldown menu every few seconds.  A good way to conserve screen space and even allows the user to simply click the pulldown menu to view all the messages at once.  Cool!">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /messages/"><font color="#FF0000"><b>Messages</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Rotating Pulldown Menu</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Rotates site messages in a pulldown menu every few seconds.  A good way to conserve screen space and even allows the user to simply click the pulldown menu to view all the messages at once.  Cool!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<!-- Original:  Dion (yobo42@hotmail.com) -->
+<!-- Web Site:  http://www.iinet.net.au/~biab/ -->
+
+
+
+
+<form name=menuform>
+<select size=1 name="msg">
+<option>You can lead a horse to water but cannot make it drink.
+<option>Time flies like an arrow but fruit flies like a banana.
+<option>Call me anything you like but don't call me late for dinner.
+<option>I don't know what WW3 will be like but WW4 will be of sticks and stones.
+</select></form>
+<script language="javascript">
+<!-- Begin
+function rotate() {
+menu = document.menuform.msg;
+chosen = menu.selectedIndex;
+menu.selectedIndex= (chosen == (menu.length-1)) ? 0 : chosen + 1;
+setTimeout("rotate()",5000);
+}
+rotate();
+// End -->
+</script>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Messages:  Rotating Pulldown Menu</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.05 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- ONE STEP TO INSTALL ROTATING PULLDOWN MENU:
+
+  1.  Copy the coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;!-- Original:  Dion (yobo42@hotmail.com) --&gt;
+&lt;!-- Web Site:  http://www.iinet.net.au/~biab/ --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;form name=menuform&gt;
+&lt;select size=1 name="msg"&gt;
+&lt;option&gt;You can lead a horse to water but cannot make it drink.
+&lt;option&gt;Time flies like an arrow but fruit flies like a banana.
+&lt;option&gt;Call me anything you like but don't call me late for dinner.
+&lt;option&gt;I don't know what WW3 will be like but WW4 will be of sticks and stones.
+&lt;/select&gt;&lt;/form&gt;
+&lt;script language="javascript"&gt;
+&lt;!-- Begin
+function rotate() {
+menu = document.menuform.msg;
+chosen = menu.selectedIndex;
+menu.selectedIndex= (chosen == (menu.length-1)) ? 0 : chosen + 1;
+setTimeout("rotate()",5000);
+}
+rotate();
+// End --&gt;
+&lt;/script&gt;
+
+ 
+
+&lt;!-- Script Size:  1.05 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

@@ -1,0 +1,51 @@
+<html>
+<body>
+<pre>
+A small F.A.Q. for the  Category Menus script (provided by the <a href="mailto:fredrik@fridsten.net">author</a>):
+
+Q1: How do I add more menus?
+
+A1: This is easy! Add more titles and submenus with the same syntax as 
+the previous ones. The id:s should be  title0/submenu0, title1/submenu1, 
+title2/submenu2 etc. It's important to change the value of the nummenus 
+variable. Due to my sloppy coding, this must be one greater than the 
+larges number X in titleX/submenuX.
+
+Note: A lot of people forget the numbers of the opened/closed pictures.  
+Don't do that!
+
+Q2: The submenus come out on top of the following title. How do I solve 
+this?
+
+A2: The syntax is toggle(X,move), where the move value tells the script 
+how far (in pixels) you want to push down the objects below. Increase 
+this value and it'll probably work.
+
+Q3: Can I have a title work as a direct link?
+
+A3: Just use this syntax:
+
+<code><font color="blue">&lt;div class="title" id="titleX" style="top: YYpx;"&gt;
+&lt;a href="yourlink.html"Your link&lt;img src="closed.gif" border="0"&gt;&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;div id="submenuX">&lt;/div&gt;</font></code>
+
+The submenu id is absolutely necessary to get the script to work properly.
+
+Q4: Is there a way to add another level of submenus?
+
+A4: No! Of course there is, but that would be a totally different script 
+and I haven't made one. 
+
+Q5: Can I have more than one submenu open at a time?
+
+A5: There is another script on the author's site that functions like this:
+
+<a href="javascript:if(confirm('http://hem.passagen.se/dred/prov/index.html  \n\nYou must be connected to the Internet to access this link.  \n\nDo you want to open it from the server?'))window.location='http://hem.passagen.se/dred/prov/index.html'" tppabs="http://hem.passagen.se/dred/prov/index.html">http://hem.passagen.se/dred/prov/index.html</a>
+
+If you use one of my scripts, I'd like to put up a link to it. Please
+send me the url by email: <a href="mailto:fredrik@fridsten.net">fredrik@fridsten.net</A>
+</pre>
+</body>
+</html>

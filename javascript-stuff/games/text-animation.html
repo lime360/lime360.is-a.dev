@@ -1,0 +1,407 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Games:  Text Animation</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Games">
+<META NAME="description" CONTENT="Check out this JavaScript-powered text animation artwork.  A cheerleader runs through her entire routine.  Wow.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Web Site:   http://www.crosswinds.net/~llizard -->
+
+
+
+
+<!-- Begin
+var agt=navigator.userAgent.toLowerCase();
+if (agt.indexOf("mac") != -1)
+var a="\r"; 
+else
+var a="\n";
+var max=0;
+function tlist() {
+max=tlist.arguments.length;
+for (i=0; i<max; i++)
+this[i]=tlist.arguments[i];
+}
+tl = new tlist(
+"   o"+a+
+"  /|\\"+a+
+" */ \\*        ejm97"+a,
+
+"   o_"+a+
+"  \<| *"+a+
+"  *\>\\         ejm97"+a,
+
+"  _o/*"+a+
+" * |"+a+
+"  / \\         ejm97"+a,
+
+" *\o_"+a+
+"  /  *"+a+
+" \<\\           ejm97"+a,
+
+"  _o/*"+a+
+" * |"+a+
+"  / \\         ejm97"+a,
+
+" *\\c/*"+a+
+"   )"+a+
+"  / \>         ejm97"+a,
+
+"     *"+a+
+"  \\__/c"+a+
+"   \> \\*       ejm97"+a,
+
+"   __/"+a+
+"    (o_*"+a+
+"     \\*       ejm97"+a,
+
+"      \\ /"+a+
+"       |"+a+
+"     */o\\*    ejm97"+a,
+
+"       \\_"+a+
+"       ("+a+
+"     */o\\*    ejm97"+a,
+
+"        \<_"+a+
+"      __("+a+
+"     * o|*    ejm97"+a,
+
+"         /_"+a+
+"      __("+a+
+"     * o|*    ejm97"+a,
+
+"         ___"+a+
+"      *\/ \>"+a+
+"       o|*    ejm97"+a,
+
+"        *"+a+
+"       o|_/"+a+
+"      */  \\   ejm97"+a,
+
+"        *"+a+
+"      _o|_"+a+
+"     *   \>\\   ejm97"+a,
+
+"       _o/*"+a+
+"      * |"+a+
+"       / \\    ejm97"+a,
+
+"      *\\o/*"+a+
+"        |"+a+
+"       / \\    ejm97"+a,
+
+"      c/*"+a+
+"      \<\\"+a+
+"      */\\     ejm97"+a,
+
+"      c__"+a+
+"      \<\ *"+a+
+"      */\\     ejm97"+a,
+
+"      c__"+a+
+"      /\ *"+a+
+"     * /\>     ejm97"+a,
+
+"      c/*"+a+
+"     /(__"+a+
+"    * /       ejm97"+a,
+
+"    __o/*"+a+
+"    * (__"+a+
+"      \<       ejm97"+a,
+
+"      __o_"+a+
+"     * /  *"+a+
+"      \<\\      ejm97"+a,
+
+"     *_o_"+a+
+"       | *"+a+
+"      \< \\     ejm97"+a,
+
+"     *_c_*"+a+
+"       |"+a+
+"       \>\\     ejm97"+a,
+
+"     *_c_*"+a+
+"       |__"+a+
+"       \>      ejm97"+a,
+
+"     *_c_*"+a+
+"     __|__"+a+
+"              ejm97"+a,
+
+" "+a+
+"     *_c_*"+a+
+"     __)__    ejm97"+a,
+
+" "+a+
+"     *\\c/*"+a+
+"     __)__    ejm97"+a
+
+);
+var x=0;
+function tick() {
+document.animation.cheerleader.value = " " + a +
+tl[x];
+x++;
+if (x != max)
+setTimeout("tick()", 200);
+else
+x = 0;
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff OnLoad="tick()">
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /games/"><font color="#FF0000"><b>Games</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Text Animation</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Check out this JavaScript-powered text animation artwork.  A cheerleader runs through her entire routine.  Wow.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name=animation>
+<textarea name=cheerleader rows=5 cols=20></textarea>
+<br>
+<input type=button value="Start Again" onClick = "javascript:tick()">
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Games:  Text Animation</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  3.03 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL TEXT ANIMATION:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the onLoad event handler into the BODY tag
+  3.  Put the last coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Web Site:   http://www.crosswinds.net/~llizard --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var agt=navigator.userAgent.toLowerCase();
+if (agt.indexOf("mac") != -1)
+var a="\r"; 
+else
+var a="\n";
+var max=0;
+function tlist() {
+max=tlist.arguments.length;
+for (i=0; i&lt;max; i++)
+this[i]=tlist.arguments[i];
+}
+tl = new tlist(
+"   o"+a+
+"  /|\\"+a+
+" */ \\*        ejm97"+a,
+
+"   o_"+a+
+"  \&lt;| *"+a+
+"  *\&gt;\\         ejm97"+a,
+
+"  _o/*"+a+
+" * |"+a+
+"  / \\         ejm97"+a,
+
+" *\o_"+a+
+"  /  *"+a+
+" \&lt;\\           ejm97"+a,
+
+"  _o/*"+a+
+" * |"+a+
+"  / \\         ejm97"+a,
+
+" *\\c/*"+a+
+"   )"+a+
+"  / \&gt;         ejm97"+a,
+
+"     *"+a+
+"  \\__/c"+a+
+"   \&gt; \\*       ejm97"+a,
+
+"   __/"+a+
+"    (o_*"+a+
+"     \\*       ejm97"+a,
+
+"      \\ /"+a+
+"       |"+a+
+"     */o\\*    ejm97"+a,
+
+"       \\_"+a+
+"       ("+a+
+"     */o\\*    ejm97"+a,
+
+"        \&lt;_"+a+
+"      __("+a+
+"     * o|*    ejm97"+a,
+
+"         /_"+a+
+"      __("+a+
+"     * o|*    ejm97"+a,
+
+"         ___"+a+
+"      *\/ \&gt;"+a+
+"       o|*    ejm97"+a,
+
+"        *"+a+
+"       o|_/"+a+
+"      */  \\   ejm97"+a,
+
+"        *"+a+
+"      _o|_"+a+
+"     *   \&gt;\\   ejm97"+a,
+
+"       _o/*"+a+
+"      * |"+a+
+"       / \\    ejm97"+a,
+
+"      *\\o/*"+a+
+"        |"+a+
+"       / \\    ejm97"+a,
+
+"      c/*"+a+
+"      \&lt;\\"+a+
+"      */\\     ejm97"+a,
+
+"      c__"+a+
+"      \&lt;\ *"+a+
+"      */\\     ejm97"+a,
+
+"      c__"+a+
+"      /\ *"+a+
+"     * /\&gt;     ejm97"+a,
+
+"      c/*"+a+
+"     /(__"+a+
+"    * /       ejm97"+a,
+
+"    __o/*"+a+
+"    * (__"+a+
+"      \&lt;       ejm97"+a,
+
+"      __o_"+a+
+"     * /  *"+a+
+"      \&lt;\\      ejm97"+a,
+
+"     *_o_"+a+
+"       | *"+a+
+"      \&lt; \\     ejm97"+a,
+
+"     *_c_*"+a+
+"       |"+a+
+"       \&gt;\\     ejm97"+a,
+
+"     *_c_*"+a+
+"       |__"+a+
+"       \&gt;      ejm97"+a,
+
+"     *_c_*"+a+
+"     __|__"+a+
+"              ejm97"+a,
+
+" "+a+
+"     *_c_*"+a+
+"     __)__    ejm97"+a,
+
+" "+a+
+"     *\\c/*"+a+
+"     __)__    ejm97"+a
+
+);
+var x=0;
+function tick() {
+document.animation.cheerleader.value = " " + a +
+tl[x];
+x++;
+if (x != max)
+setTimeout("tick()", 200);
+else
+x = 0;
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Insert the onLoad event handler into your BODY tag  --&gt;
+
+&lt;BODY OnLoad="tick()"&gt;
+
+&lt;!-- STEP THREE: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;center&gt;
+&lt;form name=animation&gt;
+&lt;textarea name=cheerleader rows=5 cols=20&gt;&lt;/textarea&gt;
+&lt;br&gt;
+&lt;input type=button value="Start Again" onClick = "javascript:tick()"&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  3.03 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

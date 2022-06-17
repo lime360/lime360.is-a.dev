@@ -1,0 +1,338 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Misc.:  Born Which Day?</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Miscellaneous">
+<META NAME="description" CONTENT="I'm sure most of you are curious about what day of the week you were born.  This script will tell you exactly that - in a nice layout, as well.  Now, you know.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+function calculate() {
+month = document.form.month.selectedIndex;
+month = document.form.month.options[month].value;
+day = document.form.day.selectedIndex;
+day = document.form.day.options[day].value;
+year = document.form.year.value;
+
+var oyear=year
+
+var dob = " "+ year +", "+month + ",  "+day;
+var thenx = new Date(dob);
+
+var year=thenx.getYear();
+if (year<100) year="19" + thenx.getYear();
+else year=thenx.getYear();
+
+if (year > 1969) wyear=year;
+else {if (oyear<1900) 
+         {if (oyear>1800)
+             {wrelyear= (eval(oyear)-1801)%(28);
+              wyear = wrelyear+1981;
+             }
+         else wyear = 1970 
+         }
+      else if (oyear>1900) 
+              {wrelyear= (eval(oyear)-1901)%(28); 
+               wyear= wrelyear+1985
+              }
+      else if (oyear==1900) 
+              {wyear= 1990;
+              }              
+     }
+
+var dob = " "+ wyear +", "+month + ",  "+day;
+var thenx = new Date(dob);
+
+var theday = thenx.getDay()+1;
+var date=thenx.getDate();
+
+var weekday = new Array(6);
+weekday[1]="Sunday";
+weekday[2]="Monday";
+weekday[3]="Tuesday";
+weekday[4]="Wednesday";
+weekday[5]="Thursday";
+weekday[6]="Friday";
+weekday[7]="Saturday";
+if (day != date) alert("Sorry!  That appears to be an invalid date!"+day+" ..."+date+"::"+oyear+"..."+year+" "+dob+"=="+wyear+".-.-"+thenx+" "+day+" "+month);
+else {
+dayborn = weekday[theday];
+dob = dayborn + ", " + month + " " + date + ", " + oyear + ".";
+alert("You were born on " + dob);
+   }
+}
+// End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /miscellaneous/"><font color="#FF0000">Miscellaneous</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Born Which Day?</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<TABLE BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><TD><font FACE=" helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+I'm sure most of you are curious about what day of the week you were born.  This script will tell you exactly that - in a nice layout, as well.  Now, you know.<br><hr>
+</td></tr>
+</table>
+<!--  Demonstration -->
+<BODY>
+<form name=form>
+<center>
+<table border=2 cellspacing=0 cellpadding=0 bgcolor=white>
+<tr><td colspan=3 align=center><font face="verdana, arial" size="-1">When were you born?</font></td></tr>
+<tr><td align=center>
+<select name="month">
+<option value="" selected>Month
+<option value="January">Jan
+<option value="February">Feb
+<option value="March">Mar
+<option value="April">Apr
+<option value="May">May
+<option value="June">Jun
+<option value="July">Jul
+<option value="August">Aug
+<option value="September">Sep
+<option value="October">Oct
+<option value="November">Nov
+<option value="December">Dec
+</select>
+</td>
+<td align=center>
+<select name="day">
+<option value="" selected>Day
+<option value="1">01
+<option value="2">02
+<option value="3">03
+<option value="4">04
+<option value="5">05
+<option value="6">06
+<option value="7">07
+<option value="8">08
+<option value="9">09
+<option value="10">10
+<option value="11">11
+<option value="12">12
+<option value="13">13
+<option value="14">14
+<option value="15">15
+<option value="16">16
+<option value="17">17
+<option value="18">18
+<option value="19">19
+<option value="20">20
+<option value="21">21
+<option value="22">22
+<option value="23">23
+<option value="24">24
+<option value="25">25
+<option value="26">26
+<option value="27">27
+<option value="28">28
+<option value="29">29
+<option value="30">30
+<option value="31">31
+</select>
+</td>
+<td align=center>
+<input type=text name=year value="19" size=4 maxlength=4>
+</td></tr>
+</table><p>
+<input type=button value="Calculate" onClick="calculate()">
+</center>
+</form>
+<P>
+<P>
+<a name="source">
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Misc.:  Born Which Day?</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as NotePad or SimpleText) and save (Control-s or Apple-s).  The script is yours!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.78 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL BORN WHICH DAY?:
+
+   1.  Paste the coding into the HEAD of your HTML document
+   2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function calculate() {
+month = document.form.month.selectedIndex;
+month = document.form.month.options[month].value;
+day = document.form.day.selectedIndex;
+day = document.form.day.options[day].value;
+year = document.form.year.value;
+
+var oyear=year
+
+var dob = " "+ year +", "+month + ",  "+day;
+var thenx = new Date(dob);
+
+var year=thenx.getYear();
+if (year&lt;100) year="19" + thenx.getYear();
+else year=thenx.getYear();
+
+if (year &gt; 1969) wyear=year;
+else {
+if (oyear&lt;1900) {
+if (oyear&gt;1800) {
+wrelyear= (eval(oyear)-1801)%(28);
+wyear = wrelyear+1981;
+}
+else wyear = 1970 
+}
+else
+if (oyear&gt;1900) {wrelyear= (eval(oyear)-1901)%(28); 
+wyear= wrelyear+1985
+}
+else 
+if (oyear==1900) {wyear= 1990;
+   }              
+}
+var dob = " "+ wyear +", "+month + ",  "+day;
+var thenx = new Date(dob);
+
+var theday = thenx.getDay()+1;
+var date=thenx.getDate();
+
+var weekday = new Array(6);
+weekday[1]="Sunday";
+weekday[2]="Monday";
+weekday[3]="Tuesday";
+weekday[4]="Wednesday";
+weekday[5]="Thursday";
+weekday[6]="Friday";
+weekday[7]="Saturday";
+if (day != date) alert("Sorry!  That appears to be an invalid date!"+day+" ..."+date+"::"+oyear+"..."+year+" "+dob+"=="+wyear+".-.-"+thenx+" "+day+" "+month);
+else {
+dayborn = weekday[theday];
+dob = dayborn + ", " + month + " " + date + ", " + oyear + ".";
+alert("You were born on " + dob);
+   }
+}
+// End --&gt;
+&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+&lt;form name=form&gt;
+&lt;center&gt;
+&lt;table border=2 cellspacing=0 cellpadding=0 bgcolor=white&gt;
+&lt;tr&gt;&lt;td colspan=3 align=center&gt;&lt;font face="verdana, arial" size="-1"&gt;When were you born?&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td align=center&gt;
+&lt;select name="month"&gt;
+&lt;option value="" selected&gt;Month
+&lt;option value="January"&gt;Jan
+&lt;option value="February"&gt;Feb
+&lt;option value="March"&gt;Mar
+&lt;option value="April"&gt;Apr
+&lt;option value="May"&gt;May
+&lt;option value="June"&gt;Jun
+&lt;option value="July"&gt;Jul
+&lt;option value="August"&gt;Aug
+&lt;option value="September"&gt;Sep
+&lt;option value="October"&gt;Oct
+&lt;option value="November"&gt;Nov
+&lt;option value="December"&gt;Dec
+&lt;/select&gt;
+&lt;/td&gt;
+&lt;td align=center&gt;
+&lt;select name="day"&gt;
+&lt;option value="" selected&gt;Day
+&lt;option value="1"&gt;01
+&lt;option value="2"&gt;02
+&lt;option value="3"&gt;03
+&lt;option value="4"&gt;04
+&lt;option value="5"&gt;05
+&lt;option value="6"&gt;06
+&lt;option value="7"&gt;07
+&lt;option value="8"&gt;08
+&lt;option value="9"&gt;09
+&lt;option value="10"&gt;10
+&lt;option value="11"&gt;11
+&lt;option value="12"&gt;12
+&lt;option value="13"&gt;13
+&lt;option value="14"&gt;14
+&lt;option value="15"&gt;15
+&lt;option value="16"&gt;16
+&lt;option value="17"&gt;17
+&lt;option value="18"&gt;18
+&lt;option value="19"&gt;19
+&lt;option value="20"&gt;20
+&lt;option value="21"&gt;21
+&lt;option value="22"&gt;22
+&lt;option value="23"&gt;23
+&lt;option value="24"&gt;24
+&lt;option value="25"&gt;25
+&lt;option value="26"&gt;26
+&lt;option value="27"&gt;27
+&lt;option value="28"&gt;28
+&lt;option value="29"&gt;29
+&lt;option value="30"&gt;30
+&lt;option value="31"&gt;31
+&lt;/select&gt;
+&lt;/td&gt;
+&lt;td align=center&gt;
+&lt;input type=text name=year value="19" size=4 maxlength=4&gt;
+&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;&lt;p&gt;
+&lt;input type=button value="Calculate" onClick="calculate()"&gt;
+&lt;/center&gt;
+&lt;/form&gt;
+
+ 
+
+&lt;!-- Script Size:  2.78 KB  --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

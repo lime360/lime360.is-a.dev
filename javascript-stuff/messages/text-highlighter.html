@@ -1,0 +1,196 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Messages:  Text Highlighter</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="K. Rama Moorthy">
+<META NAME="section" CONTENT="Messages">
+<META NAME="description" CONTENT="Alternates the font color of each character in a line of text. Useful to catch the attention of your web site visitors.  You may also customize the color and font of the text.
+">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /messages/"><font color="#FF0000"><b>Messages</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Text Highlighter</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Alternates the font color of each character in a line of text. Useful to catch the attention of your web site visitors.  You may also customize the color and font of the text.
+
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  K. Rama Moorthy -->
+<!-- Web Site:   http://www.suyambhu.bizhosting.com -->
+
+
+
+
+<!-- Begin
+text = "JavaScript Rules"; // The text to scroll
+color1 = "blue"; // original text color
+color2 = "red"; // new character color
+fontsize = "8"; // font size of text 
+speed = 200; // how fast to rotate to next character 
+// time is in milliseconds, (i.e. 1000 = 1 second)
+
+i = 0;
+if (navigator.appName == "Netscape") {
+document.write("<layer id=a visibility=show></layer><br><br><br>");
+}
+else {
+document.write("<div id=a></div>");
+}
+function changeCharColor()  {
+if (navigator.appName == "Netscape") {
+document.a.document.write("<center><font size =" + fontsize + "><font color=" + color1 + ">");
+for (var j = 0; j < text.length; j++) {
+if(j == i) {
+document.a.document.write("<font color=" + color2 + ">" + text.charAt(i) + "</font>");
+}
+else {
+document.a.document.write(text.charAt(j));
+   }
+}
+document.a.document.write('</font></font></center>');
+document.a.document.close();
+}
+if (navigator.appName == "Microsoft Internet Explorer") {
+str = "<center><font size=" + fontsize + "><font color=" + color1 + ">";
+for (var j = 0; j < text.length; j++) {
+if( j == i) {
+str += "<font color=" + color2 + ">" + text.charAt(i) + "</font>";
+}
+else {
+str += text.charAt(j);
+   }
+}
+str += "</font></font></center>";
+a.innerHTML = str;
+}
+(i == text.length) ? i=0 : i++; // reset after going through all letters
+}
+setInterval("changeCharColor()", speed);
+//  End -->
+</script>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Messages:  Text Highlighter</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.89 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- ONE STEP TO INSTALL TEXT HIGHLIGHTER:
+
+  1.  Copy the coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  K. Rama Moorthy --&gt;
+&lt;!-- Web Site:   http://www.suyambhu.bizhosting.com --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+text = "JavaScript Rules"; // The text to scroll
+color1 = "blue"; // original text color
+color2 = "red"; // new character color
+fontsize = "8"; // font size of text 
+speed = 200; // how fast to rotate to next character 
+// time is in milliseconds, (i.e. 1000 = 1 second)
+
+i = 0;
+if (navigator.appName == "Netscape") {
+document.write("&lt;layer id=a visibility=show&gt;&lt;/layer&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;");
+}
+else {
+document.write("&lt;div id=a&gt;&lt;/div&gt;");
+}
+function changeCharColor()  {
+if (navigator.appName == "Netscape") {
+document.a.document.write("&lt;center&gt;&lt;font size =" + fontsize + "&gt;&lt;font color=" + color1 + "&gt;");
+for (var j = 0; j &lt; text.length; j++) {
+if(j == i) {
+document.a.document.write("&lt;font color=" + color2 + "&gt;" + text.charAt(i) + "&lt;/font&gt;");
+}
+else {
+document.a.document.write(text.charAt(j));
+   }
+}
+document.a.document.write('&lt;/font&gt;&lt;/font&gt;&lt;/center&gt;');
+document.a.document.close();
+}
+if (navigator.appName == "Microsoft Internet Explorer") {
+str = "&lt;center&gt;&lt;font size=" + fontsize + "&gt;&lt;font color=" + color1 + "&gt;";
+for (var j = 0; j &lt; text.length; j++) {
+if( j == i) {
+str += "&lt;font color=" + color2 + "&gt;" + text.charAt(i) + "&lt;/font&gt;";
+}
+else {
+str += text.charAt(j);
+   }
+}
+str += "&lt;/font&gt;&lt;/font&gt;&lt;/center&gt;";
+a.innerHTML = str;
+}
+(i == text.length) ? i=0 : i++; // reset after going through all letters
+}
+setInterval("changeCharColor()", speed);
+//  End --&gt;
+&lt;/script&gt;
+
+ 
+
+&lt;!-- Script Size:  1.89 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0059)http://javascript.internet.com/games/catch-a-spy-world.html -->
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<SCRIPT>
+N = (navigator.appName.indexOf("Netscape") != -1);
+M = (navigator.appName.indexOf("Microsoft") != -1);
+Vis = new Array();
+Vis[0] = (M) ? "hidden" : "hide";
+Vis[1] = (M) ? "visible" : "show";
+function Getdiv(divId,divY,divX,divW,divH,bCol,visb,zInd) {
+bkCol = (bCol != "")?((N)?" bgColor = "+bCol:";background:"+bCol):"";
+DivTyp = (M) ? "<DIV" : "<LAYER";
+if (M) {Styl = " ID = "+divId+" style = 'position:absolute;top:"+divY+";left:"+divX+";width:"+divW+";height:"+divH+bkCol+";visibility:"+Vis[visb]+";z-index:"+zInd+"'>"}
+if (N) {Styl = " ID = "+divId+" top = "+divY+" left = "+divX+" width = "+divW+" height = "+divH+bkCol+" visibility = "+Vis[visb]+" z-index = "+zInd+">"}
+document.writeln(DivTyp+Styl);
+}
+function EndDiv() {
+(M)? document.writeln("</DIV>"): document.writeln("</LAYER>");
+}
+Getdiv('worldmap',0,0,500,250,'',1,0);
+document.write("<img src=http://javascript.internet.com/img/catch-a-spy/greyworld.jpg>");
+EndDiv();
+Getdiv('player',0,0,1,1,'',1,2);
+document.write("<img src=http://javascript.internet.com/img/catch-a-spy/pol.gif width = 10>");
+EndDiv();
+Getdiv('Crim',0,0,1,1,'',1,2);
+document.write("<img src=http://javascript.internet.com/img/catch-a-spy/ali.gif width = 10>");
+EndDiv();
+/*
+Getdiv('ads',220,10,300,30,'',1,2);
+document.write("<font face = Tahoma size = 2><a href = 'http://www.caoxuan.com/zip4free/request.html' target = _blank>Get Zip File</a>")
+EndDiv()
+*/
+</SCRIPT>
+
+<META content="MSHTML 5.50.4611.1300" name=GENERATOR></HEAD>
+<BODY bgColor=silver></BODY></HTML>

@@ -1,0 +1,372 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Forms:  External JS</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Jacob Hage (jacob@hage.dk)">
+<META NAME="section" CONTENT="Forms">
+<META NAME="description" CONTENT="Using an external JavaScript file, simply define the rules for how each field should be validated and you're set.  Piece of cake!  And since it is it's own .js file, it's easy to use the code on every page of your site.  Currently only validates text, numbers and e-mail addresses.">
+
+<script language="JavaScript">
+// Generic Form Validation
+// Jacob Hage (jacob@hage.dk)
+
+var checkObjects	= new Array();
+var errors		= "";
+var returnVal		= false;
+var language		= new Array();
+language["header"]	= "The following error(s) occured:"
+language["start"]	= "->";
+language["field"]	= " Field ";
+language["require"]	= " is required";
+language["min"]		= " and must consist of at least ";
+language["max"]		= " and must not contain more than ";
+language["minmax"]	= " and no more than ";
+language["chars"]	= " characters";
+language["num"]		= " and must contain a number";
+language["email"]	= " must contain a valid e-mail address";
+
+
+// -----------------------------------------------------------------------------
+// define - Call this function in the beginning of the page. I.e. onLoad.
+// n = name of the input field (Required)
+// type= string, num, email (Required)
+// min = the value must have at least [min] characters (Optional)
+// max = the value must have maximum [max] characters (Optional)
+// d = (Optional)
+// -----------------------------------------------------------------------------
+function define(n, type, HTMLname, min, max, d) {
+var p;
+var i;
+var x;
+if (!d) d = document;
+if ((p=n.indexOf("?"))>0&&parent.frames.length) {
+d = parent.frames[n.substring(p+1)].document;
+n = n.substring(0,p);
+}
+if (!(x = d[n]) && d.all) x = d.all[n];
+for (i = 0; !x && i < d.forms.length; i++) {
+x = d.forms[i][n];
+}
+for (i = 0; !x && d.layers && i < d.layers.length; i++) {
+x = define(n, type, HTMLname, min, max, d.layers[i].document);
+return x;       
+}
+eval("V_"+n+" = new formResult(x, type, HTMLname, min, max);");
+checkObjects[eval(checkObjects.length)] = eval("V_"+n);
+}
+function formResult(form, type, HTMLname, min, max) {
+this.form = form;
+this.type = type;
+this.HTMLname = HTMLname;
+this.min  = min;
+this.max  = max;
+}
+function validate() {
+if (checkObjects.length > 0) {
+errorObject = "";
+for (i = 0; i < checkObjects.length; i++) {
+validateObject = new Object();
+validateObject.form = checkObjects[i].form;
+validateObject.HTMLname = checkObjects[i].HTMLname;
+validateObject.val = checkObjects[i].form.value;
+validateObject.len = checkObjects[i].form.value.length;
+validateObject.min = checkObjects[i].min;
+validateObject.max = checkObjects[i].max;
+validateObject.type = checkObjects[i].type;
+if (validateObject.type == "num" || validateObject.type == "string") {
+if ((validateObject.type == "num" && validateObject.len <= 0) || (validateObject.type == "num" && isNaN(validateObject.val))) { errors += language['start'] + language['field'] + validateObject.HTMLname + language['require'] + language['num'] + "\n";
+} else if (validateObject.min && validateObject.max && (validateObject.len < validateObject.min || validateObject.len > validateObject.max)) { errors += language['start'] + language['field'] + validateObject.HTMLname + language['require'] + language['min'] + validateObject.min + language['minmax'] + validateObject.max+language['chars'] + "\n";
+} else if (validateObject.min && !validateObject.max && (validateObject.len < validateObject.min)) { errors += language['start'] + language['field'] + validateObject.HTMLname + language['require'] + language['min'] + validateObject.min + language['chars'] + "\n";
+} else if (validateObject.max && !validateObject.min &&(validateObject.len > validateObject.max)) { errors += language['start'] + language['field'] + validateObject.HTMLname + language['require'] + language['max'] + validateObject.max + language['chars'] + "\n";
+} else if (!validateObject.min && !validateObject.max && validateObject.len <= 0) { errors += language['start'] + language['field'] + validateObject.HTMLname + language['require'] + "\n";
+   }
+} else if(validateObject.type == "email") {
+// Checking existense of "@" and ".". 
+// Length of must >= 5 and the "." must 
+// not directly precede or follow the "@"
+if ((validateObject.val.indexOf("@") == -1) || (validateObject.val.charAt(0) == ".") || (validateObject.val.charAt(0) == "@") || (validateObject.len < 6) || (validateObject.val.indexOf(".") == -1) || (validateObject.val.charAt(validateObject.val.indexOf("@")+1) == ".") || (validateObject.val.charAt(validateObject.val.indexOf("@")-1) == ".")) { errors += language['start'] + language['field'] + validateObject.HTMLname + language['email'] + "\n"; }
+      }
+   }
+}
+if (errors) {
+alert(language["header"].concat("\n" + errors));
+errors = "";
+returnVal = false;
+} else {
+returnVal = true;
+   }
+}
+</script>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Jacob Hage (jacob@hage.dk) -->
+<!-- Web Site:  http://www.hagedesign.dk -->
+
+
+
+
+<!-- Begin
+function init() {
+define('field1', 'string', 'Apple');
+define('field2', 'string', 'Peach', 4);
+define('field3', 'string', 'Cherry', null, 8);
+define('field4', 'string', 'Melon', 4, 8);
+define('field5', 'num', 'Banana');
+define('field6', 'num', 'Grape', 3);
+define('field7', 'num', 'Carot', null, 6);
+define('field8', 'num', 'Sugar', 4, 6);
+define('field9', 'email', 'Fruit');
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff OnLoad="init()">
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /forms/" ><font color="#FF0000"><b>Forms</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>External JS</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Using an external JavaScript file, simply define the rules for how each field should be validated and you're set.  Piece of cake!  And since it is it's own .js file, it's easy to use the code on every page of your site.  Currently only validates text, numbers and e-mail addresses.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<table><tr><td>
+<form name=testForm>
+apple:<br><input type=text name=field1 size=16> Required<br>
+peach:<br><input type=text name=field2 size=16> Required - minimum 4 characters<br>
+cherry:<br><input type=text name=field3 size=16> Required - maximum 8 characters<br>
+melon:<br><input type=text name=field4 size=16> Required - minimum 4 characters - maximum 8 characters<br>
+banana:<br><input type=text name=field5 size=16> Required - Must be a numeric character<br>
+grape:<br><input type=text name=field6 size=16> Required - Must be a numeric character - minimum 3 digits<br>
+carot:<br><input type=text name=field7 size=16> Required - Must be a numeric character - maximum 6 digits<br>
+sugar:<br><input type=text name=field8 size=16> Required - Must be a numeric character - minimum 4 digits - maximum 6 digits<br>
+fruit:<br><input type=text name=field9 size=16> Required - Valid e-mail<br>
+candy:<br><input type=text name=field10 size=16> Not required<br>
+<br>
+<input type=submit name=submit onClick="validate();return returnVal;" value="Test fields">
+</form>
+</td></tr></table>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Forms:  External JS</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  6.75 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- FIVE STEPS TO INSTALL EXTERNAL JS:
+
+  1.  Copy the first code in a new file, save it as validation.js
+  2.  Include the .js file in the HEAD of your HTML document
+  3.  Define the validation rules for each field in the HEAD section
+  4.  Insert the onLoad event handler into your BODY tag
+  5.  Add validate() to your submit button, as shown below --&gt;
+
+
+&lt;!-- STEP ONE: Paste this code into a new file, save as validation.js  --&gt;
+
+
+// Generic Form Validation
+// Jacob Hage (jacob@hage.dk)
+var checkObjects	= new Array();
+var errors		= "";
+var returnVal		= false;
+var language		= new Array();
+language["header"]	= "The following error(s) occured:"
+language["start"]	= "-&gt;";
+language["field"]	= " Field ";
+language["require"]	= " is required";
+language["min"]		= " and must consist of at least ";
+language["max"]		= " and must not contain more than ";
+language["minmax"]	= " and no more than ";
+language["chars"]	= " characters";
+language["num"]		= " and must contain a number";
+language["email"]	= " must contain a valid e-mail address";
+// -----------------------------------------------------------------------------
+// define - Call this function in the beginning of the page. I.e. onLoad.
+// n = name of the input field (Required)
+// type= string, num, email (Required)
+// min = the value must have at least [min] characters (Optional)
+// max = the value must have maximum [max] characters (Optional)
+// d = (Optional)
+// -----------------------------------------------------------------------------
+function define(n, type, HTMLname, min, max, d) {
+var p;
+var i;
+var x;
+if (!d) d = document;
+if ((p=n.indexOf("?"))&gt;0&&parent.frames.length) {
+d = parent.frames[n.substring(p+1)].document;
+n = n.substring(0,p);
+}
+if (!(x = d[n]) && d.all) x = d.all[n];
+for (i = 0; !x && i &lt; d.forms.length; i++) {
+x = d.forms[i][n];
+}
+for (i = 0; !x && d.layers && i &lt; d.layers.length; i++) {
+x = define(n, type, HTMLname, min, max, d.layers[i].document);
+return x;       
+}
+eval("V_"+n+" = new formResult(x, type, HTMLname, min, max);");
+checkObjects[eval(checkObjects.length)] = eval("V_"+n);
+}
+function formResult(form, type, HTMLname, min, max) {
+this.form = form;
+this.type = type;
+this.HTMLname = HTMLname;
+this.min  = min;
+this.max  = max;
+}
+function validate() {
+if (checkObjects.length &gt; 0) {
+errorObject = "";
+for (i = 0; i &lt; checkObjects.length; i++) {
+validateObject = new Object();
+validateObject.form = checkObjects[i].form;
+validateObject.HTMLname = checkObjects[i].HTMLname;
+validateObject.val = checkObjects[i].form.value;
+validateObject.len = checkObjects[i].form.value.length;
+validateObject.min = checkObjects[i].min;
+validateObject.max = checkObjects[i].max;
+validateObject.type = checkObjects[i].type;
+if (validateObject.type == "num" || validateObject.type == "string") {
+if ((validateObject.type == "num" && validateObject.len &lt;= 0) || (validateObject.type == "num" && isNaN(validateObject.val))) { errors += language['start'] + language['field'] + validateObject.HTMLname + language['require'] + language['num'] + "\n";
+} else if (validateObject.min && validateObject.max && (validateObject.len &lt; validateObject.min || validateObject.len &gt; validateObject.max)) { errors += language['start'] + language['field'] + validateObject.HTMLname + language['require'] + language['min'] + validateObject.min + language['minmax'] + validateObject.max+language['chars'] + "\n";
+} else if (validateObject.min && !validateObject.max && (validateObject.len &lt; validateObject.min)) { errors += language['start'] + language['field'] + validateObject.HTMLname + language['require'] + language['min'] + validateObject.min + language['chars'] + "\n";
+} else if (validateObject.max && !validateObject.min &&(validateObject.len &gt; validateObject.max)) { errors += language['start'] + language['field'] + validateObject.HTMLname + language['require'] + language['max'] + validateObject.max + language['chars'] + "\n";
+} else if (!validateObject.min && !validateObject.max && validateObject.len &lt;= 0) { errors += language['start'] + language['field'] + validateObject.HTMLname + language['require'] + "\n";
+   }
+} else if(validateObject.type == "email") {
+// Checking existense of "@" and ".". 
+// Length of must &gt;= 5 and the "." must 
+// not directly precede or follow the "@"
+if ((validateObject.val.indexOf("@") == -1) || (validateObject.val.charAt(0) == ".") || (validateObject.val.charAt(0) == "@") || (validateObject.len &lt; 6) || (validateObject.val.indexOf(".") == -1) || (validateObject.val.charAt(validateObject.val.indexOf("@")+1) == ".") || (validateObject.val.charAt(validateObject.val.indexOf("@")-1) == ".")) { errors += language['start'] + language['field'] + validateObject.HTMLname + language['email'] + "\n"; }
+      }
+   }
+}
+if (errors) {
+alert(language["header"].concat("\n" + errors));
+errors = "";
+returnVal = false;
+} else {
+returnVal = true;
+   }
+}
+
+
+&lt;!-- STEP TWO: Include the .js file in the HEAD of your main document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;script language="JavaScript" src="validation.js"&gt;&lt;/script&gt;
+
+
+&lt;!-- STEP THREE: Define the validation rules for each field  --&gt;
+&lt;!-- Rules explained in more detail at author's site: --&gt;
+&lt;!-- http://www.hagedesign.dk/scripts/js/validation/ --&gt;
+
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Jacob Hage (jacob@hage.dk) --&gt;
+&lt;!-- Web Site:  http://www.hagedesign.dk --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function init() {
+define('field1', 'string', 'Apple');
+define('field2', 'string', 'Peach', 4);
+define('field3', 'string', 'Cherry', null, 8);
+define('field4', 'string', 'Melon', 4, 8);
+define('field5', 'num', 'Banana');
+define('field6', 'num', 'Grape', 3);
+define('field7', 'num', 'Carot', null, 6);
+define('field8', 'num', 'Sugar', 4, 6);
+define('field9', 'email', 'Fruit');
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP FOUR: Insert the onLoad event handler into your BODY tag  --&gt;
+
+&lt;BODY OnLoad="init()"&gt;
+
+&lt;!-- STEP FIVE: Add validate() to your submit button, as shown below --&gt;
+
+&lt;center&gt;
+&lt;table&gt;&lt;tr&gt;&lt;td&gt;
+&lt;form name=testForm&gt;
+apple:&lt;br&gt;&lt;input type=text name=field1 size=16&gt; Required&lt;br&gt;
+peach:&lt;br&gt;&lt;input type=text name=field2 size=16&gt; Required - minimum 4 characters&lt;br&gt;
+cherry:&lt;br&gt;&lt;input type=text name=field3 size=16&gt; Required - maximum 8 characters&lt;br&gt;
+melon:&lt;br&gt;&lt;input type=text name=field4 size=16&gt; Required - minimum 4 characters - maximum 8 characters&lt;br&gt;
+banana:&lt;br&gt;&lt;input type=text name=field5 size=16&gt; Required - Must be a numeric character&lt;br&gt;
+grape:&lt;br&gt;&lt;input type=text name=field6 size=16&gt; Required - Must be a numeric character - minimum 3 digits&lt;br&gt;
+carot:&lt;br&gt;&lt;input type=text name=field7 size=16&gt; Required - Must be a numeric character - maximum 6 digits&lt;br&gt;
+sugar:&lt;br&gt;&lt;input type=text name=field8 size=16&gt; Required - Must be a numeric character - minimum 4 digits - maximum 6 digits&lt;br&gt;
+fruit:&lt;br&gt;&lt;input type=text name=field9 size=16&gt; Required - Valid e-mail&lt;br&gt;
+candy:&lt;br&gt;&lt;input type=text name=field10 size=16&gt; Not required&lt;br&gt;
+&lt;br&gt;
+&lt;input type=submit name=submit onClick="validate();return returnVal;" value="Test fields"&gt;
+&lt;/form&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/center&gt;
+
+&lt;p&gt;&lt;center&gt;
+&lt;font face="arial, helvetica" SIZE="-2"&gt;Free JavaScripts provided&lt;br&gt;
+by &lt;a href="http://javascriptsource.com"&gt;JavaScript Source Code 3000&lt;/a&gt;&lt;/font&gt;
+&lt;/center&gt;&lt;p&gt;
+
+&lt;!-- Script Size:  6.75 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

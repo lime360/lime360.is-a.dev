@@ -1,0 +1,169 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Messages:  Banner Ads</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Messages">
+<META NAME="description" CONTENT="Need to rotate banner ads on your site?  How about doing it in JavaScript!  This simple little JavaScript will print out a random banner ad each time your page is viewed.  Awesome!">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /messages/"><font color="#FF0000">Messages</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Banner Ads</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE=" helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Need to rotate banner ads on your site?  How about doing it in JavaScript!  This simple little JavaScript will print out a random banner ad each time your page is viewed.  Awesome!<br><hr>
+</td></tr>
+</table>
+<!--  Demonstration -->
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+var how_many_ads = 3;
+var now = new Date()
+var sec = now.getSeconds()
+var ad = sec % how_many_ads;
+ad +=1;
+if (ad==1) {
+txt="The World's Largest Online Bookstore, Amazon.com";
+url="http://www.amazon.com";
+alt="amazon.com";
+banner="http://imageserv.imgis.com/images/Ad12669St1Sz1Sq1_Ban1.gif";
+width="468";
+height="60";
+}
+if (ad==2) {
+txt="Palm III by 3Com, in stock!";
+url="http://cybershop.com/";
+alt="cybershop.com";
+banner="http://imageserv.imgis.com/images/Ad13189St1Sz1Sq5_Ban10.gif";
+width="468";
+height="60";
+}
+if (ad==3) {
+txt="Find it at GoTo.com"; 
+url="http://www.goto.com";
+alt="goto.com";
+banner="http://imageserv.imgis.com/images/Ad13700St1Sz1Sq1_Ban1.gif";
+width="468";
+height="60";
+}
+document.write('<center>');
+document.write('<a href=\"' + url + '\" target=\"_top\">');
+document.write('<img src=\"' + banner + '\" width=')
+document.write(width + ' height=' + height + ' ');
+document.write('alt=\"' + alt + '\" border=0><br>');
+document.write('<small>' + txt + '</small></a>');
+document.write('</center>');
+// End -->
+</SCRIPT>
+<P>
+<BR>
+<P>
+<a name="source">
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Messages:  Banner Ads</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as NotePad or SimpleText) and save (Control-s or Apple-s).  The script is yours!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.44 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- ONE STEP TO INSTALL BANNER ADS:
+
+   1.  Add the first code to the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Add the first code to the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var how_many_ads = 3;
+var now = new Date()
+var sec = now.getSeconds()
+var ad = sec % how_many_ads;
+ad +=1;
+if (ad==1) {
+txt="The World's Largest Online Bookstore, Amazon.com";
+url="http://www.amazon.com";
+alt="amazon.com";
+banner="http://imageserv.imgis.com/images/Ad12669St1Sz1Sq1_Ban1.gif";
+width="468";
+height="60";
+}
+if (ad==2) {
+txt="Palm III by 3Com, in stock!";
+url="http://cybershop.com/";
+alt="cybershop.com";
+banner="http://imageserv.imgis.com/images/Ad13189St1Sz1Sq5_Ban10.gif";
+width="468";
+height="60";
+}
+if (ad==3) {
+txt="Find it at GoTo.com"; 
+url="http://www.goto.com";
+alt="goto.com";
+banner="http://imageserv.imgis.com/images/Ad13700St1Sz1Sq1_Ban1.gif";
+width="468";
+height="60";
+}
+document.write('&lt;center&gt;');
+document.write('&lt;a href=\"' + url + '\" target=\"_top\"&gt;');
+document.write('&lt;img src=\"' + banner + '\" width=')
+document.write(width + ' height=' + height + ' ');
+document.write('alt=\"' + alt + '\" border=0&gt;&lt;br&gt;');
+document.write('&lt;small&gt;' + txt + '&lt;/small&gt;&lt;/a&gt;');
+document.write('&lt;/center&gt;');
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+ 
+
+&lt;!-- Script Size:  1.44 KB  --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

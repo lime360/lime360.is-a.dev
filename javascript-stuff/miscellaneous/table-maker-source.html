@@ -1,0 +1,308 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Misc.:  Table Maker (Source)</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Miscellaneous">
+<META NAME="description" CONTENT="This interactive script helps you, the webmaster, see the affects of the TABLE tag attributes.  Just modify the values and you can see the example table immediately!  If you know someone is having trouble learning tables, send them here!">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /miscellaneous/"><font color="#FF0000">Miscellaneous</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Table Maker (Source)</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE=" helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+This interactive script helps you, the webmaster, see the affects of the &lt;TABLE&gt; tag attributes.  Just modify the values and you can see the example table immediately!  If you know someone is having trouble learning tables, send them here!<br><hr>
+</td></tr>
+</table>
+<!--  Demonstration -->
+<BODY>
+<a href="table-maker.html" /miscellaneous/table-maker.html">See Table Maker Example</a>
+<P>
+<BR>
+<P>
+<a name="source">
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Misc.:  Table Maker</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as NotePad or SimpleText) and save (Control-s or Apple-s).  The script is yours!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  8.35 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL TABLE MAKER:
+
+   1.  Paste the FRAMESET code into your HTML document
+   2.  Add the next code into the BODY of your table-maker-left.html  --&gt;
+
+&lt;!-- STEP ONE: Paste the FRAMESET code into your HTML document  --&gt;
+
+&lt;HTML&gt;
+&lt;HEAD&gt;
+&lt;TITLE&gt;Table Maker&lt;/TITLE&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original: Andy Augustine  --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var myTable = new tableObj('','Default',1,1,1,1,2,'','');
+
+function propObj(string,outstring) {
+this.value = string;
+this.out = outstring + string;
+}
+function setValues(form) {
+this.alignment.value=   form.alignment.value;
+this.border.value=  form.border.value;
+this.cellspacing.value = form.cellspacing.value;
+this.cellpadding.value = form.cellpadding.value;
+this.rows.value = form.numrows.options[form.numrows.selectedIndex].text;
+this.cols.value = form.numcols.options[form.numcols.selectedIndex].text;
+this.calign.value =  form.calign.value;
+this.cvalign.value = form.cvalign.value;
+}
+function updateProps() {
+this.alignment.out=   "  ALIGN="   + this.alignment.value;
+this.border.out=  "  BORDER="  + this.border.value;
+this.cellspacing.out = "  CELLSPACING=" + this.cellspacing.value;
+this.cellpadding.out = "  CELLPADDING=" + this.cellpadding.value;
+this.rows.out =    "  ROWS="   + this.rows.value;
+this.cols.out =    "  COLS="   + this.cols.value;
+this.calign.out =  " ALIGN="  + this.calign.value;
+this.cvalign.out = " VALIGN=" + this.cvalign.value;
+}
+function tableObj(align,caption,border,cellpadding,cellspacing,rows,cols,calign,cvalign) {
+this.alignment = new propObj(align,"  ALIGN=");
+this.border = new propObj(border,"  BORDER=");
+this.cellspacing = new propObj(cellspacing,"  CELLSPACING=");
+this.cellpadding = new propObj(cellpadding,"  CELLPADDING=");
+this.rows = new propObj(rows,"  ROWS=");
+this.cols = new propObj(cols,"  COLS=");
+this.calign = new propObj(calign," ALIGN=");
+this.cvalign = new propObj(cvalign," VALIGN=");
+this.setValues = setValues;
+this.updateProps = updateProps;
+}
+function dumpProps(obj,obj_name) {
+var result = "", i ="";
+for (i in obj)
+result += obj_name +"."+ i +" = "+ obj[i].value +"\n";
+return result;
+}
+function dumpTags(obj,obj_name) {
+var result = "", i ="";
+for (i in obj)
+result += obj_name +"."+ i +".out = "+ obj[i].out +"\n";
+return result;
+}
+function drawTable(table) {
+var tabdoc = this.tableframe.document;
+table.updateProps();
+tabdoc.open();
+tabdoc.write('&lt;HTML&gt;&lt;BODY&gt;---Your Table---&lt;br&gt;&lt;br&gt;&lt;br&gt;')
+tabdoc.write('&lt;TABLE ')
+tabdoc.write(table.alignment.out)
+tabdoc.write(table.cellspacing.out)
+tabdoc.write(table.cellpadding.out)
+tabdoc.write(table.border.out)
+tabdoc.write(' &gt;')
+for (var i=1; i &lt;= table.rows.value; i++) {
+tabdoc.write('&lt;TR' +table.cvalign.out+ '&gt;')
+for (var j = 1; j &lt;= table.cols.value; j++) {
+tabdoc.write('&lt;TD ' +table.calign.out+ '&gt;' +(j*i)+ '&lt;/TD&gt;')
+}
+tabdoc.write('&lt;/TR&gt;')
+}
+tabdoc.write('&lt;/TABLE&gt;&lt;/HTML&gt;&lt;/BODY&gt;')
+tabdoc.close()
+}
+function showSource() {
+var opts = 'width=350,height=350,scrollbars=yes,directories=no,status=yes,location=no,toolbar=no';
+var ltag = '&lt;'
+var gtag = '&gt;'
+var sourcewin = window.open('','source',opts)
+sourcewin= window.open('','source')
+sourcewin.status="Cut and paste this info into your web page"
+sourcewin.document.write('&lt;HTML&gt;&lt;BODY BGCOLOR="#FFFFFF" &lt;PRE&gt;&lt;XMP&gt;')
+sourcewin.document.writeln(ltag + 'TABLE ')
+if (myTable.alignment.out != '')
+sourcewin.document.writeln(myTable.alignment.out)
+sourcewin.document.writeln(myTable.border.out)
+sourcewin.document.writeln(myTable.cellspacing.out)
+sourcewin.document.writeln(myTable.cellpadding.out + gtag)
+for (var i=1; i &lt;= myTable.rows.value; i++) {
+sourcewin.document.writeln(ltag+ 'TR' +myTable.cvalign.out+ ' ' +myTable.calign.out+ gtag)
+for (var j = 1; j &lt;= myTable.cols.value; j++) {
+sourcewin.document.writeln(' ' +ltag+ 'TD' +gtag +(j*i)+ ltag+ '/TD' +gtag)
+}
+sourcewin.document.writeln(ltag+ '/TR' +gtag)
+}
+sourcewin.document.writeln(ltag+ '/TABLE' +gtag)
+sourcewin.document.write('&lt;/XMP&gt;&lt;/PRE&gt;&lt;CENTER&gt;')
+sourcewin.document.write('&lt;FORM NAME=menu&gt;&lt;INPUT TYPE="button" ');
+sourcewin.document.write('VALUE="Close" onClick="self.document.clear();self.close()"&gt;')
+sourcewin.document.write('&lt;P&gt;&lt;P&gt;&lt;P&gt;&lt;P&gt;&lt;P&gt;&lt;P&gt;&lt;/FORM&gt;')
+sourcewin.document.write('&lt;/CENTER&gt;&lt;/BODY&gt;&lt;/HTML&gt;')
+sourcewin.document.close()
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+&lt;/HEAD&gt;
+
+&lt;frameset cols="50%,50%" onLoad="parent.myTable.setValues(this.info.tform);parent.drawTable(parent.myTable)"&gt;
+
+&lt;frame src="table-maker-left.html" name="info"&gt;
+&lt;frame src="javascript:void(0)" name="tableframe" marginwidth="4"&gt;
+
+&lt;/frameset&gt;
+&lt;/html&gt;
+
+
+
+&lt;!-- STEP TWO: Add to the BODY of your table-maker-left.html  --&gt;
+
+&lt;html&gt;
+&lt;head&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Begin
+function init() {
+with (document) {
+tform.alignment.value="left"
+tform.align.value="left"
+tform.calign.value="left"
+tform.cvalign.value="center"
+   }
+}
+function clearit(form) {
+form.alignment.value   = "left"
+form.align.value="left"
+form.border.value  = 1
+form.cellspacing.value = 1
+form.cellpadding.value = 1
+form.numrows.selectedIndex = 0
+form.numcols.selectedIndex = 1
+form.calign.value  = ''
+form.cvalign.value = ''
+}
+function isNum(entry) {
+var str = entry.value;
+for (var i = 0; i &lt; str.length; i++) {
+var ch = str.substring(i, i + 1)
+if ((ch &lt; "0" || "9" &lt; ch) && ch != '.') {
+alert("You must enter a number.")
+entry.value=0
+entry.focus()
+entry.select()
+      }
+   }
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+&lt;/head&gt;
+ 
+&lt;body onLoad="init()" bgcolor="#ffffff"&gt;
+
+&lt;center&gt;&lt;table border=1&gt;&lt;form name="tform"&gt;
+&lt;tr align=center&gt;
+&lt;td&gt;&lt;input type="reset" name="clear" value="Reset to Defaults" onClick="clearit(this.form)"&gt;
+&lt;td&gt;Alignment:&lt;br&gt;
+&lt;input type="radio" name="align" value="left" onClick="document.tform.alignment.value=this.value" checked&gt;Left
+&lt;input type="radio" name="align" value="center" onClick="document.tform.alignment.value=this.value"&gt;Center
+&lt;input type="radio" name="align" value="right" onClick="document.tform.alignment.value=this.value"&gt;Right
+&lt;input type="hidden" name="alignment" value="left"&gt;
+&lt;tr align=center&gt;
+&lt;td colspan=2&gt;Border Width (in Pixels):
+&lt;input name="border" value="1" size="3" onChange="isNum(this)" value=1&gt;
+&lt;br&gt;
+&lt;input type="radio" name="br" value="0" onClick="tform.border.value=0"&gt;0
+&lt;input type="radio" name="br" value="1" onClick="tform.border.value=1" checked&gt;1
+&lt;input type="radio" name="br" value="2" onClick="tform.border.value=2"&gt;2
+&lt;input type="radio" name="br" value="5" onClick="tform.border.value=5"&gt;5
+&lt;input type="radio" name="br" value="10" onClick="tform.border.value=10"&gt;10
+&lt;input type="radio" name="br" value="15" onClick="tform.border.value=15"&gt;15
+&lt;tr&gt;
+&lt;td&gt;Cellpadding:&lt;input name="cellpadding" size=3 value=1 onChange="isNum(this)"&gt;
+&lt;td&gt;Cellspacing:&lt;input name="cellspacing" size=3 value=1 onChange="isNum(this)"&gt;
+&lt;tr align=center&gt;
+&lt;td&gt;Rows:&lt;br&gt;&lt;select name="numrows"&gt;
+&lt;option selected&gt;1 &lt;option&gt;2 &lt;option&gt;3 &lt;option&gt;4 &lt;option&gt;5
+&lt;/select&gt;
+&lt;td&gt;Cols:&lt;br&gt;&lt;select name="numcols"&gt;
+&lt;option&gt;1 &lt;option selected&gt;2 &lt;option&gt;3 &lt;option&gt;4 &lt;option&gt;5
+&lt;/select&gt;
+&lt;tr&gt;
+&lt;td&gt;HORIZONTAL ALIGNMENT (cells):&lt;br&gt;
+&lt;input type="radio" name="calign" value="left" onClick="document.tform.calign.value=this.value" checked&gt;Left
+&lt;input type="radio" name="calign" value="center"onClick="document.tform.calign.value=this.value"&gt;Center
+&lt;input type="radio" name="calign" value="right" onClick="document.tform.calign.value=this.value"&gt;Right
+&lt;td&gt;VERTICAL ALIGNMENT (cells):&lt;BR&gt;
+&lt;input type="radio" name="cvalign" value="top" onClick="document.tform.cvalign.value=this.value"&gt;Top
+&lt;input type="radio" name="cvalign" value="center" onClick="document.tform.cvalign.value=this.value" checked&gt;Center
+&lt;input type="radio" name="cvalign" value="bottom" onClick="document.tform.cvalign.value=this.value"&gt;Bottom
+&lt;tr align=center&gt;
+&lt;td colspan=2&gt;&lt;input type="button" name="drawtable" value="Draw this table!" onClick="parent.myTable.setValues(this.form);parent.drawTable(parent.myTable)"&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td colspan=2&gt;The following features correspond to bottom frame:&lt;/TD&gt;
+&lt;/tr&gt;
+&lt;tr align=center&gt;
+&lt;td colspan=2&gt;&lt;input type="button" value="See HTML code for table!" onClick="parent.showSource()"&gt;
+&lt;/tr&gt;
+&lt;tr align=center&gt;
+&lt;td colspan=2&gt;&lt;input type="button" value="View table values" onClick="alert(parent.dumpProps(parent.myTable,'myTable'))"&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;&lt;/table&gt;&lt;/center&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+ 
+
+&lt;!-- Script Size:  8.35 KB  --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

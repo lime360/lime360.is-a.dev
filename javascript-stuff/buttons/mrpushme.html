@@ -1,0 +1,249 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Buttons:  Mr. Push Me</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Buttons">
+<META NAME="description" CONTENT="Let JavaScript introduce you to the increasingly popular Mr. Push Me!  Mr. Push doesn't mind the occassional push, but watch out if you over do it!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+var alerted_already;
+var remark;
+function theytyped(form) {
+for (   j = 1;
+j<=remark.length && remark[j]!=form.myoutxt.value;
+j++){}
+if (j>remark.length)
+form.myoutxt.value = "Do not type here!";
+return false;
+}
+function touched_frog() {
+if (!alerted_already) {
+alert(""+
+                      ""+
+                      ""+
+                      ""+
+                      ""+
+                      "");
+                alerted_already = true;
+}
+return alerted_already;
+}
+function compute(form) {
+for (var i = 1; 
+i<=remark.length && remark[i]!=form.myoutxt.value ;
+i++){}
+if (i==remark.length)
+history.back();
+if (i==remark.length-1)         
+alert("Dear Sir or Madam:"+
+"\n\nIt has come to our attention that you have been harassing one of the buttons on the web.  "+
+"Although most buttons are understanding about this type of thing (being repeatedly pressed), "+
+"several buttons have decided to form a support group and have petitioned the webmaster for funds "+
+"to provide a secure place for rest and relaxation.  Warning:"+
+"\nCONTINUE AND YOUR BROWSER WILL BE CLOSED! - The Federation Of Oppressed & Abused Buttons");
+if (i<remark.length)
+form.myoutxt.value = remark[i+1];
+else 
+form.myoutxt.value = remark[1];
+}
+function initArray() {
+      this.length = initArray.arguments.length;
+      for (var i = 0; i < this.length; i++)
+        this[i+1] = initArray.arguments[i];
+}
+remark = new initArray( "Thanks!",
+                        "Once is enough!",
+                        "Are you deaf?", 
+                        "Go Away!  Go back to JavaScript Source Code 3000!", 
+                        "SOMEBODY STOP THIS GUY!", 
+                        "I give up. Please stop.", 
+                        "I SAID PLEASE, WHAT'S WRONG WITH YOU!", 
+                        "O.K. I HEARD YOU!", 
+                        "This is NOT funny!", 
+                        "I give up.", 
+                        "LAST WARNING! This is now a BACK BUTTON!");
+alerted_already = false;
+// end  -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /buttons/"><font color="#FF0000">Buttons</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Mr. Push Me</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Let JavaScript introduce you to the increasingly popular Mr. Push Me!  Mr. Push doesn't mind the occassional push, but watch out if you over do it!
+<br>
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<form name="buttons" method="post" onSubmit="return false">
+<input type="button" name="pushme" value="Push Me" onClick="compute(this.form)"
+onMouseOver="window.status='LEAVE ME ALONE!';
+return touched_frog()">
+<input type="text" value=" " 
+name="myoutxt" 
+onBlur="theytyped(this.form)" 
+onFocus="theytyped(this.form)" 
+onChange="theytyped(this.form)" 
+size=45>
+</form>
+<P><BR>
+Meet Mr. Push Me!
+</CENTER>
+
+<HR ALIGN="CENTER" SIZE="3"><BR>
+<P>
+<P>
+<a name="source">
+<center><table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Buttons:  Mr. Push Me</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.96 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL MR. PUSH ME:
+
+   1.  Paste the designated coding into the HEAD of your HTML document
+   2.  Put the last script into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the HEAD of your HTML document  --&gt;
+		  
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var alerted_already;
+var remark;
+function theytyped(form) {
+for (   j = 1;
+j&lt;=remark.length && remark[j]!=form.myoutxt.value;
+j++){}
+if (j&gt;remark.length)
+form.myoutxt.value = "Do not type here!";
+return false;
+}
+function touched_frog() {
+if (!alerted_already) {
+alert(""+
+                      ""+
+                      ""+
+                      ""+
+                      ""+
+                      "");
+                alerted_already = true;
+}
+return alerted_already;
+}
+function compute(form) {
+for (var i = 1; 
+i&lt;=remark.length && remark[i]!=form.myoutxt.value ;
+i++){}
+if (i==remark.length)
+history.back();
+if (i==remark.length-1)         
+alert("Dear Sir or Madam:"+
+"\n\nIt has come to our attention that you have been harassing one of the buttons on the web.  "+
+"Although most buttons are understanding about this type of thing (being repeatedly pressed), "+
+"several buttons have decided to form a support group and have petitioned the webmaster for funds "+
+"to provide a secure place for rest and relaxation.  Warning:"+
+"\nCONTINUE AND YOUR BROWSER WILL BE CLOSED! - The Federation Of Oppressed & Abused Buttons");
+if (i&lt;remark.length)
+form.myoutxt.value = remark[i+1];
+else 
+form.myoutxt.value = remark[1];
+}
+function initArray() {
+      this.length = initArray.arguments.length;
+      for (var i = 0; i &lt; this.length; i++)
+        this[i+1] = initArray.arguments[i];
+}
+remark = new initArray( "Thanks!",
+                        "Once is enough!",
+                        "Are you deaf?", 
+                        "Go Away!  Go back to JavaScript Source Code 3000!", 
+                        "SOMEBODY STOP THIS GUY!", 
+                        "I give up. Please stop.", 
+                        "I SAID PLEASE, WHAT'S WRONG WITH YOU!", 
+                        "O.K. I HEARD YOU!", 
+                        "This is NOT funny!", 
+                        "I give up.", 
+                        "LAST WARNING! This is now a BACK BUTTON!");
+alerted_already = false;
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+&lt;!-- STEP TWO:  Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;FORM name="buttons" method="post" onSubmit="return false"&gt;
+&lt;input type="button" name="pushme" value="Push Me" onClick="compute(this.form)"
+onMouseOver="window.status='LEAVE ME ALONE!';
+return touched_frog()"&gt;
+&lt;input type="text" value=" " 
+name="myoutxt" 
+onBlur="theytyped(this.form)" 
+onFocus="theytyped(this.form)" 
+onChange="theytyped(this.form)" 
+size=45&gt;
+&lt;/FORM&gt;
+&lt;P&gt;&lt;BR&gt;
+Meet Mr. Push Me!
+&lt;/CENTER&gt;
+
+ 
+
+&lt;!-- Script Size:  2.96 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

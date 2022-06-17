@@ -1,0 +1,160 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Navigation:  Quick Preview</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Ronnie T. Moore, Editor">
+<META NAME="section" CONTENT="Navigation">
+<META NAME="description" CONTENT="When the user clicks the thumbnail image the full picture loads in a new window.  The window can optionally be configured to close a fixed number seconds after the page has loaded.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Ronnie T. Moore, Editor -->
+<!-- Web Site:  JavaScript Source Code 3000 -->
+
+
+
+
+<!-- Begin
+timeout =0; // Close window after __ number of seconds?
+// 0 = do not close, anything else = number of seconds
+
+function Start(URL, WIDTH, HEIGHT) {
+windowprops = "left=50,top=50,width=" + (WIDTH+50) + ",height=" + (HEIGHT+50);
+
+text = "<html><head><title>Preview</title></head><body bgcolor='white'";
+
+if (timeout != 0) text +=" onLoad=\"setTimeout('window.close()', " + timeout*1000 + ");\"";
+
+text += "><center><img src='" + URL + "'>";
+
+if (timeout != 0) text +="<br><font face='arial, helvetica' size='-1'>Preview closes after " + timeout + " seconds.</font>";
+
+text += "</center></body></html>";
+
+preview = window.open("", "preview", windowprops);
+preview.document.open();
+preview.document.write(text);
+preview.document.close();
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /navigation/"><font color="#FF0000"><b>Navigation</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Quick Preview</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+When the user clicks the thumbnail image the full picture loads in a new window.  The window can optionally be configured to close a fixed number seconds after the page has loaded.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<a href="javascript:Start('../img/logo.gif', 267, 103)";><img src="../img/logo.gif" /img/logo.gif" width=86 height=51></a>
+
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Navigation:  Quick Preview</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.56 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL QUICK PREVIEW:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Ronnie T. Moore, Editor --&gt;
+&lt;!-- Web Site:  JavaScript Source Code 3000 --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+timeout =0; // Close window after __ number of seconds?
+// 0 = do not close, anything else = number of seconds
+
+function Start(URL, WIDTH, HEIGHT) {
+windowprops = "left=50,top=50,width=" + (WIDTH+50) + ",height=" + (HEIGHT+50);
+
+text = "&lt;html&gt;&lt;head&gt;&lt;title&gt;Preview&lt;/title&gt;&lt;/head&gt;&lt;body bgcolor='white'";
+
+if (timeout != 0) text +=" onLoad=\"setTimeout('window.close()', " + timeout*1000 + ");\"";
+
+text += "&gt;&lt;center&gt;&lt;img src='" + URL + "'&gt;";
+
+if (timeout != 0) text +="&lt;br&gt;&lt;font face='arial, helvetica' size='-1'&gt;Preview closes after " + timeout + " seconds.&lt;/font&gt;";
+
+text += "&lt;/center&gt;&lt;/body&gt;&lt;/html&gt;";
+
+preview = window.open("", "preview", windowprops);
+preview.document.open();
+preview.document.write(text);
+preview.document.close();
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;a href="javascript:Start('../img/logo.gif', 267, 103)";&gt;&lt;img src="../img/logo.gif" width=86 height=51&gt;&lt;/a&gt;
+
+
+ 
+
+&lt;!-- Script Size:  1.56 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

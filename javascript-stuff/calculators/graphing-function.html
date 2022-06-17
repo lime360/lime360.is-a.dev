@@ -1,0 +1,241 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Calculators:  Graphing Function</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="Enter the X-Y coordinates for a function and this script will give you the graphing formulas, including Formula, Slope, Y-intercept, Parallel and Perpendicular lines.  Easy!">
+<META NAME="date" CONTENT="2000-11-22">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Abraham I.">
+<META NAME="section" CONTENT="Calculators">
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Abraham I. (abraham_824@hotmail.com) -->
+
+
+
+
+<!-- Begin
+function calculate() {
+var y = new Array();
+y[0] = null;
+y[1] = document.calculator.y1.value;
+y[2] = document.calculator.y2.value;
+var x = new Array();
+x[0] = null;
+x[1] = document.calculator.x1.value;
+x[2] = document.calculator.x2.value;
+var m = (y[2] - y[1]) / (x[2] - x[1]);
+var b = y[1]-(m * x[1]);
+var formula = "y="+m+"x + "+b;
+var rand = parseInt(Math.random() * 7);
+var parf = "y="+m+"x + "+rand;
+var newm = m / -1;
+var perf = "y="+newm+"x + "+b;
+document.calculator.formula.value = formula;
+document.calculator.slope.value = m;
+document.calculator.yint.value = b;
+document.calculator.parf.value = parf;
+document.calculator.perf.value = perf;
+}
+//  End -->
+</script>
+
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /calculators/"><font color="#FF0000"><b>Calculators</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Graphing Function</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Enter the X-Y coordinates for a function and this script will give you the graphing formulas, including Formula, Slope, Y-intercept, Parallel and Perpendicular lines.  Easy!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<form name="calculator">
+Enter coordinate values:
+<table border=0>
+<tr>
+<td>X1:</td>
+<td><input type=text name=x1 size=10></td>
+</tr>
+<tr>
+<td>Y1:</td>
+<td><input type=text name=y1 size=10></td>
+</tr>
+<tr>
+<td>X2:</td>
+<td><input type=text name=x2 size=10></td>
+</tr>
+<tr>
+<td>Y2:</td>
+<td><input type=text name=y2 size=10>
+<input type=button value="Get Results" onClick="calculate();"></td>
+</tr>
+<tr>
+<td>Formula:</td>
+<td><input type=text name=formula size=50></td>
+</tr>
+<tr>
+<td>Slope:</td>
+<td><input type=text name=slope size=50></td>
+</tr>
+<tr>
+<td>Y-Intercept:</td>
+<td><input type=text name=yint size=50></td>
+</tr>
+<tr>
+<td>Parallel Line Formula:</td>
+<td><input type=text name=parf size=50></td>
+</tr>
+<tr>
+<td>Perpendicular Line Formula:</td>
+<td><input type=text name=perf size=50></td>
+</tr>
+</table>
+</form>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Calculators:  Graphing Function</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Command-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.60 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL GRAPHING FUNCTION:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Abraham I. (abraham_824@hotmail.com) --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function calculate() {
+var y = new Array();
+y[0] = null;
+y[1] = document.calculator.y1.value;
+y[2] = document.calculator.y2.value;
+var x = new Array();
+x[0] = null;
+x[1] = document.calculator.x1.value;
+x[2] = document.calculator.x2.value;
+var m = (y[2] - y[1]) / (x[2] - x[1]);
+var b = y[1]-(m * x[1]);
+var formula = "y="+m+"x + "+b;
+var rand = parseInt(Math.random() * 7);
+var parf = "y="+m+"x + "+rand;
+var newm = m / -1;
+var perf = "y="+newm+"x + "+b;
+document.calculator.formula.value = formula;
+document.calculator.slope.value = m;
+document.calculator.yint.value = b;
+document.calculator.parf.value = parf;
+document.calculator.perf.value = perf;
+}
+//  End --&gt;
+&lt;/script&gt;
+
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;form name="calculator"&gt;
+Enter coordinate values:
+&lt;table border=0&gt;
+&lt;tr&gt;
+&lt;td&gt;X1:&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name=x1 size=10&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Y1:&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name=y1 size=10&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;X2:&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name=x2 size=10&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Y2:&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name=y2 size=10&gt;
+&lt;input type=button value="Get Results" onClick="calculate();"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Formula:&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name=formula size=50&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Slope:&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name=slope size=50&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Y-Intercept:&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name=yint size=50&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Parallel Line Formula:&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name=parf size=50&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Perpendicular Line Formula:&lt;/td&gt;
+&lt;td&gt;&lt;input type=text name=perf size=50&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+
+ 
+
+&lt;!-- Script Size:  2.60 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

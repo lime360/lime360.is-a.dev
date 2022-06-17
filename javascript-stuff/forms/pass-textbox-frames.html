@@ -1,0 +1,141 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Forms:  Pass Textbox (in frames)</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Ronnie T. Moore">
+<META NAME="section" CONTENT="Forms">
+<META NAME="description" CONTENT="Copies the text in a box in the left frame into a box in the right frame when the button is clicked.  A clever way to pass values in frames.">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /forms/" ><font color="#FF0000"><b>Forms</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Pass Textbox (in frames)</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">Copies the text in a box in the left frame into a box in the right frame when the button is clicked.  A clever way to pass values in frames.
+<br>
+<br>
+
+<center>
+<form name=myform>
+Click to <input type=button value="Open Script Demo!" onClick="window.open('pass-textbox-frames-demo.html');">
+<p>
+<font face="arial, helvetica" size="-2">[ Simply close the demo window to return to this page. ]</font>
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Forms:  Pass Textbox (in frames)</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.38 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL PASS TEXTBOX (IN FRAMES):
+
+  1.  Copy the entire first code section into your FRAMESET document
+  2.  Save the second code into a new page, pass-textbox-framesl.html
+  2.  Paste the second code into a new page, pass-textbox-framesr.html  --&gt;
+
+&lt;!-- STEP ONE: Paste this entire code into your FRAMESET page  --&gt;
+
+&lt;html&gt;
+&lt;head&gt;
+&lt;script language="JavaScript"&gt;
+&lt;!-- Original:  Ronnie T. Moore --&gt;
+&lt;!-- Web Site:  JavaScript Source Code 3000 --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function passText(str) {
+top.frames['right'].document.yourform.msg.value = str;
+}
+// End --&gt;
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;frameset cols="300,*" frameborder=1&gt;
+&lt;frame name="left" src="pass-textbox-framesl.html"&gt;
+&lt;frame name="right" src="pass-textbox-framesr.html"&gt;
+&lt;/frameset&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+&lt;!-- STEP TWO: Copy this code into a new page  --&gt;
+&lt;!-- Save the page as:  pass-textbox-framesl.html --&gt;
+
+&lt;html&gt;
+&lt;body&gt;
+&lt;center&gt;
+&lt;form name=myform&gt;
+Enter Your Name:&lt;br&gt;
+&lt;input type=text name=user size=10 value=""&gt;
+&lt;input type=button value="Ok!" onClick="parent.passText(this.form.user.value);"&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+
+&lt;!-- STEP THREE: Copy this code into a new page  --&gt;
+&lt;!-- Save the page as:  pass-textbox-framesr.html --&gt;
+
+&lt;html&gt;
+&lt;body&gt;
+&lt;form name=yourform&gt;
+&lt;input type=text name=msg size=10 value=""&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+&lt;p&gt;&lt;center&gt;
+&lt;font face="arial, helvetica" SIZE="-2"&gt;Free JavaScripts provided&lt;br&gt;
+by &lt;a href="http://javascriptsource.com"&gt;JavaScript Source Code 3000&lt;/a&gt;&lt;/font&gt;
+&lt;/center&gt;&lt;p&gt;
+
+&lt;!-- Script Size:  1.38 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

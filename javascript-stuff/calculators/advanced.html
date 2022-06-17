@@ -1,0 +1,408 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Calculator:  Advanced</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="http://www.dummyproof.com/javascripts">
+<META NAME="section" CONTENT="Calculator">
+<META NAME="description" CONTENT="This is a very comprehensive JavaScript calculator.  Although the source code can get quite confusing, it works.">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /calculators/"><font color="#FF0000">Calculators</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Advanced</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+This is a very comprehensive JavaScript calculator.  Although the source code can get quite confusing, it works.
+<br>
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<!-- http://www.dummyproof.com/javascripts    -->
+<!-- Copyright 1996 by Microsoft Corporation. -->
+<CENTER>
+<FORM name="Keypad" action="">
+<TABLE>
+<B>
+<TABLE border=2 width=50 height=60 cellpadding=1 cellspacing=5>
+<TR>
+<TD colspan=3 align=middle>
+<input name="ReadOut" type="Text" size=24 value="0" width=100%>
+</TD>
+<TD
+</TD>
+<TD>
+<input name="btnClear" type="Button" value="  C  " onclick="Clear()">
+</TD>
+<TD><input name="btnClearEntry" type="Button" value="  CE " onclick="ClearEntry()">
+</TD>
+</TR>
+<TR>
+<TD>
+<input name="btnSeven" type="Button" value="  7  " onclick="NumPressed(7)">
+</TD>
+<TD>
+<input name="btnEight" type="Button" value="  8  " onclick="NumPressed(8)">
+</TD>
+<TD>
+<input name="btnNine" type="Button" value="  9  " onclick="NumPressed(9)">
+</TD>
+<TD>
+</TD>
+<TD>
+<input name="btnNeg" type="Button" value=" +/- " onclick="Neg()">
+</TD>
+<TD>
+<input name="btnPercent" type="Button" value="  % " onclick="Percent()">
+</TD>
+</TR>
+<TR>
+<TD>
+<input name="btnFour" type="Button" value="  4  " onclick="NumPressed(4)">
+</TD>
+<TD>
+<input name="btnFive" type="Button" value="  5  " onclick="NumPressed(5)">
+</TD>
+<TD>
+<input name="btnSix" type="Button" value="  6  " onclick="NumPressed(6)">
+</TD>
+<TD>
+</TD>
+<TD align=middle><input name="btnPlus" type="Button" value="  +  " onclick="Operation('+')">
+</TD>
+<TD align=middle><input name="btnMinus" type="Button" value="   -   " onclick="Operation('-')">
+</TD>
+</TR>
+<TR>
+<TD>
+<input name="btnOne" type="Button" value="  1  " onclick="NumPressed(1)">
+</TD>
+<TD>
+<input name="btnTwo" type="Button" value="  2  " onclick="NumPressed(2)">
+</TD>
+<TD>
+<input name="btnThree" type="Button" value="  3  " onclick="NumPressed(3)">
+</TD>
+<TD>
+</TD>
+<TD align=middle><input name="btnMultiply" type="Button" value="  *  " onclick="Operation('*')">
+</TD>
+<TD align=middle><input name="btnDivide" type="Button" value="   /   " onclick="Operation('/')">
+</TD>
+</TR>
+<TR>
+<TD>
+<input name="btnZero" type="Button" value="  0  " onclick="NumPressed(0)">
+</TD>
+<TD>
+<input name="btnDecimal" type="Button" value="   .  " onclick="Decimal()">
+</TD>
+<TD colspan=3>
+</TD>
+<TD>
+<input name="btnEquals" type="Button" value="  =  " onclick="Operation('=')">
+</TD>
+</TR>
+</TABLE>
+</TABLE>
+</B>
+</FORM>
+</CENTER>
+<font face="Verdana, Arial, Helvetica" size=2>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+var FKeyPad = document.Keypad;
+var Accum = 0;
+var FlagNewNum = false;
+var PendingOp = "";
+function NumPressed (Num) {
+if (FlagNewNum) {
+FKeyPad.ReadOut.value  = Num;
+FlagNewNum = false;
+   }
+else {
+if (FKeyPad.ReadOut.value == "0")
+FKeyPad.ReadOut.value = Num;
+else
+FKeyPad.ReadOut.value += Num;
+   }
+}
+function Operation (Op) {
+var Readout = FKeyPad.ReadOut.value;
+if (FlagNewNum && PendingOp != "=");
+else
+{
+FlagNewNum = true;
+if ( '+' == PendingOp )
+Accum += parseFloat(Readout);
+else if ( '-' == PendingOp )
+Accum -= parseFloat(Readout);
+else if ( '/' == PendingOp )
+Accum /= parseFloat(Readout);
+else if ( '*' == PendingOp )
+Accum *= parseFloat(Readout);
+else
+Accum = parseFloat(Readout);
+FKeyPad.ReadOut.value = Accum;
+PendingOp = Op;
+   }
+}
+function Decimal () {
+var curReadOut = FKeyPad.ReadOut.value;
+if (FlagNewNum) {
+curReadOut = "0.";
+FlagNewNum = false;
+   }
+else
+{
+if (curReadOut.indexOf(".") == -1)
+curReadOut += ".";
+   }
+FKeyPad.ReadOut.value = curReadOut;
+}
+function ClearEntry () {
+FKeyPad.ReadOut.value = "0";
+FlagNewNum = true;
+}
+function Clear () {
+Accum = 0;
+PendingOp = "";
+ClearEntry();
+}
+function Neg () {
+FKeyPad.ReadOut.value = parseFloat(FKeyPad.ReadOut.value) * -1;
+}
+function Percent () {
+FKeyPad.ReadOut.value = (parseFloat(FKeyPad.ReadOut.value) / 100) * parseFloat(Accum);
+}
+// End -->
+</SCRIPT> 
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Calculators:  Advanced Calculator</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<FORM NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  4.05 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- ONE STEP TO INSTALL ADVANCED CALCULATOR:
+
+   1.  Paste the coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the BODY of your HTML document  --&gt;
+		  
+&lt;BODY&gt;
+&lt;CENTER&gt;
+&lt;FORM name="Keypad" action=""&gt;
+
+&lt;!--  Original:  http://www.dummyproof.com/javascripts --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;TABLE&gt;
+&lt;B&gt;
+&lt;TABLE border=2 width=50 height=60 cellpadding=1 cellspacing=5&gt;
+&lt;TR&gt;
+&lt;TD colspan=3 align=middle&gt;
+&lt;input name="ReadOut" type="Text" size=24 value="0" width=100%&gt;
+&lt;/TD&gt;
+&lt;TD
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;input name="btnClear" type="Button" value="  C  " onclick="Clear()"&gt;
+&lt;/TD&gt;
+&lt;TD&gt;&lt;input name="btnClearEntry" type="Button" value="  CE " onclick="ClearEntry()"&gt;
+&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;TR&gt;
+&lt;TD&gt;
+&lt;input name="btnSeven" type="Button" value="  7  " onclick="NumPressed(7)"&gt;
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;input name="btnEight" type="Button" value="  8  " onclick="NumPressed(8)"&gt;
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;input name="btnNine" type="Button" value="  9  " onclick="NumPressed(9)"&gt;
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;input name="btnNeg" type="Button" value=" +/- " onclick="Neg()"&gt;
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;input name="btnPercent" type="Button" value="  % " onclick="Percent()"&gt;
+&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;TR&gt;
+&lt;TD&gt;
+&lt;input name="btnFour" type="Button" value="  4  " onclick="NumPressed(4)"&gt;
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;input name="btnFive" type="Button" value="  5  " onclick="NumPressed(5)"&gt;
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;input name="btnSix" type="Button" value="  6  " onclick="NumPressed(6)"&gt;
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;/TD&gt;
+&lt;TD align=middle&gt;&lt;input name="btnPlus" type="Button" value="  +  " onclick="Operation('+')"&gt;
+&lt;/TD&gt;
+&lt;TD align=middle&gt;&lt;input name="btnMinus" type="Button" value="   -   " onclick="Operation('-')"&gt;
+&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;TR&gt;
+&lt;TD&gt;
+&lt;input name="btnOne" type="Button" value="  1  " onclick="NumPressed(1)"&gt;
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;input name="btnTwo" type="Button" value="  2  " onclick="NumPressed(2)"&gt;
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;input name="btnThree" type="Button" value="  3  " onclick="NumPressed(3)"&gt;
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;/TD&gt;
+&lt;TD align=middle&gt;&lt;input name="btnMultiply" type="Button" value="  *  " onclick="Operation('*')"&gt;
+&lt;/TD&gt;
+&lt;TD align=middle&gt;&lt;input name="btnDivide" type="Button" value="   /   " onclick="Operation('/')"&gt;
+&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;TR&gt;
+&lt;TD&gt;
+&lt;input name="btnZero" type="Button" value="  0  " onclick="NumPressed(0)"&gt;
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;input name="btnDecimal" type="Button" value="   .  " onclick="Decimal()"&gt;
+&lt;/TD&gt;
+&lt;TD colspan=3&gt;
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;input name="btnEquals" type="Button" value="  =  " onclick="Operation('=')"&gt;
+&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;/TABLE&gt;
+&lt;/TABLE&gt;
+&lt;/B&gt;
+&lt;/FORM&gt;
+&lt;/CENTER&gt;
+&lt;font face="Verdana, Arial, Helvetica" size=2&gt;
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Begin
+var FKeyPad = document.Keypad;
+var Accum = 0;
+var FlagNewNum = false;
+var PendingOp = "";
+function NumPressed (Num) {
+if (FlagNewNum) {
+FKeyPad.ReadOut.value  = Num;
+FlagNewNum = false;
+   }
+else {
+if (FKeyPad.ReadOut.value == "0")
+FKeyPad.ReadOut.value = Num;
+else
+FKeyPad.ReadOut.value += Num;
+   }
+}
+function Operation (Op) {
+var Readout = FKeyPad.ReadOut.value;
+if (FlagNewNum && PendingOp != "=");
+else
+{
+FlagNewNum = true;
+if ( '+' == PendingOp )
+Accum += parseFloat(Readout);
+else if ( '-' == PendingOp )
+Accum -= parseFloat(Readout);
+else if ( '/' == PendingOp )
+Accum /= parseFloat(Readout);
+else if ( '*' == PendingOp )
+Accum *= parseFloat(Readout);
+else
+Accum = parseFloat(Readout);
+FKeyPad.ReadOut.value = Accum;
+PendingOp = Op;
+   }
+}
+function Decimal () {
+var curReadOut = FKeyPad.ReadOut.value;
+if (FlagNewNum) {
+curReadOut = "0.";
+FlagNewNum = false;
+   }
+else
+{
+if (curReadOut.indexOf(".") == -1)
+curReadOut += ".";
+   }
+FKeyPad.ReadOut.value = curReadOut;
+}
+function ClearEntry () {
+FKeyPad.ReadOut.value = "0";
+FlagNewNum = true;
+}
+function Clear () {
+Accum = 0;
+PendingOp = "";
+ClearEntry();
+}
+function Neg () {
+FKeyPad.ReadOut.value = parseFloat(FKeyPad.ReadOut.value) * -1;
+}
+function Percent () {
+FKeyPad.ReadOut.value = (parseFloat(FKeyPad.ReadOut.value) / 100) * parseFloat(Accum);
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+ 
+
+&lt;!-- Script Size:  4.05 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

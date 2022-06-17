@@ -1,0 +1,162 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Calculators:  Wavelength Calculator</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Jon Bronisz (webmaster@frequencyzone.com)">
+<META NAME="section" CONTENT="Calculators">
+<META NAME="description" CONTENT="Assists ham radio operators in converting a frequency to its wavelength in feet or inches.  Other uses include acoustic measurement and adjustment, microphone placement, room tuning, and speaker positioning.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Jon Bronisz (webmaster@frequencyzone.com) -->
+<!-- Web Site:  http://www.frequencyzone.com -->
+<!-- Modified by:  Ronnie T. Moore, Editor -->
+
+
+
+
+<!-- Begin
+function wavelength(freq, amount, form) {
+form.feet.value = amount / freq;
+form.inches.value = form.feet.value * 12;
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /calculators/"><font color="#FF0000"><b>Calculators</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Wavelength Calculator</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Assists ham radio operators in converting a frequency to its wavelength in feet or inches.  Other uses include acoustic measurement and adjustment, microphone placement, room tuning, and speaker positioning.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form>
+<table>
+<tr>
+<td align=center>
+<input type=text size=8 value="146.64" name=freq>MHz
+<input type=button value="WL"     onClick="wavelength(this.form.freq.value, 984, this.form);">&nbsp;
+<input type=button value="1/2 WL" onClick="wavelength(this.form.freq.value, 468, this.form);">&nbsp;
+<input type=button value="1/4 WL" onClick="wavelength(this.form.freq.value, 234, this.form);">
+</td>
+</tr>
+<tr>
+<td>
+ = <input type=text name=feet size=15> ft. (or <input type=text name=inches size=15> inches.)
+</td>
+</tr>
+</table>
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Calculators:  Wavelength Calculator</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.41 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL WAVELENGTH CALCULATOR:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Jon Bronisz (webmaster@frequencyzone.com) --&gt;
+&lt;!-- Web Site:  http://www.frequencyzone.com --&gt;
+&lt;!-- Modified by:  Ronnie T. Moore, Editor --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function wavelength(freq, amount, form) {
+form.feet.value = amount / freq;
+form.inches.value = form.feet.value * 12;
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td align=center&gt;
+&lt;input type=text size=8 value="" name=freq&gt;MHz
+&lt;input type=button value="WL"     onClick="wavelength(this.form.freq.value, 984, this.form);"&gt;&nbsp;
+&lt;input type=button value="1/2 WL" onClick="wavelength(this.form.freq.value, 468, this.form);"&gt;&nbsp;
+&lt;input type=button value="1/4 WL" onClick="wavelength(this.form.freq.value, 234, this.form);"&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+ = &lt;input type=text name=feet size=15&gt; ft. (or &lt;input type=text name=inches size=15&gt; inches.)
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  1.41 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

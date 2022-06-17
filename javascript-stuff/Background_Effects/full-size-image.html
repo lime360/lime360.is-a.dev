@@ -1,0 +1,198 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  BG Effects:  Full Size Image</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="Resizes any image to fit the current dimensions of the browser window.  Works best with high resolution images but works with any image.  Awesome!">
+<META NAME="date" CONTENT="2000-11-06">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Eddie Traversa">
+<META NAME="section" CONTENT="BG Effects">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /bgeffects/"><font color="#FF0000"><b>BG Effects</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Full Size Image</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Resizes any image to fit the current dimensions of the browser window.  Works best with high resolution images but works with any image.  Awesome!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<a href="full-size-image-demo.html" /bgeffects/full-size-image-demo.html" target=_blank>Click Here to try the Demo!</a>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  BG Effects:  Full Size Image</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  3.71 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL FULL SIZE IMAGE:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the onLoad event handler into the BODY tag
+  3.  Put the last coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Eddie Traversa (psych3@primus.com.au) --&gt;
+&lt;!-- Web Site:  http://nirvana.media3.net --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function Is() {
+var agent = navigator.userAgent.toLowerCase();
+this.major = parseInt(navigator.appVersion);
+this.minor = parseFloat(navigator.appVersion);
+this.ns = ((agent.indexOf('mozilla') != -1) &&
+(agent.indexOf('spoofer') == -1) && (agent.indexOf('compatible') == -1) && (agent.indexOf('opera') == -1) && (agent.indexOf('webtv') == -1));
+this.ns2 = (this.ns && (this.major == 2));
+this.ns3 = (this.ns && (this.major == 3));
+this.ns4 = (this.ns && (this.major == 4));
+this.ns6 = (this.ns && (this.major &gt;= 5));
+this.ie = (agent.indexOf("msie") != -1);
+this.ie3 = (this.ie && (this.major &lt; 4));
+this.ie4 = (this.ie && (this.major == 4) &&
+(agent.indexOf("msie 5.0")   == -1));
+this.ie5 = (this.ie && (this.major == 4) &&
+(agent.indexOf("msie 5.0") != -1));
+this.ieX = (this.ie && !this.ie3 && !this.ie4);
+}
+var is = new Is();
+function layerObject(id,left,top,visibility) {
+if (is.ie5||is.ns6){
+this.obj = document.getElementById(id).style;
+this.obj.left = left;
+this.obj.top = top;
+this.obj.visibility = visibility;
+return this.obj;
+}
+else if(is.ie4) {
+this.obj = document.all[id].style;
+this.obj.left = left;
+this.obj.top = top;
+this.obj.visibility = visibility;
+return this.obj;
+}
+else if(is.ns4) {
+this.obj = document.layers[id];
+this.obj.left = left;
+this.obj.top = top;
+this.obj.visibility = visibility;
+return this.obj;
+   }  
+}
+function layerSetup() {
+backgroundLyr = new layerObject('backgroundLayer', 0,0,'visible');
+}
+function findSize() {
+if(is.ns4 ||is.ns6) {
+available_width=innerWidth;
+available_height=innerHeight;
+layerSetup();
+} else if(is.ie4 || is.ie5) {
+available_width=document.body.clientWidth;
+available_height=document.body.clientHeight;
+layerSetup();
+   }
+}
+function winResize() {
+if(is.ns4 ||is.ns6||is.ie4||is.ie5) {
+history.go(0);
+   }
+}
+//  End --&gt;
+&lt;/script&gt;
+
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Insert the onLoad event handler into your BODY tag  --&gt;
+
+&lt;BODY onLoad="findSize();" onResize="winResize()"&gt;
+
+&lt;!-- STEP THREE: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;div id="backgroundLayer" style="position:absolute; width:200px; height:115px; z-index:1; left: 0px; top: 0; visibility: hidden"&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Eddie Traversa (psych3@primus.com.au) --&gt;
+&lt;!-- Web Site:  http://nirvana.media3.net --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+if(is.ns4 || is.ns6) {
+available_width = innerWidth;
+available_height = innerHeight;
+}
+else if(is.ie4 || is.ie5) {
+available_width=document.body.clientWidth;
+available_height=document.body.clientHeight;
+}
+if(is.ie4 || is.ie5 || is.ns6 || is.ns4) {
+image1_width = (available_width * 1.00);
+image1_height = (available_height * 1.00);
+var image1 = '&lt;img src="../img/logo.gif" width="' + image1_width + '" height="' + image1_height + '"&gt;';
+document.write(image1);
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/div&gt;
+
+ 
+
+&lt;!-- Script Size:  3.71 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

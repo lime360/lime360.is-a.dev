@@ -1,0 +1,333 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Code Generators:  Countdown Creator</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Code Generators">
+<META NAME="description" CONTENT="Don't worry any more about editing the code by hand, use our code generator!  Fill out the date you would like to countdown to and click the generate button.  Just add this generated code to your site, or even have us mail it to you!  Neat!">
+
+<SCRIPT LANGUAGE = "JavaScript">
+<!-- Begin
+var email = GetCookie('email_address');
+if (email == null) {
+email = 'your email here';
+}
+function getCookieVal (offset) {
+var endstr = document.cookie.indexOf (";", offset);
+if (endstr == -1)
+endstr = document.cookie.length;
+return unescape(document.cookie.substring(offset, endstr));
+}
+function GetCookie (name) {
+var arg = name + "=";
+var alen = arg.length;
+var clen = document.cookie.length;
+var i = 0;
+while (i < clen) {
+var j = i + alen;
+if (document.cookie.substring(i, j) == arg)
+return getCookieVal (j);
+i = document.cookie.indexOf(" ", i) + 1;
+if (i == 0)
+break;}
+return null;}
+function SetCookie (name, value) {
+var argv = SetCookie.arguments;
+var argc = SetCookie.arguments.length;
+var expires = (argc > 2) ? argv[2] : null;
+var path = (argc > 3) ? argv[3] : null;
+var domain = ".internet.com";
+// (argc > 4) ? argv[4] : null;
+var secure = (argc > 5) ? argv[5] : false;
+document.cookie = name + "=" + escape (value) +
+((expires == null) ? "" : ("; expires=" +
+expires.toGMTString())) +
+((path == null) ? "" : ("; path=" + path)) +
+((domain == null) ? "" : ("; domain=" + domain)) +
+((secure == true) ? "; secure" : "");}
+
+function checkCodeMail() {
+invalid = ""
+email = document.mail.user.value;
+code = document.mail.source.value;
+if (code == "") {
+invalid += "Before you can send your code to yourself you need to ";
+invalid += "follow the instructions above to output the code.  When "
+invalid += "the code has been generated, click \"Done\" to email it!\r\n\r\n";}
+if (email.indexOf("@")<1 || email == "your email here" || email == "") {
+invalid += "Invalid email address!  Be sure that in your email address ";
+invalid += "you included your Username, the '@' Sign, and the Domain Name.";}
+if (invalid == "") {
+doAd();
+return true;
+}
+else {
+alert(invalid);
+return false;}}
+function doAd() {
+pathname = location.pathname;
+myDomain = pathname.substring(0,pathname.lastIndexOf('/')) +'/';
+var largeExpDate = new Date ();
+largeExpDate.setTime(largeExpDate.getTime() + (24 * 3600 * 1000));
+SetCookie('email_address',email,largeExpDate,myDomain);
+page = "http://javascript.internet.com/sent.html?" + email;
+window.open(page, "AdWindow", "width=515,height=150");
+return true;}
+function uncode() {
+smut="&lt;";
+replacewords="< ";
+txt=document.mail.source2.value;
+tstx="";
+space=replacewords.indexOf(" ");
+wrd=replacewords.substring(0,space);
+wrdl=wrd.length
+replacewords=replacewords.substring(space+1,replacewords.length);
+while (txt.indexOf(wrd)>-1){
+space=txt.indexOf(wrd);
+txt=txt.substring(0,space)+smut+txt.substring((space+wrdl),txt.length);}
+smut="&gt;";
+replacewords="> ";
+space=replacewords.indexOf(" ");
+wrd=replacewords.substring(0,space);
+wrdl=wrd.length
+replacewords=replacewords.substring(space+1,replacewords.length);
+while (txt.indexOf(wrd)>-1){
+space=txt.indexOf(wrd);
+txt=txt.substring(0,space)+smut+txt.substring((space+wrdl),txt.length);}
+document.mail.source2.value=txt;}
+// End -->
+</script>
+
+
+<!--  Now it's time for the *REAL* code generator to begin....  -->
+
+
+<SCRIPT LANGUAGE="JavaScript">
+
+
+
+
+<!--  Begin
+function generate(form){
+
+for (var q = 0; q < 12; q++) {
+if (document.me.m.options[document.me.m.selectedIndex].value == q) {
+var m2 = q+1
+}
+
+var txt = '<!-- THREE STEPS TO INSTALL DATE COUNTDOWN:\r\n\r\n'
++ '   1.  Paste the first into the HEAD of your HTML document\r\n'
++ '   2.  Code the OnLoad event handler into the BODY tag\r\n'
++ '   3.  Add the last code into the BODY of your HTML document  -->\r\n\r\n'
++ '<!-- STEP ONE: Copy this code into the HEAD of your HTML document  -->\r\n\r\n'
++ '<HEAD>\r\n\r\n<SCRIPT LANGUAGE="JavaScript">\r\n\r\n'
++ '\r\n'
++ '\r\n\r\n'
++ '<!-- Begin\r\n'
++ 'var Temp2;\n'
++ 'var timerID = null;\n'
++ 'var timerRunning = false;\n'
++ 'function arry() {\n'
++ 'this.length = 12;\n'
++ 'this[0] = 31;\n'
++ 'this[1] = 28;\n'
++ 'this[2] = 31;\n'
++ 'this[3] = 30;\n'
++ 'this[4] = 31;\n'
++ 'this[5] = 30;\n'
++ 'this[6] = 31;\n'
++ 'this[7] = 31;\n'
++ 'this[8] = 30;\n'
++ 'this[9] = 31;\n'
++ 'this[10] = 30;\n'
++ 'this[11] = 31;\n'
++ '}\n'
++ 'var date = new arry();\n'
++ '\n'
++ 'function stopclock() {\n'
++ 'if(timerRunning)\n'
++ 'clearTimeout(timerID);\n'
++ 'timerRunning = false;\n'
++ '}\n'
++ '\n'
++ 'function startclock() {\n'
++ 'stopclock();\n'
++ 'showtime();\n'
++ '}\n'
++ '\n'
++ 'function showtime() {\n'
++ 'now = new Date();\n'
++ 'var CurMonth = now.getMonth();\n'
++ 'var CurDate = now.getDate();\n'
++ 'var CurYear = now.getFullYear();\n'
++ 'now = null;\n'
++ 'if ('+document.me.d.options[document.me.d.selectedIndex].value+' < CurDate) {\n'
++ 'CurDate -= date[CurMonth]; CurMonth++;\n'
++ '}\n'
++ 'if ('+document.me.m.options[document.me.m.selectedIndex].value+' < CurMonth) {\n'
++ 'CurMonth -= 12; CurYear++;\n'
++ '}\n'
++ '\n'
++ 'var Yearleft = '+document.me.y.options[document.me.y.selectedIndex].value+' - CurYear;\n'
++ 'var Monthleft = '+document.me.m.options[document.me.m.selectedIndex].value+' - CurMonth;\n'
++ 'var Dateleft = '+document.me.d.options[document.me.d.selectedIndex].value+' - CurDate;\n'
++ '\n'
++ 'document.dateform.a.value = Yearleft;\n'
++ 'document.dateform.b.value = Monthleft;\n'
++ 'document.dateform.c.value = Dateleft;\n'
++ '\n'
++ 'timerID = setTimeout("showtime()",1000);\n'
++ 'timerRunning = true;\n'
++ '}\n'
++ '/\/ End -->\r\n<\/script>\r\n'
++ '<\/H'+'EAD>\r\n\r\n'
++ '<!-- STEP TWO: Add the OnLoad event handler to the BODY tag  -->\r\n\r\n'
++ '<BO' + 'DY Onload="startclock()">\r\n\r\n'
++ '<!-- STEP THREE: Insert this code into the BODY of your HTML document  -->\r\n\r\n'
++ '<form name=dateform>Only \n'
++ '<input type=text name=a size=2 value=""> years, \n'
++ '<input type=text name=b size=2 value=""> months, and \n'
++ '<input type=text name=c size=2 value=""> days left until '
++ m2+'/'+document.me.d.options[document.me.d.selectedIndex].value+'/'
++ document.me.y.options[document.me.y.selectedIndex].value+'</fo'+'rm>\r\n\r\n'
++ '<'+'!-- Script Size:  1.95 KB  --'+'>'
+;
+}
+
+document.mail.source.value=txt;
+document.mail.source2.value=txt;
+
+uncode();
+}
+// End -->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<P>
+<center>
+
+	
+<P>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /generators/"><font color="#FF0000">Generators</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Countdown Creator</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Don't worry any more about editing the code by hand, use our code generator!  Fill out the date you would like to countdown to and click the generate button.  Just add this generated code to your site, or even have us mail it to you!  Neat!
+<br>
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name="me">
+<select name="m">
+<option value="0">January
+<option value="1">February
+<option value="2">March
+<option value="3">April
+<option value="4">May
+<option value="5">June
+<option value="6">July
+<option value="7">August
+<option value="8">September
+<option value="9">October
+<option value="10">November
+<option value="11">December
+</select> 
+<select name="d">
+<option value="1">1
+<option value="2">2
+<option value="3">3
+<option value="4">4
+<option value="5">5
+<option value="6">6
+<option value="7">7
+<option value="8">8
+<option value="9">9
+<option value="10">10
+<option value="11">11
+<option value="12">12
+<option value="13">13
+<option value="14">14
+<option value="15">15
+<option value="16">16
+<option value="17">17
+<option value="18">18
+<option value="19">19
+<option value="20">20
+<option value="21">21
+<option value="22">22
+<option value="23">23
+<option value="24">24
+<option value="25">25
+<option value="26">26
+<option value="27">27
+<option value="28">28
+<option value="29">29
+<option value="30">30
+<option value="31">31
+</select> 
+<select name="y">
+<option value="1999">1999
+<option value="2000">2000
+<option value="2001">2001
+<option value="2002">2002
+<option value="2003">2003
+<option value="2004">2004
+<option value="2005">2005
+<option value="2006">2006
+<option value="2007">2007
+<option value="2008">2008
+<option value="2009">2009
+</select>
+<br>
+<input type="button" onclick="generate()" value="Generate Code">
+</form>
+</center>
+
+
+<p>
+<center>
+<form name="mail" action="http://javascript.internet.com/cgi-bin/code-mail.cgi" method="POST" onSubmit="return checkCodeMail()">
+<input type=hidden name=scriptname value="Countdown Creator">
+<table bgcolor="dedfdf" border="2" cellpadding="4" width=400>
+<tr><td align=center><textarea name="source" rows=12 cols=80></textarea><br>
+<input type="hidden" name="source2"><br>
+<font size="2" face="arial">"Cut and Paste" the code above, or....</font><br><br>
+<table cellpadding=20 cellspacing=0 border=1>
+<tr bgcolor=#ebebeb><td align=center><tt>We'll send your generated code to you!<p></tt>
+<SCRIPT>
+<!-- Begin
+document.write('<input type=text size=25 name=user value="'+email+'" onfocus=\"select()\">');
+// End -->
+</SCRIPT>
+<NOSCRIPT>
+<input type=text size=25 name=email value="your email here">
+</NOSCRIPT>
+<input type=submit value="Send it!"><p><font size="-2">(just click "Send it!" once!)</font>
+</td>
+</tr>
+</table></td><p></tr>
+</table>
+</form>
+</center>
+</FONT>
+</CENTER>
+
+</CENTER>

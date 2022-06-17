@@ -1,0 +1,145 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Page Details:  New Links</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Nicolas">
+<META NAME="section" CONTENT="Page Details">
+<META NAME="description" CONTENT="Displaying links as new for a few weeks after adding them is great.  But, adding, removing, and updating that "New" icon for each link is pointless!  Let JavaScript do your work for you!  Just add a small code (less than 40 characters) next to each link with the date you want it to expire, and it will automatically display the "New" icon until the expiration date.  What a time-saver!">
+
+<SCRIPT LANGUAGE="JavaScript">
+
+
+
+
+<!-- Begin
+function checknew(date) {
+var pic = "../img/new-links/new.gif";
+expdate = new Date(date);
+curdate = new Date();
+if (expdate.getTime() > curdate.getTime())
+document.write("<img src=" + pic + ">");
+}
+// End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /page-details/"><font color="#FF0000"><b>Page Details</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>New Links</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Displaying links as new for a few weeks after adding them is great.  But, adding, removing, and updating that "New" icon for each link is pointless!  Let JavaScript do your work for you!  Just add a small code (less than 40 characters) next to each link with the date you want it to expire, and it will automatically display the "New" icon until the expiration date.  What a time-saver!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<script> checknew("6/01/2000") </script>Shown as "New" until 6/01/2000<br>
+<script> checknew("12/01/2000") </script>Shown as "New" until 12/01/2000<br>
+<script> checknew("6/01/2001") </script>Shown as "New" until 6/01/2001<br>
+<script> checknew("12/01/2001") </script>Shown as "New" until 12/01/2001<br>
+
+<!-- Each news item should have an expiration check
+      with this: <script> checknew("6/1/98") </script> -->
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Page Details:  New Links</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.18 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL NEW LINKS:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Nicolas --&gt;
+&lt;!-- Web Site:  http://www.javascript-page.com --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function checknew(date) {
+var pic = "http://www.your-web-site-address-here.com/where-you-put-it/new.gif";
+expdate = new Date(date);
+curdate = new Date();
+if (expdate.getTime() &gt; curdate.getTime())
+document.write("&lt;img src=" + pic + "&gt;");
+}
+// End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;script&gt; checknew("6/01/2000") &lt;/script&gt;Shown as "New" until 6/01/2000&lt;br&gt;
+&lt;script&gt; checknew("12/01/2000") &lt;/script&gt;Shown as "New" until 12/01/2000&lt;br&gt;
+&lt;script&gt; checknew("6/01/2001") &lt;/script&gt;Shown as "New" until 6/01/2001&lt;br&gt;
+&lt;script&gt; checknew("12/01/2001") &lt;/script&gt;Shown as "New" until 12/01/2001&lt;br&gt;
+
+&lt;!-- Each news item should have an expiration check
+      with this: &lt;script&gt; checknew("6/01/2000") &lt;/script&gt; --&gt;
+
+&lt;!-- Also remember to save the new.gif image to your server.
+     Right click the link below and select "Save Image As..."
+
+     ../img/new-links/new.gif  --&gt;
+
+ 
+
+&lt;!-- Script Size:  1.18 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

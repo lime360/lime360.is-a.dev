@@ -1,0 +1,168 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Navigation:  Key Launcher</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Navigation">
+<META NAME="description" CONTENT="The easiest website navigation yet requires nothing more than touching letters on your keyboard.  Just touch a letter that has been defined as a launcher key and you are sent to that key's pre-defined page.  It's easy to add as many launcher keys as you want and surely will amaze your visitors!  Awesome!">
+
+<SCRIPT LANGUAGE="JavaScript">
+
+
+
+
+<!-- Begin
+var key = new Array();  // Define launcher key pages here
+key['y'] = "http://www.yahoo.com";
+key['e'] = "http://www.excite.com";
+key['a'] = "http://www.altavista.com";
+key['h'] = "http://www.hotbot.com";
+
+function getKey(keyStroke) {
+isNetscape=(document.layers);
+// Cross-browser key capture routine couresty
+// of Randy Bennett (rbennett@thezone.net)
+eventChooser = (isNetscape) ? keyStroke.which : event.keyCode;
+which = String.fromCharCode(eventChooser).toLowerCase();
+for (var i in key) if (which == i) window.location = key[i];
+}
+document.onkeypress = getKey;
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /navigation/"><font color="#FF0000"><b>Navigation</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Key Launcher</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+The easiest website navigation yet requires nothing more than touching letters on your keyboard.  Just touch a letter that has been defined as a launcher key and you are sent to that key's pre-defined page.  It's easy to add as many launcher keys as you want and surely will amaze your visitors!  Awesome!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<table border=0><tr><td>
+<pre>
+This site equipped with Key Launcher!
+
+The following launch keys are available:
+
+Press the letter 'y' for: Yahoo
+Press the letter 'e' for: Excite
+Press the letter 'a' for: Altavista
+Press the letter 'h' for: Hotbot
+</pre>
+</td></tr></table>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Navigation:  Key Launcher</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.52 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL KEY LAUNCHER:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var key = new Array();  // Define key launcher pages here
+key['h'] = "http://javascript.internet.com/index.html";
+key['f'] = "http://javascript.internet.com/feedback.html";
+key['n'] = "http://javascript.internet.com/new.html";
+key['s'] = "http://javascript.internet.com/toc.html";
+
+function getKey(keyStroke) {
+isNetscape=(document.layers);
+// Cross-browser key capture routine couresty
+// of Randy Bennett (rbennett@thezone.net)
+eventChooser = (isNetscape) ? keyStroke.which : event.keyCode;
+which = String.fromCharCode(eventChooser).toLowerCase();
+for (var i in key) if (which == i) window.location = key[i];
+}
+document.onkeypress = getKey;
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;table border=0&gt;&lt;tr&gt;&lt;td&gt;
+&lt;pre&gt;
+This site equipped with Key Launcher!
+
+The following launcher keys are available:
+
+Press the letter 'h' for: Home Page
+Press the letter 'f' for: Feedback Page
+Press the letter 'n' for: What's New Page
+Press the letter 's' for: Site Contents
+&lt;/pre&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  1.52 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

@@ -1,0 +1,276 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Equivalents:  Time Converter</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Ryan Sokol">
+<META NAME="section" CONTENT="Equivalents">
+<META NAME="description" CONTENT="Allows for the conversion back and forth from hours, minutes, and seconds to fractional hours.  Input validation also ensures the time input does not contain invalid characters.  Definitely a time-saver for time-related record keeping.  Cool!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Ryan Sokol -->
+<!-- Modified:  Ronnie T. Moore, Editor -->
+<!-- Web Site:  JavaScript Source Code 3000 -->
+
+
+
+
+<!-- Begin
+function checkInt(str) {
+if (!str) return 0;
+var ok = "";
+for (var i = 0; i < str.length; i++) {
+var ch = str.substring(i, i+1);
+if (ch < "0" || "9" < ch) { 
+alert("Only integer input is allowed!\n\n" 
++ parseInt(ok) + " will be used because '" 
++ str + "' is invalid.\nYou may correct "
++ "this entry and try again.");
+return parseInt(ok);
+}
+else ok += ch;
+}
+return parseInt(str);
+}
+
+function checkDecimal(str) {
+if (!str) return 0;
+var ok = "";
+for (var i = 0; i < str.length; i++) {
+var ch = str.substring(i, i+1);
+if ((ch < "0" || "9" < ch) && ch != '.') {
+alert("Only numeric input is allowed!\n\n" 
++ parseFloat(ok) + " will be used because '" 
++ str + "' is invalid.\nYou may correct "
++ "this entry and try again.");
+return parseFloat(ok);
+}
+else ok += ch;
+}
+return str;
+}
+
+function makeHours(form) {
+hour = (checkInt(form.hour.value)); // validates input
+min = (checkInt(form.min.value));   // sets invalid input to 0
+sec = (checkInt(form.sec.value));
+return (hour + min/60 + sec/3600);
+}
+
+function makeTime(form) {
+num = (checkDecimal(form.hourtotal.value)); // validates input
+if (num) {
+form.hour.value = parseInt(num);
+   num -= parseInt(num); num *= 60;
+form.min.value = parseInt(num);
+   num -= parseInt(num); num *= 60;
+form.sec.value = parseInt(num);
+   }
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /equivalents/"><font color="#FF0000"><b>Equivalents</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Time Converter</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Allows for the conversion back and forth from hours, minutes, and seconds to fractional hours.  Input validation also ensures the time input does not contain invalid characters.  Definitely a time-saver for time-related record keeping.  Cool!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name="timeconverter">
+<table border=1>
+<tr>
+<td>Time:</td>
+<td>
+<input type=text name=hour size=3 maxlength=3> Hours<br>
+<input type=text name=min size=3 maxlength=3> Minutes<br>
+<input type=text name=sec size=3 maxlength=3> Seconds
+</td>
+</tr>
+
+<tr>
+<td>Hours:</td>
+<td>
+<input type=text name=hourtotal size=10>
+</td>
+</tr>
+
+<tr> 
+<td colspan=2 align=center> 
+<input type=button nametoHours value="Time to Hours" onClick="this.form.hourtotal.value=makeHours(this.form);">
+<br>
+<input type=button name=toTime value="Hours to Time" onClick="makeTime(this.form);">
+</td>
+</tr>
+</table>
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Equivalents:  Time Converter</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.61 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL TIME CONVERTER:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Ryan Sokol --&gt;
+&lt;!-- Modified:  Ronnie T. Moore, Editor --&gt;
+&lt;!-- Web Site:  JavaScript Source Code 3000 --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function checkInt(str) {
+if (!str) return 0;
+var ok = "";
+for (var i = 0; i &lt; str.length; i++) {
+var ch = str.substring(i, i+1);
+if (ch &lt; "0" || "9" &lt; ch) { 
+alert("Only integer input is allowed!\n\n" 
++ parseInt(ok) + " will be used because '" 
++ str + "' is invalid.\nYou may correct "
++ "this entry and try again.");
+return parseInt(ok);
+}
+else ok += ch;
+}
+return parseInt(str);
+}
+
+function checkDecimal(str) {
+if (!str) return 0;
+var ok = "";
+for (var i = 0; i &lt; str.length; i++) {
+var ch = str.substring(i, i+1);
+if ((ch &lt; "0" || "9" &lt; ch) && ch != '.') {
+alert("Only numeric input is allowed!\n\n" 
++ parseFloat(ok) + " will be used because '" 
++ str + "' is invalid.\nYou may correct "
++ "this entry and try again.");
+return parseFloat(ok);
+}
+else ok += ch;
+}
+return str;
+}
+
+function makeHours(form) {
+hour = (checkInt(form.hour.value)); // validates input
+min = (checkInt(form.min.value));   // sets invalid input to 0
+sec = (checkInt(form.sec.value));
+return (hour + min/60 + sec/3600);
+}
+
+function makeTime(form) {
+num = (checkDecimal(form.hourtotal.value)); // validates input
+if (num) {
+form.hour.value = parseInt(num);
+   num -= parseInt(num); num *= 60;
+form.min.value = parseInt(num);
+   num -= parseInt(num); num *= 60;
+form.sec.value = parseInt(num);
+   }
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form name="timeconverter"&gt;
+&lt;table border=1&gt;
+&lt;tr&gt;
+&lt;td&gt;Time:&lt;/td&gt;
+&lt;td&gt;
+&lt;input type=text name=hour size=3 maxlength=3&gt; Hours&lt;br&gt;
+&lt;input type=text name=min size=3 maxlength=3&gt; Minutes&lt;br&gt;
+&lt;input type=text name=sec size=3 maxlength=3&gt; Seconds
+&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Hours:&lt;/td&gt;
+&lt;td&gt;
+&lt;input type=text name=hourtotal size=10&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt; 
+&lt;td colspan=2 align=center&gt; 
+&lt;input type=button nametoHours value="Time to Hours" onClick="this.form.hourtotal.value=makeHours(this.form);"&gt;
+&lt;br&gt;
+&lt;input type=button name=toTime value="Hours to Time" onClick="makeTime(this.form);"&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  2.61 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

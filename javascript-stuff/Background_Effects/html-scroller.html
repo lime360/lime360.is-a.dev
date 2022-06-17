@@ -1,0 +1,240 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  BG Effects:  HTML Scroller</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="Scrolls HTML elements within a DIV. Can be modified to scroll vertically or horizontally. Amazing!">
+<META NAME="date" CONTENT="2000-10-26">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Bruce W.Anderson">
+<META NAME="section" CONTENT="BG Effects">
+
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff onLoad="start()">
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /bgeffects/"><font color="#FF0000"><b>BG Effects</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>HTML Scroller</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Scrolls HTML elements within a DIV. Can be modified to scroll vertically or horizontally. Amazing!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<div id="point1" STYLE="position:absolute;visibility:visible;">
+<img src="../img/logo.gif" /img/logo.gif" width=150 height=48 border=0>
+</div>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Bruce W.Anderson (appletlib@about.com) -->
+<!-- Web Site:  http://appletlib.tripod.com/dhtml/elevator.html -->
+
+
+
+
+<!-- Begin
+var xPos = 20;
+var step = 1;
+var delay = 30;
+var yPos = 0;
+var height = 0;
+var offset = 0;
+var yon = 0;
+var name = navigator.appName;
+if (name == "Microsoft Internet Explorer") {
+yPos = document.body.clientHeight;
+point1.style.top = yPos;
+}
+else {
+yPos = window.innerHeight;
+document.point1.pageY = yPos;
+document.point1.visibility = "hidden";
+}
+function changePos() {
+if (yon == 0) {
+yPos = yPos - step;
+}
+else {
+yPos = yPos + step;
+}
+if (name == "Microsoft Internet Explorer") {
+height = document.body.clientHeight;
+offset = point1.offsetHeight;
+}
+else {
+height = window.innerHeight;
+offset = document.point1.clip.height;
+}  
+if (yPos < 0) {
+yon = 1;
+yPos = 0;
+}
+if (yPos >= (height - offset)) {
+yon = 0;
+yPos = (height - offset);
+}
+if (name == "Microsoft Internet Explorer") {
+point1.style.left = xPos;
+point1.style.top = yPos + document.body.scrollTop;
+}
+else {
+document.point1.pageX = xPos;
+document.point1.pageY = yPos + window.pageYOffset;
+   }
+}
+function start()
+{
+if (name != "Microsoft Internet Explorer") {
+document.point1.visibility = "visible";
+}
+loopfunc();
+}
+function loopfunc()
+{
+changePos();
+setTimeout('loopfunc()',delay);
+}
+//  End -->
+</script>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  BG Effects:  HTML Scroller</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.10 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL HTML SCROLLER:
+
+  1.  Add the onLoad event handler into the BODY tag
+  2.  Copy the coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Insert the onLoad event handler into your BODY tag  --&gt;
+
+&lt;BODY onLoad="start()"&gt;
+
+&lt;!-- STEP TWO: Paste this code into the BODY of your HTML document  --&gt;
+
+&lt;div id="point1" STYLE="position:absolute;visibility:visible;"&gt;
+&lt;img src="../img/logo.gif" width=150 height=48 border=0&gt;
+&lt;/div&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Bruce W.Anderson (appletlib@about.com) --&gt;
+&lt;!-- Web Site:  http://appletlib.tripod.com/dhtml/elevator.html --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var xPos = 20;
+var step = 1;
+var delay = 30;
+var yPos = 0;
+var height = 0;
+var offset = 0;
+var yon = 0;
+var name = navigator.appName;
+if (name == "Microsoft Internet Explorer") {
+yPos = document.body.clientHeight;
+point1.style.top = yPos;
+}
+else {
+yPos = window.innerHeight;
+document.point1.pageY = yPos;
+document.point1.visibility = "hidden";
+}
+function changePos() {
+if (yon == 0) {
+yPos = yPos - step;
+}
+else {
+yPos = yPos + step;
+}
+if (name == "Microsoft Internet Explorer") {
+height = document.body.clientHeight;
+offset = point1.offsetHeight;
+}
+else {
+height = window.innerHeight;
+offset = document.point1.clip.height;
+}  
+if (yPos &lt; 0) {
+yon = 1;
+yPos = 0;
+}
+if (yPos &gt;= (height - offset)) {
+yon = 0;
+yPos = (height - offset);
+}
+if (name == "Microsoft Internet Explorer") {
+point1.style.left = xPos;
+point1.style.top = yPos + document.body.scrollTop;
+}
+else {
+document.point1.pageX = xPos;
+document.point1.pageY = yPos + window.pageYOffset;
+   }
+}
+function start()
+{
+if (name != "Microsoft Internet Explorer") {
+document.point1.visibility = "visible";
+}
+loopfunc();
+}
+function loopfunc()
+{
+changePos();
+setTimeout('loopfunc()',delay);
+}
+//  End --&gt;
+&lt;/script&gt;
+
+ 
+
+&lt;!-- Script Size:  2.10 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

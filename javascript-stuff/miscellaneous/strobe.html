@@ -1,0 +1,177 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Misc.:  Strobe</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Randy Bennett (rbennett@thezone.net)">
+<META NAME="section" CONTENT="Miscellaneous">
+<META NAME="description" CONTENT="Yet another cool "layers" effect, Strobe will fade and and out your message.  Very neat!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Randy Bennett (rbennett@thezone.net) -->
+<!-- Web Site:  http://home.thezone.net/~rbennett/utility/javahead.htm -->
+
+<!-- This script and many more are available online from -->
+
+
+<!-- Begin
+function setupStrobe() {
+text = "JavaScript Source Code 3000";
+var x=navigator.appVersion;
+y=x.substring(0,4);
+if(y>=4)strobeEffect();
+}
+var isNav=(navigator.appName.indexOf("Netscape")!=-1);
+var colors=new Array(
+"FFFFFF","FFFFFF","FFFFFF","FFFFFF","FFFFFF","FFFFFF",
+"FFFFFF","F9F9F9","F1F1F1","E9E9E9","E1E1E1","D9D9D9",
+"D1D1D1","C9C9C9","C1C1C1","B9B9B9","B1B1B1","A9A9A9",
+"A1A1A1","999999","919191","898989","818181","797979",
+"717171","696969","616161","595959","515151","494949",
+"414141","393939","313131","292929","212121","191919",
+"111111","090909","000000")
+
+a=0,b=1;
+function strobeEffect() {
+color=colors[a];
+aa="<font color="+color+">" + text + "</font>"
+if(isNav) {
+document.object1.document.write(aa);
+document.object1.document.close();
+}
+else object1.innerHTML=aa;
+a+=b;
+if (a==38) b-=2;
+if (a==0) b+=2;
+xx=setTimeout("strobeEffect()",10);
+}
+// End -->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff onLoad="setupStrobe()">
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /miscellaneous/"><font color="#FF0000">Misc.</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Strobe</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE=" helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Yet another cool "layers" effect.  Strobe will fade your message in and out.  Very neat!<br><hr>
+</td></tr>
+</table>
+<!--  Demonstration -->
+<div id="object1" style="position:absolute; visibility:show; left:50px; top:50px; z-index:2"></div>
+<P>
+<BR>
+<P>
+<a name="source">
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Misc.:  Strobe</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as NotePad or SimpleText) and save (Control-s or Apple-s).  The script is yours!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.98 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL STROBE:
+
+   1.  Paste the first code in the HEAD of your HTML document
+   2.  Put the onLoad event handler into the BODY tag
+   3.  Add the last coding to the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste the first code in the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Randy Bennett (rbennett@thezone.net) --&gt;
+&lt;!-- Web Site:  http://home.thezone.net/~rbennett/utility/javahead.htm --&gt;
+
+&lt;!-- This script and many more are available online from --&gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function setupStrobe() {
+text = "JavaScript Source Code 3000";
+var x=navigator.appVersion;
+y=x.substring(0,4);
+if(y&gt;=4)strobeEffect();
+}
+var isNav=(navigator.appName.indexOf("Netscape")!=-1);
+var colors=new Array(
+"FFFFFF","FFFFFF","FFFFFF","FFFFFF","FFFFFF","FFFFFF",
+"FFFFFF","F9F9F9","F1F1F1","E9E9E9","E1E1E1","D9D9D9",
+"D1D1D1","C9C9C9","C1C1C1","B9B9B9","B1B1B1","A9A9A9",
+"A1A1A1","999999","919191","898989","818181","797979",
+"717171","696969","616161","595959","515151","494949",
+"414141","393939","313131","292929","212121","191919",
+"111111","090909","000000")
+
+a=0,b=1;
+function strobeEffect() {
+color=colors[a];
+aa="&lt;font color="+color+"&gt;" + text + "&lt;/font&gt;"
+if(isNav) {
+document.object1.document.write(aa);
+document.object1.document.close();
+}
+else object1.innerHTML=aa;
+a+=b;
+if (a==38) b-=2;
+if (a==0) b+=2;
+xx=setTimeout("strobeEffect()",10);
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+&lt;!-- STEP TWO: Include the onLoad event handler in the bODY tag    --&gt;
+
+&lt;BODY onLoad="setupStrobe()"&gt;
+
+&lt;!-- STEP THREE: Put the final coding in the BODY of your HTML document  --&gt;
+
+&lt;div id="object1" style="position:absolute; visibility:show; left:25px; top:50px; z-index:2"&gt;&lt;/div&gt;
+
+ 
+
+&lt;!-- Script Size:  1.98 KB  --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

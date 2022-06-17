@@ -1,0 +1,141 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Messages:  Script Debugger</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Messages">
+<META NAME="description" CONTENT="Having trouble adding a JavaScript to your site?  Just can't get things working?  Add this short script to your site, and it will report to you JavaScript errors as they happen in a box on the screen.  The idea is that you will see what the error is, and hopefully give you some ideas on how to fix it.  I actually use this script when I debug scripts!">
+
+<SCRIPT LANGUAGE="JavaScript">
+
+
+
+
+<!-- Begin
+function reportError(msg,url,line) {
+var str = "Err: " + msg + " on line: " 
++ line + "\nURL: " + url  + "\nWeb: " 
++ navigator.appName + " " + navigator.appName 
++ " " + navigator.appVersion;
+document.errform.error.value = str;
+return true;
+}
+window.onerror = reportError;
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /messages/"><font color="#FF0000"><b>Messages</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Script Debugger</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Having trouble adding a JavaScript to your site?  Just can't get things working?  Add this short script to your site, and it will report to you JavaScript errors as they happen in a box on the screen.  The idea is that you will see what the error is, and hopefully give you some ideas on how to fix it.  I actually use this script when I debug scripts!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+For this example, clicking this button will cause a JavaScript error, that<br>the function  is not defined.  The error will be displayed in the box below.
+<form name=err>
+<input type=button value="Cause JS Error" onClick="brokenScript()">
+</form><p>
+<form name=errform>
+<textarea name=error rows=5 cols=70></textarea>
+</form>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Messages:  Script Debugger</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  0.92 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL SCRIPT DEBUGGER:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function reportError(msg,url,line) {
+var str = "Err: " + msg + " on line: " 
++ line + "\nURL: " + url  + "\nWeb: " 
++ navigator.appName + " " + navigator.appName 
++ " " + navigator.appVersion;
+document.errform.error.value = str;
+return true;
+}
+window.onerror = reportError;
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;form name=err&gt;
+&lt;input type=button value="Cause JS Error" onClick="brokenScript()"&gt;
+&lt;/form&gt;&lt;p&gt;
+&lt;form name=errform&gt;
+&lt;textarea name=error rows=5 cols=70&gt;&lt;/textarea&gt;
+&lt;/form&gt;
+
+ 
+
+&lt;!-- Script Size:  0.92 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

@@ -1,0 +1,210 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Page Details:  Frameless Popup</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="(IE4+)  Launches a popup window without the Windows frame or titlebar.  In other browsers, it launches a standard popup window.  Position, width, and height are settable. Automatic closing of the window on leaving the page may also be optionally set.">
+<META NAME="date" CONTENT="2001-01-18">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="CodeLifter.com">
+<META NAME="section" CONTENT="Page Details">
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  CodeLifter.com (support@codelifter.com) -->
+<!-- Web Site:  http://www.codelifter.com -->
+
+
+
+
+<!-- Begin
+var windowW=214 // wide
+var windowH=398 // high
+var windowX = 260 // from left
+var windowY = 100 // from top
+var urlPop = "http://www.codelifter.com/main/javascript/amazingframelesspopup1_show.html"
+var title =  "This Is A Frameless Popup Window"
+// set this to true if the popup should close
+// upon leaving the launching page; else, false
+var autoclose = true
+// do not edit below this line
+s = "width="+windowW+",height="+windowH;
+var beIE = document.all?true:false
+function openFrameless() {
+if (beIE) {
+NFW = window.open("","popFrameless","fullscreen,"+s);
+NFW.blur();
+window.focus();
+NFW.resizeTo(windowW,windowH);
+NFW.moveTo(windowX,windowY);
+var frameString=""+
+"<html>"+
+"<head>"+
+"<title>"+title+"</title>"+
+"</head>"+
+"<frameset rows='*,0' framespacing=0 border=0 frameborder=0>"+
+"<frame name='top' src='"+urlPop+"' scrolling=auto>"+
+"<frame name='bottom' src='about:blank' scrolling='no'>"+
+"</frameset>"+
+"</html>";
+NFW.document.open();
+NFW.document.write(frameString);
+NFW.document.close();
+}
+else {
+NFW = window.open(urlPop,"popFrameless","scrollbars,"+s);
+NFW.blur();
+window.focus();
+NFW.resizeTo(windowW,windowH);
+NFW.moveTo(windowX,windowY);
+}
+NFW.focus();
+if (autoclose) {
+window.onunload = function(){NFW.close();}
+   }
+}
+//  End -->
+</script>
+
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /page-details/"><font color="#FF0000"><b>Page Details</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Frameless Popup</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+(IE4+)  Launches a popup window without the Windows frame or titlebar.  In other browsers, it launches a standard popup window.  Position, width, and height are settable. Automatic closing of the window on leaving the page may also be optionally set.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<a href="javascript:openFrameless()">Click Here</a>  (Extra information from CodeLifter.com)
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Page Details:  Frameless Popup</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Command-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.24 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL FRAMELESS POPUP:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the onLoad event handler into the BODY tag of your Popup HTML document
+  3.  Put the last coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  CodeLifter.com (support@codelifter.com) --&gt;
+&lt;!-- Web Site:  http://www.codelifter.com --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var windowW=214 // wide
+var windowH=398 // high
+var windowX = 260 // from left
+var windowY = 100 // from top
+var urlPop = "yourpage.html"
+var title =  "This Is A Frameless Popup Window"
+// set this to true if the popup should close
+// upon leaving the launching page; else, false
+var autoclose = true
+// do not edit below this line
+s = "width="+windowW+",height="+windowH;
+var beIE = document.all?true:false
+function openFrameless() {
+if (beIE) {
+NFW = window.open("","popFrameless","fullscreen,"+s);
+NFW.blur();
+window.focus();
+NFW.resizeTo(windowW,windowH);
+NFW.moveTo(windowX,windowY);
+var frameString=""+
+"&lt;html&gt;"+
+"&lt;head&gt;"+
+"&lt;title&gt;"+title+"&lt;/title&gt;"+
+"&lt;/head&gt;"+
+"&lt;frameset rows='*,0' framespacing=0 border=0 frameborder=0&gt;"+
+"&lt;frame name='top' src='"+urlPop+"' scrolling=auto&gt;"+
+"&lt;frame name='bottom' src='about:blank' scrolling='no'&gt;"+
+"&lt;/frameset&gt;"+
+"&lt;/html&gt;";
+NFW.document.open();
+NFW.document.write(frameString);
+NFW.document.close();
+}
+else {
+NFW = window.open(urlPop,"popFrameless","scrollbars,"+s);
+NFW.blur();
+window.focus();
+NFW.resizeTo(windowW,windowH);
+NFW.moveTo(windowX,windowY);
+}
+NFW.focus();
+if (autoclose) {
+window.onunload = function(){NFW.close();}
+   }
+}
+//  End --&gt;
+&lt;/script&gt;
+
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Insert the onLoad event handler into your BODY tag of your Popup HTML document  --&gt;
+
+&lt;BODY onLoad="top.window.focus()"&gt;
+
+&lt;!-- STEP THREE: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;a href="javascript:openFrameless()"&gt;Click Here&lt;/a&gt;
+
+ 
+
+&lt;!-- Script Size:  2.24 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

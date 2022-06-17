@@ -1,0 +1,218 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Games:  Picture Memory</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Kien Caoxuan (kcaoxuan@caoxuan.com)">
+<META NAME="section" CONTENT="Games">
+<META NAME="description" CONTENT="Take your time and study the underwater picture very carefully.  When you are ready, start the memory test.  The game will ask you where you saw the pieces.  See if you can get all 15 right!  Not as easy as it sounds!">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /games/"><font color="#FF0000"><b>Games</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Picture Memory</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Take your time and study the underwater picture very carefully.  When you are ready, start the memory test.  The game will ask you where you saw the pieces.  See if you can get all 15 right!  Not as easy as it sounds!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name="open-picture-memory">
+<input type=button value="Play Picture Memory" onClick="window.open('picture-memory-demo.html','picturememory','status=1,top=100,left=100,width=550,height=450');">
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Games:  Picture Memory</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  4.62 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- ONE STEP TO INSTALL PICTURE MEMORY:
+
+  1.  Copy the coding into the HEAD of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;!-- THREE STEPS TO INSTALL PICTURE MEMORY:
+
+  1.  Save the entire first HTML page as picture-memory.html
+  2.  Paste the second code into your page to open the game
+  3.  Download the game images and upload them to your server  --&gt;
+
+&lt;!-- STEP ONE: Save the entire first HTML page as picture-memory.html  --&gt;
+
+&lt;html&gt;
+&lt;head&gt;
+&lt;script language="JavaScript"&gt;
+&lt;!-- Original:  Kien Caoxuan (kcaoxuan@caoxuan.com) --&gt;
+&lt;!-- Web Site:  http://www.caoxuan.com --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+N = (navigator.appName.indexOf("Netscape")!=-1);
+M = (navigator.appName.indexOf("Microsoft")!=-1);
+
+Vis = new Array();
+Vis[0] = (M) ? "hidden" : "hide";
+Vis[1] = (M) ? "visible" : "show";
+
+function GetDiv(divId,divY,divX,divW,divH,bCol,visb,zInd) {
+bkCol=(bCol!="")?((N)?" bgColor="+bCol:";background:"+bCol):"";
+
+DivTyp = (M) ? "&lt;DIV" : "&lt;LAYER"
+if (M) { Styl=" ID="+divId+" style='position:absolute;top:"+divY+";left:"+divX+";width:"+divW+";height:"+divH+bkCol+";visibility:"+Vis[visb]+";z-index:"+zInd+"'&gt;"; }
+if (N) { Styl=" ID="+divId+" top="+divY+" left="+divX+" width="+divW+" height="+divH+bkCol+" visibility="+Vis[visb]+" z-index="+zInd+"&gt;"; }
+document.writeln(DivTyp+Styl);
+}
+function EndDiv() {
+(M) ? document.writeln("&lt;/DIV&gt;") : document.writeln("&lt;/LAYER&gt;");
+}
+// End --&gt;
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;script language="JavaScript"&gt;
+&lt;!-- Begin
+corr = new Array();
+gnum = 0;
+score = 0;
+ind = 0;
+for (rows = 0; rows &lt; 3; rows++) {
+for (cols = 0; cols &lt; 5; cols++) {
+ind++;
+corr[ind] = 0;
+eval("GetDiv('d"+ind+"',"+rows*100+","+cols*100+",100,100,'',1,0)");
+document.write("&lt;img src=Pic",ind,".jpg width=100 height=100 border=0&gt;");
+EndDiv();
+eval("GetDiv('dvTop"+ind+"',"+rows*100+","+cols*100+",100,100,'',0,1)");
+document.write("&lt;a href='javascript:TestMe(",ind,")'&gt;&lt;img name = Pix",ind," src=unknown.gif width=100 height=100 border=1&gt;&lt;/a&gt;");
+EndDiv();
+   }
+}
+GetDiv('Control1',300,0,400,100,'silver',1,0);
+document.write("&lt;center&gt;&lt;br&gt;Study the picture above carefully then &lt;a href='javascript:StartTest()'&gt;start the test&lt;/a&gt;.&lt;/center&gt;");
+EndDiv();
+GetDiv('Control2',300,0,400,100,'silver',0,1);
+document.write("&lt;center&gt;&lt;br&gt;Where did you see this image? --&gt; &lt;br&gt;&lt;br&gt;&lt;font size=-2&gt;You can see your score by taking your cursor off&lt;br&gt;the images above and looking in the browse status bar&lt;/font&gt;&lt;/center&gt;");
+EndDiv();
+GetDiv('TestPix',300,400,100,100,'',1,1);
+document.write("&lt;img src=unknown.gif name=Tester width=100 height=100");
+EndDiv();
+function StartTest() {
+if (M) { eval("document.all.Control2.style.visibility = 'visible'"); }
+if (N) { eval("document.layers.Control2.visibility = 'show'"); }
+for (x = 1; x &lt; 16; x++) {
+if (corr[x] == 0) {
+if (M) { eval("document.all.dvTop"+x+".style.visibility = 'visible'"); }
+if (N) { eval("document.layers.dvTop"+x+".visibility = 'show'"); }
+   }
+}
+PickRandom();
+document.Tester.src = "Pic"+picked+".jpg";
+}
+function PickRandom() {
+chk = 0
+while (chk == 0) {
+picked = 1+Math.floor(15*Math.random())
+if (corr[picked] == 0) { chk = 1; break; }
+   }
+}
+function TestMe(x) {
+gnum++;
+if (x == picked) { score++; corr[x] = 1; }
+if (M) { eval("document.all.dvTop"+x+".style.visibility = 'hidden'"); }
+if (N) { eval("document.layers.dvTop"+x+".visibility = 'hide'"); }
+if (gnum &gt; 14) {
+alert("It's over! Score = "+score);
+for (x = 1; x &lt; 16; x++) { corr[x] = 0; }
+if (score == 15) alert("And you win!");
+gnum = 0;
+score = 0;
+window.close();
+}
+setTimeout('StartTest()', 1000);
+}
+// End --&gt;
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+
+&lt;!-- STEP TWO: Paste the second code into your page to open the game  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form name="open-picture-memory"&gt;
+&lt;input type=button value="Play Picture Memory" onClick="window.open('picture-memory.html','picturememory','status=1,top=100,left=100,width=550,height=450');"&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+&lt;!-- STEP THREE: Save the game images and then upload them to your web server  --&gt;
+&lt;!-- URL:  ../img/picture-memory/picture-memory.zip --&gt;
+
+
+&lt;p&gt;&lt;center&gt;
+&lt;font face="arial, helvetica" SIZE="-2"&gt;Free JavaScripts provided&lt;br&gt;
+by &lt;a href="http://javascriptsource.com"&gt;JavaScript Source Code 3000&lt;/a&gt;&lt;/font&gt;
+&lt;/center&gt;&lt;p&gt;
+
+&lt;!-- Script Size:  4.40 KB --&gt;
+
+ 
+
+&lt;!-- Script Size:  4.62 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

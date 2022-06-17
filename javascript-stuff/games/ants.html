@@ -1,0 +1,488 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Games:  Ants</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Mike Hall (MHall75819@aol.com)">
+<META NAME="section" CONTENT="Games">
+<META NAME="description" CONTENT="As you move your mouse around the page a swarming army of ants scattered about the window will chase after it.  (No wisecracks about buggy code now...)  If an ant actually reaches the mouse cursor, we reposition it randomly around the edge of the window, and its chase starts again.  The ant images are preloaded with a great image loading bar script, then the script begins.  A great effect!">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /games/"><font color="#FF0000"><b>Games</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Ants</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+As you move your mouse around the page a swarming army of ants scattered about the window will chase after it.  (No wisecracks about buggy code now...)  If an ant actually reaches the mouse cursor, we reposition it randomly around the edge of the window, and its chase starts again.  The ant images are preloaded with a great image loading bar script, then the script begins.  A great effect!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+
+<table width="600" border=0>
+<tr>
+<td colspan=2 align=center>
+<br><br>
+<font face="arial, helvetica"><h3><center>Ants Screenshot</center></h3>
+</td>
+</tr>
+<tr><td width=250 align=left valign=top>
+<font face="arial, helvetica" size="-1">
+To the right you will find a screenshot of 
+the 'Ants' script in use rather than the usual 
+live example.  Based on the overwhelming number 
+of sites (200+) that were calling the ants images 
+from our site, we had to remove the live Ants 
+example and the ant images from our web server.  
+This will help decrease the stress on our server 
+and ensure that the entire internet.com 
+network is always accessible to you, the user.
+<p>
+However, you can still put this script on 
+your site as usual.  Just copy the ants  
+source code in the box below and download 
+the ants images zip below the screenshot.  
+This zip file contains all the ant images.
+</font>
+</td>
+<td width=350 align=right valign=top>
+<img src="../img/ants/ants.jpg" /img/ants/ants.jpg" width="325" height="211" border="1" alt="Screenshot of Ants Script" align="middle">
+<p>
+<center><font face="arial, helvetica" size="-1">
+<a href="../img/ants/ants.zip" /img/ants/ants.zip">Click here to download ants.zip</a>
+</font></center>
+</td></tr>
+</table>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Games:  Ants</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  10.57 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL ANTS:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the onLoad event handler into the BODY tag
+  3.  Put the last coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;style type="text/css"&gt;
+.ant {
+  height: 16px;
+  position: absolute;
+  visibility: hidden;
+  width: 16px;
+}
+&lt;/style&gt;
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Mike Hall (MHall75819@aol.com) --&gt;
+&lt;!-- Web Site:  http://members.aol.com/MHall75819 --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var dir = "http://www.your-web-site-address-here.com/where-you-put-the-ant-images/";
+
+// get the ant images in a single zip file from
+// ../img/ants/ants.zip
+
+// Extract the images then upload them to your server and
+// change the 'dir' variable to their location (end with a '/')
+
+var images = new Array(
+dir+"antdl.gif",
+dir+"antdn.gif",
+dir+"antdr.gif",
+dir+"antlt.gif",
+dir+"antrt.gif",
+dir+"antul.gif",
+dir+"antup.gif",
+dir+"antur.gif"
+);
+
+var isMinNS4 = (document.layers) ? 1 : 0;
+var isMinIE4 = (document.all)    ? 1 : 0;
+
+var _LBimgList;
+var _LBimgCount;
+var _LBbase = "LBbase";
+var _LBlow  = "LBlow";
+var _LBhigh = "LBhigh";
+var _LBwidth;
+var _LBheight;
+var _LBbaseLayer;
+var _LBlowLayer;
+var _LBhighLayer;
+function createLoadBar(width, height, bdSize, bdColor, bgColor, fgColor, fontFace, fontSize, text) {
+var txtLow, txtHigh, tblStart, tblEnd;
+var str;
+txtLow  = '&lt;font color="' + fgColor + '" face="' + fontFace + '" size=' + fontSize + '&gt;' + text + '&lt;/font&gt;';
+txtHigh = '&lt;font color="' + bgColor  + '" face="' + fontFace + '" size=' + fontSize + '&gt;' + text + '&lt;/font&gt;';
+tblStart = '&lt;table border=0 cellpadding=0 cellspacing=0 height=100% width=100%&gt;&lt;tr valign="center"&gt;&lt;td align="center"&gt;';
+tblEnd = '&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;';
+if (isMinNS4)
+str = '&lt;layer name="' + _LBbase + '" bgcolor="' + bdColor + '" width=' + width + ' height=' + height + ' visibility="hide"&gt;\n'
++ '  &lt;layer name="' + _LBlow  + '" bgcolor="' + bgColor + '" left=' + bdSize + ' top=' + bdSize + ' width=' + (width - 2 * bdSize) + ' height=' + (height - 2 * bdSize) + '&gt;' + tblStart + txtLow + tblEnd + '&lt;/layer&gt;\n'
++ '  &lt;layer name="' + _LBhigh + '" bgcolor="' + fgColor + '" left=' + bdSize + ' top=' + bdSize + ' width=' + (width - 2 * bdSize) + ' height=' + (height - 2 * bdSize) + '&gt;' + tblStart + txtHigh + tblEnd + '&lt;/layer&gt;\n'
++ '&lt;/layer&gt;';
+if (isMinIE4)
+str = '&lt;div id="' + _LBbase + '" style="position:absolute; background-color:' + bdColor + '; width:' + width + 'px; height:' + height + 'px; visibility:hidden;"&gt;\n'
++ '  &lt;div id="' + _LBlow  + '" style="position:absolute; background-color=' + bgColor + '; left:' + bdSize + 'px; top:' + bdSize + 'px; width:' + (width - 2 * bdSize) + 'px; height:' + (height - 2 * bdSize) + 'px;"&gt;' + tblStart + txtLow + tblEnd + '&lt;/div&gt;\n'
++ '  &lt;div id="' + _LBhigh  + '" style="position:absolute; background-color=' + fgColor + '; left:' + bdSize + 'px; top:' + bdSize + 'px; width:' + (width - 2 * bdSize) + 'px; height:' + (height - 2 * bdSize) + 'px;"&gt;' + tblStart + txtHigh + tblEnd + '&lt;/div&gt;\n'
++ '&lt;/div&gt;';
+document.writeln(str);
+_LBwidth = width - 2 * bdSize;
+_LBheight = height - 2 * bdSize;
+}
+function startLoadBar(srcList, x, y) {
+var i, w, h;
+if (isMinNS4) {
+_LBbaseLayer = document.layers[_LBbase];
+_LBlowLayer  = _LBbaseLayer.document.layers[_LBlow];
+_LBhighLayer = _LBbaseLayer.document.layers[_LBhigh];
+}
+if (isMinIE4) {
+_LBbaseLayer = eval('document.all.' + _LBbase);
+_LBlowLayer  = eval('document.all.' + _LBlow);
+_LBhighLayer = eval('document.all.' + _LBhigh);
+}
+if (isMinNS4) {
+w = window.innerWidth;
+h = window.innerHeight;
+}
+if (isMinIE4) {
+w = document.body.clientWidth;
+h = document.body.clientHeight;
+}
+if (x == null)
+x = Math.round((w  - _LBwidth)  / 2);
+if (y == null)
+y = Math.round((h - _LBheight) / 2);
+moveLayerTo(_LBbaseLayer, x, y);
+clipLayer(_LBhighLayer, 0, 0, 0, _LBheight);
+showLayer(_LBbaseLayer);
+_LBimgCount = 0;
+_LBimgList = new Array();
+for (i = 0; i &lt; srcList.length; i++) {
+_LBimgList[i] = new Image();
+_LBimgList[i].onabort = _LBupdate;
+_LBimgList[i].onerror = _LBupdate;
+_LBimgList[i].onload  = _LBupdate;
+}
+for (i = 0; i &lt; srcList.length; i++)
+_LBimgList[i].src = srcList[i];
+}
+function endLoadBar() { // empty (can be changed) function called when finished
+}
+function _LBupdate() {
+var pct;
+_LBimgCount++;
+pct = _LBimgCount / _LBimgList.length;
+clipLayer(_LBhighLayer, 0, 0, Math.round(pct * _LBwidth), _LBheight);
+if (_LBimgCount == _LBimgList.length) {
+setTimeout('hideLayer(_LBbaseLayer)', 500);
+endLoadBar();
+}
+}
+function moveLayerTo(layer, x, y) {
+if (isMinNS4)
+layer.moveTo(x, y);
+if (isMinIE4) {
+layer.style.left = x;
+layer.style.top  = y;
+}
+}
+function hideLayer(layer) {
+if (isMinNS4)
+layer.visibility = "hide";
+if (isMinIE4)
+layer.style.visibility = "hidden";
+}
+function getWindowWidth() {
+if (isMinNS4)
+return(window.innerWidth);
+if (isMinIE4)
+return(document.body.offsetWidth);
+return(-1);
+}
+function getWindowHeight() {
+if (isMinNS4)
+return(window.innerHeight);
+if (isMinIE4)
+return(document.body.offsetHeight);
+return(-1);
+}
+function getPageScrollX() {
+if (isMinNS4)
+return(window.pageXOffset);
+if (isMinIE4)
+return(document.body.scrollLeft);
+return(-1);
+}
+function getPageScrollY() {
+if (isMinNS4)
+return(window.pageYOffset);
+if (isMinIE4)
+return(document.body.scrollTop);
+return(-1);
+}
+function getHeight(layer) {
+if (isMinNS4) {
+if (layer.document.height)
+return(layer.document.height);
+else
+return(layer.clip.bottom - layer.clip.top);
+}
+if (isMinIE4) {
+if (false && layer.style.pixelHeight)
+return(layer.style.pixelHeight);
+else
+return(layer.clientHeight);
+}
+return(-1);
+}
+function getWidth(layer) {
+if (isMinNS4) {
+if (layer.document.width)
+return(layer.document.width);
+else
+return(layer.clip.right - layer.clip.left);
+}
+if (isMinIE4) {
+if (layer.style.pixelWidth)
+return(layer.style.pixelWidth);
+else
+return(layer.clientWidth);
+}
+return(-1);
+}
+function getLeft(layer) {
+if (isMinNS4)
+return(layer.left);
+if (isMinIE4)
+return(layer.style.pixelLeft);
+return(-1);
+}
+function getTop(layer) {
+if (isMinNS4)
+return(layer.top);
+if (isMinIE4)
+return(layer.style.pixelTop);
+return(-1);
+}
+function getRight(layer) {
+if (isMinNS4)
+return(layer.left + getWidth(layer));
+if (isMinIE4)
+return(layer.style.pixelLeft + getWidth(layer));
+return(-1);
+}
+function getBottom(layer) {
+if (isMinNS4)
+return(layer.top + getHeight(layer));
+else if (isMinIE4)
+return(layer.style.pixelTop + getHeight(layer));
+return(-1);
+}
+function moveLayerBy(layer, dx, dy) {
+if (isMinNS4)
+layer.moveBy(dx, dy);
+if (isMinIE4) {
+layer.style.pixelLeft += dx;
+layer.style.pixelTop+= dy;
+}
+}
+function showLayer(layer) {
+if (isMinNS4)
+layer.visibility = "show";
+if (isMinIE4)
+layer.style.visibility = "visible";
+}
+function clipLayer(layer, clipleft, cliptop, clipright, clipbottom) {
+if (isMinNS4) {
+layer.clip.left = clipleft;
+layer.clip.top= cliptop;
+layer.clip.right= clipright;
+layer.clip.bottom = clipbottom;
+}
+if (isMinIE4)
+layer.style.clip = 'rect(' + cliptop + ' ' +clipright + ' ' + clipbottom + ' ' + clipleft +')';
+}
+var mouseX = 0;
+var mouseY = 0;
+if (isMinNS4)
+document.captureEvents(Event.MOUSEMOVE);
+document.onmousemove = getMousePosition;
+function init() {
+startLoadBar(images);
+}
+function getMousePosition(e) {
+if (isMinNS4) {
+mouseX = e.pageX;
+mouseY = e.pageY;
+}
+if (isMinIE4) {
+mouseX = event.clientX + document.body.scrollLeft;
+mouseY = event.clientY + document.body.scrollTop;
+}
+return true;
+}
+var ants = new Array(8);
+function endLoadBar() {
+var i;
+for (i = 0; i &lt; ants.length; i++) {
+if (isMinNS4) {
+ants[i] = document.layers["ant" + (i + 1)];
+ants[i].image = ants[i].document.images["antimg" + (i + 1)];
+}
+if (isMinIE4) {
+ants[i] = eval('document.all.ant' + (i + 1));
+ants[i].image = document.images["antimg" + (i + 1)];
+}
+initAnt(i);
+showLayer(ants[i]);
+}
+updateAnts();
+}
+function initAnt(n) {
+var s, x, y;
+x = Math.floor(Math.random() * getWindowWidth());
+y = Math.floor(Math.random() * getWindowHeight());
+s = Math.floor(Math.random() * 4);
+if (s == 0)
+x = -getWidth(ants[n]);
+if (s == 1)
+x = getWindowWidth();
+if (s == 2)
+y = -getHeight(ants[n]);
+if (s == 3)
+y = getWindowHeight();
+x += getPageScrollX();
+y += getPageScrollY();
+moveLayerTo(ants[n], x, y);
+}
+function updateAnts() {
+var i, dx, dy, theta, d;
+d = 3;
+for (i = 0; i &lt; ants.length; i++) {
+dx = mouseX - getLeft(ants[i]);
+dy = mouseY - getTop(ants[i]);
+theta = Math.round(Math.atan2(-dy, dx) * 180 / Math.PI);
+if (theta &lt; 0)
+theta += 360;
+if (Math.abs(dx) &lt; d && Math.abs(dy) &lt; d)
+initAnt(i);
+else if (theta &gt; 22.5 && theta &lt;= 67.5) {
+moveLayerBy(ants[i], d, -d);
+ants[i].image.src = dir+"antur.gif";
+}
+else if (theta &gt; 67.5 && theta &lt;= 112.5) {
+moveLayerBy(ants[i], 0, -d);
+ants[i].image.src = dir+"antup.gif";
+}
+else if (theta &gt; 112.5 && theta &lt;= 157.5) {
+moveLayerBy(ants[i], -d, -d);
+ants[i].image.src = dir+"antul.gif";
+}
+else if (theta &gt; 157.5 && theta &lt;= 202.5) {
+moveLayerBy(ants[i], -d, 0);
+ants[i].image.src = dir+"antlt.gif";
+}
+else if (theta &gt; 202.5 && theta &lt;= 247.5) {
+moveLayerBy(ants[i], -d, d);
+ants[i].image.src = dir+"antdl.gif";
+}
+else if (theta &gt; 247.5 && theta &lt;= 292.5) {
+moveLayerBy(ants[i], 0, d);
+ants[i].image.src = dir+"antdn.gif";
+}
+else if (theta &gt; 292.5 && theta &lt;= 337.5) {
+moveLayerBy(ants[i], d, d);
+ants[i].image.src = dir+"antdr.gif";
+}
+else {
+moveLayerBy(ants[i], d, 0);
+ants[i].image.src = dir+"antrt.gif";
+}
+}
+setTimeout('updateAnts()', 50);
+return;
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Insert the onLoad event handler into your BODY tag  --&gt;
+
+&lt;BODY OnLoad="init()"&gt;
+
+&lt;!-- STEP THREE: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;script language="JavaScript"&gt;
+createLoadBar(240, 20, 1, "#000000", "#cccccc", "#999999", "MS Sans serif,Arial,Helvetica", 1, "&lt;b&gt;Loading ants, please wait...&lt;/b&gt;");
+&lt;/script&gt;
+
+&lt;div id="ant1" class="ant"&gt;&lt;img name="antimg1" src="transparent.gif" width=13 height=13&gt;&lt;/div&gt;
+&lt;div id="ant2" class="ant"&gt;&lt;img name="antimg2" src="transparent.gif" width=13 height=13&gt;&lt;/div&gt;
+&lt;div id="ant3" class="ant"&gt;&lt;img name="antimg3" src="transparent.gif" width=13 height=13&gt;&lt;/div&gt;
+&lt;div id="ant4" class="ant"&gt;&lt;img name="antimg4" src="transparent.gif" width=13 height=13&gt;&lt;/div&gt;
+&lt;div id="ant5" class="ant"&gt;&lt;img name="antimg5" src="transparent.gif" width=13 height=13&gt;&lt;/div&gt;
+&lt;div id="ant6" class="ant"&gt;&lt;img name="antimg6" src="transparent.gif" width=13 height=13&gt;&lt;/div&gt;
+&lt;div id="ant7" class="ant"&gt;&lt;img name="antimg7" src="transparent.gif" width=13 height=13&gt;&lt;/div&gt;
+&lt;div id="ant8" class="ant"&gt;&lt;img name="antimg8" src="transparent.gif" width=13 height=13&gt;&lt;/div&gt;
+
+ 
+
+&lt;!-- Script Size:  10.57 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

@@ -1,0 +1,196 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Password Protection:  Gatekeeper (In)</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Password Protection">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<P>
+<center>
+
+	
+<P>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /passwords/"><font color="#FF0000">Password Protection</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Gatekeeper (In)</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Here is how to use the Gatekeeper on your own site.  Just put the first code into the opener document.  Put the second script into a new document (gatekeep.html), save the gatekeeper image, and create the protected file.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<table border=1><tr><td>
+<pre><strong>How to Determine Your Password:</strong>
+
+The password for that password protection script isn't actually in the
+code, it's just the filename of the protected page without the .html ending.
+
+For example, if your protected file is called 'secret.html' the password
+would be 'secret' (without quotes).  It's relatively simple, but it works!
+
+Also, make sure that that you have an 'index.html' page on your site, to
+prevent people from defeating this script by getting your directly listing.
+</pre>
+</td></tr></table>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Password Protection:  Gatekeeper</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  0.98 KB " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL PASSWORD PROTECTION (GATEKEEPER):
+
+   1.  Put the designated coding into the HEAD of your login document
+   2.  Paste the final coding into the BODY of your login document  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the HEAD of your login document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="javascript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var nifty_little_window = null;
+function gateKeeper() {
+nifty_little_window = window.open('gatekeep.html', 'theKeeper', 'width=350,height=200,resizable=1');
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your login document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;CENTER&gt;
+&lt;A HREF="" onMouseOver="gateKeeper()"&gt;Access the protected area.&lt;/A&gt;&lt;BR&gt;
+&lt;P&gt;
+Or, click Enter...&lt;BR&gt;
+&lt;FORM NAME="gatekeeperbutton" ACTION="" onSubmit="gateKeeper()"&gt;
+&lt;input type="submit" value="Enter!"&gt;
+&lt;/FORM&gt;
+
+&lt;/CENTER&gt;
+
+ 
+
+&lt;!-- Script Size:  0.64 KB  --&gt;
+</textarea></td></tr><form>
+
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Password Protection:  Gatekeeper (Gatekeep Page)</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!<br><br></font></td></tr>
+<form name="copy2">
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt2.focus();this.form.txt2.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total2" VALUE="Script Size:  1.91 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt2" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- FOUR STEPS TO INSTALL PASSWORD PROTECTION (GATEKEEP PAGE):
+
+   1.  Put the designated coding into the HEAD of document
+   2.  Save the gatekeep image into your web page directory
+   3.  Add the image to the BACKGROUND to BODY of document
+   4.  Copy this code into the BODY of document  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the HEAD of your document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Begin
+
+//  Get your very own Gate Keeper from Professional Web Design  
+//  http://junior.apk.net/~jbarta/weblinks/gate_keeper/         
+
+function goForit() {
+var location;
+var password;
+password=this.document.testform.inputbox.value
+location=password + ".html"
+fetch(location)
+theKeeper=window.close()
+}
+function fetch(location) {
+var root;
+if (opener.closed) {
+root=window.open('','theKeepersGopher','toolbar=yes,location=yes,status=yes,menubar=yes,scrollbars=yes,resizable=yes,copyhistory=no');
+root.location.href = location;
+} else {
+opener.location.href = location;
+   }
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+&lt;!-- STEP TWO: Save the gatekeeper image in your web page directory. --&gt;
+&lt;!-- ../img/gatekeeper/keeper.gif        --&gt;
+&lt;!-- click, hold, and 'Save Image As'  Place image in directory.     --&gt;
+
+&lt;!-- STEP THREE: Add BACKGROUND tag to page document  --&gt;
+
+&lt;BODY onLoad="top.window.focus()" BACKGROUND="http://your.domain.com/keeper.gif"&gt;
+
+&lt;!-- STEP FOUR: Copy this code into the BODY of document  --&gt;
+
+&lt;TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=100%&gt;
+&lt;TR&gt;
+&lt;TD ROWSPAN=2 WIDTH=50%&gt;
+&lt;TD WIDTH=50% ALIGN=CENTER VALIGN=MIDDLE&gt;
+&lt;FONT FACE="ARIAL" SIZE=2&gt;&lt;B&gt;Hold on there, buddy. You'll need a password to get in here. We're tryin' to keep out the riff-raff.&lt;/B&gt;&lt;/FONT&gt;&lt;BR&gt;
+&lt;TR&gt;
+&lt;TD WIDTH=50% ALIGN=CENTER VALIGN=BOTTOM&gt;
+&lt;CENTER&gt;
+&lt;FORM NAME="testform"&gt;
+&lt;INPUT TYPE="text" NAME="inputbox" VALUE="" size=20&gt;
+&lt;INPUT TYPE="button" NAME="button" Value="Submit Password" onClick="goForit(this.form)"&gt;
+&lt;P&gt;&lt;FONT SIZE=1 FACE="COMIC SANS MS"&gt;&lt;A HREF="http://yoursite.com/gatekeeper.html" TARGET="_blank"&gt;&lt;B&gt;The password is gatekeep-in&lt;/B&gt;&lt;/A&gt;&lt;/FONT&gt;
+&lt;/FORM&gt;
+&lt;/CENTER&gt;
+&lt;/TABLE&gt;
+
+ 
+
+&lt;!-- Script Size:  1.71 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

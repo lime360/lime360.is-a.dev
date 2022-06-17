@@ -1,0 +1,754 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Games:  Battleship</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Jason Hotchkiss (jasonhotchkiss@home.com)">
+<META NAME="section" CONTENT="Games">
+<META NAME="description" CONTENT="Enter into a naval battle against your computer.  But watch out, your adversary is not stupid!">
+
+<style type="text/css">
+.intro { font-size:10pt; font-style:italic }
+.heading { font-size:14pt; font-weight:bold; font-family:sans-serif }
+.title { font-size:18pt; font-weight:bold; background-color:navy; color:white; text-align:center; font-family:sans-serif }
+</style>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /games/"><font color="#FF0000"><b>Games</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Battleship</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Enter into a naval battle against your computer.  But watch out, your adversary is not stupid!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+Preload game images.... 
+<img src="../img/battleship/batt1.gif" /img/battleship/batt1.gif" width=16 height=16>
+<img src="../img/battleship/batt2.gif" /img/battleship/batt2.gif" width=16 height=16>
+<img src="../img/battleship/batt3.gif" /img/battleship/batt3.gif" width=16 height=16>
+<img src="../img/battleship/batt4.gif" /img/battleship/batt4.gif" width=16 height=16>
+<img src="../img/battleship/batt5.gif" /img/battleship/batt5.gif" width=16 height=16>
+<img src="../img/battleship/batt6.gif" /img/battleship/batt6.gif" width=16 height=16>
+<img src="../img/battleship/batt7.gif" /img/battleship/batt7.gif" width=16 height=16>
+<img src="../img/battleship/batt8.gif" /img/battleship/batt8.gif" width=16 height=16>
+<img src="../img/battleship/batt9.gif" /img/battleship/batt9.gif" width=16 height=16>
+<img src="../img/battleship/batt10.gif" /img/battleship/batt10.gif" width=16 height=16>
+<img src="../img/battleship/batt100.gif" /img/battleship/batt100.gif" width=16 height=16>
+<img src="../img/battleship/batt101.gif" /img/battleship/batt101.gif" width=16 height=16>
+<img src="../img/battleship/batt102.gif" /img/battleship/batt102.gif" width=16 height=16>
+<img src="../img/battleship/batt103.gif" /img/battleship/batt103.gif" width=16 height=16>
+<img src="../img/battleship/batt201.gif" /img/battleship/batt201.gif" width=16 height=16>
+<img src="../img/battleship/batt202.gif" /img/battleship/batt202.gif" width=16 height=16>
+<img src="../img/battleship/batt203.gif" /img/battleship/batt203.gif" width=16 height=16>
+<img src="../img/battleship/batt204.gif" /img/battleship/batt204.gif" width=16 height=16>
+<img src="../img/battleship/batt205.gif" /img/battleship/batt205.gif" width=16 height=16>
+<img src="../img/battleship/batt206.gif" /img/battleship/batt206.gif" width=16 height=16>
+<P>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Jason Hotchkiss (jasonhotchkiss@home.com) -->
+<!-- Web Site:  http://www.members.home.com/jasonhotchkiss -->
+
+
+
+
+<!-- Begin
+/* Information used to draw the ships
+*/
+var ship =  [[[1,5], [1,2,5], [1,2,3,5], [1,2,3,4,5]], [[6,10], [6,7,10], [6,7,8,10], [6,7,8,9,10]]];
+
+/* Information used to draw sunk ships
+*/
+var dead = [[[201,203], [201,202,203], [201,202,202,203], [201,202,202,202,203]], [[204,206], [204,205,206], [204,205,205,206], [204,205,205,205,206]]];
+
+/* Information used to describe ships
+*/
+var shiptypes = [["Minesweeper",2,4],["Frigate",3,4],[ "Cruiser",4,2],[ "Battleship",5,1]];
+
+var gridx = 16, gridy = 16;
+var player = [], computer = [], playersships = [], computersships = [];
+var playerlives = 0, computerlives = 0, playflag=true, statusmsg="";
+
+/* Function to preload all the images, to prevent delays during play
+*/
+var preloaded = [];
+function imagePreload() {
+var i,ids = [1,2,3,4,5,6,7,8,9,10,100,101,102,103,201,202,203,204,205,206];
+window.status = "Preloading images...please wait";
+for (i=0;i<ids.length;++i) {
+var img = new Image, name = "../img/battleship/batt"+ids[i]+".gif";
+img.src = name;
+preloaded[i] = img;
+}
+window.status = "";
+}
+
+/* Function to place the ships in the grid
+*/
+function setupPlayer(ispc) {
+var y,x;
+grid = [];
+for (y=0;y<gridx;++y) {
+grid[y] = [];
+for (x=0;x<gridx;++x)
+grid[y][x] = [100,-1,0];
+}
+
+var shipno = 0;
+var s;
+for (s=shiptypes.length-1;s>=0;--s) {
+var i;
+for (i=0;i<shiptypes[s][2];++i) {
+var d = Math.floor(Math.random()*2);
+var len = shiptypes[s][1], lx=gridx, ly=gridy, dx=0, dy=0;
+if ( d==0) {
+lx = gridx-len;
+dx=1;
+}
+else {
+ly = gridy-len;
+dy=1;
+}
+var x,y,ok;
+do {
+y = Math.floor(Math.random()*ly);
+x = Math.floor(Math.random()*lx);
+var j,cx=x,cy=y;
+ok = true;
+for (j=0;j<len;++j) {
+if (grid[cy][cx][0] < 100) {
+ok=false;
+break;
+}
+cx+=dx;
+cy+=dy;
+   }
+} while(!ok);
+var j,cx=x,cy=y;
+for (j=0;j<len;++j) {
+grid[cy][cx][0] = ship[d][s][j];
+grid[cy][cx][1] = shipno;
+grid[cy][cx][2] = dead[d][s][j];
+cx+=dx;
+cy+=dy;
+}
+if (ispc) {
+computersships[shipno] = [s,shiptypes[s][1]];
+computerlives++;
+}
+else {
+playersships[shipno] = [s,shiptypes[s][1]];
+playerlives++;
+}
+shipno++;
+   }
+}
+return grid;
+}
+
+/* Function to change an image shown on a grid
+*/
+function setImage(y,x,id,ispc) {
+if ( ispc ) {
+computer[y][x][0] = id;
+document.images["pc"+y+"_"+x].src = "../img/battleship/batt"+id+".gif";
+}
+else {
+player[y][x][0] = id;
+document.images["ply"+y+"_"+x].src = "../img/battleship/batt"+id+".gif";
+   }
+}
+
+/* Function to insert HTML source for a grid
+*/
+function showGrid(ispc) {
+var y,x;
+for (y=0;y<gridy;++y) {
+for (x=0;x<gridx;++x) {
+if ( ispc )
+document.write ('<a href="javascript:gridClick('+y+','+x+');"><img name="pc'+y+'_'+x+'" src="../img/battleship/batt100.gif" width=16 height=16></a>');
+else
+document.write ('<a href="javascript:void(0);"><img name="ply'+y+'_'+x+'" src="../img/battleship/batt'+player[y][x][0]+'.gif" width=16 height=16></a>');
+}
+document.write('<br>');
+   }
+}
+
+/* Handler for clicking on the grid
+*/
+function gridClick(y,x) {
+if ( playflag ) {
+if (computer[y][x][0] < 100) {
+setImage(y,x,103,true);
+var shipno = computer[y][x][1];
+if ( --computersships[shipno][1] == 0 ) {
+sinkShip(computer,shipno,true);
+alert("You sank my "+shiptypes[computersships[shipno][0]][0]+"!");
+updateStatus();
+if ( --computerlives == 0 ) {
+alert("You win! Press the Refresh button on\n"+
+"your browser to play another game.");
+playflag = false;
+}
+   }
+if ( playflag ) computerMove();
+}
+else if (computer[y][x][0] == 100) {
+setImage(y,x,102,true);
+computerMove();
+      }
+   }
+}
+
+/* Function to make the computers move. Note that the computer does not cheat, oh no!
+*/
+function computerMove() {
+var x,y,pass;
+var sx,sy;
+var selected = false;
+
+/* Make two passes during 'shoot to kill' mode
+*/
+for (pass=0;pass<2;++pass) {
+for (y=0;y<gridy && !selected;++y) {
+for (x=0;x<gridx && !selected;++x) {
+/* Explosion shown at this position
+*/
+if (player[y][x][0]==103) {
+sx=x; sy=y;
+var nup=(y>0 && player[y-1][x][0]<=100);
+var ndn=(y<gridy-1 && player[y+1][x][0]<=100);
+var nlt=(x>0 && player[y][x-1][0]<=100);
+var nrt=(x<gridx-1 && player[y][x+1][0]<=100);
+if ( pass == 0 ) {
+/* On first pass look for two explosions
+   in a row - next shot will be inline
+*/
+var yup=(y>0 && player[y-1][x][0]==103);
+var ydn=(y<gridy-1 && player[y+1][x][0]==103);
+var ylt=(x>0 && player[y][x-1][0]==103);
+var yrt=(x<gridx-1 && player[y][x+1][0]==103);
+if ( nlt && yrt) { sx = x-1; selected=true; }
+else if ( nrt && ylt) { sx = x+1; selected=true; }
+else if ( nup && ydn) { sy = y-1; selected=true; }
+else if ( ndn && yup) { sy = y+1; selected=true; }
+}
+else {
+/* Second pass look for single explosion - 
+   fire shots all around it
+*/
+if ( nlt ) { sx=x-1; selected=true; }
+else if ( nrt ) { sx=x+1; selected=true; }
+else if ( nup ) { sy=y-1; selected=true; }
+else if ( ndn ) { sy=y+1; selected=true; }
+            }
+         }
+      }
+   }
+}
+if ( !selected ) {
+/* Nothing found in 'shoot to kill' mode, so we're just taking
+   potshots. Random shots are in a chequerboard pattern for 
+   maximum efficiency, and never twice in the same place
+*/
+do{
+sy = Math.floor(Math.random() * gridy);
+sx = Math.floor(Math.random() * gridx/2)*2+sy%2;
+} while( player[sy][sx][0]>100 );
+}
+if (player[sy][sx][0] < 100) {
+/* Hit something
+*/
+setImage(sy,sx,103,false);
+var shipno = player[sy][sx][1];
+if ( --playersships[shipno][1] == 0 ) {
+sinkShip(player,shipno,false);
+alert("I sank your "+shiptypes[playersships[shipno][0]][0]+"!");
+if ( --playerlives == 0 ) {
+knowYourEnemy();
+alert("I win! Press the Refresh button on\n"+
+"your browser to play another game.");
+playflag = false;
+      }
+   }
+}
+else {
+/* Missed
+*/
+setImage(sy,sx,102,false);
+   }
+}
+
+/* When whole ship is hit, show it using changed graphics
+*/
+function sinkShip(grid,shipno,ispc) {
+var y,x;
+for (y=0;y<gridx;++y) {
+for (x=0;x<gridx;++x) {
+if ( grid[y][x][1] == shipno )
+if (ispc) setImage(y,x,computer[y][x][2],true);
+else setImage(y,x,player[y][x][2],false);
+      }
+   }
+}
+
+/* Show location of all the computers ships - when player has lost
+*/
+function knowYourEnemy() {
+var y,x;
+for (y=0;y<gridx;++y) {
+for (x=0;x<gridx;++x) {
+if ( computer[y][x][0] == 103 )
+setImage(y,x,computer[y][x][2],true);
+else if ( computer[y][x][0] < 100 )
+setImage(y,x,computer[y][x][0],true);
+      }
+   }
+}
+
+/* Show how many ships computer has left
+*/
+function updateStatus() {
+var f=false,i,s = "Computer has ";
+for (i=0;i<computersships.length;++i) {
+if (computersships[i][1] > 0) {
+if (f) s=s+", "; else f=true;
+s = s + shiptypes[computersships[i][0]][0];
+   }
+}
+if (!f) s = s + "nothing left, thanks to you!";
+statusmsg = s;
+window.status = statusmsg;
+}
+function setStatus() {
+window.status = statusmsg;
+}
+/* Start the game!
+*/
+imagePreload();
+player = setupPlayer(false);
+computer = setupPlayer(true);
+document.write("<center><table><tr><td align=center><p class='heading'>COMPUTER'S FLEET</p></td>"+
+"<td align=center><p class='heading'>PLAYER'S FLEET</p></td></tr><tr><td>");
+showGrid(true);
+document.write("</td><td>");
+showGrid(false);
+document.write("</td></tr></table></center>");
+updateStatus();
+setInterval("setStatus();", 500);
+//  End -->
+</script>
+<br><br>
+<table border=0 width=486><tr><td>
+<p class="intro">"...We have located the enemy fleet under the command of Admiral Komp&uuml;ter,
+but do not yet have visual contact. We suggest the best course of action is to fire
+at random into their vicinity and listen for the impact of the shells...</p>
+<p class="intro">...Our intelligence sources indicate the composition of the enemy fleet is the same 
+as our own, and has likewise been forced to resort to the same tactics as ourselves. In accordance with 
+the rules of war, fire will be exchanged one shell at a time and vessels lost will be announced 
+immediately...</p>
+<p class="intro">...As per your orders you have been placed directly in command of the fleet's guns. Select the target
+location by clicking in the left-hand grid above. The right hand grid shows the status of our own fleet.
+Information as to the remaining strength of the enemy will be relayed directly to your status bar...</p>
+<p class="intro">...We believe this battle will not be over until one or other fleet is sunk in it's entirety. Our gunners 
+await your commands. We're counting on you, Sir..."</p>
+</td></tr></table>
+<p><br>
+<center><font face="arial, helvetica" size="-1"><b>
+You need the <a href="../img/battleship/battleship.zip" /img/battleship/battleship.zip">battleship.zip</a> images to use this script on your site!  Click this link!</b>
+</font></center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Games:  Battleship</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  9.06 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL BATTLESHIP:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document
+  3.  Save the battleship images into your web site directory  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;style type="text/css"&gt;
+.intro { font-size:10pt; font-style:italic }
+.heading { font-size:14pt; font-weight:bold; font-family:sans-serif }
+.title { font-size:18pt; font-weight:bold; background-color:navy; color:white; text-align:center; font-family:sans-serif }
+&lt;/style&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Jason Hotchkiss (jasonhotchkiss@home.com) --&gt;
+&lt;!-- Web Site:  http://www.members.home.com/jasonhotchkiss --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+/* Information used to draw the ships
+*/
+var ship =  [[[1,5], [1,2,5], [1,2,3,5], [1,2,3,4,5]], [[6,10], [6,7,10], [6,7,8,10], [6,7,8,9,10]]];
+
+/* Information used to draw sunk ships
+*/
+var dead = [[[201,203], [201,202,203], [201,202,202,203], [201,202,202,202,203]], [[204,206], [204,205,206], [204,205,205,206], [204,205,205,205,206]]];
+
+/* Information used to describe ships
+*/
+var shiptypes = [["Minesweeper",2,4],["Frigate",3,4],[ "Cruiser",4,2],[ "Battleship",5,1]];
+
+var gridx = 16, gridy = 16;
+var player = [], computer = [], playersships = [], computersships = [];
+var playerlives = 0, computerlives = 0, playflag=true, statusmsg="";
+
+/* Function to preload all the images, to prevent delays during play
+*/
+var preloaded = [];
+function imagePreload() {
+var i,ids = [1,2,3,4,5,6,7,8,9,10,100,101,102,103,201,202,203,204,205,206];
+window.status = "Preloading images...please wait";
+for (i=0;i&lt;ids.length;++i) {
+var img = new Image, name = "batt"+ids[i]+".gif";
+img.src = name;
+preloaded[i] = img;
+}
+window.status = "";
+}
+
+/* Function to place the ships in the grid
+*/
+function setupPlayer(ispc) {
+var y,x;
+grid = [];
+for (y=0;y&lt;gridx;++y) {
+grid[y] = [];
+for (x=0;x&lt;gridx;++x)
+grid[y][x] = [100,-1,0];
+}
+
+var shipno = 0;
+var s;
+for (s=shiptypes.length-1;s&gt;=0;--s) {
+var i;
+for (i=0;i&lt;shiptypes[s][2];++i) {
+var d = Math.floor(Math.random()*2);
+var len = shiptypes[s][1], lx=gridx, ly=gridy, dx=0, dy=0;
+if ( d==0) {
+lx = gridx-len;
+dx=1;
+}
+else {
+ly = gridy-len;
+dy=1;
+}
+var x,y,ok;
+do {
+y = Math.floor(Math.random()*ly);
+x = Math.floor(Math.random()*lx);
+var j,cx=x,cy=y;
+ok = true;
+for (j=0;j&lt;len;++j) {
+if (grid[cy][cx][0] &lt; 100) {
+ok=false;
+break;
+}
+cx+=dx;
+cy+=dy;
+   }
+} while(!ok);
+var j,cx=x,cy=y;
+for (j=0;j&lt;len;++j) {
+grid[cy][cx][0] = ship[d][s][j];
+grid[cy][cx][1] = shipno;
+grid[cy][cx][2] = dead[d][s][j];
+cx+=dx;
+cy+=dy;
+}
+if (ispc) {
+computersships[shipno] = [s,shiptypes[s][1]];
+computerlives++;
+}
+else {
+playersships[shipno] = [s,shiptypes[s][1]];
+playerlives++;
+}
+shipno++;
+   }
+}
+return grid;
+}
+
+/* Function to change an image shown on a grid
+*/
+function setImage(y,x,id,ispc) {
+if ( ispc ) {
+computer[y][x][0] = id;
+document.images["pc"+y+"_"+x].src = "batt"+id+".gif";
+}
+else {
+player[y][x][0] = id;
+document.images["ply"+y+"_"+x].src = "batt"+id+".gif";
+   }
+}
+
+/* Function to insert HTML source for a grid
+*/
+function showGrid(ispc) {
+var y,x;
+for (y=0;y&lt;gridy;++y) {
+for (x=0;x&lt;gridx;++x) {
+if ( ispc )
+document.write ('&lt;a href="javascript:gridClick('+y+','+x+');"&gt;&lt;img name="pc'+y+'_'+x+'" src="batt100.gif" width=16 height=16&gt;&lt;/a&gt;');
+else
+document.write ('&lt;a href="javascript:void(0);"&gt;&lt;img name="ply'+y+'_'+x+'" src="batt'+player[y][x][0]+'.gif" width=16 height=16&gt;&lt;/a&gt;');
+}
+document.write('&lt;br&gt;');
+   }
+}
+
+/* Handler for clicking on the grid
+*/
+function gridClick(y,x) {
+if ( playflag ) {
+if (computer[y][x][0] &lt; 100) {
+setImage(y,x,103,true);
+var shipno = computer[y][x][1];
+if ( --computersships[shipno][1] == 0 ) {
+sinkShip(computer,shipno,true);
+alert("You sank my "+shiptypes[computersships[shipno][0]][0]+"!");
+updateStatus();
+if ( --computerlives == 0 ) {
+alert("You win! Press the Refresh button on\n"+
+"your browser to play another game.");
+playflag = false;
+}
+   }
+if ( playflag ) computerMove();
+}
+else if (computer[y][x][0] == 100) {
+setImage(y,x,102,true);
+computerMove();
+      }
+   }
+}
+
+/* Function to make the computers move. Note that the computer does not cheat, oh no!
+*/
+function computerMove() {
+var x,y,pass;
+var sx,sy;
+var selected = false;
+
+/* Make two passes during 'shoot to kill' mode
+*/
+for (pass=0;pass&lt;2;++pass) {
+for (y=0;y&lt;gridy && !selected;++y) {
+for (x=0;x&lt;gridx && !selected;++x) {
+/* Explosion shown at this position
+*/
+if (player[y][x][0]==103) {
+sx=x; sy=y;
+var nup=(y&gt;0 && player[y-1][x][0]&lt;=100);
+var ndn=(y&lt;gridy-1 && player[y+1][x][0]&lt;=100);
+var nlt=(x&gt;0 && player[y][x-1][0]&lt;=100);
+var nrt=(x&lt;gridx-1 && player[y][x+1][0]&lt;=100);
+if ( pass == 0 ) {
+/* On first pass look for two explosions
+   in a row - next shot will be inline
+*/
+var yup=(y&gt;0 && player[y-1][x][0]==103);
+var ydn=(y&lt;gridy-1 && player[y+1][x][0]==103);
+var ylt=(x&gt;0 && player[y][x-1][0]==103);
+var yrt=(x&lt;gridx-1 && player[y][x+1][0]==103);
+if ( nlt && yrt) { sx = x-1; selected=true; }
+else if ( nrt && ylt) { sx = x+1; selected=true; }
+else if ( nup && ydn) { sy = y-1; selected=true; }
+else if ( ndn && yup) { sy = y+1; selected=true; }
+}
+else {
+/* Second pass look for single explosion - 
+   fire shots all around it
+*/
+if ( nlt ) { sx=x-1; selected=true; }
+else if ( nrt ) { sx=x+1; selected=true; }
+else if ( nup ) { sy=y-1; selected=true; }
+else if ( ndn ) { sy=y+1; selected=true; }
+            }
+         }
+      }
+   }
+}
+if ( !selected ) {
+/* Nothing found in 'shoot to kill' mode, so we're just taking
+   potshots. Random shots are in a chequerboard pattern for 
+   maximum efficiency, and never twice in the same place
+*/
+do{
+sy = Math.floor(Math.random() * gridy);
+sx = Math.floor(Math.random() * gridx/2)*2+sy%2;
+} while( player[sy][sx][0]&gt;100 );
+}
+if (player[sy][sx][0] &lt; 100) {
+/* Hit something
+*/
+setImage(sy,sx,103,false);
+var shipno = player[sy][sx][1];
+if ( --playersships[shipno][1] == 0 ) {
+sinkShip(player,shipno,false);
+alert("I sank your "+shiptypes[playersships[shipno][0]][0]+"!");
+if ( --playerlives == 0 ) {
+knowYourEnemy();
+alert("I win! Press the Refresh button on\n"+
+"your browser to play another game.");
+playflag = false;
+      }
+   }
+}
+else {
+/* Missed
+*/
+setImage(sy,sx,102,false);
+   }
+}
+
+/* When whole ship is hit, show it using changed graphics
+*/
+function sinkShip(grid,shipno,ispc) {
+var y,x;
+for (y=0;y&lt;gridx;++y) {
+for (x=0;x&lt;gridx;++x) {
+if ( grid[y][x][1] == shipno )
+if (ispc) setImage(y,x,computer[y][x][2],true);
+else setImage(y,x,player[y][x][2],false);
+      }
+   }
+}
+
+/* Show location of all the computers ships - when player has lost
+*/
+function knowYourEnemy() {
+var y,x;
+for (y=0;y&lt;gridx;++y) {
+for (x=0;x&lt;gridx;++x) {
+if ( computer[y][x][0] == 103 )
+setImage(y,x,computer[y][x][2],true);
+else if ( computer[y][x][0] &lt; 100 )
+setImage(y,x,computer[y][x][0],true);
+      }
+   }
+}
+
+/* Show how many ships computer has left
+*/
+function updateStatus() {
+var f=false,i,s = "Computer has ";
+for (i=0;i&lt;computersships.length;++i) {
+if (computersships[i][1] &gt; 0) {
+if (f) s=s+", "; else f=true;
+s = s + shiptypes[computersships[i][0]][0];
+   }
+}
+if (!f) s = s + "nothing left, thanks to you!";
+statusmsg = s;
+window.status = statusmsg;
+}
+function setStatus() {
+window.status = statusmsg;
+}
+/* Start the game!
+*/
+imagePreload();
+player = setupPlayer(false);
+computer = setupPlayer(true);
+document.write("&lt;center&gt;&lt;table&gt;&lt;tr&gt;&lt;td align=center&gt;&lt;p class='heading'&gt;COMPUTER'S FLEET&lt;/p&gt;&lt;/td&gt;"+
+"&lt;td align=center&gt;&lt;p class='heading'&gt;PLAYER'S FLEET&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;");
+showGrid(true);
+document.write("&lt;/td&gt;&lt;td&gt;");
+showGrid(false);
+document.write("&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/center&gt;");
+updateStatus();
+setInterval("setStatus();", 500);
+//  End --&gt;
+&lt;/script&gt;
+
+&lt;p class="intro"&gt;"...We have located the enemy fleet under the command of Admiral Komp&uuml;ter,
+but do not yet have visual contact. We suggest the best course of action is to fire
+at random into their vicinity and listen for the impact of the shells...&lt;/p&gt;
+&lt;p class="intro"&gt;...Our intelligence sources indicate the composition of the enemy fleet is the same 
+as our own, and has likewise been forced to resort to the same tactics as ourselves. In accordance with 
+the rules of war, fire will be exchanged one shell at a time and vessels lost will be announced 
+immediately...&lt;/p&gt;
+&lt;p class="intro"&gt;...As per your orders you have been placed directly in command of the fleet's guns. Select the target
+location by clicking in the left-hand grid above. The right hand grid shows the status of our own fleet.
+Information as to the remaining strength of the enemy will be relayed directly to your status bar...&lt;/p&gt;
+&lt;p class="intro"&gt;...We believe this battle will not be over until one or other fleet is sunk in it's entirety. Our gunners 
+await your commands. We're counting on you, Sir..."&lt;/p&gt;
+
+&lt;!-- STEP THREE: Save the battleship images into your web site directory
+
+You can get the zip file by going to
+
+../img/battleship/battleship.zip
+
+then unzip the images and upload to your site.  --&gt;
+
+ 
+
+&lt;!-- Script Size:  9.06 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

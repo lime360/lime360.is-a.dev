@@ -1,0 +1,183 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Forms:  Time Out</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="Limit the time allowed for form input with this short script.  Easy!">
+<META NAME="date" CONTENT="2000-12-21">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Sergio Mottura">
+<META NAME="section" CONTENT="Forms">
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Sergio Mottura (sergio1@onebox.com) -->
+<!-- Web Site:  http://www.bassprotips.com -->
+<!-- Modified:  Benjamin Wright, Editor -->
+
+
+
+
+<!-- Begin
+var i = 0;
+var done = 0;
+var totalSecs = 10;
+function SecondPast() {
+if(totalSecs != null) timerId = setTimeout("SecondPast()", 1000);
+if(i < totalSecs) {
+i += 1;
+document.clock.seconds.value = totalSecs - i;
+   }
+}
+function doSub() {
+if(i < totalSecs) {
+alert("The form would have been submitted.");
+done = true;
+}
+else {
+alert("Sorry, you exceeded the time limit.");
+done = false;
+}
+return done;
+}
+//  End -->
+</script>
+
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff onLoad="SecondPast()">
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /forms/" ><font color="#FF0000"><b>Forms</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Time Out</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Limit the time allowed for form input with this short script.  Easy!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+(Refresh browser to restart counter.)
+<br>
+<form name="clock" onSubmit="return doSub();">
+Time Remaining: 
+<input type=text name="seconds" value="0" size=6>
+<br>
+<br>
+<input type=textbox name="info" value="Text to submit">
+<input type=submit value="Submit">
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Forms:  Time Out</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Command-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.71 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL TIME OUT:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the onLoad event handler into the BODY tag
+  3.  Put the last coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Sergio Mottura (sergio1@onebox.com) --&gt;
+&lt;!-- Web Site:  http://www.bassprotips.com --&gt;
+&lt;!-- Modified:  Benjamin Wright, Editor --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var i = 0;
+var done = 0;
+var totalSecs = 10;
+function SecondPast() {
+if(totalSecs != null) timerId = setTimeout("SecondPast()", 1000);
+if(i &lt; totalSecs) {
+i += 1;
+document.clock.seconds.value = totalSecs - i;
+   }
+}
+function doSub() {
+if(i &lt; totalSecs) {
+done = true;
+}
+else {
+alert("Sorry, you exceeded the time limit.");
+done = false;
+}
+return done;
+}
+//  End --&gt;
+&lt;/script&gt;
+
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Insert the onLoad event handler into your BODY tag  --&gt;
+
+&lt;BODY onLoad="SecondPast()"&gt;
+
+&lt;!-- STEP THREE: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;center&gt;
+&lt;form name="clock" onSubmit="return doSub();"&gt;
+Time Remaining: 
+&lt;input type=text name="seconds" value="0" size=6&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;input type=textbox name="info" value="Test to submit"&gt;
+&lt;input type=submit value="Submit"&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  1.71 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

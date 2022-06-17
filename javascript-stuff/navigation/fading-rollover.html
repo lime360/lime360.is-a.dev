@@ -1,0 +1,215 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Navigation:  Fading Rollover</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Navigation">
+<META NAME="description" CONTENT="Uses OnMouseOver and OnMouseOut events with a series of images to create a fade effect.  Recently re-written to be more efficient and cross-browser compatible with Netscape and Internet Explorer.  Stunning!">
+
+<SCRIPT LANGUAGE="JavaScript">
+
+
+
+
+<!-- Begin
+var maximages = 6; // how many fade images do you have?
+var fadespeed = 125; // fade frame time in milliseconds;  125 = 125 ms
+
+var fadeintimer;
+var fadeouttimer;
+var fadeincount = 0;
+var fadeoutcount = maximages-1;
+var fadearray = new Array(maximages);  // enter all the fade images here
+// the first item should be 0, then numbered through 1 less than your maximages
+
+fadearray[0] = "../img/fading-rollover/fade00.jpg";
+fadearray[1] = "../img/fading-rollover/fade01.jpg";
+fadearray[2] = "../img/fading-rollover/fade02.jpg";
+fadearray[3] = "../img/fading-rollover/fade03.jpg";
+fadearray[4] = "../img/fading-rollover/fade04.jpg";
+fadearray[5] = "../img/fading-rollover/fade05.jpg";
+
+for (var i = 0; i < maximages; i++) {
+eval('pic' + i + ' = new Image();');
+eval('pic' + i + '.src = fadearray[i];'); // preloads fade images
+}
+function fade_in() {
+clearTimeout(fadeouttimer);
+document.images['fade-pic'].src = fadearray[fadeincount];
+if (fadeincount != maximages-1) {
+fadeincount++;
+fadeintimer = setTimeout('fade_in()', fadespeed);
+}
+else {
+clearTimeout(fadeintimer);
+fadeincount = 0;
+   }
+}
+function fade_out() {
+clearTimeout(fadeintimer);
+document.images['fade-pic'].src = fadearray[fadeoutcount];
+if (fadeoutcount != 0) {
+fadeoutcount--;
+fadeouttimer = setTimeout('fade_out()', fadespeed);
+}
+else {
+clearTimeout(fadeouttimer);
+fadeoutcount = maximages-1;
+   }
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /navigation/"><font color="#FF0000"><b>Navigation</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Fading Rollover</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Uses OnMouseOver and OnMouseOut events with a series of images to create a fade effect.  Recently re-written to be more efficient and cross-browser compatible with Netscape and Internet Explorer.  Stunning!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<a href="javascript:if(confirm('http://javascriptsource.com/  \n\nYou must be connected to the Internet to access this link.  \n\nDo you want to open it from the server?'))window.location='http://javascriptsource.com/'" tppabs="http://javascriptsource.com/" onmouseover="fade_in()" onmouseout="fade_out()">
+<img src="../img/fading-rollover/icontop.gif" /img/fading-rollover/icontop.gif" border=0><br>
+<img name="fade-pic" height=56 width=300 border=0 src="../img/fading-rollover/fade00.jpg" /img/fading-rollover/fade00.jpg"><br>
+<img src="../img/fading-rollover/iconbtm.gif" /img/fading-rollover/iconbtm.gif" border=0><br></a>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Navigation:  Fading Rollover</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.49 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL FADING ROLLOVER:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var maximages = 6; // how many fade images do you have?
+var fadespeed = 125; // fade frame time in milliseconds;  125 = 125 ms
+
+var fadeintimer;
+var fadeouttimer;
+var fadeincount = 0;
+var fadeoutcount = maximages-1;
+var fadearray = new Array(maximages);  // enter all the fade images here
+// the first item should be 0, then numbered through 1 less than your maximages
+
+fadearray[0] = "../img/fading-rollover/fade00.jpg";
+fadearray[1] = "../img/fading-rollover/fade01.jpg";
+fadearray[2] = "../img/fading-rollover/fade02.jpg";
+fadearray[3] = "../img/fading-rollover/fade03.jpg";
+fadearray[4] = "../img/fading-rollover/fade04.jpg";
+fadearray[5] = "../img/fading-rollover/fade05.jpg";
+
+for (var i = 0; i &lt; maximages; i++) {
+eval('pic' + i + ' = new Image();');
+eval('pic' + i + '.src = fadearray[i];'); // preloads fade images
+}
+function fade_in() {
+clearTimeout(fadeouttimer);
+document.images['fade-pic'].src = fadearray[fadeincount];
+if (fadeincount != maximages-1) {
+fadeincount++;
+fadeintimer = setTimeout('fade_in()', fadespeed);
+}
+else {
+clearTimeout(fadeintimer);
+fadeincount = 0;
+   }
+}
+function fade_out() {
+clearTimeout(fadeintimer);
+document.images['fade-pic'].src = fadearray[fadeoutcount];
+if (fadeoutcount != 0) {
+fadeoutcount--;
+fadeouttimer = setTimeout('fade_out()', fadespeed);
+}
+else {
+clearTimeout(fadeouttimer);
+fadeoutcount = maximages-1;
+   }
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;a href="http://javascriptsource.com" onmouseover="fade_in()" onmouseout="fade_out()"&gt;
+&lt;img src="../img/fading-rollover/icontop.gif" border=0&gt;&lt;br&gt;
+&lt;img name="fade-pic" height=56 width=300 border=0 src="../img/fading-rollover/fade00.jpg"&gt;&lt;br&gt;
+&lt;img src="../img/fading-rollover/iconbtm.gif" border=0&gt;&lt;br&gt;&lt;/a&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  2.49 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>
+
+
+

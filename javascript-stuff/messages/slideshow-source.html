@@ -1,0 +1,136 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Messages:  Slideshow (Source)</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Messages">
+<META NAME="description" CONTENT="Here is our absolute favorite script, the slideshow.  I'm sure it caught your attention!  You can customize it (change the messages, destination page, background color, etc.) to suit your needs!  Great script to use as the introduction to your site!  And, it works inside frames!">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /messages/"><font color="#FF0000">Messages</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Slideshow (Source)</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE=" helvetica,arial,geneva">
+
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Here is our absolute favorite script, the slideshow.  I'm sure it caught your attention!  You can customize it (change the messages, destination page, background color, etc.) to suit your needs!  Great script to use as the introduction to your site!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<P>
+<center>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Messages:  Slideshow Script</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE=" Script Size:  1.68 KB " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL SLIDESHOW:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var background = "black";
+var text = "white";
+var URL = "http://www.yoursite.com/next-page.html";
+var speed = 4000; // time in milliseconds (4000 = 4 secs)
+var msgcount = 5;
+
+var i = 1;
+var blank = " ";
+ 
+function StringArray (n) {
+this.length = n;
+for (var x = 1; x &lt;= n; x++) {
+this[x] = ' ';
+   }
+}
+ 
+message = new StringArray(msgcount);
+message[1] = "Check out this JavaScript Slideshow!!";
+message[2] = "Yet another cool effect that...";
+message[3] = "you can easily add to your web pages.";
+message[4] = "Why don't you put it on your site?";
+message[5] = "Don't forget, there are still&lt;br&gt;lots more scripts to check out!";
+ 
+function Slide() { 
+slidepage = '&lt;body bgcolor='+background+'&gt;'
++ '&lt;center&gt;&lt;table border=0 '
++ 'height=100%&gt;&lt;tr&gt;&lt;td&gt;&lt;center&gt;&lt;b&gt;&lt;font '
++ 'color='+text+' size=6&gt;'+message[i]+'&lt;/font&gt;&lt;/b&gt;'
++ '&lt;/center&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/center&gt;&lt;/body&gt;';
+ 
+if (i == message.length + 1) parent.location = URL;
+ 
+if (i &lt; message.length + 1) { 
+frames['slideshow'].location = "javascript:parent.slidepage";
+i++;
+setTimeout("Slide()",speed);
+   }
+}
+// End --&gt;
+&lt;/script&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;frameset border="0" rows="100%,*" onload="Slide()"&gt;
+&lt;frame name="slideshow" src="javascript:parent.blank"&gt;
+&lt;/frameset&gt;
+
+ 
+
+&lt;!-- Script Size:  1.68 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

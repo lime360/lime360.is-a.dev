@@ -1,0 +1,183 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Forms:  Image Dimensions</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Ronnie T. Moore, Editor">
+<META NAME="section" CONTENT="Forms">
+<META NAME="description" CONTENT="Grabs the dimensions of the image at any URL the user enters.  If no image is found or the URL does not exist, an error message is shown.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Ronnie T. Moore, Editor -->
+
+
+
+
+<!-- Begin
+function checkImage(loc) {
+loc = "image-dimensions-popup.html?" + loc;
+windowprops = 'menubar=0,toolbar=0,status=0,location=0';
+popupWindow = open(loc, 'previewWin', windowprops);
+if (popupWindow.opener == null) 
+popupWindow.opener = self;
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /forms/" ><font color="#FF0000"><b>Forms</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Image Dimensions</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Grabs the dimensions of the image at any URL the user enters.  If no image is found or the URL does not exist, an error message is shown.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name=dimform>
+Please enter the image's full URL (including http://):<br>
+<input type=text name=url size=40 value="../img/logo.gif">
+<input type=button value="OK" onClick="checkImage(this.form.url.value);">
+<p>
+Dimensions:<p>
+width = <input type=text name=width><br>
+height = <input type=text name=height>
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Forms:  Image Dimensions</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.11 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL IMAGE DIMENSIONS:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document
+  3.  Save the last complete HTML file as:  image-popup.html  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Ronnie T. Moore, Editor --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function checkImage(loc) {
+loc = "image-popup.html?" + loc;
+windowprops = 'menubar=0,toolbar=0,status=0,location=0';
+popupWindow = open(loc, 'previewWin', windowprops);
+if (popupWindow.opener == null) 
+popupWindow.opener = self;
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form name=dimform&gt;
+Please enter the image's full URL (including http://):&lt;br&gt;
+&lt;input type=text name=url size=40 value="http://"&gt;
+&lt;input type=button value="OK" onClick="checkImage(this.form.url.value);"&gt;
+&lt;p&gt;
+Dimensions:&lt;p&gt;
+width = &lt;input type=text name=width&gt;&lt;br&gt;
+height = &lt;input type=text name=height&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+&lt;!-- STEP THREE: Save this last file as image-popup.html  --&gt;
+
+&lt;HTML&gt;
+&lt;HEAD&gt;
+&lt;SCRIPT LANGUAGE="JavaScript1.1"&gt;
+&lt;!-- Begin
+imageerror = 0;
+function allDone() {
+width = (!imageerror) ? document.images[0].width : "error";
+height = (!imageerror) ? document.images[0].height : "error";
+opener.document.dimform.width.value = width;
+opener.document.dimform.height.value = height;
+timerID = window.setTimeout('window.close();', 2000);
+}
+function complain() {
+imageerror = 1;
+alert('Error loading that image.  Please correct the image URL and try again.');
+timerID = window.setTimeout('window.close();', 2000);}
+// End --&gt;
+&lt;/SCRIPT&gt;
+&lt;/HEAD&gt;
+&lt;BODY onLoad="allDone();"&gt;
+&lt;script language="JavaScript"&gt;
+&lt;!-- Begin
+query = location.search;
+url = query.substring(1, query.length);
+document.write("&lt;img src='" + url + "' onError='complain();'&gt;");
+// End --&gt;
+&lt;/script&gt;
+&lt;P&gt;
+Loading image....  Reading dimensions....
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+
+ 
+
+&lt;!-- Script Size:  2.11 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

@@ -1,0 +1,209 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Navigation:  Portable Menu</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Navigation">
+<META NAME="description" CONTENT="On your site, it's often useful to have a navigation menu for visitors to help them get around on your site.  This navigation menu, however, is different.  As the visitor scrolls up and down your site, the menu moves up and down with them!  It's a portable menu!  (The only concern when adding this to your site is to make sure you move the regular content on your site over enough that the portable menu won't cover it)  Great!">
+
+<SCRIPT LANGUAGE="JavaScript">
+
+
+
+
+<!-- Begin
+function setVariables() {
+if (navigator.appName == "Netscape") {
+v=".top=";
+dS="document.";
+sD="";
+y="window.pageYOffset";
+}
+else {
+v=".pixelTop=";
+dS="";
+sD=".style";
+y="document.body.scrollTop";
+   }
+}
+function checkLocation() {
+object="object1";
+yy=eval(y);
+eval(dS+object+sD+v+yy);
+setTimeout("checkLocation()",10);
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff OnLoad="setVariables();checkLocation()">
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /navigation/"><font color="#FF0000"><b>Navigation</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Portable Menu</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+On your site, it's often useful to have a navigation menu for visitors to help them get around on your site.  This navigation menu, however, is different.  As the visitor scrolls up and down your site, the menu moves up and down with them!  It's a portable menu!  (The only concern when adding this to your site is to make sure you move the regular content on your site over enough that the portable menu won't cover it)  Great!
+<hr>
+</td></tr>
+</table>
+</center>
+<!-- Demonstration -->
+<div id="object1" style="position:absolute; visibility:show; left:0px; top:0px; z-index:2">
+
+<table width=130 border=0 cellspacing=20 cellpadding=0>
+<tr>
+<td><CENTER>Menu Bar</CENTER></td>
+</tr>
+<tr>
+<td><a href="http://www.yahoo.com">Yahoo</a></td>
+</tr>
+<tr>
+<td><a href="http://www.excite.com">Excite</a></td>
+</tr>
+<tr>
+<td><a href="http://www.altavista.com">Altavista</a></td>
+</tr>
+<tr>
+<td><a href="http://www.hotbot.com">Hotbot</a></td>
+</tr>
+</table>
+</div>
+<center>
+Notice how the menu moves with you<br>
+when you scroll up and down the page!<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Navigation:  Portable Menu</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.69 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL PORTABLE MENU:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the onLoad event handler into the BODY tag
+  3.  Put the last coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function setVariables() {
+if (navigator.appName == "Netscape") {
+v=".top=";
+dS="document.";
+sD="";
+y="window.pageYOffset";
+}
+else {
+v=".pixelTop=";
+dS="";
+sD=".style";
+y="document.body.scrollTop";
+   }
+}
+function checkLocation() {
+object="object1";
+yy=eval(y);
+eval(dS+object+sD+v+yy);
+setTimeout("checkLocation()",10);
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Insert the onLoad event handler into your BODY tag  --&gt;
+
+<BODY OnLoad="setVariables();checkLocation()">
+
+&lt;!-- STEP THREE: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;div id="object1" style="position:absolute; visibility:show; left:0px; top:0px; z-index:2"&gt;
+
+&lt;table width=130 border=0 cellspacing=20 cellpadding=0&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;CENTER&gt;Menu Bar&lt;/CENTER&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="../index.html" &gt;Home Page&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="../new.html" &gt;What's New?&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="../forum/" &gt;JavaScript Forum&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="../feedback.html" &gt;Site Feedback&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td width=130&gt;
+&lt;font color="white"&gt;&nbsp;&lt;/font&gt;
+&lt;/td&gt;
+
+&lt;td&gt;
+
+The rest of your site goes here
+
+&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+
+ 
+
+&lt;!-- Script Size:  1.69 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

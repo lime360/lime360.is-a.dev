@@ -1,0 +1,246 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Equivalents:  ASCII Engine</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Christopher Nielsen (chris@bluegalaxy.net)">
+<META NAME="section" CONTENT="Equivalents">
+<META NAME="description" CONTENT="Enter any keyboard character and the Ascii Engine outputs the character's equivalent in Ascii Decimal, Ascii Hex, and even binary.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Christopher Nielsen (chris@bluegalaxy.net) -->
+<!-- Web Site:  http://www.bluegalaxy.net -->
+
+
+
+
+<!-- Begin
+binary_numbers = new Array("0000", "0001", "0010", "0011", "0100", "0101", 
+"0110", "0111", "1000", "1001", "1010", "1011", "1100", "1101", "1110", "1111");
+
+function toBinary(High, Low) {
+var hiHex = "ABCDEF";
+if (Low < 10 ) {
+LowNib = Low;
+}
+else {
+LowNib = 10 + hiHex.indexOf(Low); 
+}
+if (High  < 10 ) {
+HighNib = High;
+}
+else {
+HighNib = 10 + hiHex.indexOf(High);
+}
+eight_bits = binary_numbers[HighNib] + " " + binary_numbers[LowNib];
+return eight_bits;
+}
+function Dec2Hex(Decimal) {
+var hexChars = "0123456789ABCDEF";
+var a = Decimal % 16;
+var b = (Decimal - a)/16;
+hex = "" + hexChars.charAt(b) + hexChars.charAt(a);
+L = hexChars.charAt(a);
+H = hexChars.charAt(b);
+return hex;
+}
+var symbols = " !\"#$%&'()*+'-./0123456789:;<=>?@";
+function toAscii ()  {
+var loAZ = "abcdefghijklmnopqrstuvwxyz";
+symbols+= loAZ.toUpperCase();
+symbols+= "[\\]^_`";
+symbols+= loAZ;
+symbols+= "{|}~";
+var loc;
+loc = symbols.indexOf(document.asciiform.Input.value);
+if (loc >-1) { 
+Ascii_Decimal = 32 + loc;
+return (32 + loc);
+   }
+return(0);  // If not in range 32-126 return ZERO
+}
+function getAscii(some_value) {
+document.asciiform.toDec.value = toAscii();
+document.asciiform.toHex.value = Dec2Hex(toAscii()); 
+document.asciiform.binary.value = toBinary(H, L); 
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /equivalents/"><font color="#FF0000"><b>Equivalents</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>ASCII Engine</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Enter any keyboard character and the Ascii Engine outputs the character's equivalent in Ascii Decimal, Ascii Hex, and even binary.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name="asciiform" onsubmit="return false;">
+<table border=1><tr><td>
+<center>
+Input one character:  <input size=1 name=Input maxlength=1 onChange="getAscii(this.value)">
+<p>
+<input type=button  value="display" onClick="document.asciiform.toDec.value=toAscii()">
+</center>
+<p>
+<input size=10 name=toDec onFocus="this.blur()"> ASCII Decimal Output<br>
+<input size=10 name=toHex onFocus="this.blur()"> ASCII Hex Output<br>
+<input size=10 name=binary onFocus="this.blur()"> ASCII Binary Output
+</td>
+</tr>
+</table>
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Equivalents:  ASCII Engine</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.49 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL ASCII ENGINE:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Christopher Nielsen (chris@bluegalaxy.net) --&gt;
+&lt;!-- Web Site:  http://www.bluegalaxy.net --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+binary_numbers = new Array("0000", "0001", "0010", "0011", "0100", "0101", 
+"0110", "0111", "1000", "1001", "1010", "1011", "1100", "1101", "1110", "1111");
+
+function toBinary(High, Low) {
+var hiHex = "ABCDEF";
+if (Low &lt; 10 ) {
+LowNib = Low;
+}
+else {
+LowNib = 10 + hiHex.indexOf(Low); 
+}
+if (High  &lt; 10 ) {
+HighNib = High;
+}
+else {
+HighNib = 10 + hiHex.indexOf(High);
+}
+eight_bits = binary_numbers[HighNib] + " " + binary_numbers[LowNib];
+return eight_bits;
+}
+function Dec2Hex(Decimal) {
+var hexChars = "0123456789ABCDEF";
+var a = Decimal % 16;
+var b = (Decimal - a)/16;
+hex = "" + hexChars.charAt(b) + hexChars.charAt(a);
+L = hexChars.charAt(a);
+H = hexChars.charAt(b);
+return hex;
+}
+var symbols = " !\"#$%&'()*+'-./0123456789:;&lt;=&gt;?@";
+function toAscii ()  {
+var loAZ = "abcdefghijklmnopqrstuvwxyz";
+symbols+= loAZ.toUpperCase();
+symbols+= "[\\]^_`";
+symbols+= loAZ;
+symbols+= "{|}~";
+var loc;
+loc = symbols.indexOf(document.asciiform.Input.value);
+if (loc &gt;-1) { 
+Ascii_Decimal = 32 + loc;
+return (32 + loc);
+   }
+return(0);  // If not in range 32-126 return ZERO
+}
+function getAscii(some_value) {
+document.asciiform.toDec.value = toAscii();
+document.asciiform.toHex.value = Dec2Hex(toAscii()); 
+document.asciiform.binary.value = toBinary(H, L); 
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form name="asciiform" onsubmit="return false;"&gt;
+&lt;table border=1&gt;&lt;tr&gt;&lt;td&gt;
+&lt;center&gt;
+Input one character:  &lt;input size=1 name=Input maxlength=1 onChange="getAscii(this.value)"&gt;
+&lt;p&gt;
+&lt;input type=button  value="display" onClick="document.asciiform.toDec.value=toAscii()"&gt;
+&lt;/center&gt;
+&lt;p&gt;
+&lt;input size=10 name=toDec onFocus="this.blur()"&gt; ASCII Decimal Output&lt;br&gt;
+&lt;input size=10 name=toHex onFocus="this.blur()"&gt; ASCII Hex Output&lt;br&gt;
+&lt;input size=10 name=binary onFocus="this.blur()"&gt; ASCII Binary Output
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  2.49 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

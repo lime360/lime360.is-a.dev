@@ -1,0 +1,347 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Calculators:  Leap Year Calculator</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Anthony Louie">
+<META NAME="section" CONTENT="Calculators">
+<META NAME="description" CONTENT="Is it a leap year?  What about in 1900?  Get your leap year facts straight with this leap year calculator.  Just enter the year you are interested in and the script reports whether it is a leap year or not.  Or, enter a range of years and JavaScript will display all the leap years in that range.  Awesome!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Anthony Louie -->
+<!-- Modified By:  Ronnie T. Moore, Editor -->
+<!-- Web Site:  JavaScript Source Code 3000 -->
+
+
+
+
+<!-- Begin
+function checkYear(year) { 
+return (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)) ? 1 : 0;
+}
+function leap(form) {
+year = form.year.value;
+var Check1 = parseFloat(year);
+for (var i = 0; i < year.length; i++) {
+var sLetterCheck1 = year.substring(i, i+1);
+if (sLetterCheck1 < "0" || sLetterCheck1 > "9") {
+alert("Enter a valid year.");
+form.year.focus();
+form.year.select();
+return;
+   }
+}       
+if (year < 1582) {
+form.result.value = "";
+alert("Year must be greater than 1581.");
+form.year.focus();
+form.year.select();
+return;
+}
+checkYear(year);
+if (!checkYear(year)) form.result.value = "not a leap year.";
+else form.result.value = "a leap year.";
+}
+function MakeArray(n) {
+if (n <= 0) {
+this.length = 0;
+return this;
+}
+this.length = n;
+for (var i = 1; i <= n; i++) {
+this[i] = 0;
+}
+return this;
+}
+var listArray = new MakeArray(160);
+var index = 0;
+function list(form) {
+startyear = form.startyear.value;
+endyear = form.endyear.value;
+var Check1 = parseFloat(startyear);
+var Check2 = parseFloat(endyear);
+for (var i = 0; i < startyear.length; i++) {
+var sLetterCheck1 = startyear.substring(i, i+1);
+if (sLetterCheck1 < "0" || sLetterCheck1 > "9") {
+alert("Enter a valid start year.");
+form.startyear.focus();
+form.startyear.select();
+return;
+   }
+}       
+for (var i = 0; i < endyear.length; i++) {
+var sLetterCheck2 = endyear.substring(i, i+1);
+if (sLetterCheck2 < "0" || sLetterCheck2 > "9") {
+alert("Enter a valid end year.");
+form.endyear.focus();
+form.endyear.select();
+return;
+   }
+}       
+if (startyear < 1582) {
+form.yearlist.value = "";
+alert("Start year must be greater than 1581.");
+form.startyear.focus();
+form.startyear.select();
+return;
+}
+else if (endyear <= startyear) {
+form.yearlist.value = "";
+alert("End year must be greater than start year.");
+form.endyear.focus();
+form.endyear.select();
+return;
+}
+else {
+index = 0;
+for (var i=startyear; i <=endyear; i++) {
+if (checkYear(i)) {
+listArray[index] = i;
+index++;
+      }
+   }
+}
+var allYears;
+allYears = "";
+for( i = 0; i < index; i++ ) {
+allYears += listArray[i] + "\r" + "\n";
+form.yearlist.value = allYears;
+   }
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /calculators/"><font color="#FF0000"><b>Calculators</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Leap Year Calculator</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Is it a leap year?  What about in 1900?  Get your leap year facts straight with this leap year calculator.  Just enter the year you are interested in and the script reports whether it is a leap year or not.  Or, enter a range of years and JavaScript will display all the leap years in that range.  Awesome!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form>
+Check For Leap Year:<br>
+Year:  <input type=text name=year size=4> is <input type=text name=result size=15>
+
+<br>
+<br>
+
+<input type=button value="Check Year" onClick="leap(this.form);">
+
+<p>
+
+Leap Years Within A Range:<br>
+Start Year:<input type=text name=startyear size=4><br>
+End year: <input type="text" name="endyear" size=4><br>
+<br>
+<input type=button name=listyears value="List Years" onClick="list(this.form);">
+<br>
+<textarea name=yearlist rows=10 cols=11></textarea>
+
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Calculators:  Leap Year Calculator</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  3.68 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL LEAP YEAR CALCULATOR:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Anthony Louie --&gt;
+&lt;!-- Modified By:  Ronnie T. Moore, Editor --&gt;
+&lt;!-- Web Site:  JavaScript Source Code 3000 --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function checkYear(year) { 
+return (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)) ? 1 : 0;
+}
+function leap(form) {
+year = form.year.value;
+var Check1 = parseFloat(year);
+for (var i = 0; i &lt; year.length; i++) {
+var sLetterCheck1 = year.substring(i, i+1);
+if (sLetterCheck1 &lt; "0" || sLetterCheck1 &gt; "9") {
+alert("Enter a valid year.");
+form.year.focus();
+form.year.select();
+return;
+   }
+}       
+if (year &lt; 1582) {
+form.result.value = "";
+alert("Year must be greater than 1581.");
+form.year.focus();
+form.year.select();
+return;
+}
+checkYear(year);
+if (!checkYear(year)) form.result.value = "not a leap year.";
+else form.result.value = "a leap year.";
+}
+function MakeArray(n) {
+if (n &lt;= 0) {
+this.length = 0;
+return this;
+}
+this.length = n;
+for (var i = 1; i &lt;= n; i++) {
+this[i] = 0;
+}
+return this;
+}
+var listArray = new MakeArray(160);
+var index = 0;
+function list(form) {
+startyear = form.startyear.value;
+endyear = form.endyear.value;
+var Check1 = parseFloat(startyear);
+var Check2 = parseFloat(endyear);
+for (var i = 0; i &lt; startyear.length; i++) {
+var sLetterCheck1 = startyear.substring(i, i+1);
+if (sLetterCheck1 &lt; "0" || sLetterCheck1 &gt; "9") {
+alert("Enter a valid start year.");
+form.startyear.focus();
+form.startyear.select();
+return;
+   }
+}       
+for (var i = 0; i &lt; endyear.length; i++) {
+var sLetterCheck2 = endyear.substring(i, i+1);
+if (sLetterCheck2 &lt; "0" || sLetterCheck2 &gt; "9") {
+alert("Enter a valid end year.");
+form.endyear.focus();
+form.endyear.select();
+return;
+   }
+}       
+if (startyear &lt; 1582) {
+form.yearlist.value = "";
+alert("Start year must be greater than 1581.");
+form.startyear.focus();
+form.startyear.select();
+return;
+}
+else if (endyear &lt;= startyear) {
+form.yearlist.value = "";
+alert("End year must be greater than start year.");
+form.endyear.focus();
+form.endyear.select();
+return;
+}
+else {
+index = 0;
+for (var i=startyear; i &lt;=endyear; i++) {
+if (checkYear(i)) {
+listArray[index] = i;
+index++;
+      }
+   }
+}
+var allYears;
+allYears = "";
+for( i = 0; i &lt; index; i++ ) {
+allYears += listArray[i] + "\r" + "\n";
+form.yearlist.value = allYears;
+   }
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form&gt;
+Check For Leap Year:&lt;br&gt;
+Year:  &lt;input type=text name=year size=4&gt; is &lt;input type=text name=result size=15&gt;
+
+&lt;br&gt;
+&lt;br&gt;
+
+&lt;input type=button value="Check Year" onClick="leap(this.form);"&gt;
+
+&lt;p&gt;
+
+Leap Years Within A Range:&lt;br&gt;
+Start Year:&lt;input type=text name=startyear size=4&gt;&lt;br&gt;
+End year: &lt;input type="text" name="endyear" size=4&gt;&lt;br&gt;
+&lt;br&gt;
+&lt;input type=button name=listyears value="List Years" onClick="list(this.form);"&gt;
+&lt;br&gt;
+&lt;textarea name=yearlist rows=10 cols=11&gt;&lt;/textarea&gt;
+
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  3.68 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>
+
+
+

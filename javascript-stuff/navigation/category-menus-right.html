@@ -1,0 +1,477 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Navigation:  Category Menus</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="When a category is clicked, the category's items are displayed below while the rest of the page is pushed downward.  Good for use in a navigation frame of framed sites.">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /navigation/"><font color="#FF0000"><b>Navigation</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Category Menus</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description -->When a category is clicked, the category's items are displayed below while the rest of the page is pushed downward.  Good for use in a navigation frame of framed sites.
+<hr>
+</td></tr>
+</table>
+<center><font face="arial, helvetica" size="-1">Click a category and link in the left frame!</font></center>
+<br><br>
+You must also save these images<br>
+to your server to use this script.<br>
+Right-click the images below and<br>
+select "Save Image As..."<br><br>
+(The pics are below so you can see<br>
+them.  Rest assured, they will save<br>
+to the right size for your page.)<br>
+<br>
+<img src="../img/category-menus/closed.gif" /img/category-menus/closed.gif" width=21 height=21 border=1>&nbsp;&nbsp;
+<img src="../img/category-menus/opened.gif" /img/category-menus/opened.gif" width=21 height=21 border=1><br><br>
+<P>
+<P><P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Navigation:  Category Menus</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  4.78 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- FIVE STEPS TO INSTALL CATEGORY MENUS:
+
+  1.  Save the FRAMESET code and modify it for your page
+  2.  Create a new document and save it as category-menus.html
+  3.  Copy the coding into the HEAD of category-menus.html
+  4.  Add the last code into the BODY of category-menus.html
+  5.  Be sure to save the arrow images to your web server  --&gt;
+
+&lt;!-- STEP ONE: Save this FRAMESET code and modify it for your page  --&gt;
+
+&lt;frameset cols="175,*"&gt;
+    &lt;frame src="category-menus.html" name="left"&gt;
+    &lt;frame src="home-page.html" name="right"&gt;
+&lt;/frameset&gt;
+&lt;/html&gt;
+
+&lt;!-- STEP TWO: Create a new document, save it as category-menus.html  --&gt;
+
+&lt;!-- STEP THREE: Paste this code into the HEAD of category-menus.html  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;style type="text/css"&gt;
+a
+{text-decoration: none;}
+
+.title
+{position: absolute;
+width: 100px;
+height: 20px;
+left: 10px;
+z-index: 10;
+font-family: verdana, helvetica, sans-serif;
+font-weight: bold;
+font-size: 12px;}
+
+.submenu
+{position: absolute;
+left: 25px;
+width: 120px;
+border: 1px solid black;
+background-color: yellow;
+layer-background-color: yellow;
+font-family: verdana, helvetica, sans-serif;
+font-size: 10px;
+visibility: hidden;}
+&lt;/style&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Fredrik Fridsten (fredrik.fridsten@home.se) --&gt;
+&lt;!-- Web Site:  http://hem.passagen.se/dred --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+
+// ADDITIONAL NOTES
+// The input variables to the toggle function are the number of the submenu to open/close,
+// starting with 0, and the number of pixels to move the objects below.
+// For example toggle(1,60) opens/closes the second submenu and moves the objects below 60 pixels.
+
+var nom = 4; // Number of menus
+var usePictures = 1; // use pictures?  1 = yes, 0 = no
+
+var ttls = new Array(); // An array for the title objects
+var subs = new Array(); // An array for the submenu objects
+var lastn;
+var lastmove;
+
+if (document.layers) {
+visible = 'show';
+hidden = 'hide';
+}
+else
+if (document.all) {
+visible = 'visible';
+hidden = 'hidden';
+}
+for (var i = 1; i &lt;= nom; i++) {
+ttls[i] = ('title' + i);
+subs[i] = ('submenu' +i);
+}
+function picopen(n) {
+title = ('title' + n);
+pic = ('pic' + n);
+if (document.layers) {
+document.layers[title].document.images[pic].src = "opened.gif";
+}
+else if (document.all) {
+document.all(pic).src = "opened.gif";
+   }
+}
+function picclose(n) {
+title = ('title' + n);
+pic = ('pic' + n);
+if (document.layers) {
+document.layers[title].document.images[pic].src = "closed.gif";
+}
+else if (document.all) {
+document.all(pic).src = "closed.gif";
+   }
+}
+lastn = (nom + 1);
+lastmove = 0;
+function lasttoggle(n,move) {
+if (n &lt;= nom) {
+menu = ('submenu' + n);
+if (document.layers) {
+submenu = document.layers[menu];
+}
+else if (document.all) {
+submenu = document.all(menu).style;
+}
+if (submenu.visibility == visible) {
+submenu.visibility = hidden;
+picclose(n); // Remove this if you don't use pictures
+for (var i = (n+1); i &lt;= nom; i++) {
+if (document.layers) {
+document.layers[ttls[i]].top -= move;
+document.layers[subs[i]].top -= move;
+}
+else if (document.all) {
+document.all(ttls[i]).style.pixelTop -= move;
+document.all(subs[i]).style.pixelTop -= move;
+            }
+         }
+      }
+   }
+}
+function toggle(n,move) {
+menu = ('submenu' + n);
+if (document.layers) {
+submenu = document.layers[menu];
+}
+else if (document.all) {
+submenu = document.all(menu).style;
+}
+if (submenu.visibility == visible) {
+submenu.visibility = hidden;
+if (usePictures) picclose(n);
+for (var i = (n+1); i &lt;= nom; i++) {
+if (document.layers) {
+document.layers[ttls[i]].top -= move;
+document.layers[subs[i]].top -= move;
+}
+else if (document.all) {
+document.all(ttls[i]).style.pixelTop -= move;
+document.all(subs[i]).style.pixelTop -= move;
+      }
+   }
+}
+else {
+submenu.visibility = visible;
+if (usePictures) picopen(n);
+if (lastn != n) {
+lasttoggle(lastn,lastmove);
+}
+for (var i = (n+1); i &lt;= nom; i++) {
+if (document.layers) {
+document.layers[ttls[i]].top += move;
+document.layers[subs[i]].top += move;
+}
+if (document.all) {
+document.all(ttls[i]).style.pixelTop += move;
+document.all(subs[i]).style.pixelTop += move;
+      }
+   }
+}
+lastn = n;
+lastmove = move;
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP FOUR: Copy this code into the BODY of category-menus.html  --&gt;
+
+&lt;BODY&gt;
+
+&lt;div class="title" id="title1" style="top: 0px"&gt;&nbsp;
+&lt;a href="#" onclick="javascript: toggle(1,30); return false"&gt;&lt;img name="pic1" src="../img/category-menus/closed.gif" border="0"&gt;Category 1&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;div class="submenu" id="submenu1" style="top: 20px"&gt;
+&nbsp;&lt;a href="page01.html" target="right"&gt;Item # 1&lt;/a&gt;&lt;br&gt;
+&nbsp;&lt;a href="page02.html" target="right"&gt;Item # 2&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;div class="title" id="title2" style="top: 20px"&gt;&nbsp;
+&lt;a href="#" onclick="javascript: toggle(2,60); return false"&gt;&lt;img name="pic2" src="../img/category-menus/closed.gif" border="0"&gt;Category 2&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;div class="submenu" id="submenu2" style="top: 40px"&gt;
+&nbsp;&lt;a href="page03.html" target="right"&gt;Item # 3&lt;/a&gt;&lt;br&gt;
+&nbsp;&lt;a href="page04.html" target="right"&gt;Item # 4&lt;/a&gt;&lt;br&gt;
+&nbsp;&lt;a href="page05.html" target="right"&gt;Item # 5&lt;/a&gt;&lt;br&gt;
+&nbsp;&lt;a href="page06.html" target="right"&gt;Item # 6&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;div class="title" id="title3" style="top: 40px"&gt;&nbsp;
+&lt;a href="#" onclick="javascript: toggle(3,45); return false"&gt;&lt;img name="pic3" src="../img/category-menus/closed.gif" border="0"&gt;Category 3&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;div class="submenu" id="submenu3" style="top: 60px"&gt;
+&nbsp;&lt;a href="page07.html" target="right"&gt;Item # 7&lt;/a&gt;&lt;br&gt;
+&nbsp;&lt;a href="page08.html" target="right"&gt;Item # 8&lt;/a&gt;&lt;br&gt;
+&nbsp;&lt;a href="page09.html" target="right"&gt;Item # 9&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;div class="title" id="title4" style="top: 60px"&gt;&nbsp;
+&lt;a href="#" onclick="javascript: toggle(4,60); return false"&gt;&lt;img name="pic4" src="../img/category-menus/closed.gif" border="0"&gt;Category 4&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;div class="submenu" id="submenu4" style="top: 80px"&gt;
+&nbsp;&lt;a href="page10.html" target="right"&gt;Item # 10&lt;/a&gt;&lt;br&gt;
+&nbsp;&lt;a href="page11.html" target="right"&gt;Item # 11&lt;/a&gt;&lt;br&gt;
+&nbsp;&lt;a href="page12.html" target="right"&gt;Item # 12&lt;/a&gt;&lt;br&gt;
+&nbsp;&lt;a href="page13.html" target="right"&gt;Item # 13&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;!-- STEP FIVE: Be sure to save the arrow images to your site  --&gt;
+
+&lt;!--  ../img/category-menus/opened.gif  --&gt;
+
+&lt;!--  ../img/category-menus/closed.gif  --&gt;
+
+ 
+
+&lt;!-- Script Size:  4.78 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+    
+
+<p>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+function getCookieVal (offset) {
+var endstr = document.cookie.indexOf(";", offset);
+if (endstr == -1)
+endstr = document.cookie.length;
+return unescape(document.cookie.substring(offset, endstr));
+}
+function GetCookie (name) {
+var arg = name + "=";
+var alen = arg.length;
+var clen = document.cookie.length;
+var i = 0;
+while (i < clen) {
+var j = i + alen;
+if (document.cookie.substring(i, j) == arg)
+return getCookieVal (j);
+i = document.cookie.indexOf(" ", i) + 1;
+if (i == 0)
+break;
+}
+return null;
+}
+function SetCookie (name, value) {
+var argv = SetCookie.arguments;
+var argc = SetCookie.arguments.length;
+var expires = (argc > 2) ? argv[2] : null;
+var path = "/"; //(argc > 3) ? argv[3] : null;
+var domain = (argc > 4) ? argv[4] : null;
+var secure = (argc > 5) ? argv[5] : false;
+document.cookie = name + "=" + escape (value) +
+((expires == null) ? "" : ("; expires=" +
+expires.toGMTString())) +
+((path == null) ? "" : ("; path=" + path)) +
+((domain == null) ? "" : ("; domain=" + domain)) +
+((secure == true) ? "; secure" : "");
+}
+
+var emailcookie = GetCookie('email_address');
+if (emailcookie == null) {
+emailcookie = 'your email here';
+}
+
+function chk(email, formname)
+{
+invalid = "";
+
+if (!email)
+invalid = "No email address found!  Try reloading the page then use the 'email a script' feature again.";
+
+else {
+
+if ( (email.indexOf("@") == -1) || (email.indexOf(".") == -1) ) 
+invalid += "\n\nInvalid email address.  Your email address is missing an '@' sign and a '.' in the domain name (like '.com').  Please check your address then submit again.";
+
+if (email.indexOf("youremailhere") > -1)
+invalid += "\n\nInvalid email address.  Make sure your email address included your username, the '@' sign, and the domain name (like '.com').";
+
+if (email.indexOf("\\") > -1) 
+invalid += "\n\nEmail address contains an invalid back-slash (\\) character.  Remove the character and submit again.";
+
+if (email.indexOf("/") > -1) 
+invalid += "\n\nEmail address contains an invalid forward-slash (/) character.  Remove the character and submit again.";
+
+if (email.indexOf("'") > -1) 
+invalid += "\n\nEmail address contains an invalid apostrophe (') character.  Remove the character and submit again.";
+
+if (email.indexOf("zaz.com.br") > -1) 
+invalid += "\n\nPlease do not use an email address that has an autoresponder set up for it.  Thanks.";
+
+if (email.indexOf("!") > -1) 
+invalid += "\n\nEmail address contains an invalid exclamation point (!) character.  Remove the character or correct the email address then submit again.";
+
+if ( (email.indexOf(",") > -1) || (email.indexOf(";") > -1) )
+invalid += "\n\nPlease only enter one email address in the box at a time.  Remove the extra addresses and submit again.";
+
+if (email.indexOf("?subject") > -1) 
+invalid += "\n\nPlease do not add '?subject=...' to your email address.  Scriptbot will send you the script with a pre-defined subject already.  Please remove the '?subject=...' from your email address and submit again.";
+}
+
+if (invalid == "")
+   {
+   var largeExpDate = new Date();
+   largeExpDate.setTime(largeExpDate.getTime() + (31 * 24 * 3600 * 1000));
+   SetCookie('email_address', email, largeExpDate);
+   if (formname == "scriptbot")
+      {
+      page = "http://javascript.internet.com/sent.html?" + email;
+      window.open(page, "AdWindow", "width=650,height=200");
+      }
+   return true;
+}
+else 
+   { 
+   alert("Oops, something is wrong...." + invalid);
+   return false;
+   }
+}
+
+function updateNewsletters() {
+with (document.forms["newslettersignup"]) {
+emailStr = email.value;
+var emailPat=/^(.+)@(.+)$/;
+var specialChars="\\(\\)<>@,;:\\\\\\\"\\.\\[\\]"; // remove   ( ) < > @ , ; : \ " . [ ]    */
+var validChars="\[^\\s" + specialChars + "\]";
+var quotedUser="(\"[^\"]*\")";
+var ipDomainPat=/^\[(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})\]$/;
+var atom=validChars + '+';
+var word="(" + atom + "|" + quotedUser + ")";
+var userPat=new RegExp("^" + word + "(\\." + word + ")*$");
+var domainPat=new RegExp("^" + atom + "(\\." + atom +")*$");
+var matchArray=emailStr.match(emailPat);
+if (matchArray==null) {
+alert("Email address seems incorrect (check @ and .'s)");
+return false;;
+}
+var user=matchArray[1];
+var domain=matchArray[2];
+if (user.match(userPat)==null) {
+alert("The username doesn't seem to be valid.");
+return false;
+}
+var IPArray=domain.match(ipDomainPat);
+if (IPArray!=null) {
+for (var i=1;i<=4;i++) {
+if (IPArray[i]>255) {
+alert("Destination IP address is invalid!");
+return false;
+      }
+   }
+}
+var domainArray=domain.match(domainPat);
+if (domainArray==null) {
+alert("The domain name doesn't seem to be valid.");
+return false;
+}
+var atomPat=new RegExp(atom,"g");
+var domArr=domain.match(atomPat);
+var len=domArr.length;
+if (domArr[domArr.length-1].length<2 || domArr[domArr.length-1].length>3) {
+alert("The address must end in a three-letter domain, or two letter country.");
+return false;
+}
+if (len<2) {
+var errStr="This address is missing a hostname!";
+alert(errStr);
+return false;
+}
+List_Name.value = newsletter.options[newsletter.selectedIndex].value
+		+ nltype.options[nltype.selectedIndex].value;
+
+   var largeExpDate = new Date();
+   largeExpDate.setTime(largeExpDate.getTime() + (31 * 24 * 3600 * 1000));
+   SetCookie('email_address', emailStr, largeExpDate);
+
+return true;
+   }
+}
+// End -->
+</script>
+
+<p>
+<center>
+
+<table cellpadding=0 cellspacing=0 border=0 width="620">
+<tr>
+<td align=left>
+

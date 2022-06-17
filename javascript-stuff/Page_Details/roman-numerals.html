@@ -1,0 +1,188 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Page Details:  Roman Numerals</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Dougie Lawson (darkest@attglobal.net)">
+<META NAME="section" CONTENT="Page Details">
+<META NAME="description" CONTENT="This script helps you write the copyright statements on your page.  It outputs the correct Roman Numerals for any year you want, including the current year.  Clever!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Dougie Lawson (darkest@attglobal.net) -->
+
+
+
+
+<!-- Begin
+var LMDate = new Date( document.lastModified );
+year = LMDate.getYear();
+if (year < 1900) { year +=1900; }
+
+function Init() {
+this.length = Init.arguments.length;
+for ( var i = 0; i < this.length; i++ ) this[ i + 1 ] = Init.arguments[ i ];
+}
+function Roman(number) {
+if (number < 1) { alert(number+" is too small\nMinumum value is 1"); number = 1; }
+if (number > 5999) { alert(number+" it too big\nMaximum value is 5999"); number = 5999; }
+var roman_unit = new Init("","I","II","III","IV","V","VI","VII","VIII","IX");
+var roman_tens = new Init("","X","XX","XXX","XL","L","LX","LXX","LXXX","XC");
+var roman_hund = new Init("","C","CC","CCC","CD","D","DC","DCC","DCCC","CM");
+var roman_thou = new Init("","M","MM","MMM","MMMM","MMMMM");
+
+var v = 0; var w = 0; var x = 0; var y = 0;
+v = ((number - (number % 1000)) / 1000) + 1;
+number = (number % 1000);
+w = ((number - (number % 100)) / 100) + 1;
+number = (number % 100);
+x = ((number - (number % 10)) / 10) + 1;
+y = (number % 10) + 1;
+return ("&copy; " + roman_thou[v] + roman_hund[w] + roman_tens[x] + roman_unit[y]);
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /page-details/"><font color="#FF0000"><b>Page Details</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Roman Numerals</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+This script helps you write the copyright statements on your page.  It outputs the correct Roman Numerals for any year you want, including the current year.  Clever!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<pre>
+<script>
+document.write("1963 = " + Roman(1963) + "<br>");
+document.write("1872 = " + Roman(1872) + "<br>");
+document.write("1999 = " + Roman(1999) + "<br>");
+</script>
+</pre>
+
+or use the current year...
+<script>
+document.write(Roman(year) );
+</script>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Page Details:  Roman Numerals</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.96 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL ROMAN NUMERALS:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Dougie Lawson (darkest@attglobal.net) --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var LMDate = new Date( document.lastModified );
+year = LMDate.getYear();
+if (year &lt; 1900) { year +=1900; }
+
+function Init() {
+this.length = Init.arguments.length;
+for ( var i = 0; i &lt; this.length; i++ ) this[ i + 1 ] = Init.arguments[ i ];
+}
+function Roman(number) {
+if (number &lt; 1) { alert(number+" is too small\nMinumum value is 1"); number = 1; }
+if (number &gt; 5999) { alert(number+" it too big\nMaximum value is 5999"); number = 5999; }
+var roman_unit = new Init("","I","II","III","IV","V","VI","VII","VIII","IX");
+var roman_tens = new Init("","X","XX","XXX","XL","L","LX","LXX","LXXX","XC");
+var roman_hund = new Init("","C","CC","CCC","CD","D","DC","DCC","DCCC","CM");
+var roman_thou = new Init("","M","MM","MMM","MMMM","MMMMM");
+
+var v = 0; var w = 0; var x = 0; var y = 0;
+v = ((number - (number % 1000)) / 1000) + 1;
+number = (number % 1000);
+w = ((number - (number % 100)) / 100) + 1;
+number = (number % 100);
+x = ((number - (number % 10)) / 10) + 1;
+y = (number % 10) + 1;
+return ("&copy; " + roman_thou[v] + roman_hund[w] + roman_tens[x] + roman_unit[y]);
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;pre&gt;
+&lt;script&gt;
+document.write("1963 = " + Roman(1963) + "&lt;br&gt;");
+document.write("1872 = " + Roman(1872) + "&lt;br&gt;");
+document.write("1999 = " + Roman(1999) + "&lt;br&gt;");
+&lt;/script&gt;
+&lt;/pre&gt;
+
+or use the current year...
+&lt;script&gt;
+document.write(Roman(year) );
+&lt;/script&gt;
+
+ 
+
+&lt;!-- Script Size:  1.96 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>
+
+

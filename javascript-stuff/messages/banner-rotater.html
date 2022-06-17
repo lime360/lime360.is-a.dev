@@ -1,0 +1,175 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Messages:  Banner Rotater</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="Change banner images on the fly.  No need to reload the page.  Neat!">
+<META NAME="date" CONTENT="2000-11-10">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Markus Fischer">
+<META NAME="section" CONTENT="Messages">
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Markus Fischer (mfischer@josefine.ben.tuwien.ac.at) -->
+<!-- Web Site:  http://josefine.ben.tuwien.ac.at/~mfischer/ -->
+
+
+
+
+<!-- Begin
+var mfBanners = [
+['http://www.banner1-url-here.com', 'http://imageserv.imgis.com/images/Ad13700St1Sz1Sq1_Ban1.gif'], 
+['http://www.banner2-url-here.com', 'http://imageserv.imgis.com/images/Ad13189St1Sz1Sq5_Ban10.gif']
+];
+var mfIe = false;
+if( document.all) {
+mfIe = true;
+}
+var mfBannerIndex = 0;
+function mfBannerChange() {
+var htmlString = '<a target="_blank" href="'+mfBanners[mfBannerIndex][0]+'"> <img border="0" src="'+mfBanners[mfBannerIndex][1]+'"></a>';
+if( mfIe) {
+document.all.banner.innerHTML = htmlString;
+}
+else {
+document.layers["banner"].document.open();
+document.layers["banner"].document.write( htmlString);
+document.layers["banner"].document.close();
+}
+if(mfBannerIndex < mfBanners.length - 1)
+mfBannerIndex++;
+else
+mfBannerIndex = 0;
+}
+setInterval("mfBannerChange()", 5000);
+//  End -->
+</script>
+
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /messages/"><font color="#FF0000"><b>Messages</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Banner Rotater</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+
+<!-- Description --><!--content_start-->
+Change banner images on the fly.  No need to reload the page.  Neat!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<div id="banner" style="position:absolute; top:275; left:171;"></div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Messages:  Banner Rotater</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Command-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.74 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL BANNER ROTATER:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Markus Fischer (mfischer@josefine.ben.tuwien.ac.at) --&gt;
+&lt;!-- Web Site:  http://josefine.ben.tuwien.ac.at/~mfischer/ --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var mfBanners = [
+['http://www.banner1-url-here.com', 'http://imageserv.imgis.com/images/Ad13700St1Sz1Sq1_Ban1.gif'], 
+['http://www.banner2-url-here.com', 'http://imageserv.imgis.com/images/Ad13189St1Sz1Sq5_Ban10.gif']
+];
+var mfIe = false;
+if( document.all) {
+mfIe = true;
+}
+var mfBannerIndex = 0;
+function mfBannerChange() {
+var htmlString = '&lt;a target="_blank" href="'+mfBanners[mfBannerIndex][0]+'"&gt; &lt;img border="0" src="'+mfBanners[mfBannerIndex][1]+'"&gt;&lt;/a&gt;';
+if( mfIe) {
+document.all.banner.innerHTML = htmlString;
+}
+else {
+document.layers["banner"].document.open();
+document.layers["banner"].document.write( htmlString);
+document.layers["banner"].document.close();
+}
+if(mfBannerIndex &lt; mfBanners.length - 1)
+mfBannerIndex++;
+else
+mfBannerIndex = 0;
+}
+setInterval("mfBannerChange()", 5000);
+//  End --&gt;
+&lt;/script&gt;
+
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;div id="banner" style="position:absolute; top:300; left:171;"&gt;&lt;/div&gt;
+
+
+ 
+
+&lt;!-- Script Size:  1.74 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

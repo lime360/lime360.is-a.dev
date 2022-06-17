@@ -1,0 +1,286 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Scrolls:  Date & Time</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Scrolls">
+<META NAME="description" CONTENT="Yes, this is another JavaScript scroll.  But, unlike the others, this one has the date & time included at the front of the first message!  It looks very professional!">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /scrolls/"><font color="#FF0000">Scrolls</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Date & Time</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE=" helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Yes, this is another JavaScript scroll.  But, unlike the others, this one has the date & time included at the front of the first message!  It looks very professional!<br><hr>
+</td></tr>
+</table>
+<!--  Demonstration  -->
+<BODY>
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+var osd = "   "
+osd +="This is yet another JavaScript Scroll example ";
+osd +="from the good folks at JavaScript Source Code 3000. ";
+osd +="This one has the date and time at the front.";
+osd +="Did you notice?  It's coming around again, look!  ";
+osd +="          ";
+var timer;
+var msg = "";
+function scrollMaster () {
+msg = customDateSpring(new Date())
+clearTimeout(timer)
+msg += " " + showtime() + " " + osd
+for (var i= 0; i < 100; i++){
+msg = " " + msg;
+}
+scrollMe()
+}
+function scrollMe(){
+window.status = msg;
+msg = msg.substring(1, msg.length) + msg.substring(0,1);
+timer = setTimeout("scrollMe()", 200);
+}
+function showtime (){
+var now = new Date();
+var hours= now.getHours();
+var minutes= now.getMinutes();
+var seconds= now.getSeconds();
+var months= now.getMonth();
+var dates= now.getDate();
+var years= now.getYear();
+var timeValue = ""
+timeValue += ((months >9) ? "" : " ")
+timeValue += ((dates >9) ? "" : " ")
+timeValue = ( months +1)
+timeValue +="/"+ dates
+timeValue +="/"+  years
+var ap="A.M."
+if (hours == 12) {
+ap = "P.M."
+}
+if (hours == 0) {
+hours = 12
+}
+if(hours >= 13){
+hours -= 12;
+ap="P.M."
+}
+var timeValue2 = " " + hours
+timeValue2 += ((minutes < 10) ? ":0":":") + minutes + " " + ap
+return timeValue2;
+}
+function MakeArray(n) {
+this.length = n
+return this
+}
+monthNames = new MakeArray(12)
+monthNames[1] = "Janurary"
+monthNames[2] = "February"
+monthNames[3] = "March"
+monthNames[4] = "April"
+monthNames[5] = "May"
+monthNames[6] = "June"
+monthNames[7] = "July"
+monthNames[8] = "August"
+monthNames[9] = "Sept."
+monthNames[10] = "Oct."
+monthNames[11] = "Nov."
+monthNames[12] = "Dec."
+daysNames = new MakeArray(7)
+daysNames[1] = "Sunday"
+daysNames[2] = "Monday"
+daysNames[3] = "Tuesday"
+daysNames[4] = "Wednesday"
+daysNames[5] = "Thursday"
+daysNames[6] = "Friday"
+daysNames[7] = "Saturday"
+function customDateSpring(oneDate) {
+var theDay = daysNames[oneDate.getDay() +1]
+var theDate =oneDate.getDate()
+var theMonth = monthNames[oneDate.getMonth() +1]
+var dayth="th"
+if ((theDate == 1) || (theDate == 21) || (theDate == 31)) {
+dayth="st";
+}
+if ((theDate == 2) || (theDate ==22)) {
+dayth="nd";
+}
+if ((theDate== 3) || (theDate  == 23)) {
+dayth="rd";
+}
+return theDay + ", " + theMonth + " " + theDate + dayth + ","
+}
+scrollMaster();
+// End -->
+</SCRIPT>
+
+<P>
+<BR>
+<P>
+<a name="source">
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Scrolls:  Date & Time</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as NotePad or SimpleText) and save (Control-s or Apple-s).  The script is yours!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.68 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- ONE STEP TO INSTALL DATE & TIME SCROLL:
+
+   1.  Add the coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var osd = "   "
+osd +="This is yet another JavaScript Scroll example ";
+osd +="from the good folks at JavaScript Source Code 3000. ";
+osd +="This one has the date and time at the front.";
+osd +="Did you notice?  It's coming around again, look!  ";
+osd +="          ";
+var timer;
+var msg = "";
+function scrollMaster () {
+msg = customDateSpring(new Date())
+clearTimeout(timer)
+msg += " " + showtime() + " " + osd
+for (var i= 0; i &lt; 100; i++){
+msg = " " + msg;
+}
+scrollMe()
+}
+function scrollMe(){
+window.status = msg;
+msg = msg.substring(1, msg.length) + msg.substring(0,1);
+timer = setTimeout("scrollMe()", 200);
+}
+function showtime (){
+var now = new Date();
+var hours= now.getHours();
+var minutes= now.getMinutes();
+var seconds= now.getSeconds();
+var months= now.getMonth();
+var dates= now.getDate();
+var years= now.getYear();
+var timeValue = ""
+timeValue += ((months &gt;9) ? "" : " ")
+timeValue += ((dates &gt;9) ? "" : " ")
+timeValue = ( months +1)
+timeValue +="/"+ dates
+timeValue +="/"+  years
+var ap="A.M."
+if (hours == 12) {
+ap = "P.M."
+}
+if (hours == 0) {
+hours = 12
+}
+if(hours &gt;= 13){
+hours -= 12;
+ap="P.M."
+}
+var timeValue2 = " " + hours
+timeValue2 += ((minutes &lt; 10) ? ":0":":") + minutes + " " + ap
+return timeValue2;
+}
+function MakeArray(n) {
+this.length = n
+return this
+}
+monthNames = new MakeArray(12)
+monthNames[1] = "Janurary"
+monthNames[2] = "February"
+monthNames[3] = "March"
+monthNames[4] = "April"
+monthNames[5] = "May"
+monthNames[6] = "June"
+monthNames[7] = "July"
+monthNames[8] = "August"
+monthNames[9] = "Sept."
+monthNames[10] = "Oct."
+monthNames[11] = "Nov."
+monthNames[12] = "Dec."
+daysNames = new MakeArray(7)
+daysNames[1] = "Sunday"
+daysNames[2] = "Monday"
+daysNames[3] = "Tuesday"
+daysNames[4] = "Wednesday"
+daysNames[5] = "Thursday"
+daysNames[6] = "Friday"
+daysNames[7] = "Saturday"
+function customDateSpring(oneDate) {
+var theDay = daysNames[oneDate.getDay() +1]
+var theDate =oneDate.getDate()
+var theMonth = monthNames[oneDate.getMonth() +1]
+var dayth="th"
+if ((theDate == 1) || (theDate == 21) || (theDate == 31)) {
+dayth="st";
+}
+if ((theDate == 2) || (theDate ==22)) {
+dayth="nd";
+}
+if ((theDate== 3) || (theDate  == 23)) {
+dayth="rd";
+}
+return theDay + ", " + theMonth + " " + theDate + dayth + ","
+}
+scrollMaster();
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+ 
+
+&lt;!-- Script Size:  2.68 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

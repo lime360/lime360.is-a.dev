@@ -1,0 +1,224 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Navigation:  Menu Scroll</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Randy Bennett (rbennett@thezone.net)">
+<META NAME="section" CONTENT="Navigation">
+<META NAME="description" CONTENT="Use this amazing layers script to actually 'scroll' a series of menu items onto your page.  Wow!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+function buildMenu() {
+speed=35;
+topdistance=200;
+items=6;
+y=-50;
+ob=1;
+if (navigator.appName == "Netscape") {
+v=".top=",dS="document.",sD="";
+}
+else {
+v=".pixelTop=",dS="",sD=".style";
+   }
+}
+function scrollItems() {
+if (ob<items+1) {
+objectX="object"+ob; y+=10; eval(dS + objectX + sD + v + y);
+if (y<topdistance) setTimeout("scrollItems()",speed);
+else y=-50, topdistance+=40, ob+=1, setTimeout("scrollItems()",speed);
+   }
+}
+// End -->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff onLoad="buildMenu(), scrollItems();">
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /navigation/"><font color="#FF0000">Navigation</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Menu Scroll</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE=" helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Use this amazing layers script to actually 'scroll' a series of menu items onto your page.  Wow!<br><hr>
+</td></tr>
+</table>
+<!--  Demonstration -->
+<div id="object1" style="position:absolute; visibility:show; left:25px; top:-50px; z-index:2">
+<table border=1 width=150 bgcolor=80FFFF><td><center><b><u><font color=blue>Wow!</font></u></b></center></td></table>
+</div>
+
+<div id="object2" style="position:absolute; visibility:show; left:25px; top:-50px; z-index:2">
+<table border=1 width=150 bgcolor=80ffff><td><center><b><u><font color=blue>Look at this!</font></u></b></center></td></table>
+</div>
+
+<div id="object3" style="position:absolute; visibility:show; left:25px; top:-50px; z-index:2">
+<table border=1 width=150 bgcolor=80ffff><td><center><b><u><font color=blue>Your menu can</font></u></b></center></td></table>
+</div>
+
+<div id="object4" style="position:absolute; visibility:show; left:25px; top:-50px; z-index:2">
+<table border=1 width=150 bgcolor=80ffff><td><center><b><u><font color=blue>scroll onto</font></u></b></center></td></table>
+</div>
+
+<div id="object5" style="position:absolute; visibility:show; left:25px; top:-50px; z-index:2">
+<table border=1 width=150 bgcolor=80ffff><td><center><b><u><font color=blue>the screen!</font></u></b></center></td></table>
+</div>
+
+<div id="object6" style="position:absolute; visibility:show; left:25px; top:-50px; z-index:2">
+<table border=1 width=150 bgcolor=80ffff><td><center><b><u><font color=blue>Nestcape 4+ only!</font></u></b></center></td></table>
+</div>
+<br><br><br><br><br><br><br><br><br><br>
+<P>
+<BR>
+<P>
+<a name="source">
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Navigation:  Menu Scroll</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as NotePad or SimpleText) and save (Control-s or Apple-s).  The script is yours!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.65 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL MENU SCROLL:
+
+   1.  Paste the coding into the HEAD of your HTML document
+   2.  Copy the onLoad event handler into the BODY tag
+   3.  Add the last code to the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;!-- Original:  Randy Bennett (rbennett@thezone.net) --&gt;
+&lt;!-- Web Site:  http://home.thezone.net/~rbennett/utility/javahead.htm --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function buildMenu() {
+speed=35;
+topdistance=100;
+items=6;
+y=-50;
+ob=1;
+if (navigator.appName == "Netscape") {
+v=".top=",dS="document.",sD="";
+}
+else {
+v=".pixelTop=",dS="",sD=".style";
+   }
+}
+function scrollItems() {
+if (ob&lt;items+1) {
+objectX="object"+ob; y+=10; eval(dS + objectX + sD + v + y);
+if (y&lt;topdistance) setTimeout("scrollItems()",speed);
+else y=-50, topdistance+=40, ob+=1, setTimeout("scrollItems()",speed);
+   }
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+&lt;!-- STEP TWO: Add this onLoad event handler into the BODY tag  --&gt;
+
+&lt;BODY onLoad="buildMenu(), scrollItems();"&gt;
+
+&lt;!-- STEP THREE: Add the following code to the BODY of your HTML page  --&gt;
+
+&lt;div id="object1" style="position:absolute; visibility:show; left:25px; top:-50px; z-index:2"&gt;
+&lt;table border=1 width=150 bgcolor=80FFFF&gt;
+&lt;td&gt;&lt;center&gt;
+&lt;a href=http://yoursite.com/page1.html&gt;Link 1!&lt;/a&gt;
+&lt;/center&gt;&lt;/td&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;div id="object2" style="position:absolute; visibility:show; left:25px; top:-50px; z-index:2"&gt;
+&lt;table border=1 width=150 bgcolor=80FFFF&gt;
+&lt;td&gt;&lt;center&gt;
+&lt;a href=http://yoursite.com/page2.html&gt;Link 2!&lt;/a&gt;
+&lt;/center&gt;&lt;/td&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;div id="object3" style="position:absolute; visibility:show; left:25px; top:-50px; z-index:2"&gt;
+&lt;table border=1 width=150 bgcolor=80FFFF&gt;
+&lt;td&gt;&lt;center&gt;
+&lt;a href=http://yoursite.com/page3.html&gt;Link 3!&lt;/a&gt;
+&lt;/center&gt;&lt;/td&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+
+&lt;div id="object4" style="position:absolute; visibility:show; left:25px; top:-50px; z-index:2"&gt;
+&lt;table border=1 width=150 bgcolor=80FFFF&gt;
+&lt;td&gt;&lt;center&gt;
+&lt;a href=http://yoursite.com/page4.html&gt;Link 4!&lt;/a&gt;
+&lt;/center&gt;&lt;/td&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+
+&lt;div id="object5" style="position:absolute; visibility:show; left:25px; top:-50px; z-index:2"&gt;
+&lt;table border=1 width=150 bgcolor=80FFFF&gt;
+&lt;td&gt;&lt;center&gt;
+&lt;a href=http://yoursite.com/page5.html&gt;Link 5!&lt;/a&gt;
+&lt;/center&gt;&lt;/td&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+
+&lt;div id="object6" style="position:absolute; visibility:show; left:25px; top:-50px; z-index:2"&gt;
+&lt;table border=1 width=150 bgcolor=80FFFF&gt;
+&lt;td&gt;&lt;center&gt;
+&lt;a href=http://yoursite.com/page6.html&gt;Link 6!&lt;/a&gt;
+&lt;/center&gt;&lt;/td&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+ 
+
+&lt;!-- Script Size:  2.65 KB  --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

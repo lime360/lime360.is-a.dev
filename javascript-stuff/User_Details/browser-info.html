@@ -1,0 +1,137 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  User-Details:  Browser Information</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="User-Details">
+<META NAME="description" CONTENT="This script does a great job of displaying information about your web browser including version, your computer's platform, if Java is enabled, how many pages you've visited, and screen resolution.  Take a look, it's pretty cool.">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /user-details/"><font color="#FF0000">User-Details</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Browser Information</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE=" helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+This script does a great job of displaying information about your web browser including version, your computer's platform, if Java is enabled, how many pages you've visited, and screen resolution.  Take a look, it's pretty cool.<br><hr>
+</td></tr>
+</table>
+<!--  Demonstration -->
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+var xy = navigator.appVersion;
+xz = xy.substring(0,4);
+document.write("<center><table border=1 cellpadding=2><tr><td>");
+document.write("<center><b>", navigator.appName,"</b>");
+document.write("</td></tr><tr><td>");
+document.write("<center><table border=1 cellpadding=2><tr>");
+document.write("<td>Code Name: </td><td><center>");
+document.write("<b>", navigator.appCodeName,"</td></tr>");
+document.write("<tr><td>Version: </td><td><center>");
+document.write("<b>",xz,"</td></tr>");
+document.write("<tr><td>Platform: </td><td><center>");
+document.write("<b>", navigator.platform,"</td></tr>");
+document.write("<tr><td>Pages Viewed: </td><td><center>");
+document.write("<b>", history.length," </td></tr>");
+document.write("<tr><td>Java enabled: </td><td><center><b>");
+if (navigator.javaEnabled()) document.write("sure is!</td></tr>");
+else document.write("not today</td></tr>")
+document.write("<tr><td>Screen Resolution: </td><td><center>");
+document.write("<b>",screen.width," x ",screen.height,"</td></tr>");
+document.write("</table></tr></td></table></center>");
+// End -->
+</script>
+<P>
+<BR>
+<P>
+<a name="source">
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  User-Details:  Browser Information</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as NotePad or SimpleText) and save (Control-s or Apple-s).  The script is yours!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.34 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- ONE STEP TO INSTALL BROWSER INFORMATION:
+
+   1.  Add the first code to the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Add the first code to the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var xy = navigator.appVersion;
+xz = xy.substring(0,4);
+document.write("&lt;center&gt;&lt;table border=1 cellpadding=2&gt;&lt;tr&gt;&lt;td&gt;");
+document.write("&lt;center&gt;&lt;b&gt;", navigator.appName,"&lt;/b&gt;");
+document.write("&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;");
+document.write("&lt;center&gt;&lt;table border=1 cellpadding=2&gt;&lt;tr&gt;");
+document.write("&lt;td&gt;Code Name: &lt;/td&gt;&lt;td&gt;&lt;center&gt;");
+document.write("&lt;b&gt;", navigator.appCodeName,"&lt;/td&gt;&lt;/tr&gt;");
+document.write("&lt;tr&gt;&lt;td&gt;Version: &lt;/td&gt;&lt;td&gt;&lt;center&gt;");
+document.write("&lt;b&gt;",xz,"&lt;/td&gt;&lt;/tr&gt;");
+document.write("&lt;tr&gt;&lt;td&gt;Platform: &lt;/td&gt;&lt;td&gt;&lt;center&gt;");
+document.write("&lt;b&gt;", navigator.platform,"&lt;/td&gt;&lt;/tr&gt;");
+document.write("&lt;tr&gt;&lt;td&gt;Pages Viewed: &lt;/td&gt;&lt;td&gt;&lt;center&gt;");
+document.write("&lt;b&gt;", history.length," &lt;/td&gt;&lt;/tr&gt;");
+document.write("&lt;tr&gt;&lt;td&gt;Java enabled: &lt;/td&gt;&lt;td&gt;&lt;center&gt;&lt;b&gt;");
+if (navigator.javaEnabled()) document.write("sure is!&lt;/td&gt;&lt;/tr&gt;");
+else document.write("not today&lt;/td&gt;&lt;/tr&gt;")
+document.write("&lt;tr&gt;&lt;td&gt;Screen Resolution: &lt;/td&gt;&lt;td&gt;&lt;center&gt;");
+document.write("&lt;b&gt;",screen.width," x ",screen.height,"&lt;/td&gt;&lt;/tr&gt;");
+document.write("&lt;/table&gt;&lt;/tr&gt;&lt;/td&gt;&lt;/table&gt;&lt;/center&gt;");
+// End --&gt;
+&lt;/script&gt;
+
+ 
+
+&lt;!-- Script Size:  1.34 KB  --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

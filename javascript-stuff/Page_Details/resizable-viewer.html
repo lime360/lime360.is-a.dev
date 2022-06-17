@@ -1,0 +1,198 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Page Details:  Resizable Viewer</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Page Details">
+<META NAME="description" CONTENT="Displays a small 'image loading' picture while the main image is loading.  When the image completes, the viewer window is appropriately resized, centered on the screen, and 'image loaded' is displayed.  Neat!">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /page-details/"><font color="#FF0000"><b>Page Details</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Resizable Viewer</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Displays a small 'image loading' picture while the main image is loading.  When the image completes, the viewer window is appropriately resized, centered on the screen, and 'image loaded' is displayed.  Neat!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<!-- resizableViewer.html  -->
+<html>
+<head>
+<script language="javascript" src="resizableViewer.js"></script>
+</head>
+<body>
+<center>
+<a href="javascript:view('cotton.jpg')">Pic 1</a>&nbsp;
+<a href="javascript:view('michael.jpg')">Pic 2</a>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Page Details:  Resizable Viewer</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.56 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- SEVEN STEPS TO INSTALL RESIZABLE VIEWER:
+
+  1.  Paste this first code into a new file
+  2.  Save this file as: resizableViewer.js
+  3.  Paste this whole section into a new HTML document
+  4.  Then save this new HTML document as:  viewer.html
+  5.  Save this code into the HEAD of your HTML page
+  6.  Copy this code into the BODY of your HTML page
+  7.  Save the image load images to your web server  --&gt;
+
+&lt;!-- STEP ONE: Paste this first code into a new file  --&gt;
+&lt;!-- STEP TWO: Save this file as: resizableViewer.js  --&gt;
+
+arImageSrc = new Array ("loading.gif","loaded.gif");
+arImageList = new Array ();
+for (counter in arImageSrc) {
+arImageList[counter] = new Image();
+arImageList[counter].src = arImageSrc[counter];
+}
+var height = screen.height;
+var width = screen.width;
+var leftpos = width / 2 - 50;
+var toppos = height / 2 - 50;
+function encode(str){ // Netscape fix thanks to Cyanide_7
+return escape(str.replace(/ /g,'+'));
+}
+function view(what) {
+var url = 'viewer.html?pic='+encode(what);
+window.open(url,'WIN','scrollbars=no,status=no,toolbar=no,resizable=1,location=no,menu=no,width=100,height=100,left=' + leftpos + ',top=' + toppos);
+}
+function getParams() {
+var idx = document.URL.indexOf('?');
+var params = new Array();
+if (idx != -1) {
+var pairs = document.URL.substring(idx+1, document.URL.length).split('&');
+for (var i=0; i&lt;pairs.length; i++) {
+nameVal = pairs[i].split('=');
+params[nameVal[0]] = nameVal[1];
+   }
+}
+return params;
+}
+params = getParams();
+function resize() {
+if (eval(pic).height) {
+var name = navigator.appName
+if (name == "Microsoft Internet Explorer") {
+myHeight = eval(pic).height + 40;
+myWidth = eval(pic).width + 12;
+}
+else {
+myHeight = eval(pic).height + 9;
+myWidth = eval(pic).width;
+}
+clearTimeout();
+var height = screen.height;
+var width = screen.width;
+var leftpos = width / 2 - myWidth / 2;
+var toppos = height / 2 - myHeight / 2; 
+self.moveTo(leftpos, toppos);
+self.resizeTo(myWidth, myHeight);
+document.il.src = 'loaded.gif';
+}
+else setTimeOut(resize(), 100);
+}
+
+&lt;!-- STEP THREE: Paste this whole section into a new HTML document  --&gt;
+&lt;!-- STEP FOUR:  Then save this new HTML document as:  viewer.html  --&gt;
+
+&lt;html&gt;
+&lt;head&gt;
+&lt;script language="javascript" src="resizableViewer.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" bgcolor="#FFFFFF"&gt;
+&lt;img border="0" src="loading.gif" width="100" height="9" name="il" onload="window.focus()"&gt;
+&lt;br&gt;
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Begin
+form = unescape(params["pic"]);
+pic = new Image();
+pic.src=form;
+document.write("&lt;img src=" + form + " boder=1 onload=resize()&gt;");
+//  End --&gt;
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+&lt;!-- STEP FIVE: Save this code into the HEAD of your HTML page  --&gt;
+
+&lt;head&gt;
+&lt;script language="javascript" src="resizableViewer.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;!-- STEP SIX: Copy this code into the BODY of your HTML page  --&gt;
+
+&lt;body&gt;
+
+&lt;center&gt;
+&lt;a href="javascript:view('cotton.jpg')"&gt;Pic 1&lt;/a&gt;&nbsp;
+&lt;a href="javascript:view('michael.jpg')"&gt;Pic 2&lt;/a&gt;
+&lt;/center&gt;
+&lt;/body&gt;
+
+&lt;!-- STEP SEVEN: Save the image load images to your web server  --&gt;
+
+&lt;!-- ../img/resizable-viewer/loading.gif --&gt;
+&lt;!-- ../img/resizable-viewer/loaded.gif --&gt;
+
+&lt;p&gt;&lt;center&gt;
+&lt;font face="arial, helvetica" SIZE="-2"&gt;Free JavaScripts provided&lt;br&gt;
+by &lt;a href="http://javascriptsource.com"&gt;JavaScript Source Code 3000&lt;/a&gt;&lt;/font&gt;
+&lt;/center&gt;&lt;p&gt;
+
+&lt;!-- Script Size:  2.56 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

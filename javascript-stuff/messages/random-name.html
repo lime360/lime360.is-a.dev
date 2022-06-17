@@ -1,0 +1,278 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Messages:  Random Name Generator</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Michael C. Hundt (mchundt@nglic.com)">
+<META NAME="section" CONTENT="Messages">
+<META NAME="description" CONTENT="Creates a random male or female character name for use in a story, movie, play, etc.  Cool.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Michael C. Hundt (mchundt@nglic.com) -->
+<!-- Web Site:  http://www.cinet.net/~mhundt/mystuff.htm -->
+
+
+
+
+<!-- Begin
+var malename = new Array(
+"Allen","Bob","Carlton",
+"David","Ernie","Foster",
+"George","Howard","Ian",
+"Jeffery","Kenneth","Lawrence",
+"Michael","Nathen","Orson",
+"Peter","Quinten","Reginald",
+"Stephen","Thomas","Morris",
+"Victor","Walter","Xavier",
+"Charles","Anthony","Gordon",
+"Percy","Conrad","Quincey",
+"Armand","Jamal","Andrew",
+"Matthew","Mark","Gerald"
+)
+var femalename = new Array(
+"Alice","Bonnie","Cassie",
+"Donna","Ethel","Grace",
+"Heather","Jan","Katherine",
+"Julie","Marcia","Patricia",
+"Mabel","Jennifer","Dorthey",
+"Mary Ellen","Jacki","Jean",
+"Betty","Diane","Annette",
+"Dawn","Jody","Karen",
+"Mary Jane","Shannon","Stephanie",
+"Kathleen","Emily","Tiffany",
+"Angela","Christine","Debbie",
+"Karla","Sandy","Marilyn",
+"Brenda","Hayley","Linda"
+)
+var lastname = new Array(
+"Adams","Bowden","Conway",
+"Darden","Edwards","Flynn",
+"Gilliam","Holiday","Ingram",
+"Johnson","Kraemer","Hunter",
+"McDonald","Nichols","Pierce",
+"Sawyer","Saunders","Schmidt",
+"Schroeder","Smith","Douglas",
+"Ward","Watson","Williams",
+"Winters","Yeager","Ford",
+"Forman","Dixon","Clark",
+"Churchill","Brown","Blum",
+"Anderson","Black","Cavenaugh",
+"Hampton","Jenkins","Prichard"
+)
+var r = 0;
+var i = 0;
+function RandomName(nameform) {
+r = Math.floor(Math.random() * lastname.length);     
+if(nameform.gender.options[1].selected == true) {
+i = Math.floor(Math.random() * femalename.length);
+nameform.first.value=femalename[i] 
+nameform.last.value=lastname[r]
+}
+else { 
+i = Math.floor(Math.random() * malename.length);
+nameform.first.value=malename[i] 
+nameform.last.value=lastname[r]   
+   }
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /messages/"><font color="#FF0000"><b>Messages</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Random Name Generator</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Creates a random male or female character name for use in a story, movie, play, etc.  Cool.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form>
+<table width=300>
+<tr>
+<td align=center colspan=2>
+<select name=gender size=1>
+<option value="Male">Male 
+<option value="Female">Female
+</select>  
+<input type=button name=generate value="Generate Name" onClick="RandomName(this.form)">
+</td>
+</tr>
+<tr>
+<td align=center><b>First Name:</b></td>
+<td align=center><input type=text name=first size=15></td>
+</tr>
+<tr>
+<td align=center><b>Last Name:</b></td>
+<td align=center><input type=text name=last size=15></td>
+</tr>
+</table>
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Messages:  Random Name Generator</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.81 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL RANDOM NAME GENERATOR:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Michael C. Hundt (mchundt@nglic.com) --&gt;
+&lt;!-- Web Site:  http://www.cinet.net/~mhundt/mystuff.htm --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var malename = new Array(
+"Allen","Bob","Carlton",
+"David","Ernie","Foster",
+"George","Howard","Ian",
+"Jeffery","Kenneth","Lawrence",
+"Michael","Nathen","Orson",
+"Peter","Quinten","Reginald",
+"Stephen","Thomas","Morris",
+"Victor","Walter","Xavier",
+"Charles","Anthony","Gordon",
+"Percy","Conrad","Quincey",
+"Armand","Jamal","Andrew",
+"Matthew","Mark","Gerald"
+)
+var femalename = new Array(
+"Alice","Bonnie","Cassie",
+"Donna","Ethel","Grace",
+"Heather","Jan","Katherine",
+"Julie","Marcia","Patricia",
+"Mabel","Jennifer","Dorthey",
+"Mary Ellen","Jacki","Jean",
+"Betty","Diane","Annette",
+"Dawn","Jody","Karen",
+"Mary Jane","Shannon","Stephanie",
+"Kathleen","Emily","Tiffany",
+"Angela","Christine","Debbie",
+"Karla","Sandy","Marilyn",
+"Brenda","Hayley","Linda"
+)
+var lastname = new Array(
+"Adams","Bowden","Conway",
+"Darden","Edwards","Flynn",
+"Gilliam","Holiday","Ingram",
+"Johnson","Kraemer","Hunter",
+"McDonald","Nichols","Pierce",
+"Sawyer","Saunders","Schmidt",
+"Schroeder","Smith","Douglas",
+"Ward","Watson","Williams",
+"Winters","Yeager","Ford",
+"Forman","Dixon","Clark",
+"Churchill","Brown","Blum",
+"Anderson","Black","Cavenaugh",
+"Hampton","Jenkins","Prichard"
+)
+var r = 0;
+var i = 0;
+function RandomName(nameform) {
+r = Math.floor(Math.random() * lastname.length);     
+if(nameform.gender.options[1].selected == true) {
+i = Math.floor(Math.random() * femalename.length);
+nameform.first.value=femalename[i] 
+nameform.last.value=lastname[r]
+}
+else { 
+i = Math.floor(Math.random() * malename.length);
+nameform.first.value=malename[i] 
+nameform.last.value=lastname[r]   
+   }
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form&gt;
+&lt;table width=300&gt;
+&lt;tr&gt;
+&lt;td align=center colspan=2&gt;
+&lt;select name=gender size=1&gt;
+&lt;option value="Male"&gt;Male 
+&lt;option value="Female"&gt;Female
+&lt;/select&gt;  
+&lt;input type=button name=generate value="Generate Name" onClick="RandomName(this.form)"&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=center&gt;&lt;b&gt;First Name:&lt;/b&gt;&lt;/td&gt;
+&lt;td align=center&gt;&lt;input type=text name=first size=15&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=center&gt;&lt;b&gt;Last Name:&lt;/b&gt;&lt;/td&gt;
+&lt;td align=center&gt;&lt;input type=text name=last size=15&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  2.81 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

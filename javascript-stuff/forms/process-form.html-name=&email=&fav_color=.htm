@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>CGI mockup</title>
+<script>
+<!-- Begin CGI mockup
+
+// this reads and formats the search string
+var STDIN = unescape(location.search.replace(/\+/g,' '));
+STDIN = STDIN.substring(1).split('&');
+for(i=0;i<STDIN.length;i++)
+  STDIN[i] = STDIN[i].split('=');
+
+// this reads the arrays and formats the HTML
+var STDOUT = "<h1>The following data has been submitted.</h1>\n<table border=0>";
+
+for(i=0;i<STDIN.length;i++){
+  STDOUT += "<tr>\n";
+  STDOUT += "\t<td align=right><b>"+STDIN[i][0]+"</b>: </td>\n";
+  STDOUT += "\t<td>"+STDIN[i][1]+"</td>\n";
+  STDOUT += "</tr>\n";
+}
+
+STDOUT += "</table>\n";
+
+// End CGI mockup-->
+</script>
+
+<body>
+<script>
+document.write(STDOUT);
+</script>
+</body>
+</html>

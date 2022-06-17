@@ -1,0 +1,360 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  BG Effects:  Logo fader</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="Fade any image horizontally and vertically.  Can be positioned anywhere on the page.  Awesome!">
+<META NAME="date" CONTENT="2000-10-20">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Bob Simpson">
+<META NAME="section" CONTENT="BG Effects">
+
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /bgeffects/"><font color="#FF0000"><b>BG Effects</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Logo fader</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Fade any image horizontally and vertically.  Can be positioned anywhere on the page.  Awesome!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<br>
+<br>
+<br>
+<br>
+<a name="logoAnchor"> </a>
+<div id="logo" style="position:absolute;visibility:visible;">
+<img name="logoIm" src="../img/logo-fader/logo-fader.gif" /img/logo-fader/logo-fader.gif" width=548 height=55>
+</div>
+
+<SCRIPT LANGUAGE="JavaScript1.2">
+
+
+
+<!-- Original:  Bob Simpson (webmaster@maryjanebrown.net) -->
+<!-- Web Site:  http://www.maryjanebrown.net/webmaster -->
+
+<!-- Begin
+function BrowserCheck() {
+var b = navigator.appName;
+if (b == "Netscape") this.b = "NS";
+else if (b == "Microsoft Internet Explorer") this.b = "IE";
+else this.b = b;
+this.v = parseInt(navigator.appVersion);
+this.NS = (this.b == "NS" && this.v >= 4);
+this.NS4 = (this.b == "NS" && this.v == 4);
+this.NS5 = (this.b == "NS" && this.v == 5);
+this.IE = (this.b == "IE" && this.v >= 4);
+this.IE4 = (navigator.userAgent.indexOf('MSIE 4') > 0);
+this.IE5 = (navigator.userAgent.indexOf('MSIE 5') > 0);
+if (this.IE5 || this.NS5) this.VER5 = true;
+if (this.IE4 || this.NS4) this.VER4 = true;
+this.oldVer = (! this.VER5 && ! this.VER4) ? true : false;
+this.min = (this.NS || this.IE);
+}
+is = new BrowserCheck()
+var myLogo = (is.NS4) ? document.layers["logo"] : document.all["logo"].style;
+var logoWidth = (is.NS4) ? document.logo.document.logoIm.width : document.logoIm.width;
+var logoHeight = (is.NS4) ? document.logo.document.logoIm.height : document.logoIm.height;
+var halfHeight = logoHeight / 2;
+var windowWidth = (is.NS4) ? window.innerWidth - 16 : document.body.offsetWidth - 20;
+var halfWidth = logoWidth / 2;
+var cliplogoHeightor = (is.NS4) ? 
+'myLogo.clip.top = 0;' +
+'myLogo.clip.right = right;' +
+'myLogo.clip.bottom = logoHeight;' +
+'myLogo.clip.left = left; '
+:
+'str="rect(0 " + right + " " + logoHeight + " " + left + ")";' +
+'myLogo.clip = str; '
+var clipLogoVert = (is.NS4) ? 
+'myLogo.clip.top = up;' +
+'myLogo.clip.right = logoWidth;' +
+'myLogo.clip.bottom = dn;' +
+'myLogo.clip.left = 0; '
+:
+'str="rect(" + up + " " + logoWidth + " " + dn + " 0)";' +
+'myLogo.clip = str;'
+var right = logoWidth, left = 0;
+var cnt = 0, up = halfHeight, dn = halfHeight, upDown;
+var logoWidth, logoHeight;
+// ---------------  User modifiable variables  ----------------------
+
+//if useAnchorPosition is true logo will be positioned where you put the "logoAnchor"
+//set to false to center logo - also set myLogo.top to desired position
+
+var useAnchorPosition = false; 		// set to false to set your own logo position below
+if (! useAnchorPosition) {
+myLogo.left = ((windowWidth / 2) - (logoWidth / 2)); 	// centers logo - comment out if using line below
+//myLogo.left = 100; 	// remove '//' to set left position
+myLogo.top = 260; 	// sets logo top
+}
+var scrollInc = 5;	// sets # of pixels to scroll in 1 time frame
+var scrollSpeed = 10;	// sets the scroll speed
+// ------------------------------------------------------------------
+function scrollLogo() {
+if (cnt == 0) {
+up-- ; dn++;
+if (up < -10) {
+right = logoWidth;
+left = 0;
+upDown = -scrollInc;
+cnt++;
+}
+eval(clipLogoVert);
+}
+if (cnt == 1) {
+right +=  upDown;
+left -= upDown;
+if (right < halfWidth-40) {
+right = halfWidth;
+left = halfWidth;
+upDown = scrollInc;
+cnt++;
+}
+eval(cliplogoHeightor);
+}
+if (cnt == 2) {
+right +=  upDown;
+left -= upDown;
+if (right > logoWidth+20) {
+right = logoWidth;
+left = 0;
+up = 0;
+dn = logoHeight;
+cnt++;
+}
+eval(cliplogoHeightor);
+}
+if (cnt == 3) {
+up++;
+dn--;
+if (dn < halfHeight - 10) {
+up = halfHeight;
+dn = halfHeight;
+right = logoWidth;
+left = 0;
+upDown = scrollInc;
+cnt = 0;
+}
+eval(clipLogoVert)
+}
+setTimeout("scrollLogo()", scrollSpeed);
+}
+if (! is.oldVer)window.onload = init;
+function init() {
+positionLogo();
+scrollLogo();
+}
+var L, T;
+var pos = (is.NS4) ? pos = document.anchors['logoAnchor'] : document.all['logoAnchor'];
+var posStr = (is.NS4) ?  'L = pos.x ; T = pos.y' : 'L = pos.offsetLeft; T = pos.offsetTop';
+function positionLogo() {
+if (! useAnchorPosition) return;
+eval(posStr);
+myLogo.top = T;
+myLogo.left = L;
+}
+//  End -->
+</script>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  BG Effects:  Logo fader</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  4.44 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- ONE STEP TO INSTALL LOGO FADER:
+
+  1.  Copy the coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;a name="logoAnchor"&gt; &lt;/a&gt;
+&lt;div id="logo" style="position:absolute;visibility:visible;"&gt;
+&lt;img name="logoIm" src="../img/logo-fader/logo-fader.gif" width=548 height=55&gt;
+&lt;/div&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript1.2"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+&lt;!-- Original:  Bob Simpson (webmaster@maryjanebrown.net) --&gt;
+&lt;!-- Web Site:  http://www.maryjanebrown.net/webmaster --&gt;
+
+&lt;!-- Begin
+function BrowserCheck() {
+var b = navigator.appName;
+if (b == "Netscape") this.b = "NS";
+else if (b == "Microsoft Internet Explorer") this.b = "IE";
+else this.b = b;
+this.v = parseInt(navigator.appVersion);
+this.NS = (this.b == "NS" && this.v &gt;= 4);
+this.NS4 = (this.b == "NS" && this.v == 4);
+this.NS5 = (this.b == "NS" && this.v == 5);
+this.IE = (this.b == "IE" && this.v &gt;= 4);
+this.IE4 = (navigator.userAgent.indexOf('MSIE 4') &gt; 0);
+this.IE5 = (navigator.userAgent.indexOf('MSIE 5') &gt; 0);
+if (this.IE5 || this.NS5) this.VER5 = true;
+if (this.IE4 || this.NS4) this.VER4 = true;
+this.oldVer = (! this.VER5 && ! this.VER4) ? true : false;
+this.min = (this.NS || this.IE);
+}
+is = new BrowserCheck()
+var myLogo = (is.NS4) ? document.layers["logo"] : document.all["logo"].style;
+var logoWidth = (is.NS4) ? document.logo.document.logoIm.width : document.logoIm.width;
+var logoHeight = (is.NS4) ? document.logo.document.logoIm.height : document.logoIm.height;
+var halfHeight = logoHeight / 2;
+var windowWidth = (is.NS4) ? window.innerWidth - 16 : document.body.offsetWidth - 20;
+var halfWidth = logoWidth / 2;
+var cliplogoHeightor = (is.NS4) ? 
+'myLogo.clip.top = 0;' +
+'myLogo.clip.right = right;' +
+'myLogo.clip.bottom = logoHeight;' +
+'myLogo.clip.left = left; '
+:
+'str="rect(0 " + right + " " + logoHeight + " " + left + ")";' +
+'myLogo.clip = str; '
+var clipLogoVert = (is.NS4) ? 
+'myLogo.clip.top = up;' +
+'myLogo.clip.right = logoWidth;' +
+'myLogo.clip.bottom = dn;' +
+'myLogo.clip.left = 0; '
+:
+'str="rect(" + up + " " + logoWidth + " " + dn + " 0)";' +
+'myLogo.clip = str;'
+var right = logoWidth, left = 0;
+var cnt = 0, up = halfHeight, dn = halfHeight, upDown;
+var logoWidth, logoHeight;
+// ---------------  User modifiable variables  ----------------------
+
+//if useAnchorPosition is true logo will be positioned where you put the "logoAnchor"
+//set to false to center logo - also set myLogo.top to desired position
+
+var useAnchorPosition = false; 		// set to false to set your own logo position below
+if (! useAnchorPosition) {
+myLogo.left = ((windowWidth / 2) - (logoWidth / 2)); 	// centers logo - comment out if using line below
+//myLogo.left = 100; 	// remove '//' to set left position
+myLogo.top = 200; 	// sets logo top
+}
+var scrollInc = 5;	// sets # of pixels to scroll in 1 time frame
+var scrollSpeed = 10;	// sets the scroll speed
+// ------------------------------------------------------------------
+function scrollLogo() {
+if (cnt == 0) {
+up-- ; dn++;
+if (up &lt; -10) {
+right = logoWidth;
+left = 0;
+upDown = -scrollInc;
+cnt++;
+}
+eval(clipLogoVert);
+}
+if (cnt == 1) {
+right +=  upDown;
+left -= upDown;
+if (right &lt; halfWidth-40) {
+right = halfWidth;
+left = halfWidth;
+upDown = scrollInc;
+cnt++;
+}
+eval(cliplogoHeightor);
+}
+if (cnt == 2) {
+right +=  upDown;
+left -= upDown;
+if (right &gt; logoWidth+20) {
+right = logoWidth;
+left = 0;
+up = 0;
+dn = logoHeight;
+cnt++;
+}
+eval(cliplogoHeightor);
+}
+if (cnt == 3) {
+up++;
+dn--;
+if (dn &lt; halfHeight - 10) {
+up = halfHeight;
+dn = halfHeight;
+right = logoWidth;
+left = 0;
+upDown = scrollInc;
+cnt = 0;
+}
+eval(clipLogoVert)
+}
+setTimeout("scrollLogo()", scrollSpeed);
+}
+if (! is.oldVer)window.onload = init;
+function init() {
+positionLogo();
+scrollLogo();
+}
+var L, T;
+var pos = (is.NS4) ? pos = document.anchors['logoAnchor'] : document.all['logoAnchor'];
+var posStr = (is.NS4) ?  'L = pos.x ; T = pos.y' : 'L = pos.offsetLeft; T = pos.offsetTop';
+function positionLogo() {
+if (! useAnchorPosition) return;
+eval(posStr);
+myLogo.top = T;
+myLogo.left = L;
+}
+//  End --&gt;
+&lt;/script&gt;
+ 
+
+&lt;!-- Script Size:  4.44 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

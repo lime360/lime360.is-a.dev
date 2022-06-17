@@ -1,0 +1,328 @@
+ <HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Equivalents:  Velocity</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Equivalents">
+<META NAME="description" CONTENT="Use JavaScript to find velocity equivalents.">
+
+<SCRIPT language="JavaScript">
+<!-- Begin
+function initArray() {
+this.length = initArray.arguments.length;
+for (var i = 0; i < this.length; i++) {
+this[i] = initArray.arguments[i];
+   }
+}
+/* Please don't ask about this work-around. It works... We're sure arrays
+will be better supported soon. */
+var isn07 = new initArray("4b","5b","8b","8b");
+isn07[0] = "~01~10.01~20.6~30.036~40.03281~51.9685~60.02237~70.01944~8";
+isn07[1] = "~0100~11~260~33.6~43.281~5196.85~62.237~71.944~8";
+isn07[2] = "~01.66667~10.016667~21~30.06~40.05468~53.281~60.03728~70.03240~8";
+isn07[3] = "~027.78~10.2778~216.6667~31~40.9113~554.68~60.6214~70.53996~8";
+isn07[4] = "~030.48~10.3048~218.29~31.097~41~560~60.68181818~70.59248~8";
+isn07[5] = "~00.5080~10.00508~20.3048~30.01829~40.016667~51~60.01136~70.00987~8";
+isn07[6] = "~044.7~10.447~226.82~31.609~41.467~588~61~70.86898~8";
+isn07[7] = "~051.44~10.5144~230.87~31.852~41.688~5101.3~61.151~71~8";
+function velCon() {
+for (var i = 0; i < 8; i++) {
+if (document.isnform07.veli[i].checked) {
+veli = i;
+velinm = document.isnform07.veli[i].value;
+   }
+}
+for (var i = 0; i < 8; i++) {
+if (document.isnform07.velo[i].checked) {
+velo = i;
+velonm = document.isnform07.velo[i].value;
+   }
+}
+useri = document.isnform07.velinp.value;
+if (useri == 0) {
+useri = 1;
+document.isnform07.velinp.value = useri;
+}
+mulstr = isn07[veli];
+picker = "~" + velo;
+ps = mulstr.indexOf(picker);
+velo++;
+picker = "~" + velo;
+ps1 = mulstr.indexOf(picker);
+mulstr = mulstr.substring((ps + 2),ps1);
+ps = (useri * mulstr);
+picker = "";
+picker += ps
+ps1 = picker.indexOf(".");
+if (ps1 > -1) {
+ps = ps + .000001;
+picker = "";
+picker += ps;
+ps2 = picker.indexOf("e");
+if (ps2 < 0) {
+picker = picker.substring(0,(ps1 + 6));
+}
+if (ps2 == 0 || ps2 > 0) {
+ps3 = picker.indexOf("00000");
+if (ps3 > 0) {
+picker = picker.substring(0,ps3 + 1) + picker.substring(ps2,picker.length);
+      }
+   }
+}
+picker = useri + " " + velinm + " = " + picker + " " + velonm
+document.isnform07.velout.value = picker;
+}
+// End -->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /equivalents/"><font color="#FF0000">Equivalents</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Velocity</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<TABLE BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><TD><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Use JavaScript to find velocity equivalents.
+<br>
+<hr>
+</TD></tr>
+</TABLE>
+<!-- Demonstration -->
+<BODY>
+<CENTER>
+<TABLE BORDER=1 WIDTH=486>
+<tr><TD COLSPAN=10 ALIGN=CENTER><FORM NAME="isnform07"><FONT COLOR="blue"><B>Velocity Equivalents</B></TD></tr>
+<tr><TD COLSPAN=10 VALIGN=TOP><FONT SIZE=1><B>First, type the number you wish converted here: </B>
+<INPUT TYPE="text" NAME="velinp" SIZE=30 VALUE="" onChange="velCon();"><BR>
+<B>Then, click radio buttons for desired conversion:</FONT></TD></tr>
+<tr><TD ALIGN=CENTER><FONT COLOR="red" SIZE=1><B>Fm:</B></FONT></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>cm/sec<BR>
+<INPUT TYPE="radio" NAME="veli" VALUE="cm/sec" CHECKED onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>m/sec<BR>
+<INPUT TYPE="radio" NAME="veli" VALUE="m/sec" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>m/min<BR>
+<INPUT TYPE="radio" NAME="veli" VALUE="m/min" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>km/hr<BR>
+<INPUT TYPE="radio" NAME="veli" VALUE="km/hr" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>ft/sec<BR>
+<INPUT TYPE="radio" NAME="veli" VALUE="ft/sec" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>ft/min<BR>
+<INPUT TYPE="radio" NAME="veli" VALUE="ft/min" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>mi/hr<BR>
+<INPUT TYPE="radio" NAME="veli" VALUE="mi/hr" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>Knots<BR>
+<INPUT TYPE="radio" NAME="veli" VALUE="Knots" onClick = ""></TD>
+<tr><TD ALIGN=CENTER><FONT COLOR="red" SIZE=1><B>To:</B></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>cm/sec<BR>
+<INPUT TYPE="radio" NAME="velo" VALUE="cm/sec" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>m/sec<BR>
+<INPUT TYPE="radio" NAME="velo" VALUE="m/sec" CHECKED onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>m/min<BR>
+<INPUT TYPE="radio" NAME="velo" VALUE="m/min" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>km/hr<BR>
+<INPUT TYPE="radio" NAME="velo" VALUE="km/hr" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>ft/sec<BR>
+<INPUT TYPE="radio" NAME="velo" VALUE="ft/sec" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>ft/min<BR>
+<INPUT TYPE="radio" NAME="velo" VALUE="ft/min" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>mi/hr<BR>
+<INPUT TYPE="radio" NAME="velo" VALUE="mi/hr" onClick = ""></TD>
+<TD ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>Knots<BR>
+<INPUT TYPE="radio" NAME="velo" VALUE="Knots" onClick = ""></TD>
+<tr><TD COLSPAN=10 ALIGN=CENTER VALIGN=TOP><FONT SIZE=1>
+<INPUT TYPE="button" VALUE=" Click for Conversion " onClick="velCon();"> 
+<INPUT TYPE="reset" VALUE=" Reset Values "><BR>
+<INPUT TYPE="text" NAME="velout" SIZE=60 VALUE="" onClick="velCon();">
+</FONT></TD></tr>
+</TABLE></FORM>
+</CENTER>
+<P>
+<P>
+<a name="source">
+<TABLE BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><TD BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Equivalents:  Velocity</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!<br><br></font></td></tr>
+<tr><TD BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  4.55 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL VELOCITY EQUIVALENTS:
+
+   1.  Paste the specified coding into the HEAD of your HTML document
+   2.  Put the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the HEAD of your HTML document  --&gt;
+		  
+&lt;HEAD&gt;
+
+&lt;!-- Cut-N-Paste JavaSCRIPT from Copyright 1996  --&gt;
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function initArray() {
+this.length = initArray.arguments.length;
+for (var i = 0; i &lt; this.length; i++) {
+this[i] = initArray.arguments[i];
+   }
+}
+var isn07 = new initArray("4b","5b","8b","8b");
+isn07[0] = "~01~10.01~20.6~30.036~40.03281~51.9685~60.02237~70.01944~8";
+isn07[1] = "~0100~11~260~33.6~43.281~5196.85~62.237~71.944~8";
+isn07[2] = "~01.66667~10.016667~21~30.06~40.05468~53.281~60.03728~70.03240~8";
+isn07[3] = "~027.78~10.2778~216.6667~31~40.9113~554.68~60.6214~70.53996~8";
+isn07[4] = "~030.48~10.3048~218.29~31.097~41~560~60.68181818~70.59248~8";
+isn07[5] = "~00.5080~10.00508~20.3048~30.01829~40.016667~51~60.01136~70.00987~8";
+isn07[6] = "~044.7~10.447~226.82~31.609~41.467~588~61~70.86898~8";
+isn07[7] = "~051.44~10.5144~230.87~31.852~41.688~5101.3~61.151~71~8";
+function velCon() {
+for (var i = 0; i &lt; 8; i++) {
+if (document.isnform07.veli[i].checked) {
+veli = i;
+velinm = document.isnform07.veli[i].value;
+   }
+}
+for (var i = 0; i &lt; 8; i++) {
+if (document.isnform07.velo[i].checked) {
+velo = i;
+velonm = document.isnform07.velo[i].value;
+   }
+}
+useri = document.isnform07.velinp.value;
+if (useri == 0) {
+useri = 1;
+document.isnform07.velinp.value = useri;
+}
+mulstr = isn07[veli];
+picker = "~" + velo;
+ps = mulstr.indexOf(picker);
+velo++;
+picker = "~" + velo;
+ps1 = mulstr.indexOf(picker);
+mulstr = mulstr.substring((ps + 2),ps1);
+ps = (useri * mulstr);
+picker = "";
+picker += ps
+ps1 = picker.indexOf(".");
+if (ps1 &gt; -1) {
+ps = ps + .000001;
+picker = "";
+picker += ps;
+ps2 = picker.indexOf("e");
+if (ps2 &lt; 0) {
+picker = picker.substring(0,(ps1 + 6));
+}
+if (ps2 == 0 || ps2 &gt; 0) {
+ps3 = picker.indexOf("00000");
+if (ps3 &gt; 0) {
+picker = picker.substring(0,ps3 + 1) + picker.substring(ps2,picker.length);
+      }
+   }
+}
+picker = useri + " " + velinm + " = " + picker + " " + velonm
+document.isnform07.velout.value = picker;
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;CENTER&gt;
+&lt;TABLE BORDER=1 WIDTH=486&gt;
+&lt;tr&gt;&lt;TD COLSPAN=10 ALIGN=CENTER&gt;&lt;FORM NAME="isnform07"&gt;&lt;FONT COLOR="blue"&gt;&lt;B&gt;Velocity Equivalents&lt;/B&gt;&lt;/TD&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;TD COLSPAN=10 VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;&lt;B&gt;First, type the number you wish converted here: &lt;/B&gt;
+&lt;INPUT TYPE="text" NAME="velinp" SIZE=30 VALUE="" onChange="velCon();"&gt;&lt;BR&gt;
+&lt;B&gt;Then, click radio buttons for desired conversion:&lt;/FONT&gt;&lt;/TD&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;TD ALIGN=CENTER&gt;&lt;FONT COLOR="red" SIZE=1&gt;&lt;B&gt;Fm:&lt;/B&gt;&lt;/FONT&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;cm/sec&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="veli" VALUE="cm/sec" CHECKED onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;m/sec&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="veli" VALUE="m/sec" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;m/min&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="veli" VALUE="m/min" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;km/hr&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="veli" VALUE="km/hr" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;ft/sec&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="veli" VALUE="ft/sec" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;ft/min&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="veli" VALUE="ft/min" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;mi/hr&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="veli" VALUE="mi/hr" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;Knots&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="veli" VALUE="Knots" onClick = ""&gt;&lt;/TD&gt;
+&lt;tr&gt;&lt;TD ALIGN=CENTER&gt;&lt;FONT COLOR="red" SIZE=1&gt;&lt;B&gt;To:&lt;/B&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;cm/sec&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="velo" VALUE="cm/sec" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;m/sec&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="velo" VALUE="m/sec" CHECKED onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;m/min&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="velo" VALUE="m/min" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;km/hr&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="velo" VALUE="km/hr" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;ft/sec&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="velo" VALUE="ft/sec" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;ft/min&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="velo" VALUE="ft/min" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;mi/hr&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="velo" VALUE="mi/hr" onClick = ""&gt;&lt;/TD&gt;
+&lt;TD ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;Knots&lt;BR&gt;
+&lt;INPUT TYPE="radio" NAME="velo" VALUE="Knots" onClick = ""&gt;&lt;/TD&gt;
+&lt;tr&gt;&lt;TD COLSPAN=10 ALIGN=CENTER VALIGN=TOP&gt;&lt;FONT SIZE=1&gt;
+&lt;INPUT TYPE="button" VALUE=" Click for Conversion " onClick="velCon();"&gt; 
+&lt;INPUT TYPE="reset" VALUE=" Reset Values "&gt;&lt;BR&gt;
+&lt;INPUT TYPE="text" NAME="velout" SIZE=60 VALUE="" onClick="velCon();"&gt;
+&lt;/FONT&gt;&lt;/TD&gt;&lt;/tr&gt;
+&lt;/TABLE&gt;&lt;/FORM&gt;
+&lt;/CENTER&gt;
+
+ 
+
+&lt;!-- Script Size:  4.55 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

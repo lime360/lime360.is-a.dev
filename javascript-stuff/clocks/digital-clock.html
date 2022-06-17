@@ -1,0 +1,259 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Clocks:  Digital Clock</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="Displays the time like a real digital clock.  Changes rapidly and includes hours, minutes, seconds and AM/PM indication.  Neat!">
+<META NAME="date" CONTENT="2001-03-02">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Ramandeep Singh">
+<META NAME="section" CONTENT="Clocks">
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Ramandeep Singh (ramandeepji@yahoo.com) -->
+<!-- Web Site:  http://hard-drive.hypermart.net -->
+
+
+
+
+<!-- Begin
+var dn;
+c1 = new Image(); c1.src = "../img/digital-clock/c1.gif";
+c2 = new Image(); c2.src = "../img/digital-clock/c2.gif";
+c3 = new Image(); c3.src = "../img/digital-clock/c3.gif";
+c4 = new Image(); c4.src = "../img/digital-clock/c4.gif";
+c5 = new Image(); c5.src = "../img/digital-clock/c5.gif";
+c6 = new Image(); c6.src = "../img/digital-clock/c6.gif";
+c7 = new Image(); c7.src = "../img/digital-clock/c7.gif";
+c8 = new Image(); c8.src = "../img/digital-clock/c8.gif";
+c9 = new Image(); c9.src = "../img/digital-clock/c9.gif";
+c0 = new Image(); c0.src = "../img/digital-clock/c0.gif";
+cb = new Image(); cb.src = "../img/digital-clock/cb.gif";
+cam = new Image(); cam.src = "../img/digital-clock/cam.gif";
+cpm = new Image(); cpm.src = "../img/digital-clock/cpm.gif";
+function extract(h,m,s,type) {
+if (!document.images) return;
+if (h <= 9) {
+document.images.a.src = cb.src;
+document.images.b.src = eval("c"+h+".src");
+}
+else {
+document.images.a.src = eval("c"+Math.floor(h/10)+".src");
+document.images.b.src = eval("c"+(h%10)+".src");
+}
+if (m <= 9) {
+document.images.d.src = c0.src;
+document.images.e.src = eval("c"+m+".src");
+}
+else {
+document.images.d.src = eval("c"+Math.floor(m/10)+".src");
+document.images.e.src = eval("c"+(m%10)+".src");
+}
+if (s <= 9) {
+document.g.src = c0.src;
+document.images.h.src = eval("c"+s+".src");
+}
+else {
+document.images.g.src = eval("c"+Math.floor(s/10)+".src");
+document.images.h.src = eval("c"+(s%10)+".src");
+}
+if (dn == "AM") document.j.src = cam.src;
+else document.images.j.src = cpm.src;
+}
+function show3() {
+if (!document.images)
+return;
+var Digital = new Date();
+var hours = Digital.getHours();
+var minutes = Digital.getMinutes();
+var seconds = Digital.getSeconds();
+dn = "AM";
+if ((hours >= 12) && (minutes >= 1) || (hours >= 13)) {
+dn = "PM";
+hours = hours-12;
+}
+if (hours == 0)
+hours = 12;
+extract(hours, minutes, seconds, dn);
+setTimeout("show3()", 1000);
+}
+//  End -->
+</script>
+
+</HEAD>
+
+<BODY BGCOLOR=#000000 vlink=#0000ff onLoad="show3()">
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /clocks/"><font color="#FF0000"><b>Clocks</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Digital Clock</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva" COLOR=#ffffff>
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Displays the time like a real digital clock.  Changes rapidly and includes hours, minutes, seconds and AM/PM indication.  Neat!
+<br>
+<br>
+<a href="../img/digital-clock/digital-clock.zip" /img/digital-clock/digital-clock.zip">Download the required image files here</a>
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<img height=21 src="../img/digital-clock/cb.gif" /img/digital-clock/cb.gif" width=16 name=a>
+<img height=21 src="../img/digital-clock/cb.gif" /img/digital-clock/cb.gif" width=16 name=b>
+<img height=21 src="../img/digital-clock/colon.gif" /img/digital-clock/colon.gif" width=9 name=c>
+<img height=21 src="../img/digital-clock/cb.gif" /img/digital-clock/cb.gif" width=16 name=d>
+<img height=21 src="../img/digital-clock/cb.gif" /img/digital-clock/cb.gif" width=16 name=e>
+<img height=21 src="../img/digital-clock/colon.gif" /img/digital-clock/colon.gif" width=9 name=f>
+<img height=21 src="../img/digital-clock/cb.gif" /img/digital-clock/cb.gif" width=16 name=g>
+<img height=21 src="../img/digital-clock/cb.gif" /img/digital-clock/cb.gif" width=16 name=h>
+<img height=21 src="../img/digital-clock/cam.gif" /img/digital-clock/cam.gif" width=16 name=j>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Clocks:  Digital Clock</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Command-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  3.36 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL DIGITAL CLOCK:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the onLoad event handler into the BODY tag
+  3.  Put the last coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Ramandeep Singh (ramandeepji@yahoo.com) --&gt;
+&lt;!-- Web Site:  http://hard-drive.hypermart.net --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var dn;
+c1 = new Image(); c1.src = "digital-clock/c1.gif";
+c2 = new Image(); c2.src = "digital-clock/c2.gif";
+c3 = new Image(); c3.src = "digital-clock/c3.gif";
+c4 = new Image(); c4.src = "digital-clock/c4.gif";
+c5 = new Image(); c5.src = "digital-clock/c5.gif";
+c6 = new Image(); c6.src = "digital-clock/c6.gif";
+c7 = new Image(); c7.src = "digital-clock/c7.gif";
+c8 = new Image(); c8.src = "digital-clock/c8.gif";
+c9 = new Image(); c9.src = "digital-clock/c9.gif";
+c0 = new Image(); c0.src = "digital-clock/c0.gif";
+cb = new Image(); cb.src = "digital-clock/cb.gif";
+cam = new Image(); cam.src = "digital-clock/cam.gif";
+cpm = new Image(); cpm.src = "digital-clock/cpm.gif";
+function extract(h,m,s,type) {
+if (!document.images) return;
+if (h &lt;= 9) {
+document.images.a.src = cb.src;
+document.images.b.src = eval("c"+h+".src");
+}
+else {
+document.images.a.src = eval("c"+Math.floor(h/10)+".src");
+document.images.b.src = eval("c"+(h%10)+".src");
+}
+if (m &lt;= 9) {
+document.images.d.src = c0.src;
+document.images.e.src = eval("c"+m+".src");
+}
+else {
+document.images.d.src = eval("c"+Math.floor(m/10)+".src");
+document.images.e.src = eval("c"+(m%10)+".src");
+}
+if (s &lt;= 9) {
+document.g.src = c0.src;
+document.images.h.src = eval("c"+s+".src");
+}
+else {
+document.images.g.src = eval("c"+Math.floor(s/10)+".src");
+document.images.h.src = eval("c"+(s%10)+".src");
+}
+if (dn == "AM") document.j.src = cam.src;
+else document.images.j.src = cpm.src;
+}
+function show3() {
+if (!document.images)
+return;
+var Digital = new Date();
+var hours = Digital.getHours();
+var minutes = Digital.getMinutes();
+var seconds = Digital.getSeconds();
+dn = "AM";
+if ((hours &gt;= 12) && (minutes &gt;= 1) || (hours &gt;= 13)) {
+dn = "PM";
+hours = hours-12;
+}
+if (hours == 0)
+hours = 12;
+extract(hours, minutes, seconds, dn);
+setTimeout("show3()", 1000);
+}
+//  End --&gt;
+&lt;/script&gt;
+
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Insert the onLoad event handler into your BODY tag  --&gt;
+
+&lt;BODY onLoad="show3()" bgcolor="#000000"&gt;
+
+&lt;!-- STEP THREE: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;img height=21 src="digital-clock/cb.gif" width=16 name=a&gt;
+&lt;img height=21 src="digital-clock/cb.gif" width=16 name=b&gt;
+&lt;img height=21 src="digital-clock/colon.gif" width=9 name=c&gt;
+&lt;img height=21 src="digital-clock/cb.gif" width=16 name=d&gt;
+&lt;img height=21 src="digital-clock/cb.gif" width=16 name=e&gt;
+&lt;img height=21 src="digital-clock/colon.gif" width=9 name=f&gt;
+&lt;img height=21 src="digital-clock/cb.gif" width=16 name=g&gt;
+&lt;img height=21 src="digital-clock/cb.gif" width=16 name=h&gt;
+&lt;img height=21 src="digital-clock/cam.gif" width=16 name=j&gt;
+
+ 
+
+&lt;!-- Script Size:  3.36 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

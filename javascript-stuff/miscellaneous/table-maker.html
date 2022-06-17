@@ -1,0 +1,120 @@
+<HTML>
+<HEAD>
+<TITLE>Guide to Generating Tables</TITLE>
+
+<SCRIPT LANGUAGE="Javascript">
+<!-- Original:  Andy Augustine -->
+
+<!-- Begin
+var myTable = new tableObj('','Default',1,1,1,1,2,'','');
+
+function propObj(string,outstring) {
+this.value = string;
+this.out = outstring + string;
+}
+function setValues(form) {
+this.alignment.value=   form.alignment.value;
+this.border.value=  form.border.value;
+this.cellspacing.value = form.cellspacing.value;
+this.cellpadding.value = form.cellpadding.value;
+this.rows.value = form.numrows.options[form.numrows.selectedIndex].text;
+this.cols.value = form.numcols.options[form.numcols.selectedIndex].text;
+this.calign.value =  form.calign.value;
+this.cvalign.value = form.cvalign.value;
+}
+function updateProps() {
+this.alignment.out=   "  ALIGN="   + this.alignment.value;
+this.border.out=  "  BORDER="  + this.border.value;
+this.cellspacing.out = "  CELLSPACING=" + this.cellspacing.value;
+this.cellpadding.out = "  CELLPADDING=" + this.cellpadding.value;
+this.rows.out =    "  ROWS="   + this.rows.value;
+this.cols.out =    "  COLS="   + this.cols.value;
+this.calign.out =  " ALIGN="  + this.calign.value;
+this.cvalign.out = " VALIGN=" + this.cvalign.value;
+}
+function tableObj(align,caption,border,cellpadding,cellspacing,rows,cols,calign,cvalign) {
+this.alignment = new propObj(align,"  ALIGN=");
+this.border = new propObj(border,"  BORDER=");
+this.cellspacing = new propObj(cellspacing,"  CELLSPACING=");
+this.cellpadding = new propObj(cellpadding,"  CELLPADDING=");
+this.rows = new propObj(rows,"  ROWS=");
+this.cols = new propObj(cols,"  COLS=");
+this.calign = new propObj(calign," ALIGN=");
+this.cvalign = new propObj(cvalign," VALIGN=");
+this.setValues = setValues;
+this.updateProps = updateProps;
+}
+function dumpProps(obj,obj_name) {
+var result = "", i ="";
+for (i in obj)
+result += obj_name +"."+ i +" = "+ obj[i].value +"\n";
+return result;
+}
+function dumpTags(obj,obj_name) {
+var result = "", i ="";
+for (i in obj)
+result += obj_name +"."+ i +".out = "+ obj[i].out +"\n";
+return result;
+}
+function drawTable(table) {
+var tabdoc = this.tableframe.document;
+table.updateProps();
+tabdoc.open();
+tabdoc.write('<HTML><BODY>---Your Table---<br><br><br>')
+tabdoc.write('<TABLE ')
+tabdoc.write(table.alignment.out)
+tabdoc.write(table.cellspacing.out)
+tabdoc.write(table.cellpadding.out)
+tabdoc.write(table.border.out)
+tabdoc.write(' >')
+for (var i=1; i <= table.rows.value; i++) {
+tabdoc.write('<TR' +table.cvalign.out+ '>')
+for (var j = 1; j <= table.cols.value; j++) {
+tabdoc.write('<TD ' +table.calign.out+ '>' +(j*i)+ '</TD>')
+}
+tabdoc.write('</TR>')
+}
+tabdoc.write('</TABLE></HTML></BODY>')
+tabdoc.close()
+}
+function showSource() {
+var opts = 'width=350,height=350,scrollbars=yes,directories=no,status=yes,location=no,toolbar=no';
+var ltag = '<'
+var gtag = '>'
+var sourcewin = window.open('','source',opts)
+sourcewin= window.open('','source')
+sourcewin.status="Cut and paste this info into your web page"
+sourcewin.document.write('<HTML><BODY BGCOLOR="#FFFFFF" <PRE><XMP>')
+sourcewin.document.writeln(ltag + 'TABLE ')
+if (myTable.alignment.out != '')
+sourcewin.document.writeln(myTable.alignment.out)
+sourcewin.document.writeln(myTable.border.out)
+sourcewin.document.writeln(myTable.cellspacing.out)
+sourcewin.document.writeln(myTable.cellpadding.out + gtag)
+for (var i=1; i <= myTable.rows.value; i++) {
+sourcewin.document.writeln(ltag+ 'TR' +myTable.cvalign.out+ ' ' +myTable.calign.out+ gtag)
+for (var j = 1; j <= myTable.cols.value; j++) {
+sourcewin.document.writeln(' ' +ltag+ 'TD' +gtag +(j*i)+ ltag+ '/TD' +gtag)
+}
+sourcewin.document.writeln(ltag+ '/TR' +gtag)
+}
+sourcewin.document.writeln(ltag+ '/TABLE' +gtag)
+sourcewin.document.write('</XMP></PRE><CENTER>')
+sourcewin.document.write('<FORM NAME=menu><INPUT TYPE="button" ');
+sourcewin.document.write('VALUE="Close" onClick="self.document.clear();self.close()">')
+sourcewin.document.write('<P><P><P><P><P><P></FORM>')
+sourcewin.document.write('</CENTER></BODY></HTML>')
+sourcewin.document.close()
+}
+// End -->
+</SCRIPT>
+</HEAD>
+
+<frameset cols="50%,50%" onLoad="parent.myTable.setValues(this.info.tform);parent.drawTable(parent.myTable)">
+
+<frame src="table-maker-left.html" /miscellaneous/table-maker-left.html" name="info">
+<frame src="javascript:void(0)" name="tableframe" marginwidth="4">
+
+</frameset>
+
+</html>

@@ -1,0 +1,346 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Games:  Catch A Spy</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Kien Caoxuan (kcaoxuan@caoxuan.com)">
+<META NAME="section" CONTENT="Games">
+<META NAME="description" CONTENT="You are an Interpol officer who needs to track down the movement of the Green Spy.  He moves around the world in a predictable pattern. Learn his moves.  Once you're in the same airport with the Green Spy, you win!  Aim for the shortest time.  Good luck!">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /games/"><font color="#FF0000"><b>Games</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Catch A Spy</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+You are an Interpol officer who needs to track down the movement of the Green Spy.  He moves around the world in a predictable pattern. Learn his moves.  Once you're in the same airport with the Green Spy, you win!  Aim for the shortest time.  Good luck!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center><font color="red"><b><a href="catch-a-spy-demo.htm"  Click here to open Catch A Spy Demo (in a new window)</a></b></font></center>
+<br><br>
+You will need the game images for this game to work:  <a href="../img/catch-a-spy/catch-a-spy.zip" /img/catch-a-spy/catch-a-spy.zip">catch-a-spy.zip</a>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Games:  Catch A Spy</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  9.65 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- FIVE STEPS TO INSTALL CATCH A SPY:
+
+  1.  Copy the first section into a new file, save as spy.html --&gt;
+  2.  Copy the second section into a new file, save as world.html --&gt;
+  3.  Copy the third section into a new file, save as flight.html --&gt;
+  4.  Copy the fourth section into a new file, save as play.html --&gt;
+  5.  Upload game images and above files to web site directory --&gt;
+
+&lt;!-- STEP ONE: Copy the first section into a new file, save as spy.html  --&gt;
+
+&lt;HTML&gt;
+&lt;!-- Original:  Kien Caoxuan (kcaoxuan@caoxuan.com) --&gt;
+&lt;!-- Web Site:  http://www.caoxuan.com --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;frameset rows="260,*" border=0&gt;
+&lt;frame name="world" src=world.html&gt;
+&lt;frame name="play" src=play.html&gt;
+&lt;/frameset&gt;
+&lt;/HTML&gt;
+
+
+
+&lt;!-- STEP TWO: Copy the second section into a new file, save as world.html  --&gt;
+
+&lt;HTML&gt;
+&lt;script&gt;
+N = (navigator.appName.indexOf("Netscape") != -1);
+M = (navigator.appName.indexOf("Microsoft") != -1);
+Vis = new Array();
+Vis[0] = (M) ? "hidden" : "hide";
+Vis[1] = (M) ? "visible" : "show";
+function Getdiv(divId,divY,divX,divW,divH,bCol,visb,zInd) {
+bkCol = (bCol != "")?((N)?" bgColor = "+bCol:";background:"+bCol):"";
+DivTyp = (M) ? "&lt;DIV" : "&lt;LAYER";
+if (M) {Styl = " ID = "+divId+" style = 'position:absolute;top:"+divY+";left:"+divX+";width:"+divW+";height:"+divH+bkCol+";visibility:"+Vis[visb]+";z-index:"+zInd+"'&gt;"}
+if (N) {Styl = " ID = "+divId+" top = "+divY+" left = "+divX+" width = "+divW+" height = "+divH+bkCol+" visibility = "+Vis[visb]+" z-index = "+zInd+"&gt;"}
+document.writeln(DivTyp+Styl);
+}
+function EndDiv() {
+(M)? document.writeln("&lt;/DIV&gt;"): document.writeln("&lt;/LAYER&gt;");
+}
+Getdiv('worldmap',0,0,500,250,'',1,0);
+document.write("&lt;img src = greyworld.jpg&gt;");
+EndDiv();
+Getdiv('player',0,0,1,1,'',1,2);
+document.write("&lt;img src = pol.gif width = 10&gt;");
+EndDiv();
+Getdiv('Crim',0,0,1,1,'',1,2);
+document.write("&lt;img src = ali.gif width = 10&gt;");
+EndDiv();
+/*
+Getdiv('ads',220,10,300,30,'',1,2);
+document.write("&lt;font face = Tahoma size = 2&gt;&lt;a href = 'http://www.caoxuan.com/zip4free/request.html' target = _blank&gt;Get Zip File&lt;/a&gt;")
+EndDiv()
+*/
+&lt;/script&gt;
+&lt;body bgcolor=silver&gt;
+&lt;/body&gt;&lt;/HTML&gt;
+
+
+
+&lt;!-- STEP THREE: Copy the third section into a new file, save as flight.html  --&gt;
+
+&lt;HTML&gt;
+&lt;script&gt;
+N = (navigator.appName.indexOf("Netscape") != -1);
+M = (navigator.appName.indexOf("Microsoft") != -1);
+Vis = new Array();
+Vis[0] = (M) ? "hidden" : "hide";
+Vis[1] = (M) ? "visible" : "show";
+function Getdiv(divId,divY,divX,divW,divH,bCol,visb,zInd) {
+bkCol = (bCol != "")?((N)?" bgColor = "+bCol:";background:"+bCol):"";
+DivTyp = (M) ? "&lt;DIV" : "&lt;LAYER";
+if (M) {Styl = " ID = "+divId+" style = 'position:absolute;top:"+divY+";left:"+divX+";width:"+divW+";height:"+divH+bkCol+";visibility:"+Vis[visb]+";z-index:"+zInd+"'&gt;"}
+if (N) {Styl = " ID = "+divId+" top = "+divY+" left = "+divX+" width = "+divW+" height = "+divH+bkCol+" visibility = "+Vis[visb]+" z-index = "+zInd+"&gt;"}
+document.writeln(DivTyp+Styl);
+}
+function EndDiv() {
+(M)? document.writeln("&lt;/DIV&gt;"): document.writeln("&lt;/LAYER&gt;");
+}
+Getdiv('pol',0,0,100,100,'',1,0);
+document.write("&lt;img src=pol.gif&gt;");
+EndDiv();
+Getdiv('ali',120,550,100,100,'',1,1);
+document.write("&lt;img src=ali.gif&gt;");
+EndDiv();
+x = 0;
+function Moveit() {
+if (M) {document.all.pol.style.left = x;document.all.ali.style.left = 550-x}
+if (N) {document.layers.pol.left = x;document.layers.ali.left = 550-x}
+x += 5;
+if (x&gt;550) {x = 0;self.close()}
+setTimeout('Moveit()',30);
+}
+function WinIt() {
+if (M) {document.all.pol.style.left = x;document.all.ali.style.left = 550-x}
+if (N) {document.layers.pol.left = x;document.layers.ali.left = 550-x}
+x += 5;
+if (x&gt;300) Final()'
+setTimeout('WinIt()',30)'
+}
+function Final() {
+document.close();
+document.write("&lt;center&gt;&lt;font color=blue size=5&gt;YOU GOT HIM!&lt;br&gt;after ");
+document.write(opener.document.forms[0].CurTime.value," hours...at ",opener.document.forms[0].Curplace.value," airport...&lt;br&gt;");
+document.write("&lt;img src=gotcha.gif&gt;");
+document.write("&lt;form&gt;&lt;input type=button value='NEXT MISSION' onclick = 'opener.location.reload();self.close()'&gt;&lt;/form&gt;&lt;/font&gt;&lt;/center&gt;");
+}
+function Test() {
+(opener.document.forms[0].Curplace.value == opener.document.forms[0].Crimplace.value)?WinIt():Moveit();
+}
+&lt;/script&gt;
+
+&lt;body onload="Test()"&gt;
+&lt;center&gt;
+&lt;font face="Tahoma" color=red size=5&gt;
+&lt;br&gt;&lt;br&gt;&lt;script&gt;
+document.write("Welcome to ",opener.document.forms[0].Curplace.value," !")
+document.write("&lt;br&gt;Spy's on his way to ",opener.document.forms[0].Crimplace.value,".")
+&lt;/script&gt;
+&lt;/font&gt;
+&lt;/center&gt;
+&lt;/body&gt;&lt;/HTML&gt;
+
+
+
+&lt;!-- STEP FOUR: Copy the fourth section into a new file, save as world.html  --&gt;
+
+&lt;HTML&gt;
+&lt;body&gt;
+&lt;form&gt;
+&lt;table border=1 cellpadding=3&gt;
+&lt;tr&gt;
+&lt;td align=right&gt;
+Time: &lt;input type=text size=5 name=CurTime value="0"&gt; hrs&lt;br&gt; 
+You &lt;img src=pol.gif width=10&gt; in &lt;input type=text size=15 name=Curplace&gt;&lt;br&gt;
+Spy &lt;img src=ali.gif width=10&gt; in &lt;input type=text size=15 name=Crimplace&gt;&lt;hr&gt;
+&lt;input type=button value="Hints" onclick="alert(Intro)"&gt;
+&lt;/font&gt;&lt;/font&gt;
+&lt;td width=320&gt;
+please click on your next flight...
+&lt;br&gt;&lt;input type=radio name=GoHere onclick="GetTo(0)"&gt;&lt;input type=text size=15 name=Dest0&gt; Duration  &lt;input type=text size=5 value=0 name=Time0&gt; hrs
+&lt;br&gt;&lt;input type=radio name=GoHere onclick="GetTo(1)"&gt;&lt;input type=text size=15 name=Dest1&gt; Duration  &lt;input type=text size=5 value=0 name=Time1&gt; hrs
+&lt;br&gt;&lt;input type=radio name=GoHere onclick="GetTo(2)"&gt;&lt;input type=text size=15 name=Dest2&gt; Duration  &lt;input type=text size=5 value=0 name=Time2&gt; hrs
+&lt;br&gt;&lt;input type=radio name=GoHere onclick="GetTo(3)"&gt;&lt;input type=text size=15 name=Dest3&gt; Duration  &lt;input type=text size=5 value=0 name=Time3&gt; hrs
+&lt;br&gt;&lt;input type=radio name=GoHere onclick="GetTo(4)"&gt;&lt;input type=text size=15 name=Dest4&gt; Duration  &lt;input type=text size=5 value=0 name=Time4&gt; hrs
+&lt;tr&gt;&lt;td&gt;
+&lt;input type=button value="New Game" onclick="top.location.reload()"&gt;
+&lt;td align=right&gt;
+&lt;input type=button value="Decode" onclick="Decode()"&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;script&gt;
+Intro = "Catch an International Spy\n\n";
+Intro += "You are an Interpol officer who needs to track down the movement of the Green Spy.\n";
+Intro += "He moves around the world in a predictable pattern.\n";
+Intro += "Your job is to track him down...Learn his moves.\n";
+Intro += "Once you're in the same airport with the Green Spy, you win!\n";
+Intro += "Aim for the shortest time...\n";
+Intro += "Good luck!\n\n";
+Intro += "psst:\n";
+Intro += "      If you feel you're not getting very far...try the Decode Button...\n";
+Intro += "      It's a cheat...But in this world of espionage, who cares?\n";
+N = (navigator.appName.indexOf("Netscape") != -1);
+M = (navigator.appName.indexOf("Microsoft") != -1);
+Destin = new Array("Sydney","New York","Frankfurt","paris","Moscow","peking","Tokyo","Capetown","Rio","Los Angeles","Saigon","New Dehli");
+Xof = new Array(545,165,310,295,355,478,521,340,216,100,475,424);
+Yof = new Array(204,90,70,65,52,80,90,195,159,84,125,109);
+curTime = 0;
+theOne = 0;
+cm = 0;
+for (x = 0; x &lt; 5; x++) {
+eval("document.forms[0].Dest"+x+".value = Destin["+x+"+1]");
+}
+document.forms[0].Curplace.value = Destin[0];
+Num = new Array(1,2,3,4,5,6,7,8,9,10,11);
+shuf = new Array();
+x = 0;
+while (x &lt; 11) {
+ran = Math.floor(Num.length*Math.random());
+shuf[x] = Num[ran];
+Fst = Num.slice(0,ran);
+Snd = Num.slice(ran+1);
+Num = Fst.concat(Snd);
+x++;
+}
+shuf[11] = Destin[0];
+document.forms[0].Crimplace.value = Destin[shuf[0]];
+if (M) {
+parent.world.document.all.player.style.left = Xof[0];
+parent.world.document.all.player.style.top = Yof[0];
+parent.world.document.all.Crim.style.left = Xof[shuf[0]];
+parent.world.document.all.Crim.style.top = Yof[shuf[0]];
+}
+if (N) {
+parent.world.document.layers.player.left = Xof[0];
+parent.world.document.layers.player.top = Yof[0];
+parent.world.document.layers.Crim.left = Xof[shuf[0]];
+parent.world.document.layers.Crim.top = Yof[shuf[0]];
+}
+function GetTo(d) {
+for (x = 0; x &lt; Destin.length; x++) {
+if (Destin[x] == eval("document.forms[0].Dest"+d+".value")) theOne = x;
+}
+if (M) {parent.world.document.all.player.style.left = Xof[theOne];parent.world.document.all.player.style.top = Yof[theOne]}
+if (N) {parent.world.document.layers.player.left = Xof[theOne];parent.world.document.layers.player.top = Yof[theOne]}
+Destination = eval("document.forms[0].Dest"+d+".value");
+t = eval("document.forms[0].Time"+d+".value");
+if (isNaN(t)) t = 0;
+curTime+= parseInt(t);
+document.forms[0].Curplace.value = Destination;
+document.forms[0].CurTime.value = curTime;
+open('flight.html','flight','width=600,height=300,top=300,left=0,toolbar=no');
+document.forms[0].GoHere[0].checked = false;
+chOne = Math.floor(Math.random()*12);
+while(chOne == theOne) {chOne = Math.floor(Math.random()*12)}
+document.forms[0].Dest0.value = Destin[chOne];
+X1 = Xof[theOne];
+Y1 = Yof[theOne];
+X2 = Xof[chOne];
+Y2 = Yof[chOne];
+D = Math.floor(.1*Math.sqrt((X1-X2)*(X1-X2)+(Y1-Y2)*(Y1-Y2)));
+if (isNaN(D)) D = 0;
+document.forms[0].Time0.value = D;
+yx = theOne;
+for (v = 1;v&lt;5;v++) {
+document.forms[0].GoHere[v].checked = false;
+yx++;
+if (yx&gt;Destin.length-1)yx = 0;
+if (yx == chOne|yx == theOne)yx++;
+plc = Destin[yx];
+eval("document.forms[0].Dest"+v+".value = plc");
+X1 = Xof[theOne];
+Y1 = Yof[theOne];
+X2 = Xof[yx];
+Y2 = Yof[yx];
+D = Math.floor(.1*Math.sqrt((X1-X2)*(X1-X2)+(Y1-Y2)*(Y1-Y2)));
+if (isNaN(D)) D = 0;
+eval("document.forms[0].Time"+v+".value = D");
+}
+cm++;
+if (cm&gt;11) {cm = 0}
+if (M) {parent.world.document.all.Crim.style.left = Xof[shuf[cm]];parent.world.document.all.Crim.style.top = Yof[shuf[cm]]}
+if (N) {parent.world.document.layers.Crim.left = Xof[shuf[cm]];parent.world.document.layers.Crim.top = Yof[shuf[cm]]}
+document.forms[0].Crimplace.value = Destin[shuf[cm]];
+}
+function Decode() {
+if (!confirm("Do you need special help?\nAre you really this hopeless?\n(Information like this is expensive!)"))return
+Deco = "List of scheduled flights:\n";
+for (x = 0; x &lt; 12; x++) {
+Deco+= Destin[shuf[x]]+" ("+shuf[x]+")\n";
+}
+alert(Deco);
+}
+&lt;/script&gt;
+&lt;/HTML&gt;
+
+
+
+&lt;!-- STEP FIVE: Upload game images and above files to web site directory  --&gt;
+
+&lt;!-- You can download all the game images from: --&gt;
+&lt;!-- ../img/catch-a-spy/catch-a-spy.zip --&gt;
+
+&lt;!-- Script Size:  9.65 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

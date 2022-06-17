@@ -1,0 +1,214 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Clocks:  Time Till Hour</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Ronnie T. Moore">
+<META NAME="section" CONTENT="Clocks">
+<META NAME="description" CONTENT="If your page requires a more sophisticated way to display the time, you'll love this script. It will write in the format, 'XX Till Hour'. It's ten past three in the afternoon, for example. Pretty cool.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Ronnie T. Moore -->
+<!-- Web Site:  JavaScript Source Code 3000 -->
+
+
+
+
+<!-- Begin
+function doFormalTime() {
+var myTime = new Date();
+var myHour = myTime.getHours();
+var myMinutes = myTime.getMinutes();
+var ampm = " in the morning.";
+
+if (myHour >= 12) {
+myHour -= 12; // change to PM
+ampm = "pm";
+}
+Hour = new Array(
+"One", "Two", "Three", "Four", 
+"Five", "Six", "Seven", "Eight", 
+"Nine", "Ten", "Eleven", "Twelve");
+
+// gets nearest 5 minutes
+myMin = myMinutes - (myMinutes % 5);
+// closer to next 5 minutes, go to next
+if (myMinutes % 5 > 2) myMin += 5;
+
+var text = "It is now about ";
+
+switch(myMin) {
+case 0 : myHour--; break;
+case 5 : text += "five after "; myHour--; break;
+case 10 : text += "ten after "; myHour--; break;
+case 15 : text += "quarter after "; myHour--; break;
+case 20 : text += "twenty after "; myHour--; break;
+case 25 : text += "twenty-five after "; myHour--; break;
+case 30 : text += "half past "; myHour--; break;
+case 35 : text += "twenty-five till "; break;
+case 40 : text += "twenty till  "; break;
+case 45 : text += "quarter till "; break;
+case 50 : text += "ten till "; break;
+case 55 : text += "five till "; break;
+case 60 : break;
+}
+if (myHour < 1) myHour++; // fix for noon/midnight
+if (ampm == "pm") {
+ampm = (myHour >= 4) ? " in the evening." : " in the afternoon.";
+}
+text += Hour[myHour] + ampm;
+return text;
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /clocks/"><font color="#FF0000"><b>Clocks</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Time Till Hour</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+If your page requires a more sophisticated way to display the time, you'll love this script. It will write in the format, 'XX Till Hour'. It's ten past three in the afternoon, for example. Pretty cool.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<script>
+document.write(doFormalTime());
+</script>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Clocks:  Time Till Hour</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.00 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL TIME TILL HOUR:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Ronnie T. Moore --&gt;
+&lt;!-- Web Site:  JavaScript Source Code 3000 --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function doFormalTime() {
+var myTime = new Date();
+var myHour = myTime.getHours();
+var myMinutes = myTime.getMinutes();
+var ampm = " in the morning.";
+
+if (myHour &gt;= 12) {
+myHour -= 12; // change to PM
+ampm = "pm";
+}
+Hour = new Array(
+"One", "Two", "Three", "Four", 
+"Five", "Six", "Seven", "Eight", 
+"Nine", "Ten", "Eleven", "Twelve");
+
+// gets nearest 5 minutes
+myMin = myMinutes - (myMinutes % 5);
+// closer to next 5 minutes, go to next
+if (myMinutes % 5 &gt; 2) myMin += 5;
+
+var text = "It is now about ";
+
+switch(myMin) {
+case 0 : myHour--; break;
+case 5 : text += "five after "; myHour--; break;
+case 10 : text += "ten after "; myHour--; break;
+case 15 : text += "quarter after "; myHour--; break;
+case 20 : text += "twenty after "; myHour--; break;
+case 25 : text += "twenty-five after "; myHour--; break;
+case 30 : text += "half past "; myHour--; break;
+case 35 : text += "twenty-five till "; break;
+case 40 : text += "twenty till  "; break;
+case 45 : text += "quarter till "; break;
+case 50 : text += "ten till "; break;
+case 55 : text += "five till "; break;
+case 60 : break;
+}
+if (myHour &lt; 1) myHour++; // fix for noon/midnight
+if (ampm == "pm") {
+ampm = (myHour &gt;= 4) ? " in the evening." : " in the afternoon.";
+}
+text += Hour[myHour] + ampm;
+return text;
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;script&gt;
+document.write(doFormalTime());
+&lt;/script&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  2.00 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>
+
+

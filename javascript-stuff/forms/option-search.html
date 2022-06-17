@@ -1,0 +1,204 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Forms:  Option Search</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="Allows you to jump to any value in a drop down list.  In our example, search for a value between 'a1' and 'a15'.  Saves time when it comes to navigating within long pull down menus.">
+<META NAME="date" CONTENT="2000-10-24">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Darko Egersdorfer">
+<META NAME="section" CONTENT="Forms">
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Darko Egersdorfer (darkoe@za.bynx.com) -->
+
+
+
+
+<!-- Begin
+function promptSearch (thisform, thisfield) {
+var elnum = parseInt(-1);
+var k = parseInt(-1);
+for (var j = 0; j < document.forms[thisform].elements.length; j++) {
+if (document.forms[thisform].elements[j].name == thisfield) {
+elnum = j;
+break;
+   }
+}
+var myvar = "";
+var srch = "";
+var menuLength = "";
+menuLength = eval("document." + thisform + "." + thisfield + ".length");
+srch = prompt("Search this menu for...", "");
+if (srch ) {
+srch = srch.toUpperCase();
+for (var i = 0; i < menuLength; i++) {
+myvar = eval("document." + thisform + "." + thisfield + ".options[" + i + "].text.toUpperCase()");
+if (myvar.indexOf(srch) >= 0) {
+document.forms[thisform].elements[elnum].options[i].selected = true;
+break;
+      }
+   }
+}
+return false;
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /forms/" ><font color="#FF0000"><b>Forms</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Option Search</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Allows you to jump to any value in a drop down list.  In our example, search for a value between 'a1' and 'a15'.  Saves time when it comes to navigating within long pull down menus.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name=myform action="">
+<select name=menu1 size=1 onFocus="promptSearch(this.form.name, this.name)">
+<option>a1
+<option>a2
+<option>a3
+<option>a4
+<option>a5
+<option>a6
+<option>a7
+<option>a8
+<option>a9
+<option>a10
+<option>a11
+<option>a12
+<option>a13
+<option>a14
+<option>a15
+</select>
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Forms:  Option Search</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.90 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL OPTION SEARCH:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Darko Egersdorfer (darkoe@za.bynx.com) --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function promptSearch (thisform, thisfield) {
+var elnum = parseInt(-1);
+var k = parseInt(-1);
+for (var j = 0; j &lt; document.forms[thisform].elements.length; j++) {
+if (document.forms[thisform].elements[j].name == thisfield) {
+elnum = j;
+break;
+   }
+}
+var myvar = "";
+var srch = "";
+var menuLength = "";
+menuLength = eval("document." + thisform + "." + thisfield + ".length");
+srch = prompt("Search this menu for...", "");
+if (srch ) {
+srch = srch.toUpperCase();
+for (var i = 0; i &lt; menuLength; i++) {
+myvar = eval("document." + thisform + "." + thisfield + ".options[" + i + "].text.toUpperCase()");
+if (myvar.indexOf(srch) &gt;= 0) {
+document.forms[thisform].elements[elnum].options[i].selected = true;
+break;
+      }
+   }
+}
+return false;
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form name=myform action=""&gt;
+&lt;select name=menu1 size=1 onFocus="promptSearch(this.form.name, this.name)"&gt;
+&lt;option&gt;a1
+&lt;option&gt;a2
+&lt;option&gt;a3
+&lt;option&gt;a4
+&lt;option&gt;a5
+&lt;option&gt;a6
+&lt;option&gt;a7
+&lt;option&gt;a8
+&lt;option&gt;a9
+&lt;option&gt;a10
+&lt;option&gt;a11
+&lt;option&gt;a12
+&lt;option&gt;a13
+&lt;option&gt;a14
+&lt;option&gt;a15
+&lt;/select&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+ 
+
+&lt;!-- Script Size:  1.90 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

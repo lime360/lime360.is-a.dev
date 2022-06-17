@@ -1,0 +1,443 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Forms:  Dynamic Table</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="(Internet Explorer 5+ and Netscape 6+ Only)  Enter information into this dynamic table and see the power of W3C-DOM compatible browsers.  Absolutely Amazing!">
+<META NAME="date" CONTENT="2000-11-03">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Bob Simpson">
+<META NAME="section" CONTENT="Forms">
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Bob Simpson (webmaster@maryjanebrown.net) -->
+<!-- Web Site:  http://maryjanebrown.net/webmaster -->
+
+
+
+
+<!-- Begin
+function VER5_Check() {
+var b = navigator.appName;
+if (b == "Netscape") this.b = "NS";
+else if (b == "Microsoft Internet Explorer") this.b = "IE";
+this.v = parseInt(navigator.appVersion);
+this.IE5 = (navigator.userAgent.indexOf('MSIE 5') > 0);
+this.NS5 = (this.b == "NS" && this.v == 5);
+this.VER5 = (this.IE5 || this.NS5);
+}
+is = new VER5_Check();
+if(! is.VER5) {
+alert("Internet Explorer 5.0 or Netscape NS6 needed to view this site.");
+document.write('<meta http-equiv="refresh" content="0; url=index.shtml">');
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<!-- Description --><!--content_start-->
+Select a cell in the table and update the information by entering information in the fields above and clicking on the UPDATE TABLE button.  You can also scroll through the records in the table!
+<hr>
+</td></tr>
+</table>
+<BR>
+<BR>
+<!-- Demonstration -->
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Bob Simpson (webmaster@maryjanebrown.net) -->
+<!-- Web Site:  http://maryjanebrown.net/webmaster -->
+
+
+
+
+<!-- Begin
+document.write('<center>');
+document.write('<form name="form0">');
+document.write('<input type="text" name="row" size=6 value="">');
+document.write('<input type="text" name="name" size=24 value="">');
+document.write('<input type="text" name="address" size=24 value="">');
+document.write('<input type="text" name="city" size=24 value="">');
+document.write('</form>');
+document.write('</center>');
+var _id;
+var _ff = 0;
+var _rawId = null;
+var _pages = 0;
+var _chgFlag = null;
+_cellZero = null;
+var _tableStyle="border:0;align:center;width:600";
+var _headerData = new Array("No.","Name","Address","City");
+var _tableData = new Array("1","Jones, Tom","110 James Street","Tacoma,WA",
+"2","Cummings","123 Cray St.","Vashon, WA",
+"3","Simpson","Javascript St.","Vashon, WA",
+"4","Gates","Microsoft Way","Redmond, WA",
+"5","Paul Allen","Defunct Kingdome","Seattle, WA",
+"6","Jane Allen","King Street","Seattle, WA",
+"7","Henry Bacon","Elliot Ave.","Seattle, WA",
+"8","John Doe","Ballard","Seattle, WA",
+"9","Mr. Floppy","Smith Tower","Seattle, WA",
+"10","Jerry Allen","Everett Ave.","Seattle, WA",
+"11","June Allen","King Street","Bellevue, WA",
+"12","George Bacon","Elliot Ave.","Seattle, WA",
+"13","Diane Doe","Ballard","Seattle, WA",
+"14","Mrs. Floppy","Smith Tower","Seattle, WA",
+"15","Jeff Allen","Everett Ave.","Seattle, WA",
+"16","Mrs. Avery","Smith Tower","Seattle, WA",
+"17","Henry Aldrich","Everett Ave.","Seattle, WA",
+"18","Tom Turkey","Smith Tower","Seattle, WA",
+"19","John Nerd","Everett Ave.","Seattle, WA");
+// -->
+</script>
+<script type="text/javascript" language="Javascript1.2">
+<!-- // Begin
+function build_W3C_body() {
+docBody = document.getElementsByTagName("body").item(0);
+mySite = document.createElement("DIV");
+mySite.id = "_mysite";
+mySite.style.fontWeight="bold";
+mySite.setAttribute("align","center");
+buildDataTable(docBody, _tableData, _tableStyle, _headerData);
+buttonDiv = document.createElement("DIV");
+buttonDiv.setAttribute("align","center");
+msgDiv = document.createElement("DIV");
+msgDiv.id="message";
+msgDiv.style.width=600;
+msgDiv.style.height=25;
+msgDiv.style.backgroundColor = "maroon";
+msgDiv.style.color = "white";
+msgDiv.style.fontWeight = "bold";
+msgDiv.appendChild(document.createTextNode("Click cell in upper table to get row values!"));
+buttonDiv.appendChild(msgDiv);
+style = "width:205px;height:24px;fontSize:8pt;fontWeight:bold;backgroundColor:d5d5d5;";
+makeButton("update",buttonDiv,style,"UPDATE TABLE");
+style = "visibility:visible;width:204px;height:24px;fontSize:8pt;fontWeight:bold;backgroundColor:d5d5d5";
+makeButton("tran",buttonDiv,style,"TRANSMIT CHANGES");
+style = "width:96;height:24px;fontSize:8pt;fontWeight:bold;backgroundColor:d5d5d5";
+makeButton("up",buttonDiv,style,"SCROLL-UP");
+style = "width:96px;height:24px;fontSize:8pt;fontWeight:bold;backgroundColor:d5d5d5";
+makeButton("down",buttonDiv,style,"SCROLL-DN");
+docBody.appendChild(buttonDiv);
+}
+var _butMsg = new Array
+_butMsg[0] = "Click cell in upper table to get row values !";
+_butMsg[1] = "Add Custom Messages!";
+_butMsg[2] = "Edit in input boxes above.";
+_butMsg[3] = "Add Custom Messages!";
+_butMsg[4] = "Click update table to update & create tran table.";
+_butMsg[5] = "Add Custom Messages!";
+_butMsg[6] = "Click update table to update & create tran table.";
+_butMsg[7] = "Add Custom Messages!";
+_butMsg[8] = "Scroll buttons scroll up or down 5 rows.";
+_butMsg[9] = "Add Custom Messages!";
+_butMsg[10] = "Transmit button not implemented at present.";
+_butMsg[11] = "One row in tran table represents all changes to that row.";
+var _z=0;
+var _twoCnt = 0;
+var _butFlg = 0;
+function buttonMsg() {
+if(_butFlg == 0) {
+document.getElementById("message").style.visibility = "visible";
+document.getElementById("message").style.backgroundColor = "maroon";
+document.getElementById("message").style.color = "white";
+if(_twoCnt == 0) {
+document.getElementById("message").firstChild.nodeValue = _butMsg[_z++];
+}
+_twoCnt++
+if(_twoCnt == 3)
+_twoCnt = 0;
+if(_z == _butMsg.length)
+_z = 0;
+   }
+}
+document.onmousedown = buttonDown;
+document.onmouseover = mouseOver;
+document.onmouseout = mouseOut;
+function mouseOver(e) {
+tmp = (is.NS5) ? e.target.getAttribute("id") : event.srcElement.id;
+if(tmp.substring(0,1) == "_" || ! tmp) return;
+_butFlg = 1;
+upButton = document.getElementById("message")
+if(tmp == "tran")
+buttonColor(tmp,"cdfff6","blue",upButton,"Transmit lower table to server - for test purposes only at present.");
+if(tmp == "update")
+buttonColor(tmp,"cdfff6","blue",upButton,"Update upper & lower tables.");
+if(tmp == "up")
+buttonColor(tmp,"cdfff6","blue",upButton,"Scroll table up 5 rows.");
+if(tmp == "down")
+buttonColor(tmp,"cdfff6","blue",upButton,"Scroll table down 5 rows.");
+if(tmp == "javaX")
+buttonColor(tmp,"blue","white",upButton,"Go to good Javascript source.");
+if(tmp == "siteX")
+buttonColor(tmp,"blue","white",upButton,"Go to Bob Simpson's Javascript site");
+if(tmp == "mailX")
+buttonColor(tmp,"blue","white",upButton,"E-mail author if any questions");
+if(tmp == "sourceX")
+buttonColor(tmp,"blue","white",upButton,"Source for this page (dom_table.zip)");
+if(tmp == "tranTable") {
+upButton.style.backgroundColor = "red";
+upButton.style.color = "white";
+upButton.firstChild.nodeValue = "Changes not allowed here - make changes in upper table !"
+}
+if(parseInt(tmp) >= 0) {
+if(parseInt(tmp.substring(tmp.length-1,tmp.length)) == 0) {
+buttonColor(tmp,"red","white",upButton,"Changes to row number not allowed !");
+table.style.backgroundColor="red";
+}
+else {
+buttonColor(tmp,"black","white",upButton,"Click cell to get row values - edit in upper input boxes.");
+table.style.backgroundColor = "black";
+   }        
+}
+if(tmp.substring(tmp.length-1,tmp.length) == "X") {
+document.getElementById(tmp).style.color = "red";
+table.style.backgroundColor = "blue";
+   }
+}
+function mouseOut(e) {
+table.style.backgroundColor="maroon";
+tmp = (is.NS5) ? e.target.getAttribute("id") : event.srcElement.id;
+if(tmp.substring(0,1) == "_" || ! tmp) return;
+_butFlg = 0;
+document.getElementById("message").style.color = "white";
+document.getElementById("message").style.backgroundColor = "maroon";
+document.getElementById("message").firstChild.nodeValue = "Click upper table cell to get row values";
+if(parseInt(tmp) >= 0 && parseInt(tmp) < 44)
+document.getElementById(tmp).style.backgroundColor = "eeeeee";
+else if(tmp.substring(tmp.length-1,tmp.length) != "X" && tmp != "message" && tmp != "tranTable") {
+document.getElementById(tmp).style.backgroundColor="d5d5d5";
+}
+if(tmp.substring(tmp.length-1,tmp.length) != "X") document.getElementById(tmp).style.color = "black";
+else document.getElementById(tmp).style.color = "blue";
+}
+function buttonDown(e) {
+if( ((is.NS5) ? e.which : event.button) != 1) return true;
+tmp = (is.NS5) ? e.target.getAttribute("id") : event.srcElement.id;
+if(! tmp)
+return true
+if(tmp.substring(tmp.length-1,tmp.length) == 0)
+return;
+if(tmp == "down")
+scrollDown();
+if(tmp == "up")
+scrollUp();
+if(parseInt(tmp) || tmp == "00")
+getRowValue(tmp);
+if(tmp == "update")
+changeRow();
+if(tmp == "tran")
+buildTranStr();
+}
+function buttonColor(id,backColor,fontColor,id1,message) {
+if(id.substring(id.length-1,id.length) != "X") {
+document.getElementById(id).style.backgroundColor = backColor;
+document.getElementById(id).style.color = fontColor;
+}
+id1.firstChild.nodeValue = message;
+id1.style.color = fontColor;
+id1.style.backgroundColor = backColor;
+} 
+function scrollDown() {
+id = _pages * 20;
+p = id + 20;
+ct = ((_tableData.length-p)/4);
+if(ct < 0) return;
+for(i = 0; i < 5; i++) {
+for(j = 0; j < 4; j++) {
+myCell = document.getElementById(i+''+j);
+if(ct > 0)
+myCell.firstChild.nodeValue = _tableData[p++];
+else document.getElementById(i+''+j).firstChild.nodeValue = " - ";
+}
+ct--;
+}
+_pages++;
+} 
+function scrollUp() {
+if(_pages==0) return;
+id = _pages * 20 ; p = id - 20 ; x = p + 20;
+for(i = 0; i < 5; i++) {
+for(j = 0; j < 4; j++) {
+document.getElementById(i+''+j).firstChild.nodeValue = _tableData[p++];
+   }
+}
+_pages--;
+}
+function buildDataTable(appendToId, data, style, header) {
+table = document.createElement("TABLE");
+table.style.backgroundColor = "maroon";
+t = style.split(";");
+for(i = 0; i < t.length;) {
+f = t[i++].split(":");
+x = "table."+f[0]+"='"+f[1]+"'";
+eval(x);
+}
+tablebody = document.createElement("TBODY");
+row = document.createElement("TR");
+for(var i = 0; i < header.length; i++) {
+cell = document.createElement("TD");
+if(i == 0)
+cell.setAttribute("width","60px");
+else cell.setAttribute("width","170px");
+cell.setAttribute("align","center");
+cell.style.backgroundColor = "lightgreen";
+cell.style.fontWeight = "bold";
+cell.appendChild(document.createTextNode(header[i]));
+row.appendChild(cell);
+}
+tablebody.appendChild(row);
+c = 0;
+ptr = (data.length > 20) ? 20 : data.length;
+for(var i = 0; i < ptr;) {
+row = document.createElement("TR");
+for(j = 0; j < header.length; j++) {
+if(j == 1) {
+cell.setAttribute("align","center");
+cell.style.fontWeight = "bold";
+}
+cell = document.createElement("TD");
+cell.setAttribute("id",c+''+j);
+cell.style.backgroundColor = "#eeeeee";
+cell.appendChild(document.createTextNode(data[i++]));
+row.appendChild(cell);
+}
+c++;
+tablebody.appendChild(row);
+}
+table.appendChild(tablebody);
+appendToId.appendChild(table);
+}
+function buildTranTable() {
+if(_ff == 1) {
+tBody = document.getElementById("tBod");
+myTR = document.getElementsByTagName("TR");
+for(i = 6;i < myTR.length; i++) {
+if(document.form0.row.value == myTR.item(i).firstChild.firstChild.nodeValue) tBody.removeChild(myTR.item(i));
+   }
+}
+if(_ff == 0) {
+table1 = document.createElement("TABLE");
+table1.style.backgroundColor="maroon";
+table1.id = "_table1";
+table1.align = "center";
+table1.border = 0;
+table1.width = 600;
+tablebody1 = document.createElement("TBODY");
+tablebody1.id = "tBod";
+}
+row1 = document.createElement("TR");
+row1.id = p;
+for(i = 0; i < document.form0.length; i++) {
+cell1 = document.createElement("TD");
+cell1.id = "tranTable";
+cell1.style.backgroundColor = "#eeeeee";
+cell1.style.color = "black";
+if(i == 0) {
+cell1.setAttribute("width","60px");
+cell1.setAttribute("align","center");
+}
+else cell1.setAttribute("width","170px");
+a = document.form0.elements[i].value;
+document.form0.elements[i].value = "";
+if(i == 0)
+cell1.appendChild(document.createTextNode(_cellZero));
+else cell1.appendChild(document.createTextNode(a));
+row1.appendChild(cell1);
+}
+tablebody1.appendChild(row1);
+table1.appendChild(tablebody1);
+docBody.appendChild(table1);
+_ff = 1;
+_chgFlag = null;
+}
+function buildTranStr() {
+tranStr = "updateTable.cgi?";
+myTDs = document.getElementsByTagName("TD");
+if(myTDs.length<25)
+return;
+for(i=24;i<myTDs.length;) {
+for(j=0;j<4;){
+tranStr += j++ +"&" + myTDs.item(i++).firstChild.nodeValue + "=";
+   }
+}
+alert("Not implemented in demo ! window.location = " +tranStr);
+}
+function changeRow() {
+if(! _id) return;
+p = ((_pages * 20) + (_id * 4));
+_cellZero = document.getElementById(_id+0).firstChild.nodeValue;
+for(i = 0; i < document.form0.length; i++) {
+if(document.getElementById(_id+i).firstChild.nodeValue != document.form0.elements[i].value && i > 0) {
+_chgFlag=true;
+document.getElementById(_id+i).firstChild.nodeValue = document.form0.elements[i].value;
+_tableData[p+i] = document.form0.elements[i].value;
+   }
+}
+_id = 0;
+if(_chgFlag) buildTranTable();
+}
+function getRowValue(x) {
+_rawId = x;
+_id = x.substring(0,x.length-1);
+for(i = 0; i < document.form0.length; i++) {
+document.form0.elements[i].value = document.getElementById(_id+i).firstChild.nodeValue;
+}
+selectedCell = x.substring(x.substring.length-1,x.substring.length);
+setTimeout("cellSelect(selectedCell)",100);
+}
+function cellSelect(selectedCell) {
+document.forms[0].elements[selectedCell].select();
+}
+function makeButton(myId,appendId,styleStr,text) {
+myButton = document.createElement("BUTTON");
+myButton.id =myId;
+temStr = (styleStr.substring(styleStr.length-1,styleStr.length)==";") ?
+	styleStr.substring(0,styleStr.length-1) : styleStr;
+temp = temStr.split(";");
+for(i = 0; i < temp.length; i++) {
+x = temp[i].split(":");
+str = "myButton.style."+x[0]+"='"+x[1]+"'";
+eval(str);
+}
+myButton.appendChild(document.createTextNode(text));
+appendId.appendChild(myButton);
+}
+function makeLink(href,text,styleStr,appendTo,linkId) {
+link = document.createElement("A");
+link.id=linkId;
+temStr = (styleStr.substring(styleStr.length-1,styleStr.length)==";") ?
+	styleStr.substring(0,styleStr.length-1) : styleStr
+temp = temStr.split(";");
+for(i = 0; i < temp.length; i++) {
+x=temp[i].split(":");
+str = "link.style."+x[0]+"='"+x[1]+"'";
+eval(str);
+}
+link.setAttribute("href",href);
+link.appendChild(document.createTextNode(text));
+appendTo.appendChild(link);
+}
+window.onload = build_W3C_body;
+//  End -->
+</script>
+<P>
+<P>
+
+</table>
+</form>
+

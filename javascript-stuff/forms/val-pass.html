@@ -1,0 +1,199 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Forms:  Validation (password)</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="This script works like our Password Verifier, however, it also checks for a minimum length and invalid characters.">
+<META NAME="date" CONTENT="2001-02-02">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Russ Swift">
+<META NAME="section" CONTENT="Forms">
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Russ Swift (rswift220@yahoo.com) -->
+
+
+
+
+<!-- Begin
+function validatePwd() {
+var invalid = " "; // Invalid character is a space
+var minLength = 6; // Minimum length
+var pw1 = document.myForm.password.value;
+var pw2 = document.myForm.password2.value;
+// check for a value in both fields.
+if (pw1 == '' || pw2 == '') {
+alert('Please enter your password twice.');
+return false;
+}
+// check for minimum length
+if (document.myForm.password.value.length < minLength) {
+alert('Your password must be at least ' + minLength + ' characters long. Try again.');
+return false;
+}
+// check for spaces
+if (document.myForm.password.value.indexOf(invalid) > -1) {
+alert("Sorry, spaces are not allowed.");
+return false;
+}
+else {
+if (pw1 != pw2) {
+alert ("You did not enter the same new password twice. Please re-enter your password.");
+return false;
+}
+else {
+alert('Nice job.');
+return true;
+      }
+   }
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /forms/" ><font color="#FF0000"><b>Forms</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Validation (password)</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+This script works like our Password Verifier, however, it also checks for a minimum length and invalid characters.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name=myForm onSubmit="return validatePwd()">
+Enter your password twice.
+<br>
+(At least 6 characters, 12 characters max, and spaces are not allowed.)
+<p>
+Password: <input type=password name=password maxlength=12>
+<br>
+Verify password: <input type=password name=password2 maxlength=12>
+<p>
+<input type=submit value="Submit">
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Forms:  Validation (password)</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Command-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.98 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL VALIDATION (PASSWORD):
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Russ Swift (rswift220@yahoo.com) --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function validatePwd() {
+var invalid = " "; // Invalid character is a space
+var minLength = 6; // Minimum length
+var pw1 = document.myForm.password.value;
+var pw2 = document.myForm.password2.value;
+// check for a value in both fields.
+if (pw1 == '' || pw2 == '') {
+alert('Please enter your password twice.');
+return false;
+}
+// check for minimum length
+if (document.myForm.password.value.length &lt; minLength) {
+alert('Your password must be at least ' + minLength + ' characters long. Try again.');
+return false;
+}
+// check for spaces
+if (document.myForm.password.value.indexOf(invalid) &gt; -1) {
+alert("Sorry, spaces are not allowed.");
+return false;
+}
+else {
+if (pw1 != pw2) {
+alert ("You did not enter the same new password twice. Please re-enter your password.");
+return false;
+}
+else {
+alert('Nice job.');
+return true;
+      }
+   }
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form name=myForm onSubmit="return validatePwd()"&gt;
+Enter your password twice.
+&lt;br&gt;
+(At least 6 characters, 12 characters max, and spaces are not allowed.)
+&lt;p&gt;
+Password: &lt;input type=password name=password maxlength=12&gt;
+&lt;br&gt;
+Verify password: &lt;input type=password name=password2 maxlength=12&gt;
+&lt;p&gt;
+&lt;input type=submit value="Submit"&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  1.98 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

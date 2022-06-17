@@ -1,0 +1,277 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0058)http://javascript.internet.com/games/joggle-demo-main.html -->
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 5.50.4611.1300" name=GENERATOR></HEAD>
+<BODY text=#000000 bgColor=#ffffff 
+onload="document.joggle.user.value = 'New Game';GameStatus = 1;">
+<SCRIPT language=JavaScript>
+<!-- Original:  serban@pixelsharp.com -->
+<!-- This script and many more are available free online at -->
+<!-- The JavaScript Source!! http://javascript.internet.com -->
+<!-- Begin
+var Words = "";
+var CurrentWord = "";
+var GameStatus = 0;
+var GameTime = 0;
+var LastTile = -10;
+var LastTileX = -10;
+var LastTileY = -10;
+var TilesOn = "";
+var TileMap = "";
+var LookUp = "abcdefghijklmnopqrstuvwxyz";
+var Cubes = "qbzjkxhhlrdotelpcittotemaeaeeetouotonhdthossnseusctiepyifpsrovwrgrlhnrodriyprheandnneeeemaaaafsrafaisrdordlnmnneagititieaumeegyifasrccwnstuotownetilic";
+function clearword(DoMap) {
+CurrentWord = "";
+LastTile = -10;
+LastTileX = -10;
+LastTileY = -10;
+if (DoMap) {
+for (i=0; i<TilesOn.length; i++) {
+WhichTile = LookUp.indexOf(TilesOn.charAt(i));
+if (WhichTile == -1) {
+WhichTile = i;
+WhichLetter = "0";
+}
+else {
+WhichLetter = TileMap.charAt(WhichTile);
+}
+document.images[WhichTile].src = WhichLetter + "0.gif";
+   }
+}
+TilesOn = "";
+}
+function endgame() {
+GameStatus = 1;
+clearword(1);
+document.joggle.user.value = "New Game";
+parent.wordframe.document.write("<FORM ACTION=http://www.pixelsharp.com/projects/joggle/score.asp METHOD=POST><INPUT TYPE=Hidden NAME=words VALUE=" + Words + "><INPUT TYPE=Submit VALUE=Score></FORM><BR>");
+}
+function buttonpress() {
+var ActingStatus = GameStatus;
+if (ActingStatus == 1) {
+Words = ":";
+clearword();
+TileMap = "";
+GameTime = 75;
+TempCubes = Cubes;
+Position = 0;
+while (TileMap.length != 25) {
+Position = Math.floor(Math.random() * (TempCubes.length - 1));
+TileMap = TileMap + TempCubes.charAt(Position);
+Position = Math.floor(Position / 6);
+TempCubes = TempCubes.substring(0, Position * 6) + TempCubes.substring(6 + Position * 6, TempCubes.length);
+}
+for (i=0; i<25; i++) {
+document.images[i].src = TileMap.charAt(i) + "0.gif";
+}
+parent.wordframe.document.location = "joggle-demo-empty.html";
+GameTime = 181;
+setTimeout("countdown()", 1);
+
+GameStatus = 2;
+}
+if ((ActingStatus == 2) || (ActingStatus == 3)) {
+GameStatus = 4;
+GameTime = GameTime * -1;
+TilesOn = "0000000000000000000000000";
+clearword(1);
+document.joggle.user.value = "Paused";
+}
+if (ActingStatus == 4) {
+for (i=0; i<25; i++) {
+document.images[i].src = TileMap.charAt(i) + "0.gif"
+}
+GameStatus = 2;
+setTimeout("countdown()", 1);
+   }
+}
+function countdown() {
+if (GameTime > -1) {
+GameTime = GameTime - 1;
+Division = ":";
+if (GameTime % 60 < 10) {Division = ":0"}
+document.joggle.user.value = Math.floor(GameTime / 60) + Division + GameTime % 60;
+if (GameTime != 0) {
+setTimeout("countdown()", 1000);
+}
+else {
+endgame();
+   }
+}
+else { GameTime = GameTime * -1; }
+}
+function slide(TileX, TileY) {
+WhichTile = TileX * 5 + TileY;
+WhichLetter = TileMap.charAt(WhichTile);
+if (GameStatus == 3) {
+if ((Math.abs(TileX - LastTileX) < 2) && (Math.abs(TileY - LastTileY) < 2)) {
+if (TilesOn.indexOf(LookUp.charAt(WhichTile)) == -1) {
+CurrentWord = CurrentWord + WhichLetter;
+if (WhichLetter == 'q') { CurrentWord = CurrentWord + "u"; }
+document.images[WhichTile].src = WhichLetter + "1.gif";
+LastTile = WhichTile;
+LastTileX = TileX;
+LastTileY = TileY;
+TilesOn = TilesOn + LookUp.charAt(WhichTile);
+         }
+      }
+   }
+}
+function click(TileX, TileY) {
+var NewStatus = GameStatus;
+WhichTile = TileX * 5 + TileY;
+WhichLetter = TileMap.charAt(WhichTile);
+if (GameStatus == 2) {
+CurrentWord = WhichLetter;
+if (WhichLetter == 'q') { CurrentWord = CurrentWord + "u"; }
+document.images[WhichTile].src = WhichLetter + "1.gif";
+LastTile = WhichTile;
+LastTileX = TileX;
+LastTileY = TileY;
+TilesOn = LookUp.charAt(WhichTile);
+NewStatus = 3;
+}
+if (GameStatus == 3) {
+if (CurrentWord.length > 3) {
+if (Words.indexOf(":" + CurrentWord + ":") == -1) {
+if (Words == ":") { parent.wordframe.document.write("<CENTER><B>Word List</B></CENTER><BR>"); }
+parent.wordframe.document.write(CurrentWord + "<BR>");
+Words = Words + CurrentWord + ":";
+   }
+}
+clearword(1);
+NewStatus = 2;
+}
+GameStatus = NewStatus;
+}
+function abandon() {
+if (GameStatus == 4) {
+endgame();
+   }
+}
+// End -->
+</SCRIPT>
+
+<CENTER>
+<H1><A href="javascript:abandon()">Joggle</A></H1>
+<FORM name=joggle>
+<TABLE cellSpacing=0 cellPadding=8 bgColor=#c8cec4 border=0>
+  <TBODY>
+  <TR>
+    <TD><A onmouseover=slide(0,0) href="javascript:click(0,0)"><IMG 
+      src="joggle-demo-main_files/00.gif" border=0></A></TD>
+    <TD><A onmouseover=slide(0,1) href="javascript:click(0,1)"><IMG 
+      src="joggle-demo-main_files/00.gif" border=0></A></TD>
+    <TD><A onmouseover=slide(0,2) href="javascript:click(0,2)"><IMG 
+      src="joggle-demo-main_files/00.gif" border=0></A></TD>
+    <TD><A onmouseover=slide(0,3) href="javascript:click(0,3)"><IMG 
+      src="joggle-demo-main_files/00.gif" border=0></A></TD>
+    <TD><A onmouseover=slide(0,4) href="javascript:click(0,4)"><IMG 
+      src="joggle-demo-main_files/00.gif" border=0></A></TD></TR>
+  <TR>
+    <TD><A onmouseover=slide(1,0) href="javascript:click(1,0)"><IMG 
+      src="joggle-demo-main_files/00.gif" border=0></A></TD>
+    <TD><A onmouseover=slide(1,1) href="javascript:click(1,1)"><IMG 
+      src="joggle-demo-main_files/00.gif" border=0></A></TD>
+    <TD><A onmouseover=slide(1,2) href="javascript:click(1,2)"><IMG 
+      src="joggle-demo-main_files/00.gif" border=0></A></TD>
+    <TD><A onmouseover=slide(1,3) href="javascript:click(1,3)"><IMG 
+      src="joggle-demo-main_files/00.gif" border=0></A></TD>
+    <TD><A onmouseover=slide(1,4) href="javascript:click(1,4)"><IMG 
+      src="joggle-demo-main_files/00.gif" border=0></A></TD></TR>
+  <TR>
+    <TD><A onmouseover=slide(2,0) href="javascript:click(2,0)"><IMG 
+      src="joggle-demo-main_files/00.gif" border=0></A></TD>
+    <TD><A onmouseover=slide(2,1) href="javascript:click(2,1)"><IMG 
+      src="joggle-demo-main_files/00.gif" border=0></A></TD>
+    <TD><A onmouseover=slide(2,2) href="javascript:click(2,2)"><IMG 
+      src="joggle-demo-main_files/00.gif" border=0></A></TD>
+    <TD><A onmouseover=slide(2,3) href="javascript:click(2,3)"><IMG 
+      src="joggle-demo-main_files/00.gif" border=0></A></TD>
+    <TD><A onmouseover=slide(2,4) href="javascript:click(2,4)"><IMG 
+      src="joggle-demo-main_files/00.gif" border=0></A></TD></TR>
+  <TR>
+    <TD><A onmouseover=slide(3,0) href="javascript:click(3,0)"><IMG 
+      src="joggle-demo-main_files/00.gif" border=0></A></TD>
+    <TD><A onmouseover=slide(3,1) href="javascript:click(3,1)"><IMG 
+      src="joggle-demo-main_files/00.gif" border=0></A></TD>
+    <TD><A onmouseover=slide(3,2) href="javascript:click(3,2)"><IMG 
+      src="joggle-demo-main_files/00.gif" border=0></A></TD>
+    <TD><A onmouseover=slide(3,3) href="javascript:click(3,3)"><IMG 
+      src="joggle-demo-main_files/00.gif" border=0></A></TD>
+    <TD><A onmouseover=slide(3,4) href="javascript:click(3,4)"><IMG 
+      src="joggle-demo-main_files/00.gif" border=0></A></TD></TR>
+  <TR>
+    <TD><A onmouseover=slide(4,0) href="javascript:click(4,0)"><IMG 
+      src="joggle-demo-main_files/00.gif" border=0></A></TD>
+    <TD><A onmouseover=slide(4,1) href="javascript:click(4,1)"><IMG 
+      src="joggle-demo-main_files/00.gif" border=0></A></TD>
+    <TD><A onmouseover=slide(4,2) href="javascript:click(4,2)"><IMG 
+      src="joggle-demo-main_files/00.gif" border=0></A></TD>
+    <TD><A onmouseover=slide(4,3) href="javascript:click(4,3)"><IMG 
+      src="joggle-demo-main_files/00.gif" border=0></A></TD>
+    <TD><A onmouseover=slide(4,4) href="javascript:click(4,4)"><IMG 
+      src="joggle-demo-main_files/00.gif" border=0></A></TD></TR></TBODY></TABLE><BR><INPUT onclick=buttonpress() type=button value=" Loading... " name=user><BR><IMG 
+height=1 src="joggle-demo-main_files/a0.gif" width=1> <IMG height=1 
+src="joggle-demo-main_files/b0.gif" width=1> <IMG height=1 
+src="joggle-demo-main_files/c0.gif" width=1> <IMG height=1 
+src="joggle-demo-main_files/d0.gif" width=1> <IMG height=1 
+src="joggle-demo-main_files/e0.gif" width=1> <IMG height=1 
+src="joggle-demo-main_files/f0.gif" width=1> <IMG height=1 
+src="joggle-demo-main_files/g0.gif" width=1> <IMG height=1 
+src="joggle-demo-main_files/h0.gif" width=1> <IMG height=1 
+src="joggle-demo-main_files/i0.gif" width=1> <IMG height=1 
+src="joggle-demo-main_files/j0.gif" width=1> <IMG height=1 
+src="joggle-demo-main_files/k0.gif" width=1> <IMG height=1 
+src="joggle-demo-main_files/l0.gif" width=1> <IMG height=1 
+src="joggle-demo-main_files/m0.gif" width=1> <IMG height=1 
+src="joggle-demo-main_files/n0.gif" width=1> <IMG height=1 
+src="joggle-demo-main_files/o0.gif" width=1> <IMG height=1 
+src="joggle-demo-main_files/p0.gif" width=1> <IMG height=1 
+src="joggle-demo-main_files/q0.gif" width=1> <IMG height=1 
+src="joggle-demo-main_files/r0.gif" width=1> <IMG height=1 
+src="joggle-demo-main_files/s0.gif" width=1> <IMG height=1 
+src="joggle-demo-main_files/t0.gif" width=1> <IMG height=1 
+src="joggle-demo-main_files/u0.gif" width=1> <IMG height=1 
+src="joggle-demo-main_files/v0.gif" width=1> <IMG height=1 
+src="joggle-demo-main_files/w0.gif" width=1> <IMG height=1 
+src="joggle-demo-main_files/x0.gif" width=1> <IMG height=1 
+src="joggle-demo-main_files/y0.gif" width=1> <IMG height=1 
+src="joggle-demo-main_files/z0.gif" width=1> <IMG height=1 
+src="joggle-demo-main_files/a1.gif" width=1> <IMG height=1 
+src="joggle-demo-main_files/b1.gif" width=1> <IMG height=1 
+src="joggle-demo-main_files/c1.gif" width=1> <IMG height=1 
+src="joggle-demo-main_files/d1.gif" width=1> <IMG height=1 
+src="joggle-demo-main_files/e1.gif" width=1> <IMG height=1 
+src="joggle-demo-main_files/f1.gif" width=1> <IMG height=1 
+src="joggle-demo-main_files/g1.gif" width=1> <IMG height=1 
+src="joggle-demo-main_files/h1.gif" width=1> <IMG height=1 
+src="joggle-demo-main_files/i1.gif" width=1> <IMG height=1 
+src="joggle-demo-main_files/j1.gif" width=1> <IMG height=1 
+src="joggle-demo-main_files/k1.gif" width=1> <IMG height=1 
+src="joggle-demo-main_files/l1.gif" width=1> <IMG height=1 
+src="joggle-demo-main_files/m1.gif" width=1> <IMG height=1 
+src="joggle-demo-main_files/n1.gif" width=1> <IMG height=1 
+src="joggle-demo-main_files/o1.gif" width=1> <IMG height=1 
+src="joggle-demo-main_files/p1.gif" width=1> <IMG height=1 
+src="joggle-demo-main_files/q1.gif" width=1> <IMG height=1 
+src="joggle-demo-main_files/r1.gif" width=1> <IMG height=1 
+src="joggle-demo-main_files/s1.gif" width=1> <IMG height=1 
+src="joggle-demo-main_files/t1.gif" width=1> <IMG height=1 
+src="joggle-demo-main_files/u1.gif" width=1> <IMG height=1 
+src="joggle-demo-main_files/v1.gif" width=1> <IMG height=1 
+src="joggle-demo-main_files/w1.gif" width=1> <IMG height=1 
+src="joggle-demo-main_files/x1.gif" width=1> <IMG height=1 
+src="joggle-demo-main_files/y1.gif" width=1> <IMG height=1 
+src="joggle-demo-main_files/z1.gif" width=1> </CENTER><SMALL>
+<UL>
+  <LI>To enter a word, click the first letter of the word, then move the mouse 
+  over the next letters in turn, and finally click the last letter of the word. 
+  <LI>To pause the game, click the button displaying the time. Click it again to 
+  unpause. Pausing the game reduces the remaining time by 1 second. 
+  <LI>To abandon the current game, first pause the game, then click on "Joggle." 
+
+  <LI>To score the game, after the game has ended or been abandoned, click the 
+  "Score" button in the frame on the right. 
+</LI></UL></SMALL></FORM></BODY></HTML>

@@ -1,0 +1,631 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Navigation:  Cascading Menu</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="description" CONTENT="Multilevel cascading menu for navigation in IE or NS. Menus have borders, highlight colours and are positioned relative to one another on the fly.  Amazing!">
+<META NAME="date" CONTENT="2001-02-19">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Angus Turnbull">
+<META NAME="section" CONTENT="Navigation">
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Angus Turnbull -->
+<!-- Web Site:  http://gusnz.cjb.net -->
+
+
+
+
+<!-- Begin
+var isDOM = false, isNS4 = false;
+if (document.all) var isDOM = true, docObj = 'document.all.', styObj = '.style';
+else if (document.layers) var isNS4 = true, docObj = 'document.', styObj = '';
+// Hide timeout
+var popTimer = 0;
+var litNow = new Array();
+function popOver(menuNum, itemNum) {
+clearTimeout(popTimer);
+hideAllBut(menuNum);
+litNow = getTree(menuNum, itemNum);
+changeCol(litNow, true);
+targetNum = menu[menuNum][itemNum].target;
+if (targetNum > 0) {
+targetName = menu[targetNum][0].id;
+menuName = menu[menuNum][0].id;
+menuRef = eval(docObj + menuName + styObj);
+thisX = parseInt(menuRef.left);
+thisY = parseInt(menuRef.top);
+// Add onto this the position of the trigger item within the menu
+itemPath = docObj;
+if (isNS4) itemPath += menuName + '.document.';
+itemRef = eval(itemPath + menuName + itemNum.toString() + styObj);
+thisX += parseInt(itemRef.left);
+thisY += parseInt(itemRef.top);
+// Add those to the target's offset to set the target's position, show it.
+with (eval(docObj + targetName + styObj)) {
+left = parseInt(thisX + menu[targetNum][0].x);
+top = parseInt(thisY + menu[targetNum][0].y);
+visibility = 'visible';
+      }
+   }
+}
+function popOut(menuNum, itemNum) {
+// Hide menu in 1/2 sec, *UNLESS* another mouseover clears the timeout!
+popTimer = setTimeout('hideAllBut(0)', 500);
+}
+function getTree(menuNum, itemNum) {
+// Array index is the menu number. The contents are null (if that menu is not a parent)
+// or the item number in that menu that is an ancestor (to light it up).
+itemArray = new Array(menu.length);
+while(1) {
+itemArray[menuNum] = itemNum;
+if (menuNum == 0) return itemArray;
+itemNum = menu[menuNum][0].parentItem;
+menuNum = menu[menuNum][0].parentMenu;
+   }
+}
+// Pass an array and a boolean to specify colour change, true = over colour.
+function changeCol(changeArray, isOver) {
+for (menuCount = 0; menuCount < changeArray.length; menuCount++) {
+if (changeArray[menuCount]) {
+thisMenu = menu[menuCount][0].id;
+thisItem = thisMenu + changeArray[menuCount].toString();
+newCol = isOver ? menu[menuCount][0].overCol : menu[menuCount][0].backCol;
+if (isDOM) document.all[thisItem].style.backgroundColor = newCol;
+if (isNS4) document[thisMenu].document[thisItem].bgColor = newCol;
+      }
+   }
+}
+function hideAllBut(menuNum) {
+var keepMenus = getTree(menuNum, 1);
+for (count = 0; count < menu.length; count++)
+if (!keepMenus[count])
+eval(docObj + menu[count][0].id + styObj + '.visibility = "hidden"');
+changeCol(litNow, false);
+}
+// *** MENU CONSTRUCTION FUNCTIONS ***
+// Variable to end a div or layer based on browser.
+var endDL = isDOM ? '</div>' : '</layer>';
+function Menu(id, x, y, width, overCol, backCol, borderCol) {
+this.id = id;
+this.x = x;
+this.y = y;
+this.width = width;
+// Colours of menu and items.
+this.overCol = overCol;
+this.backCol = backCol;
+this.borderCol = borderCol;
+// Parent menu and item numbers, indexed later.
+this.parentMenu = null;
+this.parentItem = null;
+}
+function Item(text, href, height, target) {
+this.text = text;
+this.href = href;
+this.height = height;
+this.target = target;
+}
+function startDL(id, x, y, width, height, vis, back, border, zIndex, extraProps) {
+// Write a div in IE that resembles a layer's settings, or a layer in NS.
+if (isDOM) {
+str = '<div id="' + id + '" style="position: absolute; left: ' + x + '; top: ' + y +
+ '; width: ' + width + '; height: ' + height + '; visibility: ' + vis + '; ';
+if (back) str += 'background: ' + back + '; ';
+if (border) str += 'padding: 3px; border: 1px solid ' + border + '; ';
+if (zIndex) str += 'z-index: ' + zIndex + '; ';
+// End style declaration.
+str += '" ';
+}
+if (isNS4) {
+str = '<layer id="' + id + '" left="' + x + '" top="' + y + '" width="' + width +
+ '" height="' + height + '" visibility="' + vis + '" ';
+if (back) str += 'bgcolor="' + back + '" ';
+if (border) str += 'style="border: 1px solid ' + border + '" ';
+if (zIndex) str += 'z-index="' + zIndex + '" ';
+}
+return str + extraProps + '>';
+}
+function mouseProps(currMenu, currItem) {
+return 'onMouseOver="popOver(' + currMenu + ',' + currItem + ')" onMouseOut="popOut(' + currMenu + ',' + currItem + ')"';
+}
+function writeMenus(customRoot, popInd) {
+for (currMenu = 0; currMenu < menu.length; currMenu++) {
+showMenu = true;
+if ((currMenu == 0) && customRoot) {
+document.write(customRoot);
+showMenu = false;
+}
+with (menu[currMenu][0]) {
+// Start generating a div with position offset - no dimensions, colours, mouseovers.
+// This position is only relevant for root menu anyway as all others are altered later.
+menuHTML = startDL(id, x, y, 0, 0, 'hidden', null, null, 100, '');
+// Width is less padding (3 left & right) and border (1 left & right).
+var back = backCol, bord = borderCol, currWidth = width - 8;
+}
+// Y-position of next item, increase if you want a menu header.
+itemPos = 0;
+// Remember, items start from 1 in the array (0 is menu object itself, above).
+for (currItem = 1; currItem < menu[currMenu].length; currItem++) {
+// Auto-generate ID's in numerical sequence.
+trigID = menu[currMenu][0].id + currItem.toString();
+// Now, work with properties of individual menu items.
+with (menu[currMenu][currItem]) {
+// Start a menu item positioned vertically, with mouse events and colours.
+menuHTML += startDL(trigID, 0, itemPos, 0, 0, 'inherit', back, bord, 100, mouseProps(currMenu, currItem)) + '<table width="' + currWidth + '" border="0" cellspacing="0" cellpadding="0"><tr>' + '<td align="left"><a class="Item" href="' + href + '">' + text + '</a></td>' + '<td class="Item" align="right">' + (target ? popInd : '') + '</td></tr></table>' + endDL;
+if (target > 0) {
+// Set target's parents to this and offset it by the current position.
+menu[target][0].parentMenu = currMenu;
+menu[target][0].parentItem = currItem;
+}
+// Move next item position down by this item's height.
+itemPos += height;
+   }
+}
+// Write this menu to the document.
+if (showMenu) document.write(menuHTML + endDL);
+litNow[currMenu] = null;
+   }
+}
+//  End -->
+</script>
+<style>
+<!--
+.Item { text-decoration: none; color: #FFFFFF; font: 12px Arial, Helvetica }
+-->
+</style>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /navigation/"><font color="#FF0000"><b>Navigation</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Cascading Menu</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Multilevel cascading menu for navigation in Internet Explorer. Menus have borders, highlight colours and are positioned relative to one another on the fly.  Amazing!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Angus Turnbull -->
+<!-- Web Site:  http://gusnz.cjb.net -->
+
+
+
+
+<!-- Begin
+/* Syntaxes:
+ *
+ * menu[menuNumber][0] = new Menu('menu ID', left, top, width, 'mouseover colour',
+ *'background colour', 'border colour');
+ * Left and Top are measured on-the-fly relative to the top-left corner of its trigger.
+ *
+ * menu[menuNumber][itemNumber] = new Item('Text', 'URL', vertical spacing to next item, 
+ *target menu number);
+ * If no target menu (popout) is desired, set it to 0. All menus must trace back their
+ * targets to the root menu! That is, every menu must be targeted by one item somewhere.
+ * Even if you're not writing the root menu, you must still specify its settings here.
+ */
+var menu = new Array();
+// Default colours passed to most menu constructors (just passed to functions, not
+// a global variable - makes things easier to change later).
+var defOver = '#336699', defBack = '#003366', defBorder = '#000000';
+// Default height of menu items - the spacing to the next item, actually.
+var defHeight = 22;
+// Menu 0 is the special, 'root' menu from which everything else arises.
+menu[0] = new Array();
+// Pass a few different colours, as an example.
+menu[0][0] = new Menu('rootMenu', 0, 0, 80, '#669999', '#006666', defBorder);
+// Notice how the targets are all set to nonzero values...
+menu[0][1] = new Item('File', '#', defHeight, 1);
+menu[0][2] = new Item('Edit', '#', defHeight, 2);
+menu[0][3] = new Item('Help', '#', defHeight, 3);
+menu[1] = new Array();
+// The File menu is positioned 0px across and 22 down from its trigger, and is 80 wide.
+menu[1][0] = new Menu('fileMenu', 0, 22, 80, defOver, defBack, defBorder);
+menu[1][1] = new Item('Open', '#', defHeight, 0);
+menu[1][2] = new Item('Save', '#', defHeight, 0);
+// Non-zero target means this will trigger a popup.
+menu[1][3] = new Item('Reopen', '#', defHeight, 4);
+menu[1][4] = new Item('Exit', '#', defHeight, 0);
+menu[2] = new Array();
+menu[2][0] = new Menu('editMenu', 0, 22, 80, defOver, defBack, defBorder);
+menu[2][1] = new Item('Cut', '#', defHeight, 0);
+menu[2][2] = new Item('Copy', '#', defHeight, 0);
+menu[2][3] = new Item('Paste', '#', defHeight, 0);
+menu[3] = new Array();
+menu[3][0] = new Menu('helpMenu', 0, 22, 80, defOver, defBack, defBorder);
+menu[3][1] = new Item('Contents', '#', defHeight, 0);
+menu[3][2] = new Item('Index', '#', defHeight, 0);
+menu[3][3] = new Item('About', '#', defHeight, 5);
+menu[4] = new Array();
+// This is across but not down... a horizontal popout (with crazy colours :)...
+menu[4][0] = new Menu('reopenMenu', 85, 0, 100, '#333366', '#666699', '#663399');
+menu[4][1] = new Item('Recent Doc 1:<br>Schedule', '#', 36, 0);
+menu[4][2] = new Item('Recent Doc 2:<br>Plan', '#', 40, 0);
+menu[4][3] = new Item('Etc. etc...', '#', defHeight, 0);
+menu[5] = new Array();
+// Leftwards popout with a negative x relative to its trigger.
+menu[5][0] = new Menu('aboutMenu', -85, -15, 80, defOver, defBack, defBorder);
+menu[5][1] = new Item('Leftwards!<br>And up!', '#', 30, 0);
+// Now, this next bit of script will write our own custom root menu -- a horizontal
+// one, as the defaults are all vertical with borders. Even if you are writing your
+// own root menu, you must still specify the names, colours and targets above -- the
+// positions are calculated on the fly and hence are ignored.
+// Basically, you must duplicate the output of the writeMenus() function. Just work
+// from this example.
+// Syntax: startDL('id', x, y, width, height, 'visibility', '#background colour or null
+//for transparent', '#border colour or null for no border', 'additional properties');
+// It returns a string of HTML text comprising the opening tag of a div or layer.
+// mouseProps(menu, item) returns the 'onMouseEvent' properties for a specific menu item,
+// passed as 'additional properties' to startDL. Just cut and paste below, or allow the
+// script to write its own root menu.
+// endDL is a variable containing either '</div>' or '</layer>', so add it afterwards.
+newRoot = startDL('rootMenu', 0, 0, '100%', 17, 'hidden', '#006666', null, 100, '');
+newRoot += startDL('rootMenu1', 5, 0, 40, 17, 'inherit', '#006666', null, 100, mouseProps(0, 1));
+newRoot += '<span class="Item">&nbsp; File</span>' + endDL;
+newRoot += startDL('rootMenu2', 55, 0, 40, 17, 'inherit', '#006666', null, 100, mouseProps(0, 2));
+newRoot += '<span class="Item">&nbsp; Edit</span>' + endDL;
+newRoot += startDL('rootMenu3', 105, 0, 40, 17, 'inherit', '#006666', null, 100, mouseProps(0, 3));
+newRoot += '<span class="Item">&nbsp; Help</span>' + endDL;
+newRoot += endDL;
+// Pass this two strings - the first is HTML to write a custom root menu, or null to
+// generate one normally. The second is the popout indicator HTML - try an image...?
+// Try writeMenus(null, '<img src="...">'); in your own script.
+writeMenus(newRoot, '&gt;');
+// This is a quick snippet that captures all clicks on the document and hides the menus
+// every time you click. Use if you want.
+if (isNS4) document.captureEvents(Event.CLICK);
+document.onclick = clickHandle;
+function clickHandle(evt) {
+if (isNS4) document.routeEvent(evt);
+hideAllBut(0);
+}
+// Show root menu command - place in an onLoad="..." type function if you want.
+eval(docObj + menu[0][0].id + styObj + '.visibility = "visible"');
+// This is just the moving command for the example.
+function moveRoot() {
+rM = eval(docObj + menu[0][0].id + styObj);
+if (parseInt(rM.top) < 40) rM.top = 40;
+else rM.top = 0;
+}
+//  End -->
+</script>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Navigation:  Cascading Menu</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Command-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  12.56 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL CASCADING MENU:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Angus Turnbull --&gt;
+&lt;!-- Web Site:  http://gusnz.cjb.net --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var isDOM = false, isNS4 = false;
+if (document.all) var isDOM = true, docObj = 'document.all.', styObj = '.style';
+else if (document.layers) var isNS4 = true, docObj = 'document.', styObj = '';
+// Hide timeout
+var popTimer = 0;
+var litNow = new Array();
+function popOver(menuNum, itemNum) {
+clearTimeout(popTimer);
+hideAllBut(menuNum);
+litNow = getTree(menuNum, itemNum);
+changeCol(litNow, true);
+targetNum = menu[menuNum][itemNum].target;
+if (targetNum &gt; 0) {
+targetName = menu[targetNum][0].id;
+menuName = menu[menuNum][0].id;
+menuRef = eval(docObj + menuName + styObj);
+thisX = parseInt(menuRef.left);
+thisY = parseInt(menuRef.top);
+// Add onto this the position of the trigger item within the menu
+itemPath = docObj;
+if (isNS4) itemPath += menuName + '.document.';
+itemRef = eval(itemPath + menuName + itemNum.toString() + styObj);
+thisX += parseInt(itemRef.left);
+thisY += parseInt(itemRef.top);
+// Add those to the target's offset to set the target's position, show it.
+with (eval(docObj + targetName + styObj)) {
+left = parseInt(thisX + menu[targetNum][0].x);
+top = parseInt(thisY + menu[targetNum][0].y);
+visibility = 'visible';
+      }
+   }
+}
+function popOut(menuNum, itemNum) {
+// Hide menu in 1/2 sec, *UNLESS* another mouseover clears the timeout!
+popTimer = setTimeout('hideAllBut(0)', 500);
+}
+function getTree(menuNum, itemNum) {
+// Array index is the menu number. The contents are null (if that menu is not a parent)
+// or the item number in that menu that is an ancestor (to light it up).
+itemArray = new Array(menu.length);
+while(1) {
+itemArray[menuNum] = itemNum;
+if (menuNum == 0) return itemArray;
+itemNum = menu[menuNum][0].parentItem;
+menuNum = menu[menuNum][0].parentMenu;
+   }
+}
+// Pass an array and a boolean to specify colour change, true = over colour.
+function changeCol(changeArray, isOver) {
+for (menuCount = 0; menuCount &lt; changeArray.length; menuCount++) {
+if (changeArray[menuCount]) {
+thisMenu = menu[menuCount][0].id;
+thisItem = thisMenu + changeArray[menuCount].toString();
+newCol = isOver ? menu[menuCount][0].overCol : menu[menuCount][0].backCol;
+if (isDOM) document.all[thisItem].style.backgroundColor = newCol;
+if (isNS4) document[thisMenu].document[thisItem].bgColor = newCol;
+      }
+   }
+}
+function hideAllBut(menuNum) {
+var keepMenus = getTree(menuNum, 1);
+for (count = 0; count &lt; menu.length; count++)
+if (!keepMenus[count])
+eval(docObj + menu[count][0].id + styObj + '.visibility = "hidden"');
+changeCol(litNow, false);
+}
+// *** MENU CONSTRUCTION FUNCTIONS ***
+// Variable to end a div or layer based on browser.
+var endDL = isDOM ? '&lt;/div&gt;' : '&lt;/layer&gt;';
+function Menu(id, x, y, width, overCol, backCol, borderCol) {
+this.id = id;
+this.x = x;
+this.y = y;
+this.width = width;
+// Colours of menu and items.
+this.overCol = overCol;
+this.backCol = backCol;
+this.borderCol = borderCol;
+// Parent menu and item numbers, indexed later.
+this.parentMenu = null;
+this.parentItem = null;
+}
+function Item(text, href, height, target) {
+this.text = text;
+this.href = href;
+this.height = height;
+this.target = target;
+}
+function startDL(id, x, y, width, height, vis, back, border, zIndex, extraProps) {
+// Write a div in IE that resembles a layer's settings, or a layer in NS.
+if (isDOM) {
+str = '&lt;div id="' + id + '" style="position: absolute; left: ' + x + '; top: ' + y +
+ '; width: ' + width + '; height: ' + height + '; visibility: ' + vis + '; ';
+if (back) str += 'background: ' + back + '; ';
+if (border) str += 'padding: 3px; border: 1px solid ' + border + '; ';
+if (zIndex) str += 'z-index: ' + zIndex + '; ';
+// End style declaration.
+str += '" ';
+}
+if (isNS4) {
+str = '&lt;layer id="' + id + '" left="' + x + '" top="' + y + '" width="' + width +
+ '" height="' + height + '" visibility="' + vis + '" ';
+if (back) str += 'bgcolor="' + back + '" ';
+if (border) str += 'style="border: 1px solid ' + border + '" ';
+if (zIndex) str += 'z-index="' + zIndex + '" ';
+}
+return str + extraProps + '&gt;';
+}
+function mouseProps(currMenu, currItem) {
+return 'onMouseOver="popOver(' + currMenu + ',' + currItem + ')" onMouseOut="popOut(' + currMenu + ',' + currItem + ')"';
+}
+function writeMenus(customRoot, popInd) {
+for (currMenu = 0; currMenu &lt; menu.length; currMenu++) {
+showMenu = true;
+if ((currMenu == 0) && customRoot) {
+document.write(customRoot);
+showMenu = false;
+}
+with (menu[currMenu][0]) {
+// Start generating a div with position offset - no dimensions, colours, mouseovers.
+// This position is only relevant for root menu anyway as all others are altered later.
+menuHTML = startDL(id, x, y, 0, 0, 'hidden', null, null, 100, '');
+// Width is less padding (3 left & right) and border (1 left & right).
+var back = backCol, bord = borderCol, currWidth = width - 8;
+}
+// Y-position of next item, increase if you want a menu header.
+itemPos = 0;
+// Remember, items start from 1 in the array (0 is menu object itself, above).
+for (currItem = 1; currItem &lt; menu[currMenu].length; currItem++) {
+// Auto-generate ID's in numerical sequence.
+trigID = menu[currMenu][0].id + currItem.toString();
+// Now, work with properties of individual menu items.
+with (menu[currMenu][currItem]) {
+// Start a menu item positioned vertically, with mouse events and colours.
+menuHTML += startDL(trigID, 0, itemPos, 0, 0, 'inherit', back, bord, 100, mouseProps(currMenu, currItem)) + '&lt;table width="' + currWidth + '" border="0" cellspacing="0" cellpadding="0"&gt;&lt;tr&gt;' + '&lt;td align="left"&gt;&lt;a class="Item" href="' + href + '"&gt;' + text + '&lt;/a&gt;&lt;/td&gt;' + '&lt;td class="Item" align="right"&gt;' + (target ? popInd : '') + '&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;' + endDL;
+if (target &gt; 0) {
+// Set target's parents to this and offset it by the current position.
+menu[target][0].parentMenu = currMenu;
+menu[target][0].parentItem = currItem;
+}
+// Move next item position down by this item's height.
+itemPos += height;
+   }
+}
+// Write this menu to the document.
+if (showMenu) document.write(menuHTML + endDL);
+litNow[currMenu] = null;
+   }
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;style&gt;
+&lt;!--
+.Item { text-decoration: none; color: #FFFFFF; font: 12px Arial, Helvetica }
+--&gt;
+&lt;/style&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Angus Turnbull --&gt;
+&lt;!-- Web Site:  http://gusnz.cjb.net --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+/* Syntaxes:
+ *
+ * menu[menuNumber][0] = new Menu('menu ID', left, top, width, 'mouseover colour',
+ *'background colour', 'border colour');
+ * Left and Top are measured on-the-fly relative to the top-left corner of its trigger.
+ *
+ * menu[menuNumber][itemNumber] = new Item('Text', 'URL', vertical spacing to next item, 
+ *target menu number);
+ * If no target menu (popout) is desired, set it to 0. All menus must trace back their
+ * targets to the root menu! That is, every menu must be targeted by one item somewhere.
+ * Even if you're not writing the root menu, you must still specify its settings here.
+ */
+var menu = new Array();
+// Default colours passed to most menu constructors (just passed to functions, not
+// a global variable - makes things easier to change later).
+var defOver = '#336699', defBack = '#003366', defBorder = '#000000';
+// Default height of menu items - the spacing to the next item, actually.
+var defHeight = 22;
+// Menu 0 is the special, 'root' menu from which everything else arises.
+menu[0] = new Array();
+// Pass a few different colours, as an example.
+menu[0][0] = new Menu('rootMenu', 0, 0, 80, '#669999', '#006666', defBorder);
+// Notice how the targets are all set to nonzero values...
+menu[0][1] = new Item('File', '#', defHeight, 1);
+menu[0][2] = new Item('Edit', '#', defHeight, 2);
+menu[0][3] = new Item('Help', '#', defHeight, 3);
+menu[1] = new Array();
+// The File menu is positioned 0px across and 22 down from its trigger, and is 80 wide.
+menu[1][0] = new Menu('fileMenu', 0, 22, 80, defOver, defBack, defBorder);
+menu[1][1] = new Item('Open', '#', defHeight, 0);
+menu[1][2] = new Item('Save', '#', defHeight, 0);
+// Non-zero target means this will trigger a popup.
+menu[1][3] = new Item('Reopen', '#', defHeight, 4);
+menu[1][4] = new Item('Exit', '#', defHeight, 0);
+menu[2] = new Array();
+menu[2][0] = new Menu('editMenu', 0, 22, 80, defOver, defBack, defBorder);
+menu[2][1] = new Item('Cut', '#', defHeight, 0);
+menu[2][2] = new Item('Copy', '#', defHeight, 0);
+menu[2][3] = new Item('Paste', '#', defHeight, 0);
+menu[3] = new Array();
+menu[3][0] = new Menu('helpMenu', 0, 22, 80, defOver, defBack, defBorder);
+menu[3][1] = new Item('Contents', '#', defHeight, 0);
+menu[3][2] = new Item('Index', '#', defHeight, 0);
+menu[3][3] = new Item('About', '#', defHeight, 5);
+menu[4] = new Array();
+// This is across but not down... a horizontal popout (with crazy colours :)...
+menu[4][0] = new Menu('reopenMenu', 85, 0, 100, '#333366', '#666699', '#663399');
+menu[4][1] = new Item('Recent Doc 1:&lt;br&gt;Schedule', '#', 36, 0);
+menu[4][2] = new Item('Recent Doc 2:&lt;br&gt;Plan', '#', 40, 0);
+menu[4][3] = new Item('Etc. etc...', '#', defHeight, 0);
+menu[5] = new Array();
+// Leftwards popout with a negative x relative to its trigger.
+menu[5][0] = new Menu('aboutMenu', -85, -15, 80, defOver, defBack, defBorder);
+menu[5][1] = new Item('Leftwards!&lt;br&gt;And up!', '#', 30, 0);
+// Now, this next bit of script will write our own custom root menu -- a horizontal
+// one, as the defaults are all vertical with borders. Even if you are writing your
+// own root menu, you must still specify the names, colours and targets above -- the
+// positions are calculated on the fly and hence are ignored.
+// Basically, you must duplicate the output of the writeMenus() function. Just work
+// from this example.
+// Syntax: startDL('id', x, y, width, height, 'visibility', '#background colour or null
+//for transparent', '#border colour or null for no border', 'additional properties');
+// It returns a string of HTML text comprising the opening tag of a div or layer.
+// mouseProps(menu, item) returns the 'onMouseEvent' properties for a specific menu item,
+// passed as 'additional properties' to startDL. Just cut and paste below, or allow the
+// script to write its own root menu.
+// endDL is a variable containing either '&lt;/div&gt;' or '&lt;/layer&gt;', so add it afterwards.
+newRoot = startDL('rootMenu', 0, 0, '100%', 17, 'hidden', '#006666', null, 100, '');
+newRoot += startDL('rootMenu1', 5, 0, 40, 17, 'inherit', '#006666', null, 100, mouseProps(0, 1));
+newRoot += '&lt;span class="Item"&gt;&nbsp; File&lt;/span&gt;' + endDL;
+newRoot += startDL('rootMenu2', 55, 0, 40, 17, 'inherit', '#006666', null, 100, mouseProps(0, 2));
+newRoot += '&lt;span class="Item"&gt;&nbsp; Edit&lt;/span&gt;' + endDL;
+newRoot += startDL('rootMenu3', 105, 0, 40, 17, 'inherit', '#006666', null, 100, mouseProps(0, 3));
+newRoot += '&lt;span class="Item"&gt;&nbsp; Help&lt;/span&gt;' + endDL;
+newRoot += endDL;
+// Pass this two strings - the first is HTML to write a custom root menu, or null to
+// generate one normally. The second is the popout indicator HTML - try an image...?
+// Try writeMenus(null, '&lt;img src="..."&gt;'); in your own script.
+writeMenus(newRoot, '&gt;');
+// This is a quick snippet that captures all clicks on the document and hides the menus
+// every time you click. Use if you want.
+if (isNS4) document.captureEvents(Event.CLICK);
+document.onclick = clickHandle;
+function clickHandle(evt) {
+if (isNS4) document.routeEvent(evt);
+hideAllBut(0);
+}
+// Show root menu command - place in an onLoad="..." type function if you want.
+eval(docObj + menu[0][0].id + styObj + '.visibility = "visible"');
+// This is just the moving command for the example.
+function moveRoot() {
+rM = eval(docObj + menu[0][0].id + styObj);
+if (parseInt(rM.top) &lt; 40) rM.top = 40;
+else rM.top = 0;
+}
+//  End --&gt;
+&lt;/script&gt;
+
+ 
+
+&lt;!-- Script Size:  12.56 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

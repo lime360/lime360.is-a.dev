@@ -1,0 +1,247 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Page Details:  Born On Date</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="http://www.jwp.bc.ca/saulm/html/bornon.htm ">
+<META NAME="section" CONTENT="Page Details">
+<META NAME="description" CONTENT="In place of the boring 'Last Updated' script, you can use this script.  It does everything and more - it gives the page title, the day the page was last updated, and if the page has been updated since the visitor's last visit all in a cool little table!">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /page-details/"><font color="#FF0000">Page Details</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Born On Date</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE=" helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+In place of the boring 'Last Updated' script, you can use this script.  It does everything and more - it gives the page title, the day the page was last updated, and if the page has been updated since the visitor's last visit all in a cool little table!<br><hr>
+</td></tr>
+</table>
+<!--  Demonstration  -->
+<BODY>
+<CENTER>
+<TABLE border=2 cellspacing=0 cellpadding=3>
+<TR><TD bgcolor="#000044">
+<FONT color="#4400ff" face=georgia,arial size=+1>
+<CENTER>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+document.write(document.title);
+//-->
+</SCRIPT>
+</TD></TR>
+<TR><TD bgcolor="#440000">
+<FONT size=-1 color="#ff0000" face="trebuchet MS","arial">
+<FONT color="#ff8800">Born on:</font> 
+
+<!-- Put the page creation date, here.  -->
+
+September 25, 1997
+
+<BR>
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+function getCookieVal (offset) {
+var endstr = document.cookie.indexOf (";", offset);
+if (endstr == -1)
+endstr = document.cookie.length;
+return unescape(document.cookie.substring(offset, endstr));
+}
+function GetCookie (name) {
+var arg = name + "=";
+var alen = arg.length;
+var clen = document.cookie.length;
+var i = 0;
+while (i < clen) {
+var j = i + alen;
+if (document.cookie.substring(i, j) == arg)
+return getCookieVal (j);
+i = document.cookie.indexOf(" ", i) + 1;
+if (i == 0) break; 
+}
+return null;
+}
+function SetCookie (name, value) {
+var argv = SetCookie.arguments;
+var argc = SetCookie.arguments.length;
+var expires = (argc > 2) ? argv[2] : null;
+var path = (argc > 3) ? argv[3] : null;
+var domain = (argc > 4) ? argv[4] : null;
+var secure = (argc > 5) ? argv[5] : false;
+document.cookie = name + "=" + escape (value) +
+((expires == null) ? "" : ("; expires=" + expires.toGMTString())) +
+((path == null) ? "" : ("; path=" + path)) +
+((domain == null) ? "" : ("; domain=" + domain)) +
+((secure == true) ? "; secure" : "");
+}
+function DeleteCookie(name) {
+var exp = new Date();
+FixCookieDate (exp);
+exp.setTime (exp.getTime() - 1);
+var cval = GetCookie (name);
+if (cval != null)
+document.cookie = name + "=" + cval + "; expires=" + exp.toGMTString();
+}
+var cookie_date=new Date(document.lastModified);
+var expdate = new Date();
+expdate.setTime(expdate.getTime()+(5*24*60*60*1000));
+document.write("<Font color=ff8800>" + "Last updated: "+ "</font>" +document.lastModified);
+document.write("");
+if (!(cookie_date == GetCookie("cookie_date"))){
+SetCookie("cookie_date",cookie_date,expdate);
+document.write("<font color='yellow'><br>Site has changed since last visit!</font><br>");
+}
+// End -->
+</SCRIPT>
+</FONT>
+</TD></TR>
+</TABLE>
+</CENTER>
+<P>
+<BR>
+<P>
+<a name="source">
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Page Details:  Born On Date</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as NotePad or SimpleText) and save (Control-s or Apple-s).  The script is yours!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center"><input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.64 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- ONE STEP TO INSTALL BORN ON DATE:
+
+   1.  Paste the coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;CENTER&gt;
+&lt;!-- Original:  http://www.jwp.bc.ca/saulm/html/bornon.htm  --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;TABLE border=2 cellspacing=0 cellpadding=3&gt;
+&lt;TR&gt;&lt;TD bgcolor="#000044"&gt;
+&lt;FONT color="#4400ff" face=georgia,arial size=+1&gt;
+&lt;CENTER&gt;
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!--
+document.write(document.title);
+//--&gt;
+&lt;/SCRIPT&gt;
+&lt;/TD&gt;&lt;/TR&gt;
+&lt;TR&gt;&lt;TD bgcolor="#440000"&gt;
+&lt;FONT size=-1 color="#ff0000" face="trebuchet MS","arial"&gt;
+&lt;FONT color="#ff8800"&gt;Born on:&lt;/font&gt; 
+
+&lt;!-- Put the page creation date, here.  --&gt;
+
+September 25, 1997
+
+&lt;BR&gt;
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Begin
+function getCookieVal (offset) {
+var endstr = document.cookie.indexOf (";", offset);
+if (endstr == -1)
+endstr = document.cookie.length;
+return unescape(document.cookie.substring(offset, endstr));
+}
+function GetCookie (name) {
+var arg = name + "=";
+var alen = arg.length;
+var clen = document.cookie.length;
+var i = 0;
+while (i &lt; clen) {
+var j = i + alen;
+if (document.cookie.substring(i, j) == arg)
+return getCookieVal (j);
+i = document.cookie.indexOf(" ", i) + 1;
+if (i == 0) break; 
+}
+return null;
+}
+function SetCookie (name, value) {
+var argv = SetCookie.arguments;
+var argc = SetCookie.arguments.length;
+var expires = (argc &gt; 2) ? argv[2] : null;
+var path = (argc &gt; 3) ? argv[3] : null;
+var domain = (argc &gt; 4) ? argv[4] : null;
+var secure = (argc &gt; 5) ? argv[5] : false;
+document.cookie = name + "=" + escape (value) +
+((expires == null) ? "" : ("; expires=" + expires.toGMTString())) +
+((path == null) ? "" : ("; path=" + path)) +
+((domain == null) ? "" : ("; domain=" + domain)) +
+((secure == true) ? "; secure" : "");
+}
+function DeleteCookie(name) {
+var exp = new Date();
+FixCookieDate (exp);
+exp.setTime (exp.getTime() - 1);
+var cval = GetCookie (name);
+if (cval != null)
+document.cookie = name + "=" + cval + "; expires=" + exp.toGMTString();
+}
+var cookie_date=new Date(document.lastModified);
+var expdate = new Date();
+expdate.setTime(expdate.getTime()+(5*24*60*60*1000));
+document.write("&lt;Font color=ff8800&gt;" + "Last updated: "+ "&lt;/font&gt;" +document.lastModified);
+document.write("");
+if (!(cookie_date == GetCookie("cookie_date"))){
+SetCookie("cookie_date",cookie_date,expdate);
+document.write("&lt;font color='yellow'&gt;&lt;br&gt;Site has changed since last visit!&lt;/font&gt;&lt;br&gt;");
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+&lt;/FONT&gt;
+&lt;/TD&gt;&lt;/TR&gt;
+&lt;/TABLE&gt;
+&lt;/CENTER&gt;
+
+ 
+
+&lt;!-- Script Size:  2.64 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

@@ -1,0 +1,223 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Clocks:  ISO Clock</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="John Walker (john@321webliftoff.net)">
+<META NAME="section" CONTENT="Clocks">
+<META NAME="description" CONTENT="Displays the date and time in accordance with the ISO 8601 standard.">
+<META NAME="date" CONTENT="2000-09-26">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="John Walker">
+<META NAME="section" CONTENT="Clocks">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  John Walker (john@321webliftoff.net) -->
+<!-- Web Site:  http://321webliftoff.net -->
+
+
+
+
+<!-- Begin
+function isodatetime() {
+var today = new Date();
+var year  = today.getYear();
+if (year < 2000)    // Y2K Fix, Isaac Powell
+year = year + 1900; // http://onyx.idbsu.edu/~ipowell
+var month = today.getMonth() + 1;
+var day  = today.getDate();
+var hour = today.getHours();
+var hourUTC = today.getUTCHours();
+var diff = hour - hourUTC;
+var hourdifference = Math.abs(diff);
+var minute = today.getMinutes();
+var minuteUTC = today.getUTCMinutes();
+var minutedifference;
+var second = today.getSeconds();
+var timezone;
+if (minute != minuteUTC && minuteUTC < 30 && diff < 0) { hourdifference--; }
+if (minute != minuteUTC && minuteUTC > 30 && diff > 0) { hourdifference--; }
+if (minute != minuteUTC) {
+minutedifference = ":30";
+}
+else {
+minutedifference = ":00";
+}
+if (hourdifference < 10) { 
+timezone = "0" + hourdifference + minutedifference;
+}
+else {
+timezone = "" + hourdifference + minutedifference;
+}
+if (diff < 0) {
+timezone = "-" + timezone;
+}
+else {
+timezone = "+" + timezone;
+}
+if (month <= 9) month = "0" + month;
+if (day <= 9) day = "0" + day;
+if (hour <= 9) hour = "0" + hour;
+if (minute <= 9) minute = "0" + minute;
+if (second <= 9) second = "0" + second;
+time = year + "-" + month + "-" + day + "T"
++ hour + ":" + minute + ":" + second + timezone;
+document.isoclock.display.value = time;
+window.setTimeout("isodatetime();", 500);
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff OnLoad="isodatetime()">
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /clocks/"><font color="#FF0000"><b>Clocks</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>ISO Clock</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Displays the date and time in accordance with the ISO 8601 standard.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name=isoclock>
+<input type=text name=display size=30 style="border:0;">
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Clocks:  ISO Clock</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.17 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL ISO CLOCK:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the onLoad event handler into the BODY tag
+  3.  Put the last coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  John Walker (john@321webliftoff.net) --&gt;
+&lt;!-- Web Site:  http://321webliftoff.net --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function isodatetime() {
+var today = new Date();
+var year  = today.getYear();
+if (year < 2000)    // Y2K Fix, Isaac Powell
+year = year + 1900; // http://onyx.idbsu.edu/~ipowell
+var month = today.getMonth() + 1;
+var day  = today.getDate();
+var hour = today.getHours();
+var hourUTC = today.getUTCHours();
+var diff = hour - hourUTC;
+var hourdifference = Math.abs(diff);
+var minute = today.getMinutes();
+var minuteUTC = today.getUTCMinutes();
+var minutedifference;
+var second = today.getSeconds();
+var timezone;
+if (minute != minuteUTC && minuteUTC &lt; 30 && diff &lt; 0) { hourdifference--; }
+if (minute != minuteUTC && minuteUTC &gt; 30 && diff &gt; 0) { hourdifference--; }
+if (minute != minuteUTC) {
+minutedifference = ":30";
+}
+else {
+minutedifference = ":00";
+}
+if (hourdifference &lt; 10) { 
+timezone = "0" + hourdifference + minutedifference;
+}
+else {
+timezone = "" + hourdifference + minutedifference;
+}
+if (diff &lt; 0) {
+timezone = "-" + timezone;
+}
+else {
+timezone = "+" + timezone;
+}
+if (month &lt;= 9) month = "0" + month;
+if (day &lt;= 9) day = "0" + day;
+if (hour &lt;= 9) hour = "0" + hour;
+if (minute &lt;= 9) minute = "0" + minute;
+if (second &lt;= 9) second = "0" + second;
+time = year + "-" + month + "-" + day + "T"
++ hour + ":" + minute + ":" + second + timezone;
+document.isoclock.display.value = time;
+window.setTimeout("isodatetime();", 500);
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Insert the onLoad event handler into your BODY tag  --&gt;
+
+&lt;BODY OnLoad="isodatetime()"&gt;
+
+&lt;!-- STEP THREE: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;center&gt;
+&lt;form name=isoclock&gt;
+&lt;input type=text name=display size=30 style="border:0;"&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  2.17 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

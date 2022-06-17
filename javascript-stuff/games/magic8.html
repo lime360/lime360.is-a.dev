@@ -1,0 +1,219 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Games:  Magic 8 Ball</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Games">
+<META NAME="description" CONTENT="Ever wanted to play with a JavaScript Magic 8 Ball?  Well, here is a fully functional, and totally random, JavaScript Magic 8 Ball.  Enjoy.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+var sec = 0
+var imgsrc
+var output = "<BR>"
+function getsec() {
+var date = new Date()
+sec = date.getSeconds()
+}
+function getnum() {
+if (sec > 49) {
+sec = sec - 50
+}
+else {
+if (sec > 39){
+sec = sec - 40
+}
+else {
+if (sec > 29){
+sec = sec - 30
+}
+else {
+if (sec > 19){
+sec = sec - 20
+}
+else {
+if (sec > 9){
+sec = sec - 10
+}}}}}}
+function display() {
+imgsrc = '<img src="../img/magic8/' + sec + '.gif">'
+output += imgsrc
+}
+function doit(){
+getsec();
+getnum();
+display();
+document.write(output);
+}
+// End -->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /games/"><font color="#FF0000">Games</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Magic 8 Ball</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+Ever wanted to play with a JavaScript Magic 8 Ball?  Well, here is a fully functional, and totally random, JavaScript Magic 8 Ball.  Enjoy.
+<br>
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<CENTER>
+The Magic 8 Ball says...
+<BR>
+<SCRIPT>
+doit();
+</SCRIPT>
+<BR>
+<A HREF="magic8.html" /games/magic8.html"><B>Get Another Prediction</B></A>
+</CENTER>
+<p><br>
+<center><font face="arial, helvetica" size="-1">
+You will need the <a href="../img/magic8/magic8.zip" /img/magic8/magic8.zip">magic8.zip</a> images to use this script.
+</font></center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Games:  Magic 8 Ball</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size: 2.07 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL MAGIC 8 BALL:
+
+   1.  Put the first code into the HEAD of your HTML document
+   2.  Paste the final coding into the BODY of your HTML document
+   3.  Save the 9 necessary images into your web directory  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!--  Begin
+var sec = 0
+var imgsrc
+var output = "&lt;BR&gt;"
+function getsec() {
+var date = new Date()
+sec = date.getSeconds()
+}
+function getnum() {
+if (sec &gt; 49) {
+sec = sec - 50
+}
+else {
+if (sec &gt; 39){
+sec = sec - 40
+}
+else {
+if (sec &gt; 29){
+sec = sec - 30
+}
+else {
+if (sec &gt; 19){
+sec = sec - 20
+}
+else {
+if (sec &gt; 9){
+sec = sec - 10
+}}}}}}
+function display() {
+imgsrc = '&lt;img src="http://your.server.com/magic8/' + sec + '.gif"&gt;'
+output += imgsrc
+}
+function doit(){
+getsec();
+getnum();
+display();
+document.write(output);
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;CENTER&gt;
+The Magic 8 Ball says...
+&lt;BR&gt;
+&lt;SCRIPT&gt;
+doit();
+&lt;/SCRIPT&gt;
+&lt;BR&gt;
+&lt;A HREF="magic8.html"&gt;&lt;B&gt;Get Another Prediction&lt;/B&gt;&lt;/A&gt;
+&lt;/CENTER&gt;
+
+&lt;!-- STEP THREE: Copy the 9 following images into your web directory  --&gt;
+
+&lt;!-- Point your browser at the following URLs, then save the images...     --&gt;
+&lt;!-- ../img/magic8/0.gif  --&gt; 
+&lt;!-- ../img/magic8/2.gif  --&gt;
+&lt;!-- ../img/magic8/3.gif  --&gt;
+&lt;!-- ../img/magic8/4.gif  --&gt;
+&lt;!-- ../img/magic8/5.gif  --&gt;
+&lt;!-- ../img/magic8/6.gif  --&gt;
+&lt;!-- ../img/magic8/7.gif  --&gt;
+&lt;!-- ../img/magic8/8.gif  --&gt;
+&lt;!-- ../img/magic8/9.gif  --&gt;
+&lt;/textarea&gt;&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+
+ 
+
+&lt;!-- Script Size:  2.07 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

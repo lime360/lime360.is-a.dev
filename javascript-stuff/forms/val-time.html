@@ -1,0 +1,215 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Forms:  Time Validation</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Sandeep Tamhankar (stamhankar@hotmail.com)">
+<META NAME="section" CONTENT="Forms">
+<META NAME="description" CONTENT="This function verifies that a string is a valid time, in the form hh:mm:ss am/pm, where seconds are optional.  It accepts military time (hour between 0 and 23) as long as am/pm isn't specified.  It requires am/pm when the hour is less than or equal to 12.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Sandeep Tamhankar (stamhankar@hotmail.com) -->
+<!-- Web Site:  http://207.20.242.93 -->
+
+
+
+
+<!-- Begin
+function IsValidTime(timeStr) {
+// Checks if time is in HH:MM:SS AM/PM format.
+// The seconds and AM/PM are optional.
+
+var timePat = /^(\d{1,2}):(\d{2})(:(\d{2}))?(\s?(AM|am|PM|pm))?$/;
+
+var matchArray = timeStr.match(timePat);
+if (matchArray == null) {
+alert("Time is not in a valid format.");
+return false;
+}
+hour = matchArray[1];
+minute = matchArray[2];
+second = matchArray[4];
+ampm = matchArray[6];
+
+if (second=="") { second = null; }
+if (ampm=="") { ampm = null }
+
+if (hour < 0  || hour > 23) {
+alert("Hour must be between 1 and 12. (or 0 and 23 for military time)");
+return false;
+}
+if (hour <= 12 && ampm == null) {
+if (confirm("Please indicate which time format you are using.  OK = Standard Time, CANCEL = Military Time")) {
+alert("You must specify AM or PM.");
+return false;
+   }
+}
+if  (hour > 12 && ampm != null) {
+alert("You can't specify AM or PM for military time.");
+return false;
+}
+if (minute < 0 || minute > 59) {
+alert ("Minute must be between 0 and 59.");
+return false;
+}
+if (second != null && (second < 0 || second > 59)) {
+alert ("Second must be between 0 and 59.");
+return false;
+}
+alert("The time you have entered is valid and would have been submitted, but this is just a demo!");
+return false;
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /forms/" ><font color="#FF0000"><b>Forms</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Time Validation</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+This function verifies that a string is a valid time, in the form hh:mm:ss am/pm, where seconds are optional.  It accepts military time (hour between 0 and 23) as long as am/pm isn't specified.  It requires am/pm when the hour is less than or equal to 12.
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name=timeform onSubmit="return IsValidTime(document.timeform.time.value);">
+Time (HH:MM:SS AM/PM format)  <input type=text name=time><br>
+<input type="submit" value="Submit">
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Forms:  Time Validation</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.92 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL TIME VALIDATION:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Sandeep Tamhankar (stamhankar@hotmail.com) --&gt;
+&lt;!-- Web Site:  http://207.20.242.93 --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function IsValidTime(timeStr) {
+// Checks if time is in HH:MM:SS AM/PM format.
+// The seconds and AM/PM are optional.
+
+var timePat = /^(\d{1,2}):(\d{2})(:(\d{2}))?(\s?(AM|am|PM|pm))?$/;
+
+var matchArray = timeStr.match(timePat);
+if (matchArray == null) {
+alert("Time is not in a valid format.");
+return false;
+}
+hour = matchArray[1];
+minute = matchArray[2];
+second = matchArray[4];
+ampm = matchArray[6];
+
+if (second=="") { second = null; }
+if (ampm=="") { ampm = null }
+
+if (hour &lt; 0  || hour &gt; 23) {
+alert("Hour must be between 1 and 12. (or 0 and 23 for military time)");
+return false;
+}
+if (hour <= 12 && ampm == null) {
+if (confirm("Please indicate which time format you are using.  OK = Standard Time, CANCEL = Military Time")) {
+alert("You must specify AM or PM.");
+return false;
+   }
+}
+if  (hour &gt; 12 && ampm != null) {
+alert("You can't specify AM or PM for military time.");
+return false;
+}
+if (minute&lt;0 || minute &gt; 59) {
+alert ("Minute must be between 0 and 59.");
+return false;
+}
+if (second != null && (second &lt; 0 || second &gt; 59)) {
+alert ("Second must be between 0 and 59.");
+return false;
+}
+return false;
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form name=timeform onSubmit="return IsValidTime(document.timeform.time.value);"&gt;
+Time (HH:MM:SS AM/PM format)  &lt;input type=text name=time&gt;&lt;br&gt;
+&lt;input type="submit" value="Submit"&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  1.92 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>
+
+

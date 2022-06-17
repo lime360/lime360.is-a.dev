@@ -1,0 +1,194 @@
+\<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Navigation:  Link Wheel</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Navigation">
+<META NAME="description" CONTENT="This neat little JavaScript will flip through all the different sites that you include, along with a description of that site.  When the visitor clicks the button, they are taken to that site!  Very cool!">
+
+<script language="JavaScript">
+<!-- Begin
+function makeArray(q){
+for(i=1 ; i < q ; i++){this[i]=0}}
+w=1;
+howmanysites=4;
+Sites = new makeArray(howmanysites);
+Sites[1] = "http://javascript.internet.com~JavaScript Source Code 3000|Click for great JavaScripts!";
+Sites[2] = "http://www.geocities.com~Geocities|Click for totally free webspace!";
+Sites[3] = "http://www.yahoo.com~Yahoo!|Click for the greatest Search Engine!";
+Sites[4] = "http://www.builder.com~Builder.com|Click for awesome webmaster resources!";
+
+function showSites() {
+if (w > howmanysites) { w=1; };
+var string=Sites[w] + "";
+var split1=string.indexOf("~");
+var split2=string.indexOf("|");
+var url=string.substring(0,split1);
+var name=string.substring(split1 + 1,split2);
+var word=string.substring(split2 + 1,string.length);
+document.form.url.value=url;
+document.form.name.value=name;
+document.form.word.value=word;
+w+=1;
+window.setTimeout('showSites()',3000);
+}
+function visitSite() {
+window.location=document.form.url.value;
+}
+// End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width="600" cellpadding="0" cellspacing="10">
+<tr>
+<td width="468" align="center">
+
+	
+</td>
+<td width="120" align="center">
+
+	
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /navigation/"><font color="#FF0000">Navigation</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">Link Wheel</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE=" helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+This neat little JavaScript will flip through all the different sites that you include, along with a description of that site.  When the visitor clicks the button, they are taken to that site!  Very cool!<br><hr>
+</td></tr>
+</table>
+<!--  Demonstration -->
+<center>
+<form name=form>
+<table><tr><td align=center>
+<input type=button name=name value="Visit these sites!" onClick="visitSite()" size=25>
+<input type=hidden name=url value="">
+<input type=text name=word value="" size=40>
+</td></tr></table>
+</form>
+</center>
+
+<script>
+showSites();
+</script>
+<P>
+<BR>
+<P>
+<a name="source">
+<TABLE BORDER=0 WIDTH=500 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Navigation:  Link Wheel</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as NotePad or SimpleText) and save (Control-s or Apple-s).  The script is yours!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.12 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- THREE STEPS TO INSTALL LINK WHEEL:
+
+   1.  Paste the coding into the HEAD of your HTML document
+   2.  Use the pattern:  url~Site Title|Description for the links
+   3.  Copy the second code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function makeArray(q){
+for(i=1 ; i &lt; q ; i++){this[i]=0}}
+w=1;
+howmanysites=4; // How many sites are listed below?
+
+Sites = new makeArray(howmanysites);
+
+&lt;!-- STEP TWO: Use the pattern:  url~Site Title|Description for links  --&gt;
+
+Sites[1] = "http://javascript.internet.com~JavaScript Source Code 3000|Great scripts!";
+Sites[2] = "http://www.geocities.com~Geocities|Free webspace!";
+Sites[3] = "http://www.yahoo.com~Yahoo!|Great Search Engine!";
+Sites[4] = "http://www.builder.com~Builder.com|Webmaster resources!";
+
+function showSites() {
+if (w &gt; howmanysites) { w=1; };
+var string=Sites[w] + "";
+var split1=string.indexOf("~");
+var split2=string.indexOf("|");
+var url=string.substring(0,split1);
+var name=string.substring(split1 + 1,split2);
+var word=string.substring(split2 + 1,string.length);
+document.form.url.value=url;
+document.form.name.value=name;
+document.form.word.value=word;
+w+=1;
+window.setTimeout('showSites()',3000);
+
+// You can change the speed!  3000 = 3 sec delay.  5000 = 5 sec delay, etc. 
+
+}
+function visitSite() {
+window.location=document.form.url.value;
+}
+// End --&gt;
+&lt;/SCRIPT&gt;
+
+
+&lt;!-- STEP THREE: Add the final coding to the BODY tag of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form name=form&gt;
+&lt;table&gt;&lt;tr&gt;&lt;td align=center&gt;
+&lt;input type=button name=name value="Visit" onClick="visitSite()" size=25&gt;
+&lt;input type=hidden name=url value=""&gt;
+&lt;input type=text name=word value="" size=40&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+&lt;script&gt;
+showSites();
+&lt;/script&gt;
+
+ 
+
+&lt;!-- Script Size:  2.12 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

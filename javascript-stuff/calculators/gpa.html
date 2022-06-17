@@ -1,0 +1,462 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Calculators:  GPA</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Calculators">
+<META NAME="description" CONTENT="This is a very useful script to figure out your class GPA.  Just enter the letter grade for each class.">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--  
+function gpacalc() {
+//define valid grades and their values
+var gr = new Array(9); 
+var cr = new Array(9);
+var ingr = new Array(5);
+var incr = new Array(5);
+// define valid grades and their values
+var grcount = 11; 
+gr[0] = "A+";
+cr[0] = 4;
+gr[1] = "A"; 
+cr[1] = 4; 
+gr[2] = "A-";
+cr[2] = 3.66;
+gr[3] = "B+";
+cr[3] = 3.33;
+gr[4] = "B";
+cr[4] = 3;
+gr[5] = "B-";
+cr[5] = 2.66;
+gr[6] = "C+";
+cr[6] = 2.33;
+gr[7] = "C";
+cr[7] = 2;
+gr[8] = "C-";
+cr[8] = 1.66;
+gr[9] = "D";
+cr[9] = 1;
+gr[10] = "F";
+cr[10] = 0;
+ingr[0] = document.GPACalcForm.GR1.value;
+ingr[1] = document.GPACalcForm.GR2.value;
+ingr[2] = document.GPACalcForm.GR3.value;
+ingr[3] = document.GPACalcForm.GR4.value;
+ingr[4] = document.GPACalcForm.GR5.value;
+ingr[5] = document.GPACalcForm.GR6.value;
+ingr[6] = document.GPACalcForm.GR7.value;
+ingr[7] = document.GPACalcForm.GR8.value;
+incr[0] = document.GPACalcForm.CR1.value;
+incr[1] = document.GPACalcForm.CR2.value;
+incr[2] = document.GPACalcForm.CR3.value;
+incr[3] = document.GPACalcForm.CR4.value;
+incr[4] = document.GPACalcForm.CR5.value;
+incr[5] = document.GPACalcForm.CR6.value;
+ingr[6] = document.GPACalcForm.GR7.value;
+ingr[7] = document.GPACalcForm.GR8.value;
+var allgr =0;
+var allcr = 0;
+var gpa = 0;
+for (var x = 0; x < 5 + 3; x++) 
+{
+if (ingr[x] == "") break;
+if (isNaN(parseInt(incr[x])))
+alert("Please enter the letter equivalent for each class.  If the grade is 92, enter A etc."); 
+var validgrcheck = 0;
+for (var xx = 0; xx < grcount; xx++) {
+if (ingr[x] == gr[xx]) {
+allgr = allgr + (parseInt(incr[x],10) * cr[xx]);
+allcr = allcr + parseInt(incr[x],10);
+validgrcheck = 1;
+break;
+   }
+}
+if (validgrcheck == 0) {
+alert("Error- Could not recognize the grade entered for Class " + eval(x + 1) + ". Please use standard college grades into the form of a a- b+ ...f.");
+return 0;
+   }
+}
+if (allcr == 0) {
+alert("Error- You did not enter any credit values! GPA = N/A");
+return 0;
+}
+gpa = allgr / allcr;
+alert("GPA =  " + eval(gpa));
+return 0;
+}
+// End -->
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<P>
+<center>
+
+	
+<P>
+<BR>
+<BR>
+<BASEFONT SIZE=3>
+  <FONT SIZE=6>
+<B><FONT SIZE="+2" FACE="Helvetica,Arial" ALIGN=RIGHT COLOR="#0000FF">
+<b><A HREF="../index.htm" /" TARGET="_top">
+Home</A> </b><img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <b><A HREF="index.htm" /calculators/"><font color="#FF0000">Calculators</font></A> </b>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}"> <FONT COLOR="#006666">GPA</FONT></b></FONT><BR>
+</B><BR>
+  </FONT>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+
+This is a very useful script to figure out your class GPA.  Just enter the letter grade for each class.
+<br>
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<CENTER>
+<FORM Name="GPACalcForm">
+<TABLE BORDER=5 BGCOLOR=#C0C0C0 CELLPADDING="5" CELLSPACING="2">
+<TH></TH>
+<TH>
+Grade
+</TH>
+<TH>
+Credits
+</TH>
+<TR>
+<TD>
+Class 1
+</TD>
+<TD>
+<INPUT TYPE=TEXT SIZE=5 NAME="GR1" ALIGN=TOP MAXLENGTH=5>
+</TD>
+<TD>
+<INPUT TYPE=TEXT SIZE=5 NAME="CR1" ALIGN=TOP MAXLENGTH=5>
+</TD>
+</TR>
+<TR>
+<TD>
+Class 2
+</TD>
+<TD>
+<INPUT TYPE=TEXT SIZE=5 NAME="GR2" ALIGN=TOP MAXLENGTH=5>
+</TD>
+<TD>
+<INPUT TYPE=TEXT SIZE=5 NAME="CR2" ALIGN=TOP MAXLENGTH=5>
+</TD>
+</TR>
+<TR>
+<TD>
+Class 3
+</TD>
+<TD>
+<INPUT TYPE=TEXT SIZE=5 NAME="GR3" ALIGN=TOP MAXLENGTH=5>
+</TD>
+<TD>
+<INPUT TYPE=TEXT SIZE=5 NAME="CR3" ALIGN=TOP MAXLENGTH=5>
+</TD>
+</TR>
+<TR>
+<TD>
+Class 4
+</TD>
+<TD>
+<INPUT TYPE=TEXT SIZE=5 NAME="GR4" ALIGN=TOP MAXLENGTH=5>
+</TD>
+<TD>
+<INPUT TYPE=TEXT SIZE=5 NAME="CR4" ALIGN=TOP MAXLENGTH=5>
+</TD>
+</TR>
+<TR>
+<TD>
+Class 5
+</TD>
+<TD>
+<INPUT TYPE=TEXT SIZE=5 NAME="GR5" ALIGN=TOP MAXLENGTH=5>
+</TD>
+<TD>
+<INPUT TYPE=TEXT SIZE=5 NAME="CR5" ALIGN=TOP MAXLENGTH=5>
+</TD>
+</TR>
+<TR>
+<TD>
+Class 6
+</TD>
+<TD>
+<INPUT TYPE=TEXT SIZE=5 NAME="GR6" ALIGN=TOP MAXLENGTH=5>
+</TD>
+<TD>
+<INPUT TYPE=TEXT SIZE=5 NAME="CR6" ALIGN=TOP MAXLENGTH=5>
+</TD>
+</TR>
+<TR>
+<TD>
+Class 7
+</TD>
+<TD>
+<INPUT TYPE=TEXT SIZE=5 NAME="GR7" ALIGN=TOP MAXLENGTH=5>
+</TD>
+<TD>
+<INPUT TYPE=TEXT SIZE=5 NAME="CR7" ALIGN=TOP MAXLENGTH=5
+></TD>
+</TR>
+<TR>
+<TD>
+Class 8
+</TD>
+<TD>
+<INPUT TYPE=TEXT SIZE=5 NAME="GR8" ALIGN=TOP MAXLENGTH=5>
+</TD>
+<TD>
+<INPUT TYPE=TEXT SIZE=5 NAME="CR8" ALIGN=TOP MAXLENGTH=5>
+</TD>
+</TR>
+<TR ALIGN=CENTER>
+<TD COLSPAN=3>
+<INPUT TYPE="BUTTON" VALUE="Calculate" NAME="CalcButton"
+OnClick="gpacalc()">
+</TD>
+</TR>
+</TABLE>
+</FORM>
+</CENTER>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Calculators:  GPA Calculator</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  4.19 KB  " size="24">
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL GPA CALCULATOR:
+
+   1.  Paste the prescribed coding into the HEAD of your HTML document
+   2.  Put the last script into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Copy this code into the HEAD of your HTML document  --&gt;
+		  
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function gpacalc() {
+var gr = new Array(9); 
+var cr = new Array(9);
+var ingr = new Array(5);
+var incr = new Array(5);
+var grcount = 11; 
+gr[0] = "A+";
+cr[0] = 4;
+gr[1] = "A"; 
+cr[1] = 4; 
+gr[2] = "A-";
+cr[2] = 3.66;
+gr[3] = "B+";
+cr[3] = 3.33;
+gr[4] = "B";
+cr[4] = 3;
+gr[5] = "B-";
+cr[5] = 2.66;
+gr[6] = "C+";
+cr[6] = 2.33;
+gr[7] = "C";
+cr[7] = 2;
+gr[8] = "C-";
+cr[8] = 1.66;
+gr[9] = "D";
+cr[9] = 1;
+gr[10] = "F";
+cr[10] = 0;
+ingr[0] = document.GPACalcForm.GR1.value;
+ingr[1] = document.GPACalcForm.GR2.value;
+ingr[2] = document.GPACalcForm.GR3.value;
+ingr[3] = document.GPACalcForm.GR4.value;
+ingr[4] = document.GPACalcForm.GR5.value;
+ingr[5] = document.GPACalcForm.GR6.value;
+ingr[6] = document.GPACalcForm.GR7.value;
+ingr[7] = document.GPACalcForm.GR8.value;
+incr[0] = document.GPACalcForm.CR1.value;
+incr[1] = document.GPACalcForm.CR2.value;
+incr[2] = document.GPACalcForm.CR3.value;
+incr[3] = document.GPACalcForm.CR4.value;
+incr[4] = document.GPACalcForm.CR5.value;
+incr[5] = document.GPACalcForm.CR6.value;
+ingr[6] = document.GPACalcForm.GR7.value;
+ingr[7] = document.GPACalcForm.GR8.value;
+var allgr =0;
+var allcr = 0;
+var gpa = 0;
+for (var x = 0; x &lt; 5 + 3; x++) 
+{
+if (ingr[x] == "") break;
+if (isNaN(parseInt(incr[x])))
+alert("Please enter the letter equivalent for each class.  If the grade is 92, enter A etc."); 
+var validgrcheck = 0;
+for (var xx = 0; xx &lt; grcount; xx++) {
+if (ingr[x] == gr[xx]) {
+allgr = allgr + (parseInt(incr[x],10) * cr[xx]);
+allcr = allcr + parseInt(incr[x],10);
+validgrcheck = 1;
+break;
+   }
+}
+if (validgrcheck == 0) {
+alert("Error- Could not recognize the grade entered for Class " + eval(x + 1) + ". Please use standard college grades into the form of a a- b+ ...f.");
+return 0;
+   }
+}
+if (allcr == 0) {
+alert("Error- You did not enter any credit values! GPA = N/A");
+return 0;
+}
+gpa = allgr / allcr;
+alert("GPA =  " + eval(gpa));
+return 0;
+}
+//--&gt;
+    
+&lt;/SCRIPT&gt;
+
+&lt;!-- STEP TWO:  Put this script into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;CENTER&gt;
+&lt;FORM Name="GPACalcForm"&gt;
+&lt;TABLE BORDER=5 BGCOLOR=#C0C0C0 CELLPADDING="5" CELLSPACING="2"&gt;
+&lt;TH&gt;&lt;/TH&gt;
+&lt;TH&gt;
+Grade
+&lt;/TH&gt;
+&lt;TH&gt;
+Credits
+&lt;/TH&gt;
+&lt;TR&gt;
+&lt;TD&gt;
+Class 1
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;INPUT TYPE=TEXT SIZE=5 NAME="GR1" ALIGN=TOP MAXLENGTH=5&gt;
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;INPUT TYPE=TEXT SIZE=5 NAME="CR1" ALIGN=TOP MAXLENGTH=5&gt;
+&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;TR&gt;
+&lt;TD&gt;
+Class 2
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;INPUT TYPE=TEXT SIZE=5 NAME="GR2" ALIGN=TOP MAXLENGTH=5&gt;
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;INPUT TYPE=TEXT SIZE=5 NAME="CR2" ALIGN=TOP MAXLENGTH=5&gt;
+&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;TR&gt;
+&lt;TD&gt;
+Class 3
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;INPUT TYPE=TEXT SIZE=5 NAME="GR3" ALIGN=TOP MAXLENGTH=5&gt;
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;INPUT TYPE=TEXT SIZE=5 NAME="CR3" ALIGN=TOP MAXLENGTH=5&gt;
+&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;TR&gt;
+&lt;TD&gt;
+Class 4
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;INPUT TYPE=TEXT SIZE=5 NAME="GR4" ALIGN=TOP MAXLENGTH=5&gt;
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;INPUT TYPE=TEXT SIZE=5 NAME="CR4" ALIGN=TOP MAXLENGTH=5&gt;
+&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;TR&gt;
+&lt;TD&gt;
+Class 5
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;INPUT TYPE=TEXT SIZE=5 NAME="GR5" ALIGN=TOP MAXLENGTH=5&gt;
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;INPUT TYPE=TEXT SIZE=5 NAME="CR5" ALIGN=TOP MAXLENGTH=5&gt;
+&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;TR&gt;
+&lt;TD&gt;
+Class 6
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;INPUT TYPE=TEXT SIZE=5 NAME="GR6" ALIGN=TOP MAXLENGTH=5&gt;
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;INPUT TYPE=TEXT SIZE=5 NAME="CR6" ALIGN=TOP MAXLENGTH=5&gt;
+&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;TR&gt;
+&lt;TD&gt;
+Class 7
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;INPUT TYPE=TEXT SIZE=5 NAME="GR7" ALIGN=TOP MAXLENGTH=5&gt;
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;INPUT TYPE=TEXT SIZE=5 NAME="CR7" ALIGN=TOP MAXLENGTH=5
+&gt;&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;TR&gt;
+&lt;TD&gt;
+Class 8
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;INPUT TYPE=TEXT SIZE=5 NAME="GR8" ALIGN=TOP MAXLENGTH=5&gt;
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;INPUT TYPE=TEXT SIZE=5 NAME="CR8" ALIGN=TOP MAXLENGTH=5&gt;
+&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;TR ALIGN=CENTER&gt;
+&lt;TD COLSPAN=3&gt;
+&lt;INPUT TYPE="BUTTON" VALUE="Calculate" NAME="CalcButton"
+OnClick="gpacalc()"&gt;
+&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;/TABLE&gt;
+&lt;/FORM&gt;
+&lt;/CENTER&gt;
+
+ 
+
+&lt;!-- Script Size:  4.19 KB  --&gt;
+</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

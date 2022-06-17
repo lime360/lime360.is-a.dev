@@ -1,0 +1,188 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Page Details:  Share A Page</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Page Details">
+<META NAME="description" CONTENT="If you would like to have several sites sharing one 'contact us' page, you can!  Each site can link to the same page (but each with a unique string) and the appropriate site's information will be highlighted yellow in the contact table.  For example, If they clicked on the 'contact us' link on the real estate page, the table cell with the real estate contact email address will be highlighted yellow instead of white on the contact us page.  Clever!">
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /page-details/"><font color="#FF0000"><b>Page Details</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Share A Page</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+If you would like to have several sites sharing one 'contact us' page, you can!  Each site can link to the same page (but each with a unique string) and the appropriate site's information will be highlighted yellow in the contact table.  For example, If they clicked on the 'contact us' link on the real estate page, the table cell with the real estate contact email address will be highlighted yellow instead of white on the contact us page.  Clever!<br><br>
+<script language="JavaScript">
+<!-- Begin
+if (!location.search) {
+document.write("Click the links below to test it out!");
+}
+else {
+document.write("Just the appropriate listing is highlighted, neat!");
+}
+// End -->
+</script>
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<SCRIPT LANGUAGE="JavaScript">
+
+
+
+
+<!-- Begin
+string = "" + location.search;
+string = string.substring(1,string.length);
+person1 = string.indexOf("person1"); // unique person1 string
+person2 = string.indexOf("person2"); // unique person2 string
+person3 = string.indexOf("person3"); // unique person3 string
+
+if (location.search) {
+text = "<center><table border=1 cellpadding=3 cellspacing=3>\n";
+text += "<tr><td colspan=2 align=center><b>Contact Us!</b></td></tr>\n";
+
+text += "<tr><td";
+text += (person1>-1 ? " bgcolor=yellow>" : ">"); // highlights cell if location has ?person1
+text += "Person 1: </td>\n";
+text += "<td align=center";
+text += (person1>-1 ? " bgcolor=yellow>" : ">"); // highlights cell if location has ?person1
+text += "<a href='mailto:person1@site.com'><b>person1@site.com</b></a></td>\n";
+text += "</tr>";
+
+text += "<tr><td";
+text += (person2>-1 ? " bgcolor=yellow>" : ">"); // highlights cell if location has ?person2
+text += "Person 2: </td>\n";
+text += "<td align=center";
+text += (person2>-1 ? " bgcolor=yellow>" : ">"); // highlights cell if location has ?person2
+text += "<a href='mailto:person2@site.com'><b>person2@site.com</b></a></td>\n";
+text += "</tr>";
+
+text += "<tr><td";
+text += (person3>-1 ? " bgcolor=yellow>" : ">"); // highlights cell if location has ?person3
+text += "Person 3: </td>\n";
+text += "<td align=center";
+text += (person3>-1 ? " bgcolor=yellow>" : ">"); // highlights cell if location has ?person3
+text += "<a href='mailto:person3@site.com'><b>person3@site.com</b></a></td>\n";
+text += "</tr>";
+
+text += "</table></center>";
+document.write(text);
+}
+else {
+document.write("<center><a href='share-a-page.html?person1'>Person1 Contact Link</a><br><br>\n");
+document.write("<a href='share-a-page.html?person2'>Person2 Contact Link</a><br><br>\n");
+document.write("<a href='share-a-page.html?person3'>Person3 Contact Link</a><br>\n");
+document.write("<br><font face='arial, helvetica' size=-2>[ These links would all be on separate pages, of course! ]</center>");
+}
+//  End -->
+</script>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Page Details:  Share A Page</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.94 KB" size=24>
+</DIV>
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- ONE STEP TO INSTALL SHARE A PAGE:
+
+  1.  Copy the coding into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+string = "" + location.search;
+string = string.substring(1,string.length);
+person1 = string.indexOf("person1"); // unique person1 string
+person2 = string.indexOf("person2"); // unique person2 string
+person3 = string.indexOf("person3"); // unique person3 string
+
+text = "&lt;center&gt;&lt;table border=1 cellpadding=3 cellspacing=3&gt;\n";
+text += "&lt;tr&gt;&lt;td colspan=2 align=center&gt;&lt;b&gt;Contact Us!&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;\n";
+
+text += "&lt;tr&gt;&lt;td";
+text += (person1&gt;-1 ? " bgcolor=yellow&gt;" : "&gt;"); // highlights cell if location has ?person1
+text += "Person 1: &lt;/td&gt;\n";
+text += "&lt;td align=center";
+text += (person1&gt;-1 ? " bgcolor=yellow&gt;" : "&gt;"); // highlights cell if location has ?person1
+text += "&lt;a href='mailto:person1@site.com'&gt;&lt;b&gt;person1@site.com&lt;/b&gt;&lt;/a&gt;&lt;/td&gt;\n";
+text += "&lt;/tr&gt;";
+
+text += "&lt;tr&gt;&lt;td";
+text += (person2&gt;-1 ? " bgcolor=yellow&gt;" : "&gt;"); // highlights cell if location has ?person2
+text += "Person 2: &lt;/td&gt;\n";
+text += "&lt;td align=center";
+text += (person2&gt;-1 ? " bgcolor=yellow&gt;" : "&gt;"); // highlights cell if location has ?person2
+text += "&lt;a href='mailto:person2@site.com'&gt;&lt;b&gt;person2@site.com&lt;/b&gt;&lt;/a&gt;&lt;/td&gt;\n";
+text += "&lt;/tr&gt;";
+
+text += "&lt;tr&gt;&lt;td";
+text += (person3&gt;-1 ? " bgcolor=yellow&gt;" : "&gt;"); // highlights cell if location has ?person3
+text += "Person 3: &lt;/td&gt;\n";
+text += "&lt;td align=center";
+text += (person3&gt;-1 ? " bgcolor=yellow&gt;" : "&gt;"); // highlights cell if location has ?person3
+text += "&lt;a href='mailto:person3@site.com'&gt;&lt;b&gt;person3@site.com&lt;/b&gt;&lt;/a&gt;&lt;/td&gt;\n";
+text += "&lt;/tr&gt;";
+
+text += "&lt;/table&gt;&lt;/center&gt;";
+document.write(text);
+//  End --&gt;
+&lt;/script&gt;
+
+ 
+
+&lt;!-- Script Size:  1.94 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

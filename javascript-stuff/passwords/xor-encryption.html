@@ -1,0 +1,348 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Password Protection:  XOR Encryption</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Terry Yuen (kaiser40@yahoo.com)">
+<META NAME="section" CONTENT="Password Protection">
+<META NAME="description" CONTENT="Performs a bitwise XOR (Exclusive Or) on each byte of the data you wish to encrypt using the key you provide.  Useful as an additional security precaution when sending sensitive information over the Internet.  (However, this method is not foolproof and should not be your only form of security.)  The author notes that longer and more random keys increase the strength of the encryption.  Neat!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Terry Yuen (kaiser40@yahoo.com) -->
+
+
+
+
+<!-- Begin
+var allowedChars = " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~ÄÅÇÉÑÖÜáàâäãåçéèêëíìîïñóòôöõúùûü†°¢£§•¶ß®©™´¨≠ÆØ∞±≤≥¥µ∂∑∏π∫ªºΩæø¿¡¬√ƒ≈∆«»… ÀÃÕŒœ–—“”‘’÷◊ÿŸ⁄€‹›ﬁﬂ‡·‚„‰ÂÊÁËÈÍÎÏÌÓÔÒÚÛÙıˆ˜¯˘˙˚¸˝˛ˇ";
+function CharToDec(Character) {
+var pos = allowedChars.indexOf(Character.charAt(0));
+if(pos == -1) {
+window.status += Character;
+pos = 0;
+}
+return pos;
+}
+function DecToBin(Decimal) {
+var i = 0;
+var Bin = "";
+while(Decimal > Math.pow(2, i)) {
+i++;
+}
+for (var i = i; i >= 0; i--) {
+if (Decimal >= Math.pow(2, i)) {
+Decimal -= Math.pow(2, i);
+Bin += "1";
+} else Bin += "0";
+}
+return Bin;
+}
+function ExclusiveOr(input1, input2) {
+var output = "";
+while(input1.length < input2.length) {
+input1 = "0" + input1;
+}
+while(input1.length > input2.length) {
+input2 = "0" + input2;
+}
+if (input1.length == input2.length) {
+for (var i=0; i<input1.length; i++) {
+output += (input1.charAt(i) != input2.charAt(i)) ? "1" : "0";
+}
+} else alert("XOR Operation Error.");
+return output;
+}
+function BinToDec(Binary) {
+var Dec = 0;
+for(var i=0; i<=Binary.length; i++) {
+Dec += Math.pow(2,i) * Binary.charAt((Binary.length - 1) - i);
+}
+return Dec;
+}
+function DecToChar(Decimal) {
+if (Decimal > allowedChars.length) {
+Decimal = 0;
+}
+var pos = allowedChars.charAt(Decimal);
+return pos;
+}
+function BlockEncrypt(input1, input2) {
+var output = "";
+if (input1.length == input2.length) {
+for (var i = 0; i < input1.length; i++) {
+output += DecToChar(BinToDec(ExclusiveOr(DecToBin(CharToDec(input1.charAt(i))), DecToBin(CharToDec(input2.charAt(i))))));
+   }
+} else alert("Block Encryption Error.");
+return output; 
+}
+
+/*   Function:  Encrypts data.
+   Parameters:  2 parameters:  (text string, key)
+      Returns:  Encrypted string
+
+Decrypt the string by running function twice.
+*/
+function EncryptString(plainText, key) {
+var cipherText = "";
+var textBlock, keyBlock = "";
+var keyRotationPos = 0;
+var beforePos, afterPos = 0;
+var blockSize = 48;
+var key = hashKey(key);
+while(afterPos < plainText.length) {
+beforePos = 0;
+afterPos = blockSize;
+if(afterPos < plainText.length) {
+afterPos = plainText.length;
+}
+textBlock = plainText.substring(beforePos, afterPos);
+keyBlock = key.substring(keyRotationPos, key.length);
+while(keyBlock.length < textBlock.length) {
+keyBlock += key;
+}
+keyBlock = keyBlock.substring(0, textBlock.length);
+keyRotationPos = keyBlock.length % key.length;
+cipherText += BlockEncrypt(textBlock, keyBlock);
+beforePos = afterPos;
+afterPos += blockSize;
+}
+return cipherText;
+}
+function hashKey(key) {
+var hash = "";
+for (var i = 0; i < key.length; i++) {
+hash += DecToChar((CharToDec(key.charAt(i)) + i) % allowedChars.length);
+}
+return hash;
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /passwords/"><font color="#FF0000"><b>Password Protection</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>XOR Encryption</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Performs a bitwise XOR (Exclusive Or) on each byte of the data you wish to encrypt using the key you provide.  Useful as an additional security precaution when sending sensitive information over the Internet.  (However, this method is not foolproof and should not be your only form of security.)  The author notes that longer and more random keys increase the strength of the encryption.  Neat!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name=box>
+<table cellpadding=0 cellspacing=0 border=0>
+<tr>
+<td colspan=3>
+<textarea wrap=soft cols=40 rows=5 wrap=virtual name=ipt>The quick brown fox jumped over the lazy dog.</textarea>
+</td>
+</tr>
+<tr height=50>
+<td align=center>
+<input type=button onclick="document.box.ipt.value=EncryptString(document.box.ipt.value,document.box.pwd.value);" value="Encrypt / Decrypt"><br>
+... using password:  <input type=text name=pwd value="password">
+</td>
+</tr>
+</table>
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Password Protection:  XOR Encryption</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  3.97 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL XOR ENCRYPTION:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Terry Yuen (kaiser40@yahoo.com) --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var allowedChars = " !\"#$%&'()*+,-./0123456789:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~ÄÅÇÉÑÖÜáàâäãåçéèêëíìîïñóòôöõúùûü†°¢£§•¶ß®©™´¨≠ÆØ∞±≤≥¥µ∂∑∏π∫ªºΩæø¿¡¬√ƒ≈∆«»… ÀÃÕŒœ–—“”‘’÷◊ÿŸ⁄€‹›ﬁﬂ‡·‚„‰ÂÊÁËÈÍÎÏÌÓÔÒÚÛÙıˆ˜¯˘˙˚¸˝˛ˇ";
+function CharToDec(Character) {
+var pos = allowedChars.indexOf(Character.charAt(0));
+if(pos == -1) {
+window.status += Character;
+pos = 0;
+}
+return pos;
+}
+function DecToBin(Decimal) {
+var i = 0;
+var Bin = "";
+while(Decimal &gt; Math.pow(2, i)) {
+i++;
+}
+for (var i = i; i &gt;= 0; i--) {
+if (Decimal &gt;= Math.pow(2, i)) {
+Decimal -= Math.pow(2, i);
+Bin += "1";
+} else Bin += "0";
+}
+return Bin;
+}
+function ExclusiveOr(input1, input2) {
+var output = "";
+while(input1.length &lt; input2.length) {
+input1 = "0" + input1;
+}
+while(input1.length &gt; input2.length) {
+input2 = "0" + input2;
+}
+if (input1.length == input2.length) {
+for (var i=0; i&lt;input1.length; i++) {
+output += (input1.charAt(i) != input2.charAt(i)) ? "1" : "0";
+}
+} else alert("XOR Operation Error.");
+return output;
+}
+function BinToDec(Binary) {
+var Dec = 0;
+for(var i=0; i&lt;=Binary.length; i++) {
+Dec += Math.pow(2,i) * Binary.charAt((Binary.length - 1) - i);
+}
+return Dec;
+}
+function DecToChar(Decimal) {
+if (Decimal &gt; allowedChars.length) {
+Decimal = 0;
+}
+var pos = allowedChars.charAt(Decimal);
+return pos;
+}
+function BlockEncrypt(input1, input2) {
+var output = "";
+if (input1.length == input2.length) {
+for (var i = 0; i &lt; input1.length; i++) {
+output += DecToChar(BinToDec(ExclusiveOr(DecToBin(CharToDec(input1.charAt(i))), DecToBin(CharToDec(input2.charAt(i))))));
+   }
+} else alert("Block Encryption Error.");
+return output;
+}
+
+/*   Function:  Encrypts data.
+   Parameters:  2 parameters:  (text string, key)
+      Returns:  Encrypted string
+
+Decrypt the string by running function twice.
+*/
+function EncryptString(plainText, key) {
+var cipherText = "";
+var textBlock, keyBlock = "";
+var keyRotationPos = 0;
+var beforePos, afterPos = 0;
+var blockSize = 48;
+var key = hashKey(key);
+while(afterPos &lt; plainText.length) {
+beforePos = 0;
+afterPos = blockSize;
+if(afterPos &lt; plainText.length) {
+afterPos = plainText.length;
+}
+textBlock = plainText.substring(beforePos, afterPos);
+keyBlock = key.substring(keyRotationPos, key.length);
+while(keyBlock.length &lt; textBlock.length) {
+keyBlock += key;
+}
+keyBlock = keyBlock.substring(0, textBlock.length);
+keyRotationPos = keyBlock.length % key.length;
+cipherText += BlockEncrypt(textBlock, keyBlock);
+beforePos = afterPos;
+afterPos += blockSize;
+}
+return cipherText;
+}
+function hashKey(key) {
+var hash = "";
+for (var i = 0; i &lt; key.length; i++) {
+hash += DecToChar((CharToDec(key.charAt(i)) + i) % allowedChars.length);
+}
+return hash;
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form name=box&gt;
+&lt;table cellpadding=0 cellspacing=0 border=0&gt;
+&lt;tr&gt;
+&lt;td colspan=3&gt;
+&lt;textarea wrap=soft cols=40 rows=5 wrap=virtual name=ipt&gt;&lt;/textarea&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr height=50&gt;
+&lt;td align=center&gt;
+&lt;input type=button onclick="document.box.ipt.value=EncryptString(document.box.ipt.value,document.box.pwd.value);" value="Encrypt / Decrypt"&gt;&lt;br&gt;
+... using password:  &lt;input type=text name=pwd value="password"&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  3.97 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

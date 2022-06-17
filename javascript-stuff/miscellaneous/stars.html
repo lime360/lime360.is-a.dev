@@ -1,0 +1,310 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Misc.:  Stars</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="freeware.de">
+<META NAME="section" CONTENT="Miscellaneous">
+<META NAME="description" CONTENT="Probably one of the coolest "layers" effects I've seen, stars actually float around the screen and follow your mouse cursor!  Looks great on a black or white background"," /miscellaneous/," try it with both!  Incredible!">
+
+<style type="text/css">
+<!-- Begin CSS
+#a { position: absolute; top: 10px; left: 10px; visibility: visible }
+#b { position: absolute; top: 10px; left: 10px; visibility: visible }
+#c { position: absolute; top: 10px; left: 10px; visibility: visible }
+#d { position: absolute; top: 10px; left: 10px; visibility: visible }
+#e { position: absolute; top: 10px; left: 10px; visibility: visible }
+#f { position: absolute; top: 10px; left: 10px; visibility: visible }
+#g { position: absolute; top: 10px; left: 10px; visibility: visible }
+End CSS -->
+</style>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+var i = 0;
+function bgChange() {
+if (i % 2) {
+document.bgColor = 'white';
+document.form.colors.value = "See it on a black background....";
+}
+else {
+document.bgColor = 'black';
+document.form.colors.value = "See it on a white background....";
+   }
+i++;
+}
+// End -->
+</SCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /miscellaneous/"><font color="#FF0000"><b>Miscellaneous</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Stars</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Probably one of the coolest "layers" effects I've seen, stars actually float around the screen and follow your mouse cursor!  Looks great on a black or white background, try it with both!  Incredible!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<layer name="a0" left=10 top=10 visibility=show bgcolor="#ff0000" clip="0,0,2,2"></layer>
+<layer name="a1" left=10 top=10 visibility=show bgcolor="#ff8000" clip="0,0,2,2"></layer>
+<layer name="a2" left=10 top=10 visibility=show bgcolor="#ffff00" clip="0,0,2,2"></layer>
+<layer name="a3" left=10 top=10 visibility=show bgcolor="#00ff00" clip="0,0,2,2"></layer>
+<layer name="a4" left=10 top=10 visibility=show bgcolor="#0000ff" clip="0,0,2,2"></layer>
+<layer name="a5" left=10 top=10 visibility=show bgcolor="#ff00ff" clip="0,0,2,2"></layer>
+<layer name="a6" left=10 top=10 visibility=show bgcolor="#ffffff" clip="0,0,2,2"></layer>
+
+<div id="starsDiv" style="position:absolute;top:0px;left:0px">
+<div style="position:relative;width:2px;height:2px;background:#ffffff;font-size:2px;visibility:visible"></div>
+<div style="position:relative;width:2px;height:2px;background:#ffff00;font-size:2px;visibility:visible"></div>
+<div style="position:relative;width:2px;height:2px;background:#ffa000;font-size:2px;visibility:visible"></div>
+<div style="position:relative;width:2px;height:2px;background:#ff0000;font-size:2px;visibility:visible"></div>
+<div style="position:relative;width:2px;height:2px;background:#00ff00;font-size:2px;visibility:visible"></div>
+<div style="position:relative;width:2px;height:2px;background:#0000ff;font-size:2px;visibility:visible"></div>
+<div style="position:relative;width:2px;height:2px;background:#FF00FF;font-size:2px;visibility:visible"></div>
+</div>
+
+<script language="JavaScript">
+
+<!-- Original:  freeware.de -->
+<!-- Web Site:  http://freeware.de -->
+<!-- MSIE Fix by:  Kurt Grigg (kurt.grigg@virgin.net) -->
+
+<!--  Begin
+if (document.layers) {
+window.captureEvents(Event.MOUSEMOVE);
+}
+var yBase = 200;
+var xBase = 200;
+var yAmpl = 10;
+var yMax = 40;
+var step = .2;
+var ystep = .5;
+var currStep = 0;
+var tAmpl=1;
+var Xpos = 1;
+var Ypos = 1;
+var i = 0;
+var j = 0;
+if (document.all) {
+function MoveHandler(){
+Xpos = document.body.scrollLeft + event.x;
+Ypos = document.body.scrollTop + event.y;
+}
+document.onmousemove = MoveHandler;
+}
+else if (document.layers) {
+function xMoveHandler(evnt) {
+Xpos = evnt.pageX;
+Ypos = evnt.pageY;
+}
+window.onMouseMove = xMoveHandler;
+}
+function animateLogo() {
+if (document.all) {
+yBase = window.document.body.offsetHeight / 4;
+xBase = window.document.body.offsetWidth / 4;
+}
+else if (document.layers) {
+yBase = window.innerHeight / 4;
+xBase = window.innerWidth / 4;
+}
+if (document.all) {
+for (i = 0 ; i < starsDiv.all.length; i++) {
+starsDiv.all[i].style.top = Ypos + Math.cos((20*Math.sin(currStep/20))+i*70)*yBase*(Math.sin(10+currStep/10)+0.2)*Math.cos((currStep + i*25)/10);
+starsDiv.all[i].style.left = Xpos + Math.sin((20*Math.sin(currStep/20))+i*70)*xBase*(Math.sin(10+currStep/10)+0.2)*Math.cos((currStep + i*25)/10);
+   }
+}
+else if (document.layers) {
+for (j = 0; j < 7; j++) { //7 is number of NS layers!
+var templayer="a" + j;
+document.layers[templayer].top = Ypos + Math.cos((20*Math.sin(currStep/20))+j*70)*yBase*(Math.sin(10+currStep/10)+0.2)*Math.cos((currStep + j*25)/10);
+document.layers[templayer].left =Xpos + Math.sin((20*Math.sin(currStep/20))+j*70)*xBase*(Math.sin(10+currStep/10)+0.2)*Math.cos((currStep + j*25)/10);
+   }
+}
+currStep += step;
+setTimeout("animateLogo()", 10);
+}
+animateLogo();
+// End -->
+</script>
+
+<form name=form>
+<center>
+<input type=button name=colors value="See it on a black background...." onClick="bgChange();">
+</center>
+</form>
+
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Misc.:  Stars</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  4.21 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL STARS:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;style type="text/css"&gt;
+&lt;!-- Begin CSS
+#a { position: absolute; top: 10px; left: 10px; visibility: visible }
+#b { position: absolute; top: 10px; left: 10px; visibility: visible }
+#c { position: absolute; top: 10px; left: 10px; visibility: visible }
+#d { position: absolute; top: 10px; left: 10px; visibility: visible }
+#e { position: absolute; top: 10px; left: 10px; visibility: visible }
+#f { position: absolute; top: 10px; left: 10px; visibility: visible }
+#g { position: absolute; top: 10px; left: 10px; visibility: visible }
+End CSS --&gt;
+&lt;/style&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;layer name="a0" left=10 top=10 visibility=show bgcolor="#ff0000" clip="0,0,2,2"&gt;&lt;/layer&gt;
+&lt;layer name="a1" left=10 top=10 visibility=show bgcolor="#ff8000" clip="0,0,2,2"&gt;&lt;/layer&gt;
+&lt;layer name="a2" left=10 top=10 visibility=show bgcolor="#ffff00" clip="0,0,2,2"&gt;&lt;/layer&gt;
+&lt;layer name="a3" left=10 top=10 visibility=show bgcolor="#00ff00" clip="0,0,2,2"&gt;&lt;/layer&gt;
+&lt;layer name="a4" left=10 top=10 visibility=show bgcolor="#0000ff" clip="0,0,2,2"&gt;&lt;/layer&gt;
+&lt;layer name="a5" left=10 top=10 visibility=show bgcolor="#ff00ff" clip="0,0,2,2"&gt;&lt;/layer&gt;
+&lt;layer name="a6" left=10 top=10 visibility=show bgcolor="#ffffff" clip="0,0,2,2"&gt;&lt;/layer&gt;
+
+&lt;div id="starsDiv" style="position:absolute;top:0px;left:0px"&gt;
+&lt;div style="position:relative;width:2px;height:2px;background:#ffffff;font-size:2px;visibility:visible"&gt;&lt;/div&gt;
+&lt;div style="position:relative;width:2px;height:2px;background:#ffff00;font-size:2px;visibility:visible"&gt;&lt;/div&gt;
+&lt;div style="position:relative;width:2px;height:2px;background:#ffa000;font-size:2px;visibility:visible"&gt;&lt;/div&gt;
+&lt;div style="position:relative;width:2px;height:2px;background:#ff0000;font-size:2px;visibility:visible"&gt;&lt;/div&gt;
+&lt;div style="position:relative;width:2px;height:2px;background:#00ff00;font-size:2px;visibility:visible"&gt;&lt;/div&gt;
+&lt;div style="position:relative;width:2px;height:2px;background:#0000ff;font-size:2px;visibility:visible"&gt;&lt;/div&gt;
+&lt;div style="position:relative;width:2px;height:2px;background:#FF00FF;font-size:2px;visibility:visible"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script language="JavaScript"&gt;
+
+&lt;!-- Original:  freeware.de --&gt;
+&lt;!-- Web Site:  http://freeware.de --&gt;
+&lt;!-- MSIE Fix by:  Kurt Grigg (kurt.grigg@virgin.net) --&gt;
+
+&lt;!--  Begin
+if (document.layers) {
+window.captureEvents(Event.MOUSEMOVE);
+}
+var yBase = 200;
+var xBase = 200;
+var yAmpl = 10;
+var yMax = 40;
+var step = .2;
+var ystep = .5;
+var currStep = 0;
+var tAmpl=1;
+var Xpos = 1;
+var Ypos = 1;
+var i = 0;
+var j = 0;
+if (document.all) {
+function MoveHandler(){
+Xpos = document.body.scrollLeft + event.x;
+Ypos = document.body.scrollTop + event.y;
+}
+document.onmousemove = MoveHandler;
+}
+else if (document.layers) {
+function xMoveHandler(evnt) {
+Xpos = evnt.pageX;
+Ypos = evnt.pageY;
+}
+window.onMouseMove = xMoveHandler;
+}
+function animateLogo() {
+if (document.all) {
+yBase = window.document.body.offsetHeight / 4;
+xBase = window.document.body.offsetWidth / 4;
+}
+else if (document.layers) {
+yBase = window.innerHeight / 4;
+xBase = window.innerWidth / 4;
+}
+if (document.all) {
+for (i = 0 ; i &lt; starsDiv.all.length; i++) {
+starsDiv.all[i].style.top = Ypos + Math.cos((20*Math.sin(currStep/20))+i*70)*yBase*(Math.sin(10+currStep/10)+0.2)*Math.cos((currStep + i*25)/10);
+starsDiv.all[i].style.left = Xpos + Math.sin((20*Math.sin(currStep/20))+i*70)*xBase*(Math.sin(10+currStep/10)+0.2)*Math.cos((currStep + i*25)/10);
+   }
+}
+else if (document.layers) {
+for (j = 0; j &lt; 7; j++) { //7 is number of NS layers!
+var templayer="a" + j;
+document.layers[templayer].top = Ypos + Math.cos((20*Math.sin(currStep/20))+j*70)*yBase*(Math.sin(10+currStep/10)+0.2)*Math.cos((currStep + j*25)/10);
+document.layers[templayer].left =Xpos + Math.sin((20*Math.sin(currStep/20))+j*70)*xBase*(Math.sin(10+currStep/10)+0.2)*Math.cos((currStep + j*25)/10);
+   }
+}
+currStep += step;
+setTimeout("animateLogo()", 10);
+}
+animateLogo();
+// End --&gt;
+&lt;/script&gt;
+
+ 
+
+&lt;!-- Script Size:  4.21 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>
+
+
+
+
+<

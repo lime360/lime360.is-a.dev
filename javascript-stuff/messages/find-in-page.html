@@ -1,0 +1,208 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Messages:  Find In Page</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="Mike Hall (MHall75819@aol.com)">
+<META NAME="section" CONTENT="Messages">
+<META NAME="description" CONTENT="Allow your visitors to perform the same find in page search that Netscape and Internet Explorer browsers can perform on a page.  They just enter a search term and hit enter.  If the term is found on the page it is highlighted.  Great!">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Mike Hall (MHall75819@aol.com) -->
+<!-- Web Site:  http://members.aol.com/MHall75819 -->
+
+
+
+
+<!-- Begin
+var NS4 = (document.layers);
+var IE4 = (document.all);
+
+var win = this;
+var n   = 0;
+
+function findInPage(str) {
+var txt, i, found;
+if (str == "")
+return false;
+if (NS4) {
+if (!win.find(str))
+while(win.find(str, false, true))
+n++;
+else
+n++;
+if (n == 0) alert(str + " was not found on this page.");
+}
+if (IE4) {
+txt = win.document.body.createTextRange();
+for (i = 0; i <= n && (found = txt.findText(str)) != false; i++) {
+txt.moveStart("character", 1);
+txt.moveEnd("textedit");
+}
+if (found) {
+txt.moveStart("character", -1);
+txt.findText(str);
+txt.select();
+txt.scrollIntoView();
+n++;
+}
+else {
+if (n > 0) {
+n = 0;
+findInPage(str);
+}
+else
+alert(str + " was not found on this page.");
+}
+}
+return false;
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /messages/"><font color="#FF0000"><b>Messages</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Find In Page</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Allow your visitors to perform the same find in page search that Netscape and Internet Explorer browsers can perform on a page.  They just enter a search term and hit enter.  If the term is found on the page it is highlighted.  Great!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<form name=search>
+Find in Page
+<input name=string type=text size=15 onChange="n = 0;">
+<input type=button value="Search"
+onClick="findInPage(this.form.string.value);">
+</form>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Messages:  Find In Page</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  1.54 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL FIND IN PAGE:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!-- Original:  Mike Hall (MHall75819@aol.com) --&gt;
+&lt;!-- Web Site:  http://members.aol.com/MHall75819 --&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+var NS4 = (document.layers);
+var IE4 = (document.all);
+
+var win = this;
+var n   = 0;
+
+function findInPage(str) {
+var txt, i, found;
+if (str == "")
+return false;
+if (NS4) {
+if (!win.find(str))
+while(win.find(str, false, true))
+n++;
+else
+n++;
+if (n == 0) alert(str + " was not found on this page.");
+}
+if (IE4) {
+txt = win.document.body.createTextRange();
+for (i = 0; i &lt;= n && (found = txt.findText(str)) != false; i++) {
+txt.moveStart("character", 1);
+txt.moveEnd("textedit");
+}
+if (found) {
+txt.moveStart("character", -1);
+txt.findText(str);
+txt.select();
+txt.scrollIntoView();
+n++;
+}
+else {
+if (n &gt; 0) {
+n = 0;
+findInPage(str);
+}
+else
+alert(str + " was not found on this page.");
+}
+}
+return false;
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;form name=search onSubmit="return findInPage(this.string.value);"&gt;
+Find in Page
+&lt;input name=string type=text size=15 onChange="n = 0;"&gt;
+&lt;/form&gt;
+
+ 
+
+&lt;!-- Script Size:  1.54 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>

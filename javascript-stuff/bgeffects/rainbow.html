@@ -1,0 +1,69 @@
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="">
+<HTML>
+<HEAD>
+<TITLE>Rainbow Fade</TITLE>
+</HEAD>
+<BODY>
+<!--content_stop-->
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+var hexChars="0123456789ABCDEF";
+function Dec2Hex (Dec) {
+var a=Dec % 16;
+var b=(Dec - a)/16;
+hex="" + hexChars.charAt(b) + hexChars.charAt(a);
+return hex;
+}
+function bgChanger (begin, end, steps) {
+steps=steps-1 ;
+redA=begin.charAt(0) + begin.charAt(1);
+red_valA=parseInt(redA,'16');
+redB=end.charAt(0) + end.charAt(1);
+red_valB=parseInt(redB,'16');
+red_int=((red_valB - red_valA) / steps) * -1;
+grnA=begin.charAt(2) + begin.charAt(3);
+grn_valA=parseInt(grnA,'16');
+grnB=end.charAt(2) + end.charAt(3);
+grn_valB=parseInt(grnB,'16');
+grn_int=((grn_valB - grn_valA) / steps) * -1;
+bluA=begin.charAt(4) + begin.charAt(5);
+blu_valA=parseInt(bluA,'16');
+bluB=end.charAt(4) + end.charAt(5);
+blu_valB=parseInt(bluB,'16');
+blu_int=((blu_valB - blu_valA) / steps) * -1;
+step=2;
+red=red_valA;
+grn=grn_valA;
+blu=blu_valA;
+while ( steps >= step ) {
+red-=red_int;
+red_round=Math.round(red);
+red_hex=Dec2Hex(red);
+grn-=grn_int;
+grn_round=Math.round(grn);
+grn_hex=Dec2Hex(grn);
+blu-=blu_int;
+blu_round=Math.round(blu);
+blu_hex=Dec2Hex(blu);
+document.bgColor=red_hex + grn_hex + blu_hex;
+step++;
+   }
+}
+bgChanger("000000","000000",60);
+bgChanger("000000","FF0000",60);
+bgChanger("FF0000","000000",60);
+bgChanger("000000","AA00EE",60);
+bgChanger("AA00EE","000000",60);
+bgChanger("000000","0000FF",60);
+bgChanger("0000FF","000000",60);
+bgChanger("000000","000000",60);
+window.location="rainbow-source.html";
+// End -->
+</SCRIPT>
+<!--content_stop-->
+</BODY>
+</HTML>

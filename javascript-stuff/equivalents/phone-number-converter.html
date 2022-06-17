@@ -1,0 +1,206 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Source Code 3000:  Equivalents:  Phone Number Converter</TITLE>
+<META HTTP-EQUIV="JavaScript Source Code 3000" CONTENT = "no-cache">
+<META NAME="date" CONTENT="2000-09-09">
+<META NAME="channel" CONTENT="Web Developer">
+<META NAME="author" CONTENT="JavaScript Source Code 3000">
+<META NAME="section" CONTENT="Equivalents">
+<META NAME="description" CONTENT="Converts an alphanumeric phone number (like 1800Flowers.com) to its numeric phone number (like 18003569377).  An excellent example of the JavaScript switch() function in use.  Great!">
+
+<SCRIPT LANGUAGE="JavaScript">
+
+
+
+
+<!-- Begin
+function convert(input) {
+var inputlength = input.length;
+input = input.toLowerCase();
+var phonenumber = "";
+for (i = 0; i < inputlength; i++) {
+var character = input.charAt(i);
+   
+switch(character) {
+case '0': phonenumber+="0";break;
+case '1': phonenumber+="1";break;
+case '2': phonenumber+="2";break;
+case '3': phonenumber+="3";break;
+case '4': phonenumber+="4";break;
+case '5': phonenumber+="5";break;
+case '6': phonenumber+="6";break;
+case '7': phonenumber+="7";break;
+case '8': phonenumber+="8";break;
+case '9': phonenumber+="9";break;
+case '-': phonenumber+="-";break;
+case  'a': case 'b': case 'c': phonenumber+="2";break;
+case  'd': case 'e': case 'f': phonenumber+="3";break;
+case  'g': case 'h': case 'i': phonenumber+="4";break;
+case  'j': case 'k': case 'l': phonenumber+="5";break;
+case  'm': case 'n': case 'o': phonenumber+="6";break;
+case  'p': case 'q': case 'r': case 's': phonenumber+="7";break;
+case  't': case 'u': case 'v': phonenumber+="8";break;
+case  'w': case 'x': case 'y': case 'z': phonenumber+="9";break;
+   }
+}
+document.myform.number.value = phonenumber;
+return true;
+}
+//  End -->
+</script>
+</HEAD>
+
+<BODY BGCOLOR=#ffffff vlink=#0000ff>
+
+<BR>
+<center>
+<table width=600 cellpadding=0 cellspacing=10>
+<tr>
+<td width=468 align=center>
+
+    
+    
+</td>
+<td width=120 align=center>
+    
+</td>
+</tr>
+</table>
+<BR>
+<BR>
+<basefont size=3>
+<FONT SIZE="+2" FACE="Helvetica,Arial">
+<A HREF="../index.htm" /" TARGET="_top"><FONT COLOR="#0000FF"><b>Home</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<A HREF="index.htm" /equivalents/"><font color="#FF0000"><b>Equivalents</b></font></A>
+<img src="../img/arrow.gif" /img/arrow.gif" height=13 width=7 border=0 alt="}">
+<FONT COLOR="#006666"><b>Phone Number Converter</b></font></font>
+<BR>
+<BR>
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td><font FACE="helvetica,arial,geneva">
+<br>
+<br>
+<!-- Description --><!--content_start-->
+Converts an alphanumeric phone number (like 1800Flowers.com) to its numeric phone number (like 18003569377).  An excellent example of the JavaScript switch() function in use.  Great!
+<hr>
+</td></tr>
+</table>
+<!-- Demonstration -->
+<center>
+<form name=myform>
+<table border=0>
+<tr>
+<td>Alphanumeric #:</td>
+<td><input type=text size=20 maxlength=20 name=alphabet value="1800Flowers"></td>
+</tr>
+<tr>
+<td>Converted #:</td>
+<td><input type="text" size=20 maxlength=20 name="number"></td>
+</tr>
+<tr>
+<td align=center colspan=2><input type=button value="Convert" onClick="return convert(document.myform.alphabet.value)"></td>
+</table>
+</form>
+</center>
+<P>
+<P>
+<a name="source">
+<table BORDER=0 WIDTH=486 CELLPADDING=3 CELLSPACING=0>
+<tr><td BGCOLOR=yellow><font FACE="helvetica,arial,geneva"><b>JavaScript Source Code 3000:  Equivalents:  Phone Number Converter</b>
+<p>Simply click inside the window below, use your cursor to highlight the script, and copy (type Control-c or Apple-c) the script into a new file in your text editor (such as Note Pad or Simple Text) and save (Control-s or Apple-s).  The script is yours!!!
+<br><br></font></td></tr>
+<tr><td BGCOLOR=yellow ALIGN=CENTER>
+<form NAME="copy">
+
+<DIV align="center">
+<input type=button value="Highlight All" onClick="javascript:this.form.txt.focus();this.form.txt.select();">&nbsp;&nbsp;&nbsp;&nbsp;
+<INPUT TYPE="text" NAME="total" VALUE="Script Size:  2.11 KB" size=24>
+</DIV>
+
+<textarea NAME="txt" ROWS=20 COLS=75 WRAP=VIRTUAL>
+
+&lt;!-- TWO STEPS TO INSTALL PHONE NUMBER CONVERTER:
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  --&gt;
+
+&lt;!-- STEP ONE: Paste this code into the HEAD of your HTML document  --&gt;
+
+&lt;HEAD&gt;
+
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+
+&lt;! &gt;
+&lt;! &gt;
+
+&lt;!-- Begin
+function convert(input) {
+var inputlength = input.length;
+input = input.toLowerCase();
+var phonenumber = "";
+for (i = 0; i &lt; inputlength; i++) {
+var character = input.charAt(i);
+   
+switch(character) {
+case '0': phonenumber+="0";break;
+case '1': phonenumber+="1";break;
+case '2': phonenumber+="2";break;
+case '3': phonenumber+="3";break;
+case '4': phonenumber+="4";break;
+case '5': phonenumber+="5";break;
+case '6': phonenumber+="6";break;
+case '7': phonenumber+="7";break;
+case '8': phonenumber+="8";break;
+case '9': phonenumber+="9";break;
+case '-': phonenumber+="-";break;
+case  'a': case 'b': case 'c': phonenumber+="2";break;
+case  'd': case 'e': case 'f': phonenumber+="3";break;
+case  'g': case 'h': case 'i': phonenumber+="4";break;
+case  'j': case 'k': case 'l': phonenumber+="5";break;
+case  'm': case 'n': case 'o': phonenumber+="6";break;
+case  'p': case 'q': case 'r': case 's': phonenumber+="7";break;
+case  't': case 'u': case 'v': phonenumber+="8";break;
+case  'w': case 'x': case 'y': case 'z': phonenumber+="9";break;
+   }
+}
+document.myform.number.value = phonenumber;
+return true;
+}
+//  End --&gt;
+&lt;/script&gt;
+&lt;/HEAD&gt;
+
+&lt;!-- STEP TWO: Copy this code into the BODY of your HTML document  --&gt;
+
+&lt;BODY&gt;
+
+&lt;center&gt;
+&lt;form name=myform&gt;
+&lt;table border=0&gt;
+&lt;tr&gt;
+&lt;td&gt;Alphanumeric #:&lt;/td&gt;
+&lt;td&gt;&lt;input type=text size=20 maxlength=20 name=alphabet value="1800Flowers"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Converted #:&lt;/td&gt;
+&lt;td&gt;&lt;input type="text" size=20 maxlength=20 name="number"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=center colspan=2&gt;&lt;input type=button value="Convert" onClick="return convert(document.myform.alphabet.value)"&gt;&lt;/td&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;/center&gt;
+
+ 
+
+&lt;!-- Script Size:  2.11 KB --&gt;</textarea><br><font FACE="helvetica,arial,geneva"></font></td></tr>
+
+</table>
+</form>
+</FONT>
+</CENTER>
+
+
+</center>
+</body></html>
